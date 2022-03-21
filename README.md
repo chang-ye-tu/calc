@@ -6,9 +6,13 @@
 
 Adams R. A., Essex C. (2018) Calculus: A Complete Course, 9th Edition, Pearson.
 
+## 參考書
+
+[CLP Calculus Textbooks](https://personal.math.ubc.ca/~CLP/).
+
 ## 授課範圍
 
-教科書第 1, 2, 3, 4, 6 章擇要及其他補充。
+教科書第 1, 2, 3, 4, 6 章及參考書擇要。
 
 ## 評分標準
 
