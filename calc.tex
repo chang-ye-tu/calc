@@ -687,7 +687,7 @@
       \begin{align*}
         \onslide<+->{\ell^2 = (x-7)^2 + (y-5)^2 = (x-7)^2 + (6-3x-5)^2 = 10(x^2-2x+5)} 
       \end{align*}
-    \vfill\item\onslide<+->{\hypertarget{app}{Notice that as $x \to \pm \infty$, $\ell\to +\infty$, and $\ell(0)=2\sqrt{5} < \infty$, so the absolute minimum exists.}} 
+    \vfill\item\onslide<+->{\hypertarget{app}{As $x \to \pm \infty$, $\ell\to +\infty$, and $\ell(0)=5\sqrt{2} < \infty$, so the absolute minimum exists.}} 
     \vfill\item\onslide<+->{To minimize $\ell$ is equivalent to minimize $\ell^2$.}
     \vfill\item\onslide<+->{Compute the derivative of $\ell^2(x)$:}
       \begin{align*}
@@ -714,7 +714,7 @@
       \begin{align*}
         \onslide<+->{\ell^2 = (x-2)^2 + (y-0)^2 = (x-2)^2 + (x^2 + 1) = 2 x^2 - 4x + 5} 
       \end{align*}
-    \vfill\item\onslide<+->{Note that as $x \to \pm \infty$, $\ell\to +\infty$, and $\ell(0)=\sqrt{5} < \infty$, so the absolute minimum exists.} 
+    \vfill\item\onslide<+->{As $x\to\pm\infty$, $\ell\to +\infty$, and $\ell(0)=\sqrt{5} < \infty$, so the absolute minimum exists.} 
     \vfill\item\onslide<+->{To minimize $\ell$ is equivalent to minimize $\ell^2$.}
     \vfill\item\onslide<+->{Compute the derivative of $\ell^2(x)$:}
       \begin{align*}
@@ -741,7 +741,7 @@
     \item\onslide<+->{Let $(x, y)$ be a point on the line that connects $(0, \frac{\sqrt{3}}{2}a)$ and $(\frac{a}{2}, 0)$.} 
     \vfill\item\onslide<+->{The line that connects $(0, \frac{\sqrt{3}}{2}a)$ and $(\frac{a}{2}, 0)$ is }\onslide<+->{$y = -\sqrt{3}x + \frac{\sqrt{3}}{2}a$.}
     \vfill\item\onslide<+->{The area of the inscribed rectangle $A = 2xy$; }\onslide<+->{ substitute $y = -\sqrt{3}x + \frac{\sqrt{3}}{2}a$, }\onslide<+->{ the area of the rectangle $A(x) = 2x\Big(-\sqrt{3}x + \frac{\sqrt{3}}{2}a\Big) = \sqrt{3} x(a - 2x)$, }\onslide<+->{ where $0\leqslant x\leqslant\frac{a}{2}$.}
-    \vfill\item\onslide<+->{Note that $x=0, \frac{a}{2}$, $A(x)=0$, and $A(\frac{a}{10}) > 0$, so the absolute maximum exists.} 
+    \vfill\item\onslide<+->{As $x=0, \frac{a}{2}$, $A(x)=0$, and $A(\frac{a}{10}) > 0$, so the absolute maximum exists.} 
     \vfill\item\onslide<+->{Compute the derivative of $A(x)$:
       \begin{align*}
         \onslide<+->{A'(x) = \sqrt{3} \big( x \cdot (-2) + 1 \cdot (a-2x) \big) = \sqrt{3}(a-4x)}
@@ -767,7 +767,7 @@
   \begin{itemize}
     \item\onslide<+->{The problem amounts to maximize the cross-sectional area $A$.} 
       \vfill\item\onslide<+->{$A(\theta) = \frac{1}{2}\times 15\sin\theta\cdot 15\cos\theta\times 2 $}\onslide<+->{ $ + 15\times 15\sin\theta$}\onslide<+->{ $= 225\sin\theta(\cos\theta + 1)$, }\onslide<+->{ where $0\leqslant\theta\leqslant\pi$.}
-    \vfill\item\onslide<+->{Note that $\theta=0, \pi$, $A(\theta)=0$, and $A(\frac{\pi}{2}) = 225 > 0$, so the absolute maximum exists.} 
+    \vfill\item\onslide<+->{As $\theta=0, \pi$, $A(\theta)=0$, and $A(\frac{\pi}{2}) = 225 > 0$, so the absolute maximum exists.} 
     \vfill\item\onslide<+->{Compute the derivative of $A(\theta)$:}
       \begin{align*}
         \onslide<+->{A'(\theta) = 225 \cos\theta \cdot (1+\cos\theta) + 225 \sin\theta \cdot(-\sin\theta)}\onslide<+->{= 225 (\cos\theta +2\cos^2\theta -1)}
@@ -784,7 +784,7 @@
       \onslide<+->{\begin{center}\includegraphics[width=\textwidth]{./figures/applications/snell.pdf}\end{center}}
     \end{column}
     \begin{column}{0.65\textwidth}
-      The Fermat principle states that the path of light travels from $P$ to $Q$ takes minimal time; establish the Snell's law $\frac{\sin\vartheta_i}{\sin\vartheta_r} = \frac{c_a}{c_w}$, where $c_a$, $c_w$ be the speed of light in air and water.
+      The Fermat principle states that the path of light travels from $P$ to $Q$ takes minimal time; establish the Snell's law $\frac{\sin\theta_i}{\sin\theta_r} = \frac{c_a}{c_w}$, where $c_a$, $c_w$ be the speed of light in air and water.
       \onslide<+->{\begin{center}\includegraphics[width=0.6\textwidth]{./figures/applications/snellB.pdf}\end{center}}
     \end{column}
   \end{columns}
@@ -793,11 +793,10 @@
     \begin{align*}
       \onslide<+->{T(x) &= \frac{1}{c_a}\sqrt{(X_P-x)^2+Y_P^2} + \frac{1}{c_w}\sqrt{(X_Q-x)^2+Y_Q^2}}
     \end{align*}
-    \vfill\item\onslide<+->{Notice that as $x \to +\infty$ or $x\to-\infty$, $T \to \infty$, so the absolute minimum exists.}
+    \onslide<+->{As $x\to\pm\infty$, $T\to\infty$, and $T(0) = \frac{\sqrt{X_P^2+Y_P^2}}{c_a} + \frac{\sqrt{X_Q^2+Y_Q^2}}{c_w} < \infty$, so the absolute minimum exists.}
     \vfill\item\onslide<+->{The critical point $x^\star$ satisfies $T'(x^\star) = 0$, i.e. }
     \begin{align*}
-      \onslide<+->{0 &= \frac{1}{c_a} \frac{X_P-x^\star}{\sqrt{(X_P-x^\star)^2+Y_P^2}} + \frac{1}{c_w} \frac{X_Q-x^\star}{\sqrt{(X_Q-x^\star)^2+Y_Q^2}} \\}
-      \onslide<+->{&= \frac{-\sin\theta_i}{c_a} + \frac{\sin\theta_r}{c_w}}
+      \onslide<+->{0 &= \frac{1}{c_a} \frac{X_P-x^\star}{\sqrt{(X_P-x^\star)^2+Y_P^2}} + \frac{1}{c_w} \frac{X_Q-x^\star}{\sqrt{(X_Q-x^\star)^2+Y_Q^2}} }\onslide<+->{ = \frac{-\sin\theta_i}{c_a} + \frac{\sin\theta_r}{c_w}}\onslide<+->{\,\,\Longrightarrow\,\,\frac{\sin\theta_i}{\sin\theta_r}=\frac{c_a}{c_w}}
     \end{align*}
   \end{itemize}
 \end{frame}
@@ -820,14 +819,14 @@
         \onslide<+->{\ell(\theta) = \ell_1(\theta) +\ell_2(\theta) = \frac{3}{\sin\theta}+\frac{2}{\cos\theta}\qquad 0\leqslant\theta\leqslant\frac{\pi}{2}}
       \end{align*}
     \vfill\item\onslide<+->{The length of the longest rod one can move through the corridor is the minimum of $\ell(\theta)$.}
-    \vfill\item\onslide<+->{As $\theta \rightarrow 0+$ or $\theta\rightarrow\frac{\pi}{2}-$, $\ell(\theta)\rightarrow +\infty$, and $\ell(\frac{\pi}{4})=5\sqrt{2} < \infty$, so $\ell(\theta)$ has an absolute minimum.} 
+    \vfill\item\onslide<+->{As $\theta \to 0+, \frac{\pi}{2}-$, $\ell(\theta)\to+\infty$, and $\ell(\frac{\pi}{4})=5\sqrt{2} < \infty$, so $\ell(\theta)$ has an absolute minimum.} 
     \vfill\item\onslide<+->{Find $\theta^\star$, the root of $\ell'(\theta) = 0$:} 
       \begin{align*}
         \onslide<+->{\ell'(\theta) &= -\frac{3 \cos\theta}{\sin^2\theta} + \frac{2\sin\theta}{\cos^2\theta} = \frac{-3\cos^3\theta +2 \sin^3\theta}{\sin^2\theta\cos^2\theta} = 0\,\,\Longrightarrow\,\,\tan\theta^\star = \sqrt[3]{\frac{3}{2}}}
       \end{align*}
     \item \onslide<+->{Substituting $\theta^\star$ we find the minimum of $\ell$:}
       \begin{align*}
-        \onslide<+->{\ell(\theta^\star) = \frac{3}{\sin\theta^\star} + \frac{2}{\cos\theta^\star}}\onslide<+->{=\frac{3}{\frac{\root 3\of 3}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}}} +\frac{2}{\frac{\root 3\of 2}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}} }}\onslide<+->{ = {\big[2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}\big]}^{\nicefrac{3}{2}} \approx 7.02\text{m}}
+        \onslide<+->{\ell(\theta^\star) = \frac{3}{\sin\theta^\star} + \frac{2}{\cos\theta^\star}}\onslide<+->{=\frac{3}{\frac{\root 3\of 3}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}}} +\frac{2}{\frac{\root 3\of 2}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}} }}\onslide<+->{ = {\big(2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}\big)}^{\nicefrac{3}{2}}\approx 7.02 \text{m}}
       \end{align*}
   \end{itemize}
 \end{frame}
