@@ -193,7 +193,7 @@
   \tableofcontents
 \end{frame}
 
-%\ifbool{render}{
+\ifbool{render}{
 
 \section{L'H\^opital's Rule}
 
@@ -1016,9 +1016,6 @@
     \end{center}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
-%}{}
-
 \section{Ideas of Integration}
 
 \begin{sagesilent}
@@ -1249,7 +1246,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
         \onslide<+->{ &\leqslant\max_{x\leqslant\tau\leqslant x+h}\big|\,f(\tau) - f(x)\big|\to 0 \,\text{ as }\, h\to 0 \,\text{ and }\, f\text{ continuous}}
       \end{align*}
     \vfill\item\onslide<+->{By above, $(G(x) - F(x))' = f(x) - f(x) = 0$ on $[a, b]$, }\onslide<+->{ hence $G(x) - F(x)$ is constant on $[a, b]$.}
-    \vfill\item\onslide<+->{So $G(a) - F(a) = G(b) - G(b)$ }\onslide<+->{ $\Longrightarrow\,\,G(b) - G(a) = F(b) - F(a)$}\onslide<+->{ $ = \int_a^b f(x)\,\mathrm{d}x$.}
+    \vfill\item\onslide<+->{So $G(a) - F(a) = G(b) - F(b)$ }\onslide<+->{ $\Longrightarrow\,\,G(b) - G(a) = F(b) - F(a)$}\onslide<+->{ $ = \int_a^b f(x)\,\mathrm{d}x$.}
   \end{itemize}
 \end{frame}
 
@@ -1271,7 +1268,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 \begin{frame}
   \frametitle{Fundamental Theorem of Calculus (FTC): Example II}
   \begin{itemize}
-    \item\onslide<+->{Let $F(x) = \int_1^x\frac{1}{1 + \tau^4}\tau\,\mathrm{d}\tau$. Find $F'(x)$.} 
+    \item\onslide<+->{Let $F(x) = \int_1^x\frac{1}{1 + \tau^4}\,\mathrm{d}\tau$. Find $F'(x)$.} 
     {\color{C2}
     \vfill\item\onslide<+->{This is the standard form of FTC: $F'(x) = \frac{1}{1 + x^4}$.}
     }
@@ -1288,6 +1285,9 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   }
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
+}{}
 
 \section{Method of Substitution}
 
