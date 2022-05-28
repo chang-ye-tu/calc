@@ -5,6 +5,104 @@
 \usepackage{header100}
 \usepackage{nicefrac}
 
+\usetikzlibrary{patterns}
+%\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+  integral segments/.code={\pgfmathsetmacro\integralsegments{#1}},
+  integral segments=3,
+  integral samples/.code={\edef\integralsamples{#1}},
+  integral samples = 10,
+  integral min/.style args={#1:#2}{
+    ybar interval,
+    domain=#1:#2,
+    samples=\integralsegments+1,
+    x filter/.code={
+      \edef\lastx{\pgfmathresult}
+      \pgfmathresult
+    },%
+    y filter/.code={%
+      \pgfmathparse{(#2/(\integralsegments))/\integralsamples}%
+      \edef\tempstep{\pgfmathresult}%
+      \pgfmathparse{f(\lastx)}%
+      \edef\tempa{\pgfmathresult}%
+      \edef\tempb{\pgfmathresult}%
+      \foreach \x in {0,1,...,\integralsamples}%
+        {%
+          \pgfmathparse{f(\lastx+\x*\tempstep)}%
+          \xdef\tempb{\tempb,\pgfmathresult}%
+        }%
+        \pgfmathmin{\tempb}{\tempb}
+        \let\savepgfmathresult\pgfmathresult
+        \pgfmathgreater{\pgfmathresult}{0}
+        \ifdim\pgfmathresult pt> 0 pt \relax
+        \let\pgfmathresult\savepgfmathresult 
+        \else
+        \pgfmathparse{f(\lastx)}%
+        \edef\tempa{\pgfmathresult}%
+        \edef\tempb{\pgfmathresult}%
+        \foreach \x in {0,1,...,\integralsamples}%
+          {%
+            \pgfmathparse{f(\lastx+\x*\tempstep)}%
+            \xdef\tempb{\tempb,\pgfmathresult}%
+          }%
+          \pgfmathmax{\tempb}{\tempb}
+        \fi 
+      },
+    },
+    integral max/.style args={#1:#2}{
+      ybar interval,
+      domain=#1:#2,
+      samples=\integralsegments+1,
+      x filter/.code={
+        \edef\lastx{\pgfmathresult}
+        \pgfmathresult
+      },%
+      y filter/.code={%
+        \pgfmathparse{(#2/(\integralsegments))/\integralsamples}%
+        \edef\tempstep{\pgfmathresult}%
+        \pgfmathparse{f(\lastx)}%
+        \edef\tempa{\pgfmathresult}%
+        \edef\tempb{\pgfmathresult}%
+        \foreach \x in {0,1,...,\integralsamples}%
+        {%
+          \pgfmathparse{f(\lastx+\x*\tempstep)}%
+          \xdef\tempb{\tempb,\pgfmathresult}%
+        }%
+        \pgfmathmax{\tempb}{\tempb,0}
+        \let\savepgfmathresult\pgfmathresult
+%       \pgfmathparse{ifthenelse(\pgfmathresult>=0,1,0)} 
+        \pgfmathgreater{\pgfmathresult}{0}
+        \ifdim\pgfmathresult pt> 0 pt \relax
+        \let\pgfmathresult\savepgfmathresult 
+        \else
+        \pgfmathparse{f(\lastx)}%
+        \edef\tempa{\pgfmathresult}%
+        \edef\tempb{\pgfmathresult}%
+        \foreach \x in {0,1,...,\integralsamples}%
+          {%
+            \pgfmathparse{f(\lastx+\x*\tempstep)}%
+            \xdef\tempb{\tempb,\pgfmathresult}%
+          }%
+        \pgfmathmin{\tempb}{\tempb}
+      \fi 
+    },
+  },   
+}
+\makeatletter
+%see https://tex.stackexchange.com/questions/9722/why-am-i-getting-the-pgf-math-error-unknown-function-getargs
+\def\pgfmathmax#1#2{%
+%   \pgfmathparse{getargs(#1,#2)}%
+     \pgfmathparse{#1,#2}%
+    \expandafter\pgfmathmax@\expandafter{\pgfmathresult}%
+}
+\def\pgfmathmin#1#2{%
+    \pgfmathparse{#1,#2}%
+    \expandafter\pgfmathmin@\expandafter{\pgfmathresult}%
+}
+%see https://tex.stackexchange.com/questions/15435/how-do-i-use-pgfmathdeclarefunction-to-create-define-a-new-pgf-function
+\makeatother
+
 %\usepackage{clp_notes_header}
 %\graphicspath{{./figures/misc/}}
 
@@ -45,15 +143,15 @@
 
 \definecolor{foo}{rgb}{.2,.2,.7}
 \AtBeginSection[]{
-    \begin{frame}
-    \vfill
-    \centering
-    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{section page}
-        \usebeamerfont{title}%
-        {\color{foo} \insertsectionhead}\par%
-    \end{beamercolorbox}
-    \vfill
-    \end{frame}
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{section page}
+    \usebeamerfont{title}%
+    {\color{foo} \insertsectionhead}\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
 }
 
 % https://tex.stackexchange.com/questions/30423/bibliography-in-beamer
@@ -67,11 +165,16 @@
 \DeclareMathOperator\cov{cov}
 \DeclareMathOperator*{\argmax}{\arg\!\max}
 \DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator\corr{corr}
+\DeclareMathOperator\rk{rank}
+\DeclareMathOperator\sgn{sgn}
 
 \usepackage{dsfont} % indicator function \mathds{1}
 \DeclareMathOperator\indc{\mathds{1}}
-\DeclareMathOperator\corr{corr}
-\DeclareMathOperator\rk{rank}
+
+\newbool{render}
+%\booltrue{render}
+\newbool{integral}
 
 \setbeamertemplate{headline}{}
 \title{Calculus}
@@ -89,6 +192,8 @@
 \begin{frame}
   \tableofcontents
 \end{frame}
+
+%\ifbool{render}{
 
 \section{L'H\^opital's Rule}
 
@@ -833,7 +938,392 @@
 
 \section{Linear Approximations, Taylor Polynomials}
 
+\begin{frame}
+  \frametitle{Taylor's Theorem}
+  \begin{itemize}
+    \item\onslide<+->{Let $f$ be defined on an open interval $I$, $a, b\in I$, }\onslide<+->{ and $f^{(n+1)}$ exists on $I$, $n\in\mathbb{Z}^+$.} 
+    \vfill\item\onslide<+->{Then $\exists\,c$ lies between $a$ and $b$ s.t. }
+      \begin{align*}
+        \onslide<+->{f(b) = f(a) + f'(a)(b - a) + \frac{f''(a)}{2!}(b - a)^2 +\cdots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \frac{f^{(n+1)}(c)}{(n + 1)!}(b-a)^{n+1}}
+      \end{align*}
+  \end{itemize}
+  
+  \color{C2}
+  \begin{itemize}
+    \item\onslide<+->{Since differentiability implies continuity, $f$, $f'$, $f''$, $\ldots$, $f^{(n)}$ are all continuous on $I$.} 
+    \vfill\item\onslide<+->{WLOG, let $a < b$.}
+    \vfill\item\onslide<+->{Let $M$, $g(t)$ be defined s.t.}
+      \begin{align*}
+        \onslide<+->{f(b) &= f(a) + f'(a)(b - a) + \frac{f''(a)}{2!}(b - a)^2 +\cdots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \frac{M}{(n + 1)!}(b-a)^{n+1}\\}
+        \onslide<+->{g(t) &= -f(b) + f(t) + f'(t)(b - t) + \frac{f''(t)}{2!}(b - t)^2 +\cdots+\frac{f^{(n)}(t)}{n!}(b-t)^n + \frac{M}{(n + 1)!}(b-t)^{n+1}}
+      \end{align*}
+    \vfill\item\onslide<+->{Note that $g(a) = 0$, $g(b) = 0$, then by Rolle's Theorem, $\exists\,c\in(a, b)$ s.t. $g'(c) = 0$.}
+      \begin{align*}
+        \onslide<+->{g'(t) &= f'(t) - f'(t) + f''(t)(b-t) - f''(t)(b-t) + \frac{f'''(t)}{2!}(b - t)^2 -+ \cdots\\}
+        \onslide<+->{      &=  \frac{f^{(n+1)}(t) - M}{n!}(b-t)^n}
+      \end{align*}
+    \vfill\item\onslide<+->{So $g'(c) = 0$ implies $f^{(n+1)}(c) - M = 0\,\,\Longrightarrow\,\, M = f^{(n+1)}(c)$.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Taylor/Maclaurin Polynomials, Linear Approximation/Linearization}
+  \begin{itemize}
+    \item\onslide<+->{Let $f$ be defined on an open interval $I$, $a, x\in I$, }\onslide<+->{ and $f^{(n+1)}$ exists on $I$, $n\in\mathbb{Z}^+$.} 
+      \vfill\item\onslide<+->{The $n$-th order Taylor polynomial $P_n(x)$ for $f$ about $x = a$ is defined as}
+      \begin{align*}
+        \onslide<+->{P_n(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 +\cdots+\frac{f^{(n)}(a)}{n!}(x-a)^n}
+      \end{align*}
+    \vfill\item\onslide<+->{The $n$-th order Taylor polynomial $P_n(x)$ for $f$ about $x = 0$ is also called the Maclaurin polynomial.}
+    \vfill\item\onslide<+->{$P_1(x)$ for $f$ about $x = a$ is called the linearization of $f$ near $x = a$.}
+
+    \color{C2}
+    \vfill\item\onslide<+->{Example: $P_2(x)$ for $f(x) = \sqrt{x}$ about $x = 25$ is }\onslide<+->{ $5 + \frac{1}{10}(x - 25) - \frac{1}{1000}(x - 25)^2$}
+    \vfill\item\onslide<+->{Example: $P_3(x)$ for $f(x) = \ln{x}$ about $x = e$ is }\onslide<+->{ $1 + \frac{1}{e}(x - e) - \frac{1}{2e^2}(x - e)^2 + \frac{1}{3e^3}(x - e)^3$}
+    \vfill\item\onslide<+->{Example: the Maclaurin polynomial of order $6$ for $\exp$ is }\onslide<+->{ $1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!}$}
+    \vfill\item\onslide<+->{Example: the Maclaurin polynomial of order $9$ for $\sin$ is }\onslide<+->{ $x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!}$}
+    \vfill\item\onslide<+->{Example: the Maclaurin polynomial of order $8$ for $\cos$ is }\onslide<+->{ $1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!}$}
+    \vfill\item\onslide<+->{Example: the Maclaurin polynomial of order $6$ for $\frac{1}{1-x}$ is }\onslide<+->{ $1 + x + x^2 + x^3 + x^4 + x^5 + x^6$}
+    \vfill\item\onslide<+->{Example: the Maclaurin polynomial of order $5$ for $\ln(1+x)$ is }\onslide<+->{ $x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5}$}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Maclaurin Polynomial Approximation of Cosine}
+    \begin{center}
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx1d.pdf}}
+      \qquad
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx2d.pdf}}
+    \end{center}
+    \begin{center}
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx3d.pdf}}
+      \qquad
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx4d.pdf}}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Maclaurin Polynomial Approximation of Sine}
+    \begin{center}
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx1c.pdf}}
+      \qquad
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx2c.pdf}}
+    \end{center}
+    \begin{center}
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx3c.pdf}}
+      \qquad
+      \onslide<+->{\includegraphics[scale=.5]{./figures/approx4c.pdf}}
+    \end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
+%}{}
+
 \section{Ideas of Integration}
+
+\begin{sagesilent}
+def RiemannRec(a, b, n, f):
+    t = var('t')
+    delta = (b - a) / n
+    LowerY = find_local_minimum(f, a, b)[0] - .5
+    UpperY = find_local_maximum(f, a, b)[0] + .5
+    step = .01
+    x_coords = [t for t in srange(a, b, step)]
+    y_coords = [f(t).n(digits=4) for t in srange(a, b, step)]
+####################### Picture
+    output = r"\begin{tikzpicture}[scale=0.9]"
+    output += r"\begin{axis}["
+    output += r"xtick=\empty, ytick=\empty,"
+    output += r"grid = none,"
+    output += r"thick,black,"
+    output += r"scale=1,"
+    output += r"axis lines=center,"
+    output += r"line join=bevel,"
+    output += r"xmin=%f, xmax=%f, ymin=%f, ymax=%f]" % (a -.5, b + .5, LowerY, UpperY)
+#### Left hand rectangles
+    for i in range(0, n):
+        output += r"\draw[color=Red, pattern=north west lines, pattern color=Red!90, opacity=.4]  (%s, 0) rectangle (%s, %s); "% (a + i* delta, a + (i + 1) * delta, f(a + i * delta))
+#### Right hand rectangles
+    for i in range(0, n):
+        output += r"\draw[color=NavyBlue, pattern=north east lines, pattern color=NavyBlue!90!white, opacity=.4] (%s, 0) rectangle (%s, %s);" % (a + i * delta, a + (i + 1) * delta, f(a + (i + 1) * delta))
+####### the function
+    output += r"\addplot[smooth] coordinates {"
+    for i in range(0, len(x_coords) - 1):
+        output += r"(%s, %s)" % (x_coords[i], y_coords[i])
+    output += r"};"
+#### a and b
+    output += r"\draw[dashed] (%s, 0)--(%s, 1) node[above] {$a$};" % (a, a)
+    output += r"\draw[dashed] (%s, 0)--(%s, -1) node[below] {$b$};" % (b, b)
+    output += r""
+    output += r"\end{axis}"
+    output += r"\end{tikzpicture}"
+
+    return output
+
+f(x) = (sin(x^2) + 2).function(x)
+fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
+\end{sagesilent}
+
+\begin{frame}[fragile]
+  \frametitle{Definition of the (Riemann) Integral}
+  \begin{center}
+    \onslide<+->{
+    \begin{tikzpicture}[scale=0.5]
+      \pgfset{declare function={f(\x)=3*exp(-(\x))*(\x)^3+1;}}
+      \begin{axis}[domain=0:8.1,
+          samples=100,
+          axis lines=middle
+      ]
+      \addplot [ultra thick] {f(x)};
+      \addplot [red,
+        integral segments=15,
+        integral min=0:8
+      ] {f(x)};
+    \end{axis}
+  \end{tikzpicture}
+}
+  \qquad
+    \onslide<+->{
+  \begin{tikzpicture}[scale=0.5]
+  \pgfset{declare function={f(\x)=3*exp(-(\x))*(\x)^3+1;}}
+  \begin{axis}[
+      domain=0:8.1,
+      samples=100,
+      axis lines=middle
+  ]
+  \addplot [ultra thick] {f(x)};
+
+  \addplot [
+      blue,
+      integral segments=15,
+      integral max=0:8
+  ] {f(x)};
+  \end{axis}
+  \end{tikzpicture}
+}
+  \end{center}
+
+  \begin{itemize}
+    \item\onslide<+->{Let $f:[a,b]\mapsto\mathbb{R}$ be continuous, $\mathbb{P}: a = x_0 < x_1 < x_2 < \cdots < x_n = b$ be a partition of $[a, b]$.}
+    \vfill\item\onslide<+->{Let $\Delta_k=x_k - x_{k-1}$, $\|\mathbb{P}\| = \max\{\left|\Delta_k\right|: 1\leqslant k\leqslant n\}$, $x_{k-1}\leqslant t_k \leqslant x_k$, $k=1,2,\ldots,n$.}
+    \vfill\item\onslide<+->{Let $f_k = f(t_k)$, $u_k = \sup\left\{f(x): x_{k-1}\leqslant x\leqslant x_k\right\}$, $l_k = \inf\left\{f(x): x_{k-1}\leqslant x\leqslant x_k\right\}$, $k=1,2,\ldots,n$.}
+    \vfill\item\onslide<+->{Define the sums }\onslide<+->{ $R(f,\mathbb{P}) = \sum_{k=1}^n f_k\,\Delta_k$, }\onslide<+->{ $U(f,\mathbb{P}) = \sum_{k=1}^n u_k\,\Delta_k$, } \onslide<+->{ $L(f,\mathbb{P}) = \sum_{k=1}^n l_k\,\Delta_k$.}
+    \vfill\item\onslide<+->{A priori $L(f,\mathbb{P})\leqslant R(f,\mathbb{P})\leqslant U(f, \mathbb{P})$; Define 
+      \begin{align*}
+        \int_a^b f(x)\,\mathrm{d}x = \lim_{\substack{n\to\infty \\ \|\mathbb{P}\|\to 0}} R(f,\mathbb{P}) 
+      \end{align*}
+    }
+  \end{itemize}
+
+  \ifbool{integral}{
+  \begin{center}
+    \onslide<+->{
+    \begin{tikzpicture}[scale=0.65]  
+      \pgfset{declare function={f(\x)=sin(2*deg(\x))*exp(0.1*\x)+2;}}
+      \begin{axis}[
+        domain=0:8.1,
+        samples=100,
+        axis lines=middle
+      ]
+      \addplot [ultra thick] {f(x)};
+
+      \addplot [red,
+        integral segments=24,
+        integral min=0:8
+      ] {f(x)};
+    \end{axis}
+  \end{tikzpicture}
+}
+  \qquad
+  \onslide<+->{
+  \begin{tikzpicture}[scale=0.65] 
+  \pgfset{declare function={f(\x)=sin(2*deg(\x))*exp(0.1*\x)+2;}}
+  \begin{axis}[
+      domain=0:8.1,
+      samples=100,
+      axis lines=middle
+  ]
+  \addplot [ultra thick] {f(x)};
+
+  \addplot [
+      blue,
+      integral segments=24,
+      integral max=0:8,
+  ] {f(x)};
+  \end{axis}
+  \end{tikzpicture}
+}
+\end{center}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=0.45]
+      \pgfset{declare function={f(\x)=sqrt(\x)*cos(deg(\x))*sin(deg(\x));}}
+      \begin{axis}[
+          domain=0:8.1,
+          samples=100,
+          axis lines=middle
+       ]
+    \addplot [ultra thick] {f(x)};
+
+  \addplot [
+      red,
+      integral segments=30,
+      integral min=0:8
+  ] {f(x)};
+  \end{axis}
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}[scale=0.45] 
+  \pgfset{declare function={f(\x)=sqrt(\x)*cos(deg(\x))*sin(deg(\x));}}
+  \begin{axis}[
+      domain=0:8.1,
+      samples=100,
+      axis lines=middle
+  ]
+  \addplot [,ultra thick] {f(x)};
+
+  \addplot [
+      blue,
+      integral segments=30,
+      integral max=0:8
+  ] {1};
+  \end{axis}
+  \end{tikzpicture}
+
+  \sagestr{fig1}
+  \end{center}
+}{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of the Integral}
+  \begin{itemize}
+    \item\onslide<+->{Let $f$, $g$ be integrable on an interval containing $a$, $b$, $c$, and constants $\alpha$, $\beta$. Then} 
+      \begin{align*}
+        \onslide<+->{\int_a^a f(x)\,\mathrm{d}x &= 0\\}
+        \onslide<+->{\int_a^b f(x)\,\mathrm{d}x &= -\int_b^a f(x)\,\mathrm{d}x\\}
+        \onslide<+->{\int_a^b \big(\alpha\,f(x) + \beta\,g(x)\big)\,\mathrm{d}x &= \alpha\int_a^b f(x)\,\mathrm{d}x + \beta\int_a^b g(x)\,\mathrm{d}x\\}
+        \onslide<+->{\int_a^b f(x)\,\mathrm{d}x + \int_b^c f(x)\,\mathrm{d}x &= \int_a^c f(x)\,\mathrm{d}x\\}
+        \onslide<+->{\int_a^b f(x)\,\mathrm{d}x &\leqslant \int_a^b g(x)\,\mathrm{d}x,\quad\text{ if }\,\,f(x)\leqslant g(x)\,\text{ on }\,[a, b],\,\,a\leqslant b. \\}
+        \onslide<+->{\left|\,\int_a^b f(x)\,\mathrm{d}x\,\right| &\leqslant \int_a^b \left|\,f(x)\,\right|\,\mathrm{d}x, \quad a\leqslant b. \\}
+        \onslide<+->{\int_{-a}^a f(x)\,\mathrm{d}x &= 0, \qquad\text{ if $\,f(x)\,$ is odd.}\\}
+        \onslide<+->{\int_{-a}^a f(x)\,\mathrm{d}x &= 2\int_0^a f(x)\,\mathrm{d}x, \quad\text{ if $\,f(x)\,$ is even.}\\}
+      \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of the Integral: Examples}
+  \begin{itemize}
+    \item\onslide<+->{Interpreting integrals as areas and using the properties of the integral:} 
+      \begin{align*}
+        \onslide<+->{\int_{-\sqrt{2}}^{\sqrt{2}} \sqrt{2 - x^2}\,\mathrm{d}x &= }\onslide<+->{ \pi\quad\text{(The area of the upper circle of radius $\sqrt{2}$)}\\}
+        \onslide<+->{\int_{-1}^2 \sgn(x)\,\mathrm{d}x = }\onslide<+->{2\cdot 1 - 1\cdot 1 &= }\onslide<+->{ 1\quad\text{(the difference of two rectangles)}\\}
+        \onslide<+->{\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\mathrm{d}x &= }\onslide<+->{ 0\quad\text{($\sin(x^7-5x^3)$ is odd)}\\}
+        \onslide<+->{\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\mathrm{d}x &= }\onslide<+->{ 0\quad\text{($e^{-x^4}\sin(\sin x)$ is odd)}\\}
+        \onslide<+->{\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\mathrm{d}x &= }\onslide<+->{ 0\quad\text{($e^{x} - e^{-x}$ is odd)}\\}
+        \onslide<+->{\int_{-100}^{100} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x &= }\onslide<+->{ 0\quad\text{($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ is odd)}\\}
+        \onslide<+->{\int_{-a}^a |x|\,\mathrm{d}x = }\onslide<+->{2\int_0^a |x|\,\mathrm{d}x &= }\onslide<+->{ a^2\quad\text{($|x|$ is even; area of two $a\times a$ triangles)}\\}
+        \onslide<+->{\text{If }\,\int_1^x \frac{1}{\tau}\mathrm{d}\tau = \ln x,\,\text{ then }\,\int_{\frac{1}{4}}^3 \frac{1}{x}\mathrm{d}x &= }\onslide<+->{ \int_{\frac{1}{4}}^1 \frac{1}{x}\mathrm{d}x +  \int_1^3 \frac{1}{x}\mathrm{d}x = }\onslide<+->{ -\int_1^{\frac{1}{4}} \frac{1}{x}\mathrm{d}x + \int_1^3 \frac{1}{x}\mathrm{d}x = }\onslide<+->{ \ln 12\\}
+        \onslide<+->{\text{(Challange)}\,\,\int_0^2 \sqrt{4-x^2}\sgn(x - 1)\,\mathrm{d}x &= }\onslide<+->{ \pi - \sqrt{3}\quad\text{(different sign before and after $x=1$)}}
+      \end{align*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fundamental Theorem of Calculus (FTC)}
+  \begin{itemize}
+    \item\onslide<+->{Let $f:[a, b]\mapsto\mathbb{R}$ be continuous.} 
+      \vfill\item\onslide<+->{If $F(x) = \int_a^x f(\tau)\,\mathrm{d}\tau$, $a\leqslant x\leqslant b$, }\onslide<+->{ then $F'(x) = f(x)$ on $x\in[a, b]$.}
+    {\color{W2}
+    \vfill\item\onslide<+->{Generalization: if $F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau$, }\onslide<+->{ then $F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$.}
+    }
+    \vfill\item\onslide<+->{If $G'(x) = f(x)$ on $x\in[a, b]$, }\onslide<+->{ then $\int_a^b f(x)\,\mathrm{d}x = G(b) - G(a)$.}
+    {\color{W2}
+    \vfill\item\onslide<+->{One can compute $\int_a^b f(x)\,\mathrm{d}x$ not by the limit definition but by the antiderivative of $f$ !}    }
+    \color{C2}
+    \vfill\item\onslide<+->{WLOG, let $h > 0$. Then}
+      \begin{align*}
+        \onslide<+->{\Bigg|\,\frac{F(x + h) - F(x)}{h} - f(x)\,\Bigg| &= \Bigg|\,\frac{1}{h}\int_x^{x + h}(f(\tau) - f(x))\,\mathrm{d}\tau\,\Bigg| \\}
+        \onslide<+->{ &\leqslant\frac{1}{h}\int_x^{x + h}\big|\,f(\tau) - f(x)\big|\,\mathrm{d}\tau \\}
+        \onslide<+->{ &\leqslant\max_{x\leqslant\tau\leqslant x+h}\big|\,f(\tau) - f(x)\big|\to 0 \,\text{ as }\, h\to 0 \,\text{ and }\, f\text{ continuous}}
+      \end{align*}
+    \vfill\item\onslide<+->{By above, $(G(x) - F(x))' = f(x) - f(x) = 0$ on $[a, b]$, }\onslide<+->{ hence $G(x) - F(x)$ is constant on $[a, b]$.}
+    \vfill\item\onslide<+->{So $G(a) - F(a) = G(b) - G(b)$ }\onslide<+->{ $\Longrightarrow\,\,G(b) - G(a) = F(b) - F(a)$}\onslide<+->{ $ = \int_a^b f(x)\,\mathrm{d}x$.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fundamental Theorem of Calculus (FTC): Example I}
+  \begin{itemize}
+    \item\onslide<+->{Compute the integral $\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x$.} 
+    \color{C2}
+    \vfill\item\onslide<+->{Set the partition $\mathbb{P}: \{0, \frac{\pi}{2n}, \frac{2\pi}{2n}, \ldots, \frac{n\pi}{2n}\}$ with $\Delta_k = \frac{\pi}{2n}$ for $k=1,2,\ldots,n$; $\,\|P\|\to 0$ as $n\to\infty$.}
+    \vfill\item\onslide<+->{The integral is $\lim_{n\to\infty} R(f,\mathbb{P}) = \sum_{k=1}^n f_k\,\Delta_k$}\onslide<+->{ $ = \lim_{n\to\infty}\sum_{k=1}^n\cos\frac{k\pi}{2n}\cdot\frac{\pi}{2n}$.}
+    \vfill\item\onslide<+->{Note the formula $\cos x + \cos 2x + \cdots + \cos nx = \frac{1}{2}\bigg(\frac{\sin\big(n+\frac{1}{2}\big)x}{\sin\frac{x}{2}}-1\bigg)$, }\onslide<+->{ by taking the real part of the sum $e^{ix} + e^{i2x} + \cdots + e^{inx}$ $ = $ $\frac{e^{ix}(1 - e^{inx})}{1 - e^{ix}}$ }\onslide<+->{ and the formula $\cos\alpha - \cos\beta = 2\sin\frac{\alpha+\beta}{2}\sin\frac{\beta-\alpha}{2}$.}
+    \vfill\item\onslide<+->{The integral is $\lim_{n\to\infty}\sum_{k=1}^n\cos\frac{k\pi}{2n}\cdot\frac{\pi}{2n}$ }\onslide<+->{ $ = $ $\lim_{n\to\infty}\frac{1}{2}\bigg(\frac{\sin\big(\big(n+\frac{1}{2}\big)\cdot\frac{\pi}{2n}\big)}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}-1\bigg)\cdot\frac{\pi}{2n}$}\onslide<+->{ $ = $ $\lim_{n\to\infty}\frac{\sin\big(\big(n+\frac{1}{2}\big)\frac{\pi}{2n}\big)\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}$}\onslide<+->{ $ = $ $\lim_{n\to\infty}\sin\big(\big(\frac{1}{2} + \frac{1}{4n}\big)\pi\big)\lim_{n\to\infty}\frac{\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}$}\onslide<+->{ $ = \sin\frac{\pi}{2}\cdot 1 = 1$.}
+    \color{W2}
+    \vfill\item\onslide<+->{The antiderivative of $\cos x$ is }\onslide<+->{ $\sin x$, for $(\sin x)' = \cos x$.}
+    \vfill\item\onslide<+->{From FTC, $\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x$ $ = $ $\sin\frac{\pi}{2} - \sin 0 = 1$ !}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fundamental Theorem of Calculus (FTC): Example II}
+  \begin{itemize}
+    \item\onslide<+->{Let $F(x) = \int_1^x\frac{1}{1 + \tau^4}\tau\,\mathrm{d}\tau$. Find $F'(x)$.} 
+    {\color{C2}
+    \vfill\item\onslide<+->{This is the standard form of FTC: $F'(x) = \frac{1}{1 + x^4}$.}
+    }
+    \vfill\item\onslide<+->{Let $F(x) = \int_2^{\sqrt{x}}\sin\tau\,\mathrm{d}\tau$. Find $F'(x)$.} 
+    {\color{C2}
+    \vfill\item\onslide<+->{This is not the standard form of FTC: set $u(x) = \sqrt{x}$, $G(x) = \int_2^x\sin\tau\,\mathrm{d}\tau$, }\onslide<+->{ then $F(x) = G(u(x))$.}
+    \vfill\item\onslide<+->{Hence, by chain rule, $F'(x) = (G(u(x))' = G'(u(x))\cdot u'(x)$ }\onslide<+->{ $ = \sin\sqrt{x}\cdot\frac{1}{2\sqrt{x}}$.}
+    }
+    \vfill\item\onslide<+->{Let $F(x) = \int_{x}^{2x}\tau^3\,\mathrm{d}\tau$. Find $F'(x)$.} 
+    {\color{C2}
+    \vfill\item\onslide<+->{This is not the standard form of FTC: rewrite the integral.}
+    \vfill\item\onslide<+->{$F(x) = \int_{x}^{2x}\tau^3\,\mathrm{d}\tau$ = $\int_{x}^{0}\tau^3\,\mathrm{d}\tau + \int_{0}^{2x}\tau^3\,\mathrm{d}\tau$ }\onslide<+->{ $ = -\int_{0}^{x}\tau^3\,\mathrm{d}\tau + \int_{0}^{2x}\tau^3\,\mathrm{d}\tau$ $ = $ $F_1(x) + F_2(x)$.}
+    \vfill\item\onslide<+->{$F'(x) = F_1'(x) + F_2'(x) = -x^3$ }\onslide<+->{$ + $ $(2x)^3\cdot 2$ }\onslide<+->{ $ = 15x^3$.}
+  }
+  \end{itemize}
+\end{frame}
+
+\section{Method of Substitution}
+
+\begin{frame}
+  \frametitle{Elementary Integrals}
+    \begin{align*}
+      \onslide<+->{\int x^r\,\mathrm{d}x &= \frac{1}{r+1}x^{r+1} + C\quad(r\not=-1)\\}
+      \onslide<+->{\int\frac{1}{x}\,\mathrm{d}x &= \ln|x| + C\\}
+      \onslide<+->{\int e^{\,ax}\,\mathrm{d}x &= \frac{1}{a}\,e^{\,ax} + C\\}
+      \onslide<+->{\int\sin a x\,\mathrm{d}x &= -\frac{1}{a}\cos ax + C\\}
+      \onslide<+->{\int\cos a x\,\mathrm{d}x &= \frac{1}{a}\sin ax + C\\}
+      \onslide<+->{\int\frac{1}{\sqrt{a^2 - x^2}}\,\mathrm{d}x &= \arcsin\frac{x}{a} + C\quad(a > 0)\\}
+      \onslide<+->{\int\frac{1}{a^2 + x^2}\,\mathrm{d}x &= \frac{1}{a}\arctan\frac{x}{a} + C\\}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Method of Substitution: Integral Chain Rule}
+  \begin{itemize}
+    \item\onslide<+->{From chain rule, $\,\frac{\mathrm{d}}{\mathrm{d}x}\,f(g(x))\,=\,f'(g(x))\cdot g'(x)$, }\onslide<+->{ hence $\int f'(g(x))\cdot g'(x)\,\mathrm{d}x\,=\,f(g(x)) + C$.}
+    \vfill\item\onslide<+->{Alternatively, \,let $u = g(x)$, then $\frac{\mathrm{d}u}{\mathrm{d}x} = g'(x)$.}\onslide<+->{ In differential form, $\mathrm{d}u = g'(x)\,\mathrm{d}x$.}
+    \vfill\item\onslide<+->{So $\int f'(g(x))\cdot g'(x)\,\mathrm{d}x$}\onslide<+->{ $\,=\,\int f'(u)\,\mathrm{d}u$ }\onslide<+->{ $\,=\,f(u) + C$}\onslide<+->{ $\,=\,f(g(x)) + C$.}
+    \vfill\item\onslide<+->{Example: evaluate $\int\frac{x}{x^2+1}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Let $u = x^2 + 1$, then $\mathrm{d}u = 2x\,\mathrm{d}x$, i.e. $x\,\mathrm{d}x=\frac{1}{2}\mathrm{d}u$. }\onslide<+->{ So $\int\frac{x}{x^2+1}\,\mathrm{d}x$ $\,=\,\int\frac{1}{u}\,\frac{1}{2}\mathrm{d}u$}\onslide<+->{ $\,=\,\frac{1}{2}\ln|u| + C$}\onslide<+->{ $\,=\,\frac{1}{2}\ln(x^2 + 1) + C$.}
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Let $u = \ln x$, then $\mathrm{d}u = \frac{1}{x}\,\mathrm{d}x$. }\onslide<+->{ So $\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x\,=\,\int\sin3u\,\mathrm{d}u$}\onslide<+->{ $\,=\,-\frac{1}{3}\cos 3u + C$}\onslide<+->{ $\,=\,-\frac{1}{3}\cos(3\ln x) + C$.}
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int e^x\sqrt{1 + e^x}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Let $u = 1 + e^x$, then $\mathrm{d}u = e^x\,\mathrm{d}x$. }\onslide<+->{ So $\int e^x\sqrt{1 + e^x}\,\mathrm{d}x\,=\,\int\sqrt{u}\,\mathrm{d}u$}\onslide<+->{ $\,=\,\frac{u^{\frac{3}{2}}}{\frac{3}{2}} + C$}\onslide<+->{ $\,=\,\frac{2}{3}(1 + e^x)^{\frac{3}{2}} + C$.}
+  }
+  \end{itemize}
+\end{frame}
 
 \section{Integration by Parts}
 
@@ -843,6 +1333,6 @@
 
 \section{Other Methods for Evaluating Integrals}
 
-\section{Improper Integrals}
+%\section{Improper Integrals}
 
 \end{document}
