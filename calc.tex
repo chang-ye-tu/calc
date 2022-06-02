@@ -193,7 +193,7 @@
   \tableofcontents
 \end{frame}
 
-\ifbool{render}{
+%\ifbool{render}{
 
 \section{L'H\^opital's Rule}
 
@@ -1287,7 +1287,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% render boundary
-}{}
+%}{}
 
 \section{Method of Substitution}
 
@@ -1305,7 +1305,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 \end{frame}
 
 \begin{frame}
-  \frametitle{Method of Substitution: Integral Chain Rule}
+  \frametitle{Method of Substitution: Integral Chain Rule and Examples}
   \begin{itemize}
     \item\onslide<+->{From chain rule, $\,\frac{\mathrm{d}}{\mathrm{d}x}\,f(g(x))\,=\,f'(g(x))\cdot g'(x)$, }\onslide<+->{ hence $\int f'(g(x))\cdot g'(x)\,\mathrm{d}x\,=\,f(g(x)) + C$.}
     \vfill\item\onslide<+->{Alternatively, \,let $u = g(x)$, then $\frac{\mathrm{d}u}{\mathrm{d}x} = g'(x)$.}\onslide<+->{ In differential form, $\mathrm{d}u = g'(x)\,\mathrm{d}x$.}
@@ -1325,14 +1325,145 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Method of Substitution: Further Examples}
+  \begin{itemize}
+    \item\onslide<+->{Example: evaluate $\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{Let $u = e^x$, then $\mathrm{d}u = e^x\,\mathrm{d}x$. }\onslide<+->{ So $\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x = \int\frac{1}{\sqrt{2-u^2}}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\arcsin\frac{u}{\sqrt{2}} + C$ }\onslide<+->{ $\,=\,\arcsin\frac{e^x}{\sqrt{2}} + C$}
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{1}{e^x\sqrt{1 - e^{-2x}}}\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x$. }\onslide<+->{ Let $u = e^{-x}$, then $\mathrm{d}u = -e^{-x}\mathrm{d}x$, the integral becomes }\onslide<+->{ $-\int\frac{1}{\sqrt{1 - u^2}}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,-\arcsin u + C$ }\onslide<+->{ $\,=\,-\arcsin e^{-x} + C$. }
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{$\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x$. }\onslide<+->{ Let $u = x + 2$, then $\mathrm{d}u = \mathrm{d}x$, the integral becomes }\onslide<+->{ $\int\frac{1}{u^2 + 1}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\arctan u + C$ }\onslide<+->{ $\,=\,\arctan (x+2) + C$. }
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x$. }\onslide<+->{ Let $u = x - 1$, then $\mathrm{d}u = \mathrm{d}x$, the integral becomes }\onslide<+->{ $\int\frac{1}{\sqrt{5 - u^2}}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\arcsin\frac{u}{\sqrt{5}} + C$ }\onslide<+->{ $\,=\,\arcsin\frac{x - 1}{\sqrt{5}} + C$. }
+    }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Trigonometric Integrals}
+  \begin{itemize}
+    \item\onslide<+->{Example: evaluate $\int\tan x\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int\tan x\,\mathrm{d}x = \int\frac{\sin x}{\cos x}\,\mathrm{d}x$. }\onslide<+->{ Let $u = \cos x$, then $\mathrm{d}u = -\sin x\,\mathrm{d}x$. }\onslide<+->{ So $\int\frac{\sin x}{\cos x}\,\mathrm{d}x = \int\frac{-1}{u}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,-\ln|u| + C$ }\onslide<+->{ $\,=\,-\ln|\cos x| + C$ }\onslide<+->{ $\,=\,\ln|\sec x| + C$.}
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int\sec x\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int\sec x\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{\sec x(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x$. }\onslide<+->{ Let $u = \sec x + \tan x$, then $\mathrm{d}u = (\sec^2 x + \sec x\tan x)\,\mathrm{d}x$, so }\onslide<+->{ $\int\frac{\sec x(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\frac{1}{u}\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\ln|u| + C$ }\onslide<+->{ $\,=\,\ln|\sec x + \tan x| + C$. }
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int\cos^5 ax\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{$\int\cos^5 ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$. }\onslide<+->{ Let $u = \sin ax$, then $\mathrm{d}u = a\cos ax\,\mathrm{d}x$, so }\onslide<+->{ $\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1 + 2u^2 + u^4)\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(u + \frac{2}{3}u^3 + \frac{1}{5}u^5\big) + C$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(\sin ax + \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\big) + C$ }
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int\cos^4 ax\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{$\int\cos^4 ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\big(\frac{1+\cos 2ax}{2}\big)^2\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{1}{4}\int\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{1}{4}\int\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + C$ }
+  }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+  \begin{itemize}
+    \item\onslide<+->{Note: your answers may appear different from the ones here but may still be correct, because of the constant $C$. You can always check the correctness by differentiating them back!}
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{align*}
+        \onslide<+->{&\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -\frac{1}{2}\cos{e^{2x}} + C}\\}
+        \onslide<+->{&\int x e^{-\frac{x^2}{2}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -e^{-\frac{x^2}{2}} + C}\\}
+        \onslide<+->{&\int\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -2\cos{\sqrt{x}} + C}\\}
+        \onslide<+->{&\int x^2 2^{x^3 + 1}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{2^{x^3 + 1}}{3\ln 2} + C}\\}
+        \onslide<+->{&\int\frac{\ln x}{x}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{1}{2}(\ln x)^2 + C}\\}
+        \onslide<+->{&\int\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \sqrt{x^2 + 2x + 3} + C}\\}
+        \onslide<+->{&\int\frac{x^2}{\sqrt{2 + x^6}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{1}{3\sqrt{2}}\arctan{\frac{x^3}{\sqrt{2}}} + C}\\}
+        \onslide<+->{&\int\frac{1}{e^x + e^{-x}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \arctan{e^{x}} + C}\\}
+        \onslide<+->{&\int\frac{x + 1}{\sqrt{1 - x^2}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -\sqrt{1 - x^2} + \arcsin x + C}\\}
+      \end{align*}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \begin{align*}
+        \onslide<+->{&\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \arcsin{\tan{x}} + C}\\}
+        \onslide<+->{&\int\sin^4 x\cos^5 x\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + C}\\}
+        \onslide<+->{&\int\sin^2 x\cos^2 x\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{x}{8} - \frac{\sin 4x}{32} + C}\\}
+        \onslide<+->{&\int\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + C}\\}
+        \onslide<+->{&\int\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + C}\\}
+        \onslide<+->{&\int\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + C}\\}
+        \onslide<+->{&\int\cos ax\cos bx\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)} + C}\\}
+        \onslide<+->{&\int\sin ax\sin bx\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)} + C}\\}
+        \onslide<+->{&\int\sin ax\cos bx\,\mathrm{d}x }\onslide<+->{{\color{C2}\,\,= -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)} + C}\\}
+      \end{align*}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \section{Integration by Parts}
 
-\section{Integrals of Rational Functions}
+\begin{frame}
+  \frametitle{Integration by Parts: The Rule and Examples}
+  \begin{itemize}
+    \item\onslide<+->{From }\onslide<+->{ $\frac{\mathrm{d}}{\mathrm{d}x}\,(u(x)\,v(x))\,=\,u(x)\,\frac{\mathrm{d}v(x)}{\mathrm{d}x} + v(x)\,\frac{\mathrm{d}u(x)}{\mathrm{d}x}$ }\onslide<+->{ $\Longrightarrow\,$ $u(x)\,v(x) = \int u(x)\,\mathrm{d}v(x) + \int v(x)\,\mathrm{d}u(x)$.}
+    \vfill\item\onslide<+->{So $\,\int u(x)\,\mathrm{d}v(x) = u(x)\,v(x) - \int v(x)\,\mathrm{d}u(x)$.}
+    \vfill\item\onslide<+->{Example: evaluate $\int x\, e^{x}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Let $u = x$, then $\mathrm{d}u = \mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = e^x\,\mathrm{d}x$, then $v = e^x$. }\onslide<+->{ So $\int x\, e^{x}\,\mathrm{d}x$ $\,=\,x\cdot e^x - \int e^x\,\mathrm{d}x$}\onslide<+->{ $\,=\,xe^x - e^x + C$.}
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int\ln x\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{Let $u = \ln x$, then $\mathrm{d}u = \frac{1}{x}\mathrm{d}x$. }\onslide<+->{Let $\mathrm{d}v = \mathrm{d}x$, then $v = x$. }\onslide<+->{ So $\int \ln x\,\mathrm{d}x$ $\,=\,\ln x \cdot x - \int x\cdot\frac{1}{x}\,\mathrm{d}x$}\onslide<+->{ $\,=\,x\ln x - x + C$.}
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int x\arctan x\,\mathrm{d}x$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{Let $u = \arctan x$, then $\mathrm{d}u = \frac{1}{1 + x^2}\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = x\,\mathrm{d}x$, then $v = \frac{x^2}{2}$. }\onslide<+->{ So $\int x\arctan x\,\mathrm{d}x$ $\,=\,\arctan x \cdot\frac{x^2}{2} - \frac{1}{2}\int\frac{x^2}{1 + x^2}\,\mathrm{d}x$}\onslide<+->{ $\,=\,\arctan x \cdot\frac{x^2}{2} - \frac{1}{2}\int\big(1 - \frac{1}{1 + x^2}\big)\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\arctan x \cdot\frac{x^2}{2} - \frac{1}{2}\big(x - \arctan x\big) + C$. }
+  }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Integration by Parts: Further Examples}
+  \begin{itemize}
+    \item\onslide<+->{Example: evaluate $\int x^2\sin x\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Let $u = x^2$, then $\mathrm{d}u = 2x\,\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = \sin x\,\mathrm{d}x$, then $v = -\cos x$. }\onslide<+->{ So $\int x^2\,\sin x\,\mathrm{d}x$ $\,=\,x^2\cdot(-\cos x) + 2 \int x \cos x\,\mathrm{d}x$}
+    \vfill\item\onslide<+->{To evaluate $\int x \cos x\,\mathrm{d}x$, let $u = x$, then $\mathrm{d}u = \mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = \cos x\,\mathrm{d}x$, then $v = \sin x$. }\onslide<+->{ So $\int x \cos x\,\mathrm{d}x$ $\,=\,x\cdot\sin x - \int\sin x\,\mathrm{d}x$}\onslide<+->{ $\,=\,x\cdot\sin x + \cos x$}
+    \vfill\item\onslide<+->{Combining above, $\int x^2\sin x\,\mathrm{d}x$ }\onslide<+->{ $\,=\,-x^2\cos x + 2 (x\sin x + \cos x) + C$}
+    }
+    \vfill\item\onslide<+->{Example: evaluate $\int e^{ax}\cos bx\,\mathrm{d}x$ and $\int e^{ax}\sin bx$.}
+    {\color{C2}
+      \vfill\item\onslide<+->{To evaluate $\int e^{ax}\cos bx\,\mathrm{d}x$, Let $u = \cos bx$, then $\mathrm{d}u = -b\sin bx\,\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = e^{ax}\mathrm{d}x$, then $v = \frac{1}{a}e^{ax}$. }\onslide<+->{ So $\int e^{ax}\cos bx\,\mathrm{d}x$ $\,=\,\cos bx\cdot \frac{1}{a}e^{ax} + \frac{b}{a}\int e^{ax}\cdot\sin bx\,\mathrm{d}x$. $(*)$}
+      \vfill\item\onslide<+->{To evaluate $\int e^{ax}\sin bx\,\mathrm{d}x$, Let $u = \sin bx$, then $\mathrm{d}u = b\cos bx\,\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = e^{ax}\mathrm{d}x$, then $v = \frac{1}{a}e^{ax}$. }\onslide<+->{ So $\int e^{ax}\sin bx\,\mathrm{d}x$ $\,=\,\sin bx\cdot \frac{1}{a}e^{ax} - \frac{b}{a}\int e^{ax}\cdot\cos bx\,\mathrm{d}x$. $(**)$}
+      \vfill\item\onslide<+->{Let $X = \int e^{ax}\cos bx\,\mathrm{d}x$, $Y = \int e^{ax}\cos bx\,\mathrm{d}x$. }\onslide<+->{ Then $(*)(**)$ becomes }\onslide<+->{ $X = \cos bx\cdot\frac{1}{a}e^{ax} + \frac{b}{a}\,Y$, }\onslide<+->{ $Y = \sin bx\cdot\frac{1}{a}e^{ax} - \frac{b}{a}\,X$. }\onslide<+->{ Solving $X$, $Y$, we have }\onslide<+->{ $X = \int e^{ax}\cos bx\,\mathrm{d}x = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$, }\onslide<+->{ $Y = \int e^{ax}\sin bx\,\mathrm{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$.}
+  }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises}
+    \begin{align*}
+      \onslide<+->{\int(x+3)e^{2x}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + C}\\}
+      \onslide<+->{\int(x^2 - 2x)e^{kx}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{(x^2-2x)e^{kx}}{k} + \frac{2(x-1)e^{kx}}{k^2} + \frac{2e^{kx}}{k^3} + C}\\}
+      \onslide<+->{\int x(\ln x)^3\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^2}{2}\Big( (\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + C}\\}
+      \onslide<+->{\int x^2\arctan x\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^3}{3}\arctan x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + C}\\}
+      \onslide<+->{\int x^5 e^{-x^2}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + C}\\}
+      \onslide<+->{\int x e^{\sqrt{x}}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= e^{\sqrt{x}}\big(2x\sqrt{x}-6x + 12\sqrt{x} - 12\big) + C}\\}
+      \onslide<+->{\int(\arcsin x)^2\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= x(\arcsin x)^2 + 2\sqrt{1 - x^2}(\arcsin x) - 2x + C}\\}
+      \onslide<+->{\int\sin(\ln x)\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x(\sin(\ln x) - \cos(\ln x))}{2} + C}\\}
+    \end{align*}
+\end{frame}
+
+%\section{Integrals of Rational Functions}
 
 \section{Inverse Substitutions}
 
-\section{Other Methods for Evaluating Integrals}
+%\section{Other Methods for Evaluating Integrals}
 
-%\section{Improper Integrals}
+\section{Improper Integrals}
 
 \end{document}
