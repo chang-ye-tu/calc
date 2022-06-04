@@ -193,7 +193,7 @@
   \tableofcontents
 \end{frame}
 
-%\ifbool{render}{
+\ifbool{render}{
 
 \section{L'H\^opital's Rule}
 
@@ -215,7 +215,7 @@
     \end{tabular}
   \end{table}
   \begin{itemize}
-    \item We will focus on $\displaystyle\frac{0}{0}, \frac{\infty}{\infty}$; Other forms can sometimes be transformed to these two
+    \item\onslide<+->{We will focus on $\displaystyle\frac{0}{0}, \frac{\infty}{\infty}$; Other forms can sometimes be transformed to these two}
   \end{itemize}
 \end{frame}
 
@@ -330,7 +330,7 @@
     \onslide<+->{\item \eqref{zero2} $\displaystyle\lim_{x\to0}\frac{\ln\frac{\sin x}{x}}{x^2}$ is of $\displaystyle\frac{0}{0}$ form: $\displaystyle\lim_{x\to0}\ln\frac{\sin x}{x} = \lim_{x\to0}x^2 = 0$}
     \onslide<+->{\item Hence} 
       \begin{align*}
-      \onslide<+->{\lim_{x\to0}\frac{\ln\frac{\sin x}{x}}{x^2} = \lim_{x\to0}\frac{\Big(\ln\frac{\sin x}{x}\Big)'}{(x^2)'}}\onslide<+->{= \lim_{x\to0}\frac{\frac{x}{\sin x}\frac{(x\cos x - \sin x)}{x^2}}{2x} = \lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}}
+        \onslide<+->{\lim_{x\to0}\frac{\ln\frac{\sin x}{x}}{x^2}}\onslide<+->{ = \lim_{x\to0}\frac{\Big(\ln\frac{\sin x}{x}\Big)'}{(x^2)'}}\onslide<+->{ = \lim_{x\to0}\frac{\frac{x}{\sin x}\frac{(x\cos x - \sin x)}{x^2}}{2x}}\onslide<+->{ = \lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}}
       \end{align*}
   \end{itemize}
 \end{frame}
@@ -347,7 +347,7 @@
     \onslide<+->{\item \eqref{zero2} $\displaystyle\lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}$ is of $\displaystyle\frac{0}{0}$ form: $\displaystyle\lim_{x\to0}(x\cos x - \sin x) = \lim_{x\to0}2x^2\sin x = 0$}
     \onslide<+->{\item Hence} 
       \begin{align*}
-        \onslide<+->{\lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x} = \lim_{x\to0}\frac{(x\cos x - \sin x)'}{(2 x^2\sin x)'}}\onslide<+->{= \lim_{x\to0}\frac{- x\sin x}{2x^2\cos x + 4x\sin x} = \lim_{x\to0}\frac{-\sin x}{2 x\cos x + 4\sin x}}
+        \onslide<+->{\lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}}\onslide<+->{ = \lim_{x\to0}\frac{(x\cos x - \sin x)'}{(2 x^2\sin x)'}}\onslide<+->{= \lim_{x\to0}\frac{- x\sin x}{2x^2\cos x + 4x\sin x}}\onslide<+->{ = \lim_{x\to0}\frac{-\sin x}{2 x\cos x + 4\sin x}}
       \end{align*}
   \end{itemize}
 \end{frame}
@@ -367,9 +367,9 @@
         \onslide<+->{\lim_{x\to0}\frac{-\sin x}{2 x\cos x + 4\sin x} = \lim_{x\to0}\frac{(-\sin x)'}{(2 x\cos x + 4\sin x)'}}\onslide<+->{= \lim_{x\to0}\frac{-\cos x}{-2x\sin x + 6\cos x} = -\frac{1}{6}}
       \end{align*}
     \onslide<+->{\item So
-      \begin{multline*}
-        \lim_{x\to0}\,\bigg(\frac{\sin x}{x}\bigg)^{\frac{1}{x^2}} = \exp\Bigg\{\lim_{x\to0}\frac{1}{x^2}\ln\frac{\sin x}{x}\Bigg\} \\= \exp\Bigg\{\lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}\Bigg\} = \exp\Bigg\{\lim_{x\to0}\frac{-\sin x}{2 x\cos x + 4\sin x}\Bigg\} = e^{-\frac{1}{6}}
-    \end{multline*}}
+      \begin{align*}
+        \onslide<+->{\lim_{x\to0}\,\bigg(\frac{\sin x}{x}\bigg)^{\frac{1}{x^2}}}\onslide<+->{ = \exp\Bigg\{\lim_{x\to0}\frac{1}{x^2}\ln\frac{\sin x}{x}\Bigg\}}\onslide<+->{ = \exp\Bigg\{\lim_{x\to0}\frac{x\cos x - \sin x}{2 x^2\sin x}\Bigg\}}\onslide<+->{ = \exp\Bigg\{\lim_{x\to0}\frac{-\sin x}{2 x\cos x + 4\sin x}\Bigg\}}\onslide<+->{ = e^{-\frac{1}{6}}}
+    \end{align*}}
   \end{itemize}
 \end{frame}
 
@@ -1286,9 +1286,6 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
-%}{}
-
 \section{Method of Substitution}
 
 \begin{frame}
@@ -1347,6 +1344,9 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
+}{}
+
 \begin{frame}
   \frametitle{Trigonometric Integrals}
   \begin{itemize}
@@ -1360,7 +1360,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   }
     \vfill\item\onslide<+->{Example: evaluate $\int\cos^5 ax\,\mathrm{d}x$.}
     {\color{C2}
-      \vfill\item\onslide<+->{$\int\cos^5 ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$. }\onslide<+->{ Let $u = \sin ax$, then $\mathrm{d}u = a\cos ax\,\mathrm{d}x$, so }\onslide<+->{ $\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1 + 2u^2 + u^4)\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(u + \frac{2}{3}u^3 + \frac{1}{5}u^5\big) + C$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(\sin ax + \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\big) + C$ }
+      \vfill\item\onslide<+->{$\int\cos^5 ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$. }\onslide<+->{ Let $u = \sin ax$, then $\mathrm{d}u = a\cos ax\,\mathrm{d}x$, so }\onslide<+->{ $\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\int(1 - 2u^2 + u^4)\,\mathrm{d}u$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(u - \frac{2}{3}u^3 + \frac{1}{5}u^5\big) + C$ }\onslide<+->{ $\,=\,\frac{1}{a}\big(\sin ax - \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\big) + C$ }
   }
     \vfill\item\onslide<+->{Example: evaluate $\int\cos^4 ax\,\mathrm{d}x$.}
     {\color{C2}
@@ -1435,7 +1435,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
     \vfill\item\onslide<+->{To evaluate $\int x \cos x\,\mathrm{d}x$, let $u = x$, then $\mathrm{d}u = \mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = \cos x\,\mathrm{d}x$, then $v = \sin x$. }\onslide<+->{ So $\int x \cos x\,\mathrm{d}x$ $\,=\,x\cdot\sin x - \int\sin x\,\mathrm{d}x$}\onslide<+->{ $\,=\,x\cdot\sin x + \cos x$}
     \vfill\item\onslide<+->{Combining above, $\int x^2\sin x\,\mathrm{d}x$ }\onslide<+->{ $\,=\,-x^2\cos x + 2 (x\sin x + \cos x) + C$}
     }
-    \vfill\item\onslide<+->{Example: evaluate $\int e^{ax}\cos bx\,\mathrm{d}x$ and $\int e^{ax}\sin bx$.}
+    \vfill\item\onslide<+->{Example: evaluate $\int e^{ax}\cos bx\,\mathrm{d}x$ and $\int e^{ax}\sin bx\,\mathrm{d}x$.}
     {\color{C2}
       \vfill\item\onslide<+->{To evaluate $\int e^{ax}\cos bx\,\mathrm{d}x$, Let $u = \cos bx$, then $\mathrm{d}u = -b\sin bx\,\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = e^{ax}\mathrm{d}x$, then $v = \frac{1}{a}e^{ax}$. }\onslide<+->{ So $\int e^{ax}\cos bx\,\mathrm{d}x$ $\,=\,\cos bx\cdot \frac{1}{a}e^{ax} + \frac{b}{a}\int e^{ax}\cdot\sin bx\,\mathrm{d}x$. $(*)$}
       \vfill\item\onslide<+->{To evaluate $\int e^{ax}\sin bx\,\mathrm{d}x$, Let $u = \sin bx$, then $\mathrm{d}u = b\cos bx\,\mathrm{d}x$. }\onslide<+->{ Let $\mathrm{d}v = e^{ax}\mathrm{d}x$, then $v = \frac{1}{a}e^{ax}$. }\onslide<+->{ So $\int e^{ax}\sin bx\,\mathrm{d}x$ $\,=\,\sin bx\cdot \frac{1}{a}e^{ax} - \frac{b}{a}\int e^{ax}\cdot\cos bx\,\mathrm{d}x$. $(**)$}
@@ -1446,16 +1446,17 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 
 \begin{frame}
   \frametitle{Exercises}
-    \begin{align*}
-      \onslide<+->{\int(x+3)e^{2x}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + C}\\}
-      \onslide<+->{\int(x^2 - 2x)e^{kx}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{(x^2-2x)e^{kx}}{k} + \frac{2(x-1)e^{kx}}{k^2} + \frac{2e^{kx}}{k^3} + C}\\}
-      \onslide<+->{\int x(\ln x)^3\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^2}{2}\Big( (\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + C}\\}
-      \onslide<+->{\int x^2\arctan x\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^3}{3}\arctan x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + C}\\}
-      \onslide<+->{\int x^5 e^{-x^2}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + C}\\}
-      \onslide<+->{\int x e^{\sqrt{x}}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= e^{\sqrt{x}}\big(2x\sqrt{x}-6x + 12\sqrt{x} - 12\big) + C}\\}
-      \onslide<+->{\int(\arcsin x)^2\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= x(\arcsin x)^2 + 2\sqrt{1 - x^2}(\arcsin x) - 2x + C}\\}
-      \onslide<+->{\int\sin(\ln x)\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x(\sin(\ln x) - \cos(\ln x))}{2} + C}\\}
-    \end{align*}
+  \begin{align*}
+    \onslide<+->{\int(x+3)e^{2x}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + C}\\}
+    \onslide<+->{\int(x^2 - 2x)e^{kx}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{(x^2-2x)e^{kx}}{k} + \frac{2(x-1)e^{kx}}{k^2} + \frac{2e^{kx}}{k^3} + C}\\}
+    \onslide<+->{\int x(\ln x)^3\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^2}{2}\Big( (\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + C}\\}
+    \onslide<+->{\int x^2\arctan x\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^3}{3}\arctan x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + C}\\}
+    \onslide<+->{\int x^5 e^{-x^2}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + C}\\}
+    \onslide<+->{\int x e^{\sqrt{x}}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= e^{\sqrt{x}}\big(2x\sqrt{x}-6x + 12\sqrt{x} - 12\big) + C}\\}
+    \onslide<+->{\int(\arcsin x)^2\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= x(\arcsin x)^2 + 2\sqrt{1 - x^2}(\arcsin x) - 2x + C}\\}
+    \onslide<+->{\int\sin(\ln x)\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x(\sin(\ln x) - \cos(\ln x))}{2} + C}\\}
+    \onslide<+->{\int\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln\Big(\sqrt{1 + x}-1\Big) + 2\ln\Big(\sqrt{1+x} + 1\Big) + C}\\}
+  \end{align*}
 \end{frame}
 
 %\section{Integrals of Rational Functions}
@@ -1465,5 +1466,63 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 %\section{Other Methods for Evaluating Integrals}
 
 \section{Improper Integrals}
+
+\begin{frame}
+  \frametitle{Improper Integrals: Properties}
+  \begin{itemize}
+    \item\onslide<+->{For the integral $\int_I f(x)\,\mathrm{d}x$, if }\onslide<+->{ (i) $f$ is unbounded on $I$ }\onslide<+->{ (ii) $I$ is unbounded, }\onslide<+->{ then the integral is called improper.}
+    \vfill\item\onslide<+->{$\int_{-\infty}^{\infty} f(x)\,\mathrm{d}x$ }\onslide<+->{ $=\lim_{a\to-\infty, b\to\infty}\int_a^b f(x)\,\mathrm{d}x$.}
+    \vfill\item\onslide<+->{Example: evaluate $\int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,\mathrm{d}x$ }
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int_{-\infty}^{\infty} \frac{1}{1 + x^2}\,\mathrm{d}x$ }\onslide<+->{ $=2\int_0^\infty\frac{1}{1 + x^2}\,\mathrm{d}x$ }\onslide<+->{ $=2\lim_{R\to\infty}\int_0^R\frac{1}{1 + x^2}\,\mathrm{d}x$ }\onslide<+->{ $=2\lim_{R\to\infty}\arctan R$ }\onslide<+->{ $ = 2\cdot\frac{\pi}{2} = \pi$. }
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int_{1}^{\infty} \frac{1}{x^2}\,\mathrm{d}x$ }
+    {\color{C2}
+    \vfill\item\onslide<+->{$\int_{1}^{\infty} \frac{1}{x^2}\,\mathrm{d}x$ }\onslide<+->{ $=\lim_{R\to\infty}\int_1^R\frac{1}{x^2}\,\mathrm{d}x$ }\onslide<+->{ $=\lim_{R\to\infty}\big(-\frac{1}{R} + 1\big)$ }\onslide<+->{ $=1$ }
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int_{0}^{1} \frac{1}{\sqrt{x}}\,\mathrm{d}x$ }
+    {\color{C2}
+      \vfill\item\onslide<+->{$\int_{0}^{1} \frac{1}{\sqrt{x}}\,\mathrm{d}x$ }\onslide<+->{ $=\lim_{c\to0+}\int_c^1\frac{1}{\sqrt{x}}\,\mathrm{d}x$ }\onslide<+->{ $=\lim_{c\to0+}2\sqrt{x}\,\Big|^1_c$ }\onslide<+->{ $=\lim_{c\to0+}(2-2\sqrt{c})$ }\onslide<+->{ $=2$ }
+  }
+    \vfill\item\onslide<+->{Result: for $0 < a < \infty$, $\int_{a}^{\infty}\frac{1}{x^p}\,\mathrm{d}x$ }\onslide<+->{ converges to $\frac{a^{1-p}}{p - 1}$ }\onslide<+->{ if $p > 1$, }\onslide<+->{ and diverges to $\infty$ if $p\leqslant 1$. }
+    \vfill\item\onslide<+->{Result: for $0 < a < \infty$, $\int_{0}^{a}\frac{1}{x^p}\,\mathrm{d}x$ }\onslide<+->{ converges to $\frac{a^{1-p}}{1 - p}$ }\onslide<+->{ if $p < 1$, }\onslide<+->{ and diverges to $\infty$ if $p\geqslant 1$. }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Improper Integrals: Test of Convergence}
+  \begin{itemize}
+    \item\onslide<+->{Many important integrals in applications are improper; one should determine the convergence of integrals first.}\onslide<+->{ One can do this by comparing it with simpler integrals.}
+    \vfill\item\onslide<+->{Let $-\infty\leqslant a < b \leqslant\infty$, functions $f$, $g$ are continuous on $(a, b)$, and }\onslide<+->{ $0\leqslant f(x)\leqslant g(x)$. }
+    \vfill\item\onslide<+->{$\int_a^b f(x)\,\mathrm{d}x$ converges }\onslide<+->{ if $\int_a^b g(x)\,\mathrm{d}x$ converges.}
+    \vfill\item\onslide<+->{$\int_a^b g(x)\,\mathrm{d}x$ diverges }\onslide<+->{ if $\int_a^b f(x)\,\mathrm{d}x$ diverges.}
+    \vfill\item\onslide<+->{Example: show that $\int_{0}^{\infty}e^{-x^2}\,\mathrm{d}x$ converges.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Note that $e^{-x^2}\leqslant 1$ for $0 \leqslant x < 1$, }\onslide<+->{ $e^{-x^2}\leqslant e^{-x}$ for $x\geqslant 1$, }\onslide<+->{ the integral $\int_{0}^{\infty}e^{-x^2}\,\mathrm{d}x$ }\onslide<+->{ $ = \int_{0}^1 e^{-x^2}\,\mathrm{d}x\, + $ $\int_1^\infty e^{-x^2}\,\mathrm{d}x$ }\onslide<+->{ $\leqslant\int_{0}^1 1\,\mathrm{d}x + $ $\int_1^\infty e^{-x}\,\mathrm{d}x$ $ = 1 + \frac{1}{e}$, }\onslide<+->{ so $\int_{0}^{\infty}e^{-x^2}\,\mathrm{d}x$ converges.}
+  }
+    \vfill\item\onslide<+->{Example: show that $\forall\,x > 0$, $\Gamma(x)\equiv\int_{0}^{\infty}t^{x-1}e^{-t}\,\mathrm{d}t$ converges.}
+    {\color{C2}
+    \vfill\item\onslide<+->{Since $\lim_{t\to\infty}t^{x-1}e^{-\frac{t}{2}} = 0$, }\onslide<+->{ $\exists\,T > 0$ s.t. $t^{x-1}e^{-\frac{t}{2}}\leqslant 1$ for $t\geqslant T$. }\onslide<+->{ Then $\int_{0}^{\infty}t^{x-1}e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $ = \int_{0}^T t^{x-1}e^{-t}\,\mathrm{d}t\, + $ $\int_T^\infty t^{x-1}e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $\leqslant\int_{0}^T t^{x - 1}\,\mathrm{d}t + $ $\int_T^\infty 1\cdot e^{-\frac{t}{2}}\,\mathrm{d}t$ }\onslide<+->{ $ = \frac{T^x}{x} + 2e^{-\frac{T}{2}}$, }\onslide<+->{ so $\forall\,x > 0$, $\int_{0}^{\infty}t^{x-1}e^{-t}\,\mathrm{d}t$ converges.}
+  }
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Improper Integrals: Examples}
+  \begin{itemize}
+    \item\onslide<+->{Example: show that $\Gamma(x + 1) = x\,\Gamma(x)$ for $x > 0$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\Gamma(x + 1)$ }\onslide<+->{ $=\int_{0}^{\infty} t^x e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $ = \lim_{c\to0+,R\to\infty}\int_{c}^R t^{x}e^{-t}\,\mathrm{d}t$. }\onslide<+->{ Let $u = t^x$, then $\mathrm{d}u = xt^{x-1}\,\mathrm{d}t$. }\onslide<+->{ Let $\mathrm{d}v = e^{-t}\,\mathrm{d}t$, then $v = e^{-t}$. }\onslide<+->{ So $\lim_{c\to0+,R\to\infty}\int_{c}^R t^{x}e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=\lim_{c\to0+,R\to\infty}\Big(-t^x e^{-t}\Big|_c^R + x\int_c^R t^{x-1}e^{-t}\,\mathrm{d}t\Big)$ }\onslide<+->{ $= 0 + x\int_0^\infty t^{x-1}e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=x\,\Gamma(x)$. } 
+    }    
+    \vfill\item\onslide<+->{Example: given that $\int_0^\infty e^{-t^2}\,\mathrm{d}t = \frac{\sqrt{\pi}}{2}$, evaluate $\Gamma\big(\frac{1}{2}\big)$ and $\Gamma\big(\frac{3}{2}\big)$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=\int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ Let $u = \sqrt{t}$, then $\mathrm{d}u = \frac{1}{2\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ So $\Gamma\big(\frac{1}{2}\big) = \int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$ }\onslide<+->{ $=2\int_0^\infty e^{-u^2}\,\mathrm{d}u$ }\onslide<+->{ $= 2\cdot\frac{\sqrt{\pi}}{2}$ }\onslide<+->{ $=\sqrt{\pi}$. }\onslide<+->{ From $\Gamma(x + 1) = x\,\Gamma(x)$, }\onslide<+->{ $\Gamma\big(\frac{3}{2}\big)$ }\onslide<+->{ $=\Gamma\big(\frac{1}{2} + 1\big)$ }\onslide<+->{ $=\frac{1}{2}\,\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\frac{1}{2}\,\sqrt{\pi}$ }
+  }
+    \vfill\item\onslide<+->{Example: evaluate $\int_0^\infty\frac{1}{(1 + x^2)^2}\,\mathrm{d}x$.}
+    {\color{C2}
+    \vfill\item\onslide<+->{$\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=\int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ Let $u = \sqrt{t}$, then $\mathrm{d}u = \frac{1}{2\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ So $\Gamma\big(\frac{1}{2}\big) = \int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$ }\onslide<+->{ $=2\int_0^\infty e^{-u^2}\,\mathrm{d}u$ }\onslide<+->{ $= 2\cdot\frac{\sqrt{\pi}}{2}$ }\onslide<+->{ $=\sqrt{\pi}$. }\onslide<+->{ From $\Gamma(x + 1) = x\,\Gamma(x)$, }\onslide<+->{ $\Gamma\big(\frac{3}{2}\big)$ }\onslide<+->{ $=\Gamma\big(\frac{1}{2} + 1\big)$ }\onslide<+->{ $=\frac{1}{2}\,\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\frac{1}{2}\,\sqrt{\pi}$ }
+  }
+  \end{itemize}
+\end{frame}
 
 \end{document}
