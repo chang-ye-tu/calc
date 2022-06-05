@@ -193,7 +193,7 @@
   \tableofcontents
 \end{frame}
 
-\ifbool{render}{
+%\ifbool{render}{
 
 \section{L'H\^opital's Rule}
 
@@ -1345,7 +1345,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%% render boundary
-}{}
+%}{}
 
 \begin{frame}
   \frametitle{Trigonometric Integrals}
@@ -1518,9 +1518,10 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
     {\color{C2}
     \vfill\item\onslide<+->{$\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=\int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ Let $u = \sqrt{t}$, then $\mathrm{d}u = \frac{1}{2\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ So $\Gamma\big(\frac{1}{2}\big) = \int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$ }\onslide<+->{ $=2\int_0^\infty e^{-u^2}\,\mathrm{d}u$ }\onslide<+->{ $= 2\cdot\frac{\sqrt{\pi}}{2}$ }\onslide<+->{ $=\sqrt{\pi}$. }\onslide<+->{ From $\Gamma(x + 1) = x\,\Gamma(x)$, }\onslide<+->{ $\Gamma\big(\frac{3}{2}\big)$ }\onslide<+->{ $=\Gamma\big(\frac{1}{2} + 1\big)$ }\onslide<+->{ $=\frac{1}{2}\,\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\frac{1}{2}\,\sqrt{\pi}$ }
   }
-    \vfill\item\onslide<+->{Example: evaluate $\int_0^\infty\frac{1}{(1 + x^2)^2}\,\mathrm{d}x$.}
+    \vfill\item\onslide<+->{Example: given that $\int_0^\infty e^{-t^2}\,\mathrm{d}t = \frac{\sqrt{\pi}}{2}$ and $a > 0$, evaluate $\int_0^\infty t\,e^{-a\,t^2}\,\mathrm{d}t$ and $\int_0^\infty t^2\,e^{-a\,t^2}\,\mathrm{d}t$.}
     {\color{C2}
-    \vfill\item\onslide<+->{$\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\,\mathrm{d}t$ }\onslide<+->{ $=\int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ Let $u = \sqrt{t}$, then $\mathrm{d}u = \frac{1}{2\sqrt{t}}\,\mathrm{d}t$. }\onslide<+->{ So $\Gamma\big(\frac{1}{2}\big) = \int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$ }\onslide<+->{ $=2\int_0^\infty e^{-u^2}\,\mathrm{d}u$ }\onslide<+->{ $= 2\cdot\frac{\sqrt{\pi}}{2}$ }\onslide<+->{ $=\sqrt{\pi}$. }\onslide<+->{ From $\Gamma(x + 1) = x\,\Gamma(x)$, }\onslide<+->{ $\Gamma\big(\frac{3}{2}\big)$ }\onslide<+->{ $=\Gamma\big(\frac{1}{2} + 1\big)$ }\onslide<+->{ $=\frac{1}{2}\,\Gamma\big(\frac{1}{2}\big)$ }\onslide<+->{ $=\frac{1}{2}\,\sqrt{\pi}$ }
+    \vfill\item\onslide<+->{ Let $u = \sqrt{a}\,t$, then $t = \frac{u}{\sqrt{a}}$, $\mathrm{d}u = \sqrt{a}\,\mathrm{d}t$. }\onslide<+->{ So $\int_0^\infty t\,e^{-a\,t^2}\,\mathrm{d}t$ }\onslide<+->{ $=\int_0^\infty \frac{u}{\sqrt{a}}\,e^{-u^2}\,\frac{1}{\sqrt{a}}\,\mathrm{d}u$ }\onslide<+->{ $=\frac{1}{a}\int_0^\infty u\,e^{-u^2}\,\mathrm{d}u$. }\onslide<+->{ Let $x = u^2$, then $\mathrm{d}x = 2u\,\mathrm{d}u$. }\onslide<+->{ So $\int_0^\infty t\,e^{-a\,t^2}\,\mathrm{d}t$ }\onslide<+->{ $=\frac{1}{a}\int_0^\infty u\,e^{-u^2}\,\mathrm{d}u$ }\onslide<+->{ $=\frac{1}{2a}\int_0^\infty e^{-x}\,\mathrm{d}x$ }\onslide<+->{ $=\frac{1}{2a}$. }
+    \vfill\item\onslide<+->{ Let $w = \sqrt{a}\,t$, then $t = \frac{w}{\sqrt{a}}$, $\mathrm{d}w = \sqrt{a}\,\mathrm{d}t$. }\onslide<+->{ So $\int_0^\infty t^2\,e^{-a\,t^2}\,\mathrm{d}t$ }\onslide<+->{ $=\int_0^\infty\frac{w^2}{a}\,e^{-w^2}\,\frac{1}{\sqrt{a}}\,\mathrm{d}w$ }\onslide<+->{ $=\frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w$. }\onslide<+->{ Let $u = -\frac{1}{2}w$, then $\mathrm{d}u = -\frac{1}{2}\,\mathrm{d}w$. }\onslide<+->{ Let $\mathrm{d}v = -2\,w\,e^{-w^2}\,\mathrm{d}w$, then $v = e^{-w^2}$. }\onslide<+->{ So $\int_0^\infty t^2\,e^{-a\,t^2}\,\mathrm{d}t$ }\onslide<+->{ $=\frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w$ }\onslide<+->{ $=\frac{1}{a^\frac{3}{2}}\bigg(-\frac{1}{2}w\cdot e^{-w^2}\Big|_0^\infty + \frac{1}{2}\int_0^\infty e^{-w^2}\,\mathrm{d}w\bigg)$ }\onslide<+->{ $=\frac{1}{a^\frac{3}{2}}\cdot\frac{1}{2}\cdot\frac{\sqrt{\pi}}{2}$ }\onslide<+->{ $=\frac{\sqrt{\pi}}{4a^\frac{3}{2}}$. }
   }
   \end{itemize}
 \end{frame}
