@@ -178,9 +178,8 @@
 
 \setbeamertemplate{headline}{}
 \title{Calculus}
-%\author{Chang-Ye Tu}
-\author{}
-\date{}%\today}
+\author{}%Chang-Ye Tu}
+\date{}
 
 \begin{document}
 
@@ -1344,9 +1343,6 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
-%}{}
-
 \begin{frame}
   \frametitle{Trigonometric Integrals}
   \begin{itemize}
@@ -1447,7 +1443,7 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
 \begin{frame}
   \frametitle{Exercises}
   \begin{align*}
-    \onslide<+->{\int(x+3)e^{2x}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= -\frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + C}\\}
+    \onslide<+->{\int(x+3)e^{2x}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + C}\\}
     \onslide<+->{\int(x^2 - 2x)e^{kx}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{(x^2-2x)e^{kx}}{k} + \frac{2(x-1)e^{kx}}{k^2} + \frac{2e^{kx}}{k^3} + C}\\}
     \onslide<+->{\int x(\ln x)^3\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^2}{2}\Big( (\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + C}\\}
     \onslide<+->{\int x^2\arctan x\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \frac{x^3}{3}\arctan x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + C}\\}
@@ -1458,12 +1454,6 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
     \onslide<+->{\int\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x }\onslide<+->{&{\color{C2}\,\,= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln\Big(\sqrt{1 + x}-1\Big) + 2\ln\Big(\sqrt{1+x} + 1\Big) + C}\\}
   \end{align*}
 \end{frame}
-
-%\section{Integrals of Rational Functions}
-
-\section{Inverse Substitutions}
-
-%\section{Other Methods for Evaluating Integrals}
 
 \section{Improper Integrals}
 
@@ -1525,5 +1515,12 @@ fig1 = RiemannRec(1.0, 3.0, 20, f) #a,b,n,function
   }
   \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% render boundary
+%}{}
+
+%\section{Integrals of Rational Functions}
+%\section{Inverse Substitutions}
+%\section{Other Methods for Evaluating Integrals}
 
 \end{document}
