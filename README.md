@@ -86,7 +86,7 @@
 | 09/19, 09/21 o      |                                |
 | 09/26               |                                | 
 | 10/03, 10/05 o      |                                |
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10/12 o      |                                     |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10/12 o      |                                     |
 | 10/17, 10/19 o      |                                |
 | 10/24, 10/26 o      |                                |
 | 10/31, 11/02        |                                |
