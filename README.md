@@ -2,9 +2,10 @@
 
 ## 教科書
 
-老師個人編纂講義：內容為以下參考書選輯與其他補充。
+老師個人編纂講義：主要為以下參考書內容選輯；部份補充來自其他參考文獻。
 
 ## 參考書
+
 - [CLP Calculus Textbooks.](https://personal.math.ubc.ca/~CLP/) &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP1/">CLP1</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP2/">CLP2</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP3/">CLP3</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP4/">CLP4</a>
 - [CLP Calculus Problem Books.](https://personal.math.ubc.ca/~CLP/) &nbsp;重排版（題目緊接詳解，方便閱讀）<br>&nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_1_dc_problems.pdf">CLP1</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_2_ic_problems.pdf">CLP2</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_3_mc_problems.pdf">CLP3</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_4_vc_problems.pdf">CLP4</a>
 - [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
@@ -12,25 +13,25 @@
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
   - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 
-<!--
+## 其他參考文獻
+
 - [顏國勇，2015，微積分學，電子書 2.2 版。](https://www.math.ncku.edu.tw/~library/e-book/Calculus2015B.pdf)
 - [顏國勇，2014，新微積分演習，電子書 2 版。](https://www.math.ncku.edu.tw/~library/e-book/NewCalEx2.pdf)
 - [黃文璋，2010，微積分講義。](https://www.stat.nuk.edu.tw/huangwj/book/calculus.pdf)
+- [Courant R., John F., 1989. Introduction to Calculus and Analysis I. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-58604-0)
+- [Courant R., John F., 1989. Introduction to Calculus and Analysis II/1. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-57149-7)
+- [Lang, S., 1986. A First Course in Calculus. 5th ed, Springer-Verlag, NY.]( https://link.springer.com/book/10.1007/978-1-4419-8532-3 )
+- [Lang, S., 1987. Calculus of Several Variables. 3rd ed, Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4612-1068-9) 
+- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
+- [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
 - Adams, R. A., Essex, C., 2018. Calculus: A Complete Course. 9th ed., Pearson, Boston.
-- Stewart, J. E., Clegg, D. K., Watson, S., 2021. Calculus: Early Transcendentals. 9th ed., Cengage, Boston.
 - Hass, J. R., Heil, C. E., Weir, M. D., Bogacki, P., 2023. Thomas' Calculus: Early Transcendentals. 15th ed., Pearson, Boston.
+- Stewart, J. E., Clegg, D. K., Watson, S., 2021. Calculus: Early Transcendentals. 9th ed., Cengage, Boston.
 - Riley, K. F., Hobson, M. P., 2011. Foundation Mathematics for the Physical Sciences. Cambridge University Press, Cambridge.
 - Mendelson, E., 1988. 3000 Solved Problems in Calculus. McGraw-Hill, New York.
 - Apostol, T. M., 1967. Calculus. Volume I: One-Variable Calculus, with an Introduction to Linear Algebra. 2nd ed., Wiley, New York.
 - Apostol, T. M., 1969. Calculus. Volume II: Multi-Variable Calculus and Linear Algebra with Applications to Differential Equations and Probability. 2nd ed., Wiley, New York.
 - Spivak, M., 2008. Calculus. 4th ed., Publish or Perish, Houston.
-- [Lang, S., 1986. A First Course in Calculus. 5th ed, Springer-Verlag, NY.]( https://link.springer.com/book/10.1007/978-1-4419-8532-3 )
-- [Lang, S., 1987. Calculus of Several Variables. 3rd ed, Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4612-1068-9) 
-- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
-- [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
-- [Courant R., John F., 1989. Introduction to Calculus and Analysis I. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-58604-0)
-- [Courant R., John F., 1989. Introduction to Calculus and Analysis II/1. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-57149-7)
--->
 
 ## 開放式課程及其他資源 
 
@@ -48,6 +49,11 @@
   - [播放清單](https://www.youtube.com/playlist?list=PL9E0B622CC3F766B5)
 - 翁秉仁，2020，微積分乙，修訂版，國立臺灣大學出版中心。
   - [台大開放式課程連結](http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/103S121)
+- [台大微積分統一教學網](http://www.math.ntu.edu.tw/~calc/Default.html)
+  - [歷屆考古題：微甲及模組班](http://www.math.ntu.edu.tw/~calc/cp_n_34456.html) 
+- [陽交大微積分教學小組](https://calculus.math.nycu.edu.tw/)
+  - [微積分甲（一）考古題](https://calculus.math.nycu.edu.tw/exams108-1-all/)
+  - [微積分甲（二）考古題](https://calculus.math.nycu.edu.tw/exams108-2-all/)
 - [3Blue1Brown: Calculus](https://www.3blue1brown.com/topics/calculus) &nbsp; 微積分影片。
 
 ## 評分標準
