@@ -2,7 +2,7 @@
 
 ## 教科書
 
-老師個人編纂講義：主要為以下參考書內容選輯；部份補充來自其他參考文獻。
+老師個人編纂講義：主要為以下參考書內容選輯。
 
 ## 參考書
 
@@ -13,6 +13,7 @@
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
   - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 
+<!--
 ## 其他參考文獻
 
 - [顏國勇，2015，微積分學，電子書 2.2 版。](https://www.math.ncku.edu.tw/~library/e-book/Calculus2015B.pdf)
@@ -32,6 +33,8 @@
 - Apostol, T. M., 1967. Calculus. Volume I: One-Variable Calculus, with an Introduction to Linear Algebra. 2nd ed., Wiley, New York.
 - Apostol, T. M., 1969. Calculus. Volume II: Multi-Variable Calculus and Linear Algebra with Applications to Differential Equations and Probability. 2nd ed., Wiley, New York.
 - Spivak, M., 2008. Calculus. 4th ed., Publish or Perish, Houston.
+-->
+
 
 ## 開放式課程及其他資源 
 
