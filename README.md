@@ -38,8 +38,9 @@
 
 ## 開放式課程及其他資源 
 
-- [朱樺，2015，微積分講義。]( http://www.math.ntu.edu.tw/~hchu/Calculus/ )
-  - [台大開放式課程連結]( http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/100S111 )
+- [朱樺，2015，微積分甲。](http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/100S111)
+  - [講義](http://www.math.ntu.edu.tw/~hchu/Calculus/) 
+  - [播放清單](https://www.youtube.com/playlist?list=PL00519C11499F5D84)
 - [莊重，2014，微積分（一）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=490)
   - [講義](http://ocw.nctu.edu.tw/course_detail-c.php?bgid=1&gid=1&nid=490&pid=1011)
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFtwDlDoBnbyhCfAa7JL52OG)
