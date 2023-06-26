@@ -52,13 +52,17 @@
 - [莊重，2006，微積分（二）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=16)
   - [播放清單](https://www.youtube.com/playlist?list=PL9E0B622CC3F766B5)
 - [高淑蓉，2010，微積分（一）。](https://ocw.nthu.edu.tw/ocw/index.php?page=course&cid=7&)
+  - [播放清單](https://www.youtube.com/playlist?list=PLS0SUwlYe8czw04JGine76IzoHc1MM8bO)
 - [高淑蓉，2010，微積分（二）。](https://ocw.nthu.edu.tw/ocw/index.php?page=course&cid=34&)
+  - [播放清單](https://www.youtube.com/playlist?list=PLS0SUwlYe8cycqv8Ma6c3K3QhkX9s8-De)
 - [白啟光，2010，微積分（一）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=239)
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFu-5Hwp7kJcZYV1wIRFrmPI)
 - [白啟光，2010，微積分（二）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=240)
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFsuPk9qCYVBJhk61VNF-IFJ)
+<!--
 - 翁秉仁，2020，微積分乙，修訂版，國立臺灣大學出版中心。
   - [台大開放式課程連結](http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/103S121)
+-->
 - [台大微積分統一教學網](http://www.math.ntu.edu.tw/~calc/Default.html)
   - [歷屆考古題：微甲及模組班](http://www.math.ntu.edu.tw/~calc/cp_n_34456.html) 
 - [陽交大微積分教學小組](https://calculus.math.nycu.edu.tw/)
