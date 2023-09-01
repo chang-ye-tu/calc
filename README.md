@@ -2,7 +2,7 @@
 
 ## 教科書
 
-老師個人編纂講義：主要為以下參考書內容選輯。
+教師編纂講義：主要為以下參考書內容選輯。
 
 ## 參考書
 
@@ -41,10 +41,10 @@
   - [講義](http://www.math.ntu.edu.tw/~hchu/Calculus/) 
   - [播放清單](https://www.youtube.com/playlist?list=PL00519C11499F5D84)
 - [莊重，2014，微積分（一）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=490)
-  - [講義](http://ocw.nctu.edu.tw/course_detail-c.php?bgid=1&gid=1&nid=490&pid=1011)
+<!-- - [講義](http://ocw.nctu.edu.tw/course_detail-c.php?bgid=1&gid=1&nid=490&pid=1011) -->
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFtwDlDoBnbyhCfAa7JL52OG)
 - [莊重，2014，微積分（二）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=30&gid=0&nid=698)
-  - [講義](http://ocw.nctu.edu.tw/course_detail-c.php?bgid=30&gid=0&nid=698&pid=1100)
+<!-- - [講義](http://ocw.nctu.edu.tw/course_detail-c.php?bgid=30&gid=0&nid=698&pid=1100) -->
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFv-kcqx88N4wUk4oLU3fSOk)
 - [莊重，2006，微積分（一）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=9)
   - [播放清單](https://www.youtube.com/playlist?list=PL36601F252C5D7332)
