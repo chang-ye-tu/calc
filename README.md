@@ -13,18 +13,19 @@
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
   - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 
-<!--
-## 其他參考文獻
+## 其他可合法下載參考文獻
 
 - [顏國勇，2015，微積分學，電子書 2.2 版。](https://www.math.ncku.edu.tw/~library/e-book/Calculus2015B.pdf)
 - [顏國勇，2014，新微積分演習，電子書 2 版。](https://www.math.ncku.edu.tw/~library/e-book/NewCalEx2.pdf)
 - [黃文璋，2010，微積分講義。](https://www.stat.nuk.edu.tw/huangwj/book/calculus.pdf)
+- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
+- [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
+
+<!--
 - [Courant R., John F., 1989. Introduction to Calculus and Analysis I. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-58604-0)
 - [Courant R., John F., 1989. Introduction to Calculus and Analysis II/1. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-57149-7)
 - [Lang, S., 1986. A First Course in Calculus. 5th ed, Springer-Verlag, NY.]( https://link.springer.com/book/10.1007/978-1-4419-8532-3 )
 - [Lang, S., 1987. Calculus of Several Variables. 3rd ed, Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4612-1068-9) 
-- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
-- [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
 - Adams, R. A., Essex, C., 2018. Calculus: A Complete Course. 9th ed., Pearson, Boston.
 - Hass, J. R., Heil, C. E., Weir, M. D., Bogacki, P., 2023. Thomas' Calculus: Early Transcendentals. 15th ed., Pearson, Boston.
 - Stewart, J. E., Clegg, D. K., Watson, S., 2021. Calculus: Early Transcendentals. 9th ed., Cengage, Boston.
