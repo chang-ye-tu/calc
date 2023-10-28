@@ -8,10 +8,12 @@
 
 - [CLP Calculus Textbooks.](https://personal.math.ubc.ca/~CLP/) &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP1/">CLP1</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP2/">CLP2</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP3/">CLP3</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP4/">CLP4</a>
 - [CLP Calculus Problem Books.](https://personal.math.ubc.ca/~CLP/) &nbsp;重排版（題目緊接詳解，方便閱讀）<br>&nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_1_dc_problems.pdf">CLP1</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_2_ic_problems.pdf">CLP2</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_3_mc_problems.pdf">CLP3</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_4_vc_problems.pdf">CLP4</a>
+<!--
 - [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
   - [Calculus Notes.](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,N)
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
   - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
+-->
 
 ## 其他可合法下載參考文獻
 
