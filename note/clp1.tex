@@ -1,0 +1,4230 @@
+\graphicspath{{./figures/basic/}}
+\chapter{The Basics}
+\label{chap basics}
+\section{Numbers}\label{sec_0_1}
+\begin{itemize}
+\item Natural numbers $\mathbb{N}$
+\begin{itemize}
+\item $1$, $2$, $3$, $\dots$
+\item No $0$ !
+\item $\mathbb{N}$ is \emph{closed} under addition and multiplication
+\item Prime numbers
+\begin{itemize}
+\item When the only natural numbers that divide it exactly are 1 and itself
+\item Unique factorization of integer
+\item 1 is not prime: otherwise $1\times2\times 3$ and $2\times 3$ are different factorizations
+\end{itemize}
+\item Composite numbers --- a natural number is composite when it is not prime
+\item Ex. $7$ is prime, but $6 = 3\times 2$ is composite
+\end{itemize}
+\item Integers $\mathbb{Z}$
+\begin{itemize}
+\item all positive and negative numbers together with the number zero
+\item $\mathbb{Z}$ is closed under addition, subtraction and multiplication, but not division
+\item
+\begin{itemize}
+\item Even numbers %--- an integer is even if it is exactly divisible by $2$, or equivalently if it can be written as the product of 2 and another integer. This means that $-14, 6$ and $0$ are all even.
+\item Odd numbers %--- an integer is odd when it is not even. Equivalently it can be written as $2k+1$ where $k$ is another integer. Thus $11 = 2\times 5+1$ and $-7 = 2\times(-4)+1$ are both odd.
+\end{itemize}
+\end{itemize}
+\item Rational numbers $\mathbb{Q}$
+\begin{itemize}
+\item Any rational number $r$ can be written as $\frac{p}{q}$ where $p,q$ are integers
+\item $\mathbb{Q}$ is closed under addition, subtraction, multiplication and division
+\end{itemize}
+\item Real numbers $\mathbb{R}$
+\begin{itemize}
+\item Numbers that can be written as decimal expansions
+\item $\sqrt{2}$, $\pi$, $e$ (the most important constant in calculus)
+\item Fact: between any two real numbers one can always find a rational number
+\item $\mathbb{Q}$ is \emph{dense} in $\mathbb{R}$
+\end{itemize}
+\end{itemize}
+\begin{defn}[Sets of numbers]\label{def_0_1_1}
+\begin{itemize}
+\item $\mathbb{N} = $ the natural numbers
+\item $\mathbb{Z} = $ the integers
+\item $\mathbb{Q} = $ the rationals
+\item $\mathbb{R} = $ the reals
+\end{itemize}
+\end{defn}
+\subsection*{More on Real Numbers}
+\begin{itemize}
+\item Schemes of period:
+\begin{align*}
+\frac{2}{15} &= 0.133333333\dots \\
+\frac{5}{17} &=
+0.\underline{
+2941176470588235}2941176470588235\underline{2941176470588235}
+294117647058823\dots
+\end{align*}
+\item Proof of $1.0000000000\dots = 0.9999999999\dots$
+\begin{itemize}
+\item let $q = 0.9999999999\dots$, then $10q = 9.9999999999\dots$
+\item Subtraction: $9q = 9.0000000000\dots$, so $q = 1.0000000000\dots$
+\end{itemize}
+\item Only those whose denominators are products of 2s and 5s
+\begin{align*}
+\frac{3}{25} &= 0.1200000\dots = 0.119999999\dots\\
+-\frac{7}{32} &= -0.2187500000\dots = -0.2187499999\dots\\
+\frac{9}{20} &= 0.45000000\dots = 0.4499999\dots
+\end{align*}
+\end{itemize}
+\begin{theorem}\label{thm_0_1_1}
+Let $x\in\mathbb{R}$. Then either % $x$ must fall into one of the following two categories:
+\begin{itemize}
+\item $x$ has a unique decimal expansion
+\item $x$ is a rational number of the form $\frac{a}{2^k 5^\ell}$ where $a\in\mathbb{Z}$ and $k,l$ are non-negative integers.
+\end{itemize}
+In the second case, $x$ has exactly two expansions, one that ends in an infinite string of 9's and the other ending in an infinite string of 0's.
+\end{theorem}
+\section{Sets}\label{sec sets}
+\begin{defn}[A not-so-formal definition of set]\label{def_0_2_1}
+A ``set'' is a collection of distinct objects. The objects are referred to as ``elements'' or ``members'' of the set.
+\end{defn}
+\begin{itemize}
+\item Capital letters $A, B, C, X, Y$ denote sets
+\item Lowercase letters $a, b, c, x, y$ denote set elements
+\item $i, j, k, l, m, n$ denote $\mathbb{Z}$ (e.g. $1,2,3,-5,18,\dots$)
+\item $x, y, z, w$ denote $\mathbb{R}$ (e.g. $1.4323, \pi, \sqrt{2}, 6.0221415\times 10^{23} \dots$)
+\item
+\begin{align*}
+\text{``$4 \in A$''}
+&&& \text{is read as} && \text{``Four is an element of  $A$.''} \\
+\text{``$3 \notin A$''}
+&&& \text{is read as} &&  \text{``Three is not an element of $A$.''}
+\end{align*}
+\item ``Let $C = \{1,2,3\}$.''. $C = \{1,2,3\} = \{2,1,3\} = \{3,2,1\}$
+\end{itemize}
+\section{Other Important Sets}\label{sec_0_3}
+\begin{defn}[Empty set]\label{def_0_3_1}
+The empty set (or null set or void set) is the set which contains no elements.
+It is denoted $\es$. For any object $x$, we always have $x \notin \es$; hence $\es = \{ \}$.
+\end{defn}
+\begin{align*}
+S &= \{x \st x = k^2 \mbox{ where } k \in \mathbb{Z} \}
+\end{align*}
+\begin{align*}
+P &= \{ p \st p \mbox{ is prime} \} = \{ p \,|\, p \mbox{ is prime} \}
+\end{align*}
+\begin{eg}[examples of sets]\label{eg_0_3_1}
+\begin{itemize}
+\item Let $A = \{2,3,5,7,11,13,17,19\}$ and let
+\begin{align*}
+B &= \{ a \in A | a<8\} = \{2,3,5,7\}
+\end{align*}
+the set of elements of $A$ that are strictly less than 8.
+\item Even and odd integers
+\begin{align*}
+E &= \{ n | n \mbox{ is an even integer} \} \\
+&= \{n | n =2k \mbox{ for some $k \in \mathbb{Z}$} \} \\
+&= \{2n | n \in \mathbb{Z}\},
+\end{align*}
+\begin{align*}
+O &= \{ n | n \mbox{ is an odd integer} \} \\
+&= \{2n+1 | n \in \mathbb{Z}\}.
+\end{align*}
+\item Square integers
+\begin{align*}
+S &= \{n^2 | n \in \mathbb{Z}\}.
+\end{align*}
+\end{itemize}
+\end{eg}
+\begin{defn}\label{def_0_3_2}
+Let $A$ and $B$ be sets.
+\begin{itemize}
+\item ``$A$ is a subset of $B$'' if every element of $A$ is also an element of $B$, denoted by $A \subseteq B$ (or $B \supseteq A$)
+\item If $A$ is a subset of $B$, $A$ and $B$ are not the same, then that there is some element of $B$ that is not in $A$. We say that $A$ is a proper subset of $B$, denoted by $A \subset B$ (or $B \supset A$)
+\end{itemize}
+\end{defn}
+\begin{itemize}
+\item Always: $\es\subseteq A$
+\item $A \not\subseteq B$: $A$ is not a subset of $B$ --- $\exists a\in A$, $a\notin B$
+\end{itemize}
+\stepcounter{theorem}
+\begin{defn}[Open and closed intervals of $\mathbb{R}$]\label{def intervals}
+Let $a, b \in \mathbb{R}$ such that $a<b$.
+\begin{align*}
+(a,b] &= \{ x \in \mathbb{R} : a < x \leqslant b\}
+& [a,b) &= \{ x \in \mathbb{R} : a \leqslant x < b\} \\
+[a, \infty) &= \{ x \in \mathbb{R} : a \leqslant x \}
+& (a, \infty) &= \{ x \in \mathbb{R} : a < x \} \\
+(-\infty, b] &= \{ x \in \mathbb{R} : x \leqslant b \}
+& (-\infty, b) &= \{ x \in \mathbb{R} : x < b \}
+\end{align*}
+\end{defn}
+\begin{defn}\label{def_0_3_3}
+\begin{align*}
+A \cup B &= \{x | x\in A \mbox{ or } x \in B \}
+\end{align*}
+\end{defn}
+\begin{defn}\label{def_0_3_4}
+\begin{align*}
+A \cap B &= \{ x \;|\; x\in A \mbox{ and } x \in B \}
+\end{align*}
+\end{defn}
+\begin{eg}[Union and intersection]\label{eg_0_3_3}
+Let $A = \{1,2,3,4 \}$, $B = \{p : p \mbox{ is prime} \}$,
+$C = \{5,7,9\}$ and $D = \{\mbox{even positive integers}\}$. Then
+\begin{align*}
+A \cap B &= \{2,3\} \\
+B \cap D &= \{2 \} \\
+A \cup C &= \{1,2,3,4,5,7,9\} \\
+A \cap C &= \es
+\end{align*}
+\end{eg}
+\section{Functions}\label{sec_0_4}
+\begin{itemize}
+\item Previously: ``formula based'' function
+\begin{align*}
+y = f(x) &= 3x-7
+\end{align*}
+\item Modern: ``rule based'' function
+\begin{align*}
+A &= \set{\text{Sunday, Monday, Tuesday, Wednesday, Thursday, Friday,
+Saturday, Sunday}}\\
+B &= \set{\text{a,b,c,d,e,\dots,x,y,z}}
+\end{align*}
+\end{itemize}
+\begin{fig}
+\begin{center}
+\includegraphics[height=4cm]{days}
+\end{center}
+\end{fig}
+\begin{defn}\label{def function}
+Let $A, B$ be non-empty sets.
+\begin{itemize}
+\item A function $f$ from $A$ to $B$, is a rule or formula that takes elements of $A$ as inputs and returns elements of $B$ as outputs.
+\item We write this as
+\begin{align*}
+f: A \to B
+\end{align*}
+and if $f$ takes $a \in A$ as an input and returns $b\in B$ then we write this as $f(a) = b$.
+\item Every function must satisfy the following two conditions:
+\begin{itemize}
+\item The function must be defined on every possible input from $A$.
+\item The function is only allowed to return one result for each input.
+\end{itemize}
+\end{itemize}
+\end{defn}
+\begin{defn}\label{def_0_4_1}
+Let $f:A \to B$ be a function. %Then
+\begin{itemize}
+\item $A$: the ``domain'' of $f$; $A=\text{dom}(f)$. %the set $A$ of inputs to our function is the ``domain'' of $f$,
+\item $B$: the ``codomain'' of $f$; $B=\text{codom}(f)$. %the set $B$ which contains all the results is called the codomain,
+\item $\text{range}(f) \subseteq B$ and is defined by
+\begin{align*}
+\text{range}(f)=\{b\in B\;|\; \exists a\in A\;(f(a) = b)\}
+\end{align*}
+\end{itemize}
+\end{defn}
+\begin{eg}[domains and ranges]\label{eg_0_4_1}
+In ``days of the week'' function example
+\begin{itemize}
+\item The domain $A$ is the set of days of the week.
+\item The codomain $B$ is the 26 letters of the alphabet.
+\item The range is $\set{F,M,T,S,W}$ %--- no other elements of $B$ are images of inputs from $A$.
+\end{itemize}
+\end{eg}
+\begin{eg}[more domains and ranges]\label{eg_0_4_2}
+\begin{itemize}
+\item Let $g: \mathbb{R} \to \mathbb{R}$ be defined by $g(x) = x^2$. Then
+\begin{itemize}
+\item $\text{dom}(f) = \text{codom}(f) = \mathbb{R}$ %the domain and codomain are both $\mathbb{R}$ % the set of all real numbers, but
+\item $\text{range}(f) = [0, \infty)$.
+\end{itemize}
+\item Let $h:[0,\infty) \to [0,\infty)$ be defined by $h(x) = \sqrt{x}$. Then
+\begin{itemize}
+\item $\text{dom}(f) = \text{codom}(f) = [0, \infty)$ %the domain and codomain are both the set $[0,\infty)$, that is all non-negative real numbers, and
+\item $\text{range}(f) = [0, \infty) = \text{codom}(f)$ !
+\end{itemize}
+\end{itemize}
+\end{eg}
+\begin{eg}[piece-wise function]\label{eg piecewise}
+\begin{align*}
+V:[-1,1] \to \mathbb{R} && \text{defined by }
+V(t) &= \begin{cases}
+0 & \text{if } -1 \leq t < 0 \\
+120 & \text{if } 0 \leq t \leq 1
+\end{cases}
+\end{align*}
+$\text{dom}(f) = [-1, 1]$, $\text{codom}(f) = \mathbb{R}$, $\text{range}(f) = \{0, 120\}$.
+\end{eg}
+\stepcounter{section}
+\section{Inverse Functions}\label{sec inverse functions}
+\begin{align*}
+\text{input number $x$} \quad \mapsto \quad \text{$f$ does ``stuff'' to $x$} \quad \mapsto \quad \text{return number $y$} \\
+\text{take output $y$} \quad \mapsto \quad \text{do ``stuff'' to $y$} \quad \mapsto \quad \text{return the original $x$}
+\end{align*}
+\begin{fig}\label{fig inv1}
+\begin{center}
+\includegraphics[height=5cm]{inv1}
+\end{center}
+\end{fig}
+\begin{defn}\label{def_0_6_1}
+A function $f$ is one-to-one (injective) %when it never takes the same $y$ value more than once. That is
+\begin{align*}
+\mbox{if } x_1 \neq x_2 \mbox{ then } f(x_1) \neq f(x_2)
+\end{align*}
+\end{defn}
+\begin{defn}[Horizontal line test]\label{def_0_6_2}
+A function is one-to-one if and only if no horizontal line $y=c$ intersects the graph $y=f(x)$ more than once.
+\end{defn}
+\begin{fig}
+\begin{center}
+\includegraphics[height=3.5cm]{inv1A}
+\end{center}
+\end{fig}
+\begin{defn}\label{def inv func}
+Let $f$ be a one-to-one function with domain $A$ and range $B$. Then its inverse
+function is denoted $f^{-1}$ and has domain $B$ and range $A$. It is defined by
+\begin{align*}
+f^{-1}(y) &= x & \text{ whenever }&& f(x)&=y
+\end{align*}
+$\forall\,y\in B$.
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{inv2}
+\end{center}
+\end{efig}
+\end{defn}
+\begin{align*}
+f^{-1}( f(x) ) &= x  &\mbox{ $\forall\,x\in A$}\\
+f( f^{-1}(y) )&=y &\mbox{ $\forall\,y\in B$}
+\end{align*}
+\begin{eg}\label{eg_0_6_1}
+Let $f(x)=x^5+3$ on domain $\mathbb{R}$. Find its inverse: %we do the following
+\begin{itemize}
+\item Write $y=f(x)$; that is $y=x^5+3$.
+\item Solve for $x$ in terms of $y$ (this is not always easy) --- $x^5=y-3$, so $x=(y-3)^{1/5}$.
+\item The solution is $f^{-1}(y) = (y-3)^{1/5}$.
+\item That is $f^{-1}(x) = (x-3)^{1/5}$.
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg_0_6_2}
+Let $g(x) = \sqrt{x-1}$ on domain $x\geqslant 1$. Find its inverse:%We can find the inverse in the same way:
+\begin{align*}
+y &= \sqrt{x-1} \\
+y^2 &= x-1 \\
+x &= y^2+1 = f^{-1}(y) & \text{or, writing input variable as ``$x$'':} \\
+f^{-1}(x) &= x^2+1.
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_0_6_3}
+\begin{wfig}
+\begin{center}
+\includegraphics[height=4cm]{inv2B}
+\end{center}
+\end{wfig}
+\end{eg}
+\begin{equation*}
+Y=f^{-1}(X)  \iff f(Y)=X
+\end{equation*}
+\begin{wfig}
+\begin{center}
+\includegraphics{fInvR}
+\end{center}
+\end{wfig}
+\begin{eg}\label{eg:INVlogbaseten}
+\begin{wfig}
+\begin{center}
+\includegraphics{fInvSqA}
+\end{center}
+\end{wfig}
+\end{eg}
+\graphicspath{{./figures/limits/}}
+\chapter{Limits}\label{chap limits}
+\stepcounter{section}
+\stepcounter{section}
+\section{The Limit of a Function}\label{sec lim func}
+\begin{notn}\label{ntn_1_3_1}
+\begin{align*}
+\lim_{x \to a} f(x) = L
+\end{align*}
+\begin{quote}
+The limit of $f(x)$ as $x$ approaches $a$ is $L$.
+\end{quote}
+\begin{align*}
+f(x) \to L \mbox{ as } x \to a
+\end{align*}
+\begin{quote}
+$f(x)$ goes to $L$ as $x$ goes to $a$
+\end{quote}
+\end{notn}
+\begin{eg}\label{eg_1_3_1}
+\begin{align*}
+f(x) &=
+\begin{cases}
+2x & x<3 \\
+9  & x=3 \\
+2x & x>3
+\end{cases}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics[height=35mm]{piecewise1}
+\end{center}
+\end{efig}
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$x$ & 2.9 & 2.99 & 2.999 & $\circ$ & 3.001 & 3.01 & 3.1\\
+\hline
+$f(x)$ & 5.8 & 5.98 & 5.998 & $\circ$ & 6.002 & 6.02 & 6.2\\
+\hline
+\end{tabular}
+\end{center}
+\begin{align*}
+\lim_{x \to 3} f(x) &= 6
+\end{align*}
+\end{eg}
+\begin{defn}[Informal definition of limit]\label{def_1_3_1}
+We write
+\begin{align*}
+\lim_{x \to a} f(x) &= L
+\end{align*}
+when $f(x)$ gets closer and closer to $L$ as $x$ gets closer and closer to $a$, without being exactly $a$.
+\end{defn}
+\begin{eg}\label{eg_1_3_2}
+\begin{align*}
+\lim_{x \to 2} \frac{x-2}{x^2+x-6} &= ?%\text{ what?}
+\end{align*}
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
+\hline
+$f(x)$ & 0.20408 & 0.20040 &0.20004 & $\circ$ & 0.19996 & 0.19960 & 0.19608 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{align*}
+\lim_{x \to 2} \frac{x-2}{x^2+x-6} &= 0.2
+\end{align*}
+\end{eg}
+\begin{eg}[A bad example]\label{eg sinpix}
+Consider $f(x) = \sin( \pi /x )$. Find the limit as $x \to 0$ of $f(x)$.
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{lim2}
+\end{center}
+\end{efig}
+\begin{align*}
+\lim_{x\to 0} \sin \left(\frac{\pi}{x}\right) \text{ does not exist}
+\end{align*}
+\begin{align*}
+\lim_{x\to 0} \sin \left(\frac{\pi}{x}\right) &= \text{DNE}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_1_3_3}
+\begin{align*}
+f(x) &= \begin{cases}
+x & x<2 \\
+-1 & x=2 \\
+x+3 & x>2
+\end{cases}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{lim1}
+\end{center}
+\end{efig}
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
+\hline
+$f(x)$ & 1.9 & 1.99 & 1.999 & $\circ$ & 5.001 & 5.01 & 5.1 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{align*}
+\lim_{x \to 2} f(x) &= \text{DNE}
+\end{align*}
+\end{eg}
+\begin{defn}[Informal definition of one-sided limits]\label{def informal onesided limits}
+\begin{itemize}
+\item (left-hand limit, limit from below) We write
+\begin{align*}
+\lim_{x \to a^-} f(x) &= L
+\end{align*}
+when $f(x)$ gets closer and closer to $L$ whenever $x<a$ and $x$ moves closer and closer to $a$.
+\item (right-hand limit, limit from above) We write
+\begin{align*}
+\lim_{x \to a^+} f(x) &= R
+\end{align*}
+when $f(x)$ gets closer and closer to $R$ whenever $x>a$ and $x$ moves closer and closer to $a$.
+\end{itemize}
+\end{defn}
+\begin{align*}
+\lim_{x \to a^+} f(x) &= \lim_{x \to a+} f(x) = \lim_{x \downarrow a} f(x) = \lim_{x \searrow a} f(x) = R & \text{right-hand limit}\\
+\lim_{x \to a^-} f(x) &= \lim_{x \to a-} f(x) = \lim_{x \uparrow a} f(x) = \lim_{x \nearrow a} f(x) = L & \text{left-hand limit}
+\end{align*}
+\begin{theorem}[Limits and one sided limits]\label{thm_1_3_1}
+\begin{align*}
+\lim_{x \to a} f(x) = L && \mbox{ if and only if } && \lim_{x \to a^-} f(x) = L \mbox{ and } \lim_{x \to a^+} f(x) = L
+\end{align*}
+\end{theorem}
+\begin{eg}\label{eg_1_3_4}
+Find the one-sided limits and limits of the followings:
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{lim3}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item Function on the left --- $f(x)$:
+\begin{align*}
+\lim_{x \to 1^-} f(x) &= 2 & \lim_{x \to 1^+} f(x) &= 2
+\end{align*}
+\begin{align*}
+\lim_{x \to 1} f(x) &= 2
+\end{align*}
+\item Function on the right --- $g(t)$:
+\begin{align*}
+\lim_{t \to 1^-} g(t) &= 2 & \lim_{t \to 1^+} g(t) &= -2
+\end{align*}
+\begin{align*}
+\lim_{t \to 1} g(t) &= \text{DNE}
+\end{align*}
+\end{itemize}
+\end{eg}
+\begin{fig}\label{fig inf limits}
+\begin{center}
+\includegraphics[width=\textwidth]{lim4}
+\end{center}
+\end{fig}
+\begin{defn}\label{def lim is inf informal}
+\begin{itemize}
+\item We write
+\begin{align*}
+\lim_{x \to a} f(x) = + \infty
+\end{align*}
+when $f(x)$ becomes arbitrarily large and positive as $x$ gets closer and closer to $a$, without being exactly $a$.
+\item We write
+\begin{align*}
+\lim_{x \to a} f(x) = - \infty
+\end{align*}
+when $f(x)$ becomes arbitrarily large and negative as $x$ gets closer and closer to $a$, without being exactly $a$.
+\end{itemize}
+\end{defn}
+\begin{itemize}
+\item function~1
+\begin{align*}
+\lim_{x\to a^-} f(x) &= +\infty & \lim_{x\to a^+} f(x) &= +\infty
+\end{align*}
+\item function~2
+\begin{align*}
+\lim_{x\to a^-} f(x) &= -\infty & \lim_{x\to a^+} f(x) &= -\infty
+\end{align*}
+\end{itemize}
+\begin{align*}
+\lim_{x \to 0} \frac{1}{x^2} &= +\infty & \lim_{x \to 0} -\frac{1}{x^2} &= -\infty
+\end{align*}
+\begin{defn}\label{def onesidedlim is inf informal}
+\begin{itemize}
+\item We write
+\begin{align*}
+\lim_{x \to a^+} f(x) = + \infty
+\end{align*}
+when $f(x)$ becomes arbitrarily large and positive as $x$ gets closer and closer to $a$ from above, without being exactly $a$.
+\item We write
+\begin{align*}
+\lim_{x \to a^+} f(x) = - \infty
+\end{align*}
+when $f(x)$ becomes arbitrarily large and negative as $x$ gets closer and closer to $a$ from above, without being exactly $a$.
+\item The notation
+\begin{align*}
+\lim_{x \to a^-} f(x) &= + \infty & \lim_{x \to a^-} f(x) &= - \infty
+\end{align*}
+has a similar meaning except that limits are approached from below / from the left.
+\end{itemize}
+\end{defn}
+\begin{itemize}
+\item function~3
+\begin{align*}
+\lim_{x\to a^-} f(x) &= +\infty & \lim_{x\to a^+} f(x) &= \text{some positive number}
+\end{align*}
+\item function~4
+\begin{align*}
+\lim_{x\to a^-} f(x) &= \text{some positive number} & \lim_{x\to a^+} f(x) &= -\infty
+\end{align*}
+\end{itemize}
+\begin{eg}\label{eg_1_3_5}
+\begin{align*}
+g(x) &= \frac{1}{\sin(x)}
+\end{align*}
+Find the one-sided limits of $g$ as $x\to\pi$.
+\begin{efig}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{sinx_1onx}
+\end{center}
+\end{efig}
+\begin{align*}
+\lim_{x \to \pi^-} \frac{1}{\sin(x)} &= +\infty & \lim_{x \to \pi^+} \frac{1}{\sin(x)} &= -\infty
+\end{align*}
+\end{eg}
+\section{Calculating Limits with Limit Laws}\label{sec_1_4}
+\begin{itemize}
+\item Elements of Functions:
+\begin{itemize}
+\item constants --- $c$
+\item monomials --- $x^n$
+\item trigonometric functions --- $\sin(x), \cos(x)$ and $\tan(x)$
+\end{itemize}
+\item Arithmetic:
+\begin{itemize}
+\item addition and subtraction --- $f(x)  = g(x) + h(x)$ and $f(x) = g(x) - h(x)$
+\item multiplication --- $f(x) = g(x) \cdot h(x)$
+\item division --- $f(x) = \frac{g(x)}{h(x)}$
+\item substitution --- $f(x) = g(h(x))$ --- a.k.a. the composition of $g$ with $h$.
+\end{itemize}
+\item Building up complicated functions from simpler pieces
+\item Computing complicated limits from simpler pieces
+\end{itemize}
+\begin{theorem}[Easiest limits]\label{thm_easy_lim}
+Let $a, c\in\mathbb{R}$, then
+\begin{align*}
+\lim_{x \to a} c & = c & \text{ and }&& \lim_{x \to a} x &= a.
+\end{align*}
+\end{theorem}
+\begin{theorem}[Arithmetic of limits]\label{thm arith lim}
+Let $a$, $c\in\mathbb{R}$, $f(x)$, $g(x)$ be defined for all $x$'s that lie in some interval about $a$ (but $f,g$ need not be defined exactly at $a$), and
+\begin{align*}
+\lim_{x \to a} f(x)&=F & \lim_{x \to a} g(x) &=G
+\end{align*}
+exist with $F,G \in \mathbb{R}$. Then
+\begin{itemize}
+\item $\ds \lim_{x \to a} (f(x) + g(x)) = F + G$ --- limit of the sum is the sum of the limits.
+\item $\ds \lim_{x \to a} (f(x) - g(x)) = F - G$ --- limit of the difference is the difference of the limits.
+\item $\ds \lim_{x \to a} c f(x) = c F$
+\item $\ds \lim_{x \to a} ( f(x) \cdot g(x) ) = F \cdot G$ --- limit of the product is the product of limits.
+\item If $G \neq 0$ then $\ds \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{F}{G}$ and, in particular, $\ds \lim_{x\rightarrow a}\frac{1}{g(x)}=\frac{1}{G}$.
+\end{itemize}
+\end{theorem}
+\begin{eg}\label{eg_1_4_1}
+Given $f$, $g$ (not explicitly) with
+\begin{align*}
+\lim_{x \to 1} f(x)&=3 && \text{and} & \lim_{x\to 1} g(x)&=2
+\end{align*}
+Using the above theorem we have
+\begin{align*}
+\lim_{x \to 1} 3f(x) &= 3 \times 3 = 9 \\
+\lim_{x \to 1} 3f(x) -g(x) &= 3\times 3 -2 = 7\\
+\lim_{x \to 1} f(x) g(x) &= 3\times 2 = 6\\
+\lim_{x \to 1} \frac{f(x)}{f(x) -g(x)} &= \frac{3}{3-2} = 3
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_1_4_2}
+Find $\ds\lim_{x \to 3} 4x^2-1$.
+\begin{align*}
+\lim_{x \to 3} 4x^2-1 &= \left( \lim_{x \to 3} 4x^2 \right) - \lim_{x \to 3} 1 & \text{difference of limits} \\
+&= \left(\lim_{x \to 3} 4  \cdot \lim_{x \to 3} x^2 \right) - \lim_{x \to 3} 1
+& \text{product of limits} \\
+&= 4 \cdot \left( \lim_{x \to 3} x^2 \right) -  1
+& \text{limit of constant} \\
+&= 4 \cdot \left( \lim_{x \to 3} x \right) \cdot \left( \lim_{x \to 3} x \right)-1
+& \text{product of limits} \\
+&= 4 \cdot 3 \cdot 3 - 1 & \text{limit of $x$} \\
+&= 36 - 1 \\
+&= 35
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_1_4_3}
+Find $\ds \lim_{x\to 2} \frac{x}{x-1}$.
+\begin{align*}
+\lim_{x \to 2} x & = 2 & \text{limit of $x$}
+\intertext{and now the denominator:}
+\lim_{x \to 2} x-1
+& = \left( \lim_{x \to 2} x \right) - \left( \lim_{x \to 2} 1 \right)
+& \text{difference of limits} \\
+& = 2 - 1
+& \text{limit of $x$ and limit of constant}
+& = 1
+\end{align*}
+Since the limit of the denominator is non-zero,
+\begin{align*}
+\lim_{x\to 2} \frac{x}{x-1} &= \frac{\ds \lim_{x\to 2} x}{\ds \lim_{x\to 2}(x-1)}  \\
+&= \frac{2}{1} \\
+&= 2
+\end{align*}
+\end{eg}
+\begin{eg}[Be careful with limits of ratios]\label{eg lim rat}
+\begin{align*}
+\lim_{x\to a}f(x) = F, \quad\lim_{x\to a}g(x) = G = 0\quad\Longrightarrow\quad\lim_{x\to a}\frac{f(x)}{g(x)} = \text{undetermined!}
+\end{align*}
+\begin{itemize}
+\item If $F\not=0$:
+\begin{itemize}
+\item the limit does not exist, eg. $\ds \lim_{x\to 0} \frac{1}{x} = \text{DNE}$.
+\item the limit is $\pm\infty$, eg. $\ds \lim_{x\to 0} \frac{\pm 1}{x^2} = +\infty$ or $\ds \lim_{x \to 0} \frac{-1}{x^2} = \lim_{x\to 0}\frac{-1}{x^2} = -\infty$.
+\end{itemize}
+\item If $F=0$:
+\begin{itemize}
+\item the limit does not exist, eg. $\ds \lim_{x \to 0} \frac{x}{x^2} = \lim_{x\to 0} \frac{1}{x} = \text{DNE}$
+\item the limit is $\pm \infty$, eg. $\ds \lim_{x \to 0} \frac{x^2}{x^4} = \lim_{x\to 0} \frac{1}{x^2} = +\infty$ or $\ds \lim_{x \to 0} \frac{-x^2}{x^4} = \lim_{x\to 0} \frac{-1}{x^2} = -\infty$.
+\item the limit is zero, eg. $\ds \lim_{x \to 0} \frac{x^2}{x} = 0$
+\item the limit exists and is non-zero, eg. $\ds \lim_{x \to 0} \frac{x}{x} = 1$
+\end{itemize}
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg_1_4_4}
+Find $\ds \lim_{x\to 2}\frac{2x-3}{x^2+5x-6}$.
+\begin{itemize}
+\item Numerator first:
+\begin{align*}
+\lim_{x \to 2} 2x-3
+&= \left( \lim_{x \to 2} 2x \right) - \left( \lim_{x \to 2} 3 \right)
+& \text{difference of limits} \\
+&= 2 \cdot \left( \lim_{x \to 2} x \right) -3
+& \text{product of limits and limit of constant} \\
+&= 2 \cdot 2 -3
+& \text{limits of $x$} \\
+&= 1
+\end{align*}
+\item Denominator next:
+\begin{align*}
+\lim_{x \to 2} x^2+5x-6
+&= \left( \lim_{x \to 2} x^2 \right) + \left( \lim_{x \to 2} 5x \right)
+- \left( \lim_{x \to 2} 6 \right)
+& \text{sum of limits} \\
+&= \left( \lim_{x \to 2} x \right)\cdot \left( \lim_{x \to 2} x \right)
++ 5 \cdot \left( \lim_{x \to 2} x \right) - 6
+& \text{product of limits and limit of constant} \\
+&= 2 \cdot 2 + 5 \cdot 2 - 6
+& \text{limits of $x$} \\
+&= 8
+\end{align*}
+\item Since the limit of the denominator is non-zero, we have
+\begin{align*}
+\lim_{x\to 2}\frac{2x-3}{x^2+5x-6} &= \frac{\ds \lim_{x\to 2} 2x-3}{\ds \lim_{x\to 2} x^2+5x-6} = \frac{1}{8}
+\end{align*}
+\end{itemize}
+Find $\ds \lim_{x\to 1}\frac{2x-3}{x^2+5x-6}$.
+\begin{itemize}
+\item Numerator first:
+\begin{align*}
+\lim_{x \to 1} 2x-3 &= 2 \cdot 1 - 3 = -1
+\end{align*}
+\item Denominator next:
+\begin{align*}
+\lim_{x \to 1} x^2 +5x-6 &= 1 \cdot 1 + 5 - 6 = 0
+\end{align*}
+\item Since the limit of the numerator is non-zero, while the limit of the denominator is zero, %the limit of the ratio does not exist.
+\begin{align*}
+\lim_{x\to 1}\frac{2x-3}{x^2+5x-6} = \text{DNE}
+\end{align*}
+\end{itemize}
+\end{eg}
+\begin{theorem}[More arithmetic of limits --- powers and roots]\label{thm lim powers}
+Let $n\in\mathbb{N}$, $a\in\mathbb{R}$, and function $f$ with
+\begin{align*}
+\lim_{x\to a} f(x) &= F
+\end{align*}
+for some $F\in\mathbb{R}$. Then %the following holds
+\begin{align*}
+\lim_{x\to a} \left(f(x) \right)^n = \left(\lim_{x\to a} f(x)\right)^n = F^n
+\end{align*}
+If
+\begin{itemize}
+\item $n$ is even and $F > 0$, or
+\item $n$ is odd
+\end{itemize}
+then
+\begin{align*}
+\lim_{x \to a} \left( f(x) \right)^{1/n} = \left(\lim_{x \to a} f(x) \right)^{1/n} = F^{1/n}
+\end{align*}
+If $F > 0$ and $p\in\mathbb{R}$,
+\begin{align*}
+\lim_{x \to a} \left( f(x) \right)^p = \left(\lim_{x \to a} f(x) \right)^p = F^p
+\end{align*}
+\end{theorem}
+\begin{itemize}
+\item Notice that we have to be careful when taking roots of limits that might be negative numbers.
+\item To see why, consider the case $n=2$, the limit
+\begin{align*}
+\lim_{x \to 4} x^{1/2} &= 4^{1/2} = 2 \\
+\lim_{x \to 4} (-x)^{1/2} &= (-4)^{1/2} = \text{not a real number}
+\end{align*}
+\end{itemize}
+\begin{eg}\label{eg_1_4_5}
+\begin{align*}
+\lim_{x \to 2} (4x^2-3)^{1/3} &=
+\left( (\lim_{x\to 2} 4x^2) - (\lim_{x \to 2} 3) \right)^{1/3} \\
+&= \left( 4 \cdot 2^2  - 3 \right)^{1/3}\\
+&= \left( 16-3 \right)^{1/3} \\
+&= 13^{1/3}
+\end{align*}
+\end{eg}
+\begin{theorem}[Limits of polynomials and rational functions]\label{thm_1_4_1}
+Let $a \in \mathbb{R}$, let $P(x)$ be a polynomial and let $R(x)$ be a rational function. Then
+\begin{align*}
+\lim_{x \to a} P(x) &= P(a)
+\end{align*}
+and provided $R(x)$ is defined at $x=a$ then
+\begin{align*}
+\lim_{x \to a} R(x) &= R(a)
+\end{align*}
+\end{theorem}
+\begin{align*}
+\begin{array}{rcccr}
+\ds\lim_{x \to 2} \frac{2x-3}{x^2+5x-6} &=& \ds \frac{4-3}{4+10-6} &=&
+\ds\frac{1}{8}\\[3ex]
+\ds\lim_{x\to 2} (4x^2-1) &=& 16-1 &=& 15 \\[1ex]
+\ds\lim_{x\to 2} \frac{x}{x-1} &=& \ds\frac{2}{2-1} &=& 2
+\end{array}
+\end{align*}
+\begin{eg}\label{eg zero cancel limit}
+Consider %the limit
+\begin{align*}
+\lim_{x \to 1} \frac{x^3-x^2}{x-1}.
+\end{align*}
+Compute %the limits of the numerator and denominator:
+\begin{align*}
+\lim_{x \to 1} x^3-x^2 &= 1-1 = 0 \\
+\lim_{x \to 1} x-1 &= 1-1 = 0
+\end{align*}
+the ratio is of the form $\frac{0}{0}$.
+Note that
+\begin{align*}
+\frac{x^3-x^2}{x-1} &= \frac{x^2(x-1)}{x-1} = x^2 & \text{ provided $x \neq 1$.}
+\end{align*}
+\begin{align*}
+\frac{x^3-x^2}{x-1} &= \begin{cases}
+x^2 & x \neq 1 \\
+\text{undefined } & x = 1
+\end{cases}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{rat1}
+\end{center}
+\end{efig}
+When we compute a limit as $x \to a$, the value of the function exactly at $x=a$ is irrelevant.
+We only care what happens to the function as we bring $x$ very close to $a$.
+So we can write
+\begin{align*}
+\frac{x^3-x^2}{x-1} &= x^2 & \text{when $x$ is close to $1$ but not at $x=1$}
+\end{align*}
+So the limit as $x \to 1$ of the function is the same as the limit $\ds \lim_{x\to 1} x^2$ since the functions are the same except exactly at $x=1$. By this reasoning we get
+\begin{align*}
+\lim_{x \to 1} \frac{x^3-x^2}{x-1} &= \lim_{x \to 1} x^2 = 1
+\end{align*}
+\end{eg}
+\begin{theorem}\label{thm_1_4_2}
+If $f(x) = g(x)$ except when $x=a$ then $\ds \lim_{x\to a} f(x) = \lim_{x\to a} g(x)$ provided the limit of $g$ exists.
+\end{theorem}
+\begin{eg}\label{eg easy 0on0 limit}
+Find
+\begin{align*}
+\lim_{h \to 0} \frac{(1+h)^2-1}{h}
+\end{align*}
+\begin{itemize}
+\item Note that %Thus we have a hint that there is a common factor that we might be able to
+\begin{align*}
+\frac{(1+h)^2-1}{h} &= \frac{1+2h+h^2-1}{h} & \text{expand} \\
+&= \frac{2h+h^2}{h} = \frac{h(2+h)}{h} & \text{factor and then cancel}\\
+&= 2+h
+\end{align*}
+\item So
+\begin{align*}
+\frac{(1+h)^2-1}{h}&=
+\begin{cases}
+2+h & h \neq 0\\
+\text{undefined} & h=0
+\end{cases}
+\end{align*}
+and by previous theorem
+\begin{align*}
+\lim_{h \to 0} \frac{(1+h)^2-1}{h}
+&= \lim_{h \to 0} 2+h \\
+&= 2
+\end{align*}
+\end{itemize}
+\end{eg}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\begin{eg}\label{eg zero cancel limit harder}
+Compute %the limit
+\begin{align*}
+\lim_{x \to 0} \frac{x}{\sqrt{1+x}-1}
+\end{align*}
+Naively
+\begin{align*}
+\lim_{x \to 0} x &= 0 \\
+\lim_{x \to 0} \sqrt{1+x}-1 &= \sqrt{ \lim_{x \to 0} 1+x}-1 = 1-1 =0
+\end{align*}
+in the $\frac{0}{0}$ form. A Trick:
+\begin{align*}
+\frac{x}{\sqrt{1+x}-1}
+&=\frac{x}{\sqrt{1+x}-1} \times \frac{\sqrt{1+x}+1}{\sqrt{1+x}+1}
+& \text{multiply by $\frac{\text{conjugate}}{\text{conjugate}}=1$} \\
+&=\frac{x \left( \sqrt{1+x}+1\right)}
+{\left(\sqrt{1+x}-1\right)\left(\sqrt{1+x}+1\right)}
+& \text{bring things together } \\
+&=\frac{x \left( \sqrt{1+x}+1\right)}
+{\left(\sqrt{1+x}\right)^2 - 1\cdot 1}
+& \text{since $(a-b)(a+b)=a^2-b^2$} \\
+&=\frac{x \left( \sqrt{1+x}+1\right)}
+{1+x - 1}
+& \text{clean up a little} \\
+&=\frac{x \left( \sqrt{1+x}+1\right)}{x} \\
+&= \sqrt{1+x}+1
+& \text{cancel the $x$} \\
+\end{align*}
+So now we have
+\begin{align*}
+\lim_{x \to 0} \frac{x}{\sqrt{1+x}-1} &= \lim_{x \to 0} \sqrt{1+x}+1 \\
+&= \sqrt{1+0}+1 = 2
+\end{align*}
+\end{eg}
+What is
+\begin{align*}
+\lim_{x \to 0} x^2 \sin(\pi/x) ?
+\end{align*}
+Try
+\begin{align*}
+\lim_{x \to 0} x^2 \sin(\pi/x)
+&=
+\left( \lim_{x \to 0} x^2 \right) \cdot \left( \lim_{x \to 0} \sin(\pi/x)
+\right)\\
+&= 0 \cdot \left( \lim_{x \to 0} \sin(\pi/x)  \right)\\
+& = 0
+\end{align*}
+But
+\begin{align*}
+\lim_{x \to 0} \sin(\pi/x) &= \text{DNE}
+\end{align*}
+\begin{fig}
+\begin{center}
+\includegraphics[width=\textwidth]{squeeze1}\\
+\end{center}
+\end{fig}
+Note that
+\begin{align*}
+-1 \leq \sin(\pi/x) \leq 1 && \text{provided $x \neq 0$}
+\end{align*}
+Multiply $x^2$ (because $x^2 \geq 0$)
+\begin{align*}
+-x^2 \leq x^2\sin(\pi/x) \leq x^2 && \text{provided $x \neq 0$}
+\end{align*}
+So the function we are interested in is \emph{squeezed} %or \emph{sandwiched}
+between $x^2$ and $-x^2$.
+\begin{theorem}[Squeeze theorem] %(or sandwich theorem or pinch theorem)]
+\label{thm squeeze}
+Let $a \in \mathbb{R}$ and let $f, g, h$ be functions s.t.%three functions so that
+\begin{align*}
+f(x) \leqslant g(x) \leqslant h(x)
+\end{align*}
+for all $x$ in an interval around $a$, except possibly at $x=a$. If
+\begin{align*}
+\lim_{x \to a} f(x) &= \lim_{x \to a} h(x) = L
+\end{align*}
+then %it is also the case that
+\begin{align*}
+\lim_{x \to a} g(x) &= L
+\end{align*}
+\end{theorem}
+\begin{eg}\label{eg_1_4_8}
+Compute the limit
+\begin{align*}
+\lim_{x \to 0} x^2 \sin(\pi/x)
+\end{align*}
+Since $-1 \leqslant\sin(\theta)\leqslant 1$ for $\theta\in\mathbb{R}$, we have
+\begin{align*}
+-1 \leqslant\sin(\pi /x )\leqslant 1 && \forall x\neq 0
+\end{align*}
+Multiplying %the above
+by $x^2$ %we see that
+\begin{align*}
+-x^2 \leqslant x^2 \sin(\pi /x ) \leqslant x^2 && \text{for all $x \neq 0$}
+\end{align*}
+Since $\ds \lim_{x \to 0} x^2 = \lim_{x \to 0} (-x^2) = 0$,  by the squeeze theorem%sandwich (or squeeze or pinch) theorem we have
+\begin{align*}
+\lim_{x \to 0} x^2 \sin(\pi/x) &= 0
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_1_4_9}
+Let $f(x)$ be a function such that $1\leqslant f(x) \leqslant x^2-2x+2$. What is $\ds \lim_{x \to 1} f(x)$?
+\begin{align*}
+\lim_{x \to 1} 1 &= 1 \\
+\lim_{x \to 1} x^2-2x+2 &= 1-2+2 = 1
+\end{align*}
+By the squeeze theorem,
+\begin{align*}
+\lim_{x\to 1} f(x) = 1
+\end{align*}
+\end{eg}
+\section{Limits at Infinity}\label{sec_1_5}
+\begin{defn}[Limits at infinity --- informal]\label{def_1_5_1}
+\begin{itemize}
+\item We write
+\begin{align*}
+\lim_{x \to \infty} f(x) &= L
+\end{align*}
+when $f(x)$ gets closer and closer to $L$ as we make $x$ larger and larger and positive.
+\item We write
+\begin{align*}
+\lim_{x \to -\infty} f(x) &= L
+\end{align*}
+when $f(x)$ gets closer and closer to $L$ as we make $x$ larger and larger and negative.
+\end{itemize}
+\end{defn}
+\begin{eg}\label{eg_1_5_1}
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{lim7}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{theorem}\label{thm basic lim inf}
+Given $c\in\mathbb{R}$,
+\begin{align*}
+\lim_{x \to \infty} c &= c & \lim_{x \to -\infty} c &= c \\
+\lim_{x \to \infty} \frac{1}{x} &= 0 & \lim_{x \to -\infty} \frac{1}{x} &= 0
+\end{align*}
+\end{theorem}
+\begin{theorem}[Arithmetic of limits at infinity]\label{thm_1_5_1}
+Given $f(x)$, $g(x)$ with
+\begin{align*}
+\lim_{x \to \infty} f(x)=F, \qquad\lim_{x \to \infty} g(x) = G,
+\end{align*}
+($F$, $G\in\mathbb{R}$). Then
+\begin{align*}
+\lim_{x \to \infty} f(x) \pm g(x) &= F \pm G \\
+\lim_{x \to \infty} f(x) g(x) &= F  G \\
+\lim_{x \to \infty} \frac{f(x)}{ g(x) } &= \frac{F}{G} & \text{provided $G \neq 0$}
+\intertext{and for $p\in\mathbb{R}$}
+\lim_{x \to \infty} f(x)^p &= F^p & \text{provided $F^p$ and $f(x)^p$ are defined for all $x$}
+\end{align*}
+The analogous results hold for limits to $-\infty$.
+\end{theorem}
+\begin{itemize}
+\item $\forall r\in\mathbb{Q}$ with $r > 0$,
+\begin{align*}
+\lim_{x \to \infty} \frac{1}{x^r} &= 0
+\end{align*}
+\item Be careful with
+\begin{align*}
+\lim_{x \to -\infty} \frac{1}{x^r} &= 0
+\end{align*}
+This is true only if the least denomiator of $r$ is not even!
+\item eg. $\ds \lim_{x \to \infty} \frac{1}{x^{1/2}} = 0$, but $\ds \lim_{x \to -\infty} \frac{1}{x^{1/2}}$ does not exist.%, because $x^{1/2}$ is not defined for $x<0$.
+\item On the other hand, $x^{4/3}$ is defined for negative values of $x$ and $\ds \lim_{x \to -\infty} \frac{1}{x^{4/3}} = 0$.
+\end{itemize}
+\begin{eg}\label{eg_1_5_2}
+Compute
+\begin{align*}
+\lim_{x \to \infty} \frac{x^2-3x+4}{3x^2+8x+1}
+\end{align*}
+As $x$ becomes very large, $x^2$ term will dominate:
+\begin{align*}
+\frac{x^2-3x+4}{3x^2+8x+1}
+&= \frac{x^2 \left(1-\frac{3}{x}+\frac{4}{x^2}\right)}
+{x^2 \left(3+\frac{8}{x}+\frac{1}{x^2} \right)}\\
+&= \frac{1-\frac{3}{x}+\frac{4}{x^2}}
+{3+\frac{8}{x}+\frac{1}{x^2}} & \text{ remove the common factors}
+\end{align*}
+so
+\begin{align*}
+\lim_{x \to \infty} \frac{x^2-3x+4}{3x^2+8x+1}
+&= \lim_{x \to \infty} \frac{1-\frac{3}{x}+\frac{4}{x^2}}
+{3+\frac{8}{x}+\frac{1}{x^2}}\\
+&= \frac{\ds \lim_{x \to \infty}\left(1-\frac{3}{x}+\frac{4}{x^2}\right)}
+{\ds \lim_{x \to \infty}\left(3+\frac{8}{x}+\frac{1}{x^2} \right)}
+& \text{arithmetic of limits} \\
+&= \frac{\ds \lim_{x \to \infty} 1
+- \lim_{x \to \infty} \frac{3}{x} + \lim_{x \to \infty} \frac{4}{x^2}}
+{\ds \lim_{x \to \infty} 3
++ \lim_{x \to \infty} \frac{8}{x}+ \lim_{x \to \infty} \frac{1}{x^2} }
+& \text{more arithmetic of limits} \\
+&= \frac{1+0+0}{3+0+0}  = \frac{1}{3}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg lim tricky}
+Find %the limit as
+$$\lim_{x \to \infty}\frac{\sqrt{4x^2+1}}{5x-1}$$
+\begin{align*}
+\sqrt{4x^2+1} &= \sqrt{x^2 (4+1/x^2)} = \sqrt{x^2} \sqrt{4+1/x^2} = x\sqrt{4+1/x^2}.
+\end{align*}
+\begin{align*}
+\lim_{x \to \infty} \frac{\sqrt{4x^2+1}}{5x-1}
+&= \lim_{x \to \infty} \frac{x \sqrt{4+1/x^2}}{x(5-1/x)}\\
+&= \lim_{x \to \infty} \frac{\sqrt{4+1/x^2}}{5-1/x} \\
+&= \frac{2}{5}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg lim tricky part2}
+Find $$\lim_{x \to -\infty}\frac{\sqrt{4x^2+1}}{5x-1}$$
+Think of $x$ as a large negative number:
+\begin{align*}
+\sqrt{4x^2+1} &= \sqrt{x^2 (4+1/x^2)} = \sqrt{x^2} \sqrt{4+1/x^2} = |x|\sqrt{4 + 1/x^2} = -x\sqrt{4+1/x^2}.
+\end{align*}
+\begin{align*}
+\lim_{x \to \infty} \frac{\sqrt{4x^2+1}}{5x-1}
+&= \lim_{x \to \infty} \frac{-x\sqrt{4+1/x^2}}{x(5-1/x)}\\
+&= \lim_{x \to \infty} \frac{-\sqrt{4+1/x^2}}{5-1/x} \\
+&= -\frac{2}{5}
+\end{align*}
+\end{eg}
+\begin{fig}
+\begin{center}
+\includegraphics[height=4cm]{neg_inf_lim}
+\end{center}
+\end{fig}
+\begin{eg}\label{eg_1_5_3}
+Find
+\begin{align*}
+\lim_{x \to \infty} \left( x^{7/5}-x \right)
+\end{align*}
+Naively
+\begin{align*}
+\lim_{x \to \infty} \left( x^{7/5}-x \right)
+&= \left( \lim_{x \to \infty} x^{7/5}\right)
+- \left( \lim_{x \to \infty} x \right) \\
+&= \infty -\infty
+\end{align*}
+When $x\gg 1$, $x^{7/5} = x\cdot x^{2/5}\gg x$, so $x^{7/5}$ dominate $x$
+\begin{align*}
+x^{7/5}-x &= x^{7/5} \left(1 - \frac{1}{x^{2/5}} \right)
+\end{align*}
+\begin{align*}
+\lim_{x \to \infty} x^{7/5} = + \infty,\quad\lim_{x \to \infty} (1-x^{-2/5}) = \lim_{x \to \infty} 1 - \lim_{x\to\infty} x^{-2/5} = 1-0 = 1
+\end{align*}
+so
+\begin{align*}
+\lim_{x \to \infty} x^{7/5} \left(1 - 1/x^{2/5} \right) &= + \infty
+\end{align*}
+\end{eg}
+\begin{theorem}[Arithmetic of infinite limits]
+\label{thm arith inf lim}
+Let $a,c,H \in \mathbb{R}$ and let $f,g,h$ be functions defined in
+an interval around $a$ (but they need not be defined at $x=a$), so that
+\begin{align*}
+\lim_{x \to a} f(x) &= +\infty &
+\lim_{x \to a} g(x) &= +\infty &
+\lim_{x \to a} h(x) &= H
+\end{align*}
+Then
+\begin{itemize}
+\item $\ds \lim_{x \to a} ( f(x) + g(x) ) = +\infty$
+\item $\ds \lim_{x \to a} ( f(x) + h(x) ) = +\infty$
+\item $\ds \lim_{x \to a} ( f(x) - g(x) )$ undetermined
+\item $\ds \lim_{x \to a} ( f(x) - h(x) ) = +\infty$
+\item $\ds \lim_{x \to a} c f(x) =
+\begin{cases}
++\infty & c>0 \\
+-\infty & c<0 \\
+0       & c=0
+\end{cases}$
+\item $\ds \lim_{x \to a} ( f(x) \cdot g(x) ) = +\infty$.
+\item $\ds \lim_{x \to a} f(x) h(x) =
+\begin{cases}
++\infty & H>0 \\
+-\infty & H<0\\
+\text{undetermined} & H=0
+\end{cases}
+$
+\item $\ds \lim_{x \to a} \frac{f(x)}{g(x)}$ undetermined
+\item $\ds \lim_{x \to a} \frac{f(x)}{h(x)} =
+\begin{cases}
++\infty & H>0 \\
+-\infty & H<0\\
+\text{undetermined} & H=0
+\end{cases}$
+\item $\ds \lim_{x \to a} \frac{h(x)}{f(x)} = 0$
+\item $\ds \lim_{x \to a} f(x)^p =
+\begin{cases}
++\infty & p>0 \\
+0 & p<0\\
+1 & p=0
+\end{cases}$
+\end{itemize}
+\end{theorem}
+\begin{itemize}
+\item Examples of
+\begin{align*}
+\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} h(x) = 0\quad\Longrightarrow\quad\lim_{x \to 0} f(x) h(x) = \text{undetermined}
+\end{align*}
+Take $f(x) = \frac{1}{x^4}$, $h(x) = x^2,\,x^3,\,x^4,\,x^5$, then
+\begin{align*}
+\lim_{x \to 0} f(x) h(x) =
+\begin{cases}
+\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^2 = \lim_{x \to 0} \frac{1}{x^2} = +\infty \\
+\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^3 = \lim_{x \to 0} \frac{1}{x} = \text{DNE}\\
+\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^4 = \lim_{x \to 0} 1 = 1                   \\
+\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^5 = \lim_{x \to 0} x = 0                   \\
+\end{cases}
+\end{align*}
+\end{itemize}
+\begin{itemize}
+\item Examples of
+\begin{align*}
+\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} g(x) = +\infty\quad\Longrightarrow\quad\lim_{x \to 0} \frac{f(x)}{g(x)} = \text{undetermined}
+\end{align*}
+Take $f(x) = \frac{1}{x^4}$, $g(x) = \frac{1}{x^6},\,\frac{1}{x^4},\,\frac{1}{x^2}$, then
+\begin{align*}
+\lim_{x \to 0} \frac{f(x)}{g(x)} = \begin{cases}
+\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^6}} = \lim_{x \to 0} x^2 = 0 \\
+\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^4}} = \lim_{x \to 0} 1 = 1 \\
+\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^2}} = \lim_{x \to 0} \frac{1}{x^2} = +\infty
+\end{cases}
+\end{align*}
+\end{itemize}
+\begin{eg}\label{eg_1_5_4}
+Consider the following 3 functions:
+\begin{align*}
+f(x)&=x^{-2} & g(x)&=2x^{-2} &h(x)&=x^{-2}-1. \\
+\intertext{Their limits as $x \to 0$ are:}
+\lim_{x\to0} f(x) &= +\infty &
+\lim_{x\to0} g(x) &= +\infty &
+\lim_{x\to0} h(x) &= +\infty.
+\end{align*}
+But
+\begin{align*}
+\lim_{x\to0} \left( f(x)-g(x) \right) &= \lim_{x\to0} -x^{-2} = -\infty \\
+\lim_{x\to0} \left( f(x)-h(x) \right) &= \lim_{x\to0} 1 = 1 \\
+\lim_{x\to0} \left( g(x)-h(x) \right) &= \lim_{x\to0} x^{-2}+1 = +\infty
+\end{align*}
+\end{eg}
+\section{Continuity}\label{sec_1_6}
+\begin{defn}\label{def_1_6_1}
+A function $f(x)$ is continuous at $a$ if
+\begin{align*}
+\lim_{x \to a} f(x) &= f(a).
+\end{align*}
+\begin{itemize}
+\item $f$ is not continuous / discontinuous at $a$
+\item $f$ is continuous: $f$ is continuous at $a$ for all $a \in \mathbb{R}$
+\item $f(x)$ is continuous on $(a,b)$: $f$ is continuous $\forall c$ where $a < c <b$
+\end{itemize}
+\end{defn}
+$f$ is continuous at $a$ then
+\begin{itemize}
+\item $f(a)$ exists
+\item $\ds \lim_{x \to a^-}$ exists and is equal to $f(a)$, and
+\item $\ds \lim_{x \to a^+}$ exists and is equal to $f(a)$.
+\end{itemize}
+\begin{defn}\label{def_1_6_2}
+$f(x)$ is continuous \emph{from the right} at $a$ if
+\begin{align*}
+\lim_{x\to a^+} f(x) &= f(a).
+\end{align*}
+$f(x)$ is continuous \emph{from the left} at $a$ if
+\begin{align*}
+\lim_{x\to a^-} f(x) &= f(a)
+\end{align*}
+\end{defn}
+\begin{defn}\label{def_1_6_3}
+$f(x)$ is continuous on $[a,b]$ when
+\begin{itemize}
+\item $f(x)$ is continuous on $(a,b)$
+\item $f(x)$ is continuous from the right at $a$
+\item $f(x)$ is continuous from the left at $b$
+\end{itemize}
+Note that the last two condition are equivalent to
+\begin{align*}
+\lim_{x\to a^+} f(x) &= f(a) & \text{ and } && \lim_{x\to b^-} f(x) &= f(b).
+\end{align*}
+\end{defn}
+\begin{eg}\label{eg_1_6_1}
+Consider the functions
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{lim6}\\
+\end{center}
+\end{efig}
+\begin{align*}
+f(x) &= \begin{cases} x&x<1 \\ x+2 & x\geq 1 \end{cases}
+&
+g(x) &= \begin{cases} 1/x^2& x\neq0 \\ 0 & x=0\end{cases}
+&
+h(x) &= \begin{cases}\frac{x^3-x^2}{x-1} & x\neq 1\\ 0 & x=1 \end{cases}
+\end{align*}
+Determine where they are continuous and discontinuous.
+\begin{itemize}
+\item $f(x)$ is discontinuous at $x=1$ and continuous from the right
+\item $g(x)$ is discontinuous at $x=0$
+\item $h(x)$ is continuous except at $x=1$ %We have seen the function $h(x)$ before. By the same reasoning as above, we know it is continuous except at $x=1$ which we must check separately.
+\end{itemize}
+\end{eg}
+\begin{itemize}
+\item $f(x)$ has a ``jump discontinuity''
+\item $g(x)$ has an ``infinite discontinuity''
+\item $h(x)$ has a ``removable discontinuity''
+\begin{align*}
+\text{new function }h(x) &= \begin{cases}
+\frac{x^3-x^2}{x-1} & x\neq 1\\
+1 & x=1
+\end{cases}
+\end{align*}
+\end{itemize}
+\begin{theorem}[Arithmetic of continuity]\label{thm arith cont}
+Let $a,c \in \mathbb{R}$, $f(x)$ and $g(x)$ be continuous at $a$. Then
+\begin{itemize}
+\item $f(x) \pm g(x)$
+\item $c f(x)$ and $f(x) g(x)$
+\item $\frac{f(x)}{g(x)}$ provided $g(a)\neq 0$
+\end{itemize}
+are continuous at $x=a$.
+\end{theorem}
+\begin{lemma}\label{lem_1_6_1}
+Let $c \in \mathbb{R}$, then
+\begin{align*}
+f(x) = c,\qquad g(x) = x
+\end{align*}
+are continuous on $\mathbb{R}$.
+\end{lemma}
+\begin{theorem}[Continuity of polynomials and rational functions]\label{thm_1_6_1}
+Every polynomial is continuous everywhere and every rational function is continuous except where its denominator is zero (i.e. on all its domain).
+\end{theorem}
+\begin{theorem}\label{thm_1_6_2}
+The following functions are continuous everywhere in their domains:
+\begin{itemize}
+\item polynomials, rational functions
+\item roots, powers
+\item trigonometric functions and their inverses
+\item exponential and the logarithm
+\end{itemize}
+\end{theorem}
+\begin{eg}\label{eg_1_6_2}
+\begin{itemize}
+\item Where is $f(x) = \frac{\sin(x)}{2+\cos(x)}$ continuous?
+\item $f(x)$ is continuous everywhere.
+\end{itemize}
+\begin{itemize}
+\item Where is $g(x) = \frac{\sin(x)}{x^2-5x+6}$ continuous?
+\item $g(x)$ is continuous everywhere except at $x = 2$ and $x = 3$.
+\end{itemize}
+\end{eg}
+\begin{theorem}[Compositions and continuity]\label{thm comp cont}
+If $f$ is continuous at $b$ and $\ds \lim_{x \to a} g(x) = b$ then $\ds \lim_{x\to a} f(g(x)) = f(b)$. I.e.
+\begin{align*}
+\lim_{x \to a} f\big(g(x)\big) &= f\big(\lim_{x \to a} g(x)\big)
+\end{align*}
+Hence if $g$ is continuous at $a$ and $f$ is continuous at $g(a)$ then %the composite function
+$(f \circ g)(x) = f(g(x))$ is continuous at $a$.
+\end{theorem}
+\begin{eg}\label{eg_1_6_3}
+Where are the following functions continuous?
+\begin{align*}
+f(x) &= \sin\left( x^2 +\cos(x) \right) \\
+g(x) &= \sqrt{\sin(x)} \\
+h(x) &= \log_2(\sin(x)^2)
+\end{align*}
+\begin{itemize}
+\item $f(x)$, the composition of $\sin(x)$ and $x^2+\cos(x)$, is continuous everywhere.
+\item $g(x)$ is continuous when $x \in [2n\pi,(2n+1)\pi]$ for $n\in\mathbb{Z}$
+\item $h(x)$ is continuous except when $x=n\pi$, $n\in\mathbb{Z}$
+\end{itemize}
+\end{eg}
+\begin{theorem}[Intermediate Value Theorem (IVT)]\label{thm ivt}
+Let $f$ be continuous on $[a, b]$. If $Y$ is any number between $f(a)$ and $f(b)$ then $\exists\,c\in[a,b]$ s.t. $f(c) = Y$.
+\end{theorem}
+\begin{fig}
+\begin{center}
+\includegraphics[width=\textwidth]{IVT}
+\end{center}
+\end{fig}
+\begin{fig}
+\begin{center}
+\includegraphics[height=4cm]{IVT2}
+\end{center}
+\end{fig}
+\stepcounter{theorem}
+\begin{fig}
+\begin{center}
+\includegraphics[width=\textwidth]{IVT3}
+\end{center}
+\end{fig}
+\begin{eg}\label{eg pre bisection}
+Show that the function $f(x) = x-1+\sin(\pi x/2)$ has a zero in $0 \leqslant x \leqslant 1$.
+\begin{align*}
+f(0) &= 0 - 1 + \sin(0) = -1 < 0 \\
+f(1) &= 1-1+\sin(\pi/2) = 1 > 0
+\end{align*}
+\begin{itemize}
+\item We will use the IVT to prove that there is a zero in $[0,1]$.
+\item First we must show that the function is continuous.
+\begin{itemize}
+\item Since $x-1$ is a polynomial it is continuous everywhere.
+\item The function $\sin(\pi x/2)$ is a trigonometric function and is also continuous everywhere.
+\item The sum of two continuous functions is also continuous, so $f(x)$ is continuous everywhere.
+\end{itemize}
+\item Let $a=0, b=1$, then
+\begin{align*}
+f(0) &= 0 - 1 + \sin(0) = -1 < 0 \\
+f(1) &= 1-1+\sin(\pi/2) = 1 > 0
+\end{align*}
+\item The function is negative at $x=0$ and positive at $x=1$. Since the function is continuous
+we know there is a point $c \in [0,1]$ so that $f(c) = 0$.
+\end{itemize}
+\end{eg}
+The zero is actually located at about $x=0.4053883559$.
+\begin{eg}\label{eg bisection}
+Use the bisection method to find a zero of
+\begin{align*}
+f(x) &= x-1+\sin(\pi x/2)
+\end{align*}
+that lies between $0$ and $1$.
+\begin{itemize}
+\item $a=0, b=1$ and
+\begin{align*}
+f(0) &= -1\\
+f(1) &= 1
+\end{align*}
+\item Test the point in the middle $x = \frac{0+1}{2} = 0.5$
+\begin{align*}
+f(0.5) &= 0.2071067813 > 0
+\end{align*}
+\item So our new interval will be $[0,0.5]$ since the function is negative at
+$x=0$ and positive at $x=0.5$
+\end{itemize}
+Repeat
+\begin{itemize}
+\item $a=0, b=0.5$ where $f(0)<0$ and $f(0.5)>0$.
+\item Test the point in the middle $x = \frac{0+0.5}{2} = 0.25$
+\begin{align*}
+f(0.25) &= -0.3673165675 < 0
+\end{align*}
+\item So our new interval will be $[0.25,0.5]$ since the function is negative
+at $x=0.25$ and positive at $x=0.5$
+\end{itemize}
+Repeat
+\begin{itemize}
+\item $a=0.25, b=0.5$ where $f(0.25)<0$ and $f(0.5)>0$.
+\item Test the point in the middle $x = \frac{0.25+0.5}{2} = 0.375$
+\begin{align*}
+f(0.375) &= -0.0694297669 < 0
+\end{align*}
+\item So our new interval will be $[0.375,0.5]$ since the function is negative at $x=0.375$ and positive at $x=0.5$
+\end{itemize}
+\begin{efig}
+\begin{center}
+\includegraphics[width=\textwidth]{ivt_eg}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item $a=0.375, b=0.5$ where $f(0.375)<0$ and $f(0.5)>0$
+\item Test the point in the middle $x = \frac{0.375+0.5}{2} = 0.4375$
+\begin{align*}
+f(0.4375) &= 0.0718932843>0
+\end{align*}
+\item So our new interval will be $[0.375,0.4375]$ since the function is negative at $x=0.375$ and positive at $x=0.4375$
+\end{itemize}
+\end{eg}
+\newpage
+\section{}\label{sec opt formal limit}
+\begin{defn}\label{def_1_7_1}
+Let $a \in \mathbb{R}$ and %let
+$f(x)$ be a function defined everywhere in a neighbourhood of $a$, except possibly at $a$. %We say that
+Then
+\begin{align*}
+\lim_{x \to a} f(x) &= L
+\end{align*}
+if and only if for every $\epsilon >0$ there exists $\delta>0$ so that
+\begin{align*}
+\text{if } 0 < |x-a| < \delta \text{ then } |f(x) - L| <\epsilon.
+\end{align*}
+In symbols:
+\begin{align*}
+\lim_{x \to a} f(x) = L\,\,\Longleftrightarrow\,\,\forall\,\epsilon > 0\,\,\exists\,\delta > 0\,(0 < |x - a| < \delta\,\Longrightarrow\,|f(x) - L| < \epsilon)
+\end{align*}
+\end{defn}
+\begin{itemize}
+\item $\lim_{x \to a} f(x) = L$ via the $\epsilon$-$\delta$ argument: Given an arbitrary $\epsilon > 0$, we should be able to find $\delta > 0$ which makes $|f(x) - L|< \epsilon$ if $0 < |x - a| < \delta$.
+\end{itemize}
+\begin{itemize}
+\item Using $\epsilon$-$\delta$ argument to prove
+\begin{align*}
+\lim_{x\to 1}x^2 = 1
+\end{align*}
+\item
+Let $\epsilon > 0$ be given. If we can find $\delta$ which makes $|x^2 - 1| < \epsilon$ when $0 < |x - 1| < \delta$ then we're done.
+\item Note that $|x^2 - 1| = |(x + 1)(x - 1)|$. If we assume $\delta\leqslant 1$, then from
+\begin{align*}
+|x - 1| < 1
+\end{align*}
+we have
+\begin{gather*}
+-1 < x - 1 < 1 \\
+0 < x < 2 \\
+1 < x + 1 < 3 \\
+|x + 1| < 3
+\end{gather*}
+Now take $\delta = \min\{1, \frac{\epsilon}{3}\}$; when $0 < |x - 1| < \delta$,
+\begin{align*}
+|x^2 - 1| = |(x - 1)(x + 1)| < |x + 1||x - 1| < 3\delta \leqslant 3\cdot\frac{\epsilon}{3}= \epsilon,
+\end{align*}
+as required.
+\end{itemize}
+\begin{itemize}
+\item Using $\epsilon$-$\delta$ argument to prove
+\begin{align*}
+\lim_{x\to 2}x^2 = 4
+\end{align*}
+\item
+Let $\epsilon > 0$ be given. If we can find $\delta$ which makes $|x^2 - 4| < \epsilon$ when $0 < |x - 2| < \delta$ then we're done.
+\item Note that $|x^2 - 4| = |(x + 2)(x - 2)|$. If we assume $\delta\leqslant 1$, then from
+\begin{align*}
+|x - 2| < 1
+\end{align*}
+we have
+\begin{gather*}
+-1 < x - 2 < 1 \\
+1 < x < 3 \\
+3 < x + 2 < 5 \\
+|x + 2| < 5
+\end{gather*}
+Now take $\delta = \min\{1, \frac{\epsilon}{5}\}$; when $0 < |x - 2| < \delta$,
+\begin{align*}
+|x^2 - 4| = |(x - 2)(x + 2)| < |x + 2||x - 2| < 5\delta \leqslant 5\cdot\frac{\epsilon}{5}= \epsilon,
+\end{align*}
+as required.
+\end{itemize}
+\begin{itemize}
+\item Using $\epsilon$-$\delta$ argument to prove
+\begin{align*}
+\lim_{x\to 3}x^2 = 9
+\end{align*}
+\item
+Let $\epsilon > 0$ be given. If we can find $\delta$ which makes $|x^2 - 9| < \epsilon$ when $0 < |x - 3| < \delta$ then we're done.
+\item Note that $|x^2 - 9| = |(x + 3)(x - 3)|$. If we assume $\delta\leqslant 1$, then from
+\begin{align*}
+|x - 3| < 1
+\end{align*}
+we have
+\begin{gather*}
+-1 < x - 3 < 1 \\
+2 < x < 4 \\
+5 < x + 3 < 7 \\
+|x + 3| < 7
+\end{gather*}
+Now take $\delta = \min\{1, \frac{\epsilon}{7}\}$; when $0 < |x - 3| < \delta$,
+\begin{align*}
+|x^2 - 9| = |(x - 3)(x + 3)| < |x + 3||x - 3| < 7\delta \leqslant 7\cdot\frac{\epsilon}{7}= \epsilon,
+\end{align*}
+as required.
+\end{itemize}
+\begin{itemize}
+\item Using $\epsilon$-$\delta$ argument to prove
+\begin{align*}
+\lim_{x\to a}x^2 = a^2
+\end{align*}
+\item Alternative way to find $\delta$: Let $\epsilon > 0$ be given.
+\begin{itemize}
+\item If $a^2\geqslant\epsilon$, we have
+\begin{gather*}
+-\epsilon  < x^2 - a^2 < \epsilon \\
+a^2 - \epsilon < x^2 < a^2 + \epsilon \\
+\sqrt{a^2 - \epsilon} < x < \sqrt{a^2 + \epsilon} \\
+\sqrt{a^2 - \epsilon} - a < x - a < \sqrt{a^2 + \epsilon} - a \\
+\end{gather*}
+Take $\delta = \min\{\sqrt{a^2 + \epsilon} - a, |\sqrt{a^2 - \epsilon} - a|\}$ suffices.
+\item Else if $a^2 < \epsilon$, we have
+\begin{gather*}
+-\epsilon  < x^2 - a^2 < \epsilon \\
+a^2 - \epsilon < x^2 < a^2 + \epsilon \\
+0 < x < \sqrt{a^2 + \epsilon} \\
+- a < x - a < \sqrt{a^2 + \epsilon} - a \\
+\end{gather*}
+Take $\delta = \min\{\sqrt{a^2 + \epsilon} - a, |-a|\}$ suffices.
+\end{itemize}
+\end{itemize}
+\begin{fig}
+\begin{center}
+\includegraphics[width=\textwidth]{epsdelt1}
+\end{center}
+\end{fig}
+\begin{eg}\label{eg_1_7_1}
+Given
+\begin{align*}
+f(x) &= \begin{cases}
+2x & x\neq 3 \\
+9 & x=3
+\end{cases}
+\end{align*}
+Prove that
+\begin{align*}
+\lim_{x\to 3}f(x) = 6
+\end{align*}
+\begin{proof}
+Given $\epsilon > 0$, we want to find $\delta > 0$ such that %and $\delta = \epsilon/2$.
+\begin{align*}
+0 < |x - 3| < \delta \Longrightarrow |f(x) - 6| < \epsilon
+\end{align*}
+Note that $|f(x) - 6| < \epsilon$ for $x\neq 3$ implies $0 < |x - 3| < \frac{\epsilon}{2}$, so take $\delta = \frac{\epsilon}{2}$ suffices.
+\end{proof}
+\end{eg}
+\begin{eg}\label{eg_1_7_2}
+\begin{align*}
+f(x) &= \begin{cases}
+x & x<2 \\
+-1 & x=2 \\
+x+3 & x>2
+\end{cases}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics[width=\textwidth]{epsdelt2}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{align*}
+\lim_{x \to a} c = c \text{ and } \lim_{x \to a} x = a.
+\end{align*}
+\begin{proof}%[Proof of Theorem~\ref{thm easy lim}]
+\begin{itemize}
+\item %Let $\epsilon>0$ and set $f(x)=c$. Choose $\delta=1$, then for any $x$ satisfying $|x-a|<\delta$ (or indeed any real number $x$ at all) we have $|f(x) - c| = 0 < \epsilon$. Hence $\ds \lim_{x \to a} c = c$ as required.
+\item %Let $\epsilon>0$ and set $f(x)=x$. Choose $\delta=\epsilon$, then for any $x$ satisfying $|x-a|<\delta$ we have
+\end{itemize}
+\end{proof}
+\stepcounter{section}
+\section{Proving the Arithmetic of Limits}\label{sec proof arith lim}
+\begin{lemma}[The triangle inequality]\label{lem_1_9_1}
+For any $x,y \in \mathbb{R}$
+\begin{align*}
+|x+y| \leqslant |x| + |y|
+\end{align*}
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item (First Proof) Note that $|x| = \max\{x, -x\}$ and $\pm x\leqslant |x|$. From
+\begin{align*}
+x + y \leqslant |x| + y \leqslant |x| + |y|, \\
+-x - y \leqslant |x| - y \leqslant |x| + |y|,
+\end{align*}
+$|x + y|\leqslant |x| + |y|$.
+\item (Second Proof) Note that $\forall x\in\mathbb{R}$, $x^2 = |x|^2$ and $x \leqslant |x|$. From
+\begin{align*}
+|x + y|^2 = (x + y)^2 = x^2 + 2 x y + y^2 \leqslant |x|^2 + 2 |x||y| + |y|^2 = (|x| + |y|)^2,
+\end{align*}
+$|x + y|\leqslant |x| + |y|$.
+\end{itemize}
+\end{proof}
+From
+\begin{align*}
+|x| = |y + (x - y)| &\leqslant |y| + |x - y| \\
+|y| = |x + (y - x)| &\leqslant |x| + |y - x|
+\end{align*}
+We have
+\begin{align*}
+||x| - |y|| \leqslant |x - y|
+\end{align*}
+\begin{lemma}\label{lem fx F1}
+If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$, then $\exists\,\delta >0$ such that when $0<|x-a|<\delta$ we have $|f(x)| < |F| + 1$.
+\end{lemma}
+\begin{proof}
+Take $\epsilon = 1$, by definition of $\ds \lim_{x \to a} f(x) = F$,
+\begin{align*}
+\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\,\Longrightarrow\,\, |f(x) - F| < 1)
+\end{align*}
+From the formula $||x| - |y|| \leqslant |x - y|$,
+\begin{align*}
+||f(x)| - |F|| \leqslant |f(x) - F| < 1
+\end{align*}
+Hence
+\begin{align*}
+-1 < |f(x)| - |F| < 1
+\end{align*}
+So $|f(x)| < |F| + 1$.
+\end{proof}
+\begin{lemma}\label{lem fx F2}
+If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$ with $F\ne 0$, then $\exists\,\delta >0$ such that when $0 < |x-a| < \delta$ we have $|f(x)|> \frac{|F|}{2}$.
+\end{lemma}
+\begin{proof}
+Take $\epsilon = \frac{|F|}{2}$, by definition of $\ds \lim_{x \to a} f(x) = F$,
+\begin{align*}
+\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\,\Longrightarrow\,\, |f(x) - F| < \frac{|F|}{2})
+\end{align*}
+\begin{itemize}
+\item
+From the formula $||x| - |y|| \leqslant |x - y|$,
+\begin{align*}
+||f(x)| - |F|| \leqslant |f(x) - F| < \frac{|F|}{2}
+\end{align*}
+Hence
+\begin{align*}
+-\frac{|F|}{2} < |f(x)| - |F| < \frac{|F|}{2}
+\end{align*}
+So $\frac{|F|}{2} < |f(x)|$.
+\end{itemize}
+\end{proof}
+\begin{theorem}[Uniqueness of Limit]
+Let $a, F_1, F_2 \in \mathbb{R}$ with
+\begin{align*}
+\lim_{x \to a} f(x) = F_1 \text{ and }\lim_{x \to a} f(x) = F_2
+\end{align*}
+then $F_1 = F_2$.
+\end{theorem}
+\begin{proof}
+If $F_1\ne F_2$, set $\epsilon = \frac{|F_1 - F_2|}{3}$.
+\begin{itemize}
+\item By $\lim_{x\to a}f(x) = F_1$, $$\exists\,\delta_1 > 0\,\,(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F_1| < \epsilon)$$
+\item By $\lim_{x\to a}f(x) = F_2$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|f(x) - F_2| < \epsilon)$$
+\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+\begin{align*}
+3\epsilon = |F_1 - F_2| = |(f(x) - F_2) - (f(x) - F_1)| \leqslant |f(x) - F_2| + |f(x) - F_1| < \epsilon + \epsilon = 2\epsilon
+\end{align*}
+$3 < 2$, a contradiction. Hence $F_1 = F_2$.
+\end{itemize}
+\end{proof}
+\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a sum.]
+If $\lim_{x\to a}f(x) = F$, $\lim_{x\to a}g(x) = G$ then
+\begin{align*}
+\lim_{x\to a} f(x) + g(x) = F + G.
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $\epsilon > 0$ be given.
+\begin{itemize}
+\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F| < \frac{\epsilon}{2}\Big)$$
+\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x) - G| < \frac{\epsilon}{2}\Big)$$
+\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+\begin{align*}
+|f(x) + g(x) - (F + G)| &= |(f(x) - F) + (g(x) - G)| \\
+&\leqslant |f(x) - F| + |g(x) - G| \\
+&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+\end{align*}
+\end{itemize}
+\end{proof}
+\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a product.]
+If $\lim_{x\to a}f(x) = F$, $\lim_{x\to a}g(x) = G$ then
+\begin{align*}
+\lim_{x\to a} f(x)\cdot g(x) = F\cdot G.
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $\epsilon > 0$ be given.
+\begin{itemize}
+\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F| < \frac{\epsilon}{2(|G| + 1)}\Big)$$
+\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|f(x)| < |F| + 1\Big)$$
+\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_3 > 0\,\,\Big(0 < |x - a| < \delta_3\,\Longrightarrow\,|g(x) - G| < \frac{\epsilon}{2(|F| + 1)}\Big)$$
+\item Take $\delta = \min\{\delta_1, \delta_2, \delta_3\}$, then for $ 0 < |x - a| < \delta$,
+\begin{align*}
+|f(x)\cdot g(x) - F\cdot G| &= |f(x)(g(x) - G) + G(f(x) - F)| \\
+&\leqslant |f(x)|\,|g(x) - G| + |G|\,|f(x) - F|\\
+&< (|F| + 1)\cdot\frac{\epsilon}{2(|F| + 1)} + |G|\,\frac{\epsilon}{2(|G| + 1)}\\
+&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+\end{align*}
+\end{itemize}
+\end{proof}
+\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a reciprocal]
+If $\lim_{x\to a}g(x) = G$, $G\ne 0$, then
+\begin{align*}
+\lim_{x\to a}\frac{1}{g(x)} = \frac{1}{G}.
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $\epsilon > 0$ be given.
+\begin{itemize}
+\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|g(x) - G| < \frac{|G|^2}{2}\epsilon\Big)$$
+\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x)| > \frac{|G|}{2}\Big)$$
+\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+\begin{align*}
+\bigg|\frac{1}{g(x)} - \frac{1}{G}\bigg| &= \bigg|\frac{g(x) - G}{g(x)G}\bigg| \\
+&\leqslant \frac{\frac{|G|^2}{2}\epsilon}{\frac{|G|}{2}|G|} = \epsilon.
+\end{align*}
+\end{itemize}
+\end{proof}
+\begin{theorem}[Theorem~\ref{thm squeeze} --- Squeeze theorem] %(or sandwich theorem or pinch theorem)]
+Let $a \in \mathbb{R}$ and let $f, g, h$ be functions s.t.%three functions so that
+\begin{align*}
+f(x) \leqslant g(x) \leqslant h(x)
+\end{align*}
+for all $x$ in an interval around $a$, except possibly at $x=a$. If
+\begin{align*}
+\lim_{x \to a} f(x) &= \lim_{x \to a} h(x) = L
+\end{align*}
+then %it is also the case that
+\begin{align*}
+\lim_{x \to a} g(x) &= L
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $\epsilon > 0$ be given.
+\begin{itemize}
+\item By $\lim_{x\to a}f(x) = L$, $$\exists\,\delta_1 > 0\,\,(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - L| < \epsilon\,\Longrightarrow\, L - \epsilon < f(x) < L + \epsilon)$$
+\item By $\lim_{x\to a}h(x) = L$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|h(x) - L| < \epsilon\,\Longrightarrow\, L - \epsilon < h(x) < L + \epsilon)$$
+\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+\begin{align*}
+L - \epsilon < f(x)\leqslant g(x)\leqslant h(x) < L + \epsilon
+\end{align*}
+Hence
+\begin{align*}
+L - \epsilon < g(x) < L + \epsilon\,\,\Longrightarrow\,\,|g(x) - L| < \epsilon
+\end{align*}
+\end{itemize}
+\end{proof}
+\begin{theorem}[Theorem~\ref{thm comp cont}]
+If $f$ is continuous at $b$ and $\ds \lim_{x \to a} g(x) = b$ then $\ds \lim_{x\to a} f(g(x)) = f(b)$. I.e.
+\begin{align*}
+\lim_{x \to a} f\big(g(x)\big) &= f\big(\lim_{x \to a} g(x)\big)
+\end{align*}
+\end{theorem}
+\begin{proof}
+Let $\epsilon > 0$ be given. We want to show that
+$$\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\Longrightarrow\,|f(g(x)) - f(b)| < \epsilon)$$
+\begin{itemize}
+\item By the continuity of $f$ at $b$, $\lim_{y\to b}f(y) = f(b)$. So
+\begin{align}\label{eq:cont}
+\exists\,\delta_1 > 0\,\,(0 < |y - b| < \delta_1\,\Longrightarrow\,|f(y) - f(b)| < \epsilon)
+\end{align}
+\item By $\lim_{x\to a}g(x) = b$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x) - b| < \delta_1)$$
+\item Take $\delta = \delta_2$ and let $y = g(x)$, then for $ 0 < |x - a| < \delta$ $\Longrightarrow$ $|g(x) - b| < \delta_1$, by \eqref{eq:cont} $|f(g(x)) - f(b)| < \epsilon$, as required.
+\end{itemize}
+\end{proof}
+\def\lin{{\text{LIN}}}
+\def\prod{{\text{PR}}}
+\def\quot{{\text{QR}}}
+\def\simp{{\text{SMP}}}
+\graphicspath{{figures/differentiation/}}
+\chapter{Derivatives}\label{chap deriv}
+\section{Revisiting Tangent Lines}\label{sec_2_1}
+Given a point $(a, b)$ and the slope $m$, the equation of the straight line is
+\begin{align*}
+(y - b) = m(x - a)
+\end{align*}
+\section{Definition of the Derivative} \label{sec def deriv}
+\begin{defn}[Derivative at a point]\label{def:DIFFderiv}
+Let $a\in\bbbr$ and let $f(x)$ be defined on an open interval
+that contains $a$.
+\begin{itemize}
+\item The derivative of $f(x)$ at $x=a$ is denoted $f'(a)$ and is defined by
+\begin{align*}
+f'(a)=\lim_{h\rightarrow 0}\frac{f\big(a+h\big)-f(a)}{h}
+\end{align*}
+if the limit exists.
+\item When the above limit exists, the function $f(x)$ is said to be differentiable
+at $x=a$. When the limit does not exist, the function $f(x)$ is said to be not
+differentiable at $x=a$.
+\item We can equivalently define the derivative $f'(a)$ by the limit
+\begin{align*}
+f'(a)=\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}.
+\end{align*}
+\end{itemize}
+\end{defn}
+\begin{eg}[Derivative of $f(x)=c$]\label{eg:DIFFderivX0}
+Let $a, c \in \bbbr$ be a constants. Compute the derivative of %the constant function
+$f(x) = c$ at $x=a$.
+\begin{align*}
+f'(a) &= \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} && \text{(the definition)}\\
+&= \lim_{h \to 0} \frac{c - c}{h} && \text{(substituted in the function)} \\
+&= \lim_{h \to 0} 0 &&\text{(simplified things)}\\
+&= 0
+\end{align*}
+\end{eg}
+\begin{eg}[Derivative of $g(x)=x$]\label{eg:DIFFderivX1}
+Let $a\in \bbbr$ and compute the derivative of $g(x) = x$ at $x=a$.
+\begin{align*}
+g'(a) &= \lim_{h \to 0} \frac{g(a+h) - g(a)}{h} && \text{(the definition)}\\
+&= \lim_{h \to 0} \frac{(a+h) - a}{h}
+&& \text{(substituted in the function)} \\
+&= \lim_{h \to 0} \frac{h}{h} && \text{(simplified things)} \\
+&= \lim_{h \to 0} 1 && \text{(simplified a bit more)}\\
+&= 1
+\end{align*}
+\end{eg}
+\stepcounter{theorem}
+\begin{eg}[Derivative of $h(t)=t^2$]\label{eg:DIFFderivX2}
+Compute the derivative of
+\begin{align*}
+h(t) &= t^2 & \text{ at $t=a$}
+\end{align*}
+\begin{align*}
+h'(a) &= \lim_{\De t \to 0} \frac{h(a+\De t)-h(a)}{\De t}
+\end{align*}
+\begin{align*}
+h'(a) &= \lim_{\De t \to 0} \frac{(a+\De t)^2-a^2}{\De t}  \\
+&= \lim_{\De t \to 0} \frac{a^2+2a\,\De t+\De t^2-a^2}{\De t}
+&& \big(\text{just squared out $(a+\De t)^2$}\big) \\
+&= \lim_{\De t \to 0} \frac{2a\,\De t+\De t^2}{\De t}  \\
+&= \lim_{\De t \to 0} (2a +\De t)  \\
+&= 2a
+\end{align*}
+\end{eg}
+\begin{defn}[Derivative as a function]\label{def:DIFFderivFunc}
+Let $f(x)$ be a function.
+\begin{itemize}
+\item The derivative of $f(x)$ with respect to $x$ is
+\begin{align*}
+f'(x)=\lim_{h\rightarrow 0}\frac{f\big(x+h\big)-f(x)}{h}
+\end{align*}
+provided the limit exists.
+\item If %the derivative
+$f'(x)$ exists for all $x \in (a,b)$ we say that $f$ is differentiable on $(a,b)$.
+\end{itemize}
+\end{defn}
+\begin{eg}[The derivative of $f(x)=\tfrac{1}{x}$]\label{eg:DIFFderivXm1}
+Let $f(x) = \frac{1}{x}$ and compute its derivative with respect to $x$ %--- think carefully about where the derivative exists.
+\begin{align*}
+f'(x)&=\lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}
+&& \text{(the definition)} \\
+&=\lim_{h\rightarrow 0}\frac{1}{h}\left[\frac{1}{x+h}-\frac{1}{x}\right]
+&& \text{(substituted in the function)} \\
+&=\lim_{h\rightarrow 0}\frac{1}{h}\ \frac{x-(x+h)}{x(x+h)}
+&& \text{(wrote over a common denominator)} \\
+&=\lim_{h\rightarrow 0}\frac{1}{h}\ \frac{-h}{x(x+h)}
+&& \text{(started cleanup)} \\
+&=\lim_{h\rightarrow 0} \frac{-1}{x(x+h)} \\
+&=-\frac{1}{x^2}
+\end{align*}
+\end{eg}
+\begin{itemize}
+\item The derivative $f'(a)$ at a specific point $x=a$, being the slope of the tangent
+line to the curve at $x=a$, and
+\item The derivative as a function, $f'(x)$ as defined in Definition~\ref{def:DIFFderivFunc}.
+\end{itemize}
+\begin{notn}\label{notn higher diff}
+Notations for ``the derivative of $f(x)$ with respect to $x$'':
+\begin{align*}
+f'(x) \qquad
+\diff{f}{x} \qquad
+\diff{}{x}f(x) \qquad
+\dot f(x) \qquad
+Df(x) \qquad
+_x f(x),
+\end{align*}
+Notations for ``the derivative of $f(x)$ at $x=a$'':
+\begin{align*}
+f'(a) \qquad
+\diff{f}{x}(a) \qquad
+\diff{}{x}f(x)\,\bigg|_{x=a} \qquad
+\dot f(a) \qquad
+Df(a) \qquad
+D_x f(a).
+\end{align*}
+\end{notn}
+\begin{eg}[$\diff{}{x}\sqrt{x}$]\label{eg:DIFFderivXsqrt}
+\begin{align*}
+f'(a)
+=\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}
+=\lim_{x\rightarrow a}\frac{\sqrt{x}-\sqrt{a}}{x-a} %\\
+=\lim_{x\rightarrow a}\frac{1}{\sqrt{x}+\sqrt{a}}%\\
+=\frac{1}{2\sqrt{a}}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics{tangentSqrt}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{eg}[$\diff{}{x} \left\{ |x| \right\}$]\label{eg diff abs}
+Compute $f'(a)$ of $f(x)=|x|$ at $x=a$.
+\begin{efig}
+\begin{center}
+\includegraphics[height=3cm]{../limits/abs}
+\end{center}
+\end{efig}
+\begin{align*}
+\diff{f}{x} = \lim_{h\to0} \frac{f(x+h)-f(x)}{h} = \lim_{h\to0} \frac{|x+h|-|x|}{h} %\\
+= \lim_{h\to0} \frac{x+h-x}{h} %\\
+= \lim_{h\to0} \frac{h}{h} = 1 %&\text{as expected}
+\end{align*}
+\begin{align*}
+\diff{f}{x}
+= \lim_{h\to0} \frac{f(x+h)-f(x)}{h}
+= \lim_{h\to0} \frac{|x+h|-|x|}{h}
+= \lim_{h\to0} \frac{-(x+h)-(-x)}{h}
+= \lim_{h\to0} \frac{-h}{h} = -1
+\end{align*}
+\begin{align*}
+f'(0)
+= \lim_{h\to0} \frac{f(0+h)-f(0)}{h}
+= \lim_{h\to0} \frac{|0+h|-|0|}{h}
+= \lim_{h\to0} \frac{|h|}{h}
+\end{align*}
+\begin{align*}
+\lim_{h \to 0^+} \frac{|h|}{h} %&
+=
+\lim_{h \to 0^+} \frac{h}{h} %&\text{since $h>0$, $|h|=h$}\\
+= 1, \qquad
+\lim_{h \to 0^-} \frac{|h|}{h} %&
+=
+\lim_{h \to 0^-} \frac{-h}{h} %&\text{since $h<0$, $|h|= -h$}\\
+= -1
+\end{align*}
+\begin{align*}
+\diff{}{x} |x| &= \begin{cases}
+-1 & \text{if $x<0$} \\
+\text{DNE} & \text{if $x=0$} \\
+1 & \text{if $x>0$} \\
+\end{cases}
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics[height=3cm]{diff_abs}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{eg}\label{eg:DIFFderivHeavy}
+\begin{align*}
+\begin{array}{lcr}
+H(x) = \begin{cases}
+0  & \text{if }x \leq 0 \\
+1 & \text{if }x>0
+\end{cases}
+&\qquad&
+\raisebox{-0.5\height}{\includegraphics{heavy}}
+\end{array}
+\end{align*}
+\begin{align*}
+H'(0) = \lim_{h\to 0}\frac{H(h)-H(0)}{h} = \lim_{h\to 0}\frac{1}{h} = \text{DNE}
+\end{align*}
+\end{eg}
+\begin{eg}[$\diff{}{x}x^{1/3}$]\label{eg:DIFFderivXthird}
+\begin{efig}
+\begin{center}
+\includegraphics{Xthird}
+\end{center}
+\end{efig}
+\begin{align*}
+f'(0)%= \lim_{h\rightarrow 0}\frac{f(a+h)-f(a)}{h}
+=\lim_{h\rightarrow 0}\frac{f(h)-f(0)}{h}
+=\lim_{h\rightarrow 0}\frac{h^{1/3}}{h}
+=\lim_{h\rightarrow 0}\frac{1}{h^{2/3}}
+=+\infty%\text{DNE}
+\end{align*}
+\end{eg}
+\begin{eg}[$\diff{}{x}\sqrt{|x|}$]\label{eg:DIFFderivCusp}
+\begin{efig}
+\begin{center}
+\includegraphics{XsqrtAbs}
+\end{center}
+\end{efig}
+\begin{align*}
+\lim_{h\rightarrow 0^+}\frac{f(h)-f(0)}{h}
+=\lim_{h\rightarrow 0^+}\frac{\sqrt{|h|}}{h}
+=\lim_{h\rightarrow 0^+}\frac{1}{\sqrt{h}}
+=+\infty%\text{DNE}
+\end{align*}
+\end{eg}
+\begin{theorem}\label{thm:DIFFdiffGivesCont}
+If $f(x)$ is differentiable at $x=a$, then $f(x)$ is continuous at $x=a$.
+\end{theorem}
+\begin{proof}
+\begin{align*}
+\lim_{h\to 0}(f(a+h) - f(a)) = \lim_{h\to 0}\frac{f(a+h)-f(a)}{h}\lim_{h\to 0}\ h
+\end{align*}
+\end{proof}
+\stepcounter{section}
+\section{Arithmetic of Derivatives - a Differentiation Toolbox}\label{sec_2_4}
+\begin{align*}
+\diff{}{x} 1 &= 0 &
+\diff{}{x} x &= 1 &
+\diff{}{x} x^2 &= 2x &
+\diff{}{x} \sqrt{x} &= \frac{1}{2\sqrt{x}}
+\end{align*}
+\begin{lemma}[Derivative of sum and difference]\label{thm:DIFFaddsub}
+Let $f(x),g(x)$ be differentiable and $c \in \mathbb{R}$ be a constant.
+\begin{align*}
+\diff{}{x} \big\{ f(x)+g(x) \big\} &= f'(x)+g'(x)\\
+\diff{}{x} \big\{ f(x)-g(x)\big\} &= f'(x)-g'(x)\\
+\diff{}{x} \big\{ c f(x) \big\} &= c f'(x)
+\end{align*}
+\end{lemma}
+\begin{theorem}[Linearity of differentiation]\label{thm:DIFFlinearity}
+Let $f(x),g(x)$ be differentiable, $\alpha, \beta \in \mathbb{R}$ be constants and define the  ``linear combination''
+\begin{align*}
+S(x) &= \alpha f(x) + \beta g(x).
+\end{align*}
+Then the derivative of $S(x)$ at $x=a$ exists and is
+\begin{align*}
+\diff{S}{x} = S'(x) &= \alpha f'(x) + \beta g'(x).
+\end{align*}
+\end{theorem}
+\begin{theorem}[The product rule]\label{thm:DIFFprodRule}
+Let $f(x),g(x)$ be differentiable, then %the derivative of the product $f(x)g(x)$ exists and is given by
+\begin{align*}
+\diff{}{x} \big\{ f(x) \, g(x) \big\} &= f'(x) \, g(x) + f(x) \, g'(x).
+\end{align*}
+\end{theorem}
+\begin{cor}[Derivative of a square]\label{cor_2_4}
+Let $f(x)$ be a differentiable function, then the derivative of its square is:
+\begin{align*}
+\diff{}{x} \big\{ f(x)^2 \big\} &=  2\, f(x)\, f'(x)
+\end{align*}
+\end{cor}
+\begin{theorem}[The quotient rule]\label{thm:DIFFquotRule}
+Let $f(x), g(x)$ be differentiable, then %the derivative of their quotient is
+\begin{align*}
+\diff{}{x} \left\{ \frac{f(x)}{g(x)} \right\} = \frac{f'(x) \, g(x) - f(x) \, g'(x)}{g(x)^2}.
+\end{align*}
+and exists except at points where $g(x)=0$.
+\end{theorem}
+\begin{cor}[Derivative of a reciprocal]\label{cor diff recip}
+Let $g(x)$ be a differentiable function. Then %the derivative of the reciprocal of $g$ is given by
+\begin{align*}
+\diff{}{x} \left\{ \frac{1}{g(x)} \right\} &= -\frac{g'(x)}{g(x)^2}
+\end{align*}
+and exists except at points where $g(x)=0$.
+\end{cor}
+\section{Proofs of the Arithmetic of Derivatives}\label{sec proof arith deriv}
+Note that, by Theorem \ref{thm:DIFFdiffGivesCont}, for differentiable $g(x)$
+\begin{align*}
+\lim_{h\to 0}g(x + h) = g(x)
+\end{align*}
+\subsection*{Proof of the Linearity of Differentiation (Theorem \ref{thm:DIFFlinearity})}
+\begin{align*}
+\diff{}{x} \big\{\alpha\,f(x) + \beta\,g(x)\big\} &= \lim_{h\to 0}\frac{(\alpha\,f(x+h) + \beta\,g(x+h)) - (\alpha\,f(x) + \beta\,g(x))}{h} \\
+&=\lim_{h\to 0}\frac{\alpha\,(f(x+h) - f(x)) + \beta\,(g(x+h)-g(x))}{h} \\
+&=\lim_{h\to 0}\alpha\,\frac{f(x+h) - f(x)}{h} + \beta\,\frac{g(x+h)-g(x)}{h} \\
+&= \alpha\,f'(x) + \beta\,g'(x)
+\end{align*}
+\subsection*{Proof of the Product Rule (Theorem \ref{thm:DIFFprodRule})}
+\begin{align*}
+\diff{}{x} \big\{f(x)g(x)\big\} &= \lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h} \\
+&=\lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
+&=\lim_{h\to 0}\frac{(f(x+h)- f(x))g(x+h) + f(x)(g(x+h) - g(x))}{h} \\
+&=\lim_{h\to 0}\frac{f(x+h)- f(x)}{h}g(x+h) + f(x)\frac{g(x+h) - g(x)}{h} \\
+&= f'(x)\, g(x) + f(x)\,g'(x)
+\end{align*}
+\subsection*{Proof of the Quotient Rule (Theorem \ref{thm:DIFFquotRule})}
+\begin{align*}
+\diff{}{x} \left\{ \frac{f(x)}{g(x)} \right\} &= \lim_{h\to 0}\frac{\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}}{h} =\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
+&=\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
+&=\lim_{h\to 0}\frac{\frac{(f(x+h) - f(x))\,g(x) - f(x)\,(g(x + h) - g(x))}{g(x+h)g(x)}}{h} \\
+&=\lim_{h\to 0}\frac{\frac{f(x+h) - f(x)}{h}g(x) - f(x)\frac{g(x + h) - g(x)}{h}}{g(x+h)g(x)} \\
+&= \frac{f'(x) \, g(x) - f(x) \, g'(x)}{g(x)^2}
+\end{align*}
+\section{Using the Arithmetic of Derivatives --  Examples}\label{sec_2_6}
+\begin{eg}\label{eg:DIFFsimpleToolsAA}
+\begin{align*}
+\diff{}{x} \{ 4x + 7 \}
+&= 4 \cdot \diff{}{x} \{ x \}  + 7 \cdot \diff{}{x} \{ 1 \} & \text{LIN}\\
+&= 4 \cdot 1 + 7 \cdot 0 = 4
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsAB}
+\begin{align*}
+\diff{}{x} \big\{ x ( 4x + 7) \big\}
+&= x \cdot \diff{}{x} \{ 4x + 7 \} + (4x+7) \diff{}{x} \{ x \} &
+\text{PR} \\
+&= x \cdot 4 + (4x+7) \cdot 1 \\
+&= 8x+7
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsAB2}
+\begin{align*}
+\diff{}{x} \left\{ \frac{x}{4x + 7} \right \}
+&= \frac{ (4x+7) \cdot \diff{}{x} \{x\}  - x \cdot \diff{}{x} \{ 4x + 7 \} }{(4x+7)^2}
+& \text{QR}  \\
+&= \frac{ (4x+7) \cdot 1  - x \cdot 4 }{(4x+7)^2}  \\
+&= \frac{7}{(4x+7)^2}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsNA}
+Differentiate
+\begin{align*}
+f(x)&=\frac{x}{2x+\frac{1}{3x+1}}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsB}
+\begin{align*}
+\diff{}{x}\big\{a F(x)+ b G(x)+ c H(x)\big\}
+&=\diff{}{x}\big\{\ a \cdot [F(x)]\ +\ 1\cdot[b G(x)+c H(x)]\ \big\} \\
+&=a F'(x)+\diff{}{x}\{b G(x)+c H(x)\} \\
+&=a F'(x)+b G'(x)+c H'(x) %\\
+\end{align*}
+\end{eg}
+\stepcounter{theorem}
+\begin{lemma}\label{lem diff ftothen}
+Let $n\in\mathbb{N}$ and $f$ be differentiable, then %be a natural number and $f$ be a differentiable function. Then
+\begin{align*}
+\diff{}{x} f(x)^n &= n\cdot  f(x)^{n-1} \cdot  f'(x).
+\end{align*}
+\end{lemma}
+\stepcounter{theorem}
+\begin{lemma}[Derivative of $x^n$]\label{lem dxn}
+Let $n\in\mathbb{N}$ then %be a positive integer then
+\begin{equation}\label{eq:DIFFderivXn}
+\diff{}{x} x^n = n x^{n-1}
+\end{equation}
+\end{lemma}
+\begin{eg}\label{eg:DIFFsimpleToolsD}
+\begin{align*}
+\diff{}{x}\big\{2x^3+4x^5\big\}
+&=2\diff{}{x}\{x^3\}+4\diff{}{x}\{x^5\} \\
+&=2\{3x^2\}+4\{5x^4\} \\
+&=6x^2+20x^4
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsE}
+\begin{align*}
+\diff{}{x}\big\{(3x+9)(x^2+4x^3)\big\}
+&=\Big\{\diff{}{x}(3x+9)\Big\}\ (x^2+4x^3)
++(3x+9)\ \diff{}{x}\{x^2+4x^3\}\\
+&=\big\{3\times 1+9\times 0\big\}\ (x^2+4x^3)
++(3x+9)\ \{2x+4(3x^2)\}\\
+&=3(x^2+4x^3)+(3x+9)\ (2x+12x^2)\\
+&=3x^2+12x^3+(6x^2+18x+36x^3+108x^2)\\
+&=18x+117x^2+48x^3
+\end{align*}
+\begin{align*}
+\diff{}{x}\big\{(3x+9)(x^2+4x^3)\big\}
+&=\diff{}{x}\big\{9x^2+39x^3+12x^4\big\}\\
+&=9(2x)+39(3x^2)+12(4x^3)\\
+&=18x+117x^2+48x^3
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsH} %\issue{More\\ examples\\ like this?}
+\begin{align*}
+\diff{}{x}\bigg\{\frac{4x^3-7x}{4x^2+1}\bigg\}
+&=\frac{(12x^2-7)(4x^2+1)-(4x^3-7x)(8x)}{(4x^2+1)^2} \\
+&=\frac{(48x^4-16x^2-7)-(32x^4-56x^2)}{(4x^2+1)^2} \\
+&=\frac{16x^4+40 x^2-7}{(4x^2+1)^2}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsF}
+Find $\diff{}{x}\big\{\root{3}\of{x}\big\}$.
+\begin{align*}
+x= \left(\root{3}\of{x}\right)^3.
+\end{align*}
+\begin{align*}
+\diff{}{x}\left\{x\right\} = \diff{}{x}\left(\root{3}\of{x}\right)^3.
+\end{align*}
+\begin{align*}
+\diff{}{x}\big\{x\big\}=1
+\end{align*}
+By Lemma~\ref{lem diff ftothen} with $n=3$ and $f(x)=\root{3}\of{x}$,
+\begin{align*}
+\diff{}{x}\big(\root{3}\of{x}\big)^3
+= 3\ \big(\root{3}\of{x}\big)^2\cdot \diff{}{x}\big\{\root{3}\of{x}\big\}
+= 3\,x^{2/3}\cdot \diff{}{x}\big\{\root{3}\of{x}\big\}.
+\end{align*}
+\begin{align*}
+1=3x^{2/3}\cdot \diff{}{x}\big\{\root{3}\of{x}\big\}\,\,\Longrightarrow\,\,
+\diff{}{x}\big\{\root{3}\of{x}\big\} = \tfrac{1}{3} x^{-2/3}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsG}
+Find
+$\diff{}{x} \left\{ x^{p/q} \right\}$.
+\begin{align*}
+x^p= \big(x^{p/q}\big)^q.
+\end{align*}
+By Lemma \ref{lem diff ftothen} with $n=p$ and $f(x) = x$,
+\begin{align*}
+\diff{}{x}\big\{x^p\big\}=p x^{p-1}
+\end{align*}
+By Lemma~\ref{lem diff ftothen} with $n=q$ and $f(x)=x^{p/q}$,
+\begin{align*}
+\diff{}{x}\big\{\big(x^{p/q}\big)^q\big\} = q\ \big(x^{p/q}\big)^{q-1}\ \diff{}{x}\big\{x^{p/q}\big\}
+\end{align*}
+\begin{align*}
+p x^{p-1} &=q\cdot x^{(pq-p)/q} \diff{}{x}\big\{x^{p/q}\big\} \\
+\diff{}{x}\big\{x^{p/q}\big\}
+& =\frac{p}{q} x^{p-1-(pq-p)/q} \\[0.05in]
+& =\frac{p}{q} x^{(pq-q-pq+p)/q} \\[0.05in]
+& =\frac{p}{q} x^{\nicefrac{p}{q}-1}
+\end{align*}
+\end{eg}
+\begin{eg}[Derivative of $x^{-m}$]\label{eg:DIFFsimpleToolsI}
+\begin{align*}
+\diff{}{x}\big\{x^{-m}\big\}
+=\diff{}{x}\bigg\{\frac{1}{x^m}\bigg\}
+=-\,\frac{mx^{m-1}}{{(x^m)}^2}
+=-m x^{-m-1}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFsimpleToolsJ}
+\begin{align*}
+\diff{}{x}\big\{x^{-\nicefrac{p}{q}}\big\}
+=\diff{}{x}\bigg\{\frac{1}{x^{\nicefrac{p}{q}}}\bigg\}
+=-\,\frac{\frac{p}{q}x^{\nicefrac{p}{q}-1}}{{(x^{\nicefrac{p}{q}})}^2}
+=-\frac{p}{q}\ x^{-\nicefrac{p}{q}-1}
+\end{align*}
+\end{eg}
+\begin{cor}[Derivative of $x^a$]\label{cor:DIFFxtoa}
+Let $a$ be a rational number, then
+\begin{equation}
+\diff{}{x} x^a = a x^{a-1}
+\end{equation}
+\end{cor}
+\begin{eg}[Optional messy example]\label{eg:DIFFsimpleToolsNB}
+Find the derivative of
+\begin{equation*}
+f(x)=\frac{(\sqrt{x}-1)(2-x)(1-x^2)}{\sqrt{x}(3+2x)}
+\end{equation*}
+\end{eg}
+\section{Derivatives of Exponential Functions}\label{sec exp func}
+\begin{align*}
+\text{Given $a>0$, find the derivative of $f(x) = a^x$ with respect to $x$.}
+\end{align*}
+\begin{align*}
+\diff{f}{x} &= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} \\
+&= \lim_{h \to 0} a^x \cdot \frac{a^{h} - 1}{h} = a^x \cdot \lim_{h \to 0} \frac{a^{h} - 1}{h}
+\end{align*}
+\begin{align*}
+C(a) &= \lim_{h \to 0} \frac{a^{h} - 1}{h}
+\end{align*}
+\begin{align*}
+\diff{}{x}a^x &=  C(a)\cdot a^x.
+\end{align*}
+\begin{eg}\label{eg log est}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$h$ & 0.1 & 0.01 & 0.001 & 0.0001 & 0.00001 & 0.000001 & 0.0000001 \\
+\hline
+$\tfrac{2^h-1}{h}$ & 0.7177 & 0.6956 & 0.6934 & 0.6932 &
+0.6931 & 0.6931 & 0.6931 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+\end{center}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$h$ & 0.1 & 0.01 & 0.001 & 0.0001 & 0.00001 & 0.000001 & 0.0000001 \\
+\hline
+$\tfrac{3^h-1}{h}$ & 1.1612 & 1.1047 & 1.0992 & 1.0987 &
+1.0986 & 1.0986 & 1.0986 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+\end{center}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c||c|c|c|c|c|c|c|}
+\hline
+$h$ & 0.1 & 0.01 & 0.001 & 0.0001 & 0.00001 & 0.000001 & 0.0000001 \\
+\hline
+$\tfrac{10^h-1}{h}$ & 2.5893 & 2.3293 & 2.3052 & 2.3028 &
+2.3026 & 2.3026 & 2.3026 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+\end{center}
+$C(a)$ increases as $a$ increases, and $C(a) = 1$ for some $a$ between $2$ and $3$.
+\end{eg}
+\subsection*{Whirlwind Review of Logarithms}
+\begin{defn}
+Let $q>0$ with $q \neq 1$. Then the logarithm with base $q$ is defined by
+\begin{align*}
+y=\log_q(x) & \liff x=q^y
+\end{align*}
+\end{defn}
+\begin{gather*}
+\log_q( q^x ) =x, \qquad q^{\log_q(x)} =x \\
+\log_q(xy) = \log_q(x) + \log_q(y) \\
+\log_q(x/y) = \log_q(x) - \log_q(y) \\
+\log_q( x^r ) = r \log_q (x) \\
+\log_q(x) = \frac{\log_{10} x}{\log_{10} q} \\
+\end{gather*}
+\stepcounter{theorem}
+\begin{impeqn}[Euler's constant]\label{eq:eulerconst}
+\begin{align*}
+e &= 2.7182818284590452354\dots\\
+&= 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots
+\end{align*}
+\end{impeqn}
+\begin{theorem}\label{thm_2_7_1}
+The constant $e$ is the unique real number that satisfies
+\begin{align*}
+\lim_{h \to 0} \frac{e^h-1}{h} = 1 \quad\text{ with }\quad\bdiff{e^x}{x} &= e^x
+\end{align*}
+\end{theorem}
+\begin{fig}
+\begin{center}
+\includegraphics{expGraph}
+\end{center}
+\end{fig}
+\section{Derivatives of Trigonometric Functions} \label{sec diff trig}
+\begin{align*}
+\sin(a+b) &= \sin(a) \cos(b) + \cos(a) \sin(b)\\
+\cos(a+b) &= \cos(a) \cos(b) - \sin(a) \sin(b)
+\end{align*}
+\subsection*{
+$\lim_{h\rightarrow 0}\frac{\sin h}{h}$
+}
+\renewcommand{\arraystretch}{1.1}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$h$ &     $\sin h$ &     $\tfrac{\sin h}{h}$ \\ \hline
+0.4 &      .3894 &          .9735 \\
+0.2 &      .1987 &          .9934  \\
+0.1 &      .09983 &         .9983  \\
+0.05 &     .049979 &        .99958  \\
+0.01 &     .00999983 &      .999983  \\
+0.001 &    .0099999983 &    .9999983  \\ \hline
+\end{tabular}
+\qquad\qquad
+\begin{tabular}{|c|c|c|}
+\hline
+h  &     $\sin h$ &     $\tfrac{\sin h}{h}$ \\ \hline
+$-0.4$ &      $-.3894$ &          .9735 \\
+$-0.2$ &      $-.1987$ &          .9934  \\
+$-0.1$ &      $-.09983$ &         .9983  \\
+$-0.05$ &     $-.049979$ &        .99958  \\
+$-0.01$ &     $-.00999983$ &      .999983  \\
+$-0.001$ &    $-.0099999983$ &    .9999983  \\ \hline
+\end{tabular}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+\begin{efig}
+\begin{center}
+\includegraphics{sinDeriv6L}\ \ \
+\includegraphics{sinDeriv6RR}
+\end{center}
+\end{efig}
+\begin{align*}
+\text{area of triangle } OPR \leq \text{ area of pie } OPR
+\leq \text{ area of triangle } OQR
+\end{align*}
+\begin{align*}
+\sin h\leqslant h \leqslant\frac{\sin h}{\cos h}\,\,\Longrightarrow\,\,\frac{\sin h}{h}\leqslant 1, \quad \cos h\leqslant \frac{\sin h}{h}\,\,\Longrightarrow\,\,\cos h\leqslant\frac{\sin h}{h}\leqslant 1
+\end{align*}
+From $\lim_{h\to 0}\cos h = 1$ and squeeze theorem,
+\begin{align*}
+\lim_{h\to 0}\frac{\sin h}{h} = 1
+\end{align*}
+\begin{lemma}\label{lem sinhoverh}
+\begin{align*}
+\lim_{h \to 0} \frac{\sin h}{h} &= 1.
+\end{align*}
+\end{lemma}
+\subsection*{$\lim_{h\to 0}\frac{\cos h - 1}{h}$}
+From $\cos h = \cos(\frac{h}{2} + \frac{h}{2}) = \cos^2\frac{h}{2} - \sin^2\frac{h}{2} = 1 - 2\sin^2\frac{h}{2}$,
+\begin{align*}
+\cos h - 1 = -2 \sin^2\frac{h}{2}
+\end{align*}
+\begin{align*}
+\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\frac{h}{2}}{h} &= -\lim_{h\to 0}\frac{\sin^2\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} \\
+&= \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{let $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0
+\end{align*}
+\begin{lemma}\label{lem_2_8_1}
+\begin{align*}
+\lim_{h \to 0} \frac{\cos h -1}{h} &= 0
+\end{align*}
+\end{lemma}
+\begin{align*}
+\diff{}{x}\sin x
+&=\lim_{h\rightarrow 0}\frac{\sin (x+h)-\sin x}{h} \\[0.05in]
+&=\lim_{h\rightarrow 0}\frac{\sin x\cos h +\cos x\sin h-\sin x}{h} \\[0.05in]
+&=\lim_{h\rightarrow 0}\bigg[\sin x\frac{\cos h-1}{h}
++\cos x\frac{\sin h-0}{h}\bigg] \\[0.05in]
+&=\sin x\ \lim_{h\rightarrow 0}\frac{\cos h-1}{h}
+\ +\ \cos x\ \lim_{h\rightarrow 0}\frac{\sin h-0}{h} \\[0.05in]
+&=\cos x
+\end{align*}
+\begin{align*}
+\diff{}{x}\cos x
+&=\lim_{h\rightarrow 0}\frac{\cos (x+h)-\cos x}{h} \\[0.05in]
+&=\lim_{h\rightarrow 0}\frac{\cos x\cos h -\sin x\sin h-\cos x}{h} \\[0.05in]
+&=\lim_{h\rightarrow 0}\bigg[\cos x\frac{\cos h-1}{h}
+-\sin x\frac{\sin h-0}{h}\bigg] \\[0.05in]
+&=\cos x\ \lim_{h\rightarrow 0}\frac{\cos h-1}{h}
+\ -\ \sin x\ \lim_{h\rightarrow 0}\frac{\sin h-0}{h} \\[0.05in]
+&=-\sin x
+\end{align*}
+\begin{lemma}\label{lem DIFFsincos}
+\begin{align*}
+\diff{}{x}\sin x &=\cos x &
+\diff{}{x}\cos x &=-\sin x
+\end{align*}
+The above formulas hold provided $x$ is measured in radians.
+\end{lemma}
+\begin{remark}[Optional --- Another derivation of $\diff{}{x}\cos x =-\sin x$]
+\end{remark}
+\begin{align*}
+\tan x&=  \frac{\sin x}{\cos x} & \cot x &= \frac{\cos x}{\sin x}=
+\frac{1}{\tan x} \\
+\csc x&=  \frac{1}{\sin x} & \sec x &= \frac{1}{\cos x}
+\end{align*}
+\begin{alignat*}{7}
+\diff{}{x}\tan x
+&=\diff{}{x}\,\frac{\sin x}{\cos x} &
+&=\frac{ \overbrace{\big({\ts\diff{}{x}}\sin x\big)}^{\cos x}\cos x
+-\sin x\overbrace{\big({\ts\diff{}{x}\cos x}\big)}^{-\sin x}}
+{\cos^2 x} &
+&=\sec^2 x \\[0.05in]
+\diff{}{x}\,\csc x
+&=\diff{}{x}\,\frac{1}{\sin x} &
+&=-\frac{ \overbrace{\big({\ts\diff{}{x}}\sin x\big)}^{\cos x}}
+{\sin^2 x} &
+&=-\csc x\cot x \\[0.05in]
+\diff{}{x}\,\sec x
+&=\diff{}{x}\,\frac{1}{\cos x} &
+&=-\frac{\overbrace{\big({\ts\diff{}{x}}\cos x\big)}^{-\sin x}}
+{\cos^2 x} &
+&=\sec x\tan x \\[0.05in]
+\diff{}{x}\cot x
+&=\diff{}{x}\,\frac{\cos x}{\sin x} &
+&=\frac{ \overbrace{\big({\ts\diff{}{x}}\cos x\big)}^{-\sin x}\sin x
+-\cos x\overbrace{{\ts\big(\diff{}{x}}\sin x\big)}^{\cos x}}
+{\sin^2 x} &
+&=-\csc^2 x
+\end{alignat*}
+\begin{theorem}[Derivatives of trigonometric functions]\label{thm:DIFFtrigDerivs}
+\begin{align*}
+\diff{}{x} \sin x &= \cos x & \diff{}{x} \cos x &= - \sin x
+\end{align*}
+\begin{align*}
+\diff{}{x} \tan x &= \sec^2 x &
+\diff{}{x} \cot x &= -\csc^2 x \\
+\diff{}{x} \csc x &= -\csc x \cot x &
+\diff{}{x} \sec x &= \sec x \tan x
+\end{align*}
+\end{theorem}
+\section{One More Tool  -- the Chain Rule}\label{sec chain rule}
+\stepcounter{theorem}
+\begin{theorem}[The chain rule  --- version 1]\label{thm:DIFFchainRuleV1}
+Let $a \in \mathbb{R}$, $g(x)$ be differentiable at $x=a$, $f(u)$ be differentiable at $u=g(a)$. Then $F(x) = f(g(x))$ is differentiable at $x=a$ and
+\begin{align*}
+F'(a) &=f'\big(g(a)\big)\,g'(a)
+\end{align*}
+\end{theorem}
+\begin{theorem}[The chain rule --- version 2]\label{thm:DIFFchainRuleV2}
+Let $f$ and $g$ be differentiable, then
+\begin{align*}
+\diff{}{x} f\big( g( x) \big) &= f'\big(g(x)\big) \cdot g'(x)
+\end{align*}
+\end{theorem}
+\begin{theorem}[The chain rule --- version 3]\label{thm:DIFFchainRuleV3}
+Let $y = f(u)$ and $u = g(x)$ be differentiable, then
+\begin{align*}
+\diff{y}{x} &= \diff{y}{u} \cdot \diff{u}{x}
+\end{align*}
+\end{theorem}
+\begin{eg}\label{eg:DIFFchainruleA}
+Find the derivative of $F(x) = (\sin x)^5$ w.r.t $x$.
+Let $f(u) = u^5$ and $g(x) = \sin(x)$, then set $F(x) = f\big(g(x)\big) = \big(\sin(x)\big)^5$.
+\begin{align*}
+f(u) &= u^5 & f'(u) &= 5u^4 \\
+g(x) &= \sin(x) & g'(x) &= \cos x
+\end{align*}
+\begin{align*}
+\diff{F}{x} &= f'\big(g(x)\big) \cdot g'(x) \\
+&= 5\big(g(x)\big)^4 \cdot \cos(x) & \text{since $f'(u) = 5u^4$} \\
+&= 5 \big(\sin(x)\big)^4 \cdot \cos(x)
+\end{align*}
+\begin{align*}
+F(x) &= (\sin(x))^n & F'(x) &= n \big(\sin(x) \big)^{n-1} \cos(x)
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_2_9_1}
+Let $f(u) = u^n$ and let $g(x)$ be any differentiable function. Set $F(x) = f\big(g(x)\big) = g(x)^n$. Then
+\begin{align*}
+\diff{F}{x} = \diff{}{x} \big( g(x)^n \big) &= n g(x)^{n-1} \cdot g'(x)
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_2_9_2}
+Let $f(u) = \cos(u)$ and $g(x) = 3x-2$. Find the derivative of
+\begin{align*}
+F(x) &= f\big(g(x)\big) = \cos(3x-2).
+\end{align*}
+\begin{align*}
+f(u) &= \cos(u) & f'(u) &= -\sin(u) \\
+g(x) &= 3x-2 & g'(x) &= 3
+\end{align*}
+\begin{align*}
+F'(x) &= f'\big(g(x)\big) \cdot g'(x) \\
+&= -\sin\big( g(x) \big) \cdot 3 \\
+&= -3 \sin(3x-2)
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFchainaxb}
+Let $a,b \in \mathbb{R}$ and let $f(x)$ be a differentiable function. Set $g(x) = ax+b$. Then
+\begin{align*}
+\diff{}{x} f(ax+b) &= \diff{}{x} f\big(g(x)\big) \\
+&= f'\big(g(x)\big) \cdot g'(x) \\
+&= f'(ax+b) \cdot a
+\end{align*}
+So the derivative of $f(ax+b)$ with respect to $x$ is just $a f'(ax+b)$.
+\end{eg}
+\begin{cor}\label{cor f of axb}
+Let $a,b \in \mathbb{R}$ and let $f(x)$ be differentiable, then
+\begin{align*}
+\diff{}{x} f(ax+b) &= af'(ax+b).
+\end{align*}
+\end{cor}
+\stepcounter{theorem}
+\subsection*{Derivation of the Chain Rule}
+\begin{itemize}
+\item Straightforward but flawed:
+\begin{align*}
+\big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\frac{g(x + h) - g(x)}{h} \\
+& ??\,=\lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
+\end{align*}
+\item For $f$ is differentiable at $u = g(x)$ and $g$ is differentiable at $x$, set
+\begin{align}\label{eq:E(k)}
+E(k) = \frac{f(u + k) - f(u)}{k} - f'(u), \qquad E(0) = 0
+\end{align}
+Then $E(k)$ is continuous at $k = 0$ from
+\begin{align*}
+\lim_{k\to 0}E(k) = f'(u) - f'(u) = 0 = E(0)
+\end{align*}
+From \eqref{eq:E(k)}
+\begin{align*}
+f(u + k) - f(u) = k\big(E(k) + f'(u)\big)
+\end{align*}
+Set $u = g(x)$ and $k = g(x + h) - g(x)$, then $u + k = g(x + h)$; for $g$ is differentiable at $x$,
+\begin{align*}
+\lim_{h\to 0}k = \lim_{h\to 0} g(x + h) - g(x) = 0.
+\end{align*}
+So
+\begin{align*}
+\big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\frac{g(x + h) - g(x)}{h} \\
+&\,=\lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
+\end{align*}
+\end{itemize}
+\subsection*{Chain Rule Examples}
+\begin{eg}\label{eg:DIFFchainA}
+Find $\diff{}{x}\big(1+3x\big)^{75}$.
+\begin{align*}
+f(u)&=u^{75} &
+f'(u)&=75 u^{74} \\
+g(x)&=1+3x &
+g'(x)&=3 \\
+F(x)&=f\big(g(x)\big)=g(x)^{75}=\big(1+3x\big)^{75}\hidewidth
+\end{align*}
+\begin{align*}
+F'(x)&= f'\big(g(x)\big)\,g'(x)
+= 75\, g(x)^{74} \,g'(x)
+= 75\, \big(1+3x\big)^{74} \cdot 3 \\
+&= 225\, \big(1+3x\big)^{74}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFchainB}
+Find $\diff{}{x}\sin(x^2)$.
+\begin{align*}
+f(u)&=\sin u &
+f'(u)&=\cos u \\
+g(x)&=x^2 &
+g'(x)&=2x \\
+F(x)&=f\big(g(x)\big)=\sin\big(g(x)\big)=\sin(x^2)\hidewidth
+\end{align*}
+\begin{align*}
+F'(x)&= f'\big(g(x)\big)\,g'(x)
+= \cos\big(g(x)\big) \,g'(x)
+= \cos(x^2) \cdot 2x \\
+&= 2x\cos(x^2)
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:DIFFchainC}
+Find $\diff{}{x}\root{3}\of{\sin(x^2)}$.
+\begin{align*}
+f(u)&=\root{3}\of{u}=u^{\tfrac{1}{3}} &
+f'(u)&=\tfrac{1}{3}u^{-\tfrac{2}{3}} \\
+g(x)&=\sin(x^2) &
+g'(x)&=2x\cos(x^2) \\
+F(x)&=f\big(g(x)\big)=\root{3}\of{g(x)}=\root{3}\of{\sin(x^2)}\hidewidth
+\end{align*}
+\begin{align*}
+F'(x)&= f'\big(g(x)\big)\,y'(x)
+= \tfrac{1}{3} g(x)^{-\tfrac{2}{3}} \cdot 2x\cos(x^2) \\
+&= \frac{2x}{3}\,\frac{\cos(x^2)}{[\sin(x^2)]^{\frac{2}{3}}}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_2_9_3}
+Find the derivative of $\diff{}{x} f(g(h(x)))$.
+\begin{align*}
+\diff{F}{x} &= \diff{f}{u} \cdot \diff{u}{x} \\
+&= f'(g(h(x))) \cdot \diff{}{x} g(h(x))
+\intertext{We now just apply the chain rule again}
+&= f'(g(h(x))) \cdot g'(h(x)) \cdot h'(x).
+\end{align*}
+\begin{align*}
+\diff{}{x} f_1(f_2(f_3(f_4(x))))
+&= f'_1(f_2(f_3(f_4(x)))) \cdot \diff{}{x} f_2(f_3(f_4(x))) \\
+&= f'_1(f_2(f_3(f_4(x)))) \cdot f'_2(f_3(f_4(x))) \cdot \diff{}{x} f_3(f_4(x))\\
+&= f'_1(f_2(f_3(f_4(x)))) \cdot f'_2(f_3(f_4(x))) \cdot f'_3(f_4(x)) \cdot
+f'_4(x)
+\end{align*}
+\end{eg}
+\stepcounter{theorem}
+\begin{eg}\label{eg:DIFFchainD}
+Compute the following derivative:
+\begin{align*}
+\diff{}{x}\cos\left(\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\right)
+\end{align*}
+\begin{align*}
+\diff{}{x}\cos\bigg(\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\,\bigg)
+=-\sin\bigg(\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\,\bigg)\
+\diff{}{x} \left\{\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3} \right\}
+\end{align*}
+\begin{align*}
+\diff{}{x}\big[x^5\,{(3+x^6)}^{\nicefrac{1}{2}}\ {(4+x^2)}^{-3}\big]
+&=\diff{}{x}\big[x^5\big] \cdot {(3+x^6)}^{\nicefrac{1}{2}}\cdot {(4+x^2)}^{-3}\\
+&\phantom{=} +x^5\cdot \diff{}{x}\big[{(3+x^6)}^{\nicefrac{1}{2}}\big]
+\cdot {(4+x^2)}^{-3} \\
+&\phantom{=} +x^5\cdot {(3+x^6)}^{\nicefrac{1}{2}}\cdot
+\diff{}{x}\big[{(4+x^2)}^{-3}\big]
+\end{align*}
+\begin{align*}
+\diff{}{x}\big[x^5\,{(3+x^6)}^{\nicefrac{1}{2}}\ {(4+x^2)}^{-3}\big]
+&=\overbrace{\diff{}{x}\big[x^5\big]}^{5x^4}
+\cdot{(3+x^6)}^{\nicefrac{1}{2}}\cdot {(4+x^2)}^{-3}\\
+& \phantom{=}+x^5\cdot
+\overbrace{\diff{}{x}\big[{(3+x^6)}^{\nicefrac{1}{2}}\big]}^
+{\frac{1}{2}(3+x^6)^{-\nicefrac{1}{2}}\cdot 6x^5}
+\cdot {(4+x^2)}^{-3} \\
+&\phantom{=} +x^5\cdot{(3+x^6)}^{\nicefrac{1}{2}}\cdot
+\overbrace{\diff{}{x}\big[{(4+x^2)}^{-3}\big]}^
+{-3{(4+x^2)}^{-4}\cdot 2x} \\
+\end{align*}
+\begin{align*}
+\diff{}{x}\cos\bigg(\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\,\bigg)
+=-\sin\bigg(\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\,\bigg)\
+\frac{x^5\sqrt{3+x^6}}{{(4+x^2)}^3}\
+\bigg\{\frac{5}{x}+\frac{3x^5}{3+x^6}-\frac{6x}{4+x^2}\bigg\}
+\end{align*}
+\end{eg}
+\section{The Natural Logarithm}\label{sec diff logs}
+\begin{align*}
+e^{\log_e x} &= x
+\end{align*}
+\begin{align*}
+\log_q x &= \frac{\log_e x}{\log_e q}
+\end{align*}
+\begin{align*}
+\log_e x = \log x = \ln x.
+\end{align*}
+\begin{fig}
+\begin{center}
+\includegraphics{logGraph}
+\end{center}
+\end{fig}
+\begin{align*}
+x &= e^{\log x} \\
+\diff{}{x} x &= \diff{}{x} e^{\log x} \\
+1 &= \diff{f}{u} \cdot \diff{u}{x} \qquad\text{ Using the chain rule with $f(u)=e^u$ and $u=\log x$} \\
+1 &= e^u \cdot\diff{}{x}\log x \\
+\frac{1}{x} = \frac{1}{e^u} &= \diff{}{x}\log x
+\end{align*}
+\begin{theorem}\label{thm diff log}
+\begin{align*}
+\diff{}{x} \log x &= \frac{1}{x}
+\end{align*}
+where $\log x$ is the logarithm base $e$.
+\end{theorem}
+\begin{eg}\label{eg_2_10_1}
+Let $f(x) = \log 3x$. Find $f'(x)$.
+\begin{align*}
+f'(x) &= \diff{}{x} \log(3x) & \text{chain rule} \\
+&= \frac{1}{3x} \cdot 3 \\
+&= \frac{1}{x}
+\end{align*}
+\end{eg}
+\begin{eg}[The derivative of $\log cx$]\label{eg_2_10_2}
+\begin{align*}
+\diff{}{x} \log cx &= \diff{}{x}\left(\log c + \log x \right)\\
+&= \frac{1}{x}
+\end{align*}
+\end{eg}
+\begin{eg}[The derivative of $\log|x|$]\label{eg diff log abs x}
+\begin{itemize}
+\item If $x>0$, $|x| = x$ and so
+\begin{align*}
+g'(x) &= \diff{}{x} \log x = \frac{1}{x}
+\end{align*}
+\item If $x<0$ then $|x|= -x$. If $|h|\ll|x|$, then $x+h<0$ and $|x+h|=-(x+h)=|x|-h$. Write $X=|x|$ and $H=-h$.
+By definition
+\begin{align*}
+g'(x) &= \lim_{h\rightarrow 0} \frac{\log|x+h|-\log|x|}{h}
+= \lim_{h\rightarrow 0} \frac{\log(|x|-h)-\log|x|}{h} \\
+&= \lim_{H\rightarrow 0} \frac{\log(X+H)-\log X}{-H}
+= -\lim_{H\rightarrow 0} \frac{\log(X+H)-\log X}{H} \\
+&=-\diff{}{X}\log X =-\frac{1}{X} = -\frac{1}{|x|} \\
+&=\frac{1}{x}
+\end{align*}
+\item $g'(0)$ DNE for $\log 0$ is undefined.%Since $\log 0$ is undefined, $g'(0)$ does not exist.
+\end{itemize}
+\begin{align*}
+\diff{}{x}\log|x|&= \frac{1}{x}
+\end{align*}
+\end{eg}
+\begin{eg}[The derivative of $x^a$]\label{eg diff power}
+\begin{align*}
+\diff{}{x} x^a &= \diff{}{x} e^{a\log x}
+= e^{a\log x} \diff{}{x}(a\log x) &\text{by the chain rule} \\
+&=\frac{a}{x} e^{a\log x}
+=\frac{a}{x} x^a \\
+&=a x^{a-1}
+\end{align*}
+\end{eg}
+\begin{align*}
+\log_a x &= \frac{\log x}{\log a} = \frac{1}{\log a} \cdot \log x &
+\text{since $a$ is a constant}\\
+\diff{}{x} \log_a x &= \frac{1}{\log a} \cdot \frac{1}{x}
+\end{align*}
+\begin{align*}
+f(x) &= a^x & \text{take log of both sides}\\
+\log f(x) &= x \log a & \text{exponentiate both sides base $e$}\\
+f(x) &= e^{x \log a} & \text{chain rule}\\
+f'(x) &= e^{x \log a} \cdot \log a \\
+&= a^x \cdot \log a
+\end{align*}
+\begin{align*}
+f(x) &= a^x & \text{take log of both sides} \\
+\log f(x) &= x \log a & \text{differentiate both sides}\\
+\diff{}{x} \left( \log f(x) \right) &= \log a \\
+f'(x) \cdot \frac{1}{f(x)} &= \log a \\
+f'(x) &= f(x) \cdot \log a = a^x \cdot \log a
+\end{align*}
+\begin{cor}\label{cor_2_10}
+\begin{align*}
+\diff{}{x} a^x &= \log a \cdot a^x & \text{for any $a>0$}\\
+\diff{}{x} \log_a x &= \frac{1}{x \cdot \log a} & \text{for any $a>0, a \neq 1$}
+\end{align*}
+\end{cor}
+\subsection*{Logarithmic Differentiation}
+\begin{align*}
+\diff{}{x}\log|f(x)|=\frac{f'(x)}{f(x)}
+\end{align*}
+\begin{eg}\label{eg_2_10_3}
+\begin{align*}
+P(x) &= F(x) \cdot G(x) \cdot H(x)
+\end{align*}
+\begin{align*}
+\log P(x) &= \log \left( F(x) \cdot G(x) \cdot H(x)  \right) \\
+&= \log F(x) + \log G(x) + \log H(x) \\
+\diff{}{x}\log P(x)  &= \diff{}{x}\log F(x) + \diff{}{x}\log G(x) + \diff{}{x}\log H(x) \\
+\frac{P'(x)}{P(x)} &= \frac{F'(x)}{F(x)}+\frac{G'(x)}{G(x)}+\frac{H'(x)}{H(x)} \\
+P'(x) &=
+\left(\frac{F'(x)}{F(x)}+\frac{G'(x)}{G(x)}+\frac{H'(x)}{H(x)}\right)\cdot
+F(x)G(x)H(x)\\
+&= F'(x)G(x)H(x) + F(x)G'(x)H(x) + F(x)G(x)H'(x)
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_2_10_4}
+Find $f'(x)$ of
+\begin{align*}
+f(x) &=\frac{(\sqrt{x}-1)(2-x)(1-x^2)}{\sqrt{x}(3+2x)}
+\end{align*}
+\begin{align*}
+\log |f(x)| &= \log \frac{|\sqrt{x}-1|\,|2-x|\,|1-x^2|}{\sqrt{x}|3+2x|} \\
+&= \log|\sqrt{x}-1| + \log|2-x| + \log|1-x^2| -
+\underbrace{\log(\sqrt{x})}_{=\frac{1}{2}\log x} - \log|3+2x| \\
+\diff{}{x}\log |f(x)| &= \diff{}{x} \left(
+\log|\sqrt{x}-1| + \log|2-x| + \log|1-x^2| - \frac{1}{2}\log(x) - \log|3+2x|
+\right)\\
+\frac{f'(x)}{f(x)} &= \frac{1/(2\sqrt{x})}{\sqrt{x}-1}
++ \frac{-1}{2-x} + \frac{-2x}{1-x^2} - \frac{1}{2x} - \frac{2}{3+2x} \\
+f'(x) &= f(x) \cdot \left( \frac{1}{2 \sqrt{x} (\sqrt{x}-1)}
+- \frac{1}{2-x} - \frac{2x}{1-x^2} - \frac{1}{2x} - \frac{2}{3+2x}
+\right)\\
+&= \frac{(\sqrt{x}-1)(2-x)(1-x^2)}{\sqrt{x}(3+2x)}
+\cdot \left( \frac{1}{2 \sqrt{x} (\sqrt{x}-1)}
+- \frac{1}{2-x} - \frac{2x}{1-x^2} - \frac{1}{2x} - \frac{2}{3+2x}
+\right)
+\end{align*}
+\end{eg}
+\section{Implicit Differentiation}\label{sec_2_11}
+\begin{itemize}
+\item Find the tangent line of
+\begin{align*}
+y^2 = x
+\end{align*}
+at $(1, -1)$.
+\item Find the tangent line of
+\begin{align*}
+x^2 + y^2 = 1
+\end{align*}
+at $(\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}})$.
+\item Find the tangent line of $y=y^3+xy+x^3$ at $(1, -1)$.
+\end{itemize}
+\begin{align*}
+\text{Pretend that the curve has been solved explicitly, for some interval of $x$'s, as $y=f(x)$.}
+\end{align*}
+\begin{eg}\label{eg:DIFFimpldiffD}
+Find the equation of the tangent line to $y=y^3+xy+x^3$ at $x=1$.
+\begin{itemize}
+\item When $x=1$, $y=y^3+xy+x^3$ simplifies to $y=y^3+y+1$ or $y^3=-1\,\,\Longrightarrow\,\,y=-1$.
+\item To find the slope of the tangent line at $(1,-1)$, pretend the curve is $y=f(x)$ so %that $f(x)$ obeys
+\begin{gather*}
+f(x) = f(x)^3 + x f(x) + x^3 \\
+\Longrightarrow\,\,f'(x)=3f(x)^2f'(x)+f(x)+xf'(x)+3x^2
+\end{gather*}
+\item Subbing in $x=1,\ f(1)=-1$ gives
+\begin{align*}
+f'(1)&=3f'(1)-1+f'(1)+3 & \text{ and so } f'(1)=-\frac{2}{3}
+\end{align*}
+\item The equation of the tangent line is
+\begin{align*}
+y=y_0+f'(x_0)(x-x_0)=-1-\frac{2}{3}(x-1)
+=-\frac{2}{3}x-\frac{1}{3}
+\end{align*}
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg:DIFFimpldiffA}
+Find the equation of the tangent line on the ellipse $3x^2+5y^2=7$ when $x=1$ and $y$ is positive.
+\begin{itemize}
+\item When $x=1$ the equation simplifies to
+\begin{align*}
+3 + 5y^2 = 7\,\,\Longrightarrow\,\,5y^2 = 4 \,\,\Longrightarrow\,\,y = \pm \frac{2}{\sqrt{5}}.
+\end{align*}
+So our point on the eclipse is $(1, \frac{2}{\sqrt{5}})$.
+\item Use implicit differentiation to find $\diff{y}{x}$ at $(1, \frac{2}{\sqrt{5}})$:
+\begin{align*}
+3x^2 + 5 y^2 = 7 \,\,\Longrightarrow\,\,6x + 10 y y' = 0\,\,\Longrightarrow\,\,y' = - \frac{3x}{5y}
+\end{align*}
+\item At $x=1$, $y= \frac{2}{\sqrt{5}}$
+\begin{align*}
+y'(1) &= - \frac{3}{5\cdot\frac{2}{\sqrt{5}}} = - \frac{3}{2\sqrt{5}}
+\end{align*}
+The tangent line passes through $(1, \frac{2}{\sqrt{5}})$ and has slope $-\frac{3}{2\sqrt{5}}$ with equation
+\begin{align*}
+\big(y - \frac{2}{\sqrt{5}}\big) = -\frac{3}{2\sqrt{5}}(x - 1)
+\end{align*}
+\end{itemize}
+\end{eg}
+\subsection*{Ex.2.11.4}
+\begin{align*}
+\text{Find } \frac{\text{d}y}{\text{d}x} \text{ if } xy + e^x + e^y = 1.
+\end{align*}
+\begin{align*}
+xy + e^x + e^y = 1\,\,\Longrightarrow\,\, (y + xy') + e^x + e^y y' = 0\,\,\Longrightarrow\,\, (x + e^y)y' = -(e^x + y)\,\,\Longrightarrow\,\, y' = -\frac{e^x + y}{x + e^y}
+\end{align*}
+\subsection*{Ex.2.11.5}
+\begin{align*}
+\text{Find } \frac{\text{d}y}{\text{d}x} \text{ if } e^y = x y^2 + x.
+\end{align*}
+\begin{align*}
+e^y = x y^2 + x\,\,\Longrightarrow\,\, e^y y' = y^2 + x 2yy' + 1\,\,\Longrightarrow\,\, (e^y - 2xy)y' = (y^2 + 1)\,\,\Longrightarrow\,\, y' = \frac{y^2 + 1}{e^y - 2xy}
+\end{align*}
+\subsection*{Ex.2.11.7}
+\begin{align*}
+\text{Find } \frac{\text{d}y}{\text{d}x} \text{ if } x^3 + y^4 = \cos(x^2 + y).
+\end{align*}
+\begin{align*}
+&x^3 + y^4 = \cos(x^2 + y)\,\,\Longrightarrow\,\, 3x^2 + 4y^3y' = -\sin(x^2 + y)(2x + y') \\
+&\,\,\Longrightarrow\,\, (4y^3+\sin(x^2 +y))y' = (-3x^2-2x\sin(x^2 + y))\,\,\Longrightarrow\,\, y' = \frac{-3x^2-2x\sin(x^2 + y)}{4y^3+\sin(x^2 +y)}
+\end{align*}
+\section{Inverse Trigonometric Functions}\label{sec:invTrig}
+\begin{eg}\label{eg:INVstilllesslucky}
+Let $y=f(x)=\sin(x)$. Find the inverse function which takes $y$ and returns a unique $x$-value so that $\sin(x)=y$.
+\begin{efig}
+\begin{center}
+\includegraphics{sinInv}
+\end{center}
+\end{efig}
+\begin{efig}
+\begin{center}
+\includegraphics{sinInvB}
+\end{center}
+\end{efig}
+\begin{align*}
+\sin X &= Y &\text{and} && -\frac{\pi}{2}\leqslant X \leqslant\frac{\pi}{2}\\
+\sin(\arcsin(Y)) &= Y & \text{and} && -\frac{\pi}{2}\leqslant\arcsin(Y)\leqslant\frac{\pi}{2}
+\end{align*}
+\end{eg}
+\begin{eg}
+\begin{equation}\label{eq:DIFFarcsin}
+\sin\big(\arcsin(x)\big) =x\quad\text{and}\quad-\frac{\pi}{2}\leqslant\arcsin(x)\leqslant\frac{\pi}{2}.
+\end{equation}
+\end{eg}
+\begin{eg}\label{eg:DIFFinvsin}
+\begin{align*}
+\arcsin(\sin(x)) &= \text{ the unique angle $\theta$ between $-\nicefrac{\pi}{2}$ and $\nicefrac{\pi}{2}$ obeying $\sin\theta = \sin x$} \\
+&= \text{ $x$ \quad iff $-\nicefrac{\pi}{2}\leqslant x\leqslant\nicefrac{\pi}{2}$}
+\end{align*}
+\begin{gather*}
+\arcsin\Big(\sin\Big(\frac{\pi}{2}\Big)\Big) = \frac{\pi}{2}\qquad\arcsin\Big(\sin\Big(\frac{\pi}{6}\Big)\Big) = \frac{\pi}{6} \\
+\text{but}\quad\arcsin(\sin(2\pi)) = 0 \not= 2\pi\qquad\arcsin\Big(\sin\Big(\frac{11\pi}{16}\Big)\Big) = \frac{5\pi}{16} \not= \frac{11\pi}{16}
+\end{gather*}
+\end{eg}
+\subsection*{Derivatives of Inverse Trigonometric Functions}
+\begin{efig}
+\begin{center}
+\includegraphics{cosInvB}
+\end{center}
+\begin{center}
+\includegraphics{tanInvB}
+\end{center}
+\begin{center}
+\includegraphics{cotInvB.pdf}
+\end{center}
+\end{efig}
+\begin{defn}\label{def:DIFFinvtrig}
+$\arcsin x:\{|x|\leqslant 1\}\mapsto [-\frac{\pi}{2}, \frac{\pi}{2}]$ is the unique number obeying
+\begin{align*}
+\sin\big(\arcsin(x)\big)&=x &&\text{and}& -\frac{\pi}{2}\leqslant &\arcsin(x)\leqslant\frac{\pi}{2}
+\intertext{
+$\arccos x: \{|x|\leqslant 1\}\mapsto [0, \pi]$  is the unique number obeying
+}
+\cos\big(\arccos(x)\big)&=x &&\text{and}& 0\leqslant &\arccos(x)\leqslant\pi
+\intertext{
+$\arctan x:\mathbb{R}\mapsto (-\frac{\pi}{2}, \frac{\pi}{2})$ is the unique number obeying
+}
+\tan\big(\arctan(x)\big)&=x &&\text{and}& -\frac{\pi}{2}< &\arctan(x)<\frac{\pi}{2}
+\end{align*}
+\end{defn}
+\begin{eg}\label{eg_2_12_1}
+\begin{itemize}
+\item Show that $\diff{}{x}\arcsin x = \frac{1}{\sqrt{1-x^2}}$:
+\begin{itemize}
+\item Write $\arcsin(x) =\theta(x)$ so that $\sin\theta = x$. %and the desired derivative is $\diff{\theta}{x}$.
+\item Differentiate implicitly, remembering that $\theta$ is a function of $x$:
+\begin{align*}
+(\sin\theta)' &= (x)' \\
+\cos(\theta) \diff{\theta}{x} &= 1 \\
+\diff{\theta}{x} &= \frac{1}{\cos(\theta)} & \text{substitute $\theta = \arcsin x$}\\
+\diff{}{x}\arcsin x &= \frac{1}{\cos(\arcsin x)}
+\end{align*}
+\item To simplify this expression, draw % again draw the relevant triangle
+\begin{efig}
+\begin{center}
+\includegraphics{triangleAsin}
+\end{center}
+\end{efig}
+\begin{align*}
+\cos(\arcsin x) = \cos\theta &= \sqrt{1-x^2}.
+\end{align*}
+\item Thus
+\begin{align*}
+\diff{}{x}\arcsin x &= \frac{1}{\sqrt{1-x^2}}.
+\end{align*}
+\end{itemize}
+\item Show that $\diff{}{x}\arccos x = -\frac{1}{\sqrt{1-x^2}}$:
+\begin{itemize}
+\item Write $\arccos(x) =\theta(x)$ so that $\cos\theta = x$.% and the desired derivative is $\diff{\theta}{x}$.
+\item Differentiate implicitly, remembering that $\theta$ is a function of $x$:
+\begin{align*}
+(\cos\theta)' &= (x)' \\
+-\sin\theta \diff{\theta}{x} &= 1 \\
+\diff{\theta}{x} &= -\frac{1}{\sin\theta} & \text{substitute $\theta = \arccos x$}\\
+\diff{}{x}\arccos x &= -\frac{1}{\sin(\arccos x)}.
+\end{align*}
+\item To simplify this expression, draw % again draw the relevant triangle
+\begin{efig}
+\begin{center}
+\includegraphics{triangleAcos}
+\end{center}
+\end{efig}
+\begin{align*}
+\sin(\arccos x) = \sin\theta &= \sqrt{1-x^2}.
+\end{align*}
+\item Thus
+\begin{align*}
+\diff{}{x}\arccos x &= -\frac{1}{\sqrt{1-x^2}}.
+\end{align*}
+\end{itemize}
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg_2_12_2}
+\begin{itemize}
+\item Show that $\diff{}{x}\arctan x = \frac{1}{1+x^2}$:
+\begin{itemize}
+\item Write $\arctan(x) =\theta(x)$ so that $\tan\theta = x$. %and the desired derivative is $\diff{\theta}{x}$.
+\item Differentiate implicitly, remembering that $\theta$ is a function of $x$:
+\begin{align*}
+(\tan\theta)' &= (x)' \\
+\sec^2(\theta) \diff{\theta}{x} &= 1 \\
+\diff{\theta}{x} &= \frac{1}{\sec^2(\theta)} = \cos^2(\theta) & \text{substitute $\theta = \arctan x$}\\
+\diff{}{x}\arctan x &= \cos^2(\arctan x)
+\end{align*}
+\item To simplify this expression, draw % again draw the relevant triangle
+\begin{efig}
+\begin{center}
+\includegraphics{triangleAtan}
+\end{center}
+\end{efig}
+\begin{align*}
+\cos(\arcsin x) = \cos\theta &= \frac{1}{\sqrt{1+x^2}}.
+\end{align*}
+\item Thus
+\begin{align*}
+\diff{}{x}\arctan x &= \frac{1}{1+x^2}.
+\end{align*}
+\end{itemize}
+\item Show that $\diff{}{x}\arccot x = -\frac{1}{1+x^2}$:
+\begin{itemize}
+\item Write $\arccot(x) =\theta(x)$ so that $\cot\theta = x$. %and the desired derivative is $\diff{\theta}{x}$.
+\item Differentiate implicitly, remembering that $\theta$ is a function of $x$:
+\begin{align*}
+(\cot\theta)' &= (x)' \\
+-\csc^2(\theta) \diff{\theta}{x} &= 1 \\
+\diff{\theta}{x} &= -\frac{1}{\csc^2(\theta)} = -\sin^2(\theta) & \text{substitute $\theta = \arccot x$}\\
+\diff{}{x}\arccot x &= -\sin^2(\arccot x)
+\end{align*}
+\item To simplify this expression, draw % again draw the relevant triangle
+\begin{efig}
+\begin{center}
+\includegraphics{triangleAcot}
+\end{center}
+\end{efig}
+\begin{align*}
+\sin(\arccot x) = \sin\theta &= \frac{1}{\sqrt{1+x^2}}.
+\end{align*}
+\item Thus
+\begin{align*}
+\diff{}{x}\arccot x &= -\frac{1}{1+x^2}.
+\end{align*}
+\end{itemize}
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg_2_12_3}
+\begin{itemize}
+\item From $\arccsc x = \arcsin\frac{1}{x}$,
+\begin{align*}
+\diff{}{x}{\arccsc x} = \diff{}{x}{\arcsin\frac{1}{x}} = -\frac{1}{x^2}\frac{1}{\sqrt{1 - \frac{1}{x^2}}} = -\frac{1}{x^2}\sqrt{\frac{x^2}{x^2 - 1}} = -\frac{1}{|x|\sqrt{x^2-1}}
+\end{align*}
+\item From $\arcsec x = \arccos\frac{1}{x}$,
+\begin{align*}
+\diff{}{x}{\arcsec x} = \diff{}{x}{\arccos\frac{1}{x}} = \frac{1}{x^2}\frac{1}{\sqrt{1 - \frac{1}{x^2}}} = \frac{1}{x^2}\sqrt{\frac{x^2}{x^2 - 1}} = \frac{1}{|x|\sqrt{x^2-1}}
+\end{align*}
+\item From $\arccot x = \arctan\frac{1}{x}$,
+\begin{align*}
+\diff{}{x}{\arccot x} = \diff{}{x}{\arctan\frac{1}{x}} = -\frac{1}{x^2}\frac{1}{1 + \frac{1}{x^2}} = -\frac{1}{x^2}\frac{x^2}{x^2 + 1} = -\frac{1}{1 + x^2}
+\end{align*}
+\end{itemize}
+\end{eg}
+\begin{theorem}\label{thm:DIFFinvtrigderiv}
+\begin{align*}
+\diff{}{x} \arcsin(x) &= \frac{1}{\sqrt{1-x^2}} &
+\diff{}{x} \arccsc(x) &= -\frac{1}{|x|\sqrt{x^2-1}} \\
+\diff{}{x} \arccos(x) &= -\frac{1}{\sqrt{1-x^2}} &
+\diff{}{x} \arcsec(x) &= \frac{1}{|x|\sqrt{x^2-1}} \\
+\diff{}{x} \arctan(x) &= \frac{1}{1+x^2} &
+\diff{}{x} \arccot(x) &= -\frac{1}{1+x^2}
+\end{align*}
+\end{theorem}
+\section{The Mean Value Theorem}\label{sec mvt}
+\begin{itemize}
+\item Distance between A, B is 150km
+\item If a car leaves A at 1pm and arrives B at 2pm, then at some time between 1pm and 2pm, the instantaneous velocity of the car is 150 km/hr
+\end{itemize}
+\subsection*{Rolle's Theorem}
+\begin{theorem}[Rolle's theorem]\label{thm:DIFFrolle}
+Let $a, b\in\mathbb{R}$ with $a<b$ and $f$ be a function so that
+\begin{itemize}
+\item $f(x)$ is continuous on $[a, b]$
+\item $f(x)$ is differentiable on $(a, b)$
+\item $f(a) = f(b)$
+\end{itemize}
+then $\exists c\in (a, b)$ with $f'(c)=0$.
+\end{theorem}
+\begin{efig}
+\begin{center}
+\includegraphics[height=3.5cm]{extra/rolle}
+\end{center}
+\end{efig}
+\begin{eg}\label{eg_2_13_1}
+Use Rolle's theorem to show that
+\begin{align*}
+f(x) &= \sin(x)-\cos(x)
+\end{align*}
+has a point $c$ between $0$ and $\frac{3\pi}{2}$ so that $f'(c)=0$.
+\begin{align*}
+f(0) &= \sin 0 - \cos 0 = 0-1 = -1  \\
+f\left(\frac{3\pi}{2}\right) &= \sin\frac{3\pi}{2} - \cos\frac{3\pi}{2} = -1-0 = -1
+\end{align*}
+\begin{align*}
+f'(x) &= \cos x + \sin x\\
+f'(c) &= \cos c + \sin c  =  0 & \text{rearrange}\\
+\sin c&= - \cos c & \text{and divide by $\cos c$} \\
+\tan c &= -1
+\end{align*}
+Hence $c = \frac{3\pi}{4}$. %We have sketched the function and the relevant points below.
+\begin{efig}
+\begin{center}
+\includegraphics[height=3.5cm]{extra/rolle_sketch}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{eg}\label{eg_2_13_2}
+Show that the equation $2x-1=\sin(x)$ has exactly 1 solution.
+\begin{efig}
+\begin{center}
+\includegraphics[height=4cm]{extra/rolle_sketch2}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item Set $f(x) = 2x-1-\sin(x)$. Note that $f(0)=-1$ and $f(2) = 4-1-\sin(2) = 3-\sin(2)\geqslant 2$, since $-1\leqslant\sin(2)\leqslant 1$. By IVT $\exists\,c\in[0, 2]$ with $f(c)=0$.
+\item $f'(x) = 2-\cos x$. Since $-1\leqslant\cos x\leqslant 1$, $f'(x)\geqslant 1$. If there exists $a, b$ s.t. $f(a)= f(b) = 0$, then by Rolle's theorem $\exists\,c\in(a, b)$ with $f'(c) = 0$, a contradiction !
+\end{itemize}
+\end{eg}
+\begin{eg}
+\begin{efig}
+\begin{center}
+\includegraphics[height=3.5cm]{extra/rolle_to_mvt}
+\end{center}
+\label{fig rolle_to_mvt}
+\end{efig}
+\end{eg}
+\begin{theorem}[The mean value theorem]\label{thm:DIFFmvt}
+Let $a,b\in\mathbb{R}$ with $a<b$, and $f(x)$ be a function so that
+\begin{itemize}
+\item $f(x)$ is continuous on $[a, b]$
+\item $f(x)$ is differentiable on $(a, b)$
+\end{itemize}
+then $\exists\,c \in (a,b)$, such that
+\begin{align*}
+f'(c)&=\frac{f(b)-f(a)}{b-a}
+\end{align*}
+\end{theorem}
+\begin{eg}\label{eg_2_13_3}
+Consider $f(x)=3x^2-4x+2$ on $[-1,1]$.
+\begin{itemize}
+\item %The MVT tells us that there is a point $c \in (-1,1)$ so that
+By MVT $\exists\,c\in(-1, 1)$ s.t.
+\begin{align*}
+f'(c) &= \frac{f(1)-f(-1)}{1-(-1)} = \frac{1-9}{2} =-4
+\end{align*}
+\item $f'(x) = 6x-4$; Solve $f'(c) = -4$, we have $c = 0$.
+\item The tangent line is $(y - 2) = -4(x - 0)$. %has slope $-4$ and passes through $(0,f(0))=(0,2)$, and so is given by
+\item The secant line joining $(-1,f(-1))=(-1,9)$ to $(1,f(1))=(1,1)$ is $ y = -4 x + 5$.%just
+\item %Here is a sketch of the curve and the two lines:
+\begin{efig}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+width=7cm,
+legend style={
+cells={anchor=east},
+legend pos=outer north east,
+},
+axis x line=center, axis y line=center,
+xmax=1.2,xmin=-1.2, xtick={-1,-0.5,0.5,1},
+ymin=-1, ymax=10,
+ytick={0,3,6,9},
+yticklabels={0,3,6,9}
+]
+\addplot[black,domain=-1.1:1.1,samples=100] {3*x*x-4*x+2}; \addlegendentry{$3x^2-4x+2$}
+\addplot[blue,domain=-1.1:1.1,samples=100] {5-4*x};  \addlegendentry{$5-4x$}
+\addplot[red,domain=-1.1:1.1,samples=100] {2-4*x};  \addlegendentry{$2-4x$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{efig}
+\end{itemize}
+\end{eg}
+\stepcounter{theorem}
+\begin{eg}\label{eg_2_13_4}
+Let $f(x)$ be differentiable s.t.
+\begin{align*}
+f(1)&=10 &\text{ and }&& -1 \leqslant f'(x)\leqslant 2\quad\text{everywhere}
+\end{align*}
+Obtain upper and lower bounds on $f(5)$.
+\begin{itemize}
+\item Since $f(x)$ is differentiable we can use the MVT.
+\item By MVT $\exists\,c\in(1, 5)$ s.t.
+\begin{align*}
+f'(c) &=\frac{f(5)-f(1)}{5-1} = \frac{f(5) - 10}{4}
+\end{align*}
+\item By assumption $-1\leqslant f'(c)\leqslant 2$, so
+\begin{align*}
+-1 &\leqslant f'(c) \leqslant 2 \\
+-1 & \leqslant \frac{f(5)-10}{4} \leqslant 2 \\
+-4 & \leqslant f(5)-10 \leqslant 8 \\
+6 & \leqslant f(5) \leqslant 18
+\end{align*}
+\end{itemize}
+\end{eg}
+\subsection*{Be Careful with Hypotheses}\label{warning:mvt}
+\begin{eg}\label{eg:mvtd}
+Let $a=0$, $b=2$ and
+\smallskip
+\begin{align*}
+f(x) = \begin{cases}
+0  & \text{if }x \leqslant 1 \\
+1 & \text{if }x>1
+\end{cases}
+\hskip0.8in  \smash{\raisebox{-0.5\height}{\includegraphics{mvtd}}}
+\end{align*}
+\medskip
+\noindent
+$f'(x)=0$ at $x\ne 1$, but the slope of the secant joining $\big(a\,,f(a)\big)=(0,0)$ and $\big(b\,,f(b)\big)=(2,1)$ is $\frac{1}{2}$.
+\end{eg}
+\begin{eg}\label{eg:mvte}
+Let $a=-1$, $b=1$ and $f(x)=|x|$. %For this function
+\smallskip
+\begin{align*}
+f'(x) = \begin{cases}
+-1  & \text{if }x < 0 \\
+\text{undefined} & \text{if }x=0\\
+1 & \text{if }x>0
+\end{cases}
+\hskip0.8in  \smash{\raisebox{-0.5\height}{\includegraphics{mvte}}}
+\end{align*}
+\smallskip
+\noindent
+$f'(x)=\pm 1$ at $x\ne 0$, but the slope of the secant joining $\big(a\,,f(a)\big)=(-1,1)$ and $\big(b\,,f(b)\big)=(1,1)$ is $0$.
+\end{eg}
+\stepcounter{theorem}
+\begin{cor}[Consequences of the mean value theorem]\label{cor:DIFFmvtcons}
+Let $A,B\in\mathbb{R}$ with $A<B$; $f(x)$ be defined and continuous on $[A, B]$ and differentiable on $(A, B)$.
+\begin{enumerate}[(a)]
+\item If $f'(c)=0$ for $A<c<B$, then $f(b)=f(a)$ for all $A\leqslant a<b\leqslant B$.%\\
+\item If $f'(c)\ge 0$ for $A<c<B$, then $f(b)\ge f(a)$ for $A\leqslant a\leqslant b\leqslant B$.%\\
+\item If $f'(c)\leqslant 0$ for $A<c<B$, then $f(b)\leqslant f(a)$ for $A\leqslant a \leqslant b\leqslant B$.%\\
+\end{enumerate}
+\end{cor}
+\begin{cor}\label{cor equal diff}
+If $f'(x) = g'(x)$ on $(a, b)$, then $f-g$ is constant on $(a,b)$. %That is $f(x)=g(x)+c$, where $c$ is some constant.
+\end{cor}
+\begin{eg}\label{eg_2_13_5}
+Show that
+\begin{align*}
+\arcsin x + \arccos x &= \frac{\pi}{2} & \mbox{for all } -1 < x < 1
+\end{align*}
+Let $f(x) = \arcsin x + \arccos x$, then
+\begin{align*}
+f'(x) &= \frac{1}{\sqrt{1-x^2}} + \frac{-1}{\sqrt{1-x^2}} = 0
+\end{align*}
+Thus $f$ must be a constant. To find out which constant, we can just check its value at a convenient point, like $x=0$.
+\begin{align*}
+\arcsin(0) + \arccos(0) &= \frac{\pi}{2} + 0 = \frac{\pi}{2}
+\end{align*}
+Since the function is constant, this must be the value.
+\end{eg}
+\graphicspath{{figures/applications/}}
+\chapter{Applications of Derivatives}\label{chap_appl_deriv}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\longsection{Approximating Functions Near a Specified Point --- Taylor Polynomials}{Taylor polynomials}\label{sec:DIFFTaylor}
+\begin{itemize}
+\item How to compute $\sin\big(\frac{1}{10}\big)$ without using calculator?
+\item $\sin\big(\frac{1}{10}\big) = 0.09983341\dots$
+\item $\sin x\approx x$ as $x$ is small
+\end{itemize}
+\begin{efig}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+axis x line=center, axis y line=center,
+ymax=1.05,ymin=-1.05, ytick={-1,-0.5,0.5,1.0},
+xtick={-1,-0.5,0.5,1},
+xlabel=$x$,
+legend entries={$x$,$\sin x$},
+legend pos=outer north east,
+legend style={draw=none}
+]
+\addplot[line width=1pt, red,domain=-1:1,samples=100] {x};
+\addplot[line width=1pt, blue,domain=-1.1:1.1,samples=100] {sin(deg(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{efig}
+Given $f(x)$ that we wish to approximate for $x\approx a$, find $\widetilde{f}(x)$ that
+\begin{itemize}
+\item is simple and easy to compute%\footnote{It is no good approximating a function with something that is even more difficult to work with.}
+\item $\widetilde{f}(x)\approx f(x)$ for $x\approx a$.
+\end{itemize}
+\subsection{Zeroth Approximation --- the Constant Approximation}\label{ssec const approx}
+\begin{impeqn}[Constant approximation]\label{eq:constApprox}
+\begin{align*}
+f(x)\approx f(a)
+\end{align*}
+\end{impeqn}
+\begin{eg}\label{eg ex const approx}
+Use the constant approximation to estimate $e^{0.1}$.
+\begin{itemize}
+\item $f(x) = e^{x}$, obviously $a=0$
+\item The constant approximation of $f(0.1) = e^{0.1}$ is
+\begin{align*}
+\widetilde{f}(x) = f(0) = e^0 = 1\;\Longrightarrow\;\widetilde{f}(0.1) = 1
+\end{align*}
+\item $e^{0.1} = 1.105170918\dots$
+\end{itemize}
+\end{eg}
+Use the constant approximation to estimate $\sqrt{4.1}$.
+\begin{itemize}
+\item $f(x) = \sqrt{x}$, obviously $a=4$
+\item The constant approximation of $f(4.1) = \sqrt{4.1}$ is
+\begin{align*}
+\widetilde{f}(x) = f(4) = 2\;\Longrightarrow\;\widetilde{f}(4.1) = 2
+\end{align*}
+\item $\sqrt{4.1} = 2.024845673\dots$
+\end{itemize}
+\subsection{First Approximation --- the Linear approximation}\label{ssec_first_approx}
+\begin{impeqn}[Linear approximation]\label{eq:linApprox}
+\begin{align*}
+f(x) \approx f(a)+f'(a)(x-a)
+\end{align*}
+\end{impeqn}
+\begin{eg}\label{eg_3_4_1}
+Use the linear approximation to estimate $e^{0.1}$.
+\begin{itemize}
+\item $f(x) = e^{x}$, obviously $a=0$
+\item To form the linear approximation, we need $f(a)=f(0)$ and $f'(a) = f'(0)$:
+\begin{align*}
+f(x) = e^x \;\Longrightarrow\; f(0) = 1\\
+f'(x) = e^x \;\Longrightarrow\; f'(0) = 1
+\end{align*}
+\item The linear approximation of $f(0.1) = e^{0.1}$ is
+\begin{align*}
+\widetilde{f}(x) = f(0) + xf'(0) = 1 + x \;\Longrightarrow\; \widetilde{f}(0.1)  = 1 + 0.1 = 1.1
+\end{align*}
+\item $e^{0.1} = 1.105170918\dots$
+\end{itemize}
+\end{eg}
+\begin{eg}\label{eg_3_4_2}
+Use the linear approximation to estimate $\sqrt{4.1}$.
+\begin{itemize}
+\item $f(x) = \sqrt{x}$, obviously $a=4$
+\item To form the linear approximation, we need $f(a)=f(4)$ and $f'(a) = f'(4)$:
+\begin{align*}
+f(x) = \sqrt{x} \;\Longrightarrow\; f(4) = 2\\
+f'(x) = \frac{1}{2\sqrt{x}} \;\Longrightarrow\; f'(4) = \frac{1}{4}
+\end{align*}
+\item The linear approximation of $f(4.1) = \sqrt{4.1}$ is
+\begin{align*}
+\widetilde{f}(x) = f(4) + (x - 4)\cdot f'(4) = 2 + \frac{x - 4}{4} \;\Longrightarrow\; \widetilde{f}(4.1)  = 2 + 0.025 = 2.025
+\end{align*}
+\item $\sqrt{4.1} = 2.024845673\dots$
+\end{itemize}
+\end{eg}
+\subsection{Second Approximation --- the Quadratic Approximation}\label{ssec_second_approx}
+\begin{impeqn}[Quadratic approximation]\label{eq:quadApprox}
+\begin{align*}
+f(x)\approx f(a)+f'(a)(x-a)+\half f''(a)(x-a)^2
+\end{align*}
+\end{impeqn}
+\begin{eg}\label{eg_3_4_3}
+Use the quadratic approximation to estimate $e^{0.1}$.
+\begin{itemize}
+\item $f(x) = e^{x}$, obviously $a=0$
+\item To form the quadratic approximation, we need $f(a)=f(0)$, $f'(a) = f'(0)$, and $f''(a) = f''(0)$:
+\begin{align*}
+f(x) = e^x \;\Longrightarrow\; f(0) = 1\\
+f'(x) = e^x \;\Longrightarrow\; f'(0) = 1\\
+f''(x) = e^x \;\Longrightarrow\; f''(0) = 1
+\end{align*}
+\item The quadratic approximation of $f(0.1) = e^{0.1}$ is
+\begin{align*}
+\widetilde{f}(x) = f(0) + xf'(0) + \frac{x^2}{2}f''(0) = 1 + x + \frac{x^2}{2} \;\Longrightarrow\; \widetilde{f}(0.1)  = 1 + 0.1 + \frac{0.01}{2} = 1.105
+\end{align*}
+\item $e^{0.1} = 1.105170918\dots$
+\end{itemize}
+\end{eg}
+Use the quadratic approximation to estimate $\sqrt{4.1}$.
+\begin{itemize}
+\item $f(x) = \sqrt{x}$, obviously $a=4$
+\item To form the quadratic approximation, we need $f(a)=f(4)$, $f'(a) = f'(4)$, and $f''(a) = f''(4)$:
+\begin{align*}
+f(x) = \sqrt{x} \;\Longrightarrow\; f(4) = 2\\
+f'(x) = \frac{1}{2\sqrt{x}} \;\Longrightarrow\; f'(4) = \frac{1}{4}
+f''(x) = -\frac{1}{4}\Big(\frac{1}{\sqrt{x}}\Big)^3 \;\Longrightarrow\; f''(4) = -\frac{1}{32}
+\end{align*}
+\item The linear approximation of $f(4.1) = \sqrt{4.1}$ is
+\begin{align*}
+\widetilde{f}(x) &= f(4) + (x - 4)\cdot f'(4) + \frac{(x - 4)^2}{2}\cdot f''(4) = 2 + \frac{x - 4}{4} - \frac{(x - 4)^2}{64} \\
+&\qquad\Longrightarrow\; \widetilde{f}(4.1)  = 2 + 0.025 - \frac{0.01}{64} = 2.02484375
+\end{align*}
+\item $\sqrt{4.1} = 2.024845673\dots$
+\end{itemize}
+\stepcounter{subsection}
+\stepcounter{theorem}
+\stepcounter{subsection}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\begin{defn}[Taylor polynomial]\label{def_3_4_2}
+Let $a\in\mathbb{R}$ and $n\in\mathbb{Z}^+$. The $n^\mathrm{th}$ degree / order Taylor polynomial for $f(x)$ about $x=a$ is
+\begin{align*}
+T_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}\cdot (x-a)^k.
+\end{align*}
+The special case $a=0$ is called a Maclaurin polynomial.%\footnote{The polynomials are named after
+\end{defn}
+\begin{gather*}
+\text{To make the first $n$ derivatives of $T_n(x)$ at $x = a$ match those of $f(x)$} \\
+T_n(a) = f(a),\quad T_n'(a) = f'(a),\quad T_n''(a) = f''(a),\quad\ldots,\quad T_n^{(n)}(a) = f^{(n)}(a)\\
+T_n(x) = c_0 + c_1 (x - a) + c_2 (x - a)^2 + \cdots + c_n (x - a)^n \\
+c_0 = f(a),\quad c_1 = f'(a),\quad c_2 = \frac{f''(a)}{2!},\quad\ldots,\quad c_n = \frac{f^{(n)}(a)}{n!}
+\end{gather*}
+\subsection{Some Examples}\label{ssec_taylor_eg}
+\begin{eg}\label{eg taylor e to the x}
+The $n^{\text{th}}$ order Maclaurin polynomial of $e^x$ is
+\begin{align*}
+T_n(x) &= \sum_{k=0}^n \frac{1}{k!} x^k
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg expand logx}
+Find the $5^\mathrm{th}$ Taylor polynomial of $\log x$ about $x=1$.
+\begin{align*}
+f(x) &= \log x & f(1) &= \log 1 = 0 \\
+f'(x) &= \frac{1}{x} & f'(1) &= 1 \\
+f''(x) &= \frac{-1}{x^2} & f''(1) &= -1 \\
+f'''(x) &= \frac{2}{x^3} & f'''(1) &= 2 \\
+f^{(4)}(x) &= \frac{-6}{x^4} & f^{(4)}(1) &= -6 \\
+f^{(5)}(x) &= \frac{24}{x^5} & f^{(5)}(1) &= 24
+\end{align*}
+\begin{align*}
+T_5(x)&= 0 + 1\cdot (x-1)
++ \frac{1}{2} \cdot (-1) \cdot (x-1)^2
++ \frac{1}{6} \cdot 2 \cdot (x-1)^3
++ \frac{1}{24} \cdot (-6) \cdot (x-1)^4
++ \frac{1}{120} \cdot 24 \cdot (x-1)^5 \\
+&= (x-1) - \frac{1}{2}(x-1)^2 + \frac{1}{3}(x-1)^3 - \frac{1}{4}(x-1)^4 + \frac{1}{5}(x-1)^5
+\end{align*}
+\begin{align*}
+T_n(x) &= \sum_{k=1}^n \frac{(-1)^{k+1}}{k} (x-1)^k.
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg expand cosx}
+Find the $4^\text{th}$ degree Maclaurin polynomial of $\cos x$.
+\begin{align*}
+T_4(x)&= 1 + 1\cdot (0) \cdot x
++ \frac{1}{2} \cdot (-1) \cdot x^2
++ \frac{1}{6} \cdot 0 \cdot x^3
++ \frac{1}{24} \cdot (1) \cdot x^4 \\
+&= 1 - \frac{x^2}{2} + \frac{x^4}{24}
+\end{align*}
+\begin{align*}
+T_{2n}(x) &= \sum_{k=0}^n \frac{(-1)^k}{(2k)!} \cdot x^{2k}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg expand sinx}
+Find the $5^\text{th}$ degree Maclaurin polynomial of $\sin x$.
+\begin{align*}
+T_5(x) &= x - \frac{x^3}{3!} + \frac{x^5}{5!}
+\end{align*}
+\begin{align*}
+T_{2n+1}(x) &= \sum_{k=0}^n \frac{(-1)^k}{(2k+1)!} \cdot x^{2k+1}
+\end{align*}
+\end{eg}
+\stepcounter{subsection}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\stepcounter{subsection}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\subsection{The Error in the Taylor Polynomial Approximations}\label{ssec taylor error}
+\begin{theorem}[Taylor Theorem]\label{eq:taylorErrorN}
+Let $f$ be defined on an open interval $I$, $a, b\in I$, and $f^{(n+1)}$ exists on $I$, $n\in\mathbb{Z}^+$. Then $\exists\;c$ lies between $a$ and $b$ s.t.
+\begin{align*}
+f(b) = f(a) + f'(a) (b - a) + \frac{f''(a)}{2!}\cdot(b-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}\cdot(b-a)^n + \frac{f^{(n+1)}(c)}{(n+1)!}\cdot(b-a)^{n+1}
+\end{align*}
+\end{theorem}
+\begin{itemize}
+\item Since differentiability implies continuity, $f$, $f'$, $f''$, $\ldots$, $f^{(n)}$ are all continuous on $I$.
+\item WLOG, let $a < b$.
+\item Let $M$, $g(t)$ be defined s.t.
+\begin{align*}
+f(b) &= f(a) + f'(a)(b - a) + \frac{f''(a)}{2!}(b - a)^2 +\cdots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \frac{M}{(n + 1)!}(b-a)^{n+1} \\
+g(t) &= -f(b) + f(t) + f'(t)(b - t) + \frac{f''(t)}{2!}(b - t)^2 +\cdots+\frac{f^{(n)}(t)}{n!}(b-t)^n + \frac{M}{(n + 1)!}(b-t)^{n+1}
+\end{align*}
+\item Note that $g(a) = 0$, $g(b) = 0$, then by Rolle's Theorem, $\exists\,c\in(a, b)$ s.t. $g'(c) = 0$.
+\begin{align*}
+g'(t) &= f'(t) - f'(t) + f''(t)(b-t) - f''(t)(b-t) + \frac{f'''(t)}{2!}(b - t)^2 - \frac{f'''(t)}{2!}(b - t)^2 + \cdots \\ &= \frac{f^{(n+1)}(t) - M}{n!}(b-t)^n
+\end{align*}
+\item So $g'(c) = 0$ implies $f^{(n+1)}(c) - M = 0\,\,\Longrightarrow\,\, M = f^{(n+1)}(c)$.
+\end{itemize}
+\begin{eg}[Showing $e<3$]\label{eg_3_4_5}
+Using \eqref{eq:taylorErrorN}, show that $e < 3$.
+\begin{align*}
+e^1 = 1 + 1 + \frac{1}{2} + \frac{e^c}{6}, \quad c\in(0, 1)
+\end{align*}
+\end{eg}
+\begin{itemize}
+\item Prove that $e$ is irrational.
+\item Take $a=0$, $b=1$ and $f(x) = e^x$ in Taylor's Theorem, $\exists\;c\in(0, 1)$ s.t.
+\begin{align*}
+&f(1) = f(0) + f'(0) + \frac{f''(0)}{2!} + \cdots + \frac{f^{(n)}(0)}{n!} + \frac{f^{(n+1)}(c)}{(n+1)!} \\
+&\Longrightarrow\; e - \sum_{k = 0}^n \frac{1}{k!} = \frac{e^c}{(n+1)!}
+\end{align*}
+from above
+\begin{align*}
+\frac{1}{(n+1)!} < e - \sum_{k = 0}^n \frac{1}{k!} < \frac{3}{(n+1)!}
+\end{align*}
+\item If $e$ is rational, then $\exists\;n\geqslant 3$ s.t. $e\cdot n!\in\mathbb{N}$, so
+\begin{align*}
+\frac{n!}{(n+1)!} < e\cdot n! - \sum_{k = 0}^n \frac{n!}{k!} < \frac{3\cdot n!}{(n+1)!} \leqslant\frac{3}{4}
+\end{align*}
+But both $e\cdot n!$ and $\sum_{k = 0}^n \frac{n!}{k!}$ are integers, the difference of these two integer is a positive number not exceeding $\frac{3}{4}$, a contradiction !
+\end{itemize}
+\section{Optimisation}\label{sec optimise}
+\stepcounter{theorem}
+\subsection{Local and Global Maxima and Minima}\label{ssec maxmin}
+\stepcounter{theorem}
+\begin{defn}\label{def:APPlocalMaxMin} %%%%%%%%%%%%%%%%%%%%%
+Let $f(x)$ be defined on an interval $I$ and $c\in I$. Then
+\begin{itemize}
+\item $f(x)$ has a \emph{global (absolute) minimum on $I$} at $x=c$ if $f(x)\geqslant f(c)\;\forall\,x\in I$.
+\item $f(x)$ has a \emph{global (absolute) maximum on $I$} at $x=c$ if $f(x)\leqslant f(c)\;\forall\,x\in I$.
+\item $f(x)$ has a \emph{local minimum on $I$} at $x=c$ if $\exists\,h_0>0$, $f(x)\geqslant f(c)\;\forall\,x\in I\land|x - c|<h_0$.
+\item $f(x)$ has a \emph{local maximum on $I$} at $x=c$ if $\exists\,h_1>0$, $f(x)\leqslant f(c)\;\forall\,x\in I\land|x - c|<h_1$.
+\end{itemize}
+\begin{align*}
+\text{global maxima and minima / global extrema} \\
+\text{local maxima and minima / local extrema}
+\end{align*}
+\end{defn}
+\begin{efig}
+\begin{center}
+\includegraphics[height=5cm]{maxmin3}
+\end{center}
+\end{efig}
+\begin{theorem}\label{thm:APPlocalMaxMin}
+Let $f(x)$ be defined on an interval $I$ and $a,b,c\in I$ with $a<c<b$. If $f(x)$ has a local minimum or local maximum at $x=c$ and $f'(c)$ exists, then $f'(c)=0$.
+\end{theorem}
+\begin{itemize}
+\item If $f(x)$ has a local minimum at $x=c$, then $\exists\,h_0>0$, $f(x) - f(c)\geqslant 0$ $\;\forall\,x\in I\land|x - c|<h_0$.
+\begin{itemize}
+\item Take such $x$ with $x < c$, then
+\begin{align*}
+\frac{f(x) - f(c)}{x - c} \leqslant 0 \;\Longrightarrow\; f'(c) = \lim_{x\to c-}\frac{f(x) - f(c)}{x - c}\leqslant 0
+\end{align*}
+\item Take such $x$ with $x > c$, then
+\begin{align*}
+\frac{f(x) - f(c)}{x - c} \geqslant 0 \;\Longrightarrow\; f'(c) = \lim_{x\to c+}\frac{f(x) - f(c)}{x - c}\geqslant 0
+\end{align*}
+\end{itemize}
+So $f'(c) = 0$.
+\item If $f(x)$ has a local maximum at $x=c$, then $\exists\,h_1>0$, $f(x) - f(c)\leqslant 0$ $\;\forall\,x\in I\land|x - c|<h_1$.
+\begin{itemize}
+\item Take such $x$ with $x < c$, then
+\begin{align*}
+\frac{f(x) - f(c)}{x - c} \geqslant 0 \;\Longrightarrow\; f'(c) = \lim_{x\to c-}\frac{f(x) - f(c)}{x - c}\geqslant 0
+\end{align*}
+\item Take such $x$ with $x > c$, then
+\begin{align*}
+\frac{f(x) - f(c)}{x - c} \leqslant 0 \;\Longrightarrow\; f'(c) = \lim_{x\to c+}\frac{f(x) - f(c)}{x - c}\leqslant 0
+\end{align*}
+\end{itemize}
+So $f'(c) = 0$.
+\end{itemize}
+\begin{theorem}\label{thm:APPsecondDerivTest}
+Let $f(x)$ be defined on an interval $I$ and $a,b,c\in I$ with $a<c<b$. If $f'(c) = 0$ and
+\begin{itemize}
+\item $f''(c) < 0$, then $f(x)$ has a local maximum at $x = c$.
+\item $f''(c) > 0$, then $f(x)$ has a local minimum at $x = c$.
+\end{itemize}
+\end{theorem}
+\begin{itemize}
+\item If $f''(c) < 0$,
+\begin{align*}
+f''(c) = \lim_{h\to 0}\frac{f'(c + h) - f'(c)}{h} = \lim_{h\to 0}\frac{f'(c + h)}{h} < 0
+\end{align*}
+Then
+\begin{itemize}
+\item $f'(c + h) < 0$ for sufficiently small positive $h$: $f$ is decreasing at the right of $x = c$
+\item $f'(c + h) > 0$ for sufficiently small negative $h$: $f$ is increasing at the left of $x = c$
+\end{itemize}
+So $f(x)$ has a local maximum at $x = c$.
+\item If $f''(c) > 0$,
+\begin{align*}
+f''(c) = \lim_{h\to 0}\frac{f'(c + h) - f'(c)}{h} = \lim_{h\to 0}\frac{f'(c + h)}{h} > 0
+\end{align*}
+Then
+\begin{itemize}
+\item $f'(c + h) > 0$ for sufficiently small positive $h$: $f$ is increasing at the right of $x = c$
+\item $f'(c + h) < 0$ for sufficiently small negative $h$: $f$ is decreasing at the left of $x = c$
+\end{itemize}
+So $f(x)$ has a local minimum at $x = c$.
+\end{itemize}
+\begin{defn}\label{def:APPcriticalPoint} %%%%%%%%%%%%%%%%%%%%%
+Let $f(x)$ be defined on $a<x<b$ and $a<c<b$. Then
+\begin{itemize}
+\item if $f'(c)$ exists and is zero, then $x=c$ is a \emph{critical} point
+\item if $f'(c)$ does not exist, then $x=c$ is a \emph{singular} point.
+\end{itemize}
+\end{defn}
+\stepcounter{theorem}
+\begin{eg}\label{eg:localMinMaxA}
+Find the local extremum of $f(x) = x^3 - 6x$ on $-2\leqslant x\leqslant 3$.
+\begin{align*}
+f'(x) &= 3x^2-6 = 3(x^2-2) = 3(x-\sqrt{2})(x+\sqrt{2}).
+\end{align*}
+\begin{efig}
+\begin{center}
+\includegraphics{localMaxMinA}
+\end{center}
+\end{efig}
+\end{eg}
+\begin{eg}\label{eg:localMinMaxB}
+Find the local extremum of $f(x) = x^3$ on $-1 < x < 1$.
+\begin{itemize}
+\item
+\begin{align*}
+f'(x) = 3x^2, \quad f''(x) = 6 x
+\end{align*}
+\item $f(x)$ has neither a local maximum nor a local minimum at $x=c$ despite $f'(c)=0$
+\item $f(x) < f(c) = 0\;\forall\,x<c=0$ and $f(x) > f(c) = 0\;\forall\,x > c=0$
+\end{itemize}
+\begin{efig}
+\begin{center}
+\includegraphics{localMaxMinB}
+\end{center}
+\end{efig}
+\end{eg}%\goodbreak
+\begin{eg}\label{eg:localMinMaxC}
+\begin{efig}
+\begin{center}
+\includegraphics{localMaxMinC}
+\end{center}
+\end{efig}
+\begin{efig}
+\begin{center}
+\includegraphics{localMaxMinCC}
+\end{center}
+\end{efig}
+\end{eg}
+\subsection{Finding Global Maxima and Minima}\label{ssec find maxmin}
+Let $f(x)$ be continuous on $[a, b]$. Two most important theorems:
+\begin{align*}
+&\text{1.(IVT) If $Y$ is any number between $f(a)$ and $f(b)$ then $\exists\,c\in[a,b]$ s.t. $f(c) = Y$.}\\
+&\text{2.(Max-Min) $f$ attains the global extremum on $[a, b]$.}
+\end{align*}
+\begin{theorem}\label{thm:APPglobalMaxMinExist}
+Let $f(x)$ be continuous on the closed, finite interval $-\infty<a\leqslant x\leqslant b<\infty$.
+Then $f(x)$ attains a maximum and a minimum at least once. That is, there exist numbers $a\leqslant x_m, x_M\leqslant b$ such that
+\begin{align*}
+f(x_m)\leqslant f(x)\leqslant f(x_M)\qquad\text{for all }a\leqslant x\leqslant b
+\end{align*}
+\end{theorem}
+\subsection*{Existence of Extremum on Open Intervals}
+\begin{itemize}
+\item Let $f(x)$ is continuous on $(a, b)$ and
+\begin{align*}
+\lim_{x\to a+}f(x) = L,\quad\lim_{x\to b-}f(x) = M.
+\end{align*}
+\begin{enumerate}
+\item If $\exists\,u\in(a, b)$ s.t. $f(u) > L$ and $f(u) > M$, then $f$ has a global maximum value on $(a, b)$.
+\item If $\exists\,u\in(a, b)$ s.t. $f(u) < L$ and $f(u) < M$, then $f$ has a global minimum value on $(a, b)$.
+\end{enumerate}
+Here $a$ may be $-\infty$, $b$ may be $\infty$, $L$, $M$ can be $-\infty$, $\infty$.
+\item Case 1.
+\begin{itemize}
+\item By $\displaystyle \lim_{x\to a+}f(x) = L$, given $\varepsilon > 0$, $\exists\,\delta_1 > 0$ s.t. for $a < x < a + \delta_1$, $f(x) < L + \varepsilon$.
+\item Take $\varepsilon = f(u) - L$, then
+\begin{align}\label{joi}
+\exists\,x_1\in (a, u) \text{ s.t. for } a < x < x_1, \,f(x) < L + (f(u) - L) = f(u).
+\end{align}
+\item By $\displaystyle \lim_{x\to b-}f(x) = M$, given $\varepsilon > 0$, $\exists\,\delta_2 > 0$ s.t. for $b - \delta_2 < x < b$, $f(x) < M + \varepsilon$.
+\item Take $\varepsilon = f(u) - M$, then
+\begin{align}\label{jio}
+\exists\,x_2\in (u, b)\text{ s.t. for } x_2 < x < b, \,f(x) < M + (f(u) - M) = f(u).
+\end{align}
+\item Apriori $f$ is continuous on $[x_1, x_2]$, so $f$ has global maxinum value on $[x_1, x_2]$, say at $w\in[x_1, x_2]$. But $u\in[x_1, x_2]\;\Longrightarrow\;f(w)\geqslant f(u)$; together with \eqref{joi}, \eqref{jio}, $f$ has a global maximum value on $w\in(a, b)$.
+\end{itemize}
+\item Case 2.
+\begin{itemize}
+\item By $\displaystyle \lim_{x\to a+}f(x) = L$, given $\varepsilon > 0$, $\exists\,\delta_1 > 0$ s.t. for $a < x < a + \delta_1$, $f(x) > L - \varepsilon$.
+\item Take $\varepsilon = L - f(u)$, then
+\begin{align}\label{joiw}
+\exists\,x_1\in (a, u) \text{ s.t. for } a < x < x_1, \,f(x) > L - (L - f(u)) = f(u).
+\end{align}
+\item By $\displaystyle \lim_{x\to b-}f(x) = M$, given $\varepsilon > 0$, $\exists\,\delta_2 > 0$ s.t. for $b - \delta_2 < x < b$, $f(x) > M - \varepsilon$.
+\item Take $\varepsilon = M - f(u)$, then
+\begin{align}\label{jiow}
+\exists\,x_2\in (u, b)\text{ s.t. for } x_2 < x < b, \,f(x) > M - (M - f(u)) = f(u).
+\end{align}
+\item Apriori $f$ is continuous on $[x_1, x_2]$, so $f$ has global mininum value on $[x_1, x_2]$, say at $w\in[x_1, x_2]$. But $u\in[x_1, x_2]\;\Longrightarrow\;f(w)\leqslant f(u)$; together with \eqref{joiw}, \eqref{jiow}, $f$ has a global minimum value on $w\in(a, b)$.
+\end{itemize}
+\end{itemize}
+\begin{theorem}\label{thm:APPglobalMaxMin}
+If $f(x)$ has a global maximum or global minimum for $a\leqslant x\leqslant b$ at $x=c$, then
+\begin{itemize}
+\item $f'(c)=0$, or
+\item $f'(c)$ does not exist, or
+\item $c=a$ or $c=b$.
+\end{itemize}
+\end{theorem}
+\begin{cor}\label{cor find maxmin}
+Let $f(x)$ be defined on $a \leqslant x \leqslant b$. To find the global extremum of $f$ is to find the extremal values of $f$ at all the critical, singular, and end points.
+\end{cor}
+\begin{eg}\label{APPglobalMaxMinA}
+Find the largest and smallest values of $f(x)=2x^{5/3}+3x^{2/3}$ for $-1\leqslant x\leqslant 1$.
+\begin{gather*}
+f(x) = 2x^{5/3}+3x^{2/3} = x^{2/3} \cdot \left(2x + 3\right) \\
+f'(x) = 2 \cdot \frac{5}{3} x^{2/3} + 3 \cdot \frac{2}{3} x^{-1/3} = \frac{10}{3} x^{2/3} + 2 x^{-1/3} = \frac{10 x + 6}{3 x^{1/3}}
+\end{gather*}
+\begin{itemize}
+\item critical points: $f'(x) = 0$ --- $x=-\frac{3}{5}$
+\item singular points: $f'(x) = \text{DNE}$ --- $x= 0$
+\item end points: $x=-1,\,1$.
+\end{itemize}
+\begin{efig}
+\begin{center}
+\includegraphics{globalMaxMinA}
+\end{center}
+\end{efig}
+\end{eg}
+\subsection{Max/Min Examples}\label{sec opt eg}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\begin{theorem}\label{thm:maxMinOnR}
+Let $f(x)$ be defined and continuous for $-\infty<x<\infty$ and $c\in\mathbb{R}$ be finite.
+\begin{enumerate}[(a)]
+\item If $\displaystyle \lim_{x\rightarrow+\infty} f(x)=+\infty$ and $\displaystyle \lim_{x\rightarrow-\infty} f(x)=+\infty$ and if $f(x)$ has a global minimum at $x = c$, then either
+\begin{itemize}
+\item $f'(c) = 0$, or
+\item $f'(c)$ does not exist
+\end{itemize}
+i.e. a global minimum occurs either at a critical point or at a singular point.
+\item If $\displaystyle \lim_{x\rightarrow+\infty} f(x)=-\infty$ and $\displaystyle \lim_{x\rightarrow-\infty} f(x)=-\infty$ and if $f(x)$ has a global maximum at $x = c$, then either
+\begin{itemize}
+\item  $f'(c) = 0$, or
+\item  $f'(c)$ does not exist
+\end{itemize}
+i.e. a global maximum occurs either at a critical point or at a singular point.
+\end{enumerate}
+\end{theorem}
+\stepcounter{theorem}
+\begin{eg}\label{APPglobalMaxMinDist}
+Find the minimum distance from $(2,0)$ to the curve $y^2=x^2+1$.
+\begin{efig}
+\begin{center}
+\includegraphics{hyperbolaMaxMin}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item Minimize the squared-distance is equivalent to minimize the distance !
+\item Denote the distance by $\ell$ and
+\begin{align*}
+\ell^2 = (x-2)^2 + y^2 = (x-2)^2 + (x^2+1)
+\end{align*}
+\item By $\ell^2(\pm\infty)=\infty$ and $\ell^2(0) = 5 < \infty$, the global minimum exists.
+\item
+\begin{align*}
+\diff{}{x} \ell^2 &= 2(x-2) + 2x = 4x-4
+\end{align*}
+so the only critical point occurs at $x=1$:
+\begin{align*}
+\ell^2 = (1-2)^2 + (1+1) = 3\;\Longrightarrow\;\ell=\sqrt{3}
+\end{align*}
+the minimum distance from the curve to $(2,0)$ is $\sqrt{3}$.
+\end{itemize}
+\end{eg}
+\begin{eg}\label{APPglobalMaxMinrain}
+A water trough is to be constructed from a metal sheet of width $45$ cm by bending up one third of the sheet on each side through an angle $\theta$.  Which $\theta$ will allow the trough to carry the maximum amount of water?
+\begin{efig}
+\begin{center}
+\includegraphics{extra/gutter}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item The problem amounts to maximize the cross-sectional area $A$:
+$$A(\theta) = \frac{1}{2}\times 15\sin\theta\cdot 15\cos\theta\times 2 + 15\times 15\sin\theta = 225\sin\theta(\cos\theta + 1)$$  where $0\leqslant\theta\leqslant\pi$.
+\item By $A(\theta)=0$ as $\theta=0, \pi$ and $A(\frac{\pi}{2}) = 225 > 0$, the global maximum exists.
+\item
+\begin{align*}
+A'(\theta) = 225 \cos\theta \cdot (1+\cos\theta) + 225 \sin\theta \cdot(-\sin\theta) = 225 (\cos\theta +2\cos^2\theta -1)
+\end{align*}
+The minimizer $\theta^\star$ is the root of $A'(\theta) = 0$, i.e.
+$$\cos\theta^\star +2\cos^2\theta^\star -1 = (2\cos\theta^\star - 1)(\cos \theta^\star + 1) = 0$$
+For $0 < \theta^\star < \pi$, $2\cos\theta^\star-1 = 0$, so $\theta^\star = \frac{\pi}{3}$.
+\item The largest area $$A\Big(\frac{\pi}{3}\Big) = 225\sin\frac{\pi}{3}\Big(\cos\frac{\pi}{3} + 1\Big) = 225\cdot\frac{3\sqrt{3}}{4}\approx 292.28.$$
+\end{itemize}
+\end{eg}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\begin{eg}\label{APPglobalMaxMinF}
+The Fermat principle states that the path of light travels from $P$ to $Q$ takes minimal time; establish the Snell's law
+$$\frac{\sin\theta_i}{\sin\theta_r} = \frac{c_a}{c_w}$$
+where $c_a$, $c_w$ be the speed of light in air and water.
+\begin{efig}
+\begin{center}
+\includegraphics{snell}
+\end{center}
+\end{efig}
+\begin{efig}
+\begin{center}
+\includegraphics{snellB}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item Denote the total travel time of the light from $P$ to $Q$ by $T$, then
+\begin{align*}
+T(x) &= \frac{1}{c_a}\sqrt{(X_P-x)^2+Y_P^2} + \frac{1}{c_w}\sqrt{(X_Q-x)^2+Y_Q^2}
+\end{align*}
+As $x\to\pm\infty$, $T\to\infty$, and $T(0) = \frac{\sqrt{X_P^2+Y_P^2}}{c_a} + \frac{\sqrt{X_Q^2+Y_Q^2}}{c_w} < \infty$, so the absolute minimum exists.
+\item The critical point $x^\star$ satisfies $T'(x^\star) = 0$, i.e.
+\begin{align*}
+0 &= \frac{1}{c_a} \frac{X_P-x^\star}{\sqrt{(X_P-x^\star)^2+Y_P^2}} + \frac{1}{c_w} \frac{X_Q-x^\star}{\sqrt{(X_Q-x^\star)^2+Y_Q^2}} = \frac{-\sin\theta_i}{c_a} + \frac{\sin\theta_r}{c_w}\;\Longrightarrow\;\frac{\sin\theta_i}{\sin\theta_r}=\frac{c_a}{c_w}
+\end{align*}
+\end{itemize}
+\end{eg}
+\stepcounter{theorem}
+\begin{eg}\label{APPglobalMaxMinJ}
+Find the length of the longest rod that can be carried horizontally (no tilting allowed) from a corridor $3$m wide into a corridor $2$m wide.
+\begin{efig}
+\begin{center}
+\includegraphics[height=4.2cm]{extra/corridor}
+\end{center}
+\end{efig}
+\begin{itemize}
+\item Let the angle between the rod and the inner wall of the $3$m corridor be $\theta$, then the total length of the rod is
+\begin{align*}
+\ell(\theta) = \ell_1(\theta) +\ell_2(\theta) = \frac{3}{\sin\theta}+\frac{2}{\cos\theta}\qquad 0\leqslant\theta\leqslant\frac{\pi}{2}
+\end{align*}
+\item IMPORTANT: The length of the longest rod one can move through the corridor is the minimum of $\ell(\theta)$ !
+\item As $\theta \to 0+, \frac{\pi}{2}-$, $\ell(\theta)\to+\infty$, and $\ell(\frac{\pi}{4})=5\sqrt{2} < \infty$, so $\ell(\theta)$ has an absolute minimum.
+\item Find $\theta^\star$, the root of $\ell'(\theta) = 0$:
+\begin{align*}
+\ell'(\theta) &= -\frac{3 \cos\theta}{\sin^2\theta} + \frac{2\sin\theta}{\cos^2\theta} = \frac{-3\cos^3\theta +2 \sin^3\theta}{\sin^2\theta\cos^2\theta} = 0\;\Longrightarrow\;\tan\theta^\star = \sqrt[3]{\frac{3}{2}}
+\end{align*}
+\item Substituting $\theta^\star$ we find the minimum of $\ell$:
+\begin{align*}
+\ell(\theta^\star) = \frac{3}{\sin\theta^\star} + \frac{2}{\cos\theta^\star} =\frac{3}{\frac{\root 3\of 3}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}}} +\frac{2}{\frac{\root 3\of 2}{\sqrt{2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}}}} = {\big(2^{\nicefrac{2}{3}}+3^{\nicefrac{2}{3}}\big)}^{\nicefrac{3}{2}}\approx 7.02 \text{m}
+\end{align*}
+\end{itemize}
+\begin{efig}
+\begin{center}
+\includegraphics{triangleCor}
+\end{center}
+\end{efig}
+\end{eg}
+\section{Sketching Graphs}\label{sec curve sketch}
+\subsection*{Concavity and Inflections, Sketching the Graph of a Function}
+\begin{itemize}
+\item Definition of Concavity: Let $f:I\mapsto\mathbb{R}$ be differentiable.
+\begin{itemize}
+\item $f$ is concave up on $I$ if $f'$ is increasing on $I$.
+\item $f$ is concave down on $I$ if $f'$ is decreasing on $I$.
+\end{itemize}
+\item Definition of inflection points: $x_0$ is an inflection point of $y = f(x)$ if
+\begin{itemize}
+\item $y = f(x)$ has a tangent line at $x = x_0$
+\item the concavity of $f$ is opposite on opposite sides of $x_0$
+\end{itemize}
+\item Theorem: Let $f:I\mapsto\mathbb{R}$ be differentiable.
+\begin{enumerate}
+\item If $f'' > 0$ on $I$, then $f$ is concave up on $I$.
+\item If $f'' < 0$ on $I$, then $f$ is concave down on $I$.
+\item If $f$ has an inflection on $x_0\in I$, then $f''(x_0) = 0$.
+\end{enumerate}
+\end{itemize}
+\newpage
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}
+\myaxis{x}{2}{2}{y}{1.2}{3.2}
+\draw[ultra thick, C1] plot[domain=-2:2,smooth](\x,{(\x*\x-1)});
+\draw[ultra thick, M4] plot[domain=-2:-1,smooth](\x,{1.25-4.5-3*\x});
+\draw (-1.5,1.25) node[M4, vertex]{};
+\draw[ultra thick, M4] plot[domain=-.5:.5,smooth](\x,{-1});
+\draw (0,-1) node[M4, vertex]{};
+\draw[ultra thick, M4] plot[domain=1:2,smooth](\x, {1.25-4.5+3*\x});
+\draw (1.5,1.25) node[M4, vertex]{};
+\end{tikzpicture}
+\begin{itemize}
+\item Slopes are increasing
+\item $f''(x)>0$
+\item ``concave up''
+\item tangent line below curve
+\end{itemize}
+\columnbreak
+\begin{tikzpicture}
+\myaxis{x}{2}{2}{y}{1.2}{3.2}
+\draw[ultra thick, C1] plot[domain=-2:2,smooth](\x,{(-\x*\x+3)});
+\draw[ultra thick, M4] plot[domain=-2:-1,smooth](\x,{3/4+3*(\x+1.5)});
+\draw (-1.5,3/4) node[M4, vertex]{};
+\draw[ultra thick, M4] plot[domain=-.5:.5,smooth](\x,{3});
+\draw (0,3) node[M4, vertex]{};
+\draw[ultra thick, M4] plot[domain=1:2,smooth](\x, {3/4-3*(\x-1.5)});
+\draw (1.5,3/4) node[M4, vertex]{};
+\end{tikzpicture}
+\begin{itemize}
+\item Slopes are decreasing
+\item $f''(x)<0$
+\item ``concave down''
+\item tangent line above curve
+\end{itemize}
+\end{multicols}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[yscale=0.8]
+\draw[ultra thick, C1] plot[domain=-2:.5,smooth](\x,{\x*\x});
+\draw[ultra thick, C1] plot[domain=.5:6.28,smooth](\x-.02,{sin(\x r)-.25});
+\draw[ultra thick, C1] plot[domain=6.25:8,smooth](\x,{(\x-5.75)*(\x-5.78)-.5});
+\draw[thick, M4, <->] (-2,-2.5)--(0.5,-2.5); \draw[M4] (-.75,-3) node{concave up};
+\draw[dashed, M4, pattern=north east lines, pattern color=M4] (-2,-2.5)--(-2,4)--(.5,4)--(.5,-2.5);
+\draw[thick, M3, <->] (.5,-2.5)--(3.16,-2.5); \draw[M3] (1.75,-3) node{concave down};
+\draw[dashed, M3, pattern=north west lines, pattern color=M3] (3.16,-2.5)--(3.16,4)--(.5,4)--(.5,-2.5);
+\draw[thick, M4, <->] (3.16,-2.5)--(8,-2.5); \draw[M4] (5,-3) node{concave up};
+\draw[dashed, M4, pattern=north east lines, pattern color=M4] (3.16,-2.5)--(3.16,4.5)--(8,4.5)--(8,-2.5);
+\draw (.5,.25) node[vertex](a){}; \draw (3.16,-.25) node[vertex](b){};
+\draw[<-] (a)--(.5,-.75) node[below]{inflection point}; \draw[<-] (b)--(3.17,.75) node[above]{inflection point};
+\draw (.5,-1.25) node[below]{$f''(x)$ changes sign};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+\draw[M4, ultra thick] (-1.2, 0.7) -- (-0.2, 0.7);
+\draw[M4, ultra thick] (-0.7, 0.2) -- (-0.7, 1.2);
+\draw[M4, ultra thick] (1.2, 0.7) -- (0.2, 0.7);
+\draw[M4, ultra thick] (0.7, 0.2) -- (0.7, 1.2);
+\draw[M4, ultra thick] (-1, 0) arc [start angle = -180, end angle = 0, radius = 1] (1, 0);
+\end{tikzpicture}
+\hspace{2cm}
+\begin{tikzpicture}[scale=0.4]
+\draw[M4, ultra thick] (-1.2, 0.7) -- (-0.2, 0.7);
+\draw[M4, ultra thick] (1.2, 0.7) -- (0.2, 0.7);
+\draw[M4, ultra thick] (1, -1) arc [start angle = 0, end angle = 180, radius = 1] (-1, -1);
+\end{tikzpicture}
+\vfill
+\begin{tabular}{ccc}
+\toprule
+& decreasing ($f' < 0$) & increasing ($f' > 0$) \\
+\midrule
+concave up ($f'' > 0$)
+& \parbox{2.5cm}{
+\begin{tikzpicture}[scale=1]
+\myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
+\draw[thick, C4] plot[domain=-0.98:0.98,smooth] (\x, {1 + 0.18 - sqrt(4 - (\x - 1)^2)});
+\end{tikzpicture}
+}
+& \parbox{2.5cm}{
+\begin{tikzpicture}[scale=1]
+\myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
+\draw[thick, C4] plot[domain=-0.98:0.98,smooth] (\x, {1 + 0.18 - sqrt(4 - (\x + 1)^2)});
+\end{tikzpicture}
+} \\
+\midrule
+concave down ($f'' < 0$)
+& \parbox{2.5cm}{
+\begin{tikzpicture}[scale=1]
+\myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
+\draw[thick, C4] plot[domain=-0.98:0.98,smooth] (\x, {-1 - 0.18 + sqrt(4 - (\x + 1)^2)});
+\end{tikzpicture}
+}
+& \parbox{2.5cm}{
+\begin{tikzpicture}[scale=1]
+\myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
+\draw[thick, C4] plot[domain=-0.98:0.98,smooth] (\x, {-1 - 0.18 + sqrt(4 - (\x - 1)^2)});
+\end{tikzpicture}
+} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\subsection*{Sketching the Graph of a Function}
+Determine the intervals of increase and decrease, the local extreme values, the concavity and the graph of $f(x) = \frac{x}{x^2 + 3}$.
+\begin{itemize}
+\item $f'(x) = \frac{3-x^2}{(x^2 + 3)^2} = \frac{(\sqrt{3}-x)(\sqrt{3} + x)}{(x^2 + 3)^2}$, $f''(x) = \frac{2x(x+3)(x-3)}{(x^2 + 3)^3}$.
+\item List the critical and inflection points and decide the sign of $f'$, $f''$ in each interval:
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\draw (0, 0)--(6, 0);
+\foreach \x/\y in {-3/1, -\sqrt{3}/2, 0/3, \sqrt{3}/4, 3/5}{
+\node at (\y, -0.25) {$\x$};
+\draw[xshift=\y cm] (0, 0) -- (0, 0.45);}
+\foreach \x/\y in {0/$-$, 1/$-$, 2/$+$, 3/$+$, 4/$-$, 5/$-$}
+\node at (\x + 0.5, 0.25) {\y};
+\foreach \x/\y in {0/$-$, 1/$+$, 2/$+$, 3/$-$, 4/$-$, 5/$+$}
+\node at (\x + 0.5, -0.25) {\y};
+\node at (6, -0.25) {$f''$};
+\node at (6, 0.25) {$f'$};
+\end{tikzpicture}
+\end{center}
+\item  interval of increase: interval that $f' > 0$. $(-\sqrt{3}, \sqrt{3})$.
+\item  interval of decrease: interval that $f' < 0$. $(-\infty, -\sqrt{3})$ or $(\sqrt{3}, \infty)$.
+\item  critical points: $f' = 0$. $x = \pm\sqrt{3}$.
+\item  concavity: intervals that $f'' > 0$ concave up, $\,\,f'' < 0$ concave down.
+\item  inflection points: $f'' = 0$ and of different sign before and after. $x = -3, 0, 3$.
+\item  Sketch the graph:
+\begin{center}
+\includegraphics[scale=1]{p1}
+\end{center}
+\end{itemize}
+\newpage
+Determine the intervals of increase and decrease, the local extreme values, the concavity and the graph of $f(x) = x^4 - 2 x^3 + 1$.
+\begin{itemize}
+\item $f'(x) = 4 x^3 - 6 x^2 = 4 x^2(x - \frac{3}{2})$, $f''(x) = 12 x^2 - 12 x = 12x(x - 1)$.
+\item List the critical and inflection points and decide the sign of $f'$, $f''$ in each interval:
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\draw (0, 0)--(4, 0);
+\foreach \x/\y in {0/1, 1/2, \frac{3}{2}/3}{
+\node at (\y, -0.25) {$\x$};
+\draw[xshift=\y cm] (0, 0) -- (0, 0.45);}
+\foreach \x/\y in {0/$-$, 1/$-$, 2/$-$, 3/$+$}
+\node at (\x + 0.5, 0.25) {\y};
+\foreach \x/\y in {0/$+$, 1/$-$, 2/$+$, 3/$+$}
+\node at (\x + 0.5, -0.25) {\y};
+\node at (4, -0.25) {$f''$};
+\node at (4, 0.25) {$f'$};
+\end{tikzpicture}
+\end{center}
+\item critical points: $f' = 0$. $x = 0, \frac{3}{2}$.
+\item interval of increase: interval that $f' > 0$. $(\frac{3}{2}, \infty)$.
+\item interval of decrease: interval that $f' < 0$. $(-\infty, \frac{3}{2})$.
+\item inflection points: $f'' = 0$ and of different sign before and after. $x = 0, 1$.
+\item Sketch the graph:
+\begin{center}
+\includegraphics[scale=1]{p2}
+\end{center}
+\end{itemize}
+\newpage
+Determine the intervals of increase and decrease, the local extreme values, the concavity and the graph of $f(x) = \frac{x^3}{x^2 - 1}$.
+\begin{itemize}
+\item $f'(x) = \frac{x^2(x^2 - 3)}{(x^2 -1)^2} = \frac{x^2(x - \sqrt{3})(x + \sqrt{3})}{(x^2 -1)^2}$, $f''(x) = \frac{2x(x^2 + 3)}{(x^2 - 1)^3}$.
+\item List the critical, singular, and inflection points and decide the sign of $f'$, $f''$ in each interval:
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\draw (0, 0)--(6, 0);
+\foreach \x/\y in {-\sqrt{3}/1, -1/2, 0/3, 1/4, \sqrt{3}/5}{
+\node at (\y, -0.25) {$\x$};
+\draw[xshift=\y cm] (0, 0) -- (0, 0.45);}
+\foreach \x/\y in {0/$+$, 1/$-$, 2/$-$, 3/$-$, 4/$-$, 5/$+$}
+\node at (\x + 0.5, 0.25) {\y};
+\foreach \x/\y in {0/$-$, 1/$-$, 2/$+$, 3/$-$, 4/$+$, 5/$+$}
+\node at (\x + 0.5, -0.25) {\y};
+\node at (6, -0.25) {$f''$};
+\node at (6, 0.25) {$f'$};
+\end{tikzpicture}
+\end{center}
+\item singular points: $x^2 - 1 = 0$. vertical asymptotes $x = \pm1$.
+\item asympote: $y = x$, for $\lim_{x\to\pm\infty}\big(\frac{x^3}{x^2 - 1} - x\big) = 0$
+\item critical points: $f' = 0$. $x = 0, \pm\sqrt{3}$.
+\item interval of increase: interval that $f' > 0$ --- $(-\infty, -\sqrt{3})$ or $(\sqrt{3}, \infty)$.
+\item interval of decrease: interval that $f' < 0$ --- $(-\sqrt{3}, \sqrt{3})$.
+\item Sketch the graph:
+\begin{center}
+\includegraphics[scale=1]{p3}
+\end{center}
+\end{itemize}
+\section{L'H\^opital's Rule and Indeterminate Forms}\label{sec_3_7}
+\begin{align*}
+\lim_{x\to a}f(x) = F, \quad\lim_{x\to a}g(x) = G\ne 0 \quad\Longrightarrow\quad \lim_{x\to a}\frac{f(x)}{g(x)} = \frac{F}{G}
+\end{align*}
+\begin{itemize}
+\item Examples of
+\begin{align*}
+\lim_{x \to 0} f(x) = 0, \quad \lim_{x \to 0} g(x) = 0\quad\Longrightarrow\quad\lim_{x \to 0} \frac{f(x)}{g(x)} = \text{undetermined}
+\end{align*}
+\begin{align*}
+f(x)&=x & g(x)&=x^2 & \lim_{x\to0} \frac{x}{x^2}
+&= \lim_{x\to0} \frac{1}{x} = \text{DNE} \\
+f(x)&=x^2 & g(x)&=x & \lim_{x\to0} \frac{x^2}{x}
+&= \lim_{x\to0} x  = 0 \\
+f(x)&=x & g(x)&=x & \lim_{x\to0} \frac{x}{x}
+&= \lim_{x\to0} 1 = 1  \\
+f(x)&=7x^2 & g(x)&=3x^2 & \lim_{x\to0} \frac{7x^2}{3x^2}
+&= \lim_{x\to0} \frac{7}{3} = \frac{7}{3} \\
+\end{align*}
+\item Examples of
+\begin{align*}
+\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} g(x) = +\infty\quad\Longrightarrow\quad\lim_{x \to 0} \frac{f(x)}{g(x)} = \text{undetermined}
+\end{align*}
+\begin{align*}
+f(x)&=\frac{1}{x^4} & g(x)&=\frac{1}{x^6} & \lim_{x\to0} \frac{\frac{1}{x^4}}{\frac{1}{x^6}}
+&= \lim_{x\to0}x^2 = 0 \\
+f(x)&=\frac{1}{x^4} & g(x)&=\frac{1}{x^4} & \lim_{x\to0} \frac{\frac{1}{x^4}}{\frac{1}{x^4}}
+&= \lim_{x\to0} 1  = 1 \\
+f(x)&=\frac{1}{x^4} & g(x)&=\frac{1}{x^2}& \lim_{x\to0} \frac{\frac{1}{x^4}}{\frac{1}{x^2}}
+&= \lim_{x\to0}\frac{1}{x^2} = +\infty
+\end{align*}
+\end{itemize}
+\stepcounter{theorem}
+\begin{theorem}[L'H\^opital's Rule]\label{thm:APPlhopital}
+\begin{itemize}
+\item $\big(\frac{0}{0}\text{ type}\big)$ If
+\begin{itemize}
+\item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable and $g(x)\ne 0$.
+\item $\ds\lim_{x\to a+}f(x) = \lim_{x\to a+}g(x) = 0$.
+\item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
+\end{itemize}
+Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
+\item $\big(\frac{\infty}{\infty}\text{ type}\big)$ If
+\begin{itemize}
+\item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable.
+\item $\ds\lim_{x\to a+}|f(x)| = \lim_{x\to a+}|g(x)| = \infty$.
+\item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
+\end{itemize}
+Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
+\end{itemize}
+Here $a+$ could be $a-$, $a$; $a$ could be $\pm\infty$ (with some minor modification).
+\end{theorem}
+\subsection{Standard Examples}\label{ssec_3_7_1}
+\begin{eg}\label{eg:hopitalA}
+\begin{align*}
+\lim_{x\to 0} \frac{\sin x}{x}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:hopitalB}
+\begin{align*}
+\lim_{x\to 0} \frac{\sin(x)}{\sin(2x)}
+\end{align*}
+\end{eg}
+\stepcounter{theorem}
+\begin{eg}\label{eg:hopitalC}
+\begin{align*}
+\lim_{x\to 0} \frac{\sin(x^2)}{1-\cos x}
+\end{align*}
+\end{eg}
+\stepcounter{theorem}
+\stepcounter{theorem}
+\begin{warning}[Limit of ratio of derivatives DNE]\label{warning:lhopital3}
+If $\ds\lim_{x\to a}f(x) = 0$ and $\ds\lim_{x\to a}g(x) = 0$ and
+\begin{align*}
+\lim\limits_{x\to a}\frac{f'(x)}{g'(x)} = \text{DNE}
+\end{align*}
+then it is still possible that
+\begin{align*}
+\lim\limits_{x\to a}\frac{f(x)}{g(x)} & \text{ exists.}
+\end{align*}
+Take
+\begin{align*}
+a=0,\quad f(x)=x^2\sin\frac{1}{x}, \quad g(x)= x.
+\end{align*}
+then
+\begin{gather*}
+\lim_{x\to 0} f(x) = 0\quad\text{and}\quad\lim_{x\to 0} g(x) = 0. \\
+f'(x) = 2x\sin\frac{1}{x} -\cos\frac{1}{x}\quad\text{and}\quad g'(x) = 1
+\end{gather*}
+\begin{align*}
+\lim_{x\to 0} \frac{f'(x)}{g'(x)} &= \lim_{x\to 0} \left( 2x\sin\frac{1}{x} -\cos\frac{1}{x}\right) = \text{DNE} \\
+\lim_{x\to 0}\frac{f(x)}{g(x)} &= \lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x} =\lim_{x\to 0} x\sin\frac{1}{x}= 0\qquad\text{By squeeze theorem}
+\end{align*}
+\end{warning}
+\subsection{Variations}\label{ssec_3_7_2}
+\begin{eg}\label{eg:hopitalH}
+\begin{align*}
+\lim_{x\to\infty} \frac{\arctan x - \frac{\pi}{2}}{ \nicefrac{1}{x} }
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_3_7_2}
+\begin{align*}
+\lim_{x \to \infty} \frac{\log x}{x}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_3_7_3}
+\begin{align*}
+\lim_{x \to \infty} \frac{5x^2+3x-3}{x^2+1}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:hopitalI}
+\begin{align*}
+\lim_{x\rightarrow 0+} \frac{\log x}{\tan\big(\frac{\pi}{2}-x\big)}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg_3_7_4}
+\begin{align*}
+\lim_{x\to\infty} \frac{ e^x + e^{-x} }{e^x - e^{-x}}
+\end{align*}
+\end{eg}
+\begin{eg}\label{eg:hopitalKK}
+\begin{align*}
+\lim_{x\rightarrow 0}\Big(
+\underbrace{\frac{1}{x}}_{\rightarrow \pm\infty}
+- \underbrace{\frac{1}{\log(1+x)}}_{\rightarrow\pm\infty}\Big)
+\end{align*}
+\begin{equation}
+\lim_{x\rightarrow 0}\Big(
+\underbrace{\frac{1}{x}}_{\rightarrow \pm\infty}
+- \underbrace{\frac{1}{\log(1+x)}}_{\rightarrow\pm\infty}\Big)
+=\lim_{x\rightarrow 0}\underbrace{\frac{\log(1+x)-x}{x\log(1+x)}}_{\atp
+{\mathrm{num}\rightarrow 0}
+{\mathrm{den}\rightarrow 0}}
+\tag{E1}
+\end{equation}
+\begin{align}
+\lim_{x\rightarrow 0}\underbrace{\frac{\log(1+x)-x}{x\log(1+x)}}_{\atp
+{\mathrm{num}\rightarrow 0}
+{\mathrm{den}\rightarrow 0}}
+&=\lim_{x\rightarrow 0}\frac{\frac{1}{1+x}-1} {\log(1+x)+\frac{x}{1+x}}
+=\lim_{x\rightarrow 0}\frac{1-(1+x)} {(1+x)\log(1+x)+x}\notag\\
+&=-\lim_{x\rightarrow 0}\underbrace{\frac{x} {(1+x)\log(1+x)+x}}_{\atp
+{\mathrm{num}\rightarrow 0}
+{\mathrm{den}\rightarrow 1\times 0+0=0}} \tag{E2}
+\end{align}
+\begin{equation}
+-\lim_{x\rightarrow 0}\underbrace{\frac{x} {(1+x)\log(1+x)+x}}_{\atp
+{\mathrm{num}\rightarrow 0}
+{\mathrm{den}\rightarrow 1\times 0+0=0}}
+=-\lim_{x\rightarrow 0}\underbrace{\frac{1} {\log(1+x)+\frac{1+x}{1+x}+1}}_{\atp
+{\mathrm{num}\rightarrow 1}
+{\mathrm{den}\rightarrow 0+1+1=2}}
+=-\frac{1}{2}
+\tag{E3}
+\end{equation}
+Combining (E1), (E2) and (E3) gives our final answer
+\begin{align*}
+\lim_{x\rightarrow 0}\Big(\frac{1}{x} - \frac{1}{\log(1+x)}\Big)=-\frac{1}{2}
+\end{align*}
+\end{eg}

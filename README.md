@@ -4,8 +4,6 @@
 
 教師編纂講義 <br>&nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note01/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>
 
-主要為以下參考書內容選輯。
-
 ## 參考書
 
 - [CLP Calculus Textbooks.](https://personal.math.ubc.ca/~CLP/) &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP1/">CLP1</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP2/">CLP2</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP3/">CLP3</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP4/">CLP4</a>

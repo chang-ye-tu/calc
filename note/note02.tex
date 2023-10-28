@@ -1,0 +1,481 @@
+\documentclass[12pt]{extarticle} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,enumitem,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm]{geometry}
+\pagenumbering{gobble}
+
+%\usepackage{unicode-math}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+%\setCJKmainfont{cwTeX Q Kai Medium}
+%\setCJKmainfont{cwTeX Q Ming Medium}
+%\setCJKmainfont[AutoFakeSlant=.1,AutoFakeBold=1]{cwTeX Q Kai Medium} 
+%\setCJKfamilyfont{kaiv}[Vertical=RotatedGlyphs]{cwTeX Q Medium}
+%\setmainfont{texgyrepagella-regular.otf}
+%\setmathfont{texgyrepagella-math.otf}
+\usepackage{lmodern}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\mi}{\mathrm{i}}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{ \frac{\mathrm{d}\hfil#1\hfil}{\mathrm{d}#2}}
+\newcommand{\difftwo}[2]{ \frac{\mathrm{d^2}\hfil#1\hfil}{\mathrm{d}{#2}^2}}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+%\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,angles,quotes}
+\usepackage{pgfplots}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} 第二章\ \ 微分}{第二章\ \ 微分}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+
+%\newpage
+
+\section*{2.1 導數與導函數}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/tangentA.pdf}
+\end{figure}
+
+\begin{dfn}
+  給定 $f(x)$，$a\in\dom f$。
+  \begin{itemize}
+    \item $f$ 在 $a$ 的導數（derivative）$f'(a)$ 定義為 $\ds f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$。若 $f'(a)$ 存在，則稱 $f$ 在 $a$ 可微（分）（differentiable）。
+    \item $f$ 的導函數 $f'(x)$ 定義為 $\ds f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}$。
+  \end{itemize}
+\end{dfn}
+
+\begin{rmk}
+  \begin{itemize}
+    \item[]
+    \item 求導函數之過程稱為微分（differentiation）：求 $f'(x)$ $\ifff$ $f(x)$（對 $x$）微分
+    \item 給定 $y = f(x)$，其導函數可記為 $\ds f'(x) = f' = y' = \frac{\text{d}y}{\text{d}x} = \frac{\text{d}f}{\text{d}x} = \frac{\text{d}}{\text{d}x} f(x) = Df(x) = D_x f(x)$。
+    \item $f$ 在 $a$ 的導數可記為 $\ds f'(a) = \Big.\frac{\text{d}y}{\text{d}x}\Big|_{x = a}$。 
+  \end{itemize}
+\end{rmk}
+
+\begin{ex}
+  求 $f(x)$ 之導函數 $f'(x)$：$\;$ 1. $\ds f(x) = x\quad$ 2. $\ds f(x) = x^2\quad$ 3. $\ds f(x) = x^4\quad$ 4. $\ds f(x) = \frac{1}{x}\quad$ %5. $\ds f(x) = \frac{1}{x^5}\quad$ 6. $\ds f(x) = \frac{1}{x^2 + 3}\quad$
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}
+    \item[]
+    \item $\ds f'(x) = \lim_{h\to 0}\frac{(x + h) - x}{h} = \lim_{h\to 0}\frac{h}{h} = \lim_{h\to 0}\,1 = 1$。
+    \item $\ds f'(x) = \lim_{h\to 0}\frac{(x + h)^2 - x^2}{h} = \lim_{h\to 0}\frac{2 x h + h^2}{h} = \lim_{h\to 0}\,(2x + h) = 2x$。
+    \item $\ds f'(x) = \lim_{h\to 0}\frac{(x + h)^4 - x^4}{h} = \lim_{h\to 0}\frac{4 x^3 h + 6x^2 h^2 + 4 x h^3 + h^4}{h} = \lim_{h\to 0}\,(4x^3 + 6x^2 h + 4 x h^2 + h^3) = 4x^3$。
+    \item $\ds f'(x) = \lim_{h\to 0}\frac{\frac{1}{x + h} - \frac{1}{x}}{h} = \lim_{h\to 0}\frac{x - (x + h)}{h\,(x + h)\,x} = \lim_{h\to 0}\frac{-h}{h\,(x + h)\,x} = \lim_{h\to 0}\frac{-1}{(x + h)\,x} = \frac{-1}{x^2} = (-1)\,x^{-2}$。
+   % \item $\ds f'(x) = \lim_{h\to 0}\frac{\frac{1}{(x + h)^5} - \frac{1}{x^5}}{h} = \lim_{h\to 0}\frac{x^5 - (x + h)^5}{h\,(x + h)^5\,x^5} \\ = \lim_{h\to 0}\frac{(-h)(x^4 + x^3(x + h) + x^2(x + h)^2 + x^3(x + h) + (x + h)^4)}{h\,(x + h)^5\,x^5}\\ = \lim_{h\to 0}\frac{-(x^4 + x^3(x + h) + x^2(x + h)^2 + x^3(x + h) + (x + h)^4)}{(x + h)^5\,x^5} = \frac{-5x^4}{x^{10}} = \frac{-5}{x^6} = (-5)\,x^{-6}$。
+   % \item $\ds f'(x) = \lim_{h\to 0}\frac{\frac{1}{(x + h)^2 + 3} - \frac{1}{x^2 + 3}}{h} = \lim_{h\to 0}\frac{(x^2 + 3) - ((x + h)^2 + 3)}{h\,((x + h)^2 + 3)\,(x^2 + 3)} = \lim_{h\to 0}\frac{(2x + h)\,(-h)}{h\,((x + h)^2 + 3)\,(x^2 + 3)} \\ = \lim_{h\to 0}\frac{-(2x + h)}{((x + h)^2 + 3)(x^2 + 3)} = \frac{-2x}{(x^2 + 3)^2}$。
+  \end{enumerate}
+\end{sol}
+
+\begin{fact}
+  $x^\alpha$（$\alpha\in\mathbb{R}$）之導函數為 $\alpha\,x^{\alpha - 1}$。
+\end{fact}
+
+\begin{dfn}
+  \begin{itemize}
+    \item[]
+    \item 若 $f$ 在 $(a, b)$ 上每一點均有導數，則稱 $f$ 在 $(a, b)$ 可微（分）。
+    %\item $f$ 在 $a$ 的右導數 $f'_+(a)$ 定義為 $\ds f'_+(a) = \lim_{h\to 0+}\frac{f(a + h) - f(a)}{h}$；\\$f$ 在 $a$ 的左導數 $f'_-(a)$ 定義為 $\ds f'_-(a) = \lim_{h\to 0-}\frac{f(a + h) - f(a)}{h}$。
+    %\item 若 $f$ 在 $(a, b)$ 可微，在 $a$ 有右導數，在 $b$ 有左導數，則稱 $f$ 在 $[a, b]$ 可微（分）。
+  \end{itemize}
+\end{dfn}
+
+\begin{thm}
+  若 $f$ 在 $a$ 可微，則 $f$ 在 $a$ 連續。
+\end{thm}
+
+%\begin{rmk}
+%  \begin{itemize}
+%    \item[]
+%    \item $f$ 在 $a$ 不可微之三情形：
+%      \begin{itemize}
+%        \item $f$ 在 $a$ 不連續。
+%        \item $f$ 在 $a$ 連續，$\ds f'_+(a)\ne f'_-(a)$：$a$ 為拐點（corner，kink）。
+%        \item $f$ 在 $a$ 連續，$\ds\lim_{x\to a}|f'(x)| = \infty$：$a$ 為臍點（cusp），有垂直切線。
+%      \end{itemize}
+%    \item 
+%      \begin{itemize}
+%        \item 連續函數不一定可微。（$f(x) = |x|$ 在 $x = 0$ 處）
+%        \item 若 $f$ 在 $a$ 可微，則在 $a$ 必有切線。
+%        \item $f$ 在 $a$ 有切線，$f$ 在 $a$ 未必可微（垂直切線）。
+%      \end{itemize}
+%  \end{itemize}
+%\end{rmk}
+
+\section*{2.2 微分規則}
+
+\begin{thm}[四則運算] 令 $f$、$g$ 可微，$c\in\mathbb{R}$。則
+  \begin{itemize}
+    \item $\ds (c)' = 0$
+    \item $\ds (c\,f)' = c\,f'$
+    \item $\ds (f\pm g)' = f'\pm g'$
+    \item $\ds (f\cdot g)' = f'\cdot g + f\cdot g'$
+    \item $\ds \Big(\frac{f}{g}\Big)' = \frac{f'\cdot g - f\cdot g'}{g^2}$
+  \end{itemize}
+\end{thm}
+
+\begin{ex}
+  求導函數：$\;$ 1. $\ds x^5\quad$ 2. $\ds\frac{x - 1}{x + 1}\quad$ 3. $\ds \frac{1}{x^2 + 3}$
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}
+    \item[]
+    \item $\ds (x^5)' = (x \cdot x^2 \cdot x^2)' = (x)'\cdot x^2 \cdot x^2 + x\cdot(x^2)'\cdot x^2 + x\cdot x^2\cdot(x^2)' = x^4 + x\cdot(2x)\cdot x^2 + x^3\cdot(2x) = 5 x^4$
+    \item $\ds\Big(\frac{x - 1}{x + 1}\Big)' = \frac{(x + 1)\cdot(x - 1)' - (x - 1)\cdot(x + 1)'}{(x + 1)^2} = \frac{2}{(x + 1)^2}$ 
+    \item $\ds\Big(\frac{1}{x^2 + 3}\Big)' = \frac{(x^2 + 3)\cdot(1)' - 1\cdot(x^2 + 3)'}{(x^2 + 3)^2} = \frac{-2x}{(x^2 + 3)^2}$
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}[鏈鎖律（chain rule）]
+  若 $f(u)$ 在 $u = g(x)$ 可微，$g(x)$ 在 $x$ 可微，則 $f\circ g$ 在 $x$ 可微：
+  \begin{align*}
+    (f\circ g)'(x)\,\equiv\,(f(g(x)))' = f'(g(x))\cdot g'(x)
+  \end{align*}
+\end{thm}
+
+\begin{ex}
+  求導函數：$\;$ 1. $\ds (x^3 - 1)^{2023}\quad$ 2. $\ds \sqrt{x^2 + 1}\quad$ 3. $\ds\frac{1}{x^2 + 3}\quad$ 4. $\ds\sqrt{\frac{x - 1}{x + 1}}\quad$
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}
+    \item[]
+    \item 令 $\ds f(u) = u^{2023}$，$g(x) = x^3 - 1$，則 $\ds f'(u) = 2023\,u^{2022}$，$\ds(x^3 - 1)^{2023} = f(g(x))$。\\由鏈鎖律 $\ds((x^3 - 1)^{2023})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = 2023\cdot(x^3 - 1)^{2022}\cdot(3x^2)$。
+    \item 令 $\ds f(u) = \sqrt{u} = u^{\frac{1}{2}}$，$g(x) = x^2 + 1$，則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$，$\ds\sqrt{x^2 + 1} = f(g(x))$。\\由鏈鎖律 $\ds (\sqrt{x^2 + 1})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{x^2 + 1}}\cdot(2x) = \frac{x}{\sqrt{x^2 + 1}}$。
+    \item 令 $\ds f(u) = \frac{1}{u}$，$g(x) = x^2 + 3$，則 $\ds f'(u) = \frac{-1}{u^2}$，$\ds\frac{1}{x^2 + 3} = f(g(x))$。\\由鏈鎖律 $\ds\Big(\frac{1}{x^2 + 3}\Big)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{-1}{(x^2 + 3)^2}\cdot(x^2 + 3)' = \frac{-2x}{(x^2 + 3)^2}$。
+    \item 令 $\ds f(u) = \sqrt{u}$，$\ds g(x) = \frac{x - 1}{x + 1}$，則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$，$\ds\sqrt{\frac{x - 1}{x + 1}} = f(g(x))$。\\由鏈鎖律 $\ds\bigg(\sqrt{\frac{x - 1}{x + 1}}\bigg)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\cdot\Big(\frac{x - 1}{x + 1}\Big)' = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\frac{2}{(x + 1)^2} = \frac{1}{\sqrt{(x - 1)(x + 1)^3}}$。
+  \end{enumerate}
+\end{sol}
+
+\begin{fact}
+  若 $f(g(x)) = x$，則等式兩邊對 $x$ 微分 $\ie$ $\ds(f(g(x)))' = 1$ $\ie$ $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds g'(x) = \frac{1}{f'(g(x))}$。  
+\end{fact}
+
+%\begin{fact}
+%  \begin{table}[!htbp]
+%    \centering
+%    \begin{tabular}{cc}
+%      \toprule
+%      $\ds f(x)$ & $\ds f'(x)$ \\
+%      \midrule
+%      \addlinespace[2mm]
+%      $\ds e^x$ & $\ds e^x$ \\
+%      \addlinespace[2mm]
+%      $\ds\ln x$ & $\ds\frac{1}{x}$ \\
+%      \addlinespace[2mm]
+%      $\ds x^\alpha$ & $\ds \alpha x^{\alpha - 1}$ \\
+%      \addlinespace[2mm]
+%      $\ds\sin x$ & $\ds\cos x$ \\
+%      \addlinespace[2mm]
+%      $\ds\cos x$ & $\ds-\sin x$ \\
+%      \addlinespace[2mm]
+%      $\ds\tan x$ & $\ds\sec^2 x$ \\
+%      \addlinespace[2mm]
+%      $\ds\sin^{-1} x$ & $\ds\frac{1}{\sqrt{1 - x^2}}$ \\
+%      \addlinespace[2mm]
+%      $\ds\cos^{-1} x$ & $\ds-\frac{1}{\sqrt{1 - x^2}}$ \\
+%      \addlinespace[2mm]
+%      $\ds\tan^{-1} x$ & $\ds\frac{1}{1 + x^2}$ \\
+%      \addlinespace[2mm]
+%      \bottomrule
+%    \end{tabular}
+%  \end{table}
+%\end{fact}
+
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{c|cccccccccc}
+    \toprule
+    \addlinespace[2mm]
+    $\ds f(x)$ & & $\ds e^x$ & $\ds\ln x$ & $\ds x^\alpha$ & $\ds\sin x$ & $\ds\cos x$ & $\ds\tan x$ & $\ds\sin^{-1} x$ & $\ds\cos^{-1} x$ & $\ds\tan^{-1} x$ \\
+    \addlinespace[2mm]
+    \midrule
+    \addlinespace[2mm]
+    $\ds f'(x)$ & & $\ds e^x$ & $\ds\frac{1}{x}$ & $\ds \alpha\,x^{\alpha - 1}$ & $\ds\cos x$ & $\ds-\sin x$ & $\ds\sec^2 x$ & $\ds\frac{1}{\sqrt{1 - x^2}}$ & $\ds -\frac{1}{\sqrt{1 - x^2}}$ & $\ds\frac{1}{1 + x^2}$ \\
+    \addlinespace[2mm]
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{2.3 自然指數、對數與微分}
+
+\begin{dfn}[自然指數 $e$ 與 $e^x$ 微分]
+  \begin{itemize}
+    \item[]
+    \item 給定 $a > 0$，求 $f(x) = a^x$ 之導函數
+    \item $\ds\diff{f}{x}=\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} = \lim_{h \to 0} a^x \cdot \frac{a^{h} - 1}{h} = a^x \cdot \lim_{h \to 0} \frac{a^{h} - 1}{h}$
+    \item 令 $\ds C(a) = \lim_{h \to 0} \frac{a^{h} - 1}{h}$，則 $\ds\diff{}{x}a^x =  C(a)\cdot a^x$
+    \item 觀察：$C(a)$ 隨 $a$ 遞增；對於某個介於 $2$，$3$ 間的 $a$，$C(a) = 1$。
+      \begin{table}[!htbp]
+        \centering
+        \begin{tabular}{cccccccc}
+        \toprule
+        $h$ & $10^{-1}$ & $10^{-2}$ & $10^{-3}$ & $10^{-4}$ & $10^{-5}$ & $10^{-6}$ & $10^{-7}$ \\
+        \midrule
+        \addlinespace[1mm]
+        $\ds\frac{2^h-1}{h}$ & 0.7177 & 0.6956 & 0.6934 & 0.6932 & 0.6931 & 0.6931 & 0.6931 \\
+        \addlinespace[1mm]
+        $\ds\frac{3^h-1}{h}$ & 1.1612 & 1.1047 & 1.0992 & 1.0987 & 1.0986 & 1.0986 & 1.0986 \\
+        \addlinespace[1mm]
+        $\ds\frac{5^h-1}{h}$ & 1.7462 & 1.6225 & 1.6107 & 1.6096 & 1.6095 & 1.6094 & 1.6094 \\
+        \addlinespace[1mm]
+        $\ds\frac{10^h-1}{h}$ & 2.5893 & 2.3293 & 2.3052 & 2.3028 & 2.3026 & 2.3026 & 2.3026 \\ 
+        \addlinespace[1mm]
+        \bottomrule
+        \end{tabular}
+      \end{table}
+    \item 定義 $\ds C(e) = 1 \ie \lim_{h\to 0}\frac{e^h - 1}{h} = 1$，則 $\ds\diff{}{x}e^x = C(e)\cdot e^x$。$\ds\;\ln x \equiv\log_e x$
+  \end{itemize}
+\end{dfn}
+
+\myline
+
+\begin{prp}
+  $\ds(e^x)' = e^x$；$\ds\;(\ln x)' = \frac{1}{x}$。
+\end{prp}
+
+\begin{sol}
+  由定義 $\ds e^{\ln x} = x$（$x > 0$）。令 $f(u) = e^u$，$g(x) = \ln x$，則 $\ds f'(u) = e^u$，$\ds f(g(x)) = x$；故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\ln x)' = \frac{1}{e^{\ln x}} = \frac{1}{x}$。 
+\end{sol}
+
+\begin{prp}
+  $\ds(a^x)' = a^x\cdot\ln a,\;\forall\,a > 0$。
+\end{prp}
+
+\begin{prf}
+  $\ds a = e^{\log_e a} \equiv e^{\ln a} \ie a^x = e^{x\ln a}$。令 $f(u) = e^u$，$g(x) = x\ln a$，則 $\ds f'(u) = e^u$，$\ds f(g(x)) = e^{x\ln a} = a^x$；故 $(f(g(x)))' = f'(g(x))\cdot g'(x) = e^{x\ln a}\cdot(x\ln a)' = a^x\cdot\ln a$。
+\end{prf}
+
+\begin{fact}
+  $\ds C(a) = \ln a$。
+\end{fact}
+
+\begin{prp}
+  $\ds (x^\alpha)' = \alpha\,x^{\alpha - 1}$（$\alpha\in\mathbb{R}$）
+\end{prp}
+
+\begin{sol}
+  $\ds x^\alpha = e^{\ln x^\alpha} = e^{\alpha\ln x}$。故 $\ds(x^\alpha)' = (e^{\alpha\ln x})' = e^{\alpha\ln x}\cdot\big(\alpha\cdot\frac{1}{x}\big) = x^\alpha\cdot\alpha\cdot\frac{1}{x} = \alpha\,x^{\alpha - 1}$。
+\end{sol}
+
+\section*{2.4 三角函數微分}
+
+\begin{prp}
+  $\ds\lim_{h\to 0}\frac{\sin h}{h} = 1$
+\end{prp}
+
+\begin{prf}
+  %\vspace{-1cm}
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=1.15,page=1]{fig/sind.pdf}
+    \hspace{1cm}
+    \includegraphics[scale=0.8,page=2]{fig/sind.pdf}
+    %\caption{$\ds\lim_{h\to0}\frac{\sin h}{h} = 1$}
+  \end{figure}
+  由面積關係 $\ds\Delta OPR \leqslant \text{扇形}\;OPR \leqslant \Delta OQR\ie\sin h\leqslant h \leqslant\frac{\sin h}{\cos h}\ie\frac{\sin h}{h}\leqslant 1,\;\cos h\leqslant \frac{\sin h}{h}\ie\cos h\leqslant\frac{\sin h}{h}\leqslant 1$。由 $\ds\lim_{h\to 0}\cos h = 1$ 與夾擊定理，$\ds\lim_{h\to 0}\frac{\sin h}{h} = 1$。
+\end{prf}
+
+\begin{prp}
+  $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = 0$
+\end{prp}
+
+\begin{sol}
+  由 $\ds\cos h = \cos\big(\frac{h}{2} + \frac{h}{2}\big) = \cos^2\frac{h}{2} - \sin^2\frac{h}{2} = 1 - 2\sin^2\frac{h}{2}\ie\cos h - 1 = -2 \sin^2\frac{h}{2}$，則 $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\frac{h}{2}}{h} = -\lim_{h\to 0}\frac{\sin^2\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{令 $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0$
+\end{sol}
+
+\begin{prp}
+  $\ds(\sin x)' = \cos x$
+\end{prp}
+
+\begin{prf}
+  $\ds(\sin x)' = \lim_{h\to 0}\frac{\sin(x + h) - \sin x}{h} = \lim_{h\to 0}\frac{\sin x\cos h + \cos x\sin h - \sin x}{h} = \lim_{h\to 0}\,\sin x\,\frac{\cos h - 1}{h} + \cos x\,\frac{\sin h}{h} = \sin x\,\lim_{h\to 0}\frac{\cos h - 1}{h} + \cos x\,\lim_{h\to 0}\frac{\sin h}{h} = \cos x$
+\end{prf}
+
+\begin{prp}
+  $\ds(\cos x)' = -\sin x$
+\end{prp}
+
+\begin{prf}
+  $\ds(\cos x)' = \big(\sin\big(\frac{\pi}{2} - x\big)\big)' = \cos\big(\frac{\pi}{2} - x\big)\cdot\big(\frac{\pi}{2} - x\big)' = -\sin x$
+\end{prf}
+
+\begin{prp}
+  $\ds(\tan x)' = \sec^2 x$
+\end{prp}
+
+\begin{prf}
+  $\ds(\tan x)' = \Big(\frac{\sin x}{\cos x}\Big)' = \frac{\cos x\cdot\cos x - (-\sin x)\cdot\sin x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x$
+\end{prf}
+
+\section*{2.5 反三角函數微分}
+
+\begin{prp}
+  $\ds(\sin^{-1} x)' = \frac{1}{\sqrt{1 - x^2}}$
+\end{prp}
+
+\begin{prf}
+  $\sin(\sin^{-1}x) = x$，$x\in[-1, 1]$。令 $f(u) = \sin u$，$g(x) = \sin^{-1} x$，則 $\ds f'(u) = \cos u$，$\ds f(g(x)) = x$；故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\sin^{-1} x)' = \frac{1}{\cos(\sin^{-1} x)} = \frac{1}{\sqrt{1 - x^2}}$。
+\end{prf}
+
+\begin{prp}
+  $\ds(\cos^{-1} x)' = -\frac{1}{\sqrt{1 - x^2}}$
+\end{prp}
+
+\begin{prf}
+  $\cos(\cos^{-1}x) = x$，$x\in[-1, 1]$。令 $f(u) = \cos u$，$g(x) = \cos^{-1} x$，則 $\ds f'(u) = -\sin u$，$\ds f(g(x)) = x$；故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\cos^{-1} x)' = \frac{1}{-\sin(\cos^{-1} x)} = -\frac{1}{\sqrt{1 - x^2}}$。
+\end{prf}
+
+\begin{prp}
+  $\ds(\tan^{-1} x)' = \frac{1}{1 + x^2}$
+\end{prp}
+
+\begin{prf}
+  $\tan(\tan^{-1}x) = x$，$x\in(-\infty, \infty)$。令 $f(u) = \tan u$，$g(x) = \tan^{-1} x$，則 $\ds f'(u) = \sec^2 u$，$\ds f(g(x)) = x$；故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\tan^{-1} x)' = \frac{1}{\sec^2(\tan^{-1} x)} = \frac{1}{1 + x^2}$。
+\end{prf}
+
+\section*{2.6 對數微分法}
+
+\begin{prp}
+  $\ds(\ln g(x))' = \frac{g'(x)}{g(x)}$。 
+\end{prp}
+
+\begin{prf}
+  令 $\ds f(u) = \ln u$，則 $\ds f'(u) = \frac{1}{u}$，$\ds\ln g(x) = f(g(x))$。由鏈鎖律 $\ds(f(g(x)))' = f'(g(x))\cdot g'(x) \ie (\ln g(x))' = \frac{1}{g(x)}\cdot g'(x) = \frac{g'(x)}{g(x)}$。
+\end{prf}
+
+\begin{ex}
+  $\ds f(x) = \sqrt[4]{\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1}}$，求 $f'(x)$。
+\end{ex}
+
+\begin{sol}
+  $\ds\ln f(x) = \frac{1}{4}\ln\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1} = \frac{1}{4}\big(\ln(x^4 + 12) + \ln(x^5 - x^2 + 2) - \ln(x^3 + 1)\big)$；等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = \frac{1}{4}\big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\big) \ie f'(x) = \sqrt[4]{\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1}}\cdot\frac{1}{4}\big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\big)$。
+\end{sol}
+
+\begin{ex}
+  $\ds f(x) = (\cos x)^{(\sin x)}$，$\ds 0 < x < \frac{\pi}{2}$，求 $f'(x)$。
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}
+    \item[]
+    \item（解一）$\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
+    \item（解二）$\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
+  \end{itemize}
+\end{sol}
+
+\myline
+
+\section*{2.7 隱函數微分}
+
+\begin{ex}
+  求圓 $x^2 + y^2 = 25$ 上點 $(3, -4)$ 之切線方程式。
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}
+    \item[]
+    \item（顯函數微分）在點 $(3, -4)$ 附近 $\ds y = -\sqrt{25 - x^2}\ie y' = \frac{x}{\sqrt{25 - x^2}}$，故點 $(3, -4)$ 之切線斜率為 $\ds\frac{3}{\sqrt{25 - 3^2}} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。 
+    \item（隱函數微分）令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數（$y = y(x)$），圓方程式寫作 $\ds x^2 + y(x)^2 = 25$；兩邊同對 $x$ 微分：$\ds 2x + 2 y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$。點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  若 $\ds xy + e^x + e^y = 1$，求 $\ds\diff{y}{x}$。    
+\end{ex}
+
+\begin{sol}
+  令 $y$ 為 $x$ 之函數（$y = y(x)$），等式寫作 $\ds x\cdot y(x) + e^x + e^{y(x)} = 1$；兩邊對 $x$ 微分：$\ds x\cdot y'(x) + y(x) + e^x + e^{y(x)}\cdot y'(x) = 0 \ie (x + e^{y(x)})\cdot y'(x) = -(y(x) + e^x) \ie \diff{y}{x} \equiv y'(x) = -\frac{y(x) + e^x}{x + e^{y(x)}}$。
+\end{sol}
+
+\begin{ex}
+  若 $\ds x^2 e^y + 4x\cos y = 5$，求在 $y = 0$ 時之 $\ds y'$。    
+\end{ex}
+
+\begin{sol}
+  令 $y$ 為 $x$ 之函數（$y = y(x)$），等式寫作 $\ds x^2 e^{y(x)} + 4x\cos{y(x)} = 5$；兩邊對 $x$ 微分：$\ds 2x\cdot e^{y(x)} + x^2\cdot e^{y(x)}\cdot y'(x) + 4\,\cos{y(x)} - 4x\cdot\sin{y(x)}\cdot y'(x) = 0$。當 $y(x) = 0$，上式為 $\ds 2x\cdot e^{0} + x^2\cdot e^{0}\cdot y'(x) + 4\,\cos{0} - 4x\cdot\sin{0}\cdot y'(x) = 0 \ie 2x + x^2\cdot y'(x) + 4 = 0 \ie y'(x) = -\frac{4 + 2x}{x^2}$。由 $\ds x^2 e^y + 4x\cos y = 5$ 知 $y = 0$ 時 $\ds x^2 + 4x = 5\ie x = -5\,\vee\,x = 1$，則 $\ds y'(-5) = -\frac{4 - 10}{(-5)^2} = \frac{6}{25}$，$\ds y'(1) = -\frac{4 + 2}{1^2} = -6$。
+\end{sol}
+
+\subsection*{雜題}
+
+\begin{ex}
+  令 $\ds f(x) = e^x + x$，求 $\ds (f^{-1})'(e + 1)$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds g(x)\equiv f^{-1}(x)$，則 $\ds g(f(x)) = x$。等式兩邊對 $x$ 微分：$\ds g'(f(x))\cdot f'(x) = 1 \ie g'(f(x)) = \frac{1}{f'(x)}$。由 $f(1) = e + 1$，$\ds g'(e + 1) = g'(f(1)) = \frac{1}{f'(1)} = \frac{1}{e + 1}$。
+\end{sol}
+
+\begin{ex}
+  若 $F(x) = f(x\cdot f(x\cdot f(x)))$，且 $f(1) = 2$，$f(2) = 3$，$f'(1) = 4$，$f'(2) = 5$，$f'(3) = 6$，求 $F'(1)$。
+\end{ex}
+
+\begin{sol}
+  由鏈鎖律 $\ds\big(f(x\cdot f(x\cdot f(x)))\big)' = f'(x\cdot f(x\cdot f(x)))\cdot(x\cdot f(x\cdot f(x)))'$。又 $\ds(x\cdot f(x\cdot f(x)))' = f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f(x))' =  f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))$。故 $\ds F'(1) = \big(f(x\cdot f(x\cdot f(x)))\big)'\,\big|_{x = 1} = f'(x\cdot f(x\cdot f(x)))\cdot\big(f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))\big)\,\big|_{x = 1} = f'(f(f(1)))\cdot\big(f(f(1)) + f'(f(1))\cdot(f'(1) + f(1))\big) = 6\cdot\big(3 + 5\cdot(4 + 2)\big) = 198$。
+\end{sol}
+
+\begin{ex}
+  $f$，$g$ 為可微函數且 $\ds f(g(x)) = x$。若 $\ds f'(x) = 1 + (f(x))^2$，求 $g'(x)$。  
+\end{ex}
+
+\begin{sol}
+  $\ds f(g(x)) = x$ 兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1 \ie g'(x) = \frac{1}{f'(g(x))} = \frac{1}{1 + (f(g(x)))^2} = \frac{1}{1 + x^2}$。
+\end{sol}
+
+%\bibliographystyle{elsarticle-harv}
+%\bibliography{note02}
+
+\end{document}
