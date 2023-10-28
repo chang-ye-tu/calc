@@ -483,7 +483,7 @@ $y = f(x) = a^x$，$a > 0\,\wedge a\not=1$。
   \centering
   \includegraphics[scale=1.8,page=1]{fig/power.pdf}
   \includegraphics[scale=1.8,page=2]{fig/power.pdf}
-  \caption{$y = a^x$}
+  \caption{$y = a^x$：圖左 $0 < a < 1$，圖右 $a > 1$}
 \end{figure}
 
 \begin{prp} 若 $a$，$b > 0$，$x$，$y\in\mathbb{R}$，則
@@ -624,7 +624,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
           \draw (8 / 5 + 0.2, 0) node[below] {$b$};
           \draw[thick] (0, 0) -- (16 / 5, 0) -- (16 / 5, 12 / 5) -- (0, 0);
           \draw (0, 0) coordinate (a) -- (16 / 5, 0) coordinate (b) -- (16 / 5, 12 / 5) coordinate (c) pic [draw,angle radius=3mm] {right angle = a--b--c};
-          \draw (16 / 5, 0) coordinate (a) -- (0, 0) coordinate (b) -- (16 / 5, 12 / 5) coordinate (c) pic ["$\alpha$",draw,<->,angle radius=10mm] {angle = a--b--c};
+          \draw (16 / 5, 0) coordinate (a) -- (0, 0) coordinate (b) -- (16 / 5, 12 / 5) coordinate (c) pic ["$\alpha$",draw,<->,cyan,angle radius=10mm] {angle = a--b--c};
         \end{tikzpicture}
        \end{tabularx}
       \end{figure}
@@ -643,8 +643,8 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
           \draw[thick,gray!70,->] (0, -2) -- (0, 2) node[above] {$y$};
           \draw[->] (0, 0) -- (-1.06, 1.06);
           \filldraw (-1.06, 1.06) circle[radius=0.6pt];
-          \draw (3 / 2, 0) coordinate (a) -- (0, 0) coordinate (b) -- (-1.06, 1.06) coordinate (c) pic ["$\alpha$", draw,->,blue,angle radius=9mm] {angle = a--b--c};
-          \draw (-1.06, 1.06) coordinate (a) -- (0, 0) coordinate (b) -- (3 / 2, 0) coordinate (c) pic ["$\alpha - 2\pi$", draw,<-,red,angle radius=11mm] {angle = a--b--c};
+          \draw (3 / 2, 0) coordinate (a) -- (0, 0) coordinate (b) -- (-1.06, 1.06) coordinate (c) pic ["$\alpha$", draw,<->,cyan,angle radius=6mm,angle eccentricity=1.4] {angle = a--b--c};
+          \draw (-1.06, 1.06) coordinate (a) -- (0, 0) coordinate (b) -- (3 / 2, 0) coordinate (c) pic ["$\alpha - 2\pi$", draw,<->,red,angle radius=6mm,angle eccentricity=1.4,pic text options={shift={(-2pt,-4pt)}}] {angle = a--b--c};
           \draw (-1.06, 1.06) node[above] {$(x, y)$};
           \draw (-0.53 - 0.2, 0.53) node[below] {$r$};
         \end{tikzpicture}
