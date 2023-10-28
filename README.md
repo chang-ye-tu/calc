@@ -1,6 +1,6 @@
 # 微積分
 
-## 上課教材
+## 上課講義
 
 <a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>
 
@@ -107,16 +107,16 @@
 
 ### 第一學期
 
-| 上課時間            | 課程進度                       |
+| 上課時間            | 習題進度                       |
 |---------------------|--------------------------------|
 | 09/12, 09/14        |                                |
 | 09/19, 09/21 o      |                                |
 | 09/26               |                                | 
-| 10/03, 10/05 o      |                                |
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10/12 o      |                                     |
-| 10/17, 10/19 o      |                                |
-| 10/24, 10/26 o      |                                |
-| 10/31, 11/02        |                                |
+| 10/03, 10/05 o      |  CLP1 1.3 -- 1.5               |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10/12 o      |  CLP1 1.6                              |
+| 10/17, 10/19 o      |  CLP1 2.2 -- 2.4, 2.6 -- 2.10, 2.12      |
+| 10/24, 10/26 o      |  CLP1 2.11, 2.13, 3.7          |
+| 10/31, 11/02        |  CLP1 3.5, 3.6                 |
 | 11/07, 11/09 期中考 |                                |
 | 11/14, 11/16        |                                |
 | 11/21, 11/23 o      |                                |
@@ -129,7 +129,7 @@
 
 ### 第二學期
 
-| 上課時間            | 課程進度                       |
+| 上課時間            | 習題進度                       |
 |---------------------|--------------------------------|
 | 02/20, 02/22        |                                |
 | 02/27, 02/29 o      |                                |
