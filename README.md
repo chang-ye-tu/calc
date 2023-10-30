@@ -2,7 +2,8 @@
 
 ## 上課講義
 
-<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>
+<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>
+
 
 ## 參考書
 
@@ -101,7 +102,7 @@
 - 基本分（10%）
   - 總成績起點為 10 分，每次隨堂考、期中考、學期考得分依以上規則累加計入總成績；超過 99 分以 99 分計。
 
-## 課程進度
+## 習題進度
 
 - 上課時間之 o 表該週輔導課隨堂考。
 
