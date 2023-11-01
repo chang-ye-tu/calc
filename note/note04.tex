@@ -56,6 +56,7 @@
 \newtheorem*{sol}{解}
 \newtheorem*{prf}{證}
 \newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
 
 %\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
 \newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
@@ -123,13 +124,178 @@
 \maketitle
 
 \section*{4.1 不定積分}
+
+\begin{dfn}[反導函數]
+  給定 $\ds F(x)$，若 $\ds\frac{\text{d}}{\text{d}x} F(x) = f(x)$，則稱 $F(x)$ 為 $f(x)$ 的反導函數（antiderivative）。 
+\end{dfn}
+
+\begin{prp}
+  若 $\ds F(x)$ 為 $f(x)$ 的反導函數，則 $\ds F(x) + c$，$c\in\mathbb{R}$ 為 $f(x)$ 的反導函數。
+\end{prp}
+
+\begin{fact}
+  \begin{itemize}
+    \item[]
+    \item $\ds\frac{\text{d}}{\text{d}x} F(x) = f(x)\ie \text{d} F(x) = f(x)\cdot\text{d}x \ie F(x) = \int f(x)\cdot\text{d}x = \int f(x)\,\text{d}x$
+    \item $F(x)$ 為 $f(x)$ 的反導函數 $\ifff$ $f(x)$ 的反導函數為 $F(x)$ $\ifff$ $F(x)$ 的導函數為 $f(x)$ $\ifff$ $F(x)$（對 $x$）的微分為 $f(x)$ $\ifff$ $f(x)$（對 $x$）的（不定）積分為 $F(x)$ 
+    \item $f(x)$ 的反導函數 $\equiv$ $f(x)$（對 $x$）的（不定）積分
+    \item 基礎積分集：以下 $\ds\alpha\ne -1$，$a\in\mathbb{R}$。
+      \begin{table}[!htbp]
+        \centering
+        \begin{tabular}{c|cccccccc}
+          \toprule
+          \addlinespace[2mm]
+          $\ds f(x)$ & & $\ds x^\alpha$ & $\ds\frac{1}{x}$ & $\ds e^{a x}$ & $\ds\sin ax$ & $\ds\cos ax$ & $\ds\frac{1}{\sqrt{a^2 - x^2}}$ & $\ds\frac{1}{a^2 + x^2}$ \\
+          \addlinespace[2mm]
+          \midrule
+          \addlinespace[2mm]
+          $\ds \int f(x)\,\text{d}x$ & & $\ds\frac{1}{\alpha + 1}\,x^{\alpha + 1}$ & $\ds\ln |x|$ & $\ds\frac{1}{a}\,e^{a x}$ & $\ds-\frac{1}{a}\cos ax$ & $\ds\frac{1}{a}\sin ax$ & $\ds\sin^{-1}\frac{x}{|a|}$ & $\ds\frac{1}{a}\tan^{-1}\frac{x}{a}$ \\
+          \addlinespace[2mm]
+          \bottomrule
+        \end{tabular}
+      \end{table}
+  \end{itemize}
+\end{fact}
+
+\begin{ex}
+  $\ds\int \sqrt{\pi x}\,\text{d}x = \frac{2\sqrt{\pi}}{3}\,x^{\frac{3}{2}} + c$，$\ds\int x^\pi\,\text{d}x = \frac{1}{\pi + 1}\,x^{\pi + 1} + c$，$\ds\int\sin\pi x\,\text{d}x = -\frac{1}{\pi}\cos\pi x + c$，$\ds\int\cos xy\,\text{d}x = \frac{1}{y}\sin xy + c$，$\ds\int e^{-2x}\,\text{d}x = -\frac{1}{2}\,e^{-2 x} + c$，$\ds\int\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$，$\ds\int\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
+\end{ex}
+
+\subsection*{變數變換法}
+
+\begin{fact}
+  $\ds\frac{\text{d}}{\text{d}x}f(g(x)) = f'(g(x))\cdot g'(x) \ie \text{d}f(g(x)) = f'(g(x))\cdot g'(x)\,\text{d}x \ie f(g(x)) = \int f'(g(x))\cdot g'(x)\,\text{d}x$。令 $\ds u = g(x)$，則 $\ds\frac{\text{d}}{\text{d}x} u = g'(x)\ie \text{d} u = g'(x)\,\text{d}x$；故 $\int f'(g(x))\cdot g'(x)\,\text{d}x = \int f'(u)\,\text{d}u = f(u) + c = f(g(x)) + c$。 
+\end{fact}
+
+\begin{ex}
+  求 $\ds\int\frac{x}{x^2+1}\,\mathrm{d}x$。
+\end{ex}
+\begin{sol}
+  令 $\ds u = x^2 + 1$，則 $\ds\mathrm{d}u = 2\,x\,\mathrm{d}x$ $\ie$ $\ds x\,\mathrm{d}x=\frac{1}{2}\,\mathrm{d}u$。故 $\ds\int\frac{x}{x^2+1}\,\mathrm{d}x = \int\frac{1}{x^2+1}\cdot x\,\mathrm{d}x = \int\frac{1}{u}\cdot\frac{1}{2}\,\mathrm{d}u = \frac{1}{2}\ln|u| + c = \frac{1}{2}\ln(x^2 + 1) + c$。
+\end{sol}
+    
+\begin{ex}
+  求 $\ds\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \ln x$，則 $\ds\mathrm{d}u = \frac{1}{x}\,\mathrm{d}x$。故 $\ds\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x = \int\sin(3\ln x)\cdot\frac{1}{x}\,\mathrm{d}x = \int\sin3u\cdot\mathrm{d}u = -\frac{1}{3}\cos 3u + c = -\frac{1}{3}\cos(3\ln x) + c$。 
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int e^x\sqrt{1 + e^x}\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  令 $u = 1 + e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int e^x\sqrt{1 + e^x}\,\mathrm{d}x = \int \sqrt{1 + e^x}\cdot e^x\,\mathrm{d}x = \int\sqrt{u}\cdot\mathrm{d}u = \frac{u^{\frac{3}{2}}}{\frac{3}{2}} + c = \frac{2}{3}(1 + e^x)^{\frac{3}{2}} + c$
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  令 $u = e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x = \int\frac{1}{\sqrt{2-u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{2}} + c = \sin^{-1}\frac{e^x}{\sqrt{2}} + c$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  $\ds\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x = \int\frac{1}{e^x\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x$。令 $\ds u = e^{-x}$，則 $\ds\mathrm{d}u = -e^{-x}\,\mathrm{d}x \ie e^{-x}\,\mathrm{d}x = -\text{d}u$；故 $\ds\int\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\frac{1}{\sqrt{1 - e^{-2x}}}\cdot e^{-x}\,\mathrm{d}x = -\int\frac{1}{\sqrt{1 - u^2}}\,\mathrm{d}u = -\sin^{-1} u + c = -\sin^{-1} e^{-x} + c$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x$。
+\end{ex}
+\begin{sol}
+  $\ds\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x = \int\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x$。令 $\ds u = x + 2$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x = \int\frac{1}{u^2 + 1}\,\mathrm{d}u = \tan^{-1} u + c = \tan^{-1} (x+2) + c$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x$
+\end{ex}
+    
+\begin{sol}
+  $\ds\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x = \int\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x$。令 $u = x - 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x = \int\frac{1}{\sqrt{5 - u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{5}} + c = \sin^{-1}\frac{x - 1}{\sqrt{5}} + c$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\tan x\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  $\ds\int\tan x\,\mathrm{d}x = \int\frac{\sin x}{\cos x}\,\mathrm{d}x$。令 $u = \cos x$，則 $\mathrm{d}u = -\sin x\,\mathrm{d}x$；故 $\ds\int\frac{\sin x}{\cos x}\,\mathrm{d}x = \int\frac{-1}{u}\,\mathrm{d}u = -\ln|u| + c = -\ln|\cos x| + c = \ln|\sec x| + c$
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\sec x\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  $\ds\int\sec x\,\mathrm{d}x = \int\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x$。令 $u = \sec x + \tan x$，則 $\ds\mathrm{d}u = (\sec^2 x + \sec x\tan x)\,\mathrm{d}x$；故 $\ds\int\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x = \int\frac{1}{u}\,\mathrm{d}u = \ln|u| + c = \ln|\sec x + \tan x| + c$
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\cos^5 ax\,\mathrm{d}x$。 
+\end{ex}
+
+\begin{sol}
+  $\ds\int\cos^5 ax\,\mathrm{d}x = \int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$。令 $\ds u = \sin ax$，則 $\ds\mathrm{d}u = a\cos ax\,\mathrm{d}x$；故 $\ds\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x = \frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u = \frac{1}{a}\int(1 - 2u^2 + u^4)\,\mathrm{d}u = \frac{1}{a}\,\Big(u - \frac{2}{3}u^3 + \frac{1}{5}u^5\Big) + c = \frac{1}{a}\,\Big(\sin ax - \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\Big) + c$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\cos^4 ax\,\mathrm{d}x$。
+\end{ex}
+   
+\begin{sol}
+  $\ds\int\cos^4 ax\,\mathrm{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\mathrm{d}x = \frac{1}{4}\int\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x = \frac{1}{4}\int\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x = \int\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
+\end{sol}
+ 
+\begin{exe} 以變數變換法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
+  \begin{multicols}{2}
+    \begin{align*}
+      &\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x {\color{C2}\,\,= -\frac{1}{2}\,\cos{e^{2x}} + c}\\
+      &\int x e^{-\frac{x^2}{2}}\,\mathrm{d}x {\color{C2}\,\,= -e^{-\frac{x^2}{2}} + c}\\
+      &\int\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x {\color{C2}\,\,= -2\cos{\sqrt{x}} + c}\\
+      &\int x^2 2^{x^3 + 1}\,\mathrm{d}x {\color{C2}\,\,= \frac{2^{x^3 + 1}}{3\ln 2} + c}\\
+      &\int\frac{\ln x}{x}\,\mathrm{d}x {\color{C2}\,\,= \frac{1}{2}\,(\ln x)^2 + c}\\
+      &\int\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x {\color{C2}\,\,= \sqrt{x^2 + 2x + 3} + c}\\
+      &\int\frac{x^2}{2 + x^6}\,\mathrm{d}x {\color{C2}\,\,= \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c}\\
+      &\int\frac{1}{e^x + e^{-x}}\,\mathrm{d}x {\color{C2}\,\,= \tan^{-1}{e^{x}} + c}\\
+      &\int\frac{x + 1}{\sqrt{1 - x^2}}\,\mathrm{d}x {\color{C2}\,\,= -\sqrt{1 - x^2} + \sin^{-1} x + c}
+    \end{align*}
+
+    \begin{align*}
+      &\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x {\color{C2}\,\,= \sin^{-1}(\tan{x}) + c}\\
+      &\int\sin^4 x\cos^5 x\,\mathrm{d}x {\color{C2}\,\,= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c}\\
+      &\int\sin^2 x\cos^2 x\,\mathrm{d}x {\color{C2}\,\,= \frac{x}{8} - \frac{\sin 4x}{32} + c}\\
+      &\int\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x {\color{C2}\,\,= 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c}\\
+      &\int\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x {\color{C2}\,\,= \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c}\\
+      &\int\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x {\color{C2}\,\,= -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c}\\
+      &\int\cos ax\cos bx\,\mathrm{d}x {\color{C2}\,\,= \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)} + c}\\
+      &\int\sin ax\sin bx\,\mathrm{d}x {\color{C2}\,\,= \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)} + c}\\
+      &\int\sin ax\cos bx\,\mathrm{d}x {\color{C2}\,\,= -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)} + c}
+    \end{align*}
+  \end{multicols}
+\end{exe}
+
+\myline
+
+\subsection*{部份積分法}
+
+\begin{fact}
+  $\ds\frac{\mathrm{d}}{\mathrm{d}x}\,(u(x)\,v(x)) = u(x)\,\frac{\mathrm{d}v(x)}{\mathrm{d}x} + v(x)\,\frac{\mathrm{d}u(x)}{\mathrm{d}x}\ie u(x)\,v(x) = \int u(x)\,\mathrm{d}v(x) + \int v(x)\,\mathrm{d}u(x) \\ \ie \int u\,\text{d}v = u\,v - \int v\,\text{d}u$。
+\end{fact}
+
 \section*{4.2 定積分}
 %\begin{figure}[!htbp]
 %  \centering
-\begin{center}
-  \includegraphics[scale=1,page=1]{fig/lu.pdf}
-  \includegraphics[scale=1,page=2]{fig/lu.pdf}
-\end{center}
+%\begin{center}
+%  \includegraphics[scale=1,page=1]{fig/lu.pdf}
+%  \includegraphics[scale=1,page=2]{fig/lu.pdf}
+%\end{center}
 %\end{figure}
 
 \end{document}
