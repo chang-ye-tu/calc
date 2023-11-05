@@ -151,7 +151,7 @@
 \end{ex}
 
 \begin{ex}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds\lim_{x\to0}|x| = 0$
     \item $\ds\lim_{x\to0}\frac{|x|}{x} = \text{DNE}$
@@ -168,7 +168,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 當 $\ds x = n + \varepsilon$，$\ds 0\leqslant\varepsilon\ll 1$，$\ds\floor{x - \floor{x - 1}} = \floor{(n + \varepsilon) - \floor{(n - 1) + \varepsilon}} = \floor{(n + \varepsilon) - (n - 1)} = \floor{1 + \varepsilon} = 1$，則 $\ds\lim_{x\to n+}\floor{x - \floor{x - 1}} = 1$。
     \item 當 $\ds x = n - \varepsilon$，$\ds 0\leqslant\varepsilon\ll 1$，$\ds\floor{x - \floor{x - 1}} = \floor{(n - \varepsilon) - \floor{(n - 1) - \varepsilon}} = \floor{(n - \varepsilon) - (n - 2)} = \floor{2 - \varepsilon} = 1$，則 $\ds\lim_{x\to n-}\floor{x - \floor{x - 1}} = 1$。
@@ -178,7 +178,7 @@
 
 \subsection*{在無限遠的極限（Limits at Infinity）}
 \begin{ex}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds\lim_{x\to\infty}\frac{1}{x^\alpha} = 0$，$\alpha > 0$；$\ds\lim_{x\to-\infty}\frac{1}{x^N}$，$\forall\,N\in\mathbb{N}$
     \item $\ds\lim_{x\to\infty}\tan^{-1} x = \frac{\pi}{2}$，$\ds\lim_{x\to-\infty}\tan^{-1} x = -\frac{\pi}{2}$
@@ -188,7 +188,7 @@
 
 \subsection*{無窮極限（Infinite Limits）}
 \begin{ex}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds\lim_{x\to0+}\frac{1}{x} = \infty$，$\ds\lim_{x\to0-}\frac{1}{x} = -\infty$，$\ds\lim_{x\to0}\frac{1}{x} = \text{DNE}$
     \item $\ds\lim_{x\to0}\frac{1}{x^2} = \infty$
@@ -200,7 +200,7 @@
 
 \begin{thm}[極限四則運算]
   若 $\ds\lim_{x\to a}f(x) = L$，$\ds\lim_{x\to a}g(x) = M$，則
-  \begin{enumerate}
+  \begin{enumerate}\setlength\itemsep{0em}
     \item $\ds\lim_{x\to a} c = c$，$\ds\lim_{x\to a} x = a$
     \item $\ds\lim_{x\to a} k\,f(x) = k\,L$ 
     \item $\ds\lim_{x\to a} \big(f(x)\pm g(x)\big) = L\pm M$ 
@@ -212,7 +212,7 @@
 \end{thm}
 
 \begin{ex}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds\lim_{t\to-1}\frac{t - 2}{t + 3} = \frac{\lim_{t\to-1} t - 2}{\lim_{t\to-1}t + 3} = \frac{-3}{2}$
     \item $\ds\lim_{t\to-3}\frac{1 - t}{\cos t} = \frac{\lim_{t\to-3} 1 - t}{\lim_{t\to-3}\cos t} = \frac{4}{\cos{3}}$
@@ -220,7 +220,7 @@
 \end{ex}
 
 \begin{ex}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds\lim_{h\to0}\frac{(2 + h)^2 - 4}{2 h} = \lim_{h\to0}\frac{h^2 + 4h + 4 - 4}{2 h} = \lim_{h\to0}\frac{h^2 + 4h}{2 h} =\lim_{h\to0}\frac{h + 4}{2} = 2$
     \item $\ds\lim_{x\to4}\frac{x^2 - 4x}{x^2 - 16} = \lim_{x\to4}\frac{x(x - 4)}{(x - 4)(x + 4)} = \lim_{x\to4}\frac{x}{x + 4} = \frac{1}{2}$
@@ -285,7 +285,7 @@
 \section*{1.4 連續性}
 
 \begin{dfn} 給定 $f$，$a\in\dom f$。
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item 若 $\ds\lim_{x\to a} f(x)$ 存在且 $\ds f(a)=\lim_{x\to a}f(x)$，則稱 $f$ 在 $a$ \emph{連續}。 
     \item 若 $\ds\lim_{x\to a+} f(x)$ 存在且 $\ds f(a)=\lim_{x\to a+}f(x)$，則稱 $f$ 在 $a$ \emph{左連續}。 
     \item 若 $\ds\lim_{x\to a-} f(x)$ 存在且 $\ds f(a)=\lim_{x\to a-}f(x)$，則稱 $f$ 在 $a$ \emph{右連續}。 
@@ -295,14 +295,14 @@
 
 \begin{dfn}[端點連續性]
   給定 $f$，$\dom f = [a, b]$。 
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item 若 $f$ 在 $b$ 左連續，則稱 $f$ 在 $b$ 連續。 
     \item 若 $f$ 在 $a$ 右連續，則稱 $f$ 在 $a$ 連續。 
   \end{itemize}
 \end{dfn}
 
 \begin{dfn}[連續函數] 
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 若 $f$ 在區間 $I$ 之每一點均連續，則稱 $f$ 在 $I$ 連續。 
     \item 若 $f$ 在 $\dom f$ 之每一點均連續，則稱 $f$ 為\emph{連續函數}。 
@@ -310,7 +310,7 @@
 \end{dfn}
 
 \begin{thm}[五則運算仍連續]
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[] 
     \item 若 $f$，$g$ 在 $a$ 連續，則 $f\pm g$，$f\cdot g$，$k f$，$f^\alpha$，$\ds\frac{f}{g}$（若 $g(a)\not=0$）均在 $a$ 連續。
     \item 若 $f$ 在 $a$ 連續，且 $g$ 在 $f(a)$ 連續，則 $g\circ f$ 在 $a$ 連續。
@@ -346,7 +346,7 @@
 \end{thm}
 
 \begin{rmk}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 中間值定理不適用於不連續函數：取 $\ds f(x) = \begin{cases}x + 2 & -1 < x \leqslant 1 \\ x & -2\leqslant x\leqslant -1\end{cases}$，則 $f(-2) < 0$，$f(1) > 0$，但 $f(x) = 0$ 無解。
     \item $\ds f(x) = \begin{cases}x\sin\Big(\frac{1}{x}\Big)& x \not= 0 \\ 0 & x = 0\end{cases}$，則存在無限多 $\ds x\in\Big[-\frac{2}{3\pi},\,\frac{2}{\pi}\Big]$ 使 $f(x) = 0$。

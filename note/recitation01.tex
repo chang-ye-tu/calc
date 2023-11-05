@@ -1,0 +1,127 @@
+\documentclass[12pt]{extarticle} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+%\usepackage{unicode-math}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+%\setCJKmainfont{cwTeX Q Kai Medium}
+%\setCJKmainfont{cwTeX Q Ming Medium}
+%\setCJKmainfont[AutoFakeSlant=.1,AutoFakeBold=1]{cwTeX Q Kai Medium} 
+%\setCJKfamilyfont{kaiv}[Vertical=RotatedGlyphs]{cwTeX Q Medium}
+%\setmainfont{texgyrepagella-regular.otf}
+%\setmathfont{texgyrepagella-math.otf}
+\usepackage{lmodern}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\mi}{\mathrm{i}}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{ \frac{\mathrm{d}\hfil#1\hfil}{\mathrm{d}#2}}
+\newcommand{\difftwo}[2]{ \frac{\mathrm{d^2}\hfil#1\hfil}{\mathrm{d}{#2}^2}}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+%\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} 1121 期中考範圍複習}{1121 期中考範圍複習}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+
+\end{document}

@@ -88,14 +88,14 @@
 
 \begin{dfn}
   給定 $f(x)$，$a\in\dom f$。
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item $f$ 在 $a$ 的導數（derivative）$f'(a)$ 定義為 $\ds f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$。若 $f'(a)$ 存在，則稱 $f$ 在 $a$ 可微（分）（differentiable）。
     \item $f$ 的導函數 $f'(x)$ 定義為 $\ds f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}$。
   \end{itemize}
 \end{dfn}
 
 \begin{rmk}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 求導函數之過程稱為微分（differentiation）：求 $f'(x)$ $\ifff$ $f(x)$（對 $x$）微分
     \item 給定 $y = f(x)$，其導函數可記為 $\ds f'(x) = f' = y' = \frac{\text{d}y}{\text{d}x} = \frac{\text{d}f}{\text{d}x} = \frac{\text{d}}{\text{d}x} f(x) = Df(x) = D_x f(x)$。
@@ -108,7 +108,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{enumerate}
+  \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item $\ds f'(x) = \lim_{h\to 0}\frac{(x + h) - x}{h} = \lim_{h\to 0}\frac{h}{h} = \lim_{h\to 0}\,1 = 1$。
     \item $\ds f'(x) = \lim_{h\to 0}\frac{(x + h)^2 - x^2}{h} = \lim_{h\to 0}\frac{2 x h + h^2}{h} = \lim_{h\to 0}\,(2x + h) = 2x$。
@@ -124,7 +124,7 @@
 \end{fact}
 
 \begin{dfn}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 若 $f$ 在 $(a, b)$ 上每一點均有導數，則稱 $f$ 在 $(a, b)$ 可微（分）。
     %\item $f$ 在 $a$ 的右導數 $f'_+(a)$ 定義為 $\ds f'_+(a) = \lim_{h\to 0+}\frac{f(a + h) - f(a)}{h}$；\\$f$ 在 $a$ 的左導數 $f'_-(a)$ 定義為 $\ds f'_-(a) = \lim_{h\to 0-}\frac{f(a + h) - f(a)}{h}$。
@@ -137,16 +137,16 @@
 \end{thm}
 
 %\begin{rmk}
-%  \begin{itemize}
+%  \begin{itemize}\setlength\itemsep{0em}
 %    \item[]
 %    \item $f$ 在 $a$ 不可微之三情形：
-%      \begin{itemize}
+%      \begin{itemize}\setlength\itemsep{0em}
 %        \item $f$ 在 $a$ 不連續。
 %        \item $f$ 在 $a$ 連續，$\ds f'_+(a)\ne f'_-(a)$：$a$ 為拐點（corner，kink）。
 %        \item $f$ 在 $a$ 連續，$\ds\lim_{x\to a}|f'(x)| = \infty$：$a$ 為臍點（cusp），有垂直切線。
 %      \end{itemize}
 %    \item 
-%      \begin{itemize}
+%      \begin{itemize}\setlength\itemsep{0em}
 %        \item 連續函數不一定可微。（$f(x) = |x|$ 在 $x = 0$ 處）
 %        \item 若 $f$ 在 $a$ 可微，則在 $a$ 必有切線。
 %        \item $f$ 在 $a$ 有切線，$f$ 在 $a$ 未必可微（垂直切線）。
@@ -157,7 +157,7 @@
 \section*{2.2 微分規則}
 
 \begin{thm}[四則運算] 令 $f$、$g$ 可微，$c\in\mathbb{R}$。則
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item $\ds (c)' = 0$
     \item $\ds (c\,f)' = c\,f'$
     \item $\ds (f\pm g)' = f'\pm g'$
@@ -171,7 +171,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{enumerate}
+  \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item $\ds (x^5)' = (x \cdot x^2 \cdot x^2)' = (x)'\cdot x^2 \cdot x^2 + x\cdot(x^2)'\cdot x^2 + x\cdot x^2\cdot(x^2)' = x^4 + x\cdot(2x)\cdot x^2 + x^3\cdot(2x) = 5 x^4$
     \item $\ds\Big(\frac{x - 1}{x + 1}\Big)' = \frac{(x + 1)\cdot(x - 1)' - (x - 1)\cdot(x + 1)'}{(x + 1)^2} = \frac{2}{(x + 1)^2}$ 
@@ -191,7 +191,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{enumerate}
+  \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item 令 $\ds f(u) = u^{2023}$，$g(x) = x^3 - 1$，則 $\ds f'(u) = 2023\,u^{2022}$，$\ds(x^3 - 1)^{2023} = f(g(x))$。\\由鏈鎖律 $\ds((x^3 - 1)^{2023})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = 2023\cdot(x^3 - 1)^{2022}\cdot(3x^2)$。
     \item 令 $\ds f(u) = \sqrt{u} = u^{\frac{1}{2}}$，$g(x) = x^2 + 1$，則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$，$\ds\sqrt{x^2 + 1} = f(g(x))$。\\由鏈鎖律 $\ds (\sqrt{x^2 + 1})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{x^2 + 1}}\cdot(2x) = \frac{x}{\sqrt{x^2 + 1}}$。
@@ -253,7 +253,7 @@
 \section*{2.3 自然指數、對數與微分}
 
 \begin{dfn}[自然指數 $e$ 與 $e^x$ 微分]
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 給定 $a > 0$，求 $f(x) = a^x$ 之導函數
     \item $\ds\diff{f}{x}=\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} = \lim_{h \to 0} a^x \cdot \frac{a^{h} - 1}{h} = a^x \cdot \lim_{h \to 0} \frac{a^{h} - 1}{h}$
@@ -410,7 +410,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item（解一）$\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
     \item（解二）$\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
@@ -426,7 +426,7 @@
 \end{ex}
 
 \begin{sol}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item（顯函數微分）在點 $(3, -4)$ 附近 $\ds y = -\sqrt{25 - x^2}\ie y' = \frac{x}{\sqrt{25 - x^2}}$，故點 $(3, -4)$ 之切線斜率為 $\ds\frac{3}{\sqrt{25 - 3^2}} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。 
     \item（隱函數微分）令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數（$y = y(x)$），圓方程式寫作 $\ds x^2 + y(x)^2 = 25$；兩邊同對 $x$ 微分：$\ds 2x + 2 y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$。點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。
