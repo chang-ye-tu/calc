@@ -1,6 +1,6 @@
 # 微積分
 
-## 上課講義
+## 講義
 
 <a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>
 
