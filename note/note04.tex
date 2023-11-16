@@ -130,8 +130,12 @@
   給定 $\ds F(x)$，若 $\ds\frac{\text{d}}{\text{d}x} F(x) = f(x)$，則稱 $F(x)$ 為 $f(x)$ 的反導函數（antiderivative）。 
 \end{dfn}
 
-\begin{prp}
-  若 $\ds F(x)$ 為 $f(x)$ 的反導函數，則 $\ds F(x) + c$，$c\in\mathbb{R}$ 為 $f(x)$ 的反導函數。
+\begin{prp}若 $\ds F(x)$，$\ds G(x)$ 分別為 $f(x)$，$g(x)$ 的反導函數，$c\in\mathbb{R}$。則
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $\ds F(x) + c$ 為 $f(x)$ 的反導函數。
+    \item $\ds c\,F(x)$ 為 $c\,f(x)$ 的反導函數。
+    \item $\ds F(x) + G(x)$ 為 $f(x) + g(x)$ 的反導函數。
+  \end{itemize}
 \end{prp}
 
 \begin{fact}
@@ -140,7 +144,7 @@
     \item $\ds\frac{\text{d}}{\text{d}x} F(x) = f(x)\ie \text{d} F(x) = f(x)\cdot\text{d}x \ie F(x) = \int f(x)\cdot\text{d}x = \int f(x)\,\text{d}x$
     \item $F(x)$ 為 $f(x)$ 的反導函數 $\ifff$ $f(x)$ 的反導函數為 $F(x)$ $\ifff$ $F(x)$ 的導函數為 $f(x)$ $\ifff$ $F(x)$（對 $x$）的微分為 $f(x)$ $\ifff$ $f(x)$（對 $x$）的（不定）積分為 $F(x)$ 
     \item $f(x)$ 的反導函數 $\equiv$ $f(x)$（對 $x$）的（不定）積分
-    \item 基礎積分集：以下 $\ds\alpha\ne -1$，$a\in\mathbb{R}$。
+    \item 基礎積分集：以下 $\ds\alpha\ne -1$，$a\in\mathbb{R}\setminus\{0\}$。
       \begin{table}[!htbp]
         \centering
         \begin{tabular}{c|cccccccc}
@@ -160,13 +164,13 @@
 \end{fact}
 
 \begin{ex}
-  $\ds\int \sqrt{\pi x}\,\text{d}x = \frac{2\sqrt{\pi}}{3}\,x^{\frac{3}{2}} + c$，$\ds\int x^\pi\,\text{d}x = \frac{1}{\pi + 1}\,x^{\pi + 1} + c$，$\ds\int\sin\pi x\,\text{d}x = -\frac{1}{\pi}\cos\pi x + c$，$\ds\int\cos xy\,\text{d}x = \frac{1}{y}\sin xy + c$，$\ds\int e^{-2x}\,\text{d}x = -\frac{1}{2}\,e^{-2 x} + c$，$\ds\int\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$，$\ds\int\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
+  $\ds\int \sqrt{x}\,\text{d}x = \frac{2}{3}\,x^{\frac{3}{2}} + c$，$\ds\int x^\pi\,\text{d}x = \frac{1}{\pi + 1}\,x^{\pi + 1} + c$，$\ds\int\sin\pi x\,\text{d}x = -\frac{1}{\pi}\cos\pi x + c$，$\ds\int\cos xy\,\text{d}x = \frac{1}{y}\sin xy + c$，$\ds\int e^{-2x}\,\text{d}x = -\frac{1}{2}\,e^{-2 x} + c$，$\ds\int\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$，$\ds\int\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
 \end{ex}
 
 \subsection*{變數變換法}
 
 \begin{fact}
-  $\ds\frac{\text{d}}{\text{d}x}f(g(x)) = f'(g(x))\cdot g'(x) \ie \text{d}f(g(x)) = f'(g(x))\cdot g'(x)\,\text{d}x \ie f(g(x)) = \int f'(g(x))\cdot g'(x)\,\text{d}x$。令 $\ds u = g(x)$，則 $\ds\frac{\text{d}}{\text{d}x} u = g'(x)\ie \text{d} u = g'(x)\,\text{d}x$；故 $\int f'(g(x))\cdot g'(x)\,\text{d}x = \int f'(u)\,\text{d}u = f(u) + c = f(g(x)) + c$。 
+  $\ds\frac{\text{d}}{\text{d}x}f(g(x)) = f'(g(x))\cdot g'(x) \ie \text{d}f(g(x)) = f'(g(x))\cdot g'(x)\,\text{d}x \ie f(g(x)) = \int f'(g(x))\cdot g'(x)\,\text{d}x$。令 $\ds u = g(x)$，則 $\ds\frac{\text{d}}{\text{d}x} u = g'(x)\ie \text{d} u = g'(x)\,\text{d}x$；故 $\ds\int f'(g(x))\cdot g'(x)\,\text{d}x = \int f'(u)\,\text{d}u = f(u) + c = f(g(x)) + c$。 
 \end{fact}
 
 \begin{ex}
