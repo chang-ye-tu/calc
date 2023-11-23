@@ -267,19 +267,19 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\cos^5 ax\,\mathrm{d}x$。 
+  求 $\ds\int\!\cos^5 ax\,\mathrm{d}x$。 
 \end{ex}
 
 \begin{sol}
-  $\ds\int\cos^5 ax\,\mathrm{d}x = \int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$。令 $\ds u = \sin ax$，則 $\ds\mathrm{d}u = a\cos ax\,\mathrm{d}x$；故 $\ds\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x = \frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u = \frac{1}{a}\int(1 - 2u^2 + u^4)\,\mathrm{d}u = \frac{1}{a}\,\Big(u - \frac{2}{3}u^3 + \frac{1}{5}u^5\Big) + c = \frac{1}{a}\,\Big(\sin ax - \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\Big) + c$。
+  $\ds\int\!\cos^5 ax\,\mathrm{d}x = \int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x$。令 $\ds u = \sin ax$，則 $\ds\mathrm{d}u = a\cos ax\,\mathrm{d}x$；故 $\ds\int(1-\sin^2 ax)^2\cos ax\,\mathrm{d}x = \frac{1}{a}\int(1-u^2)^2\,\mathrm{d}u = \frac{1}{a}\int(1 - 2u^2 + u^4)\,\mathrm{d}u = \frac{1}{a}\,\Big(u - \frac{2}{3}u^3 + \frac{1}{5}u^5\Big) + c = \frac{1}{a}\,\Big(\sin ax - \frac{2}{3}\sin^3 ax + \frac{1}{5}\sin^5 ax\Big) + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\cos^4 ax\,\mathrm{d}x$。
+  求 $\ds\int\!\cos^4 ax\,\mathrm{d}x$。
 \end{ex}
    
 \begin{sol}
-  $\ds\int\cos^4 ax\,\mathrm{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\mathrm{d}x = \frac{1}{4}\int\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x = \frac{1}{4}\int\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x = \int\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
+  $\ds\int\!\cos^4 ax\,\mathrm{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x \\= \int\!\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
 \end{sol}
  
 \begin{exe} 以變數變換法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
@@ -320,7 +320,7 @@
     \item 令 $\ds u = x^3$，則 $\ds\text{d} u = 3x^2\,\text{d}x\ie x^2\,\text{d}x = \frac{1}{3}\,\text{d}u$，故 $\ds\int\frac{x^2}{2 + x^6}\,\mathrm{d}x = \int\frac{1}{2 + x^6}\cdot x^2\,\text{d}x = \int\frac{1}{2 + u^2}\cdot\frac{1}{3}\,\text{d}u = \frac{1}{3\sqrt{2}}\tan^{-1}\frac{u}{\sqrt{2}} + c = \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c$
     \item $\ds\int\frac{1}{e^x + e^{-x}}\,\mathrm{d}x = \int\frac{e^x}{e^{2x} + 1}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$，故 $\ds\int\frac{e^x}{e^{2x} + 1}\,\text{d}x = \int\frac{1}{e^{2x} + 1}\cdot e^x\,\text{d}x = \int\frac{1}{u^2 + 1}\,\text{d}u = \tan^{-1}u + c = \tan^{-1}{e^{x}} + c$。
     \item $\ds\int\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sqrt{1 - x^2}$，則 $\ds\text{d}u = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x\ie \frac{x}{\sqrt{1 - x^2}}\,\text{d}x = -\text{d}u$，故 $\ds\int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int-\text{d}u = -u + c = -\sqrt{1 - x^2}$，$\ds\int\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = -\sqrt{1 - x^2} + \sin^{-1}x + c$。
-    \item 令 $\ds u = \tan^2 x$，則 $\ds\text{d}u = \sec^2 x\,\text{d}x$，故 $\ds\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x = \int\frac{1}{\sqrt{1 - \tan^2 x}}\cdot \sec^2 x\,\text{d}x = \int\frac{1}{\sqrt{1 - u^2}}\,\text{d}u = \sin^{-1} u + c = \sin^{-1}(\tan{x}) + c $
+    \item 令 $\ds u = \tan x$，則 $\ds\text{d}u = \sec^2 x\,\text{d}x$，故 $\ds\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x = \int\frac{1}{\sqrt{1 - \tan^2 x}}\cdot \sec^2 x\,\text{d}x = \int\frac{1}{\sqrt{1 - u^2}}\,\text{d}u = \sin^{-1} u + c = \sin^{-1}(\tan{x}) + c $
     \item $\ds\int\sin^4 x\cos^5 x\,\mathrm{d}x = \int\sin^4 x\cdot\cos^4 x\cdot\cos x\,\text{d}x = \int\sin^4x\cdot(1 - \sin^2 x)^2\cdot\cos x\,\text{d}x = \int\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x$。 令 $\ds u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x = \int\big(u^4 - 2u^6 + u^8\big)\,\text{d}u = \frac{u^5}{5} - \frac{2u^7}{7} + \frac{u^9}{9} + c = \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c$
     \item $\ds\int\sin^2 x\cos^2 x\,\mathrm{d}x = \int\frac{1 - \cos 2x}{2}\cdot\frac{1 + \cos 2x}{2}\,\text{d}x = \frac{1}{4}\int\big(1 - \cos^2{2x}\big)\,\text{d}x = \frac{1}{4}\int\big(1 - \frac{1 + \cos 4x}{2}\big)\,\text{d}x = \frac{1}{4}\int\big(\frac{1}{2} + \frac{\cos 4x}{2}\big)\,\text{d}x = \frac{x}{8} - \frac{\sin 4x}{32} + c$
     \item $\ds\int\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x = \int\sin^{-\frac{2}{3}} x\cdot\cos^2 x\cdot\cos x\,\mathrm{d}x = \int\sin^{-\frac{2}{3}} x\cdot(1 - \sin^2 x)\cdot\cos x\,\mathrm{d}x = \int\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x$。令 $u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x = \int\big(u^{-\frac{2}{3}} - u^{\frac{4}{3}}\big)\,\text{d}u = 3u^{\frac{1}{3}} - \frac{3}{7}u^{\frac{7}{3}} + c = 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c$
@@ -388,7 +388,7 @@
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item 將要微分函數寫左邊、積分函數寫右邊；左邊連續微分、右邊連續積分
-    \item 依序左上連右下函數相乘，符號正負相間；最下列寫成兩邊函數相乘的積分
+    \item 依序左上連右下斜線函數相乘，符號正負相間；最下列直線寫成兩邊函數相乘的積分
     \item 將上式所得項全部加總即為所求積分
   \end{enumerate}
 \end{fact}
@@ -601,6 +601,14 @@
     $\ds\int e^{ax}\sin bx\,\mathrm{d}x = \frac{1}{a}e^{ax}\sin bx - \frac{b}{a^2}e^{ax}\cos bx - \frac{b^2}{a^2}\int e^{ax}\sin bx\,\mathrm{d}x\\ \ie\int e^{ax}\sin bx\,\mathrm{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$
   \end{minipage}
 \end{sol}
+
+\subsubsection*{遞迴式}
+\begin{itemize}
+  \item 定義積分 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x$, $n\in\mathbb{N}$, $n\geqslant 1$，則 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\int\frac{(x^2 + a^2) - x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\int\frac{1}{(x^2 + a^2)^{n - 1}}\,\mathrm{d}x - \frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x$
+  \item 考慮 $\ds\frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x$，令 $u = x$，則 $\ds\mathrm{d}u = \mathrm{d}x$。令 $\ds\text{d}v = \frac{x}{(x^2 + a^2)^n}\,\mathrm{d}x$，則 $\ds v = -\frac{1}{2(n-1)}\frac{1}{(x^2 + a^2)^{n-1}}$，故 $\ds\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = -\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}\int\frac{1}{(x^2 + a^2)^{n-1}}\,\mathrm{d}x =-\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}I_{n-1}$
+  \item 所以 $\ds I_n = \frac{1}{a^2}\int\frac{1}{(x^2 + a^2)^{n - 1}}\,\mathrm{d}x - \frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\,I_{n-1} - \frac{1}{a^2}\bigg(-\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}I_{n-1}\bigg) = \frac{1}{a^2}\frac{2n-3}{2(n-1)}\,I_{n-1} + \frac{1}{a^2}\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}}$
+  \item 由此遞迴關係及 $\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$，可得 $I_n$, $n\in\mathbb{N}$, $n > 1$。例：令 $n=2$，則 $\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$。
+\end{itemize}
 
 \begin{exe} 以部份積分法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
   \begin{enumerate}\setlength\itemsep{0em}
