@@ -152,7 +152,7 @@
     \item $\ds\frac{\text{d}}{\text{d}x} F(x) = f(x)\ie \text{d} F(x) = f(x)\cdot\text{d}x \ie F(x) = \int f(x)\cdot\text{d}x = \int f(x)\,\text{d}x$
     \item $F(x)$ 為 $f(x)$ 的反導函數 $\ifff$ $f(x)$ 的反導函數為 $F(x)$ $\ifff$ $F(x)$ 的導函數為 $f(x)$ $\ifff$ $F(x)$（對 $x$）的微分為 $f(x)$ $\ifff$ $f(x)$（對 $x$）的（不定）積分為 $F(x)$ 
     \item $f(x)$ 的反導函數 $\equiv$ $f(x)$（對 $x$）的（不定）積分
-    \item 基礎積分集：以下 $\ds\alpha\ne -1$，$a\in\mathbb{R}\setminus\{0\}$。
+    \item 基礎積分集：以下 $\ds\alpha\ne -1$，$a\ne 0$。
       \begin{table}[!htbp]
         \centering
         \begin{tabular}{c|cccccccc}
@@ -167,7 +167,7 @@
           \bottomrule
         \end{tabular}
       \end{table}
-    \item（Liouville）{\color{M4} $\ds e^{-x^2}$，$\ds\frac{\sin x}{x}$，$\ds x^x$ 無（初等函數形式之）反導函數！}
+    \item（Liouville）{\color{M4} $\ds e^{-x^2}$，$\ds\frac{e^x}{x}$，$\ds\frac{1}{\ln x}$，$\ds\sin(x^2)$，$\ds\cos(x^2)$，$\ds\frac{\sin x}{x}$，$\ds\frac{\cos x}{x}$，$\ds x^x$ 無（初等函數形式之）反導函數！}
   \end{itemize}
 \end{fact}
 
@@ -267,7 +267,20 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\!\cos^5 ax\,\mathrm{d}x$。 
+  令 $\ds T_1 = \int\frac{\sin x}{a\cos x + b\sin x}\,\text{d}x$，$\ds T_2 = \int\frac{\cos x}{a\cos x + b\sin x}\,\text{d}x$，$a$、$b\ne 0$，求 $T_1$、$T_2$。
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}[label=(\alph*)]\setlength\itemsep{0em}
+    \item[]
+    \item $\ds b T_1 + a T_2 = \int\frac{b\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\frac{a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{b\sin x + a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int 1\,\text{d}x = x$。
+    \item $\ds -a T_1 + b T_2 = \int\frac{-a\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\frac{b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{-a\sin x + b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{\text{d}u}{u} = \ln u = \ln|a\cos x + b\sin x|$（令 $\ds u = a\cos x + b\sin x$，則 $\ds\text{d}u = (-a\sin x + b\cos x)\,\text{d}x$）。
+  \end{enumerate}
+  解 $T_1$、$T_2$ 方程式 (a)、(b) 得 $\ds T_1 = \frac{bx - a\ln|a\cos x + b\sin x|}{a^2 + b^2}$，$\ds T_2 = \frac{ax + b\ln|a\cos x + b\sin x|}{a^2 + b^2}$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\cos^5 ax\,\mathrm{d}x$，$a\ne 0$。 
 \end{ex}
 
 \begin{sol}
@@ -275,14 +288,14 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\!\cos^4 ax\,\mathrm{d}x$。
+  求 $\ds\int\!\cos^4 ax\,\mathrm{d}x$，$a\ne 0$。
 \end{ex}
    
 \begin{sol}
   $\ds\int\!\cos^4 ax\,\mathrm{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x \\= \int\!\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
 \end{sol}
  
-\begin{exe} 以變數變換法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
+\begin{exe} 以變數變換法求下列不定積分，其中 $a\ne b\ne 0$。注意：可能會因為常數項而跟此處答案不同。
   \setlength{\columnsep}{-2cm}
   \begin{multicols}{2}
     \begin{enumerate}\setlength\itemsep{0em}
@@ -373,7 +386,7 @@
 \end{sol}
     
 \begin{ex}
-  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$ 與 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\in\mathbb{R}\setminus\{0\}$。
+  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$ 與 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol}
@@ -388,7 +401,7 @@
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item 將要微分函數寫左邊、積分函數寫右邊；左邊連續微分、右邊連續積分
-    \item 依序左上連右下斜線函數相乘，符號正負相間；最下列直線寫成兩邊函數相乘的積分
+    \item 依序左上連右下斜線函數相乘，最底部水平兩邊函數相乘並積分，符號正負相間
     \item 將上式所得項全部加總即為所求積分
   \end{enumerate}
 \end{fact}
@@ -551,7 +564,7 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$。
+  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol} 
@@ -577,7 +590,7 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$。
+  求 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol} 
@@ -603,22 +616,25 @@
 \end{sol}
 
 \subsubsection*{遞迴式}
-\begin{itemize}
-  \item 定義積分 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x$, $n\in\mathbb{N}$, $n\geqslant 1$，則 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\int\frac{(x^2 + a^2) - x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\int\frac{1}{(x^2 + a^2)^{n - 1}}\,\mathrm{d}x - \frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x$
-  \item 考慮 $\ds\frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x$，令 $u = x$，則 $\ds\mathrm{d}u = \mathrm{d}x$。令 $\ds\text{d}v = \frac{x}{(x^2 + a^2)^n}\,\mathrm{d}x$，則 $\ds v = -\frac{1}{2(n-1)}\frac{1}{(x^2 + a^2)^{n-1}}$，故 $\ds\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = -\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}\int\frac{1}{(x^2 + a^2)^{n-1}}\,\mathrm{d}x =-\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}I_{n-1}$
-  \item 所以 $\ds I_n = \frac{1}{a^2}\int\frac{1}{(x^2 + a^2)^{n - 1}}\,\mathrm{d}x - \frac{1}{a^2}\int\frac{x^2}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{1}{a^2}\,I_{n-1} - \frac{1}{a^2}\bigg(-\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}} + \frac{1}{2(n-1)}I_{n-1}\bigg) = \frac{1}{a^2}\frac{2n-3}{2(n-1)}\,I_{n-1} + \frac{1}{a^2}\frac{1}{2(n-1)}\frac{x}{(x^2 + a^2)^{n-1}}$
-  \item 由此遞迴關係及 $\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$，可得 $I_n$, $n\in\mathbb{N}$, $n > 1$。例：令 $n=2$，則 $\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$。
-\end{itemize}
+\begin{ex} 
+  求 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x$，$n\in\mathbb{N}$ 之遞迴式：令 $\ds u = \frac{1}{(x^2 + a^2)^n}$，則 $\ds\text{d}u = -2n\,\frac{x}{(x^2 + a^2)^{n + 1}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。故 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{x^2}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{(x^2 + a^2 - a^2)}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n I_n - 2na^2 I_{n + 1}\ie 2na^2 I_{n + 1} = \frac{x}{(x^2 + a^2)^n} + (2n - 1)I_n\ie I_{n + 1} = \frac{x}{2na^2(x^2 + a^2)^n} + \frac{2n - 1}{2na^2}I_n$。使用例：$\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$，$\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$，$\ds I_3 = \frac{3}{4a^2}\,I_2 + \frac{x}{4a^2(x^2+a^2)^2} \\ = \frac{3}{4a^2}\bigg(\frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}\bigg) + \frac{x}{4a^2(x^2+a^2)^2} = \frac{3}{8a^5}\tan^{-1}\frac{x}{a} + \frac{3x}{8a^4(x^2+a^2)} + \frac{x}{4a^2(x^2+a^2)^2}$。
+\end{ex}
+
+\begin{ex} 
+  求 $\ds J_n = \int\sin^n x\,\mathrm{d}x$，$n\in\mathbb{N}$，$n\geqslant 2$ 之遞迴式：令 $\ds u = \sin^{n-1}x$，則 $\ds\text{d}u = (n - 1)\,\sin^{n - 2}x\,\cos x\,\text{d}x$；$\ds\text{d}v = \sin x\,\text{d}x$，則 $\ds v = -\cos x$。故 $\ds J_n = \int\sin^n x\,\mathrm{d}x = -\sin^{n - 1}x\cdot\cos x + (n - 1)\,\int\cos x\cdot\sin^{n - 2}x\cos x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\cos^2 x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\cdot(1 - \sin^2 x)\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\,\text{d}x - (n - 1)\,\int\sin^n x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} + (1 - n)J_n\ie n J_n = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} \ie J_n = \frac{-\sin^{n - 1}x\cos x}{n} + \frac{n - 1}{n}\,J_{n - 2}$。\\使用例：$\ds J_2 = \frac{-\sin x\cos x}{2} + \frac{1}{2}\,J_0 = \frac{-\sin x\cos x}{2} + \frac{x}{2}$，$\ds J_3 = \frac{-\sin^2 x\cos x}{3} + \frac{2}{3}\,J_1 = \frac{-\sin^2 x\cos x}{3} - \frac{2\cos x}{3}$，$\ds J_4 = \frac{-\sin^3 x\cos x}{4} + \frac{3}{4}\,J_2 = \frac{-\sin^3 x\cos x}{4} + \frac{3\sin x\cos x}{8} - \frac{3x}{8}$。
+\end{ex}
 
 \begin{exe} 以部份積分法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
   \begin{enumerate}\setlength\itemsep{0em}
     %\item $\ds\int(x+3)e^{2x}\,\mathrm{d}x {\color{C2}\;= \frac{(x+3)e^{2x}}{2}-\frac{e^{2x}}{4} + c}$
     %\item $\ds\int(x^2 - 2x)e^{kx}\,\mathrm{d}x {\color{C2}\;= \frac{(x^2-2x)e^{kx}}{k} + \frac{2(x-1)e^{kx}}{k^2} + \frac{2e^{kx}}{k^3} + c}$
+    \item $\ds\int x^3\ln x\,\mathrm{d}x {\color{C2}\;= \frac{x^4}{4}\ln x -\frac{x^4}{16} + c}$
     \item $\ds\int x(\ln x)^3\,\mathrm{d}x {\color{C2}\;= \frac{x^2}{2}\Big((\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + c}$
     \item $\ds\int x^2\tan^{-1} x\,\mathrm{d}x {\color{C2}\;= \frac{x^3}{3}\tan^{-1} x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + c}$
     \item $\ds\int x^5 e^{-x^2}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + c}$
     \item $\ds\int x e^{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= 2\,e^{\sqrt{x}}\,\big(x\sqrt{x} - 3x + 6\sqrt{x} - 6\big) + c}$
     %\item $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x {\color{C2}\;= x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1} x - 2x + c}$
+    \item $\ds\int\frac{x e^x}{(x + 1)^2}\,\mathrm{d}x {\color{C2}\;= \frac{e^x}{x + 1} + c}  $
     \item $\ds\int\sin(\ln x)\,\mathrm{d}x {\color{C2}\;= \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c}$
     \item $\ds\int\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x {\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
   \end{enumerate}
@@ -627,6 +643,7 @@
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
+    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x^3\,\text{d}x$，則 $\ds v = \frac{x^4}{4}$。 故 $\ds\int x^3\ln x\,\mathrm{d}x = \ln x\cdot\frac{x^4}{4} - \int\frac{x^4}{4}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \int\frac{x^3}{4}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \frac{x^4}{16} + c$。  
     \item 令 $\ds u = (\ln x)^3$，則 $\ds\text{d}u = 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\int x(\ln x)^2\,\text{d}x$。令 $\ds u = (\ln x)^2$，則 $\ds\text{d}u = 2\,\ln x\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^2\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot 2\ln x\cdot\frac{1}{x}\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int x\ln x\,\text{d}x$。令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。故 $\ds\int x\ln x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{1}{2}\int x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}$。以上，$\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\Big((\ln x)^2\cdot\frac{x^2}{2} - \big(\ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}\big)\Big) = \frac{x^2}{2}\big((\ln x)^3 - \frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4}\big) + c$
     \item 令 $\ds u = \tan^{-1} x$，則 $\ds\text{d}u = \frac{1}{1 + x^2}\,\text{d}x$；$\ds\text{d}v = x^2\,\text{d}x$，則 $\ds v = \frac{x^3}{3}$。 故 $\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x$。又 $\ds\int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\frac{(x^3 + x) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\frac{x(x^2 + 1) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\big(x - \frac{x}{x^2 + 1}\big)\,\text{d}x$。令 $\ds w = x^2 + 1$，則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$，故 $\ds\int\frac{x}{x^2 + 1}\,\text{d}x = \int\frac{1}{x^2 + 1}\cdot x\,\text{d}x = \int\frac{1}{w}\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\ln w + c = \frac{1}{2}\ln(x^2 + 1) + c$。以上，$\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \frac{x^2}{6} + \frac{\ln(x^2 + 1)}{6} + c$。
     \item 令 $\ds w = x^2$，則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$，故 $\ds\int x^5 e^{-x^2}\,\text{d}x = \int e^{-x^2}\cdot(x^2)^2\cdot x\,\text{d}x = \int e^{-w}\cdot w^2\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\int w^2\,e^{-w}\,\text{d}w = -\frac{1}{2}\,e^{-w}(w^2 + 2w + 2) = -\frac{1}{2}\,e^{-x^2}(x^4 + 2x^2 + 2) + c$。\\
@@ -681,6 +698,8 @@
     \end{align*}
   \end{minipage}
     %\item 令 $\ds u = (\sin^{-1} x)^2$，則 $\ds\text{d}u = 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。 故 $\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x - \int x\cdot 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\int\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sin^{-1} x$，則 $\ds\text{d}u = \frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$，則 $\ds v = \sqrt{1 - x^2}$。 故 $\ds\int\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int\sqrt{1 - x^2}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int 1\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - x$。以上，$\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\,(\sin^{-1}x\cdot\sqrt{1 - x^2} - x) = x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1}x - 2x + c$
+
+    \item $\ds\int\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \int\frac{e^x}{(x + 1)^2}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$；$\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$，則 $\ds v = \frac{-1}{x + 1}$。故 $\ds\int\frac{e^x}{(x + 1)^2}\,\mathrm{d}x = e^x\cdot\frac{-1}{x + 1} + \int\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\frac{e^x}{x + 1}\,\text{d}x$；原式 $\ds\int\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \int\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$。
     \item 令 $\ds w = \ln x$，則 $\ds e^w = x$，$\ds\text{d}x = e^w\,\text{d}w$，故 $\ds\int\sin(\ln x)\,\text{d}x = \int\sin w\cdot e^w\,\text{d}w = \int e^w\,\sin w\,\text{d}w = \frac{e^w(\sin w - \cos w)}{2} = \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c$ \\
       \begin{minipage}{0.15\textwidth}
         \begin{tikzpicture}[yscale=0.75]
