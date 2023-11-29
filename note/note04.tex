@@ -378,21 +378,24 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int x^2\sin x\,\mathrm{d}x$。
+  求 $\ds\int\!x^2\sin x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  令 $\ds u = x^2$，則 $\ds\mathrm{d}u = 2x\,\mathrm{d}x$。令 $\ds\mathrm{d}v = \sin x\,\mathrm{d}x$，則 $\ds v = -\cos x$。故 $\ds\int x^2\,\sin x\,\mathrm{d}x = x^2\cdot(-\cos x) + 2 \int x \cos x\,\mathrm{d}x$。求 $\ds\int x \cos x\,\mathrm{d}x$，令 $\ds u = x$，則 $\ds\mathrm{d}u = \mathrm{d}x$。令 $\ds\mathrm{d}v = \cos x\,\mathrm{d}x$，則 $\ds v = \sin x$。故 $\ds\int x \cos x\,\mathrm{d}x = x\cdot\sin x - \int\sin x\,\mathrm{d}x = x\cdot\sin x + \cos x$。由上，$\ds\int x^2\sin x\,\mathrm{d}x = -x^2\cos x + 2 (x\sin x + \cos x) + c$。
+  令 $\ds u = x^2$，則 $\ds\mathrm{d}u = 2x\,\mathrm{d}x$；令 $\ds\mathrm{d}v = \sin x\,\mathrm{d}x$，則 $\ds v = -\cos x$。故 $\ds\int\!x^2\,\sin x\,\mathrm{d}x = x^2\cdot(-\cos x) + 2 \int\!x \cos x\,\mathrm{d}x$。令 $\ds u = x$，則 $\ds\mathrm{d}u = \mathrm{d}x$；令 $\ds\mathrm{d}v = \cos x\,\mathrm{d}x$，則 $\ds v = \sin x$。故 $\ds\int\!x \cos x\,\mathrm{d}x = x\cdot\sin x - \int\!\sin x\,\mathrm{d}x = x\cdot\sin x + \cos x$。由上，$\ds\int\!x^2\sin x\,\mathrm{d}x = -x^2\cos x + 2 (x\sin x + \cos x) + c$。
 \end{sol}
     
 \begin{ex}
-  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$ 與 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
+  求 $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x$ 與 $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol}
-  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$，令 $\ds u = \cos bx$，則 $\ds\mathrm{d}u = -b\sin bx\,\mathrm{d}x$。令 $\ds\mathrm{d}v = e^{ax}\mathrm{d}x$，則 $\ds v = \frac{1}{a}e^{ax}$。故 $\ds\int e^{ax}\cos bx\,\mathrm{d}x = \cos bx\cdot \frac{1}{a}e^{ax} + \frac{b}{a}\int e^{ax}\cdot\sin bx\,\mathrm{d}x$。 $(\star)$
-  求 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，令 $\ds u = \sin bx$，則 $\ds\mathrm{d}u = b\cos bx\,\mathrm{d}x$。令 $\ds\mathrm{d}v = e^{ax}\mathrm{d}x$，則 $\ds v = \frac{1}{a}e^{ax}$。故 $\ds\int e^{ax}\sin bx\,\mathrm{d}x = \sin bx\cdot \frac{1}{a}e^{ax} - \frac{b}{a}\int e^{ax}\cdot\cos bx\,\mathrm{d}x$。 $(\star\star)$
-令 $\ds X = \int e^{ax}\cos bx\,\mathrm{d}x$，$\ds Y = \int e^{ax}\sin bx\,\mathrm{d}x$，則由 $\ds(\star)$，$\ds(\star\star)$ $\ds X = \cos bx\cdot\frac{1}{a}e^{ax} + \frac{b}{a}\,Y$，$\ds Y = \sin bx\cdot\frac{1}{a}e^{ax} - \frac{b}{a}\,X$。解 $X$、$Y$ 得 $\ds X = \int e^{ax}\cos bx\,\mathrm{d}x = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$，$\ds Y = \int e^{ax}\sin bx\,\mathrm{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$。
+  \begin{enumerate}[label=(\alph*)]\setlength\itemsep{0em}
+    \item[]
+    \item 考慮 $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x$：令 $\ds u = \cos bx$，則 $\ds\mathrm{d}u = -b\sin bx\,\mathrm{d}x$；令 $\ds\mathrm{d}v = e^{ax}\,\mathrm{d}x$，則 $\ds v = \frac{1}{a}\,e^{ax}$，故 $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x = \cos bx\cdot \frac{1}{a}e^{ax} + \frac{b}{a}\int\!e^{ax}\cdot\sin bx\,\mathrm{d}x$。
+    \item 考慮 $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x$：令 $\ds u = \sin bx$，則 $\ds\mathrm{d}u = b\cos bx\,\mathrm{d}x$；令 $\ds\mathrm{d}v = e^{ax}\,\mathrm{d}x$，則 $\ds v = \frac{1}{a}\,e^{ax}$，故 $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x = \sin bx\cdot \frac{1}{a}\,e^{ax} - \frac{b}{a}\int\!e^{ax}\cdot\cos bx\,\mathrm{d}x$。
+  \end{enumerate}
+  \noindent 令 $\ds X = \int\!e^{ax}\cos bx\,\mathrm{d}x$，$\ds Y = \int\!e^{ax}\sin bx\,\mathrm{d}x$，由 (a)(b) $\ds X = \cos bx\cdot\frac{1}{a}e^{ax} + \frac{b}{a}\,Y$，$\ds Y = \sin bx\cdot\frac{1}{a}e^{ax} - \frac{b}{a}\,X$。解 $X$、$Y$ 得 $\ds X = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$，$\ds Y = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$。
 \end{sol}
 
 \subsection*{列表法}
@@ -559,12 +562,12 @@
   \end{minipage}
   \hspace{5mm}
   \begin{minipage}{0.6\textwidth}
-    $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x = (\sin^{-1} x)^2\cdot x - \int\frac{2\sin^{-1} x}{\sqrt{1-x^2}}\cdot x\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \int 2\sin^{-1} x\cdot\frac{x}{\sqrt{1-x^2}}\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \bigg(-2\sin^{-1} x\cdot\sqrt{1-x^2} + \int \frac{2}{\sqrt{1-x^2}}\cdot\sqrt{1-x^2}\,\mathrm{d}x\bigg)\\ = (\sin^{-1} x)^2\cdot x + 2\sin^{-1} x\cdot\sqrt{1-x^2} - 2x$
+    $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x = (\sin^{-1} x)^2\cdot x - \int\frac{2\sin^{-1} x}{\sqrt{1-x^2}}\cdot x\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \int\!2\sin^{-1} x\cdot\frac{x}{\sqrt{1-x^2}}\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \bigg(-2\sin^{-1} x\cdot\sqrt{1-x^2} + \int\!\frac{2}{\sqrt{1-x^2}}\cdot\sqrt{1-x^2}\,\mathrm{d}x\bigg)\\ = (\sin^{-1} x)^2\cdot x + 2\sin^{-1} x\cdot\sqrt{1-x^2} - 2x$
   \end{minipage}
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int e^{ax}\cos bx\,\mathrm{d}x$，$a$、$b\ne 0$。
+  求 $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol} 
@@ -585,12 +588,12 @@
   \end{minipage}
   \hspace{5mm}
   \begin{minipage}{0.6\textwidth}
-    $\ds\int e^{ax}\cos bx\,\mathrm{d}x = \frac{1}{a}e^{ax}\cos bx + \frac{b}{a^2}e^{ax}\sin bx - \frac{b^2}{a^2}\int e^{ax}\cos bx\,\mathrm{d}x\\ \ie\int e^{ax}\cos bx\,\mathrm{d}x = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$
+    $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x = \frac{1}{a}e^{ax}\cos bx + \frac{b}{a^2}e^{ax}\sin bx - \frac{b^2}{a^2}\int\!e^{ax}\cos bx\,\mathrm{d}x\\ \ie\int\!e^{ax}\cos bx\,\mathrm{d}x = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$
   \end{minipage}
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
+  求 $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
 
 \begin{sol} 
@@ -611,17 +614,17 @@
   \end{minipage}
   \hspace{5mm}
   \begin{minipage}{0.6\textwidth}
-    $\ds\int e^{ax}\sin bx\,\mathrm{d}x = \frac{1}{a}e^{ax}\sin bx - \frac{b}{a^2}e^{ax}\cos bx - \frac{b^2}{a^2}\int e^{ax}\sin bx\,\mathrm{d}x\\ \ie\int e^{ax}\sin bx\,\mathrm{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$
+    $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x = \frac{1}{a}e^{ax}\sin bx - \frac{b}{a^2}e^{ax}\cos bx - \frac{b^2}{a^2}\int\!e^{ax}\sin bx\,\mathrm{d}x\\ \ie\int\!e^{ax}\sin bx\,\mathrm{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$
   \end{minipage}
 \end{sol}
 
 \subsubsection*{遞迴式}
 \begin{ex} 
-  求 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x$，$n\in\mathbb{N}$ 之遞迴式：令 $\ds u = \frac{1}{(x^2 + a^2)^n}$，則 $\ds\text{d}u = -2n\,\frac{x}{(x^2 + a^2)^{n + 1}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。故 $\ds I_n = \int\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{x^2}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{(x^2 + a^2 - a^2)}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n I_n - 2na^2 I_{n + 1}\ie 2na^2 I_{n + 1} = \frac{x}{(x^2 + a^2)^n} + (2n - 1)I_n\ie I_{n + 1} = \frac{x}{2na^2(x^2 + a^2)^n} + \frac{2n - 1}{2na^2}I_n$。使用例：$\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$，$\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$，$\ds I_3 = \frac{3}{4a^2}\,I_2 + \frac{x}{4a^2(x^2+a^2)^2} \\ = \frac{3}{4a^2}\bigg(\frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}\bigg) + \frac{x}{4a^2(x^2+a^2)^2} = \frac{3}{8a^5}\tan^{-1}\frac{x}{a} + \frac{3x}{8a^4(x^2+a^2)} + \frac{x}{4a^2(x^2+a^2)^2}$。
+  求 $\ds I_n = \int\!\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x$，$n\in\mathbb{N}$ 之遞迴式：令 $\ds u = \frac{1}{(x^2 + a^2)^n}$，則 $\ds\text{d}u = -2n\,\frac{x}{(x^2 + a^2)^{n + 1}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。故 $\ds I_n = \int\!\frac{1}{(x^2 + a^2)^n}\,\mathrm{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\!\frac{x^2}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{(x^2 + a^2 - a^2)}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n I_n - 2na^2 I_{n + 1}\ie 2na^2 I_{n + 1} = \frac{x}{(x^2 + a^2)^n} + (2n - 1)I_n\ie I_{n + 1} = \frac{x}{2na^2(x^2 + a^2)^n} + \frac{2n - 1}{2na^2}I_n$。使用例：$\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$，$\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$，$\ds I_3 = \frac{3}{4a^2}\,I_2 + \frac{x}{4a^2(x^2+a^2)^2} \\ = \frac{3}{4a^2}\bigg(\frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}\bigg) + \frac{x}{4a^2(x^2+a^2)^2} = \frac{3}{8a^5}\tan^{-1}\frac{x}{a} + \frac{3x}{8a^4(x^2+a^2)} + \frac{x}{4a^2(x^2+a^2)^2}$。
 \end{ex}
 
 \begin{ex} 
-  求 $\ds J_n = \int\sin^n x\,\mathrm{d}x$，$n\in\mathbb{N}$，$n\geqslant 2$ 之遞迴式：令 $\ds u = \sin^{n-1}x$，則 $\ds\text{d}u = (n - 1)\,\sin^{n - 2}x\,\cos x\,\text{d}x$；$\ds\text{d}v = \sin x\,\text{d}x$，則 $\ds v = -\cos x$。故 $\ds J_n = \int\sin^n x\,\mathrm{d}x = -\sin^{n - 1}x\cdot\cos x + (n - 1)\,\int\cos x\cdot\sin^{n - 2}x\cos x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\cos^2 x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\cdot(1 - \sin^2 x)\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\sin^{n - 2}x\,\text{d}x - (n - 1)\,\int\sin^n x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} + (1 - n)J_n\ie n J_n = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} \ie J_n = \frac{-\sin^{n - 1}x\cos x}{n} + \frac{n - 1}{n}\,J_{n - 2}$。\\使用例：$\ds J_2 = \frac{-\sin x\cos x}{2} + \frac{1}{2}\,J_0 = \frac{-\sin x\cos x}{2} + \frac{x}{2}$，$\ds J_3 = \frac{-\sin^2 x\cos x}{3} + \frac{2}{3}\,J_1 = \frac{-\sin^2 x\cos x}{3} - \frac{2\cos x}{3}$，$\ds J_4 = \frac{-\sin^3 x\cos x}{4} + \frac{3}{4}\,J_2 = \frac{-\sin^3 x\cos x}{4} + \frac{3\sin x\cos x}{8} - \frac{3x}{8}$。
+  求 $\ds J_n = \int\!\sin^n x\,\mathrm{d}x$，$n\in\mathbb{N}$，$n\geqslant 2$ 之遞迴式：令 $\ds u = \sin^{n-1}x$，則 $\ds\text{d}u = (n - 1)\,\sin^{n - 2}x\,\cos x\,\text{d}x$；$\ds\text{d}v = \sin x\,\text{d}x$，則 $\ds v = -\cos x$。故 $\ds J_n = \int\!\sin^n x\,\mathrm{d}x = -\sin^{n - 1}x\cdot\cos x + (n - 1)\,\int\!\cos x\cdot\sin^{n - 2}x\cos x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\!\sin^{n - 2}x\cos^2 x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\!\sin^{n - 2}x\cdot(1 - \sin^2 x)\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1)\,\int\!\sin^{n - 2}x\,\text{d}x - (n - 1)\,\int\!\sin^n x\,\text{d}x = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} + (1 - n)J_n\ie n J_n = -\sin^{n - 1}x\cos x + (n - 1) J_{n - 2} \ie J_n = \frac{-\sin^{n - 1}x\cos x}{n} + \frac{n - 1}{n}\,J_{n - 2}$。\\使用例：$\ds J_2 = \frac{-\sin x\cos x}{2} + \frac{1}{2}\,J_0 = \frac{-\sin x\cos x}{2} + \frac{x}{2}$，$\ds J_3 = \frac{-\sin^2 x\cos x}{3} + \frac{2}{3}\,J_1 = \frac{-\sin^2 x\cos x}{3} - \frac{2\cos x}{3}$，$\ds J_4 = \frac{-\sin^3 x\cos x}{4} + \frac{3}{4}\,J_2 = \frac{-\sin^3 x\cos x}{4} + \frac{3\sin x\cos x}{8} - \frac{3x}{8}$。
 \end{ex}
 
 \begin{exe} 以部份積分法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
@@ -731,11 +734,7 @@
 
 \section*{4.2 定積分}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[scale=1,page=1]{fig/lu.pdf}
-  \includegraphics[scale=1,page=2]{fig/lu.pdf}
-\end{figure}
+定積分 $\approx$ 面積：$x$ 軸上方為正，下方為負。
 
 \begin{dfn}
   令 $f$ 在 $[a,b]$ 連續。
@@ -748,6 +747,13 @@
   \end{itemize}
 \end{dfn}
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/lu.pdf}
+  \hspace{2cm}
+  \includegraphics[scale=1,page=2]{fig/lu.pdf}
+\end{figure}
+
 \begin{prp}[定積分基本性質]
   令 $f$、$g$ 在包含 $a$、$b$、$c$ 之區間為可積，$\alpha$、$\beta\in\mathbb{R}$。則
   \begin{enumerate}\setlength\itemsep{0em}
@@ -757,8 +763,8 @@
     \item $\ds\int_a^b f(x)\,\mathrm{d}x + \int_b^c f(x)\,\mathrm{d}x = \int_a^c f(x)\,\mathrm{d}x$
     \item $\ds\int_a^b f(x)\,\mathrm{d}x\leqslant\int_a^b g(x)\,\mathrm{d}x$，若 $f(x)\leqslant g(x)\;\forall\,x\in[a, b],\;a\leqslant b$
     \item $\ds\left|\,\int_a^b f(x)\,\mathrm{d}x\,\right|\leqslant \int_a^b \left|\,f(x)\,\right|\,\mathrm{d}x, \quad a\leqslant b$ 
-    \item $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 0$，若 $f(x)$ 為奇函數
-    \item $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 2\int_0^a f(x)\,\mathrm{d}x$，若 $f(x)$ 為偶函數
+    \item 若 $f(x)$ 為奇函數 $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 0$
+    \item 若 $f(x)$ 為偶函數 $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 2\int_0^a f(x)\,\mathrm{d}x$
   \end{enumerate}
 \end{prp}
 
@@ -770,15 +776,18 @@
     \item $\ds\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\mathrm{d}x = 0$（$\sin(x^7-5x^3)$ 為奇函數）
     \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\mathrm{d}x = 0$（$e^{-x^4}\sin(\sin x)$ 為奇函數）
     \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\mathrm{d}x = 0$（$e^{x} - e^{-x}$ 為奇函數）
-    \item $\ds\int_{-100}^{100} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x = 0$（$e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數） 
-    \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$（$|x|$ 為奇函數；兩 $a\times a$ 直角三角形面積）
+    \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x = 0$（$e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數） 
+    \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$（$|x|$ 為偶函數；兩 $a\times a$ 直角三角形面積）
     \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\mathrm{d}\tau\equiv\ln x$，則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\mathrm{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\mathrm{d}x + \int_1^3 \frac{1}{x}\,\mathrm{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\mathrm{d}x + \int_1^3\frac{1}{x}\,\mathrm{d}x = \ln 12$
-    \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(x - 1)\,\mathrm{d}x = \pi - \sqrt{3}$ 
+    \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\mathrm{d}x = \sqrt{3} - \frac{\pi}{3}$ 
+    \item $\ds\forall\,n\in\mathbb{N},\;\int_n^{n+1}\floor{x}\,\mathrm{d}x = n$ 
   \end{enumerate}
 \end{ex}
 
+\subsection*{以極限定義求定積分}
+
 \begin{fact}
-  $\ds\sum_{k = 1}^m k^2 = \frac{m(m + 1)(2m + 1)}{6}$。
+  $\ds\sum_{k = 1}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}$。
 \end{fact}
 
 \begin{ex}
@@ -786,7 +795,7 @@
 \end{ex}
 
 \begin{sol}
-  建立 $\ds [0,\,1]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{1}{n}, \frac{2}{n}, \ldots, \frac{n}{n}\Big\}$，則 $\ds\Delta x_k = \frac{1}{n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$。$f(x) = x^2$ 且 $f$ 在 $[0,\,1]$ 嚴格遞增，$\ds U(f,\mathbb{P}) = \sum_{k=1}^n u_k\,\Delta x_k = \sum_{k=1}^n\frac{k^2}{n^2}\cdot\frac{1}{n} = \frac{1}{n^3}\sum_{k = 1}^n k^2$，$\ds L(f,\mathbb{P}) = \sum_{k=1}^n l_k\,\Delta x_k = \sum_{k=1}^n\frac{(k - 1)^2}{n^2}\cdot\frac{1}{n} = \frac{1}{n^3}\sum_{k = 1}^{n-1}k^2$，$\ds L(f,\mathbb{P})\leqslant R(f,\mathbb{P})\leqslant U(f, \mathbb{P})$。由 $\ds\sum_{k = 1}^m k^2 = \frac{m(m + 1)(2m + 1)}{6}$，$\ds\lim_{n\to\infty} U(f,\mathbb{P}) = \lim_{n\to\infty}\frac{1}{n^3}\sum_{k = 1}^n k^2 = \lim_{n\to\infty}\frac{n(n + 1)(2 n + 1)}{6n^3} = \frac{1}{3}$，$\ds\lim_{n\to\infty} L(f,\mathbb{P}) = \lim_{n\to\infty}\frac{1}{n^3}\sum_{k = 1}^{n - 1} k^2 = \lim_{n\to\infty}\frac{(n - 1)n(2 n - 1)}{6n^3} = \frac{1}{3}$，故由夾擊定理 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = \frac{1}{3}$。
+  建立 $\ds [0,\,1]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{1}{n}, \frac{2}{n}, \ldots, \frac{n}{n}\Big\}$，則 $\ds\Delta x_k = \frac{1}{n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$。$f(x) = x^2$ 且 $f$ 在 $[0,\,1]$ 嚴格遞增，$\ds U(f,\mathbb{P}) = \sum_{k=1}^n u_k\,\Delta x_k = \sum_{k=1}^n\frac{k^2}{n^2}\cdot\frac{1}{n} = \frac{1}{n^3}\sum_{k = 1}^n k^2$，$\ds L(f,\mathbb{P}) = \sum_{k=1}^n l_k\,\Delta x_k = \sum_{k=1}^n\frac{(k - 1)^2}{n^2}\cdot\frac{1}{n} = \frac{1}{n^3}\sum_{k = 1}^{n-1}k^2$，$\ds L(f,\mathbb{P})\leqslant R(f,\mathbb{P})\leqslant U(f, \mathbb{P})$。由 $\ds\sum_{k = 1}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}$，$\ds\lim_{n\to\infty} U(f,\mathbb{P}) = \lim_{n\to\infty}\frac{1}{n^3}\sum_{k = 1}^n k^2 = \lim_{n\to\infty}\frac{n(n + 1)(2 n + 1)}{6n^3} = \frac{1}{3}$，$\ds\lim_{n\to\infty} L(f,\mathbb{P}) = \lim_{n\to\infty}\frac{1}{n^3}\sum_{k = 1}^{n - 1} k^2 = \lim_{n\to\infty}\frac{(n - 1)n(2 n - 1)}{6n^3} = \frac{1}{3}$，故由夾擊定理 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = \frac{1}{3}$。
 \end{sol}
 
 \begin{fact}
@@ -800,6 +809,24 @@
 \begin{sol}
   建立 $\ds [0,\,1]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{1}{n}, \frac{2}{n}, \ldots, \frac{n}{n}\Big\}$，則 $\ds\Delta x_k = \frac{1}{n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$。$f(x) = e^x$ 且 $f$ 在 $[0,\,1]$ 嚴格遞增，$\ds U(f,\mathbb{P}) = \sum_{k=1}^n u_k\,\Delta x_k = \sum_{k=1}^n e^{\frac{k}{n}}\cdot\frac{1}{n} = \frac{1}{n}\frac{e^{\frac{1}{n}}\big(e^{\frac{n}{n}} - 1\big)}{e^{\frac{1}{n}} - 1} = \frac{e - 1}{n}\frac{e^{\frac{1}{n}}}{e^{\frac{1}{n}} - 1}$，$\ds L(f,\mathbb{P}) = \sum_{k=1}^n l_k\,\Delta x_k = \sum_{k=1}^n e^{\frac{k - 1}{n}}\cdot\frac{1}{n} = \frac{1}{n}\frac{e^0\big(e^{\frac{n}{n}} - 1\big)}{e^{\frac{1}{n}} - 1} = \frac{e - 1}{n}\frac{1}{e^{\frac{1}{n}} - 1}$，$\ds L(f,\mathbb{P})\leqslant R(f,\mathbb{P})\leqslant U(f, \mathbb{P})$。$\ds\lim_{n\to\infty} U(f,\mathbb{P}) = \lim_{n\to\infty}\frac{e - 1}{n}\frac{e^{\frac{1}{n}}}{e^{\frac{1}{n}} - 1} = (e - 1)\lim_{x\to 0+}\frac{x e^x}{e^x - 1} = (e - 1)\lim_{x\to 0+}\frac{e^x + x e^x}{e^x} = e - 1$，$\ds\lim_{n\to\infty} L(f,\mathbb{P}) = \lim_{n\to\infty}\frac{e - 1}{n}\frac{1}{e^{\frac{1}{n}} - 1} = (e - 1)\lim_{x\to 0+}\frac{x}{e^x - 1} = (e - 1)\lim_{x\to 0+}\frac{1}{e^x} = e - 1$，故由夾擊定理 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = e - 1$。
 \end{sol}
+
+\begin{fact}
+  $\ds\sum_{k = 1}^n \cos kx = \frac{1}{2}\bigg(\frac{\sin\big(n+\frac{1}{2}\big)x}{\sin\frac{x}{2}}-1\bigg)$
+\end{fact}
+
+\begin{prf}
+  考慮 $\ds\sum_{k = 1}^{n} e^{ikx} = \frac{e^{ix}(1 - e^{inx})}{1 - e^{ix}}$，則 $\ds\sum_{k = 1}^{n} \cos kx = \Re\Big\{\sum_{k = 1}^n e^{ikx}\Big\} = \Re\Big\{\frac{e^{ix}(1 - e^{inx})}{1 - e^{ix}}\Big\} = \Re\bigg\{\frac{e^{ix}\,e^{\frac{inx}{2}}\big(e^{-\frac{inx}{2}} - e^{\frac{inx}{2}}\big)}{e^{\frac{ix}{2}}\big(e^{-\frac{ix}{2}} - e^{\frac{ix}{2}}\big)}\bigg\} = \frac{\cos\frac{(n+1)x}{2}\,\sin\frac{nx}{2}}{\sin\frac{x}{2}} = \frac{\sin\big(\frac{nx}{2} + \frac{(n + 1)x}{2}\big) + \sin\big(\frac{nx}{2} + \frac{(n + 1)x}{2}\big)}{2\,\sin\frac{x}{2}} = \frac{\sin\big(n+\frac{1}{2}\big)x - \sin\frac{x}{2}}{2\,\sin\frac{x}{2}} = \frac{1}{2}\bigg(\frac{\sin\big(n+\frac{1}{2}\big)x}{\sin\frac{x}{2}}-1\bigg)$。 
+\end{prf}
+
+\begin{ex}
+  求 $\ds\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  建立 $\ds \big[0,\,\frac{\pi}{2}\big]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{\pi}{2n}, \frac{2\pi}{2n}, \ldots, \frac{n\pi}{2n}\Big\}$，則 $\ds\Delta x_k = \frac{\pi}{2n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$，則積分為 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = \sum_{k=1}^n f(\xi_k)\,\Delta x_k = \lim_{n\to\infty}\sum_{k=1}^n\cos\frac{k\pi}{2n}\cdot\frac{\pi}{2n}  = \lim_{n\to\infty}\sum_{k=1}^n\cos\Big(k\,\big(\frac{\pi}{2n}\big)\Big)\cdot\frac{\pi}{2n} = \\ \lim_{n\to\infty}\frac{1}{2}\bigg(\frac{\sin\big(\big(n+\frac{1}{2}\big)\cdot\frac{\pi}{2n}\big)}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}-1\bigg)\cdot\frac{\pi}{2n} = \lim_{n\to\infty}\frac{\sin\big(\big(n+\frac{1}{2}\big)\frac{\pi}{2n}\big)\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \lim_{n\to\infty}\sin\Big(\frac{1}{2} + \frac{1}{4n}\Big)\pi\cdot\lim_{n\to\infty}\frac{\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \sin\frac{\pi}{2}\cdot 1 = 1$.
+\end{sol}
+
+\subsection*{微積分學基本定理}
 
 \begin{thm}[微積分基本定理（Fundamental Theorem of Calculus，FTC）]
   \begin{enumerate}\setlength\itemsep{0em}
@@ -820,33 +847,14 @@
   \end{enumerate}
 \end{prf}
 
-\begin{ex}[由 FTC 求定積分]
+\begin{ex}[以 FTC 求定積分]
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item $\ds x^2$ 之反導函數為 $\ds\frac{x^3}{3}$，故 $\ds\int_0^1 x^2\,\text{d}x = \frac{1^3}{3} - \frac{0^3}{3} = \frac{1}{3}$。
     \item $\ds e^x$ 之反導函數為 $\ds e^x$，故 $\ds\int_0^1 e^x\,\text{d}x = e^1 - e^0 = e - 1$。
+    \item $\cos x$ 之反導函數為 $\sin x$，故 $\ds\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x = \sin\frac{\pi}{2} - \sin 0 = 1$。
   \end{enumerate}
 \end{ex}
-
-\begin{fact}
-  $\ds\sum_{k = 1}^n \cos kx = \frac{1}{2}\bigg(\frac{\sin\big(n+\frac{1}{2}\big)x}{\sin\frac{x}{2}}-1\bigg)$
-\end{fact}
-
-\begin{prf}
-  考慮 $\ds\sum_{k = 1}^{n} e^{ikx} = \frac{e^{ix}(1 - e^{inx})}{1 - e^{ix}}$，則 $\ds\sum_{k = 1}^{n} \cos kx = \Re\Big\{\sum_{k = 1}^n e^{ikx}\Big\} = \Re\Big\{\frac{e^{ix}(1 - e^{inx})}{1 - e^{ix}}\Big\} = \Re\bigg\{\frac{e^{ix}\,e^{\frac{inx}{2}}\big(e^{-\frac{inx}{2}} - e^{\frac{inx}{2}}\big)}{e^{\frac{ix}{2}}\big(e^{-\frac{ix}{2}} - e^{\frac{ix}{2}}\big)}\bigg\} = \frac{\cos\frac{(n+1)x}{2}\,\sin\frac{nx}{2}}{\sin\frac{x}{2}} = \frac{\sin\big(\frac{nx}{2} + \frac{(n + 1)x}{2}\big) + \sin\big(\frac{nx}{2} + \frac{(n + 1)x}{2}\big)}{2\,\sin\frac{x}{2}} = \frac{\sin\big(n+\frac{1}{2}\big)x - \sin\frac{x}{2}}{2\,\sin\frac{x}{2}} = \frac{1}{2}\bigg(\frac{\sin\big(n+\frac{1}{2}\big)x}{\sin\frac{x}{2}}-1\bigg)$。 
-\end{prf}
-
-\begin{ex}
-  求 $\ds\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x$。
-\end{ex}
-
-\begin{sol}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item（極限定義）建立 $\ds \big[0,\,\frac{\pi}{2}\big]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{\pi}{2n}, \frac{2\pi}{2n}, \ldots, \frac{n\pi}{2n}\Big\}$，則 $\ds\Delta x_k = \frac{\pi}{2n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$，則積分為 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = \sum_{k=1}^n f(\xi_k)\,\Delta x_k = \lim_{n\to\infty}\sum_{k=1}^n\cos\frac{k\pi}{2n}\cdot\frac{\pi}{2n}  = \lim_{n\to\infty}\sum_{k=1}^n\cos\Big(k\,\big(\frac{\pi}{2n}\big)\Big)\cdot\frac{\pi}{2n} = \\ \lim_{n\to\infty}\frac{1}{2}\bigg(\frac{\sin\big(\big(n+\frac{1}{2}\big)\cdot\frac{\pi}{2n}\big)}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}-1\bigg)\cdot\frac{\pi}{2n} = \lim_{n\to\infty}\frac{\sin\big(\big(n+\frac{1}{2}\big)\frac{\pi}{2n}\big)\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \lim_{n\to\infty}\sin\Big(\frac{1}{2} + \frac{1}{4n}\Big)\pi\cdot\lim_{n\to\infty}\frac{\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \sin\frac{\pi}{2}\cdot 1 = 1$.
-    \item（FTC）$\cos x$ 之反導函數為 $\sin x$，故 $\ds\int_0^{\frac{\pi}{2}}\cos x\,\mathrm{d}x = \sin\frac{\pi}{2} - \sin 0 = 1$。
-  \end{itemize}
-\end{sol}
 
 \begin{prp}
   令 $\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau$，則 $\ds F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。
