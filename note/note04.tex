@@ -732,20 +732,35 @@
 
 \myline
 
+\newpage
 \section*{4.2 定積分}
 
 定積分 $\approx$ 面積：$x$ 軸上方為正，下方為負。
 
 \begin{dfn}
-  令 $f$ 在 $[a,b]$ 連續。
+  給定 $f:[a,\,b]\to\mathbb{R}$。
   \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds\mathbb{P}: a = x_0 < x_1 < x_2 < \cdots < x_n = b$ 為 $[a, b]$ 的分割。
-    \item $\ds\Delta x_k=x_k - x_{k-1}$，$\ds\|\mathbb{P}\| = \max\{\,|\Delta x_k|\;|\;1\leqslant k\leqslant n\}$，$\ds x_{k-1}\leqslant \xi_k \leqslant x_k$，$k=1,2,\ldots,n$
-    \item $\ds u_k = \sup\left\{\,f(x)\;|\;x_{k-1}\leqslant x\leqslant x_k\right\}$，$l_k = \inf\left\{\,f(x)\;|\;x_{k-1}\leqslant x\leqslant x_k\right\}$，$k=1,2,\ldots,n$
+    \item $[a,\,b]$ 分割 $\ds\mathbb{P}: a = x_0 < x_1 < x_2 < \cdots < x_n = b$
+    \item $\ds\Delta x_k=x_k - x_{k-1}$，$k=1,\,2,\,\ldots,\,n$；$\ds\|\mathbb{P}\| = \max\{\,|\Delta x_k|\;|\;1\leqslant k\leqslant n\}$
+    \item 樣本點 $\ds\xi_k$：$\ds x_{k-1} \leqslant \xi_k \leqslant x_k$，$k=1,\,2,\,\ldots,\,n$
+    \item $\ds u_k = \sup\left\{\,f(x)\;|\;x_{k-1}\leqslant x\leqslant x_k\right\}$，$l_k = \inf\left\{\,f(x)\;|\;x_{k-1}\leqslant x\leqslant x_k\right\}$，$k=1,\,2,\,\ldots,\,n$
     \item $\ds R(f,\mathbb{P}) = \sum_{k=1}^n f(\xi_k)\,\Delta x_k$，$\ds U(f,\mathbb{P}) = \sum_{k=1}^n u_k\,\Delta x_k$，$\ds L(f,\mathbb{P}) = \sum_{k=1}^n l_k\,\Delta x_k$；\\顯然 $\ds L(f,\mathbb{P})\leqslant R(f,\mathbb{P})\leqslant U(f, \mathbb{P})$。
-    \item $\ds\int_a^b f(x)\,\mathrm{d}x\equiv\lim_{\substack{n\to\infty \\ \|\mathbb{P}\|\to 0}} R(f,\mathbb{P})$；若此極限存在，稱 $f$ 在 $[a, b]$ 可積（分）。
+    %\item $\ds\int_a^b f(x)\,\mathrm{d}x\equiv\lim_{\substack{n\to\infty \\ \|\mathbb{P}\|\to 0}} R(f,\mathbb{P})$；若對不同分割此極限存在且相等，稱 $f$ 在 $[a, b]$ 可積（分）。
+    \item 求 $\ds\lim_{\|\mathbb{P}\|\to 0} R(f,\mathbb{P})$。若對不同分割與樣本點選取此極限均存在且相等，稱 $f$ 在 $[a, b]$ 可積（分）；$f(x)$ 在 $[a,\,b]$ 的定積分 $\ds\int_a^b f(x)\,\mathrm{d}x \equiv \lim_{\|\mathbb{P}\|\to 0} R(f,\mathbb{P})$
   \end{itemize}
 \end{dfn}
+
+\begin{rmk}
+  \begin{itemize}\setlength\itemsep{0em}
+    \item[]
+    \item 在 $\ds\int_a^b f(x)\,\text{d}x$ 中，$a$ 為\emph{積分下限}（lower limit of integration），$b$ 為\emph{積分上限}（upper limit of integration），$f(x)$ 為\emph{被積分式}（integrand），$x$ 為\emph{積分變數}（variable of integration）。
+    \item $\ds\int_a^b f(x)\,\text{d}x = \int_a^b f(t)\,\text{d}t = \int_a^b f(u)\,\text{d}u$
+  \end{itemize}
+\end{rmk}
+
+\begin{fact}
+  若 $f$ 在 $[a,\,b]$ 連續，則 $f$ 在 $[a,\,b]$ 可積。
+\end{fact}
 
 \begin{figure}[!htbp]
   \centering
@@ -754,7 +769,7 @@
   \includegraphics[scale=1,page=2]{fig/lu.pdf}
 \end{figure}
 
-\begin{prp}[定積分基本性質]
+\begin{prp}%[定積分基本性質]
   令 $f$、$g$ 在包含 $a$、$b$、$c$ 之區間為可積，$\alpha$、$\beta\in\mathbb{R}$。則
   \begin{enumerate}\setlength\itemsep{0em}
     \item $\ds\int_a^a f(x)\,\mathrm{d}x = 0$
@@ -763,8 +778,8 @@
     \item $\ds\int_a^b f(x)\,\mathrm{d}x + \int_b^c f(x)\,\mathrm{d}x = \int_a^c f(x)\,\mathrm{d}x$
     \item $\ds\int_a^b f(x)\,\mathrm{d}x\leqslant\int_a^b g(x)\,\mathrm{d}x$，若 $f(x)\leqslant g(x)\;\forall\,x\in[a, b],\;a\leqslant b$
     \item $\ds\left|\,\int_a^b f(x)\,\mathrm{d}x\,\right|\leqslant \int_a^b \left|\,f(x)\,\right|\,\mathrm{d}x, \quad a\leqslant b$ 
-    \item 若 $f(x)$ 為奇函數 $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 0$
-    \item 若 $f(x)$ 為偶函數 $\ds\int_{-a}^a f(x)\,\mathrm{d}x = 2\int_0^a f(x)\,\mathrm{d}x$
+    \item $f(x)$ 為奇函數：$\ds\int_{-a}^a f(x)\,\mathrm{d}x = 0$
+    \item $f(x)$ 為偶函數：$\ds\int_{-a}^a f(x)\,\mathrm{d}x = 2\int_0^a f(x)\,\mathrm{d}x$
   \end{enumerate}
 \end{prp}
 
@@ -777,12 +792,14 @@
     \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\mathrm{d}x = 0$（$e^{-x^4}\sin(\sin x)$ 為奇函數）
     \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\mathrm{d}x = 0$（$e^{x} - e^{-x}$ 為奇函數）
     \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x = 0$（$e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數） 
-    \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$（$|x|$ 為偶函數；兩 $a\times a$ 直角三角形面積）
+    \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$（$|x|$ 為偶函數；兩 $a\times a$ 等腰直角三角形面積）
     \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\mathrm{d}\tau\equiv\ln x$，則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\mathrm{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\mathrm{d}x + \int_1^3 \frac{1}{x}\,\mathrm{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\mathrm{d}x + \int_1^3\frac{1}{x}\,\mathrm{d}x = \ln 12$
     \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\mathrm{d}x = \sqrt{3} - \frac{\pi}{3}$ 
     \item $\ds\forall\,n\in\mathbb{N},\;\int_n^{n+1}\floor{x}\,\mathrm{d}x = n$ 
   \end{enumerate}
 \end{ex}
+
+\myline
 
 \subsection*{以極限定義求定積分}
 
@@ -826,13 +843,15 @@
   建立 $\ds \big[0,\,\frac{\pi}{2}\big]$ 分割 $\ds\mathbb{P}: \Big\{0, \frac{\pi}{2n}, \frac{2\pi}{2n}, \ldots, \frac{n\pi}{2n}\Big\}$，則 $\ds\Delta x_k = \frac{\pi}{2n}\;\forall\,k=1,2,\ldots,n$ 且 $\ds\|P\|\to 0$ 當 $n\to\infty$，則積分為 $\ds\lim_{n\to\infty} R(f,\mathbb{P}) = \sum_{k=1}^n f(\xi_k)\,\Delta x_k = \lim_{n\to\infty}\sum_{k=1}^n\cos\frac{k\pi}{2n}\cdot\frac{\pi}{2n}  = \lim_{n\to\infty}\sum_{k=1}^n\cos\Big(k\,\big(\frac{\pi}{2n}\big)\Big)\cdot\frac{\pi}{2n} = \\ \lim_{n\to\infty}\frac{1}{2}\bigg(\frac{\sin\big(\big(n+\frac{1}{2}\big)\cdot\frac{\pi}{2n}\big)}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)}-1\bigg)\cdot\frac{\pi}{2n} = \lim_{n\to\infty}\frac{\sin\big(\big(n+\frac{1}{2}\big)\frac{\pi}{2n}\big)\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \lim_{n\to\infty}\sin\Big(\frac{1}{2} + \frac{1}{4n}\Big)\pi\cdot\lim_{n\to\infty}\frac{\frac{1}{2}\cdot\frac{\pi}{2n}}{\sin\big(\frac{1}{2}\cdot\frac{\pi}{2n}\big)} = \sin\frac{\pi}{2}\cdot 1 = 1$.
 \end{sol}
 
-\subsection*{微積分學基本定理}
+\myline
+
+\subsection*{微積分基本定理}
 
 \begin{thm}[微積分基本定理（Fundamental Theorem of Calculus，FTC）]
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item 若 $f$ 在 $[a, b]$ 連續，令 $\ds F(x) = \int_a^x f(\tau)\,\mathrm{d}\tau$ 且 $a\leqslant x\leqslant b$，則 $\ds F'(x) = f(x)\;\forall\,x\in[a, b]$。
-    \item 若 $\ds G'(x) = f(x)\;\forall\,x\in[a, b]$，則 $\ds\int_a^b f(x)\,\mathrm{d}x = G(b) - G(a) \equiv G(x)\,\Big|_a^b$。
+    \item 若 $f$ 在 $[a,\,b]$ 連續，令 $\ds F(x) = \int_a^x f(\tau)\,\mathrm{d}\tau$ 且 $a\leqslant x\leqslant b$，則 $\ds F'(x) = f(x)\;\forall\,x\in[a,\,b]$。
+    \item 若 $\ds G'(x) = f(x)\;\forall\,x\in[a,\,b]$，則 $\ds\int_a^b f(x)\,\mathrm{d}x = G(b) - G(a) \equiv G(x)\,\Big|_a^b$。
   \end{enumerate}
 \end{thm}
 \begin{rmk}
@@ -856,29 +875,10 @@
   \end{enumerate}
 \end{ex}
 
-\begin{prp}
-  令 $\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau$，則 $\ds F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。
-\end{prp}
-
-\begin{prf}
-  令 $a\in\mathbb{R}$，$\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau$。令 $\ds G(x)\equiv\int_a^x f(\tau)\,\mathrm{d}\tau$，則 $\ds G'(x) = f(x)$，$\ds F(x) = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau = G(u(x)) - G(v(x))$；故 $\ds F'(x) = (G(u(x)) - G(v(x)))' = G'(u(x))\cdot u'(x) - G'(v(x))\cdot v'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。  
-\end{prf}
-
-\begin{ex} 
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item[]
-    \item $\ds F(x) = \int_1^x\frac{1}{1 + \tau^4}\,\mathrm{d}\tau \ie F'(x) = \frac{1}{1 + x^4}$ 
-    \item $\ds F(x) = \int_2^{\sqrt{x}}\sin\tau\,\mathrm{d}\tau \ie F'(x) = \sin\sqrt{x}\cdot\frac{1}{2\sqrt{x}}$
-    \item $\ds F(x) = \int_{x}^{2x}\tau^3\,\mathrm{d}\tau \ie F'(x) = (2x)^3\cdot 2 - x^3\cdot 1 = 15x^3$
-  \end{enumerate}
-\end{ex}
-
-\subsection*{定積分變數變換}
-
-\begin{fact} 
+\begin{fact}[定積分變數變換]
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 先求得反導函數後再代入：$\ds\int_a^b f'(g(x))\,g'(x)\,\text{d}x = f(g(x))\,\Big|_{x = a}^{x = b} = f(g(b)) - f(g(a))$
+    \item 求反導函數後代入：$\ds\int_a^b f'(g(x))\,g'(x)\,\text{d}x = f(g(x))\,\Big|_{x = a}^{x = b} = f(g(b)) - f(g(a))$
     \item 變數變換並改變積分範圍：$\ds\int_a^b f'(g(x))\,g'(x)\,\text{d}x = \int_a^b f'(g(x))\,\text{d}g(x) =\int_{g(a)}^{g(b)} f'(u)\,\text{d}u = f(u)\,\Big|_{u = g(a)}^{u = g(b)} = f(g(b)) - f(g(a))$
   \end{itemize}
 \end{fact}
@@ -890,7 +890,7 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 先求得反導函數後再代入：令 $\ds u = 1 + x^4$，則 $\ds\text{d}u = 4 x^3\,\text{d}x\ie x^3\,\text{d}x = \frac{\text{d}u}{4}$，故 $\ds\int x^3(1 + x^4)^3\,\text{d}x = \int (1 + x^4)^3\,x^3\,\text{d}x = \int u^3\,\frac{\text{d}u}{4} = \frac{u^4}{16} + c = \frac{(1 + x^4)^4}{16} + c$。故 $\ds\int_0^1 x^3(1 + x^4)^3\,\text{d}x = \frac{(1 + x^4)^4}{16}\,\Big|_{x = 0}^{x = 1} = \frac{(1 + 1^4)^4 - (1 + 0^4)^4}{16} = \frac{15}{16}$。
+    \item 求反導函數後代入：令 $\ds u = 1 + x^4$，則 $\ds\text{d}u = 4 x^3\,\text{d}x\ie x^3\,\text{d}x = \frac{\text{d}u}{4}$，故 $\ds\int x^3(1 + x^4)^3\,\text{d}x = \int (1 + x^4)^3\,x^3\,\text{d}x = \int u^3\,\frac{\text{d}u}{4} = \frac{u^4}{16} + c = \frac{(1 + x^4)^4}{16} + c$。故 $\ds\int_0^1 x^3(1 + x^4)^3\,\text{d}x = \frac{(1 + x^4)^4}{16}\,\Big|_{x = 0}^{x = 1} = \frac{(1 + 1^4)^4 - (1 + 0^4)^4}{16} = \frac{15}{16}$。
     \item 變數變換並改變積分範圍：令 $\ds u = 1 + x^4$，則 $\ds\text{d}u = 4 x^3\,\text{d}x\ie x^3\,\text{d}x = \frac{\text{d}u}{4}$。積分範圍 $x$ 由 $0$ 至 $1$，則變數變換後 $u$ 由 $\ds 1 + 0^4 = 1$ 至 $\ds1 + 1^4 = 2$，故 $\ds\int_0^1 x^3(1 + x^4)^3\,\text{d}x = \int_0^1 (1 + x^4)^3\,x^3\,\text{d}x = \int_1^2 u^3\,\frac{\text{d}u}{4} = \frac{1}{4}\int_1^2 u^3\,\text{d}u = \frac{1}{16} u^4\,\Big|_{u = 1}^{u = 2} = \frac{2^4 - 1^4}{16} = \frac{15}{16}$。
   \end{itemize}
 \end{sol}
@@ -902,7 +902,7 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 先求得反導函數後再代入：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int\frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u} + c = 4\sqrt{1 + x^2} + c$。故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = 4\sqrt{1 + x^2}\,\Big|_{x = 0}^{x = \sqrt{3}} = 4\sqrt{1 + 3} - 4\sqrt{1} = 4$。
+    \item 求反導函數後代入：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int\frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u} + c = 4\sqrt{1 + x^2} + c$。故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = 4\sqrt{1 + x^2}\,\Big|_{x = 0}^{x = \sqrt{3}} = 4\sqrt{1 + 3} - 4\sqrt{1} = 4$。
     \item 變數變換並改變積分範圍：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$。積分範圍 $x$ 由 $0$ 至 $\sqrt{3}$，則變數變換後 $u$ 由 $\ds1 + 0^2 = 1$ 至 $\ds1 + (\sqrt{3})^2 = 4$，故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int_1^4 \frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u}\,\Big|_{u = 1}^{u = 4} = 4\,(\sqrt{4} - \sqrt{1}) = 4$。
   \end{itemize}
 \end{sol}
@@ -914,9 +914,55 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 先求得反導函數後再代入：令 $\ds u = \cos x$，則 $\ds\text{d}u = -\sin x\,\text{d}x\ie \sin x\,\text{d}x = -\text{d}u$，故 $\ds\int3\cos^2 x\sin x\,\text{d}x = -3\int u^2\,\text{d}u = -u^3 + c = -\cos^3 x + c$。故 $\ds\int_0^{\pi}3\cos^2 x\sin x\,\text{d}x = -\cos^3 x\,\Big|_{x = 0}^{x = \pi} = -(\cos^3\pi - \cos^3 0) = -((-1)^3 - 1^3) = 2$。
+    \item 求反導函數後代入：令 $\ds u = \cos x$，則 $\ds\text{d}u = -\sin x\,\text{d}x\ie \sin x\,\text{d}x = -\text{d}u$，故 $\ds\int3\cos^2 x\sin x\,\text{d}x = -3\int u^2\,\text{d}u = -u^3 + c = -\cos^3 x + c$。故 $\ds\int_0^{\pi}3\cos^2 x\sin x\,\text{d}x = -\cos^3 x\,\Big|_{x = 0}^{x = \pi} = -(\cos^3\pi - \cos^3 0) = -((-1)^3 - 1^3) = 2$。
     \item 變數變換並改變積分範圍：令 $\ds u = \cos x$，則 $\ds\text{d}u = -\sin x\,\text{d}x\ie \sin x\,\text{d}x = -\text{d}u$。積分範圍 $x$ 由 $0$ 至 $\pi$，則變數變換後 $u$ 由 $\ds\cos 0 = 1$ 至 $\ds\cos\pi= -1$，故 $\ds\int_0^{\pi}3\cos^2 x\sin x\,\text{d}x = -\int_{1}^{-1}3u^2\,\text{d}u = -u^3\,\Big|_{u = 1}^{u = -1} = -((-1)^3 - 1^3) = 2$。
   \end{itemize}
+\end{sol}
+
+\begin{prp}
+  令 $\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau$，則 $\ds F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。
+\end{prp}
+
+\begin{prf}
+  令 $a\in\mathbb{R}$，$\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau$。令 $\ds G(x)\equiv\int_a^x f(\tau)\,\mathrm{d}\tau$，則 $\ds G'(x) = f(x)$，$\ds F(x) = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau = G(u(x)) - G(v(x))$；故 $\ds F'(x) = (G(u(x)) - G(v(x)))' = G'(u(x))\cdot u'(x) - G'(v(x))\cdot v'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。  
+\end{prf}
+
+\begin{rmk}
+
+\end{rmk}
+
+\begin{ex} 
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item $\ds F(x) = \int_1^x\frac{1}{1 + \tau^4}\,\mathrm{d}\tau \ie F'(x) = \frac{1}{1 + x^4}$ 
+    \item $\ds F(x) = \int_2^{\sqrt{x}}\sin\tau\,\mathrm{d}\tau \ie F'(x) = \sin\sqrt{x}\cdot\frac{1}{2\sqrt{x}}$
+    \item $\ds F(x) = \int_{x}^{2x}\tau^3\,\mathrm{d}\tau \ie F'(x) = (2x)^3\cdot 2 - x^3\cdot 1 = 15x^3$
+    \item $\ds F(x) = \int_{\sin x}^{\tan^{-1}x}e^{\tau^2}\,\mathrm{d}\tau \ie F'(x) = e^{(\tan^{-1}x)^2}\cdot\frac{1}{1 + x^2} - e^{\sin^2 x}\cdot\cos x$
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  若 $\ds g(x) = \int_0^{\cos x}(1 + \sin(t^2)),\text{d}t$，$\ds f(x) = \int_0^{g(x)}\frac{1}{\sqrt{1 + t^3}}\,\text{d}t$，求 $\ds f'\big(\frac{\pi}{2}\big)$。
+\end{ex}
+
+\begin{sol}
+  $\ds f'(x) = \frac{1}{\sqrt{1 + g(x)^3}}\cdot g'(x)$，$\ds g'(x) = (1 + \sin(\cos^2 x))\cdot(-\sin x)$。代入 $\ds x=\frac{\pi}{2}$，$\ds g\big(\frac{\pi}{2}\big) = 0$，$\ds g'\big(\frac{\pi}{2}\big) = -1$，故 $\ds f'\big(\frac{\pi}{2}\big) = -1$。 
+\end{sol}
+
+\begin{ex}
+  若 $\ds\int_0^{x^2} f(t)\,\text{d}t = x\sin\pi x$，求 $f'(9)$。
+\end{ex}
+
+\begin{sol}
+  $\ds\int_0^{x^2} f(t)\,\text{d}t = x\sin\pi x$ 兩邊對 $x$ 微分得 $\ds f(x^2)\cdot 2x = \sin\pi x + x\cdot\pi\cos\pi x$。兩邊再對 $x$ 微分得 $\ds (f'(x^2)\cdot 2x)\cdot 2x + f(x^2)\cdot 2 = \pi\cos\pi x + \pi\cos\pi x - x\cdot\pi^2\sin\pi x$。代入 $x = 3$，則 $\ds (f'(9)\cdot 2\cdot 3)\cdot 2\cdot 3 + f(9)\cdot 2 = \pi\cos3\pi + \pi\cos3\pi - 3\cdot\pi^2\sin3\pi \ie f'(9)\cdot 36 + f(9)\cdot 2 = -2\pi$。又 $\ds f(3^2)\cdot(2\cdot 3) = \sin 3\pi + 3\cdot\pi\cos3\pi\ie f(9) = -\frac{\pi}{2}$，故 $\ds f'(9) = -\frac{\pi}{36}$。 
+\end{sol}
+
+\begin{ex}
+  求函數 $f$ 與 $a\in\mathbb{R}$ 使 $\ds 6 + \int_a^x\frac{f(t)}{t^2}\,\text{d}t = 2\sqrt{x}$，$\forall\,x > 0$。 
+\end{ex}
+
+\begin{sol}
+  $\ds 6 + \int_a^x\frac{f(t)}{t^2}\,\text{d}t = 2\sqrt{x}$ 兩邊對 $x$ 微分得 $\ds\frac{f(x)}{x^2} = \frac{1}{\sqrt{x}}\ie f(x) = x^{\frac{3}{2}}$。代入原式得 $\ds 6 + \int_a^x\frac{t^{\frac{3}{2}}}{t^2}\,\text{d}t = 6 + \int_a^x\frac{1}{\sqrt{t}}\,\text{d}t = 6 + 2\sqrt{t}\,\Big|_a^x = 6 + 2\sqrt{x} - 2\sqrt{a} = 2\sqrt{x} \ie a = 9$。
 \end{sol}
 
 \section*{4.3 積分技巧}
