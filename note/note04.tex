@@ -794,7 +794,7 @@
     \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x = 0$（$e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數） 
     \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$（$|x|$ 為偶函數；兩 $a\times a$ 等腰直角三角形面積）
     \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\mathrm{d}\tau\equiv\ln x$，則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\mathrm{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\mathrm{d}x + \int_1^3 \frac{1}{x}\,\mathrm{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\mathrm{d}x + \int_1^3\frac{1}{x}\,\mathrm{d}x = \ln 12$
-    \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\mathrm{d}x = \sqrt{3} - \frac{\pi}{3}$ 
+    \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\mathrm{d}x = \int_0^1\sqrt{4 - x^2}\,\text{d}x - \int_1^2\sqrt{4 - x^2}\,\text{d}x = \Big(\frac{4\pi}{12} + \frac{\sqrt{3}}{2}\Big) - \Big(\frac{4\pi}{6} - \frac{\sqrt{3}}{2}\Big) = \sqrt{3} - \frac{\pi}{3}$ 
     \item $\ds\forall\,n\in\mathbb{N},\;\int_n^{n+1}\floor{x}\,\mathrm{d}x = n$ 
   \end{enumerate}
 \end{ex}
@@ -965,11 +965,22 @@
   $\ds 6 + \int_a^x\frac{f(t)}{t^2}\,\text{d}t = 2\sqrt{x}$ 兩邊對 $x$ 微分得 $\ds\frac{f(x)}{x^2} = \frac{1}{\sqrt{x}}\ie f(x) = x^{\frac{3}{2}}$。代入原式得 $\ds 6 + \int_a^x\frac{t^{\frac{3}{2}}}{t^2}\,\text{d}t = 6 + \int_a^x\frac{1}{\sqrt{t}}\,\text{d}t = 6 + 2\sqrt{t}\,\Big|_a^x = 6 + 2\sqrt{x} - 2\sqrt{a} = 2\sqrt{x} \ie a = 9$。
 \end{sol}
 
+
+\myline
+
 \section*{4.3 積分技巧}
 
-\subsection*{三角函數代換}
-
 \subsection*{部份分式}
+
+\begin{ex}
+  若 $a\ne 0$，求 $\ds\int\frac{1}{x^2 - a^2}\,\text{d}x$。
+\end{ex}
+
+\begin{sol}
+  由 $\ds\frac{1}{x^2 - a^2} = \frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)$，$\ds\int\frac{1}{x^2 - a^2}\,\text{d}x = \int\frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)\,\text{d}x = \frac{1}{2a}\big(\ln(x - a) - \ln(x + a)\big)$
+\end{sol}
+
+\subsection*{三角函數代換}
 
 \section*{4.4 瑕積分}
 
