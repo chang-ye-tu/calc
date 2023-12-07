@@ -23,6 +23,7 @@
 \DeclareMathOperator*{\codom}{codom}
 \DeclareMathOperator*{\ran}{ran}
 \DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\ceil}[1]{\lceil #1 \rceil}
 
@@ -175,15 +176,15 @@
   \setlength{\columnsep}{-7mm}
   \begin{multicols}{3}
     \begin{enumerate}\setlength\itemsep{0em}
-      \item $\ds\int\sqrt{x}\,\text{d}x = \frac{2}{3}\,x^{\frac{3}{2}} + c$
+      \item $\ds\int\!\sqrt{x}\,\text{d}x = \frac{2}{3}\,x^{\frac{3}{2}} + c$
       \item $\ds\int x^\pi\,\text{d}x = \frac{1}{\pi + 1}\,x^{\pi + 1} + c$
-      \item $\ds\int\sin\pi x\,\text{d}x = -\frac{1}{\pi}\cos\pi x + c$
-      \item $\ds\int\cos xy\,\text{d}x = \frac{1}{y}\sin xy + c$
+      \item $\ds\int\!\sin\pi x\,\text{d}x = -\frac{1}{\pi}\cos\pi x + c$
+      \item $\ds\int\!\cos xy\,\text{d}x = \frac{1}{y}\sin xy + c$
       \item $\ds\int e^{-2x}\,\text{d}x = -\frac{1}{2}\,e^{-2 x} + c$
-      \item $\ds\int\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$
-      \item $\ds\int\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
-      \item $\ds\int\big(\frac{\pi}{x} - e^{\pi x}\big)\,\text{d}u = \pi\ln x - \frac{e^{\pi x}}{\pi} + c$
-      \item $\ds\int\frac{2 + x^2}{1 + x^2}\,\text{d}u = x + 2\,\tan^{-1}x + c$
+      \item $\ds\int\!\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$
+      \item $\ds\int\!\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
+      \item $\ds\int\!\big(\frac{\pi}{x} - e^{\pi x}\big)\,\text{d}u = \pi\ln x - \frac{e^{\pi x}}{\pi} + c$
+      \item $\ds\int\!\frac{2 + x^2}{1 + x^2}\,\text{d}u = x + 2\,\tan^{-1}x + c$
 
       %\item[\vspace{\fill}]
     \end{enumerate} 
@@ -197,18 +198,18 @@
 \end{fact}
 
 \begin{ex}
-  求 $\ds\int\frac{x}{x^2+1}\,\mathrm{d}x$。
+  求 $\ds\int\!\frac{x}{x^2+1}\,\mathrm{d}x$。
 \end{ex}
 \begin{sol}
-  令 $\ds u = x^2 + 1$，則 $\ds\mathrm{d}u = 2\,x\,\mathrm{d}x$ $\ie$ $\ds x\,\mathrm{d}x=\frac{1}{2}\,\mathrm{d}u$。故 $\ds\int\frac{x}{x^2+1}\,\mathrm{d}x = \int\frac{1}{x^2+1}\cdot x\,\mathrm{d}x = \int\frac{1}{u}\cdot\frac{1}{2}\,\mathrm{d}u = \frac{1}{2}\ln|u| + c = \frac{1}{2}\ln(x^2 + 1) + c$。
+  令 $\ds u = x^2 + 1$，則 $\ds\mathrm{d}u = 2\,x\,\mathrm{d}x$ $\ie$ $\ds x\,\mathrm{d}x=\frac{1}{2}\,\mathrm{d}u$。故 $\ds\int\!\frac{x}{x^2+1}\,\mathrm{d}x = \int\!\frac{1}{x^2+1}\cdot x\,\mathrm{d}x = \int\!\frac{1}{u}\cdot\frac{1}{2}\,\mathrm{d}u = \frac{1}{2}\ln|u| + c = \frac{1}{2}\ln(x^2 + 1) + c$。
 \end{sol}
     
 \begin{ex}
-  求 $\ds\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x$。
+  求 $\ds\int\!\frac{\sin(3\ln x)}{x}\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  令 $\ds u = \ln x$，則 $\ds\mathrm{d}u = \frac{1}{x}\,\mathrm{d}x$。故 $\ds\int\frac{\sin(3\ln x)}{x}\,\mathrm{d}x = \int\sin(3\ln x)\cdot\frac{1}{x}\,\mathrm{d}x = \int\sin3u\cdot\mathrm{d}u = -\frac{1}{3}\cos 3u + c = -\frac{1}{3}\cos(3\ln x) + c$。 
+  令 $\ds u = \ln x$，則 $\ds\mathrm{d}u = \frac{1}{x}\,\mathrm{d}x$。故 $\ds\int\!\frac{\sin(3\ln x)}{x}\,\mathrm{d}x = \int\!\sin(3\ln x)\cdot\frac{1}{x}\,\mathrm{d}x = \int\!\sin3u\cdot\mathrm{d}u = -\frac{1}{3}\cos 3u + c = -\frac{1}{3}\cos(3\ln x) + c$。 
 \end{sol}
 
 \begin{ex}
@@ -216,65 +217,65 @@
 \end{ex}
 
 \begin{sol}
-  令 $u = 1 + e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int e^x\sqrt{1 + e^x}\,\mathrm{d}x = \int \sqrt{1 + e^x}\cdot e^x\,\mathrm{d}x = \int\sqrt{u}\cdot\mathrm{d}u = \frac{u^{\frac{3}{2}}}{\frac{3}{2}} + c = \frac{2}{3}(1 + e^x)^{\frac{3}{2}} + c$
+  令 $u = 1 + e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int e^x\sqrt{1 + e^x}\,\mathrm{d}x = \int \sqrt{1 + e^x}\cdot e^x\,\mathrm{d}x = \int\!\sqrt{u}\cdot\mathrm{d}u = \frac{u^{\frac{3}{2}}}{\frac{3}{2}} + c = \frac{2}{3}(1 + e^x)^{\frac{3}{2}} + c$
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x$。
+  求 $\ds\int\!\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  令 $u = e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x = \int\frac{1}{\sqrt{2-u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{2}} + c = \sin^{-1}\frac{e^x}{\sqrt{2}} + c$。
+  令 $u = e^x$，則 $\ds\mathrm{d}u = e^x\,\mathrm{d}x$。故 $\ds\int\!\frac{e^x}{\sqrt{2 - e^{2x}}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{2-u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{2}} + c = \sin^{-1}\frac{e^x}{\sqrt{2}} + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x$。
+  求 $\ds\int\!\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  $\ds\int\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x = \int\frac{1}{e^x\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x$。令 $\ds u = e^{-x}$，則 $\ds\mathrm{d}u = -e^{-x}\,\mathrm{d}x \ie e^{-x}\,\mathrm{d}x = -\text{d}u$；故 $\ds\int\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\frac{1}{\sqrt{1 - e^{-2x}}}\cdot e^{-x}\,\mathrm{d}x = -\int\frac{1}{\sqrt{1 - u^2}}\,\mathrm{d}u = -\sin^{-1} u + c = -\sin^{-1} e^{-x} + c$。
+  $\ds\int\!\frac{1}{\sqrt{e^{2x}-1}}\,\mathrm{d}x = \int\!\frac{1}{e^x\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\!\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x$。令 $\ds u = e^{-x}$，則 $\ds\mathrm{d}u = -e^{-x}\,\mathrm{d}x \ie e^{-x}\,\mathrm{d}x = -\text{d}u$；故 $\ds\int\!\frac{e^{-x}}{\sqrt{1 - e^{-2x}}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{1 - e^{-2x}}}\cdot e^{-x}\,\mathrm{d}x = -\int\!\frac{1}{\sqrt{1 - u^2}}\,\mathrm{d}u = -\sin^{-1} u + c = -\sin^{-1} e^{-x} + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x$。
+  求 $\ds\int\!\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x$。
 \end{ex}
 \begin{sol}
-  $\ds\int\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x = \int\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x$。令 $\ds u = x + 2$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x = \int\frac{1}{u^2 + 1}\,\mathrm{d}u = \tan^{-1} u + c = \tan^{-1} (x+2) + c$。
+  $\ds\int\!\frac{1}{x^2 + 4x + 5}\,\mathrm{d}x = \int\!\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x$。令 $\ds u = x + 2$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\!\frac{1}{(x + 2)^2 + 1}\,\mathrm{d}x = \int\!\frac{1}{u^2 + 1}\,\mathrm{d}u = \tan^{-1} u + c = \tan^{-1} (x+2) + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x$
+  求 $\ds\int\!\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x$
 \end{ex}
     
 \begin{sol}
-  $\ds\int\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x = \int\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x$。令 $u = x - 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x = \int\frac{1}{\sqrt{5 - u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{5}} + c = \sin^{-1}\frac{x - 1}{\sqrt{5}} + c$。
+  $\ds\int\!\frac{1}{\sqrt{4 + 2x - x^2}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x$。令 $u = x - 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$；故 $\ds\int\!\frac{1}{\sqrt{5 - (x - 1)^2}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{5 - u^2}}\,\mathrm{d}u = \sin^{-1}\frac{u}{\sqrt{5}} + c = \sin^{-1}\frac{x - 1}{\sqrt{5}} + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\tan x\,\mathrm{d}x$。
+  求 $\ds\int\!\tan x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  $\ds\int\tan x\,\mathrm{d}x = \int\frac{\sin x}{\cos x}\,\mathrm{d}x$。令 $u = \cos x$，則 $\mathrm{d}u = -\sin x\,\mathrm{d}x$；故 $\ds\int\frac{\sin x}{\cos x}\,\mathrm{d}x = \int\frac{-1}{u}\,\mathrm{d}u = -\ln|u| + c = -\ln|\cos x| + c = \ln|\sec x| + c$
+  $\ds\int\!\tan x\,\mathrm{d}x = \int\!\frac{\sin x}{\cos x}\,\mathrm{d}x$。令 $u = \cos x$，則 $\mathrm{d}u = -\sin x\,\mathrm{d}x$；故 $\ds\int\!\frac{\sin x}{\cos x}\,\mathrm{d}x = \int\!\frac{-1}{u}\,\mathrm{d}u = -\ln|u| + c = -\ln|\cos x| + c = \ln|\sec x| + c$
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\sec x\,\mathrm{d}x$。
+  求 $\ds\int\!\sec x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  $\ds\int\sec x\,\mathrm{d}x = \int\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x$。令 $u = \sec x + \tan x$，則 $\ds\mathrm{d}u = (\sec^2 x + \sec x\tan x)\,\mathrm{d}x$；故 $\ds\int\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x = \int\frac{1}{u}\,\mathrm{d}u = \ln|u| + c = \ln|\sec x + \tan x| + c$
+  $\ds\int\!\sec x\,\mathrm{d}x = \int\!\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x$。令 $u = \sec x + \tan x$，則 $\ds\mathrm{d}u = (\sec^2 x + \sec x\tan x)\,\mathrm{d}x$；故 $\ds\int\!\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\mathrm{d}x = \int\!\frac{1}{u}\,\mathrm{d}u = \ln|u| + c = \ln|\sec x + \tan x| + c$
 \end{sol}
 
 \begin{ex}
-  令 $\ds T_1 = \int\frac{\sin x}{a\cos x + b\sin x}\,\text{d}x$，$\ds T_2 = \int\frac{\cos x}{a\cos x + b\sin x}\,\text{d}x$，$a$、$b\ne 0$，求 $T_1$、$T_2$。
+  令 $\ds T_1 = \int\!\frac{\sin x}{a\cos x + b\sin x}\,\text{d}x$，$\ds T_2 = \int\!\frac{\cos x}{a\cos x + b\sin x}\,\text{d}x$，$a$、$b\ne 0$，求 $T_1$、$T_2$。
 \end{ex}
 
 \begin{sol}
   \begin{enumerate}[label=(\alph*)]\setlength\itemsep{0em}
     \item[]
-    \item $\ds b T_1 + a T_2 = \int\frac{b\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\frac{a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{b\sin x + a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int 1\,\text{d}x = x$。
-    \item $\ds -a T_1 + b T_2 = \int\frac{-a\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\frac{b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{-a\sin x + b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\frac{\text{d}u}{u} = \ln u = \ln|a\cos x + b\sin x|$（令 $\ds u = a\cos x + b\sin x$，則 $\ds\text{d}u = (-a\sin x + b\cos x)\,\text{d}x$）。
+    \item $\ds b T_1 + a T_2 = \int\!\frac{b\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\!\frac{a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{b\sin x + a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int 1\,\text{d}x = x$。
+    \item $\ds -a T_1 + b T_2 = \int\!\frac{-a\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\!\frac{b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{-a\sin x + b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{\text{d}u}{u} = \ln u = \ln|a\cos x + b\sin x|$（令 $\ds u = a\cos x + b\sin x$，則 $\ds\text{d}u = (-a\sin x + b\cos x)\,\text{d}x$）。
   \end{enumerate}
   解 $T_1$、$T_2$ 方程式 (a)、(b) 得 $\ds T_1 = \frac{bx - a\ln|a\cos x + b\sin x|}{a^2 + b^2}$，$\ds T_2 = \frac{ax + b\ln|a\cos x + b\sin x|}{a^2 + b^2}$。
 \end{sol}
@@ -301,22 +302,22 @@
     \begin{enumerate}\setlength\itemsep{0em}
       \item $\ds\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}\,\cos{e^{2x}} + c}$
       \item $\ds\int x e^{-\frac{x^2}{2}}\,\mathrm{d}x {\color{C2}\;= -e^{-\frac{x^2}{2}} + c}$
-      \item $\ds\int\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= -2\cos{\sqrt{x}} + c}$
+      \item $\ds\int\!\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= -2\cos{\sqrt{x}} + c}$
       \item $\ds\int x^2 2^{x^3 + 1}\,\mathrm{d}x {\color{C2}\;= \frac{2^{x^3 + 1}}{3\ln 2} + c}$
-      \item $\ds\int\frac{\ln x}{x}\,\mathrm{d}x {\color{C2}\;= \frac{1}{2}\,(\ln x)^2 + c}$
-      \item $\ds\int\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x {\color{C2}\;= \sqrt{x^2 + 2x + 3} + c}$
-      \item $\ds\int\frac{x^2}{2 + x^6}\,\mathrm{d}x {\color{C2}\;= \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c}$
-      \item $\ds\int\frac{1}{e^x + e^{-x}}\,\mathrm{d}x {\color{C2}\;= \tan^{-1}{e^{x}} + c}$
-      \item $\ds\int\frac{x + 1}{\sqrt{1 - x^2}}\,\mathrm{d}x {\color{C2}\;= -\sqrt{1 - x^2} + \sin^{-1} x + c}$
-      \item $\ds\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x {\color{C2}\;= \sin^{-1}(\tan{x}) + c}$
-      \item $\ds\int\sin^4 x\cos^5 x\,\mathrm{d}x {\color{C2}\;= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c}$
-      \item $\ds\int\sin^2 x\cos^2 x\,\mathrm{d}x {\color{C2}\;= \frac{x}{8} - \frac{\sin 4x}{32} + c}$
-      \item $\ds\int\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x {\color{C2}\;= 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c}$
-      \item $\ds\int\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x {\color{C2}\;= \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c}$
-      \item $\ds\int\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c}$
-      \item $\ds\int\cos ax\cos bx\,\mathrm{d}x {\color{C2}\;= \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)} + c}$
-      \item $\ds\int\sin ax\sin bx\,\mathrm{d}x {\color{C2}\;= \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)} + c}$
-      \item $\ds\int\sin ax\cos bx\,\mathrm{d}x {\color{C2}\;= -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)} + c}$
+      \item $\ds\int\!\frac{\ln x}{x}\,\mathrm{d}x {\color{C2}\;= \frac{1}{2}\,(\ln x)^2 + c}$
+      \item $\ds\int\!\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x {\color{C2}\;= \sqrt{x^2 + 2x + 3} + c}$
+      \item $\ds\int\!\frac{x^2}{2 + x^6}\,\mathrm{d}x {\color{C2}\;= \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c}$
+      \item $\ds\int\!\frac{1}{e^x + e^{-x}}\,\mathrm{d}x {\color{C2}\;= \tan^{-1}{e^{x}} + c}$
+      \item $\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\mathrm{d}x {\color{C2}\;= -\sqrt{1 - x^2} + \sin^{-1} x + c}$
+      \item $\ds\int\!\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x {\color{C2}\;= \sin^{-1}(\tan{x}) + c}$
+      \item $\ds\int\!\sin^4 x\cos^5 x\,\mathrm{d}x {\color{C2}\;= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c}$
+      \item $\ds\int\!\sin^2 x\cos^2 x\,\mathrm{d}x {\color{C2}\;= \frac{x}{8} - \frac{\sin 4x}{32} + c}$
+      \item $\ds\int\!\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x {\color{C2}\;= 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c}$
+      \item $\ds\int\!\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x {\color{C2}\;= \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c}$
+      \item $\ds\int\!\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c}$
+      \item $\ds\int\!\cos ax\cos bx\,\mathrm{d}x {\color{C2}\;= \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)} + c}$
+      \item $\ds\int\!\sin ax\sin bx\,\mathrm{d}x {\color{C2}\;= \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)} + c}$
+      \item $\ds\int\!\sin ax\cos bx\,\mathrm{d}x {\color{C2}\;= -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)} + c}$
     \end{enumerate} 
   \end{multicols}
 \end{exe}
@@ -324,24 +325,24 @@
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item 令 $u = e^{2x}$，則 $\ds\text{d}u = 2e^{2x}\,\text{d}x\ie e^{2x}\,\text{d}x = \frac{1}{2}\,\text{d}u$。故 $\ds\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x = \int\sin{e^{2x}}\cdot e^{2x}\,\text{d}x = \int\sin u\cdot\frac{1}{2}\,\text{d}u = -\frac{1}{2}\cos u + c = -\frac{1}{2}\,\cos{e^{2x}} + c$。
+    \item 令 $u = e^{2x}$，則 $\ds\text{d}u = 2e^{2x}\,\text{d}x\ie e^{2x}\,\text{d}x = \frac{1}{2}\,\text{d}u$。故 $\ds\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x = \int\!\sin{e^{2x}}\cdot e^{2x}\,\text{d}x = \int\!\sin u\cdot\frac{1}{2}\,\text{d}u = -\frac{1}{2}\cos u + c = -\frac{1}{2}\,\cos{e^{2x}} + c$。
     \item 令 $\ds u = \frac{x^2}{2}$，則 $\ds\text{d}u = x\,\text{d}x$，故 $\ds\int x e^{-\frac{x^2}{2}}\,\mathrm{d}x = \int e^{-\frac{x^2}{2}}\cdot x\,\mathrm{d}x = \int e^{-u}\,\text{d}u = -e^{-u} + c = -e^{-\frac{x^2}{2}} + c$
-    \item 令 $\ds u = \sqrt{x}$，則 $\ds\text{d}u = \frac{1}{2\sqrt{x}}\,\text{d}x\ie \frac{1}{\sqrt{x}}\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x = \int\sin{\sqrt{x}}\cdot\frac{1}{\sqrt{x}}\,\text{d}x = \int\sin u\cdot 2\,\text{d}u = -2\cos u + c = -2\cos{\sqrt{x}} + c$
+    \item 令 $\ds u = \sqrt{x}$，則 $\ds\text{d}u = \frac{1}{2\sqrt{x}}\,\text{d}x\ie \frac{1}{\sqrt{x}}\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\!\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x = \int\!\sin{\sqrt{x}}\cdot\frac{1}{\sqrt{x}}\,\text{d}x = \int\!\sin u\cdot 2\,\text{d}u = -2\cos u + c = -2\cos{\sqrt{x}} + c$
     \item 令 $\ds u = x^3 + 1$，則 $\ds\text{d} u = 3 x^2\,\text{d}x\ie x^2\,\text{d}x = \frac{1}{3}\,\text{d}u$，故 $\ds\int x^2 2^{x^3 + 1}\,\mathrm{d}x = \int 2^{x^3 + 1}\cdot x^2\,\text{d}x = \int 2^u\cdot\frac{1}{3}\,\text{d}u = \frac{1}{3}\int e^{u\ln 2}\,\text{d}u = \frac{1}{3\ln 2}e^{u\ln 2} + c = \frac{2^{x^3 + 1}}{3\ln 2} + c$
-    \item 令 $\ds u = \ln x$，則 $\ds\text{d} u = \frac{1}{x}\,\text{d}x$，故 $\ds\int\frac{\ln x}{x}\,\mathrm{d}x = \int\ln x\cdot\frac{1}{x}\,\text{d}x = \int u\,\text{d}u = \frac{1}{2} u^2 + c = \frac{1}{2}\,(\ln x)^2 + c$
-    \item 令 $\ds u = x^2 + 2x + 3$，則 $\ds\text{d} u = (2 x + 2)\,\text{d}x\ie (x + 1)\,\text{d}x = \frac{1}{2}\,\text{d}u$，故 $\ds\int\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x = \int\frac{1}{\sqrt{x^2 + 2x + 3}}\cdot(x + 1)\,\text{d}x = \int\frac{1}{\sqrt{u}}\cdot\frac{1}{2}\,\text{d}u = \sqrt{u} + c = \sqrt{x^2 + 2x + 3} + c$
-    \item 令 $\ds u = x^3$，則 $\ds\text{d} u = 3x^2\,\text{d}x\ie x^2\,\text{d}x = \frac{1}{3}\,\text{d}u$，故 $\ds\int\frac{x^2}{2 + x^6}\,\mathrm{d}x = \int\frac{1}{2 + x^6}\cdot x^2\,\text{d}x = \int\frac{1}{2 + u^2}\cdot\frac{1}{3}\,\text{d}u = \frac{1}{3\sqrt{2}}\tan^{-1}\frac{u}{\sqrt{2}} + c = \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c$
-    \item $\ds\int\frac{1}{e^x + e^{-x}}\,\mathrm{d}x = \int\frac{e^x}{e^{2x} + 1}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$，故 $\ds\int\frac{e^x}{e^{2x} + 1}\,\text{d}x = \int\frac{1}{e^{2x} + 1}\cdot e^x\,\text{d}x = \int\frac{1}{u^2 + 1}\,\text{d}u = \tan^{-1}u + c = \tan^{-1}{e^{x}} + c$。
-    \item $\ds\int\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sqrt{1 - x^2}$，則 $\ds\text{d}u = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x\ie \frac{x}{\sqrt{1 - x^2}}\,\text{d}x = -\text{d}u$，故 $\ds\int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int-\text{d}u = -u + c = -\sqrt{1 - x^2}$，$\ds\int\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = -\sqrt{1 - x^2} + \sin^{-1}x + c$。
-    \item 令 $\ds u = \tan x$，則 $\ds\text{d}u = \sec^2 x\,\text{d}x$，故 $\ds\int\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x = \int\frac{1}{\sqrt{1 - \tan^2 x}}\cdot \sec^2 x\,\text{d}x = \int\frac{1}{\sqrt{1 - u^2}}\,\text{d}u = \sin^{-1} u + c = \sin^{-1}(\tan{x}) + c $
-    \item $\ds\int\sin^4 x\cos^5 x\,\mathrm{d}x = \int\sin^4 x\cdot\cos^4 x\cdot\cos x\,\text{d}x = \int\sin^4x\cdot(1 - \sin^2 x)^2\cdot\cos x\,\text{d}x = \int\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x$。 令 $\ds u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x = \int\big(u^4 - 2u^6 + u^8\big)\,\text{d}u = \frac{u^5}{5} - \frac{2u^7}{7} + \frac{u^9}{9} + c = \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c$
-    \item $\ds\int\sin^2 x\cos^2 x\,\mathrm{d}x = \int\frac{1 - \cos 2x}{2}\cdot\frac{1 + \cos 2x}{2}\,\text{d}x = \frac{1}{4}\int\big(1 - \cos^2{2x}\big)\,\text{d}x = \frac{1}{4}\int\big(1 - \frac{1 + \cos 4x}{2}\big)\,\text{d}x = \frac{1}{4}\int\big(\frac{1}{2} + \frac{\cos 4x}{2}\big)\,\text{d}x = \frac{x}{8} - \frac{\sin 4x}{32} + c$
-    \item $\ds\int\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x = \int\sin^{-\frac{2}{3}} x\cdot\cos^2 x\cdot\cos x\,\mathrm{d}x = \int\sin^{-\frac{2}{3}} x\cdot(1 - \sin^2 x)\cdot\cos x\,\mathrm{d}x = \int\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x$。令 $u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x = \int\big(u^{-\frac{2}{3}} - u^{\frac{4}{3}}\big)\,\text{d}u = 3u^{\frac{1}{3}} - \frac{3}{7}u^{\frac{7}{3}} + c = 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c$
-    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$，故 $\ds\int\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x = \int\sin^3(\ln x)\cos^3(\ln x)\cdot\frac{1}{x}\,\mathrm{d}x = \int\sin^3u\cos^3u\,\text{d}u = \int\sin^3u\cdot\cos^2u\cdot\cos u\,\text{d}u = \int\sin^3 u\big(1 - \sin^2 u\big)\cdot\cos u\,\text{d}u = \int\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u$。令 $\ds w = \sin u$，則 $\ds\text{d}w = \cos u\,\text{d}u$，故 $\ds\int\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u = \int\big(w^3 - w^5\big)\,\text{d}w = \frac{w^4}{4} - \frac{w^6}{6} + c = \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c$
-    \item $\ds\int\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x = \int\frac{\sin^2x\cdot\sin x}{\cos^4 x}\,\text{d}x = \int\frac{\sin^2x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\frac{1 - \cos^2 x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x$。令 $\ds u = \cos x$，則 $\ds\text{d}u = -\sin x\,\text{d}x\ie\sin x\,\text{d}x = -\text{d}u$，故 $\ds\int\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x = \int\big(\frac{1}{u^4} - \frac{1}{u^2}\big)(-)\,\text{d}u = \int\big(\frac{1}{u^2} - \frac{1}{u^4}\big)\,\text{d}u = -\frac{1}{u} + \frac{1}{3u^3} + c = -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c$
-    \item 由積化和差公式 $\ds\cos\alpha\cos\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) + \cos(\alpha + \beta)\big)$，$\ds\int\cos ax\cos bx\,\text{d}x = \int\frac{1}{2}\,\big(\cos(ax - bx) + \cos(ax + bx)\big)\,\text{d}x = \int\frac{1}{2}\,\big(\cos(a - b)x + \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)}+ c$。
-    \item 由積化和差公式 $\ds\sin\alpha\sin\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) - \cos(\alpha + \beta)\big)$，$\ds\int\sin ax\sin bx\,\text{d}x = \int\frac{1}{2}\,\big(\cos(ax - bx) - \cos(ax + bx)\big)\,\text{d}x = \int\frac{1}{2}\,\big(\cos(a - b)x - \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)}+ c$。
-    \item 由積化和差公式 $\ds\sin\alpha\cos\beta = \frac{1}{2}\,\big(\sin(\alpha - \beta) + \sin(\alpha + \beta)\big)$，$\ds\int\sin ax\cos bx\,\text{d}x = \int\frac{1}{2}\,\big(\sin(ax - bx) + \sin(ax + bx)\big)\,\text{d}x = \int\frac{1}{2}\,\big(\sin(a - b)x + \sin(a + b)x\big)\,\text{d}x = -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)}+ c$。
+    \item 令 $\ds u = \ln x$，則 $\ds\text{d} u = \frac{1}{x}\,\text{d}x$，故 $\ds\int\!\frac{\ln x}{x}\,\mathrm{d}x = \int\!\ln x\cdot\frac{1}{x}\,\text{d}x = \int u\,\text{d}u = \frac{1}{2} u^2 + c = \frac{1}{2}\,(\ln x)^2 + c$
+    \item 令 $\ds u = x^2 + 2x + 3$，則 $\ds\text{d} u = (2 x + 2)\,\text{d}x\ie (x + 1)\,\text{d}x = \frac{1}{2}\,\text{d}u$，故 $\ds\int\!\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{x^2 + 2x + 3}}\cdot(x + 1)\,\text{d}x = \int\!\frac{1}{\sqrt{u}}\cdot\frac{1}{2}\,\text{d}u = \sqrt{u} + c = \sqrt{x^2 + 2x + 3} + c$
+    \item 令 $\ds u = x^3$，則 $\ds\text{d} u = 3x^2\,\text{d}x\ie x^2\,\text{d}x = \frac{1}{3}\,\text{d}u$，故 $\ds\int\!\frac{x^2}{2 + x^6}\,\mathrm{d}x = \int\!\frac{1}{2 + x^6}\cdot x^2\,\text{d}x = \int\!\frac{1}{2 + u^2}\cdot\frac{1}{3}\,\text{d}u = \frac{1}{3\sqrt{2}}\tan^{-1}\frac{u}{\sqrt{2}} + c = \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c$
+    \item $\ds\int\!\frac{1}{e^x + e^{-x}}\,\mathrm{d}x = \int\!\frac{e^x}{e^{2x} + 1}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$，故 $\ds\int\!\frac{e^x}{e^{2x} + 1}\,\text{d}x = \int\!\frac{1}{e^{2x} + 1}\cdot e^x\,\text{d}x = \int\!\frac{1}{u^2 + 1}\,\text{d}u = \tan^{-1}u + c = \tan^{-1}{e^{x}} + c$。
+    \item $\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sqrt{1 - x^2}$，則 $\ds\text{d}u = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x\ie \frac{x}{\sqrt{1 - x^2}}\,\text{d}x = -\text{d}u$，故 $\ds\int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int-\text{d}u = -u + c = -\sqrt{1 - x^2}$，$\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = -\sqrt{1 - x^2} + \sin^{-1}x + c$。
+    \item 令 $\ds u = \tan x$，則 $\ds\text{d}u = \sec^2 x\,\text{d}x$，故 $\ds\int\!\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{1 - \tan^2 x}}\cdot \sec^2 x\,\text{d}x = \int\!\frac{1}{\sqrt{1 - u^2}}\,\text{d}u = \sin^{-1} u + c = \sin^{-1}(\tan{x}) + c $
+    \item $\ds\int\!\sin^4 x\cos^5 x\,\mathrm{d}x = \int\!\sin^4 x\cdot\cos^4 x\cdot\cos x\,\text{d}x = \int\!\sin^4x\cdot(1 - \sin^2 x)^2\cdot\cos x\,\text{d}x = \int\!\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x$。 令 $\ds u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\!\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x = \int\!\big(u^4 - 2u^6 + u^8\big)\,\text{d}u = \frac{u^5}{5} - \frac{2u^7}{7} + \frac{u^9}{9} + c = \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c$
+    \item $\ds\int\!\sin^2 x\cos^2 x\,\mathrm{d}x = \int\!\frac{1 - \cos 2x}{2}\cdot\frac{1 + \cos 2x}{2}\,\text{d}x = \frac{1}{4}\int\!\big(1 - \cos^2{2x}\big)\,\text{d}x = \frac{1}{4}\int\!\big(1 - \frac{1 + \cos 4x}{2}\big)\,\text{d}x = \frac{1}{4}\int\!\big(\frac{1}{2} + \frac{\cos 4x}{2}\big)\,\text{d}x = \frac{x}{8} - \frac{\sin 4x}{32} + c$
+    \item $\ds\int\!\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x = \int\!\sin^{-\frac{2}{3}} x\cdot\cos^2 x\cdot\cos x\,\mathrm{d}x = \int\!\sin^{-\frac{2}{3}} x\cdot(1 - \sin^2 x)\cdot\cos x\,\mathrm{d}x = \int\!\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x$。令 $u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，故 $\ds\int\!\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\mathrm{d}x = \int\!\big(u^{-\frac{2}{3}} - u^{\frac{4}{3}}\big)\,\text{d}u = 3u^{\frac{1}{3}} - \frac{3}{7}u^{\frac{7}{3}} + c = 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c$
+    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$，故 $\ds\int\!\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x = \int\!\sin^3(\ln x)\cos^3(\ln x)\cdot\frac{1}{x}\,\mathrm{d}x = \int\!\sin^3u\cos^3u\,\text{d}u = \int\!\sin^3u\cdot\cos^2u\cdot\cos u\,\text{d}u = \int\!\sin^3 u\big(1 - \sin^2 u\big)\cdot\cos u\,\text{d}u = \int\!\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u$。令 $\ds w = \sin u$，則 $\ds\text{d}w = \cos u\,\text{d}u$，故 $\ds\int\!\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u = \int\!\big(w^3 - w^5\big)\,\text{d}w = \frac{w^4}{4} - \frac{w^6}{6} + c = \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c$
+    \item $\ds\int\!\frac{\sin^3 x}{\cos^4 x}\,\mathrm{d}x = \int\!\frac{\sin^2x\cdot\sin x}{\cos^4 x}\,\text{d}x = \int\!\frac{\sin^2x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\frac{1 - \cos^2 x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x$。令 $\ds u = \cos x$，則 $\ds\text{d}u = -\sin x\,\text{d}x\ie\sin x\,\text{d}x = -\text{d}u$，故 $\ds\int\!\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x = \int\!\big(\frac{1}{u^4} - \frac{1}{u^2}\big)(-)\,\text{d}u = \int\!\big(\frac{1}{u^2} - \frac{1}{u^4}\big)\,\text{d}u = -\frac{1}{u} + \frac{1}{3u^3} + c = -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c$
+    \item 由積化和差公式 $\ds\cos\alpha\cos\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) + \cos(\alpha + \beta)\big)$，$\ds\int\!\cos ax\cos bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(ax - bx) + \cos(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(a - b)x + \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)}+ c$。
+    \item 由積化和差公式 $\ds\sin\alpha\sin\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) - \cos(\alpha + \beta)\big)$，$\ds\int\!\sin ax\sin bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(ax - bx) - \cos(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(a - b)x - \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)}+ c$。
+    \item 由積化和差公式 $\ds\sin\alpha\cos\beta = \frac{1}{2}\,\big(\sin(\alpha - \beta) + \sin(\alpha + \beta)\big)$，$\ds\int\!\sin ax\cos bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\sin(ax - bx) + \sin(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\sin(a - b)x + \sin(a + b)x\big)\,\text{d}x = -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)}+ c$。
   \end{enumerate}
 \end{sol}
 
@@ -362,11 +363,11 @@
 \end{sol}
     
 \begin{ex}
-  求 $\ds\int\ln x\,\mathrm{d}x$。
+  求 $\ds\int\!\ln x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
-  令 $\ds u = \ln x$，則 $\ds\mathrm{d}u = \frac{1}{x}\mathrm{d}x$。令 $\ds\mathrm{d}v = \mathrm{d}x$，則 $v = x$。故 $\ds\int\ln x\,\mathrm{d}x = \ln x \cdot x - \int x\cdot\frac{1}{x}\,\mathrm{d}x = x\ln x - x + c$。
+  令 $\ds u = \ln x$，則 $\ds\mathrm{d}u = \frac{1}{x}\mathrm{d}x$。令 $\ds\mathrm{d}v = \mathrm{d}x$，則 $v = x$。故 $\ds\int\!\ln x\,\mathrm{d}x = \ln x \cdot x - \int x\cdot\frac{1}{x}\,\mathrm{d}x = x\ln x - x + c$。
 \end{sol}
 
 \begin{ex}
@@ -374,11 +375,11 @@
 \end{ex}
 
 \begin{sol}
-  令 $\ds u = \tan^{-1} x$，則 $\ds\mathrm{d}u = \frac{1}{1 + x^2}\mathrm{d}x$。令 $\ds\mathrm{d}v = x\,\mathrm{d}x$，則 $\ds v = \frac{x^2}{2}$。故 $\ds\int x\tan^{-1} x\,\mathrm{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\frac{x^2}{1 + x^2}\,\mathrm{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\big(1 - \frac{1}{1 + x^2}\big)\,\mathrm{d}x = \tan^{-1}x \cdot\frac{x^2}{2} - \frac{1}{2}\big(x - \tan^{-1} x\big) + c$。
+  令 $\ds u = \tan^{-1} x$，則 $\ds\mathrm{d}u = \frac{1}{1 + x^2}\mathrm{d}x$。令 $\ds\mathrm{d}v = x\,\mathrm{d}x$，則 $\ds v = \frac{x^2}{2}$。故 $\ds\int x\tan^{-1} x\,\mathrm{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\frac{x^2}{1 + x^2}\,\mathrm{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\big(1 - \frac{1}{1 + x^2}\big)\,\mathrm{d}x = \tan^{-1}x \cdot\frac{x^2}{2} - \frac{1}{2}\big(x - \tan^{-1} x\big) + c$。
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\!x^2\sin x\,\mathrm{d}x$。
+  求 $\ds\int\!\!x^2\sin x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
@@ -562,7 +563,7 @@
   \end{minipage}
   \hspace{5mm}
   \begin{minipage}{0.6\textwidth}
-    $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x = (\sin^{-1} x)^2\cdot x - \int\frac{2\sin^{-1} x}{\sqrt{1-x^2}}\cdot x\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \int\!2\sin^{-1} x\cdot\frac{x}{\sqrt{1-x^2}}\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \bigg(-2\sin^{-1} x\cdot\sqrt{1-x^2} + \int\!\frac{2}{\sqrt{1-x^2}}\cdot\sqrt{1-x^2}\,\mathrm{d}x\bigg)\\ = (\sin^{-1} x)^2\cdot x + 2\sin^{-1} x\cdot\sqrt{1-x^2} - 2x$
+    $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x = (\sin^{-1} x)^2\cdot x - \int\!\frac{2\sin^{-1} x}{\sqrt{1-x^2}}\cdot x\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \int\!2\sin^{-1} x\cdot\frac{x}{\sqrt{1-x^2}}\,\mathrm{d}x \\= (\sin^{-1} x)^2\cdot x - \bigg(-2\sin^{-1} x\cdot\sqrt{1-x^2} + \int\!\frac{2}{\sqrt{1-x^2}}\cdot\sqrt{1-x^2}\,\mathrm{d}x\bigg)\\ = (\sin^{-1} x)^2\cdot x + 2\sin^{-1} x\cdot\sqrt{1-x^2} - 2x$
   \end{minipage}
 \end{sol}
 
@@ -637,18 +638,18 @@
     \item $\ds\int x^5 e^{-x^2}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + c}$
     \item $\ds\int x e^{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= 2\,e^{\sqrt{x}}\,\big(x\sqrt{x} - 3x + 6\sqrt{x} - 6\big) + c}$
     %\item $\ds\int(\sin^{-1} x)^2\,\mathrm{d}x {\color{C2}\;= x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1} x - 2x + c}$
-    \item $\ds\int\frac{x e^x}{(x + 1)^2}\,\mathrm{d}x {\color{C2}\;= \frac{e^x}{x + 1} + c}  $
-    \item $\ds\int\sin(\ln x)\,\mathrm{d}x {\color{C2}\;= \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c}$
-    \item $\ds\int\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x {\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
+    \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\mathrm{d}x {\color{C2}\;= \frac{e^x}{x + 1} + c}  $
+    \item $\ds\int\!\sin(\ln x)\,\mathrm{d}x {\color{C2}\;= \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c}$
+    \item $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x {\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
   \end{enumerate}
 \end{exe}
 
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x^3\,\text{d}x$，則 $\ds v = \frac{x^4}{4}$。 故 $\ds\int x^3\ln x\,\mathrm{d}x = \ln x\cdot\frac{x^4}{4} - \int\frac{x^4}{4}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \int\frac{x^3}{4}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \frac{x^4}{16} + c$。  
-    \item 令 $\ds u = (\ln x)^3$，則 $\ds\text{d}u = 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\int x(\ln x)^2\,\text{d}x$。令 $\ds u = (\ln x)^2$，則 $\ds\text{d}u = 2\,\ln x\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^2\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot 2\ln x\cdot\frac{1}{x}\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int x\ln x\,\text{d}x$。令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。故 $\ds\int x\ln x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \int\frac{x^2}{2}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{1}{2}\int x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}$。以上，$\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\Big((\ln x)^2\cdot\frac{x^2}{2} - \big(\ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}\big)\Big) = \frac{x^2}{2}\big((\ln x)^3 - \frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4}\big) + c$
-    \item 令 $\ds u = \tan^{-1} x$，則 $\ds\text{d}u = \frac{1}{1 + x^2}\,\text{d}x$；$\ds\text{d}v = x^2\,\text{d}x$，則 $\ds v = \frac{x^3}{3}$。 故 $\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x$。又 $\ds\int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\frac{(x^3 + x) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\frac{x(x^2 + 1) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\big(x - \frac{x}{x^2 + 1}\big)\,\text{d}x$。令 $\ds w = x^2 + 1$，則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$，故 $\ds\int\frac{x}{x^2 + 1}\,\text{d}x = \int\frac{1}{x^2 + 1}\cdot x\,\text{d}x = \int\frac{1}{w}\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\ln w + c = \frac{1}{2}\ln(x^2 + 1) + c$。以上，$\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \frac{x^2}{6} + \frac{\ln(x^2 + 1)}{6} + c$。
+    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x^3\,\text{d}x$，則 $\ds v = \frac{x^4}{4}$。 故 $\ds\int x^3\ln x\,\mathrm{d}x = \ln x\cdot\frac{x^4}{4} - \int\!\frac{x^4}{4}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \int\!\frac{x^3}{4}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \frac{x^4}{16} + c$。  
+    \item 令 $\ds u = (\ln x)^3$，則 $\ds\text{d}u = 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\int x(\ln x)^2\,\text{d}x$。令 $\ds u = (\ln x)^2$，則 $\ds\text{d}u = 2\,\ln x\cdot\frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。 故 $\ds\int x(\ln x)^2\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot 2\ln x\cdot\frac{1}{x}\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int x\ln x\,\text{d}x$。令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = x\,\text{d}x$，則 $\ds v = \frac{x^2}{2}$。故 $\ds\int x\ln x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{1}{2}\int x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}$。以上，$\ds\int x(\ln x)^3\,\mathrm{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\Big((\ln x)^2\cdot\frac{x^2}{2} - \big(\ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}\big)\Big) = \frac{x^2}{2}\big((\ln x)^3 - \frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4}\big) + c$
+    \item 令 $\ds u = \tan^{-1} x$，則 $\ds\text{d}u = \frac{1}{1 + x^2}\,\text{d}x$；$\ds\text{d}v = x^2\,\text{d}x$，則 $\ds v = \frac{x^3}{3}$。 故 $\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x$。又 $\ds\int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\frac{(x^3 + x) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\frac{x(x^2 + 1) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\big(x - \frac{x}{x^2 + 1}\big)\,\text{d}x$。令 $\ds w = x^2 + 1$，則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$，故 $\ds\int\!\frac{x}{x^2 + 1}\,\text{d}x = \int\!\frac{1}{x^2 + 1}\cdot x\,\text{d}x = \int\!\frac{1}{w}\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\ln w + c = \frac{1}{2}\ln(x^2 + 1) + c$。以上，$\ds\int x^2\tan^{-1} x\,\mathrm{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \frac{x^2}{6} + \frac{\ln(x^2 + 1)}{6} + c$。
     \item 令 $\ds w = x^2$，則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$，故 $\ds\int x^5 e^{-x^2}\,\text{d}x = \int e^{-x^2}\cdot(x^2)^2\cdot x\,\text{d}x = \int e^{-w}\cdot w^2\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\int w^2\,e^{-w}\,\text{d}w = -\frac{1}{2}\,e^{-w}(w^2 + 2w + 2) = -\frac{1}{2}\,e^{-x^2}(x^4 + 2x^2 + 2) + c$。\\
   \begin{minipage}{0.15\textwidth}
     \begin{tikzpicture}[yscale=0.75]
@@ -700,10 +701,10 @@
       \int w^3\,e^w\,\mathrm{d}w = w^3\,e^w - 3w^2\,e^w + 6w\,e^w - 6\,e^w = e^w(w^3 - 3w^2 + 6w - 6)
     \end{align*}
   \end{minipage}
-    %\item 令 $\ds u = (\sin^{-1} x)^2$，則 $\ds\text{d}u = 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。 故 $\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x - \int x\cdot 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\int\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sin^{-1} x$，則 $\ds\text{d}u = \frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$，則 $\ds v = \sqrt{1 - x^2}$。 故 $\ds\int\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int\sqrt{1 - x^2}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int 1\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - x$。以上，$\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\,(\sin^{-1}x\cdot\sqrt{1 - x^2} - x) = x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1}x - 2x + c$
+    %\item 令 $\ds u = (\sin^{-1} x)^2$，則 $\ds\text{d}u = 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \text{d}x$，則 $\ds v = x$。 故 $\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x - \int x\cdot 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\int\!\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$。令 $\ds u = \sin^{-1} x$，則 $\ds\text{d}u = \frac{1}{\sqrt{1 - x^2}}\,\text{d}x$；$\ds\text{d}v = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$，則 $\ds v = \sqrt{1 - x^2}$。 故 $\ds\int\!\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int\!\sqrt{1 - x^2}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int 1\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - x$。以上，$\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\,(\sin^{-1}x\cdot\sqrt{1 - x^2} - x) = x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1}x - 2x + c$
 
-    \item $\ds\int\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \int\frac{e^x}{(x + 1)^2}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$；$\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$，則 $\ds v = \frac{-1}{x + 1}$。故 $\ds\int\frac{e^x}{(x + 1)^2}\,\mathrm{d}x = e^x\cdot\frac{-1}{x + 1} + \int\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\frac{e^x}{x + 1}\,\text{d}x$；原式 $\ds\int\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \int\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$。
-    \item 令 $\ds w = \ln x$，則 $\ds e^w = x$，$\ds\text{d}x = e^w\,\text{d}w$，故 $\ds\int\sin(\ln x)\,\text{d}x = \int\sin w\cdot e^w\,\text{d}w = \int e^w\,\sin w\,\text{d}w = \frac{e^w(\sin w - \cos w)}{2} = \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c$ \\
+    \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x$。令 $\ds u = e^x$，則 $\ds\text{d}u = e^x\,\text{d}x$；$\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$，則 $\ds v = \frac{-1}{x + 1}$。故 $\ds\int\!\frac{e^x}{(x + 1)^2}\,\mathrm{d}x = e^x\cdot\frac{-1}{x + 1} + \int\!\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x$；原式 $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$。
+    \item 令 $\ds w = \ln x$，則 $\ds e^w = x$，$\ds\text{d}x = e^w\,\text{d}w$，故 $\ds\int\!\sin(\ln x)\,\text{d}x = \int\!\sin w\cdot e^w\,\text{d}w = \int e^w\,\sin w\,\text{d}w = \frac{e^w(\sin w - \cos w)}{2} = \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c$ \\
       \begin{minipage}{0.15\textwidth}
         \begin{tikzpicture}[yscale=0.75]
           \draw (-1, 1) node[left]{Diff};
@@ -726,7 +727,7 @@
           &\ie\int e^w\sin w\,\mathrm{d}w = \frac{e^w(\sin w - \cos w)}{2}
         \end{align*}
       \end{minipage}
-    \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = \frac{1}{\sqrt{1 + x}}\,\text{d}x$，則 $\ds v = 2\sqrt{1 + x}$。故 $\ds\int\frac{\ln x}{\sqrt{1 + x}}\,\text{d}x = \ln x\cdot 2\sqrt{1 + x} - 2 \int\frac{\sqrt{1 + x}}{x}\,\text{d}x$。令 $\ds w = \sqrt{1 + x}$，則 $\ds w^2 = 1 + x \ie x= w^2 - 1$，$\ds 2w\,\text{d}w = \text{d}x$，故 $\ds\int\frac{\sqrt{1 + x}}{x}\,\text{d}x = \int\frac{w}{w^2 - 1}\cdot 2w\,\text{d}w = 2\int\frac{w^2}{w^2 - 1}\,\text{d}w = 2\int\frac{(w^2 - 1) + 1}{w^2 - 1}\,\text{d}w = 2 w + 2\int\frac{1}{w^2 - 1}\,\text{d}w = 2\sqrt{1 + x} + 2\int\frac{1}{w^2 -1}\,\text{d}w$。由部份分式 $\ds\frac{1}{w^2 - 1} = \frac{1}{2}\,\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)$，$\ds\int\frac{1}{w^2 - 1}\,\text{d}w = \frac{1}{2}\int\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)\,\text{d}w =\frac{1}{2}\,\big(\ln(w - 1) - \ln(w + 1)\big) = \frac{1}{2}\,\big(\ln(\sqrt{1 + x} - 1) - \ln(\sqrt{1 + x} + 1)\big)$。以上，$\ds\int\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x = \ln x\cdot 2\sqrt{1 + x} - 2\,\big(2\sqrt{1+x} + 2\,\big(\frac{1}{2}\,\big(\ln(\sqrt{1 + x}-1) - \ln(\sqrt{1+x} + 1)\big)\big)\big) = \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c$。
+  \item 令 $\ds u = \ln x$，則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$；$\ds\text{d}v = \frac{1}{\sqrt{1 + x}}\,\text{d}x$，則 $\ds v = 2\sqrt{1 + x}$。故 $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\text{d}x = \ln x\cdot 2\sqrt{1 + x} - 2 \int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x$。令 $\ds w = \sqrt{1 + x}$，則 $\ds w^2 = 1 + x \ie x= w^2 - 1$，$\ds 2w\,\text{d}w = \text{d}x$，故 $\ds\int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x = \int\!\frac{w}{w^2 - 1}\cdot 2w\,\text{d}w = 2\int\!\frac{w^2}{w^2 - 1}\,\text{d}w = 2\int\!\frac{(w^2 - 1) + 1}{w^2 - 1}\,\text{d}w = 2 w + 2\int\!\frac{1}{w^2 - 1}\,\text{d}w = 2\sqrt{1 + x} + 2\int\!\frac{1}{w^2 -1}\,\text{d}w$。由 $\ds\frac{1}{w^2 - 1} = \frac{1}{2}\,\bigg(\frac{1}{w - 1} - \frac{1}{w + 1}\bigg)$，$\ds\int\!\frac{1}{w^2 - 1}\,\text{d}w = \frac{1}{2}\int\!\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)\,\text{d}w =\frac{1}{2}\,\big(\ln|w - 1| - \ln|w + 1|\big) = \frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)$。以上，$\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x = \ln x\cdot 2\sqrt{1 + x} - 2\,\big(2\sqrt{1+x} + 2\,\big(\frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)\big)\big) = \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1 + x} - 2\ln|\sqrt{1 + x} - 1| + 2\ln|\sqrt{1 + x} + 1| + c$。
   \end{enumerate}
 \end{sol}
 
@@ -735,7 +736,7 @@
 \newpage
 \section*{4.2 定積分}
 
-定積分 $\approx$ 面積：$x$ 軸上方為正，下方為負。
+定積分 $\approx$ （帶符號）面積：$x$ 軸上方為正，下方為負。
 
 \begin{dfn}
   給定 $f:[a,\,b]\to\mathbb{R}$。
@@ -787,7 +788,7 @@
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item $\ds\int_{-\sqrt{2}}^{\sqrt{2}} \sqrt{2 - x^2}\,\mathrm{d}x = \pi$（半徑 $\sqrt{2}$ 之半圓面積）
-    \item $\ds\int_{-1}^2 \sgn(x)\,\mathrm{d}x = 2\cdot 1 - 1\cdot 1 = 1$
+    \item $\ds\int_{-1}^2 \sgn(x)\,\mathrm{d}x = 2\cdot 1 - 1\cdot 1 = 1$ （$\ds\sgn(x)\equiv\begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases}$） 
     \item $\ds\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\mathrm{d}x = 0$（$\sin(x^7-5x^3)$ 為奇函數）
     \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\mathrm{d}x = 0$（$e^{-x^4}\sin(\sin x)$ 為奇函數）
     \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\mathrm{d}x = 0$（$e^{x} - e^{-x}$ 為奇函數）
@@ -807,6 +808,10 @@
   $\ds\sum_{k = 1}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}$。
 \end{fact}
 
+\begin{prf}
+  由 $\ds k(k + 1) = \frac{k(k + 1)(k + 2) - (k - 1)k(k + 1)}{3}$，$\ds\sum_{k = 1}^n k(k + 1) = \frac{n(n+1)(n+2)}{3}$。又 $\ds k^2 = k(k + 1) - k$，$\ds\sum_{k = 1}^n k^2 = \sum_{k = 1}^n \big(k(k + 1) - k\big) = \frac{n(n + 1)(n + 2)}{3} - \frac{n(n + 1)}{2} = \frac{n(n + 1)(2n + 1)}{6}$。 
+\end{prf}
+
 \begin{ex}
   求 $\ds\int_0^1 x^2\,\text{d}x$。
 \end{ex}
@@ -818,6 +823,10 @@
 \begin{fact}
   若 $r\in\mathbb{R}$，$\ds\sum_{k = 0}^n r^k = \frac{r^{n+1} - 1}{r - 1}$。
 \end{fact}
+
+\begin{prf}
+  令 $\ds s = \sum_{k = 0}^n r^k$，則 $\ds r\,s = \sum_{k = 1}^{n + 1} r^k$；$\ds r\,s - s = r^{n + 1} - 1\ie s = \frac{r^{n + 1} - 1}{r - 1}$。 
+\end{prf}
 
 \begin{ex}
   求 $\ds\int_0^1 e^x\,\text{d}x$。
@@ -902,7 +911,7 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 求反導函數後代入：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int\frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u} + c = 4\sqrt{1 + x^2} + c$。故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = 4\sqrt{1 + x^2}\,\Big|_{x = 0}^{x = \sqrt{3}} = 4\sqrt{1 + 3} - 4\sqrt{1} = 4$。
+    \item 求反導函數後代入：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$，故 $\ds\int\!\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int\!\frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u} + c = 4\sqrt{1 + x^2} + c$。故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = 4\sqrt{1 + x^2}\,\Big|_{x = 0}^{x = \sqrt{3}} = 4\sqrt{1 + 3} - 4\sqrt{1} = 4$。
     \item 變數變換並改變積分範圍：令 $\ds u = 1 + x^2$，則 $\ds\text{d}u = 2 x\,\text{d}x\ie 4x\,\text{d}x = 2\,\text{d}u$。積分範圍 $x$ 由 $0$ 至 $\sqrt{3}$，則變數變換後 $u$ 由 $\ds1 + 0^2 = 1$ 至 $\ds1 + (\sqrt{3})^2 = 4$，故 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x = \int_1^4 \frac{2}{\sqrt{u}}\,\text{d}u = 4\sqrt{u}\,\Big|_{u = 1}^{u = 4} = 4\,(\sqrt{4} - \sqrt{1}) = 4$。
   \end{itemize}
 \end{sol}
@@ -926,10 +935,6 @@
 \begin{prf}
   令 $a\in\mathbb{R}$，$\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau$。令 $\ds G(x)\equiv\int_a^x f(\tau)\,\mathrm{d}\tau$，則 $\ds G'(x) = f(x)$，$\ds F(x) = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau = G(u(x)) - G(v(x))$；故 $\ds F'(x) = (G(u(x)) - G(v(x)))' = G'(u(x))\cdot u'(x) - G'(v(x))\cdot v'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。  
 \end{prf}
-
-\begin{rmk}
-
-\end{rmk}
 
 \begin{ex} 
   \begin{enumerate}\setlength\itemsep{0em}
@@ -965,30 +970,124 @@
   $\ds 6 + \int_a^x\frac{f(t)}{t^2}\,\text{d}t = 2\sqrt{x}$ 兩邊對 $x$ 微分得 $\ds\frac{f(x)}{x^2} = \frac{1}{\sqrt{x}}\ie f(x) = x^{\frac{3}{2}}$。代入原式得 $\ds 6 + \int_a^x\frac{t^{\frac{3}{2}}}{t^2}\,\text{d}t = 6 + \int_a^x\frac{1}{\sqrt{t}}\,\text{d}t = 6 + 2\sqrt{t}\,\Big|_a^x = 6 + 2\sqrt{x} - 2\sqrt{a} = 2\sqrt{x} \ie a = 9$。
 \end{sol}
 
-
 \myline
 
 \section*{4.3 積分技巧}
 
 \subsection*{部份分式}
 
-\begin{ex}
-  若 $a\ne 0$，求 $\ds\int\frac{1}{x^2 - a^2}\,\text{d}x$。
+\begin{ex}[動機]
+  若 $a\ne 0$，求 $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x$。
 \end{ex}
 
 \begin{sol}
-  由 $\ds\frac{1}{x^2 - a^2} = \frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)$，$\ds\int\frac{1}{x^2 - a^2}\,\text{d}x = \int\frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)\,\text{d}x = \frac{1}{2a}\big(\ln(x - a) - \ln(x + a)\big)$
+  由 $\ds\frac{1}{x^2 - a^2} = \frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)$，$\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x = \int\frac{1}{2a}\bigg(\frac{1}{x - a} - \frac{1}{x + a}\bigg)\,\text{d}x = \frac{1}{2a}\big(\ln|x - a| - \ln|x + a|\big)$
+\end{sol}
+
+\begin{fact}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item 實係數多項式可分解成不可約的一次及二次因式的乘積。
+    \item 有理式可寫成多項式與真分式之和。
+    \item 若 $\ds\frac{p(x)}{q(x)}$ 為一真分式，$\ds q(x) = (x + a_1)^{m_1}(x + a_2)^{m_2}\cdots(x + a_k)^{m_k}\cdot(x^2 + b_1 x + c_1)^{n_1}(x^2 + b_2 x + c_2)^{n_2}\cdots(x^2 + b_l x + c_l)^{n_l}$，其中 $(x + a_i)$、$(x^2 + b_i x + c_i)$ 均相異，$(x^2 + b_i x + c_i)$ 為不可分解之二次式（$b_i^2 - 4 c_i < 0$），則
+      \begin{align*}
+        \frac{p(x)}{q(x)} \;=\; &\frac{\alpha_{11}}{x + a_1} + \frac{\alpha_{12}}{(x + a_1)^2} + \cdots + \frac{\alpha_{1m_1}}{(x + a_1)^{m_1}} + \\
+        & \frac{\alpha_{21}}{x + a_2} + \frac{\alpha_{22}}{(x + a_2)^2} + \cdots + \frac{\alpha_{2{m_2}}}{(x + a_2)^{m_2}} + \cdots + \\
+        & \frac{\alpha_{k1}}{x + a_k} + \frac{\alpha_{k2}}{(x + a_k)^2} + \cdots + \frac{\alpha_{k{m_k}}}{(x + a_k)^{m_k}} + \\
+        & \frac{\beta_{11} x + \gamma_{11}}{x^2 + b_1 x + c_1} + \frac{\beta_{12} x + \gamma_{12}}{(x^2 + b_1 x + c_1)^2} + \cdots + \frac{\beta_{1n_1} x + \gamma_{1n_1}}{(x^2 + b_1 x + c_1)^{n_1}} + \\
+        & \frac{\beta_{21} x + \gamma_{21}}{x^2 + b_2 x + c_2} + \frac{\beta_{22} x + \gamma_{22}}{(x^2 + b_2 x + c_2)^2} + \cdots + \frac{\beta_{2n_2} x + \gamma_{2n_2}}{(x^2 + b_1 x + c_1)^{n_2}} + \cdots + \\
+        & \frac{\beta_{l1} x + \gamma_{l1}}{x^2 + b_l x + c_l} + \frac{\beta_{l2} x + \gamma_{l2}}{(x^2 + b_l x + c_l)^2} + \cdots + \frac{\beta_{ln_l} x + \gamma_{ln_l}}{(x^2 + b_l x + c_l)^{n_l}}
+      \end{align*}
+      其中 $\ds\alpha_{ij}$，$\ds\beta_{ij}$，$\ds\gamma_{ij}\in\mathbb{R}$。
+
+    %\item 若 $\ds\frac{p(x)}{q(x)}$ 為一真分式，$\ds q(x) = (x + a_1)^{m_1}(x + a_2)^{m_2}\cdots(x + a_k)^{m_k}\cdot(x^2 + b_1 x + c_1)^{n_1}(x^2 + b_2 x + c_2)^{n_2}\cdots(x^2 + b_l x + c_l)^{n_l}$，其中 $(x + a_i)$、$(x^2 + b_i x + c_i)$ 均相異，$(x^2 + b_i x + c_i)$ 為不可分解之二次式（$b_i^2 - 4 c_i < 0$），則 $\ds\frac{p(x)}{q(x)}$ 可表示成 $\ds\frac{p(x)}{q(x)} = \frac{f_1(x)}{(x + a_1)^{m_1}} + \frac{f_2(x)}{(x + a_2)^{m_2}} + \cdots + \frac{f_k(x)}{(x + a_k)^{m_k}} + \frac{g_1(x)}{(x^2 + b_1 x + c_1)^{n_1}} + \frac{g_2(x)}{(x^2 + b_2 x + c_2)^{n_2}} + \cdots + \frac{g_l(x)}{(x^2 + b_l x + c_l)^{n_l}}$，其中 $\ds\degr{f_i(x)} < m_i$，$\ds\degr{g_i(x)} < 2 n_i$：
+    %  \begin{itemize}\setlength\itemsep{0pt}
+    %    \item $\ds\frac{f(x)}{(x + a)^m}$，$\degr{f(x)} < m$ 可表成 $\ds\frac{f(x)}{(x + a)^m} = \frac{\alpha_1}{x + a} + \frac{\alpha_2}{(x + a)^2} + \cdots + \frac{\alpha_m}{(x + a)^m}$，$\alpha_i\in\mathbb{R}$。
+    %    \item $\ds\frac{g(x)}{(x^2 + b x + c)^n}$，$\degr{g(x)} < 2 n$ 可表成 $\ds\frac{g(x)}{(x^2 + b x + c)^n} = \frac{\beta_1 x + \gamma_1}{x^2 + b x + c} + \frac{\beta_2 x + \gamma_2}{(x^2 + b x + c)^2} + \cdots + \frac{\beta_n x + \gamma_n}{(x^2 + b x + c)^n}$，$\beta_i,\;\gamma_i\in\mathbb{R}$。
+    %  \end{itemize}
+
+  \end{enumerate}
+\end{fact}
+
+\begin{rmk} 任一有理函數之積分可分解為多項式積分與以下型式積分：
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item $\ds\int\!\frac{1}{(x + a)^n}\,\text{d}x$，$n\in\mathbb{N}$
+    \item $\ds\int\!\frac{1}{(x^2 + b x + c)^n}\,\text{d}x$，$b^2 - 4 c < 0$，$n\in\mathbb{N}$
+    \item $\ds\int\!\frac{x}{(x^2 + b x + c)^n}\,\text{d}x$，$b^2 - 4 c < 0$，$n\in\mathbb{N}$
+  \end{enumerate}
+\end{rmk}
+
+\begin{ex}
+  求 $\ds\int\!\frac{x}{x^2 - 5x + 6}\,\text{d}x$。
+\end{ex}
+
+\begin{sol}
+  由 $\ds\frac{x}{x^2 - 5x + 6} = \frac{3}{x - 3} - \frac{2}{x - 2}$，$\ds\int\!\frac{x}{x^2 - 5x + 6}\,\text{d}x = \int\bigg(\frac{3}{x - 3} - \frac{2}{x - 2}\bigg)\,\text{d}x = 3\ln|x - 3| - 2\ln|x - 2|$
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\frac{1}{x^3 + 1}\,\text{d}x$。
+\end{ex}
+
+\begin{sol}
+  由 $\ds\frac{1}{x^3 + 1} = \frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)$，$\ds\int\!\frac{1}{x^3 + 1}\,\text{d}x = \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)\,\text{d}x \\= \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{\frac{1}{2}\,(2x - 1) - \frac{3}{2}}{x^2 - x + 1}\bigg)\,\text{d}x = \frac{1}{3}\int\!\frac{1}{x + 1}\,\text{d}x - \frac{1}{6}\int\!\frac{2x - 1}{x^2 - x + 1}\,\text{d}x - \frac{1}{2}\int\!\frac{1}{x^2 - x + 1}\,\text{d}x \\ = \frac{1}{3}\ln|x + 1| - \frac{1}{6}\ln(x^2 - x + 1) - \frac{1}{\sqrt{3}}\tan^{-1}\frac{2x - 1}{\sqrt{3}}$
 \end{sol}
 
 \subsection*{三角函數代換}
 
+\begin{fact}
+  \begin{enumerate}\setlength\itemsep{0pt}
+    \item[]
+    \item 遇 $\ds\sqrt{a^2 - x^2}$，考慮 $\ds x = a\sin\theta \ie \theta = \sin^{-1}\frac{x}{a}$，$\ds\text{d}x = a\cos\theta\,\text{d}\theta$ 
+    \item 遇 $\ds\sqrt{a^2 + x^2}$，考慮 $\ds x = a\tan\theta \ie \theta = \tan^{-1}\frac{x}{a}$，$\ds\text{d}x = a\sec^2\theta\,\text{d}\theta$
+    \item 遇 $\ds\sqrt{x^2 - a^2}$，考慮 $\ds x = a\sec\theta \ie \theta = \sec^{-1}\frac{x}{a}$，$\ds\text{d}x = a\sec\theta\,\tan\theta\,\text{d}\theta$
+    \item 遇 $\ds\sin x$、$\ds\cos x$ 之有理式，考慮 $\ds u = \tan\frac{x}{2}$，由以下化為 $u$ 之有理式：
+      \begin{itemize}\setlength\itemsep{0pt}
+        \item $\ds\sin x = 2\sin\frac{x}{2}\cos\frac{x}{2} = 2\frac{u}{\sqrt{1 + u^2}}\frac{1}{\sqrt{1 + u^2}} = \frac{2 u}{1 + u^2}$
+        \item $\ds\cos x = 2\cos^2\frac{x}{2} - 1 = 2\cdot\frac{1}{1 + u^2} - 1 = \frac{1 - u^2}{1 + u^2}$
+        \item $\ds\text{d}u = \frac{1}{2}\,\sec^2\frac{x}{2}\,\text{d}x \ie \text{d}x = \frac{2}{1 + u^2}\,\text{d}u$
+      \end{itemize}
+  \end{enumerate}
+\end{fact}
+
+\begin{ex} 若 $a\ne 0$，求下列不定積分。
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
+    \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
+    \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
+    \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$，$a > 1$
+  \end{enumerate}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item 令 $\ds x = a\sin\theta$，則 $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = \int\!\sqrt{a^2 - a^2\sin^2\theta}\,a\cos\theta\,\text{d}\theta = a^2\int\!\cos^2\theta\,\text{d}\theta = a^2\int\!\frac{1 + \cos2\theta}{2}\,\text{d}\theta \\ = \frac{a^2}{2}\theta + \frac{a^2}{4}\sin2\theta = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{a^2}{2}\frac{x}{a}\cdot\frac{\sqrt{a^2 - x^2}}{a} = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{x}{2}\sqrt{a^2 - x^2}$。
+      %另解：令 $\ds u = \sqrt{a^2- x^2}$，則 $\ds\mathrm{d}u = -\frac{x}{\sqrt{a^2 - x^2}}\,\mathrm{d}x$；令 $\ds\mathrm{d}v = \mathrm{d}x$，則 $v = x$。故 \\ $\ds\int\!\sqrt{a^2 - x^2}\,\mathrm{d}x = x\sqrt{a^2 - x^2} + \int x\cdot\frac{x}{\sqrt{a^2 - x^2}}\,\mathrm{d}x = x\sqrt{a^2 - x^2} + \int\!\frac{(x^2 - a^2) + a^2}{\sqrt{a^2 - x^2}}\,\mathrm{d}x \\= x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\mathrm{d}x + \int\!\frac{a^2}{\sqrt{a^2 - x^2}}\,\mathrm{d}x = x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\mathrm{d}x + a^2\sin^{-1}\frac{x}{a}$；移項得 $\ds\int\!\sqrt{a^2 - x^2}\,\mathrm{d}x = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\sin^{-1}\frac{x}{a} + c$。
+    \item 令 $\ds x = a\tan\theta$，則 $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{a\sec^2\theta}{a^2\tan^2 x\cdot a\sec\theta}\,\text{d}\theta = \int\!\frac{\sec\theta}{a^2\tan^2\theta}\,\text{d}\theta = \int\!\frac{\cos\theta}{a^2\sin^2\theta}\,\text{d}\theta \\= -\frac{1}{a^2\sin\theta} = -\frac{\sqrt{x^2 + a^2}}{a^2 x}$。
+    \item 令 $\ds x = a\sec\theta$，則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|$。
+    \item 令 $\ds u = \tan\frac{x}{2}$，則 $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x = \int\!\frac{1}{a + \frac{2 u}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = 2\int\!\frac{1}{a u^2 + 2 u + a}\,\text{d}u = \frac{2}{a\sqrt{\frac{a^2 - 1}{a^2}}}\tan^{-1}\frac{{u + \frac{1}{a}}}{\sqrt{\frac{a^2 - 1}{a^2}}} \\ = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a u + 1}{\sqrt{a^2 - 1}} = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a\tan\frac{x}{2} + 1}{\sqrt{a^2 - 1}}$。
+  \end{enumerate}
+\end{sol}
+
 \section*{4.4 瑕積分}
 
-\begin{dfn}[瑕積分]
+\begin{dfn}[瑕積分（improper integral）]
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 若 (i) $f$ 在 $I$ 有無限函數值或 (ii) $I$ 為無限區間，$\ds\int_I f(x)\,\mathrm{d}x$ 稱為瑕積分（improper integral）。
-    \item $\ds\int_{-\infty}^{\infty} f(x)\,\mathrm{d}x = \lim_{\substack{a\to-\infty \\ b\to\infty}}\int_a^b f(x)\,\mathrm{d}x$。
+    \item 無限區間（第一型）瑕積分
+      \begin{itemize}\setlength\itemsep{-1pt}
+        \item 若 $f(x)$ 在 $\ds[a,\,\infty)$ 連續，則 $\ds\int_a^\infty f(x)\,\text{d}x = \lim_{b\to\infty}\int_a^b f(x)\,\text{d}x$。
+        \item 若 $f(x)$ 在 $\ds(-\infty,\,b]$ 連續，則 $\ds\int_{-\infty}^b f(x)\,\text{d}x = \lim_{a\to-\infty}\int_a^b f(x)\,\text{d}x$。
+        \item 若 $f(x)$ 在 $\ds(-\infty,\,\infty)$ 連續，則任取 $c\in\mathbb{R}$，$\ds\int_{-\infty}^\infty f(x)\,\text{d}x = \int_{-\infty}^c f(x)\,\text{d}x + \int_c^{\infty} f(x)\,\text{d}x$。
+        %\item $\ds\int_{-\infty}^{\infty} f(x)\,\mathrm{d}x = \lim_{\substack{a\to-\infty \\ b\to\infty}}\int_a^b f(x)\,\mathrm{d}x$。
+      \end{itemize}
+    \item 不連續點（第二型）瑕積分
+      \begin{itemize}\setlength\itemsep{-1pt}
+        \item 若 $f(x)$ 在 $\ds(a,\,b]$ 連續，則 $\ds\int_a^\infty f(x)\,\text{d}x = \lim_{c\to a+}\int_c^b f(x)\,\text{d}x$。
+        \item 若 $f(x)$ 在 $\ds[a,\,b)$ 連續，則 $\ds\int_a^b f(x)\,\text{d}x = \lim_{c\to b-}\int_a^c f(x)\,\text{d}x$。
+        \item 令 $\ds c\in(a,\,b)$。若 $f(x)$ 在 $\ds[a,\,c)\cup(c, b]$ 連續且在 $x = c$ 不連續，則 $\ds\int_a^b f(x)\,\text{d}x = \int_{a}^c f(x)\,\text{d}x + \int_c^{b} f(x)\,\text{d}x$。
+      \end{itemize}
   \end{itemize}
 \end{dfn}
 
