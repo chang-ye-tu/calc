@@ -379,13 +379,21 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int\!\!x^2\sin x\,\mathrm{d}x$。
+  求 $\ds\int\!x^2\sin x\,\mathrm{d}x$。
 \end{ex}
 
 \begin{sol}
   令 $\ds u = x^2$，則 $\ds\mathrm{d}u = 2x\,\mathrm{d}x$；令 $\ds\mathrm{d}v = \sin x\,\mathrm{d}x$，則 $\ds v = -\cos x$。故 $\ds\int\!x^2\,\sin x\,\mathrm{d}x = x^2\cdot(-\cos x) + 2 \int\!x \cos x\,\mathrm{d}x$。令 $\ds u = x$，則 $\ds\mathrm{d}u = \mathrm{d}x$；令 $\ds\mathrm{d}v = \cos x\,\mathrm{d}x$，則 $\ds v = \sin x$。故 $\ds\int\!x \cos x\,\mathrm{d}x = x\cdot\sin x - \int\!\sin x\,\mathrm{d}x = x\cdot\sin x + \cos x$。由上，$\ds\int\!x^2\sin x\,\mathrm{d}x = -x^2\cos x + 2 (x\sin x + \cos x) + c$。
 \end{sol}
     
+\begin{ex}
+  求 $\ds\int\!\sin^{-1}\sqrt{1 - x^2}\,\mathrm{d}x$，$x > 0$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \sin^{-1}\sqrt{1 - x^2}$，則 $\ds\mathrm{d}u = \frac{1}{\sqrt{1 - \big(\sqrt{1 - x^2}\big)^2}}\cdot\frac{-x}{\sqrt{1 - x^2}}\,\mathrm{d}x = \frac{1}{\sqrt{x^2}}\cdot\frac{-x}{\sqrt{1 - x^2}}\,\mathrm{d}x = \frac{-1}{\sqrt{1 - x^2}}\,\mathrm{d}x$；令 $\ds\mathrm{d}v = \mathrm{d}x$，則 $\ds v = x$。故 $\ds\int\!\sin^{-1}\sqrt{1 - x^2}\,\mathrm{d}x = x\,\sin^{-1}\sqrt{1 - x^2} + \int\!\frac{x}{\sqrt{1 - x^2}}\,\mathrm{d}x = x\,\sin^{-1}\sqrt{1 - x^2} - \sqrt{1 - x^2}$。
+\end{sol}
+
 \begin{ex}
   求 $\ds\int\!e^{ax}\cos bx\,\mathrm{d}x$ 與 $\ds\int\!e^{ax}\sin bx\,\mathrm{d}x$，$a$、$b\ne 0$。
 \end{ex}
@@ -1022,7 +1030,7 @@
 \end{ex}
 
 \begin{sol}
-  由 $\ds\frac{x}{x^2 - 5x + 6} = \frac{3}{x - 3} - \frac{2}{x - 2}$，$\ds\int\!\frac{x}{x^2 - 5x + 6}\,\text{d}x = \int\bigg(\frac{3}{x - 3} - \frac{2}{x - 2}\bigg)\,\text{d}x = 3\ln|x - 3| - 2\ln|x - 2|$
+  $\ds\frac{x}{x^2 - 5x + 6} = \frac{x}{(x - 3)(x - 2)} = \frac{A}{x - 3} + \frac{B}{x - 2} \ie x = A\,(x - 2) + B\,(x - 3)$。代入 $x = 3\ie 3 = A$；代入 $x = 2\ie 2 = B(2 - 3) \ie B = -2$，故 $\ds\frac{x}{x^2 - 5x + 6} = \frac{3}{x - 3} - \frac{2}{x - 2}$，$\ds\int\!\frac{x}{x^2 - 5x + 6}\,\text{d}x = \int\bigg(\frac{3}{x - 3} - \frac{2}{x - 2}\bigg)\,\text{d}x = 3\ln|x - 3| - 2\ln|x - 2|$
 \end{sol}
 
 \begin{ex}
@@ -1030,7 +1038,15 @@
 \end{ex}
 
 \begin{sol}
-  由 $\ds\frac{1}{x^3 + 1} = \frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)$，$\ds\int\!\frac{1}{x^3 + 1}\,\text{d}x = \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)\,\text{d}x \\= \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{\frac{1}{2}\,(2x - 1) - \frac{3}{2}}{x^2 - x + 1}\bigg)\,\text{d}x = \frac{1}{3}\int\!\frac{1}{x + 1}\,\text{d}x - \frac{1}{6}\int\!\frac{2x - 1}{x^2 - x + 1}\,\text{d}x - \frac{1}{2}\int\!\frac{1}{x^2 - x + 1}\,\text{d}x \\ = \frac{1}{3}\ln|x + 1| - \frac{1}{6}\ln(x^2 - x + 1) - \frac{1}{\sqrt{3}}\tan^{-1}\frac{2x - 1}{\sqrt{3}}$
+  $\ds\frac{1}{x^3 + 1} = \frac{1}{(x + 1)(x^2 - x + 1)} = \frac{A}{x + 1} + \frac{B x + C}{x^2 - x + 1} \ie 1 = A\,(x^2 - x + 1) + (B x + C)\,(x + 1)$。代入 $\ds x = -1\ie 1 = A((-1)^2 - (-1) + 1) = 3A \ie A = \frac{1}{3}$；代入 $\ds x = 0\ie 1 = A + C \ie C = \frac{2}{3}$； 代入 $\ds x = 1\ie 1 = A + (B + C)\cdot 2 \ie 1 = \frac{1}{3} + \Big(B + \frac{2}{3}\Big)\cdot 2 \ie B = -\frac{1}{3}$；故 $\ds\frac{1}{x^3 + 1} = \frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)$，$\ds\int\!\frac{1}{x^3 + 1}\,\text{d}x = \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{x - 2}{x^2 - x + 1}\bigg)\,\text{d}x = \int\!\frac{1}{3}\,\bigg(\frac{1}{x + 1} - \frac{\frac{1}{2}\,(2x - 1) - \frac{3}{2}}{x^2 - x + 1}\bigg)\,\text{d}x = \frac{1}{3}\int\!\frac{1}{x + 1}\,\text{d}x - \frac{1}{6}\int\!\frac{2x - 1}{x^2 - x + 1}\,\text{d}x - \frac{1}{2}\int\!\frac{1}{x^2 - x + 1}\,\text{d}x = \frac{1}{3}\ln|x + 1| - \frac{1}{6}\ln(x^2 - x + 1) - \frac{1}{\sqrt{3}}\tan^{-1}\frac{2x - 1}{\sqrt{3}}$
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\frac{1}{\cos^3 x}\,\text{d}x$。
+\end{ex}
+
+\begin{sol}
+  $\ds\int\!\frac{1}{\cos^3 x}\,\text{d}x = \int\!\frac{\cos x}{\cos^4 x}\,\text{d}x = \int\!\frac{\cos x}{(1 - \sin^2 x)^2}\,\text{d}x$。令 $\ds u = \sin x$，則 $\ds\text{d}u = \cos x\,\text{d}x$，則 $\ds\int\!\frac{\cos x}{(1 - \sin^2 x)^2}\,\text{d}x = \int\!\frac{1}{(1 - u^2)^2}\,\text{d}u$。$\ds\frac{1}{(1 - u^2)^2} = \frac{1}{(u - 1)^2(u + 1)^2} = \frac{A}{u - 1} + \frac{B}{(u - 1)^2} + \frac{C}{u + 1} + \frac{D}{(u + 1)^2} \ie 1 = A\,(u - 1)(u + 1)^2 + B\,(u + 1)^2 + C\,(u - 1)^2(u + 1) + D\,(u - 1)^2$。代入 $\ds u = 1\ie 1 = 4B \ie B = \frac{1}{4}$；代入 $\ds u = -1\ie 1 = 4D \ie D = \frac{1}{4}$；代入 $\ds u = 0 \ie 1 = -A + B + C + D \ie 1 = -A + \frac{1}{4} + C + \frac{1}{4} \ie \frac{1}{2} = - A + C$；代入 $\ds u = 2\ie 1 = 9A + 9B + 3C + D \ie 1 = 9A + \frac{9}{4} + 3C + \frac{1}{4} \ie A = -\frac{1}{4},\;C = \frac{1}{4}$；則 $\ds\ds\frac{1}{(1 - u^2)^2} = \frac{1}{4}\,\bigg(\frac{-1}{u - 1} + \frac{1}{(u - 1)^2} + \frac{1}{u + 1} + \frac{1}{(u + 1)^2}\bigg)$，$\ds\int\!\frac{1}{(1 - u^2)^2}\,\text{d}u = \int\!\frac{1}{4}\,\bigg(\frac{-1}{u - 1} + \frac{1}{(u - 1)^2} + \frac{1}{u + 1} + \frac{1}{(u + 1)^2}\bigg)\,\text{d}x = \frac{1}{4}\,\bigg(-\ln|u - 1| - \frac{1}{u - 1} + \ln|u + 1| - \frac{1}{u + 1}\bigg) = \frac{1}{4}\,\bigg(-\ln|\sin x - 1| - \frac{1}{\sin x - 1} + \ln|\sin x + 1| - \frac{1}{\sin x + 1}\bigg)$
 \end{sol}
 
 \subsection*{三角函數代換}
