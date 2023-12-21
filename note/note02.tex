@@ -54,11 +54,36 @@
 \newtheorem*{sol}{解}
 \newtheorem*{prf}{證}
 \newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
 
 %\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
 \newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
 %\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,angles,quotes}
 \usepackage{pgfplots}
@@ -482,6 +507,43 @@
 \begin{sol}
   $\ds f(g(x)) = x$ 兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1 \ie g'(x) = \frac{1}{f'(g(x))} = \frac{1}{1 + (f(g(x)))^2} = \frac{1}{1 + x^2}$。
 \end{sol}
+
+\myline
+
+\begin{exe} 求下列導函數。 
+  \setlength{\columnsep}{5mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds \left((3x^2 + 5)^{-3}\right)' = {\color{C2}\;\frac{-18x}{(3x^2 + 5)^4}}$
+      \item $\ds \left(\frac{1}{(2x - 3)^2}\right)' = {\color{C2}\;\frac{-4}{(2x - 3)^3}}$
+      \item $\ds \left(\frac{1}{x^2 - 4}\right)' = {\color{C2}\;\frac{-2x}{(x^2 - 4)^2}}$
+      \item $\ds \left(\frac{4}{3x^2 - x + 5}\right)' = {\color{C2}\;\frac{4\,(1 - 6x)}{(3x^2 - x + 5)^2}}$
+      \item $\ds \left(\frac{x}{\sqrt{x^2 + 1}}\right)' = {\color{C2}\;\frac{1}{(x^2 + 1)^{\frac{3}{2}}}}$
+      \item $\ds \left(\frac{\sqrt{x + 2}}{\sqrt{x + 1}}\right)' = {\color{C2}\;\frac{-1}{2\sqrt{x + 2}\,(\sqrt{x + 1})^3}}$
+      \item $\ds \left(\frac{x}{x^2 - 1}\right)' = {\color{C2}\;\frac{-(x^2 + 1)}{(x^2 - 1)^2}}$
+      \item $\ds \left(\frac{\sin x}{x}\right)' = {\color{C2}\;\frac{x\cos x - \sin x}{x^2}}$
+      \item $\ds \left(\sin^3(5 x + 4)\right)' = {\color{C2}\;15\sin^2(5 x + 4)\cos(5 x + 4)}$
+      \item $\ds \left(x\sin x\right)' = {\color{C2}\;x\cos x + \sin x}$
+      \item $\ds \left(x^2\cos 2x\right)' = {\color{C2}\;-2x^2\sin 2x + 2x\cos 2x}$
+      \item $\ds \left(x\sin x^2\right)' = {\color{C2}\;\sin x^2 + 2x^2\cos x^2}$
+      \item $\ds \left(\sin^3 x^2\right)' = {\color{C2}\;6x\cdot\sin^2 x^2\cdot\cos x^2}$
+      \item $\ds \left(\sqrt{1 - \sin x^2}\right)' = {\color{C2}\;\frac{-x\cos x^2}{\sqrt{1 - \sin x^2}}}$
+      \item $\ds \left(\tan^{-1}{\frac{x}{2}}\right)' = {\color{C2}\;\frac{2}{x^2 + 4}}$
+      \item $\ds \left(\tan^{-1}{\frac{2}{x}}\right)' = {\color{C2}\;\frac{-2}{x^2 + 4}}$
+      \item $\ds \left(\tan^{-1}{e^{2x}}\right)' = {\color{C2}\;\frac{2e^{2x}}{e^{4x} + 1}}$
+      \item $\ds \left(\ln(\tan^{-1}x)\right)' = {\color{C2}\;\frac{1}{(x^2 + 1)\tan^{-1} x}}$
+      \item $\ds \left(\tan^{-1}{\frac{a + x}{1 - a x}}\right)' = {\color{C2}\;\frac{1}{x^2 + 1}}$
+      \item $\ds \left((\ln(2 x - 1))^3\right)' = {\color{C2}\;\frac{6\,(\ln(2 x - 1))^2}{2 x - 1}}$
+      \item $\ds \left(\ln\cos x\right)' = {\color{C2}\;-\tan x}$
+      \item $\ds \left(\ln\frac{x - 1}{x + 1}\right)' = {\color{C2}\;\frac{2}{x^2 - 1}}$
+      \item $\ds \left(e^{\frac{1}{x}}\right)' = {\color{C2}\;\frac{-e^{\frac{1}{x}}}{x^2}}$
+      \item $\ds \left(e^{\sin 2x}\right)' = {\color{C2}\;2\,e^{\sin 2x}\cos 2x}$
+      \item $\ds \left(3^{\sin\pi x}\right)' = {\color{C2}\;\pi\ln 3\cdot\cos\pi x\cdot 3^{\sin\pi x}}$
+      \item $\ds \left(x^x\right)' = {\color{C2}\;x^x(1 + \ln x)}$
+      \item $\ds \left(x^{\ln x}\right)' = {\color{C2}\;2x^{\ln x - 1}\cdot\ln x}$
+    \end{enumerate} 
+  \end{multicols}
+\end{exe}
 
 %\bibliographystyle{elsarticle-harv}
 %\bibliography{note02}
