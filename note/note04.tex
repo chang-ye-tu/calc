@@ -190,6 +190,20 @@
   \end{multicols}
 \end{ex}
 
+\begin{exe} 求下列不定積分。
+  \setlength{\columnsep}{-2cm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\int\!\frac{x^3 - 1}{x^3}\,\mathrm{d}x {\color{C2}\;= x + \frac{1}{2x^3} + c}$
+      \item $\ds\int\!5 - \frac{1}{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= 5x - 2\sqrt{x} + c}$
+      \item $\ds\int\!(t - 1)(t + 1)\,\mathrm{d}t {\color{C2}\;= \frac{t^3}{3} - t + c}$
+      \item $\ds\int\!(\sqrt{x} + 1)^2\,\mathrm{d}x {\color{C2}\;= \frac{x^2}{2} + x + \frac{4 x^{\frac{3}{2}}}{3} + c}$
+      \item $\ds\int\!x\sqrt{3x}\,\mathrm{d}x {\color{C2}\;= \frac{2\sqrt{3}}{5}\,x^{\frac{5}{2}} + c}$
+      \item $\ds\int\!\frac{1}{x^3} - \frac{1}{x^5}\,\mathrm{d}x {\color{C2}\;= \frac{-1}{2x^2} + \frac{1}{4x^4} + c}$
+      \item $\ds\int\!\sec^2 x - \sec x\tan x\,\mathrm{d}x {\color{C2}\;= \tan x - \sec x + c}$
+    \end{enumerate} 
+  \end{multicols}
+\end{exe}
 \subsection*{變數變換法}
 
 \begin{fact}
@@ -197,8 +211,22 @@
 \end{fact}
 
 \begin{ex}
+  求 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x$。
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}
+    \item[]
+    \item（解一）令 $\ds u = x + 1$，則 $\ds x = u - 1$，$\ds\mathrm{d}u = \mathrm{d}x$。故 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\frac{u - 1}{\sqrt{u}}\,\mathrm{d}u = \int\!u^{\frac{1}{2}} - u^{-\frac{1}{2}}\,\mathrm{d}u = \frac{2}{3}\,u^{\frac{3}{2}} - 2\sqrt{u} + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
+    \item（解二）令 $\ds u = \sqrt{x + 1}$，則 $\ds x = u^2 - 1$，$\ds\mathrm{d}u = \frac{1}{2\sqrt{x + 1}}\,\mathrm{d}x$ $\ie$ $\ds\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = 2\,\mathrm{d}u$。故 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!x\cdot\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!(u^2 - 1)\cdot2\,\mathrm{d}u = \frac{2}{3}\,u^3 - 2u + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
+    \item（解三）$\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\frac{x + 1 - 1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x$。令 $\ds u = x + 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$。故 $\ds\int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!u^{\frac{1}{2}} - u^{-\frac{1}{2}}\,\mathrm{d}u = \frac{2}{3}\,u^{\frac{3}{2}} - 2\sqrt{u} + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
   求 $\ds\int\!\frac{x}{x^2+1}\,\mathrm{d}x$。
 \end{ex}
+
 \begin{sol}
   令 $\ds u = x^2 + 1$，則 $\ds\mathrm{d}u = 2\,x\,\mathrm{d}x$ $\ie$ $\ds x\,\mathrm{d}x=\frac{1}{2}\,\mathrm{d}u$。故 $\ds\int\!\frac{x}{x^2+1}\,\mathrm{d}x = \int\!\frac{1}{x^2+1}\cdot x\,\mathrm{d}x = \int\!\frac{1}{u}\cdot\frac{1}{2}\,\mathrm{d}u = \frac{1}{2}\ln|u| + c = \frac{1}{2}\ln(x^2 + 1) + c$。
 \end{sol}
@@ -295,21 +323,53 @@
   $\ds\int\!\cos^4 ax\,\mathrm{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\cos^2 2ax\big)\,\mathrm{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\mathrm{d}x \\= \int\!\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\mathrm{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
 \end{sol}
  
-\begin{exe} 以變數變換法求下列不定積分，其中 $a\ne b\ne 0$。注意：可能會因為常數項而跟此處答案不同。
+\begin{exe} 以變數變換法求下列不定積分。注意：可能會因為常數項而跟此處答案不同。
   \setlength{\columnsep}{-2cm}
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
-      \item $\ds\int e^{2x}\sin{e^{2x}}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}\,\cos{e^{2x}} + c}$
-      \item $\ds\int x e^{-\frac{x^2}{2}}\,\mathrm{d}x {\color{C2}\;= -e^{-\frac{x^2}{2}} + c}$
+      \item $\ds\int\!\frac{1}{\sqrt{2 x - 1}}\,\mathrm{d}x {\color{C2}\;= \sqrt{2x - 1} + c}$
+      \item $\ds\int\!\sqrt{7x + 4}\,\mathrm{d}x {\color{C2}\;= \frac{2}{21}\,(7x + 4)^{\frac{3}{2}} + c}$
+      \item $\ds\int\!\sin(3x - 1)\,\mathrm{d}x {\color{C2}\;= \frac{-\cos(3x - 1)}{3} + c}$
+      \item $\ds\int\!e^{\pi x - 1}\,\mathrm{d}x {\color{C2}\;= \frac{e^{\pi x - 1}}{\pi} + c}$
+      \item $\ds\int\!(x^2 - 2x + 1)^{\frac{1}{3}}\,\mathrm{d}x {\color{C2}\;= \frac{3}{5}\,(x - 1)^{\frac{5}{3}} + c}$
+      \item $\ds\int\!\sin 3x\cos 3x\,\mathrm{d}x {\color{C2}\;= \frac{\sin^2 3x}{6} + c}$
+      \item $\ds\int\!\frac{\cos 3x}{\sin^2 3x}\,\mathrm{d}x {\color{C2}\;= \frac{-1}{3\sin 3x} + c}$
+      \item $\ds\int\!\frac{x}{\sqrt{1 + 2x^2}}\,\mathrm{d}x {\color{C2}\;= \frac{\sqrt{1 + 2x^2}}{2} + c}$
+      \item $\ds\int\!x^2\sqrt{1 - x}\,\mathrm{d}x {\color{C2}\;= -\frac{2\,(1 - x)^{\frac{3}{2}}}{3} + \frac{4\,(1 - x)^{\frac{5}{2}}}{5} - \frac{2\,(1 - x)^{\frac{7}{2}}}{7}}$
+    \end{enumerate} 
+  \end{multicols}
+\end{exe}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 令 $u = 2x - 1$，則 $\ds\text{d}u = 2\,\text{d}x\ie \text{d}x = \frac{1}{2}\,\text{d}u$。故 $\ds\int\!\frac{1}{\sqrt{2 x - 1}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{u}}\cdot\frac{1}{2}\,\text{d}u = \sqrt{u} + c = \sqrt{2 x - 1} + c$。
+    \item 令 $u = 7x + 4$，則 $\ds\text{d}u = 7\,\text{d}x\ie \text{d}x = \frac{1}{7}\,\text{d}u$。故 $\ds\int\!\sqrt{7 x + 4}\,\mathrm{d}x = \int\!\sqrt{u}\cdot\frac{1}{7}\,\text{d}u = \frac{1}{7}\cdot\frac{2}{3}\,u^{\frac{3}{2}} + c = \frac{2}{21}\,(7 x + 4)^{\frac{3}{2}} + c$。
+    \item 令 $u = 3x - 1$，則 $\ds\text{d}u = 3\,\text{d}x\ie \text{d}x = \frac{1}{3}\,\text{d}u$。故 $\ds\int\!\sin(3 x - 1)\,\mathrm{d}x = \int\!\sin{u}\cdot\frac{1}{3}\,\text{d}u = -\frac{1}{3}\,\cos{u} + c = \frac{-\cos(3x - 1)}{3} + c$。
+    \item 令 $u = \pi x - 1$，則 $\ds\text{d}u = \pi\,\text{d}x\ie \text{d}x = \frac{1}{\pi}\,\text{d}u$。故 $\ds\int\!e^{\pi x - 1}\,\mathrm{d}x = \int\!e^u\cdot\frac{1}{\pi}\,\text{d}u = \frac{1}{\pi}\,e^{u} + c = \frac{e^{\pi x - 1}}{\pi} + c$。
+    \item 令 $\ds u = x - 1$，則 $\ds\text{d}u = \text{d}x$。故 $\ds\int\!(x^2 - 2x + 1)^{\frac{1}{3}}\,\mathrm{d}x = \int\!(x - 1)^\frac{2}{3}\,\text{d}x = \int\!u^\frac{2}{3}\,\text{d}u = \frac{3}{5}\,u^\frac{5}{3} + c = \frac{3}{5}\,(x - 1)^\frac{5}{3} + c$。
+    \item 令 $\ds u = \sin 3x$，則 $\ds\text{d}u = 3\cos 3x\,\text{d}x\ie\cos 3x\,\text{d}x = \frac{1}{3}\,\text{d}u$。故 $\ds\int\!\sin 3x\cos 3x\,\mathrm{d}x = \int\!u\cdot\frac{1}{3}\,\text{d}u = \frac{1}{3}\cdot\frac{1}{2}\,u^2 + c = \frac{\sin^2 3x}{6} + c$。
+    \item 令 $\ds u = \sin 3x$，則 $\ds\text{d}u = 3\cos 3x\,\text{d}x\ie\cos 3x\,\text{d}x = \frac{1}{3}\,\text{d}u$。故 $\ds\int\!\frac{\cos 3x}{\sin^2 3x}\,\mathrm{d}x = \int\!\frac{1}{u^2}\cdot\frac{1}{3}\,\text{d}u = -\frac{1}{3}\cdot\frac{1}{u} + c = -\frac{1}{3\sin 3x} + c$。
+    \item 令 $\ds u = 1 + 2x^2$，則 $\ds\text{d}u = 4x\,\text{d}x\ie x\,\text{d}x = \frac{1}{4}\,\text{d}u$。故 $\ds\int\!\frac{x}{\sqrt{1 + 2x^2}}\,\mathrm{d}x = \int\!\frac{1}{\sqrt{1 + 2x^2}}\cdot x\,\mathrm{d}x = \int\!\frac{1}{\sqrt{u}}\cdot\frac{1}{4}\,\text{d}u = \frac{1}{4}\cdot 2\,u^\frac{1}{2} + c = \frac{\sqrt{1 + 2x^2}}{2} + c$。
+    \item 令 $\ds u = \sqrt{1 - x}$，則 $\ds u^2 = 1 - x\ie x = 1 - u^2$，$\text{d}x = -2\,u\,\text{d}u$。故 $\ds\int\!x^2\sqrt{1 - x}\,\mathrm{d}x = \int\!(1 - u^2)^2\cdot u\cdot(-2)\,u\,\mathrm{d}u = -2\int\!(1 - u^2)^2\cdot u^2\,\text{d}u = -2\int\!\big(u^2 - 2u^4 + u^6\big)\,\text{d}u = -\frac{2\,u^3}{3} + \frac{4\,u^5}{5} - \frac{2\,u^7}{7} + c = -\frac{2\,(1 - x)^{\frac{3}{2}}}{3} + \frac{4\,(1 - x)^{\frac{5}{2}}}{5} - \frac{2\,(1 - x)^{\frac{7}{2}}}{7}$。
+  \end{enumerate}
+\end{sol}
+
+\begin{exe} 以變數變換法求下列不定積分，其中 $a\ne b\ne 0$。注意：可能會因為常數項而跟此處答案不同。
+  \setlength{\columnsep}{-1cm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\int\!e^{2x}\sin{e^{2x}}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}\,\cos{e^{2x}} + c}$
+      \item $\ds\int\!x e^{-\frac{x^2}{2}}\,\mathrm{d}x {\color{C2}\;= -e^{-\frac{x^2}{2}} + c}$
       \item $\ds\int\!\frac{\sin{\sqrt{x}}}{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= -2\cos{\sqrt{x}} + c}$
-      \item $\ds\int x^2 2^{x^3 + 1}\,\mathrm{d}x {\color{C2}\;= \frac{2^{x^3 + 1}}{3\ln 2} + c}$
+      \item $\ds\int\!x^2 2^{x^3 + 1}\,\mathrm{d}x {\color{C2}\;= \frac{2^{x^3 + 1}}{3\ln 2} + c}$
       \item $\ds\int\!\frac{\ln x}{x}\,\mathrm{d}x {\color{C2}\;= \frac{1}{2}\,(\ln x)^2 + c}$
       \item $\ds\int\!\frac{x + 1}{\sqrt{x^2 + 2x + 3}}\,\mathrm{d}x {\color{C2}\;= \sqrt{x^2 + 2x + 3} + c}$
       \item $\ds\int\!\frac{x^2}{2 + x^6}\,\mathrm{d}x {\color{C2}\;= \frac{1}{3\sqrt{2}}\tan^{-1}{\frac{x^3}{\sqrt{2}}} + c}$
       \item $\ds\int\!\frac{1}{e^x + e^{-x}}\,\mathrm{d}x {\color{C2}\;= \tan^{-1}{e^{x}} + c}$
       \item $\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\mathrm{d}x {\color{C2}\;= -\sqrt{1 - x^2} + \sin^{-1} x + c}$
       \item $\ds\int\!\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\mathrm{d}x {\color{C2}\;= \sin^{-1}(\tan{x}) + c}$
-      \item $\ds\int\!\sin^4 x\cos^5 x\,\mathrm{d}x {\color{C2}\;= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c}$
+      \item $\ds\int\!\sin^4 x\cos^5 x\,\mathrm{d}x {\color{C2}\;= \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9}}$
       \item $\ds\int\!\sin^2 x\cos^2 x\,\mathrm{d}x {\color{C2}\;= \frac{x}{8} - \frac{\sin 4x}{32} + c}$
       \item $\ds\int\!\sin^{-\frac{2}{3}} x\cos^3 x\,\mathrm{d}x {\color{C2}\;= 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c}$
       \item $\ds\int\!\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\mathrm{d}x {\color{C2}\;= \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c}$
