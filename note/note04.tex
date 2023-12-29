@@ -184,7 +184,7 @@
       \item $\ds\int\!\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$
       \item $\ds\int\!\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
       \item $\ds\int\!\big(\frac{\pi}{x} - e^{\pi x}\big)\,\text{d}u = \pi\ln x - \frac{e^{\pi x}}{\pi} + c$
-      \item $\ds\int\!\frac{2 + x^2}{1 + x^2}\,\text{d}u = x + 2\,\tan^{-1}x + c$
+      \item $\ds\int\!\frac{3 + x^2}{1 + x^2}\,\text{d}u = x + 2\,\tan^{-1}x + c$
       %\item[\vspace{\fill}]
     \end{enumerate} 
   \end{multicols}
@@ -218,8 +218,8 @@
   \begin{itemize}
     \item[]
     \item（解一）令 $\ds u = x + 1$，則 $\ds x = u - 1$，$\ds\mathrm{d}u = \mathrm{d}x$。故 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\frac{u - 1}{\sqrt{u}}\,\mathrm{d}u = \int\!u^{\frac{1}{2}} - u^{-\frac{1}{2}}\,\mathrm{d}u = \frac{2}{3}\,u^{\frac{3}{2}} - 2\sqrt{u} + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
-    \item（解二）令 $\ds u = \sqrt{x + 1}$，則 $\ds x = u^2 - 1$，$\ds\mathrm{d}u = \frac{1}{2\sqrt{x + 1}}\,\mathrm{d}x$ $\ie$ $\ds\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = 2\,\mathrm{d}u$。故 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!x\cdot\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!(u^2 - 1)\cdot2\,\mathrm{d}u = \frac{2}{3}\,u^3 - 2u + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
-    \item（解三）$\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\frac{x + 1 - 1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x$。令 $\ds u = x + 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$。故 $\ds\int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!u^{\frac{1}{2}} - u^{-\frac{1}{2}}\,\mathrm{d}u = \frac{2}{3}\,u^{\frac{3}{2}} - 2\sqrt{u} + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
+    \item（解二）$\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\frac{x + 1 - 1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x$。令 $\ds u = x + 1$，則 $\ds\mathrm{d}u = \mathrm{d}x$。故 $\ds\int\!\sqrt{x + 1} - \frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!u^{\frac{1}{2}} - u^{-\frac{1}{2}}\,\mathrm{d}u = \frac{2}{3}\,u^{\frac{3}{2}} - 2\sqrt{u} + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
+    \item（解三）令 $\ds u = \sqrt{x + 1}$，則 $\ds x = u^2 - 1$，$\ds\mathrm{d}u = \frac{1}{2\sqrt{x + 1}}\,\mathrm{d}x$ $\ie$ $\ds\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = 2\,\mathrm{d}u$。故 $\ds\int\!\frac{x}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!x\cdot\frac{1}{\sqrt{x + 1}}\,\mathrm{d}x = \int\!(u^2 - 1)\cdot2\,\mathrm{d}u = \frac{2}{3}\,u^3 - 2u + c = \frac{2}{3}\,(x + 1)^{\frac{3}{2}} - 2\sqrt{x + 1} + c$。
   \end{itemize}
 \end{sol}
 
