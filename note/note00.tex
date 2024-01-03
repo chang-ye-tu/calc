@@ -69,6 +69,8 @@
 }
 \usepackage{datetime2}
 
+\usepackage{multicol}
+
 \begin{document}
 \title{\texorpdfstring{\vspace{-2em} 第零章\ \ 預備知識}{第零章\ \ 預備知識}} 
 \author{\vspace{-5em}}
@@ -158,23 +160,29 @@
 \subsection*{不等式}
 \begin{prp}
   令 $a, b, c\in\mathbb{R}$。
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds a < b \ie a + c < b + c$
-    \item $\ds a < b, \,c < d \ie a + c < b + d$
-    \item $\ds a < b, \,c > 0 \ie a c < b c$
-    \item $\ds a < b, \,c < 0 \ie a c > b c$
-    \item $\ds0 < a < b \ie \frac{1}{a} > \frac{1}{b}$
-  \end{itemize}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds a < b \ie a + c < b + c$
+      \item $\ds a < b, \,c < d \ie a + c < b + d$
+      \item $\ds a < b, \,c > 0 \ie a c < b c$
+      \item $\ds a < b, \,c < 0 \ie a c > b c$
+      \item $\ds0 < a < b \ie \frac{1}{a} > \frac{1}{b}$
+    \end{enumerate}
+  \end{multicols}
 \end{prp}
 
 \begin{ex}
   解下列不等式。
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item $\ds 2x - 3 < x + 4 < 3 x - 2$
-    \item $\ds x^3 > x$
-    \item $\ds (2 - x)(1 - x)^2 x^3 \leqslant 0$
-    \item $\ds -2 < \frac{2x - 3}{x + 1} < 1$
-  \end{enumerate}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds 2x - 3 < x + 4 < 3 x - 2$
+      \item $\ds x^3 > x$
+      \item $\ds (2 - x)(1 - x)^2 x^3 \leqslant 0$
+      \item $\ds -2 < \frac{2x - 3}{x + 1} < 1$
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
@@ -192,22 +200,28 @@
 
 \begin{prp}
   若 $a > 0$，則
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds |x| = a \ifff x = \pm\,a$
-    \item $\ds |x| < a \ifff -a < x < a$
-    \item $\ds |x| > a \ifff x < -a \,\vee\, x > a$
-  \end{itemize}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds |x| = a \ifff x = \pm\,a$
+      \item $\ds |x| < a \ifff -a < x < a$
+      \item $\ds |x| > a \ifff x < -a \,\vee\, x > a$
+    \end{enumerate}
+  \end{multicols}
 \end{prp}
 
 \begin{prp}
   若 $a, b\in\mathbb{R}$，則
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds \sqrt{a^2} = |a|$
-    \item $\ds |a b| = |a|\,|b|$
-    \item $\ds \Big|\frac{b}{a}\Big| = \frac{|b|}{|a|}$
-    \item $\ds |a + b|\leqslant|a| + |b|$
-    \item $\ds \big|\,|a| - |b|\,\big|\leqslant|a - b|$
-  \end{itemize}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds \sqrt{a^2} = |a|$
+      \item $\ds |a b| = |a|\,|b|$
+      \item $\ds \Big|\frac{b}{a}\Big| = \frac{|b|}{|a|}$
+      \item $\ds |a + b|\leqslant|a| + |b|$
+      \item $\ds \big|\,|a| - |b|\,\big|\leqslant|a - b|$
+    \end{enumerate}
+  \end{multicols}
 \end{prp}
 
 \begin{prf}
@@ -220,11 +234,14 @@
 
 \begin{ex}
   解下列不等式與方程式。
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item $\ds |5 - 2x| < 3$
-    \item $\ds \Big|\frac{2 x - 1}{x + 1}\Big| = 3$
-    \item $\ds |x - 1| - |x - 10|\geqslant 5$
-  \end{enumerate}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds |5 - 2x| < 3$
+      \item $\ds \Big|\frac{2 x - 1}{x + 1}\Big| = 3$
+      \item $\ds |x - 1| - |x - 10|\geqslant 5$
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
@@ -244,16 +261,22 @@
     \item $P_1: (x_1, y_1)$ 與 $P_2: (x_2, y_2)$ 之距離為 $\ds \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
     \item 一非鉛直線通過 $P_1: (x_1, y_1)$ 與 $P_2: (x_2, y_2)$，則直線斜率 $m$ 為 $\ds m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}$
     \item 直線方程式表示法
+      \setlength{\columnsep}{-0mm}
+      \begin{multicols}{3}
       \begin{itemize}\setlength\itemsep{0em}
         \item 點斜式： $\ds y - y_1 = m(x - x_1)$
         \item 斜截式： $\ds y = m x + b$
         \item 截距式： $\ds \frac{x}{a} + \frac{y}{b} = 1$
       \end{itemize}
+    \end{multicols}
     \item 兩非鉛直線
-      \begin{itemize}\setlength\itemsep{0em}
-        \item 平行： 斜率相等 
-        \item 垂直： 斜率相乘為 $-1$
-      \end{itemize}
+      \setlength{\columnsep}{-20mm}
+      \begin{multicols}{2}
+        \begin{itemize}\setlength\itemsep{0em}
+          \item 平行： 斜率相等 
+          \item 垂直： 斜率相乘為 $-1$
+        \end{itemize}
+      \end{multicols}
   \end{itemize}
 \end{prp}
 
@@ -365,17 +388,17 @@
   若 $A$，$B\subseteq\mathbb{R}$，則函數 $f: A\to B$ 稱為實數值函數（real-valued function），集合 $\{(x, f(x))\,|\,x\in A\}$ 稱為 $f$ 的圖形（graph）。
 \end{dfn}
 
-\begin{prp}
+\begin{prp}函數 / 圖形判斷法
   \begin{itemize}\setlength\itemsep{0em}
-    \item[]
     \item 垂直線判斷法：函數圖形 $\ifff$ 任一垂直線與其至多交於一點
     \item 水平線判斷法：嵌射圖形 $\ifff$ 任一水平線與其至多交於一點
   \end{itemize}
 \end{prp}
 
-\begin{prp}
+\begin{prp}變換後圖形方程式
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
   \begin{itemize}\setlength\itemsep{0em}
-    \item[]
     \item 垂直平移： $y = f(x) + h$
     \item 水平平移： $y = f(x + h)$
     \item 垂直伸縮： $y = c\,f(x)$
@@ -383,6 +406,7 @@
     \item $y = -f(x)$ 為 $y = f(x)$ 對 $x$ 軸的鏡射。
     \item $y = f(-x)$ 為 $y = f(x)$ 對 $y$ 軸的鏡射。
   \end{itemize}
+\end{multicols}
 \end{prp}
 
 \section*{0.5 函數範例}
@@ -437,17 +461,19 @@
   若函數 $f$ 為嵌射，則其反函數 $f^{-1}:\ran f\to\dom f$ 定義為 $f^{-1}(b) = a \ifff f(a) = b$，其中 $a\in\dom f$，$b\in\ran f$。
 \end{dfn}
 
-\begin{prp}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $f^{-1}(y) = x \ifff f(x) = y$
-    \item $\dom f^{-1} = \ran f$，$\ran f^{-1} = \dom f$
-    \item $\ds f^{-1}(x) \not= \frac{1}{f(x)} = (f(x))^{-1}$
-    \item $(f^{-1}\circ f)(x) = x$，$\forall\,x\in\dom f$
-    \item $(f\circ f^{-1})(y) = y$，$\forall\,y\in\dom f^{-1} = \ran f$
-    \item $y = f(x)$ 與 $y = f^{-1}(x)$ 之圖形對 $y = x$ 對稱。
-    \item 若 $f$ 為嚴格遞增或嚴格遞減函數，則 $f$ 為嵌射 $\ie$ 存在 $f^{-1}$。
-  \end{itemize}
+\begin{prp} 反函數常用規則。
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $f^{-1}(y) = x \ifff f(x) = y$
+      \item $\dom f^{-1} = \ran f$，$\ran f^{-1} = \dom f$
+      \item $\ds f^{-1}(x) \not= \frac{1}{f(x)} = (f(x))^{-1}$
+      \item $(f^{-1}\circ f)(x) = x$，$\forall\,x\in\dom f$
+      \item $(f\circ f^{-1})(y) = y$，$\forall\,y\in\dom f^{-1} = \ran f$
+      \item $y = f(x)$ 與 $y = f^{-1}(x)$ 之圖形對 $y = x$ 對稱。
+      \item 若 $f$ 為嚴格遞增或嚴格遞減函數，則 $f$ 為嵌射 $\ie$ 存在 $f^{-1}$。
+    \end{enumerate}
+  \end{multicols}
 \end{prp}
 
 \myline
@@ -460,13 +486,15 @@
   \end{itemize}
 \end{ex}
 
-\begin{ex}
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item[]
-    \item 求 $f(x) = x^3 + 2$ 的反函數。
-    \item 求 $f(x) = x^2$，$x\geqslant 0$ 的反函數。若 $x\leqslant 0$ 時？
-    \item 求 $\ds f(x) = \frac{1 + 9 x}{4 - x}$，$x < 4$ 的反函數。
-  \end{enumerate}
+\begin{ex} 求反函數。
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item 求 $f(x) = x^3 + 2$ 的反函數。
+      \item 求 $f(x) = x^2$，$x\geqslant 0$ 的反函數。若 $x\leqslant 0$ 時？
+      \item 求 $\ds f(x) = \frac{1 + 9 x}{4 - x}$，$x < 4$ 的反函數。
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol} 
@@ -491,14 +519,17 @@ $y = f(x) = a^x$，$a > 0\,\wedge a\not=1$。
 \end{figure}
 
 \begin{prp} 若 $a$，$b > 0$，$x$，$y\in\mathbb{R}$，則
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds a^x\cdot a^y = a^{x + y}$
-    \item $\ds a^{-x} = \frac{1}{a^x}$
-    \item $\ds\frac{a^x}{a^y} = a^{x - y}$
-    \item $\ds (a^x)^y = a^{xy} = (a^y)^x$
-    \item $\ds a^x\cdot b^x = (ab)^x$
-    \item $\ds\frac{a^x}{b^x} = \Big(\frac{a}{b}\Big)^x$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds a^x\cdot a^y = a^{x + y}$
+      \item $\ds a^{-x} = \frac{1}{a^x}$
+      \item $\ds\frac{a^x}{a^y} = a^{x - y}$
+      \item $\ds (a^x)^y = a^{xy} = (a^y)^x$
+      \item $\ds a^x\cdot b^x = (ab)^x$
+      \item $\ds\frac{a^x}{b^x} = \Big(\frac{a}{b}\Big)^x$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \section*{0.9 對數函數}
@@ -513,28 +544,37 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 \end{figure}
 
 \begin{prp} 給定 $a > 0\,\wedge a\not=1$，$x > 0$，$y\in\mathbb{R}$。
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\log_a x = y \ifff a^y = x$
-    \item $\ds\log_a a^y = y$
-    \item $\ds a^{\log_a x} = x$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\log_a x = y \ifff a^y = x$
+      \item $\ds\log_a a^y = y$
+      \item $\ds a^{\log_a x} = x$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{prp} 給定 $b > 0$，$x > 0$，$a > 0\,\wedge a\not=1$，$c > 0\,\wedge c\not=1$，$r\in\mathbb{R}$。
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\log_a b\,x = \log_a b + \log_a x$
-    %\item $\ds\log_a\frac{b}{x} = \log_a b - \log_a x$
-    \item $\ds\log_a x^r = r\log_a x$
-    \item $\ds\log_a x = \frac{\log_c x}{\log_c a}$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\log_a b\,x = \log_a b + \log_a x$
+      %\item $\ds\log_a\frac{b}{x} = \log_a b - \log_a x$
+      \item $\ds\log_a x^r = r\log_a x$
+      \item $\ds\log_a x = \frac{\log_c x}{\log_c a}$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{ex} 解下列 $x$ 的方程式與不等式。
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item $\ds\log_{10} x + \log_{10}(x - 21) = 2$
-    \item $\ds\log_2\big(x^2 - 2x - 2\big)\leqslant 0$
-    \item $\ds 3^{\log_3 7} - 4^{\log_4 2} = 5^{\log_5 x - \log_5 x^2}$
-  \end{enumerate}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds\log_{10} x + \log_{10}(x - 21) = 2$
+      \item $\ds\log_2\big(x^2 - 2x - 2\big)\leqslant 0$
+      \item $\ds 3^{\log_3 7} - 4^{\log_4 2} = 5^{\log_5 x - \log_5 x^2}$
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
@@ -608,7 +648,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
           \draw (16 / 5, 12 / 5) coordinate (a) -- (5, 0) coordinate (b) -- (16 / 5, 0) coordinate (c) pic ["$\beta$",draw,<->,angle radius=9mm] {angle = a--b--c};
         \end{tikzpicture}
       \end{figure}
-      \newpage
+      %\newpage
     \item 銳角三角函數
       \begin{figure}[!htbp]
         \centering
@@ -657,36 +697,47 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
   \end{itemize}
 \end{dfn}
 
-\begin{prp}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $\sin(-\alpha) = -\sin\alpha$，$\cos(-\alpha) = \cos\alpha$。
-    \item $\forall\,n\in\mathbb{Z}$： $\sin n\pi = 0$，$\cos n\pi = (-1)^n$。
-    \item $\sin^2\alpha + \cos^2\alpha = 1$，$\tan^2\alpha + 1 = \sec^2\alpha$，$\cot^2\alpha + 1 = \csc^2\alpha$。
-  \end{itemize}
+\begin{prp} 常用規則
+  \setlength{\columnsep}{-30mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\sin(-\alpha) = -\sin\alpha$，$\cos(-\alpha) = \cos\alpha$。
+      \item $\forall\,n\in\mathbb{Z}$： $\sin n\pi = 0$，$\cos n\pi = (-1)^n$。
+      \item $\sin^2\alpha + \cos^2\alpha = 1$，$\tan^2\alpha + 1 = \sec^2\alpha$，$\cot^2\alpha + 1 = \csc^2\alpha$。
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{prp} 和角公式（addition formula） 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\sin(\alpha\pm\beta) = \sin\alpha\cos\beta\pm\cos\alpha\sin\beta$
-    \item $\cos(\alpha\pm\beta) = \cos\alpha\cos\beta\mp\sin\alpha\sin\beta$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\sin(\alpha\pm\beta) = \sin\alpha\cos\beta\pm\cos\alpha\sin\beta$
+      \item $\cos(\alpha\pm\beta) = \cos\alpha\cos\beta\mp\sin\alpha\sin\beta$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{prp} 兩倍角公式 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds\sin 2\alpha = 2\sin\alpha\cos\alpha$
-    \item $\ds\cos 2\alpha = \cos^2\alpha - \sin^2\alpha$
-    \item $\ds\cos^2 x = \frac{1 + \cos 2x}{2}$，$\ds\sin^2 x = \frac{1 - \cos 2x}{2}$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\sin 2\alpha = 2\sin\alpha\cos\alpha$
+      \item $\ds\cos 2\alpha = \cos^2\alpha - \sin^2\alpha$
+      \item $\ds\cos^2 x = \frac{1 + \cos 2x}{2}$，$\ds\sin^2 x = \frac{1 - \cos 2x}{2}$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{prp} 積化和差公式 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\ds\sin\alpha\cos\beta = \frac{1}{2}\,\big(\sin(\alpha - \beta) + \sin(\alpha + \beta)\big)$
-    \item $\ds\cos\alpha\cos\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) + \cos(\alpha + \beta)\big)$
-    \item $\ds\sin\alpha\sin\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) - \cos(\alpha + \beta)\big)$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\sin\alpha\cos\beta = \frac{1}{2}\,\big(\sin(\alpha - \beta) + \sin(\alpha + \beta)\big)$
+      \item $\ds\cos\alpha\cos\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) + \cos(\alpha + \beta)\big)$
+      \item $\ds\sin\alpha\sin\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) - \cos(\alpha + \beta)\big)$
+    \end{itemize}
+  \end{multicols}
 \end{prp}
 
 \begin{prf}[和角公式]
@@ -782,11 +833,16 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 
 \newpage
 
-\begin{ex} 
-  \begin{align*}
-    &\sin^{-1}\frac{\sqrt{3}}{2} = \frac{\pi}{3}\qquad &\cos^{-1}\frac{-1}{2} = \frac{2\pi}{3}\quad\text{（$[0,\,\pi]$ 對稱）}\\
-    &\tan^{-1}1 = \frac{\pi}{4}\qquad&\cos\big(\sin^{-1}\frac{3}{5}\big) = \frac{4}{5}\qquad\qquad
-  \end{align*}
+\begin{ex} 基本反三角函數求值。
+  \setlength{\columnsep}{-5mm}
+  \begin{multicols}{4}
+  \begin{enumerate}
+    \item $\ds\sin^{-1}\frac{\sqrt{3}}{2} = \frac{\pi}{3}$
+    \item $\ds\cos^{-1}\Big(-\frac{1}{2}\Big) = \frac{2\pi}{3}$%\quad\text{（$[0,\,\pi]$ 對稱）}$
+    \item $\ds\tan^{-1}1 = \frac{\pi}{4}$ 
+    \item $\ds\cos\Big(\sin^{-1}\frac{3}{5}\Big) = \frac{4}{5}$
+  \end{enumerate}
+\end{multicols}
 \end{ex}
 
 \begin{ex}
@@ -850,20 +906,25 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 \end{sol}
 
 \begin{ex} 化簡以下表示式。
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $\cos(\sin^{-1} x)$
-    \item $\sin(\tan^{-1} x)$
-    \item $\sin(2\tan^{-1} x)$
-  \end{itemize}
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\cos(\sin^{-1} x)$
+      \item $\sin(\tan^{-1} x)$
+      \item $\sin(2\tan^{-1} x)$
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol} 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
+  \setlength{\columnsep}{-0mm}
+  \begin{multicols}{3}
+  \begin{enumerate}\setlength\itemsep{0em}
     \item $\ds\cos(\sin^{-1} x) = \sqrt{1 - x^2}$
     \item $\ds\sin(\tan^{-1} x) = \frac{x}{\sqrt{1 + x^2}}$
     \item $\ds\sin(2\tan^{-1} x) = \frac{2x}{1 + x^2}$
-  \end{itemize}
+  \end{enumerate}
+  \end{multicols}
 \end{sol}
 
 \begin{ex}

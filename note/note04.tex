@@ -1069,11 +1069,14 @@
 
 \begin{ex}
   求下列極限。
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\ds\lim_{x\to 0}\frac{\int_0^x(\sec t - 1)\,\text{d}t}{x^3}$
-    \item $\ds\lim_{x\to\infty}\frac{\int_{x^2}^0 e^{t - x^2}(2 t^2 + 1)\,\text{d}t}{x^4}$
-    \item $\ds\lim_{x\to 0}\frac{1}{x}\int_0^{\tan x}f(u)(\sin x - \cos u)\,\text{d}u$，$f$ 為連續函數
-  \end{enumerate}
+  \setlength{\columnsep}{-35mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\lim_{x\to 0}\frac{\int_0^x(\sec t - 1)\,\text{d}t}{x^3}$
+      \item $\ds\lim_{x\to\infty}\frac{\int_{x^2}^0 e^{t - x^2}(2 t^2 + 1)\,\text{d}t}{x^4}$
+      \item $\ds\lim_{x\to 0}\frac{1}{x}\int_0^{\tan x}f(u)(\sin x - \cos u)\,\text{d}u$，$f$ 為連續函數
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
@@ -1178,12 +1181,15 @@
 \end{fact}
 
 \begin{ex} 若 $a\ne 0$，求下列不定積分。
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
-    \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
-    \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
-    \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$，$a > 1$
-  \end{enumerate}
+  \setlength{\columnsep}{-4mm}
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$，$a > 1$
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
@@ -1273,13 +1279,16 @@
 
 \begin{ex}[$\Gamma$ 函數]
   已知 $\ds\int_0^\infty\!e^{-t^2}\,\mathrm{d}t = \frac{\sqrt{\pi}}{2}$。
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item 證明 $\ds\Gamma(x)\equiv\int_0^\infty\!t^{x - 1}e^{-t}\,\mathrm{d}t$ 收斂，$\ds\forall\,x > 0$。
-    \item 證明 $\ds\Gamma(x + 1) = x\,\Gamma(x)$，$\ds\forall\,x > 0$。
-    \item 證明 $\ds\Gamma(n + 1) = n!$，$\ds\forall\,n\in\mathbb{N}$。
-    \item 求 $\ds\Gamma\Big(\frac{1}{2}\Big)$ 與 $\ds\Gamma\Big(\frac{3}{2}\Big)$。
-    \item 求 $\ds\int_0^\infty\!t\,e^{-\alpha\,t^2}\,\mathrm{d}t$ 與 $\ds\int_0^\infty\!t^2\,e^{-\alpha\,t^2}\,\mathrm{d}t$，$\alpha > 0$。
-  \end{enumerate}
+  \setlength{\columnsep}{-2mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item 證明 $\ds\Gamma(x)\equiv\int_0^\infty\!t^{x - 1}e^{-t}\,\mathrm{d}t$ 收斂，$\ds\forall\,x > 0$。
+      \item 證明 $\ds\Gamma(x + 1) = x\,\Gamma(x)$，$\ds\forall\,x > 0$。
+      \item 證明 $\ds\Gamma(n + 1) = n!$，$\ds\forall\,n\in\mathbb{N}$。
+      \item 求 $\ds\Gamma\Big(\frac{1}{2}\Big)$ 與 $\ds\Gamma\Big(\frac{3}{2}\Big)$。
+      \item 求 $\ds\int_0^\infty\!t\,e^{-\alpha\,t^2}\,\mathrm{d}t$ 與 $\ds\int_0^\infty\!t^2\,e^{-\alpha\,t^2}\,\mathrm{d}t$，$\alpha > 0$。
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
