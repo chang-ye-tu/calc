@@ -1182,9 +1182,10 @@
 
 \begin{ex} 若 $a\ne 0$，求下列不定積分。
   \setlength{\columnsep}{-4mm}
-  \begin{multicols}{4}
+  \begin{multicols}{3}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
       \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
       \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$，$a > 1$
@@ -1197,6 +1198,8 @@
     \item[]
     \item 令 $\ds x = a\sin\theta$，則 $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = \int\!\sqrt{a^2 - a^2\sin^2\theta}\,a\cos\theta\,\text{d}\theta = a^2\int\!\cos^2\theta\,\text{d}\theta = a^2\int\!\frac{1 + \cos2\theta}{2}\,\text{d}\theta \\ = \frac{a^2}{2}\theta + \frac{a^2}{4}\sin2\theta = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{a^2}{2}\frac{x}{a}\cdot\frac{\sqrt{a^2 - x^2}}{a} = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{x}{2}\sqrt{a^2 - x^2}$。
       %另解：令 $\ds u = \sqrt{a^2- x^2}$，則 $\ds\mathrm{d}u = -\frac{x}{\sqrt{a^2 - x^2}}\,\mathrm{d}x$；令 $\ds\mathrm{d}v = \mathrm{d}x$，則 $v = x$。故 \\ $\ds\int\!\sqrt{a^2 - x^2}\,\mathrm{d}x = x\sqrt{a^2 - x^2} + \int x\cdot\frac{x}{\sqrt{a^2 - x^2}}\,\mathrm{d}x = x\sqrt{a^2 - x^2} + \int\!\frac{(x^2 - a^2) + a^2}{\sqrt{a^2 - x^2}}\,\mathrm{d}x \\= x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\mathrm{d}x + \int\!\frac{a^2}{\sqrt{a^2 - x^2}}\,\mathrm{d}x = x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\mathrm{d}x + a^2\sin^{-1}\frac{x}{a}$；移項得 $\ds\int\!\sqrt{a^2 - x^2}\,\mathrm{d}x = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\sin^{-1}\frac{x}{a} + c$。
+    \item 令 $\ds x = a\sec\theta$，則 $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a^2\tan^2\theta}\,\text{d}\theta = \frac{1}{a}\int\!\frac{1}{\sin\theta}\,\text{d}\theta = \frac{1}{a}\int\!\csc\theta\,\text{d}\theta \\= \frac{1}{a}\int\!\csc\theta\,\frac{\csc\theta + \cot\theta}{\csc\theta + \cot\theta}\,\text{d}\theta = -\frac{1}{a}\int\!\frac{\text{d}(\csc\theta + \cot\theta)}{\csc\theta + \cot\theta} = -\frac{1}{a}\,\ln|\csc\theta + \cot\theta| = -\frac{1}{a}\,\ln\bigg|\frac{x}{\sqrt{x^2 - a^2}} + \frac{a}{\sqrt{x^2 - a^2}}\bigg| = -\frac{1}{a}\ln\bigg|\frac{\sqrt{x + a}}{\sqrt{x - a}}\bigg| = \frac{1}{2a}\ln\bigg|\frac{x - a}{x + a}\bigg|$。
+
     \item 令 $\ds x = a\tan\theta$，則 $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{a\sec^2\theta}{a^2\tan^2 x\cdot a\sec\theta}\,\text{d}\theta = \int\!\frac{\sec\theta}{a^2\tan^2\theta}\,\text{d}\theta = \int\!\frac{\cos\theta}{a^2\sin^2\theta}\,\text{d}\theta \\= -\frac{1}{a^2\sin\theta} = -\frac{\sqrt{x^2 + a^2}}{a^2 x}$。
     \item 令 $\ds x = a\sec\theta$，則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|$。
     \item 令 $\ds u = \tan\frac{x}{2}$，則 $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x = \int\!\frac{1}{a + \frac{2 u}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = 2\int\!\frac{1}{a u^2 + 2 u + a}\,\text{d}u = \frac{2}{a\sqrt{\frac{a^2 - 1}{a^2}}}\tan^{-1}\frac{{u + \frac{1}{a}}}{\sqrt{\frac{a^2 - 1}{a^2}}} \\ = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a u + 1}{\sqrt{a^2 - 1}} = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a\tan\frac{x}{2} + 1}{\sqrt{a^2 - 1}}$。
