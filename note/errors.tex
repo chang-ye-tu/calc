@@ -1,0 +1,74 @@
+\documentclass[12pt]{extarticle} 
+\usepackage{unicode-math}
+\usepackage{amsthm,graphicx,xcolor,natbib,enumitem,booktabs,tabularx}
+\usepackage[margin=1cm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\,\Longrightarrow\,}
+\newcommand{\ifff}{\,\Longleftrightarrow\,}
+\newcommand{\mi}{\mathrm{i}}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,angles,quotes}
+\usepackage{pgfplots}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-15mm}各種謬誤：積分篇}{各種謬誤：積分篇}} 
+\author{\vspace{-4em}}
+\date{\vspace{-4em}}
+
+\maketitle
+
+\begin{ex}
+  \begin{itemize}
+    \item[]
+    \item $\ds\int\frac{\text{d}x}{x^2 - a^2} = -\int\frac{\text{d}x}{a^2 - x^2} = -\int\frac{\text{d}x}{a^2 + (-x^2)} = -\tan^{-1}(-x)$
+    \item $\ds\int\frac{\text{d}x}{x^2 - a^2}$：令 $\ds x = a\sec\theta$，$\ds\text{d}x = a\sec\theta\tan\theta\,\text{d}\theta$。則 $\ds\int\frac{\text{d}x}{x^2 - a^2}\,\text{d}x = \int\frac{a\sec\theta\tan\theta\,\text{d}\theta}{a^2\tan^2\theta} = \frac{1}{a}\int\frac{1}{\sin\theta}\,\text{d}\theta = \frac{1}{a}\ln|\sin\theta|$
+    \item $\ds\int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x$：令 $\ds x^2 = u$，$\ds 2x\,\text{d}x = \text{d}u\ie x\,\text{d}x = \frac{1}{2}\,\text{d}u$。則 $\ds\int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{\frac{1}{2}\,\text{d}u}{\sqrt{1 - u}} = \frac{1}{2}\,\int\frac{\text{d}u}{\sqrt{1 - u}} = \frac{1}{2}\int\frac{\text{d}u}{\sqrt{1 - \big(u^{\frac{1}{2}}\big)^2}} = \frac{1}{2}\sin^{-1}u^{\frac{1}{2}}$
+    \item $\ds\int\cos(\ln x)\,\text{d}x$：令 $\ds\ln x = u$，$\ds\frac{1}{x}\,\text{d}x = \text{d}u\ie \text{d}x = x\,\text{d}u$。則 $\ds\int\cos(\ln x)\,\text{d}x = \int\cos u\cdot x\,\text{d}u = x\sin(\ln x)$ 
+    \item $\ds\int\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int x\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \int x\,\text{d}x\cdot\int\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \frac{x^2}{2}\cdot\sin^{-1}{x}$
+  \end{itemize}
+\end{ex}
+
+
+\end{document}
