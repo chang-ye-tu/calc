@@ -68,6 +68,10 @@
 - [陽交大微積分教學小組](https://calculus.math.nycu.edu.tw/)
   - [微積分甲（一）考古題](https://calculus.math.nycu.edu.tw/exams108-1-all/)
   - [微積分甲（二）考古題](https://calculus.math.nycu.edu.tw/exams108-2-all/)
+- [Ximera](https://ximera.osu.edu/) &nbsp; OSU 開放式數學課程。
+  - [Calculus 1](https://ximera.osu.edu/mooculus/calculus1)
+  - [Calculus 2](https://ximera.osu.edu/mooculus/calculus2)
+  - [Calculus 3](https://ximera.osu.edu/mooculus/calculus3)
 - [MATH24](https://math24.net) &nbsp; 2500+ 微積分詳解題。
   - [Precalculus](https://math24.net/topics-precalculus.html)
   - [Calculus](https://math24.net/topics-calculus.html)

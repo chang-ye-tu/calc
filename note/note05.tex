@@ -1,0 +1,394 @@
+\documentclass[12pt]{extarticle} 
+%\usepackage{unicode-math}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm,footskip=5mm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\langle}
+\newcommand{\rgt}{\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+%\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from clp3
+
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vR}{\mathbf{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vC}{\mathbf{C}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vu}{\mathbf{u}}
+%\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vH}{\mathbf{H}}
+\newcommand{\vT}{\mathbf{T}}
+\newcommand{\vN}{\mathbf{N}}
+\newcommand{\vL}{\mathbf{L}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vD}{\mathbf{D}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\vZero}{\mathbf{0}}
+\newcommand{\vPhi}{\mathbf{\Phi}}
+\newcommand{\vOmega}{\mathbf{\Omega}}
+\newcommand{\vTheta}{\mathbf{\Theta}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+
+%\newcommand{\hi}{\hat{\mathbf{i}}}
+%\newcommand{\hj}{\hat{\mathbf{j}}}
+\newcommand{\hi}{\widehat{\pmb{\imath}}}
+\newcommand{\hj}{\widehat{\pmb{\jmath}}}
+\newcommand{\hk}{\widehat{\mathbf{k}}}
+\newcommand{\hn}{\widehat{\mathbf{n}}}
+\newcommand{\hr}{\widehat{\mathbf{r}}}
+\newcommand{\hvt}{\widehat{\mathbf{t}}}
+\newcommand{\hN}{\widehat{\mathbf{N}}}
+\newcommand{\vth}{{\pmb{\theta}}}
+\newcommand{\vTh}{{\pmb{\Theta}}}
+%\newcommand{\vnabla}{\pmb{\nabla}}
+\newcommand{\vnabla}{   { \mathchoice{\pmb{\nabla}}
+                            {\pmb{\nabla}}
+                            {\pmb{\scriptstyle\nabla}}
+                            {\pmb{\scriptscriptstyle\nabla}} }   }
+\newcommand{\ha}[1]{\mathbf{\hat e}^{(#1)}}
+
+\newcommand{\bbbc}{\mathbb{C}}
+
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\vOm}{\pmb{\Omega}}
+\newcommand{\svOm}{\pmb{\scriptsize\Omega}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\de}{\delta}
+\newcommand{\ga}{\gamma}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\bbbone}{\mathbb{1}}
+
+\def\tr{\mathop{\rm tr}}
+\newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+\newcommand{\dblInt}{\iint}
+\newcommand{\tripInt}{\iiint}
+%\newcommand{\dblInt}{\int\!\!\int}
+%\newcommand{\tripInt}{\int\!\!\!\int\!\!\!\int}
+%\newcommand{\dblInt}{\mathop{\int\!\!\!\int}}
+%\newcommand{\tripInt}{\mathop{\int\!\!\!\int\!\!\!\int}}
+
+\newcommand{\Set}[2]{\big\{ \ #1\ \big|\ #2\ \big\}}
+\newcommand{\rhof}{{\rho_{\!{\scriptscriptstyle f}}}}
+\newcommand{\rhob}{{\rho_{{\scriptscriptstyle b}}}}
+
+\renewcommand{\neg}{ {\sim} }
+\newcommand{\limp}{ {\;\Rightarrow\;} }
+\newcommand{\nimp}{ {\;\not\Rightarrow\;} }
+\newcommand{\liff}{ {\;\Leftrightarrow\;} }
+\newcommand{\niff}{ {\;\not\Leftrightarrow\;} }
+
+\newcommand{\st}{ {\mbox{ s.t. }} }
+\newcommand{\es}{ {\varnothing}}
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+\newcommand{\set}[1]{ \left\{#1\right\} }
+
+\newcommand{\bbbn}{\mathbb{N}}
+\newcommand{\bbbr}{\mathbb{R}}
+\newcommand{\bbbp}{\mathbb{P}}
+\newcommand{\De}{\Delta}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\dee}[1]{\mathrm{d}#1}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{ \frac{\mathrm{d}\hfil#1\hfil}{\mathrm{d}#2}}
+\newcommand{\difftwo}[2]{ \frac{\mathrm{d^2}\hfil#1\hfil}{\mathrm{d}{#2}^2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} 第五章\ \ 偏微分}{第五章\ \ 偏微分}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+\section*{5.1 空間向量}
+
+\begin{dfn}[符號]
+  \begin{itemize}
+    \item[]
+    \item 向量：$\va$，$\vx$
+    \item 分量形式：$\va = \langle a_1,\,a_2,\,a_3 \rangle$，$a_1$、$a_2$、$a_3\in\mathbb{R}$；$\va\in\mathbb{R}^3$。
+    \item 向量長度：$|\va| = |\langle a_1,\,a_2,\,a_3 \rangle| = \sqrt{a_1^2 + a_2^2 + a_3^2}$。
+    \item 卡式座標系單位向量：$\hi = \langle 1,\,0,\,0\rangle$，$\hj = \langle 0,\,1,\,0\rangle$，$\hk = \langle 0,\,0,\,1\rangle$
+  \end{itemize}
+\end{dfn}
+
+\begin{dfn}[內積 / 點積]
+  給定 $n$（$n\geqslant 2$）維向量 $\va = \langle a_1,\,a_2,\,\ldots,\,a_n\rangle$，$\vb = \langle b_1,\,b_2,\,\ldots,\,b_n\rangle$，則 $\va$ 與 $\vb$ 的內積 / 點積（inner product / dot product）定義為 $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$。
+\end{dfn}
+
+\begin{prp} 給定 $\va$，$\vb$，$\vc\in\mathbb{R}^n$，$n\geqslant 2$，$s\in\mathbb{R}$。則
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\va\cdot\vb = |\va|\,|\vb|\,\cos\theta$，$0\leqslant\theta\leqslant\pi$ 為 $\va$ 與 $\vb$ 的夾角。
+  \end{itemize}
+  且
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\cdot\va = |\va|^2$
+      \item $\va\cdot\vb = \vb\cdot\va$
+      \item $(s\va)\cdot\vb = s(\va\cdot\vb)$
+      \item $\vZero\cdot a = 0$
+      \item $\va\cdot\vb = 0\ifff\va=\vZero\;\vee\;\vb = \vZero\;\vee\;\va\,\bot\,\vb$
+      \item $\va\cdot(\vb + \vc) = \va\cdot\vb + \va\cdot\vc$，$(\va + \vb)\cdot\vc = \va\cdot\vc + \vb\cdot\vc$
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+
+\begin{prf}
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=1,page=1]{fig/cosineB.pdf}
+  \end{figure}
+  由上圖，$\ds|\va-\vb|^2 = \big(|\vb|-|\va|\,\cos\theta\big)^2 + \big(|\va|\sin\theta\big)^2 = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2\cos^2\theta + |\va|^2\sin^2\theta = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2$，又 $\ds|\va - \vb|^2 = (\va - \vb)\cdot(\va - \vb) = \va\cdot\va - \va\cdot\vb - \vb\cdot\va - \vb\cdot\vb = |\va|^2 + |\vb|^2 - 2\,\va\cdot\vb = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2$，故 $\va\cdot\vb = |\va|\,|\vb|\,\cos\theta$。
+\end{prf}
+
+\begin{dfn}[投影] 
+  給定向量 $\va$，$\vb$，則 $\va$ 在 $\vb$ 方向上的投影（projection）$\ds\proj{\va}{\vb}$ 定義為 $\ds\proj{\va}{\vb} = \frac{\va\cdot\vb}{|\vb|^2}\,\vb$。
+\end{dfn}
+\vspace{-8mm}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/projA.pdf}
+  \qquad\qquad
+  \includegraphics[scale=1,page=1]{fig/projB.pdf}
+\end{figure}
+
+\begin{dfn}[外積 / 叉積] 
+  給定三維向量 $\va = \langle a_1,\,a_2,\,a_3\rangle$，$\vb = \langle b_1,\,b_2,\,b_3\rangle$，則 $\va$ 與 $\vb$ 的外積 / 叉積（outer product / cross product）定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \langle a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rangle$。
+\end{dfn}
+
+\begin{prp} $\va$，$\vb$，$\vc\in\mathbb{R}^3$，$s\in\mathbb{R}$，則
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $|\va\times\vb| = |\va|\,|\vb|\,\sin\theta$，$0\leqslant\theta\leqslant\pi$ 為 $\va$ 與 $\vb$ 的夾角；$|\va\times\vb|$ 為 $\va$ 與 $\vb$ 張成之平行四邊形面積。
+    \item $\va\times\vb = |\va|\,|\vb|\,\sin\theta\,\hn$，$0\leqslant\theta\leqslant\pi$ 為 $\va$ 與 $\vb$ 的夾角，$(\va,\,\vb,\,\hn)$ 滿足右手定則且 $|\hn| = 1$，$\hn\,\bot\,\va$，$\hn\,\bot\,\vb$。 
+    \item $|\va\cdot(\vb\times\vc)|$ 為 $\va$，$\vb$，$\vc$ 張成之平行六面體體積。
+  \end{itemize}
+  且
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\times\vb\;\bot\;\va$，$\va\times\vb\;\bot\;\vb$ 
+      \item $\hi\times\hj = \hk$，$\hj\times\hk = \hi$，$\hk\times\hi = \hj$
+      \item $\va\times\vb = 0\ifff \va=\vZero\;\vee\;\vb = \vZero\;\vee\;\va\,\parallel\,\vb$
+      \item $\va\times\vb = -\vb\times\va$
+      \item $(s\va)\times\vb = \va\times(s\vb) = s(\va\times\vb)$
+      \item $\va\times(\vb + \vc) = \va\times\vb + \va\times\vc$
+      \item $(\va + \vb)\times\vc = \va\times\vc + \vb\times\vc$
+      \item $\va\cdot(\vb\times\vc) = \vb\cdot(\vc\times\va) = \vc\cdot(\va\times\vb)$
+      \item $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$（baccab 規則） 
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+\vspace{-3mm}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/areaB.pdf}\qquad\qquad\qquad
+  \raisebox{-0.05\height}{\includegraphics{fig/crossRR.pdf}}\qquad\qquad\qquad
+  \raisebox{0.05\height}{\includegraphics[scale=0.4]{fig/RHR.pdf}}
+\end{figure}
+\vspace{-5mm}
+\begin{figure}[!htbp]
+  \centering
+  \raisebox{0.2\height}{\includegraphics[scale=0.9]{fig/pipedVolumeEg.pdf}}\qquad\qquad
+  \raisebox{0.4\height}{\includegraphics[scale=1.0]{fig/pipedVolume.pdf}}
+\end{figure}
+\vspace{-15mm}
+\begin{prf}
+  \begin{itemize}
+    \item[]
+    \item $\ds|\va\times\vb|^2 =\big(\va\times\vb\big)\cdot\big(\va\times\vb\big) = (a_2b_3-a_3b_2)^2 + (a_3b_1-a_1b_3)^2 + (a_1b_2-a_2b_1)^2 = a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2 +a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2 + a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2$，而 $\ds|\va|^2\,|\vb|^2\sin^2\theta = |\va|^2\,|\vb|^2(1 - \cos^2\theta) = |\va|^2\,|\vb|^2 - (\va\cdot\vb)^2 = \big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)-\big(a_1b_1+a_2b_2+a_3b_3\big)^2 = a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2 - \big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)$，故 $|\va\times\vb|=|\va|\,|\vb|\sin\theta$ 。
+    \item $\ds\va\cdot(\va\times\vb) = a_1(a_2 b_3 - a_3 b_2) + a_2(a_3 b_1 - a_1 b_3) + a_3(a_1 b_2 - a_2 b_1) = 0$，\\$\ds\vb\cdot(\va\times\vb) = b_1(a_2 b_3 - a_3 b_2) + b_2(a_3 b_1 - a_1 b_3) + b_3(a_1 b_2 - a_2 b_1) = 0$
+    \item $\ds\va\cdot(\vb\times\vc) = \llt a_1,a_2,a_3\rgt\cdot\llt b_2c_3-b_3c_2\,,\, b_3c_1-b_1c_3\,,\, b_1c_2-b_2c_1\rgt = \textcolor{blue}{a_1b_2c_3}\textcolor{blue}{-a_1b_3c_2} + \textcolor{orange}{a_2b_3c_1}\textcolor{orange}{-a_2b_1c_3} + a_3b_1c_2 - a_3b_2c_1$，又 $\ds(\va\times\vb)\cdot\vc =\llt a_2b_3-a_3b_2\,,\, a_3b_1-a_1b_3\,,\, a_1b_2-a_2b_1\rgt\cdot\llt c_1,c_2,c_3\rgt = \textcolor{orange}{a_2b_3c_1} - a_3b_2c_1 + a_3b_1c_2\textcolor{blue}{-a_1b_3c_2} + \textcolor{blue}{a_1b_2c_3}\textcolor{orange}{-a_2b_1c_3}$。\\另證：$\ds\va\cdot(\vb\times\vc) = \llt a_1,a_2,a_3\rgt\cdot\det\begin{vmatrix}\hi&\hj&\hk\\ b_1&b_2&b_3\\ c_1&c_2&c_3\end{vmatrix} = a_1\det\begin{vmatrix}b_2&b_3\\c_2&c_3\end{vmatrix} - a_2\det\begin{vmatrix}b_1&b_3\\c_1&c_3\end{vmatrix} + a_3\det\begin{vmatrix} b_1&b_2\\c_1&c_2\end{vmatrix} \\ = \det\begin{vmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{vmatrix}$，而 $\ds(\va\times\vb)\cdot\vc = \det\begin{vmatrix}\hi&\hj&\hk\\a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}\cdot\llt c_1,c_2,c_3\rgt = c_1\det\begin{vmatrix}a_2&a_3\\ b_2&b_3\end{vmatrix}-c_2\det\begin{vmatrix}a_1&a_3\\ b_1&b_3\end{vmatrix} + c_3\det\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix} = \det\begin{vmatrix}c_1&c_2&c_3\\a_1&a_2&a_3\\b_1&b_2&b_3\end{vmatrix}$，故 $\va\cdot(\vb\times\vc) = (\va\times\vb)\cdot\vc$。
+    \item $\ds\vb\times\vc = (b_2c_3-b_3c_2)\,\hi - (b_1c_3 - b_3c_1)\,\hj + (b_1c_2-b_2c_1)\,\hk$，故 $\ds\va\times(\vb\times\vc) \\= \det\begin{vmatrix}\hi&\hj&\hk\\a_1&a_2&a_3\\b_2c_3 - b_3c_2&-b_1c_3 + b_3c_1&b_1c_2 - b_2c_1\end{vmatrix} = \hi\,\big(a_2(b_1c_2 - b_2c_1) - a_3(-b_1c_3 + b_3c_1)\big) - \hj\,\big(a_1(b_1c_2-b_2c_1)-a_3(b_2c_3-b_3c_2)\big) + \hk\,\big(a_1(-b_1c_3 + b_3c_1) - a_2(b_2c_3 - b_3c_2)\big)$。而 $\ds\vb(\va\cdot\vc) - \vc(\va\cdot\vb) = (a_1c_1 + a_2c_2 + a_3c_3)(b_1\,\hi + b_2\,\hj + b_3\,\hk) - (a_1b_1 + a_2b_2 + a_3b_3)(c_1\,\hi + c_2\,\hj + c_3\,\hk) = \hi\,\big(\textcolor{blue}{a_1b_1c_1} + a_2b_1c_2 + a_3b_1c_3\textcolor{blue}{-a_1b_1c_1} - a_2b_2c_1 - a_3b_3c_1\big) +\hj\,\big(a_1b_2c_1 + \textcolor{blue}{a_2b_2c_2} + a_3b_2c_3 - a_1b_1c_2\textcolor{blue}{-a_2b_2c_2} - a_3b_3c_2\big) + \hk\,\big(a_1b_3c_1 + a_2b_3c_2 + \textcolor{blue}{a_3b_3c_3} - a_1b_1c_3 - a_2b_2c_3 \textcolor{blue}{-a_3b_3c_3}\big) = \hi\,(a_2b_1c_2+a_3b_1c_3-a_2b_2c_1-a_3b_3c_1) + \hj\,(a_1b_2c_1+a_3b_2c_3-a_1b_1c_2-a_3b_3c_2) + \hk\,(a_1b_3c_1+a_2b_3c_2-a_1b_1c_3-a_2b_2c_3)$，故 $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$。
+  \end{itemize}
+\end{prf}
+
+\begin{ex} 若 $\va$，$\vb$，$\vc$，$\vd\in\mathbb{R}^3$，則
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\times(\vb\times\vc) + \vb\times(\vc\times\va) + \vc\times(\va\times\vb) = 0$
+      \item $(\va\times\vb)\cdot(\vc\times\vd) = (\va\cdot\vc)\,(\vb\cdot\vd) - (\va\cdot\vd)\,(\vb\cdot\vc)$
+      \item $(\va\times\vb)\cdot\left((\vb\times\vc)\times(\vc\times\va) \right) = \left(\va\cdot(\vb\times\vc)\right)^2$
+    \end{enumerate} 
+  \end{multicols}
+\end{ex}
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\va\times(\vb\times\vc) + \vb\times(\vc\times\va) + \vc\times(\va\times\vb) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb) + \vc\,(\vb\cdot\va) - \va\,(\vb\cdot\vc) + \va\,(\vc\cdot\vb) - \vb\,(\vc\cdot\va) = 0$
+    \item $(\va\times\vb)\cdot(\vc\times\vd) = \vc\cdot(\vd\times(\va\times\vb)) = \vc\cdot\left(\va\,(\vd\cdot\vb) - \vb\,(\vd\cdot\va)\right) = (\vc\cdot\va)\,(\vd\cdot\vb) - (\vc\cdot\vb)\,(\vd\cdot\va)  = (\va\cdot\vc)\,(\vb\cdot\vd) - (\va\cdot\vd)\,(\vb\cdot\vc)$
+    \item $(\va\times\vb)\cdot\left((\vb\times\vc)\times(\vc\times\va)\right) = (\vb\times\vc)\cdot\left((\vc\times\va)\times(\va\times\vb)\right) = (\vb\times\vc)\cdot\left(\va\,\left((\vc\times\va)\cdot\vb\right) - \vb\,\left((\vc\times\va)\cdot\va\right)\right) = (\vb\times\vc)\cdot(\va\,\left((\vc\times\va)\cdot\vb\right)) = \left(\va\cdot(\vb\times\vc)\right)^2$
+  \end{enumerate} 
+\end{sol}
+
+\begin{prp}[常用公式] 
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 點 $p = (p_1,\,p_2,\,p_3)$ 與平面 $ax + by + cz + d = 0$ 距離為 $\ds\frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$。
+    \item 若 $\va = \langle a_1,\,a_2,\,a_3\rangle$，$\vb = \langle b_1,\,b_2,\,b_3\rangle$，$\vc = \langle c_1,\,c_2,\,c_3\rangle$，$\vd = \langle d_1,\,d_2,\,d_3\rangle$，三維空間中兩直線 \\$\ds\langle a_1 + b_1\,s,\,a_2 + b_2\,s,\,a_3 + b_3\,s\rangle$，$\ds\langle c_1 + d_1\,t,\,c_2 + d_2\,t,\,c_3 + d_3\,t \rangle$，$s$，$t\in\mathbb{R}$ 之距離為 $\ds\frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$。
+  \end{itemize}
+\end{prp}
+
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 平面 $S:\,ax + by + cz + d = 0$ 法向量為 $\vn = \langle a,\,b,\,c\rangle$；點 $p = (p_1,\,p_2,\,p_3)$ 與投影至平面 $S$ 之點 $o = (x,\,y,\,z)$ 所形成之向量平行於 $\vn$，故 $(x,\,y,\,z) = (p_1 + a\,t,\,p_2 + b\,t,\,p_3 + c\,t)$，$t\in\mathbb{R}$ 為待定常數。又 $o$ 位於平面 $S$ 上，故 $\ds a(p_1 + a\,t) + b(p_2 + b\,t) + c(p_3 + c\,t) + d = 0 \ie t = \frac{-(a p_1 + b p_2 + c p_3 + d)}{a^2 + b^2 + c^2}$，所求距離 $\ds\overline{op} = |\langle a\,t,\,b\,t,\,c\,t\rangle| = \sqrt{a^2 + b^2 + c^2}\,|t| = \frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$。
+    \item 兩直線點分別為 $\va$、$\vc$，方向向量分別為 $\vb$、$\vd$；$\vb\times\vd$ 同時垂直於兩直線，所求距離即為 $\ds|\proj{(\va - \vc)}{\vb\times\vd}| = \frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$。
+  \end{itemize}
+\end{sol}
+
+\myline
+
+\section*{5.2 向量值函數}
+
+
+
+\end{document}
