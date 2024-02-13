@@ -2,7 +2,7 @@
 
 ## 講義
 
-<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>
+<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note05.pdf">第五章</a>
 
 
 ## 參考書
@@ -101,9 +101,9 @@
 ### 第二學期
 
 - 期中考（50%）04/18 1010 ～ 1230。
-  - 考試範圍： 02/20 ～ 04/11 講義例題、指定習題。 
+  - 考試範圍： 02/20 ～ 04/11 講義例題、指定習題（CLP 標星號問題）。 
 - 學期考（50%）06/13 1010 ～ 1230。
-  - 考試範圍： 04/16 ～ 06/06 講義例題、指定習題。
+  - 考試範圍： 04/16 ～ 06/06 講義例題、指定習題（CLP 標星號問題）。
 
 <!--
 ## 習題進度
@@ -137,21 +137,21 @@
 
 | 上課時間            | 習題進度                       |
 |---------------------|--------------------------------|
-| 02/20, 02/22        |                                |
-| 02/27, 02/29        |                                |
-| 03/05, 03/07        |                                | 
-| 03/12, 03/14        |                                |
-| 03/19, 03/21        |                                |
-| 03/26, 03/28        |                                |
-| 04/09, 04/11        |                                |
+| 02/20, 02/22        | CLP3 1.2, 1.4                  |
+| 02/27, 02/29        | CLP3 1.5, 1.6                  |
+| 03/05, 03/07        | CLP3 2.1, 2.2                  | 
+| 03/12, 03/14        | CLP3 2.3, 2.4                  |
+| 03/19, 03/21        | CLP3 2.5, 2.6                  |
+| 03/26, 03/28        | CLP3 2.7, 2.9                  |
+| 04/09, 04/11        | CLP3 2.10                      |
 | 04/16, 04/18 期中考 |                                |
-| 04/23, 04/25        |                                |
-| 04/30, 05/02        |                                |
-| 05/07, 05/09        |                                |
-| 05/14, 05/16        |                                |
-| 05/21, 05/23        |                                |
-| 05/28, 05/30        |                                |
-| 06/04, 06/06        |                                |
+| 04/23, 04/25        | CLP                            |
+| 04/30, 05/02        | CLP                            |
+| 05/07, 05/09        | CLP                            |
+| 05/14, 05/16        | CLP                            |
+| 05/21, 05/23        | CLP                            |
+| 05/28, 05/30        | CLP                            |
+| 06/04, 06/06        | CLP                            |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06/13 學期考 |                                 |
 
 ## 授課教師
