@@ -1187,6 +1187,7 @@
       \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
+      \item $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
       \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$，$a > 1$
     \end{enumerate}
@@ -1201,12 +1202,11 @@
     \item 令 $\ds x = a\sec\theta$，則 $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a^2\tan^2\theta}\,\text{d}\theta = \frac{1}{a}\int\!\frac{1}{\sin\theta}\,\text{d}\theta = \frac{1}{a}\int\!\csc\theta\,\text{d}\theta \\= \frac{1}{a}\int\!\csc\theta\,\frac{\csc\theta + \cot\theta}{\csc\theta + \cot\theta}\,\text{d}\theta = -\frac{1}{a}\int\!\frac{\text{d}(\csc\theta + \cot\theta)}{\csc\theta + \cot\theta} = -\frac{1}{a}\,\ln|\csc\theta + \cot\theta| = -\frac{1}{a}\,\ln\bigg|\frac{x}{\sqrt{x^2 - a^2}} + \frac{a}{\sqrt{x^2 - a^2}}\bigg| = -\frac{1}{a}\ln\bigg|\frac{\sqrt{x + a}}{\sqrt{x - a}}\bigg| = \frac{1}{2a}\ln\bigg|\frac{x - a}{x + a}\bigg|$。
 
     \item 令 $\ds x = a\tan\theta$，則 $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{a\sec^2\theta}{a^2\tan^2 x\cdot a\sec\theta}\,\text{d}\theta = \int\!\frac{\sec\theta}{a^2\tan^2\theta}\,\text{d}\theta = \int\!\frac{\cos\theta}{a^2\sin^2\theta}\,\text{d}\theta \\= -\frac{1}{a^2\sin\theta} = -\frac{\sqrt{x^2 + a^2}}{a^2 x}$。
+    \item 令 $\ds x = a\tan\theta$，則 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \int\!a\sec\theta\cdot a\sec^2\theta\,\text{d}\theta = a^2\!\int\!\sec^3\theta\,\text{d}\theta$。令 $\ds u = \sec\theta$，則 $\ds\mathrm{d}u = \sec\theta\tan\theta\,\mathrm{d}\theta$；令 $\ds\mathrm{d}v = \sec^2\theta\,\mathrm{d}\theta$，則 $\ds v = \tan\theta$。故 $\ds\int\!\sec^3\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan\theta\cdot\sec\theta\tan\theta\,\mathrm{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec\theta\cdot\tan^2\theta\,\mathrm{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec\theta\cdot(\sec^2\theta - 1)\,\mathrm{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec^3\theta\,\mathrm{d}\theta + \int\!\sec\theta\,\mathrm{d}\theta \ie \int\!\sec^3\theta\,\text{d}\theta = \frac{\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta}{2} = \frac{\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|}{2}$；$\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = a^2\!\int\!\sec^3\theta\,\text{d}\theta = a^2\frac{\frac{\sqrt{x^2 + a^2}}{a}\cdot\frac{x}{a} + \ln\big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\big|}{2} = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big| - a^2\ln|a|}{2}$
     \item 令 $\ds x = a\sec\theta$，則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|$。
     \item 令 $\ds u = \tan\frac{x}{2}$，則 $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x = \int\!\frac{1}{a + \frac{2 u}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = 2\int\!\frac{1}{a u^2 + 2 u + a}\,\text{d}u = \frac{2}{a\sqrt{\frac{a^2 - 1}{a^2}}}\tan^{-1}\frac{{u + \frac{1}{a}}}{\sqrt{\frac{a^2 - 1}{a^2}}} \\ = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a u + 1}{\sqrt{a^2 - 1}} = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a\tan\frac{x}{2} + 1}{\sqrt{a^2 - 1}}$。
   \end{enumerate}
 \end{sol}
-
-\myline
 
 \section*{4.4 瑕積分}
 

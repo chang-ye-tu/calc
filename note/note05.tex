@@ -241,6 +241,8 @@
 }
 \usepackage{datetime2}
 
+\usepackage{wrapfig}
+
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第五章\ \ 偏微分}{第五章\ \ 偏微分}} 
 \author{\vspace{-5em}}
@@ -248,20 +250,32 @@
 \maketitle
 \thispagestyle{firststyle}
 
+\section*{5.0 微積分函數分類}
+\setlength{\columnsep}{-20mm}
+\begin{multicols}{2}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 單變數函數：$\mathbb{R}\to\mathbb{R}$
+    \item 向量值函數：$\mathbb{R}\to\mathbb{R}^n$，$n > 1$ (5.2)
+    \item 多變數函數：$\mathbb{R}^n\to\mathbb{R}$，$n > 1$ (5.3)
+    \item 多變數向量值函數：$\mathbb{R}^n\to\mathbb{R}^m$，$m$、$n > 1$
+  \end{enumerate}
+\end{multicols}
+
 \section*{5.1 空間向量}
 
 \begin{dfn}[符號]
-  \begin{itemize}
+  \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 向量：$\va$，$\vx$
-    \item 分量形式：$\va = \langle a_1,\,a_2,\,a_3 \rangle$，$a_1$、$a_2$、$a_3\in\mathbb{R}$；$\va\in\mathbb{R}^3$。
-    \item 向量長度：$|\va| = |\langle a_1,\,a_2,\,a_3 \rangle| = \sqrt{a_1^2 + a_2^2 + a_3^2}$。
-    \item 卡式座標系單位向量：$\hi = \langle 1,\,0,\,0\rangle$，$\hj = \langle 0,\,1,\,0\rangle$，$\hk = \langle 0,\,0,\,1\rangle$
+    \item 分量形式：$\va = \llt a_1,\,a_2,\,a_3\rgt$，$a_1$、$a_2$、$a_3\in\mathbb{R}$；$\va\in\mathbb{R}^3$。
+    \item 向量長度：$|\va| = |\llt a_1,\,a_2,\,a_3 \rgt| = \sqrt{a_1^2 + a_2^2 + a_3^2}$。
+    \item 三維直角座標系單位向量：$\hi = \llt 1,\,0,\,0\rgt$，$\hj = \llt 0,\,1,\,0\rgt$，$\hk = \llt 0,\,0,\,1\rgt$
+    \item $\va = \llt a_1,\,a_2,\,a_3\rgt \equiv a_1\,\hi + a_2\,\hj + a_3\,\hk$
   \end{itemize}
 \end{dfn}
 
 \begin{dfn}[內積 / 點積]
-  給定 $n$（$n\geqslant 2$）維向量 $\va = \langle a_1,\,a_2,\,\ldots,\,a_n\rangle$，$\vb = \langle b_1,\,b_2,\,\ldots,\,b_n\rangle$，則 $\va$ 與 $\vb$ 的內積 / 點積（inner product / dot product）定義為 $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$。
+  給定 $n$（$n\geqslant 2$）維向量 $\va = \llt a_1,\,a_2,\,\ldots,\,a_n\rgt$，$\vb = \llt b_1,\,b_2,\,\ldots,\,b_n\rgt$，則 $\va$ 與 $\vb$ 的內積 / 點積（inner product / dot product）定義為 $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$。
 \end{dfn}
 
 \begin{prp} 給定 $\va$，$\vb$，$\vc\in\mathbb{R}^n$，$n\geqslant 2$，$s\in\mathbb{R}$。則
@@ -293,7 +307,7 @@
 \begin{dfn}[投影] 
   給定向量 $\va$，$\vb$，則 $\va$ 在 $\vb$ 方向上的投影（projection）$\ds\proj{\va}{\vb}$ 定義為 $\ds\proj{\va}{\vb} = \frac{\va\cdot\vb}{|\vb|^2}\,\vb$。
 \end{dfn}
-\vspace{-8mm}
+
 \begin{figure}[!htbp]
   \centering
   \includegraphics[scale=1,page=1]{fig/projA.pdf}
@@ -301,8 +315,9 @@
   \includegraphics[scale=1,page=1]{fig/projB.pdf}
 \end{figure}
 
+\vspace{-5mm}
 \begin{dfn}[外積 / 叉積] 
-  給定三維向量 $\va = \langle a_1,\,a_2,\,a_3\rangle$，$\vb = \langle b_1,\,b_2,\,b_3\rangle$，則 $\va$ 與 $\vb$ 的外積 / 叉積（outer product / cross product）定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \langle a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rangle$。
+  給定三維向量 $\va = \llt a_1,\,a_2,\,a_3\rgt$，$\vb = \llt b_1,\,b_2,\,b_3\rgt$，則 $\va$ 與 $\vb$ 的外積 / 叉積（outer product / cross product）定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \llt a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rgt$。
 \end{dfn}
 
 \begin{prp} $\va$，$\vb$，$\vc\in\mathbb{R}^3$，$s\in\mathbb{R}$，則
@@ -373,14 +388,14 @@
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 點 $p = (p_1,\,p_2,\,p_3)$ 與平面 $ax + by + cz + d = 0$ 距離為 $\ds\frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$。
-    \item 若 $\va = \langle a_1,\,a_2,\,a_3\rangle$，$\vb = \langle b_1,\,b_2,\,b_3\rangle$，$\vc = \langle c_1,\,c_2,\,c_3\rangle$，$\vd = \langle d_1,\,d_2,\,d_3\rangle$，三維空間中兩直線 \\$\ds\langle a_1 + b_1\,s,\,a_2 + b_2\,s,\,a_3 + b_3\,s\rangle$，$\ds\langle c_1 + d_1\,t,\,c_2 + d_2\,t,\,c_3 + d_3\,t \rangle$，$s$，$t\in\mathbb{R}$ 之距離為 $\ds\frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$。
+    \item 若 $\va = \llt a_1,\,a_2,\,a_3\rgt$，$\vb = \llt b_1,\,b_2,\,b_3\rgt$，$\vc = \llt c_1,\,c_2,\,c_3\rgt$，$\vd = \llt d_1,\,d_2,\,d_3\rgt$，三維空間中兩直線 \\$\ds\llt a_1 + b_1\,s,\,a_2 + b_2\,s,\,a_3 + b_3\,s\rgt$，$\ds\llt c_1 + d_1\,t,\,c_2 + d_2\,t,\,c_3 + d_3\,t \rgt$，$s$，$t\in\mathbb{R}$ 之距離為 $\ds\frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$。
   \end{itemize}
 \end{prp}
 
 \begin{sol}
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
-    \item 平面 $S:\,ax + by + cz + d = 0$ 法向量為 $\vn = \langle a,\,b,\,c\rangle$；點 $p = (p_1,\,p_2,\,p_3)$ 與投影至平面 $S$ 之點 $o = (x,\,y,\,z)$ 所形成之向量平行於 $\vn$，故 $(x,\,y,\,z) = (p_1 + a\,t,\,p_2 + b\,t,\,p_3 + c\,t)$，$t\in\mathbb{R}$ 為待定常數。又 $o$ 位於平面 $S$ 上，故 $\ds a(p_1 + a\,t) + b(p_2 + b\,t) + c(p_3 + c\,t) + d = 0 \ie t = \frac{-(a p_1 + b p_2 + c p_3 + d)}{a^2 + b^2 + c^2}$，所求距離 $\ds\overline{op} = |\langle a\,t,\,b\,t,\,c\,t\rangle| = \sqrt{a^2 + b^2 + c^2}\,|t| = \frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$。
+    \item 平面 $S:\,ax + by + cz + d = 0$ 法向量為 $\vn = \llt a,\,b,\,c\rgt$；點 $p = (p_1,\,p_2,\,p_3)$ 與投影至平面 $S$ 之點 $o = (x,\,y,\,z)$ 所形成之向量平行於 $\vn$，故 $(x,\,y,\,z) = (p_1 + a\,t,\,p_2 + b\,t,\,p_3 + c\,t)$，$t\in\mathbb{R}$ 為待定常數。又 $o$ 位於平面 $S$ 上，故 $\ds a(p_1 + a\,t) + b(p_2 + b\,t) + c(p_3 + c\,t) + d = 0 \ie t = \frac{-(a p_1 + b p_2 + c p_3 + d)}{a^2 + b^2 + c^2}$，所求距離 $\ds\overline{op} = |\llt a\,t,\,b\,t,\,c\,t\rgt| = \sqrt{a^2 + b^2 + c^2}\,|t| = \frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$。
     \item 兩直線點分別為 $\va$、$\vc$，方向向量分別為 $\vb$、$\vd$；$\vb\times\vd$ 同時垂直於兩直線，所求距離即為 $\ds|\proj{(\va - \vc)}{\vb\times\vd}| = \frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$。
   \end{itemize}
 \end{sol}
@@ -388,6 +403,95 @@
 \myline
 
 \section*{5.2 向量值函數}
+
+\begin{dfn}
+  向量值函數 $\vr(t):\mathbb{R}\to\mathbb{R}^n$，$n > 1$，其微分為
+  \begin{equation*}
+    \vr'(t) =  \diff{\vr}{t}(t)=\lim_{h\rightarrow 0}\frac{\vr(t+h)-\vr(t)}{h}\qquad\qquad\qquad
+    \raisebox{-25pt}[25pt][20pt]{\includegraphics{fig/parCurveDerivA.pdf}}
+  \end{equation*}
+  若 $\ds\vr(t) = x(t)\,\hi + y(t)\,\hj + z(t)\,\hk$，則 $\ds\vr'(t) = x'(t)\,\hi + y'(t)\,\hj + z'(t)\,\hk$。
+\end{dfn}
+
+\begin{rmk}
+  向量值函數多用在空間曲線表示式中：$\text{(曲線)}\,\equiv\,\text{(位置向量)}$。
+\end{rmk}
+
+\begin{thm}[微分規則] 令 $\va(t)$、$\vb(t)$ 為 $t\in\bbbr$ 可微 $\bbbr^n$ 向量值函數，$\alpha$、$\beta\in\mathbb{R}$，$\ga(t)$、$s(t)$ 為 $t\in\bbbr$ 可微實函數，則
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item（線性）$\ds\diff{}{t}\big(\alpha\,\va(t) + \beta\,\vb(t)\big) = \alpha\,\va'(t) + \beta\,\vb'(t)$
+    \item（乘積）$\ds\diff{}{t}\big(\ga(t)\vb(t)\big) = \ga'(t)\vb(t)+\ga(t)\vb'(t)$
+    \item（內積）$\ds\diff{}{t}\big(\va(t)\cdot\vb(t)\big) = \va'(t)\cdot\vb(t) + \va(t)\cdot\vb'(t)$
+    \item（外積）$\ds\diff{}{t}\big(\va(t)\times\vb(t)\big) = \va'(t)\times\vb(t) + \va(t)\times\vb'(t)$
+    \item（合成）$\ds\diff{}{t}\big(\va\big(s(t)\big)\big) = \va'\big(s(t)\big)\,s'(t)$
+  \end{enumerate}
+\end{thm}
+
+\begin{prp} 給定曲線 $\vr(t)$。 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 令 $\widehat\vT(t)$ 為曲線在點 $\vr(t)$ 並指向 $t$ 遞增方向之單位切線向量，則 $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|}$，$\vr'(t)\ne\vZero$。
+    \item 令 $s(t)$ 為曲線介於點 $\vr(0)$ 與 $\vr(t)$ 間之弧長，則
+      \begin{align*}
+        \diff{s}{t}(t)&=\left|\diff{\vr}{t}(t)\right| \\
+        s(T)-s(T_0)&= \int_{T_0}^T \left|\diff{\vr}{t}(t)\right|\,\dee{t}\qquad\qquad\qquad
+        \raisebox{-20pt}{\smash{\includegraphics{fig/parCurveDerivB.pdf}}}
+      \end{align*}
+    \item 若以弧長為參數，亦即 $t=s$ 使得 $\ds\diff{t}{s} = \diff{s}{s} = 1$，則 $\ds\left|\diff{\vr}{s}(s)\right| = 1$，$\ds\widehat\vT(s) = \vr'(s)$。
+  \end{enumerate}
+\end{prp}
+
+\begin{prp} 給定位置向量 $\ds\vr(t)=\llt x(t)\,,\,y(t)\,,\,z(t)\rgt$，則時點 $t$ 之
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 速度 $\ds\vv(t) = \vr'(t) = x'(t)\,\hi + y'(t)\,\hj + z'(t)\,\hk$
+    \item 速率 $\ds\diff{s}{t}(t) = |\vv(t)| = |\vr'(t)| = \sqrt{(x'(t)^2 + y'(t)^2 + z'(t)^2}$
+    \item 加速度 $\ds\va(t) = \vr''(t) = \vv'(t) = x''(t)\,\hi + y''(t)\,\hj + z''(t)\,\hk$
+  \end{itemize}
+  時點 $T_0$ 與 $T$ 間經過距離為 $\ds s(T)-s(T_0) = \int_{T_0}^T\Big|\diff{\vr}{t}(t)\Big|\,\dee{t} = \int_{T_0}^T\sqrt{(x'(t)^2+y'(t)^2+z'(t)^2}\,\dee{t}$
+\end{prp}
+
+\begin{ex}
+  圓 $x^2+y^2=a^2$ 之曲線表示式為 $\ds\vr(\theta) = \llt a\cos\theta,\,a\sin\theta\rgt$，$0\leqslant\theta\leqslant 2\pi$。$\ds\vr'(\theta) = \llt-a\sin\theta,\,a\cos\theta\rgt$，$\ds\widehat\vT(\theta) = \frac{\vr'(\theta)}{|\vr'(\theta)|} = \llt-\sin\theta,\,\cos\theta\rgt$，$\ds\diff{s}{\theta}(\theta) = \big|\vr'(\theta)\big| = a$，$\ds s(\Theta) - s(0) = \int_{0}^\Theta\big|\vr'(\theta)\big|\,\dee{\theta} = a\Theta$。
+\end{ex}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1]{fig/parCircleT.pdf}\qquad\qquad
+  \raisebox{-20pt}[0pt][10pt]{\includegraphics[scale=1]{fig/helix4.pdf}}
+\end{figure}
+
+\begin{ex}[螺旋線弧長]
+  求 $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk$ 介於 $t = 0$ 與 $t = \pi$ 間弧長。
+\end{ex}
+\begin{sol}
+  $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$。則 $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$，$\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$，\\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$。
+\end{sol}
+
+\begin{ex}[螺旋線弧長]
+  求 $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk$ 介於 $t = 0$ 與 $t = \pi$ 間弧長。
+\end{ex}
+\begin{sol}
+  $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$。則 $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$，$\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$，\\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\vr(t) = \llt e^{3t},\,e^{-3t},\,3\sqrt{2}\,t\rgt$ 介於 $t = 0$ 與 $\ds t = \frac{1}{3}$ 間弧長。
+\end{ex}
+\begin{sol}
+  $\ds\vr'(t) = \llt 3e^{3t},\,-3e^{-3t},\,3\sqrt{2}\rgt$，$\ds s\Big(\frac{1}{3}\Big) - s(0) = \int_0^{\frac{1}{3}}\big|\vr'(t)\big|\,\dee{t} = \int_0^{\frac{1}{3}}\sqrt{9e^{6t} + 9e^{-6t} + 18}\,\dee{t} = 3\int_0^{\frac{1}{3}}\sqrt{e^{6t} + e^{-6t} + 2}\,\dee{t} \\= 3\int_0^{\frac{1}{3}}\sqrt{(e^{3t} + e^{-3t})^2}\,\dee{t} = 3\int_0^{\frac{1}{3}}(e^{3t} + e^{-3t})\,\dee{t} = e^{3t} - e^{-3t}\,\Big|_0^{\frac{1}{3}} = e - \frac{1}{e}$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\vr(t) = \llt t,\,2\,t,\,t^2\rgt$ 介於 $t = 1$ 與 $\ds t = 3$ 間弧長。
+\end{ex}
+\begin{sol}
+  $\ds\vr'(t) = \llt 1,\,2,\,2\,t\rgt$，$\ds s(3) - s(1) = \int_1^3\big|\vr'(t)\big|\,\dee{t} = \int_1^3\sqrt{5 + 4t^2}\,\dee{t} = \frac{6\sqrt{41} - 6 - 5\ln 5 + 5\ln(\sqrt{41} + 6)}{4}$。\\利用 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big|}{2} + c$。
+\end{sol}
+
+\section*{5.3 多變數函數}
+
+\begin{dfn}
+  函數 $f(x_1,\,x_2,\,\ldots,\,x_n):\mathbb{R}^n\to\mathbb{R}$，$n > 1$ 稱為多 ($n$-) 變數函數。
+\end{dfn}
 
 
 
