@@ -13,8 +13,8 @@
 \newcommand{\ie}{\;\Longrightarrow\;}
 \newcommand{\ifff}{\;\Longleftrightarrow\;}
 \newcommand{\mi}{\mathrm{i}}
-\newcommand{\llt}{\langle}
-\newcommand{\rgt}{\rangle}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
 \DeclareMathOperator*{\dom}{dom}
 \DeclareMathOperator*{\codom}{codom}
 \DeclareMathOperator*{\ran}{ran}
@@ -192,7 +192,8 @@
 \def\tr{\mathop{\rm tr}}
 \newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
 
-\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+%\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\dblInt}{\iint}
 \newcommand{\tripInt}{\iiint}
 %\newcommand{\dblInt}{\int\!\!\int}
@@ -241,7 +242,8 @@
 }
 \usepackage{datetime2}
 
-\usepackage{wrapfig}
+\usepackage{nicefrac}
+\newcommand{\eqover}[1]{}
 
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第五章\ \ 偏微分}{第五章\ \ 偏微分}} 
@@ -275,7 +277,7 @@
 \end{dfn}
 
 \begin{dfn}[內積 / 點積]
-  給定 $n$（$n\geqslant 2$）維向量 $\va = \llt a_1,\,a_2,\,\ldots,\,a_n\rgt$，$\vb = \llt b_1,\,b_2,\,\ldots,\,b_n\rgt$，則 $\va$ 與 $\vb$ 的內積 / 點積（inner product / dot product）定義為 $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$。
+  給定 $n$ ($n\geqslant 2$) 維向量 $\va = \llt a_1,\,a_2,\,\ldots,\,a_n\rgt$，$\vb = \llt b_1,\,b_2,\,\ldots,\,b_n\rgt$，則 $\va$ 與 $\vb$ 的內積 / 點積 (inner product / dot product) 定義為 $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$。
 \end{dfn}
 
 \begin{prp} 給定 $\va$，$\vb$，$\vc\in\mathbb{R}^n$，$n\geqslant 2$，$s\in\mathbb{R}$。則
@@ -305,7 +307,7 @@
 \end{prf}
 
 \begin{dfn}[投影] 
-  給定向量 $\va$，$\vb$，則 $\va$ 在 $\vb$ 方向上的投影（projection）$\ds\proj{\va}{\vb}$ 定義為 $\ds\proj{\va}{\vb} = \frac{\va\cdot\vb}{|\vb|^2}\,\vb$。
+  給定向量 $\va$，$\vb$，則 $\va$ 在 $\vb$ 方向上的投影 (projection) $\ds\proj{\va}{\vb}$ 定義為 $\ds\proj{\va}{\vb} = \frac{\va\cdot\vb}{|\vb|^2}\,\vb$。
 \end{dfn}
 
 \begin{figure}[!htbp]
@@ -317,7 +319,7 @@
 
 \vspace{-5mm}
 \begin{dfn}[外積 / 叉積] 
-  給定三維向量 $\va = \llt a_1,\,a_2,\,a_3\rgt$，$\vb = \llt b_1,\,b_2,\,b_3\rgt$，則 $\va$ 與 $\vb$ 的外積 / 叉積（outer product / cross product）定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \llt a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rgt$。
+  給定三維向量 $\va = \llt a_1,\,a_2,\,a_3\rgt$，$\vb = \llt b_1,\,b_2,\,b_3\rgt$，則 $\va$ 與 $\vb$ 的外積 / 叉積 (outer product / cross product) 定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \llt a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rgt$。
 \end{dfn}
 
 \begin{prp} $\va$，$\vb$，$\vc\in\mathbb{R}^3$，$s\in\mathbb{R}$，則
@@ -338,7 +340,7 @@
       \item $\va\times(\vb + \vc) = \va\times\vb + \va\times\vc$
       \item $(\va + \vb)\times\vc = \va\times\vc + \vb\times\vc$
       \item $\va\cdot(\vb\times\vc) = \vb\cdot(\vc\times\va) = \vc\cdot(\va\times\vb)$
-      \item $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$（baccab 規則） 
+      \item $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$ (baccab 規則)  
     \end{enumerate}
   \end{multicols}
 \end{prp}
@@ -407,7 +409,7 @@
 \begin{dfn}
   向量值函數 $\vr(t):\mathbb{R}\to\mathbb{R}^n$，$n > 1$，其微分為
   \begin{equation*}
-    \vr'(t) =  \diff{\vr}{t}(t)=\lim_{h\rightarrow 0}\frac{\vr(t+h)-\vr(t)}{h}\qquad\qquad\qquad
+    \vr'(t) =  \diff{\vr}{t}(t)=\lim_{h\to 0}\frac{\vr(t+h)-\vr(t)}{h}\qquad\qquad\qquad
     \raisebox{-25pt}[25pt][20pt]{\includegraphics{fig/parCurveDerivA.pdf}}
   \end{equation*}
   若 $\ds\vr(t) = x(t)\,\hi + y(t)\,\hj + z(t)\,\hk$，則 $\ds\vr'(t) = x'(t)\,\hi + y'(t)\,\hj + z'(t)\,\hk$。
@@ -419,11 +421,11 @@
 
 \begin{thm}[微分規則] 令 $\va(t)$、$\vb(t)$ 為 $t\in\bbbr$ 可微 $\bbbr^n$ 向量值函數，$\alpha$、$\beta\in\mathbb{R}$，$\ga(t)$、$s(t)$ 為 $t\in\bbbr$ 可微實函數，則
   \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item（線性）$\ds\diff{}{t}\big(\alpha\,\va(t) + \beta\,\vb(t)\big) = \alpha\,\va'(t) + \beta\,\vb'(t)$
-    \item（乘積）$\ds\diff{}{t}\big(\ga(t)\vb(t)\big) = \ga'(t)\vb(t)+\ga(t)\vb'(t)$
-    \item（內積）$\ds\diff{}{t}\big(\va(t)\cdot\vb(t)\big) = \va'(t)\cdot\vb(t) + \va(t)\cdot\vb'(t)$
-    \item（外積）$\ds\diff{}{t}\big(\va(t)\times\vb(t)\big) = \va'(t)\times\vb(t) + \va(t)\times\vb'(t)$
-    \item（合成）$\ds\diff{}{t}\big(\va\big(s(t)\big)\big) = \va'\big(s(t)\big)\,s'(t)$
+    \item (線性) $\ds\diff{}{t}\big(\alpha\,\va(t) + \beta\,\vb(t)\big) = \alpha\,\va'(t) + \beta\,\vb'(t)$
+    \item (乘積) $\ds\diff{}{t}\big(\ga(t)\vb(t)\big) = \ga'(t)\vb(t)+\ga(t)\vb'(t)$
+    \item (內積) $\ds\diff{}{t}\big(\va(t)\cdot\vb(t)\big) = \va'(t)\cdot\vb(t) + \va(t)\cdot\vb'(t)$
+    \item (外積) $\ds\diff{}{t}\big(\va(t)\times\vb(t)\big) = \va'(t)\times\vb(t) + \va(t)\times\vb'(t)$
+    \item (合成) $\ds\diff{}{t}\big(\va\big(s(t)\big)\big) = \va'\big(s(t)\big)\,s'(t)$
   \end{enumerate}
 \end{thm}
 
@@ -487,12 +489,309 @@
   $\ds\vr'(t) = \llt 1,\,2,\,2\,t\rgt$，$\ds s(3) - s(1) = \int_1^3\big|\vr'(t)\big|\,\dee{t} = \int_1^3\sqrt{5 + 4t^2}\,\dee{t} = \frac{6\sqrt{41} - 6 - 5\ln 5 + 5\ln(\sqrt{41} + 6)}{4}$。\\利用 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big|}{2} + c$。
 \end{sol}
 
-\section*{5.3 多變數函數}
+\section*{5.3 極限與微分}
 
-\begin{dfn}
-  函數 $f(x_1,\,x_2,\,\ldots,\,x_n):\mathbb{R}^n\to\mathbb{R}$，$n > 1$ 稱為多 ($n$-) 變數函數。
+\begin{dfn}[多變數函數]
+  令 $U\subseteq\mathbb{R}^n$，$n > 1$，從 $U\to\mathbb{R}$ 的映射 $f(x_1,\,x_2,\,\ldots,\,x_n):U\to\mathbb{R}$ 稱為 $U$ 上的 $n$ 變數函數 (real-valued function of $n$ variables)，其中 $U$ 為定義域，$f(U)$ 為值域。
 \end{dfn}
 
+\begin{rmk} 若 $f(x_1,\,x_2,\,\ldots,\,x_n)$ 為 $n$ 變數函數，可將 $f$ 視為
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $n$ 個實變數 $x_1,\,x_2,\,\ldots,\,x_n$ 的函數
+      \item $\mathbb{R}^n$ 中之點 $(x_1,\,x_2,\,\ldots,\,x_n)$ 的函數
+      \item 向量 $\vx = \llt x_1,\,x_2,\,\ldots,\,x_n\rgt$ 的函數
+    \end{itemize}
+  \end{multicols}
+\end{rmk}
 
+\begin{dfn}[圖形、等值曲線]
+  令 $f(x, y)$ 為定義在 $U$ 上的雙變數函數。
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 集合 $\ds\left\{(x, y, z)\in\mathbb{R}^3\,|\,z = f(x, y),\;(x, y)\in U\right\}$ 稱為 $f$ 的圖形 (graph)。
+    \item 給定常數 $k\in\mathbb{R}$，曲線 $f(x, y) = k$ 稱為 $f$ 的等值曲線 (level / contour curve)。
+  \end{itemize}
+  若 $w = f(x, y, z)$ 為三變數函數，$f(x, y, z) = k$ 稱為 $f$ 的等值曲面 (level surface)。
+\end{dfn}
+
+\begin{dfn}[極限] 令 $f$ 為 $n$ 變數函數。若對任意 $\varepsilon > 0$ 存在 $\delta > 0$ 使得對所有 $\vx\in\dom f$ 滿足 
+  \begin{align*}
+    0 < |\vx - \va| < \delta \ie |f(\vx) - L| < \varepsilon
+  \end{align*}
+  則稱 $f$ 在 $\va$ 的極限為 $L$，記為 $\ds\lim_{\vx\to\va}f(\vx) = L$。
+\end{dfn}
+
+\begin{prp}[極限運算]
+  令 $\va\in\bbbr^n$，$c$、$F$、$G\in\bbbr$，$\ds D\subseteq\bbbr^n$，$f,\,g: D\setminus\{\va\}\to\bbbr$，$\ga:\bbbr\to\bbbr$。 
+  %$\ds\vX:\bbbr^m\setminus\{\vb\}\to D\setminus\{\va\}$  $\ds\lim_{\vy\to\vb}\vX(\vy) = \va$
+若 $\ds\lim_{\vx\to\va} f(\vx) = F$，$\ds\lim_{\vx\to\va} g(\vx) = G$，$\ds\lim_{t\to F}\ga(t) = \ga(F)$，則
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\lim\limits_{\vx\to\va}\big[f(\vx)\pm g(\vx)\big] = F \pm G$
+      \item $\ds\lim\limits_{\vx\to\va} f(\vx)\,g(\vx) = FG$
+      \item $\ds\lim\limits_{\vx\to\va} \frac{f(\vx)}{g(\vx)} = \frac{F}{G}$ 若 $G\ne\vZero$
+      %\item $\ds\lim\limits_{\vy\to \vb} f\big(\vX(\vy)\big) = F$
+      \item $\ds\lim\limits_{\vx\to \va} \ga\big(f(\vx)\big) = \ga(F)$
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+
+\begin{ex} 
+  求 $\ds\lim_{(x,\,y)\to(2,\,3)}\frac{x + \sin y}{x^2 y^2 + 1}$。
+\end{ex}
+
+\begin{sol}
+  $\ds\lim_{(x,\,y)\to (2,\,3)}\big(x + \sin y\big) = \lim_{(x,\,y)\to (2,\,3)}x + \lim_{(x,\,y)\to (2,\,3)}\sin y = \lim_{(x,\,y)\to (2,\,3)}x + \sin\left(\lim_{(x,\,y)\to (2,\,3)} y\right) = 2 + \sin 3$，$\ds\lim_{(x,\,y)\to (2,\,3)}\left(x^2 y^2 + 1\right) = \lim_{(x,\,y)\to (2,\,3)}x^2 y^2 + \lim_{(x,\,y)\to (2,\,3)}1 = \Big(\lim_{(x,\,y)\to (2,\,3)}x\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}x\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}y\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}y\Big) + 1 = 2^2 3^2 + 1 = 37$，$\ds\lim_{(x,\,y)\to (2,\,3)}\frac{x + \sin y}{x^2 y^2 + 1} = \frac{\lim\limits_{(x,\,y)\to (2,\,3)}(x + \sin y)}{\lim\limits_{(x,\,y)\to (2,\,3)}(x^2 y^2 + 1)} = \frac{2 + \sin 3}{37}$
+\end{sol}
+
+\begin{rmk}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 單變數函數極限 $\ds\lim_{x\to a} f(x)$ 存在的充要條件為 $\ds\lim_{x\to a-} f(x)$ 與 $\ds\lim_{x\to a+} f(x)$ 均存在且相等。
+    \item 多變數函數極限 $\ds\lim_{\vx\to\va} f(\vx)$ 存在的充要條件為{\color{M4}任意趨近 $\va$ 之路徑的極限}均存在且相等。
+    \item 求 $\ds\lim_{(x,\,y)\to(0,\,0)}f(x, y)$ 常可將 $(x,y)$ 轉成極座標 $\ds x = r\cos\theta$，$\ds y = r\sin\theta$ 後令 $r\to 0$ 觀察。
+  \end{itemize}
+
+  %\begin{align*}
+  %\hskip1in x&=r\cos\theta\hskip1in
+  %\smash{\raisebox{-0.6\height}{\includegraphics{fig/polar.pdf}}} \\
+  %y&=r\sin\theta
+  %\end{align*}
+\end{rmk}
+
+\begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y}{x^2+y^2}$。
+\end{ex}
+\begin{sol}
+  $\ds\frac{x^2y}{x^2+y^2} =\frac{(r\cos\theta)^2(r\sin\theta)}{r^2} = r\cos^2\theta\sin\theta$。由 $\ds\big|r\cos^2\theta\sin\theta\big|\leqslant r\to 0$ 當 $r\to 0$，$\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 y}{x^2 + y^2} = 0$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 - y^2}{x^2 + y^2}$。
+\end{ex}
+\begin{sol}
+  由 $\ds f(x,y) = \frac{x^2 - y^2}{x^2 + y^2} = \frac{(r\cos\theta)^2 - (r\sin\theta)^2}{r^2} = \cos^2\theta - \sin^2\theta = \cos(2\theta)$，$\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 - y^2}{x^2 + y^2} = \text{DNE}$
+\end{sol}
+
+\begin{ex}
+  若 $\ds f(x,y) = \begin{cases}\frac{(2x-y)^2}{x-y}, & x\ne y\\0, & x = y\end{cases}$，求 $\ds\lim_{(x,\,y)\to (0,\,0)} f(x,y)$。
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 延 $y = x - x^3$，$\ds f(x,x - x^3) = \frac{{(2 x - x + x^3)}^2}{x - x + x^3} = \frac{{(x + x^3)}^2}{x^3} = \frac{{(1 + x^2)}^2}{x}\,\longrightarrow\,\begin{cases}+\infty, & x\to 0+\\-\infty, & x\to 0-\end{cases}$
+    \item 延 $y = x - ax^2$，$a\ne 0$：$\ds\lim_{x\to 0}f(x,x - a x^2) = \lim_{x\to 0}\frac{{(2x - x + a x^2)}^2}{x - x + a x^2} = \lim_{x\to 0}\frac{{(x + a x^2)}^2}{a x^2} = \lim_{x\to 0}\frac{{(1 + a x)}^2}{a} = \frac{1}{a}$
+    \item 結論：$\ds\lim\limits_{(x,\,y)\to(0,\,0)}f(x,y) = \text{DNE}$
+  \end{itemize}
+\end{sol}
+
+\begin{dfn}[偏導函數、偏微分、偏導數]
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds f(x, y)$ 的 $x$-偏導函數定義為 $\ds\pdiff{f}{x}(x, y) = \lim_{h\to 0}\frac{f(x + h, y) - f(x, y)}{h}$；$\ds f(x, y)$ 的 $y$-偏導函數定義為 $\ds\pdiff{f}{y}(x,y) = \lim_{h\to 0}\frac{f(x, y + h) - f(x, y)}{h}$。
+    \item 求 $f(x, y)$ 之 $x$-偏導函數之過程稱作「$\ds f(x, y)$ 對 $x$ 偏微分」。
+    \item $\ds f(x, y)$ 在 $(a, b)$ 的 $y$-偏導數記為 $\ds\pdiff{f}{y}(a,b)\equiv\pdiff{f}{y}\,\bigg|_{(a,b)}$。
+  \end{itemize}
+\end{dfn}
+\begin{rmk}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\pdiff{f}{y}(x,y)$ 亦可記為 $\ds\pdiff{f}{y}$、$\ds f_y(x,y)$、$\ds f_y$、$\ds D_yf(x,y)$、$\ds D_yf$、$D_2 f(x,y)$、$D_2 f$。
+    \item 求 $\ds\pdiff{f}{y}(x, y)$： 將 $f(x, y)$ 中的 $x$ 視作常數，然後對 $y$ 微分。
+    \item 求 $\ds\pdiff{f}{y}(a, b)$： 將 $f(x, y)$ 中的 $x$ 視作常數，然後對 $y$ 微分並代入 $x = a$、$y = b$。
+    \item 以上符號 / 運算均可直接推廣至維度 $> 2$ 狀況。
+  \end{itemize}
+\end{rmk}
+
+\begin{ex}
+  $\ds f(x,y) = x^3 + y^2 + 4xy^2$，則 $\ds\pdiff{f}{x} = \pdiff{}{x}(x^3) + \pdiff{}{x}(y^2) + \pdiff{}{x}(4xy^2) = 3x^2 + 0 + 4y^2\pdiff{}{x}(x) = 3x^2 + 4y^2$，$\ds\pdiff{f}{y} = \pdiff{}{y}(x^3) + \pdiff{}{y}(y^2) +\pdiff{}{y}(4xy^2) = 0 + 2y + 4x\pdiff{}{y}(y^2) = 2y + 8xy$，$\ds\pdiff{f}{x}(1,\,0) = 3(1)^2 + 4(0)^2 = 3$，$\ds\pdiff{f}{y}(1,\,0) = 2(0) + 8(1)(0) = 0$。
+\end{ex}
+
+\begin{ex}
+  $\ds f(x,y) = y\cos x + xe^{xy}$，$\ds\pdiff{}{x} e^{yx}=y e^{yx}$，$\ds\pdiff{f}{x}(x,y) = y\pdiff{}{x}(\cos x) + e^{xy}\pdiff{}{x}(x) + x\pdiff{}{x}\big(e^{xy}\big) = -y\sin x + e^{xy} + x y e^{xy}$，$\ds\pdiff{f}{y}(x,y) = \cos x\pdiff{}{y}(y) + x\pdiff{}{y}\big(e^{xy}\big) = \cos x + x^2e^{xy}$
+\end{ex}
+
+\begin{ex}
+  $\ds f(x, y, z, t) = x\sin(y + 2z) + t^2 e^{3y}\ln z$，則 $\ds\pdiff{f}{x}(x,y,z,t) = \sin(y+2z)$，$\ds\pdiff{f}{y}(x,y,z,t) = x\cos(y+2z) +3t^2e^{3y}\ln z$，$\ds\pdiff{f}{z}(x,y,z,t) = 2x \cos(y + 2z) +\frac{t^2e^{3y}}{z}$，$\ds\pdiff{f}{t}(x,y,z,t) = 2t e^{3y}\ln z$。
+\end{ex}
+
+\begin{ex} 若 $\ds f(x,y) = \begin{cases}\frac{\cos x - \cos y}{x - y} & x\ne y\\ 0 & x=y\end{cases}$
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\forall\,x\ne y$，$\ds f_x = \frac{-\sin x(x - y) - (\cos x - \cos y)}{(x - y)^2}$；無法由此求 $f_x(0, 0)$。
+    \item 由定義計算 $\ds f_x(0, 0)$：$\ds f_x(0, 0) = \lim_{h\to 0}\frac{f(0 + h, 0) - f(0, 0)}{h} = \lim_{h\to 0}\frac{\frac{\cos h - 1}{h - 0} - 0}{h} = \lim_{h\to 0}\frac{\cos h-1}{h^2} = \lim_{h\to 0}\frac{-\sin h}{2h} = \lim_{h\to 0}\frac{-\cos h}{2} = -\frac{1}{2}$。
+    \item 由定義計算 $\ds f_y(0, 0)$：$\ds f_y(0, 0) = \lim_{h\to 0}\frac{f(0, 0 + h) - f(0, 0)}{h} = \lim_{h\to 0}\frac{\frac{1 - \cos h}{-h} - 0}{h} = \lim_{h\to 0}\frac{\cos h-1}{h^2} = \lim_{h\to 0}\frac{-\sin h}{2h} = \lim_{h\to 0}\frac{-\cos h}{2} = -\frac{1}{2}$。
+    \item $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{\cos x - \cos y}{x - y} = \lim_{(x,\,y)\to (0,\,0)}\frac{-2\sin\frac{x + y}{2}\sin\frac{x - y}{2}}{x - y} = -\lim_{(x,\,y)\to (0,\,0)}\sin\frac{x + y}{2}\,\lim_{(x,\,y)\to (0,\,0)}\frac{\sin\frac{x - y}{2}}{\frac{x - y}{2}} = 0$，故 $f(x, y)$ 在 $(0, 0)$ 連續。
+    \item $\ds f(x, y)$ 在 $(a, a)$，$a\ne 0$ 不連續：由定義 $\ds\lim_{(x,\,y)\to(a,\,a)}f(x, y) = \sin a$，但 $f(a, a) = 0$。
+  \end{itemize}
+\end{ex}
+
+\begin{ex} 
+  若 $x$、$y$、$z$ 滿足方程式 $\ds z^5 + y^2 e^z + e^{2x} = 0$，求 $\ds\pdiff{z}{x}(0, 0)$。
+\end{ex}
+\begin{sol}
+  局域下 $z$ 為 $x$、$y$ 之函數；當 $x = y = 0$，原方程式為 $\ds z(0, 0)^5 = -1\ie z(0, 0) = -1$。令 $z\equiv z(x, y)$ 代入原方程式並對 $x$ 偏微分得 $\ds 5\,z(x, y)^4\,\pdiff{z}{x}(x, y) + y^2\,e^{z(x, y)}\,\pdiff{z}{x}(x,y) + 2\,e^{2x} = 0$；代入 $(x,\,y) = (0,\,0)$ 得 $\ds 5\,z(0, 0)^4\,\pdiff{z}{x}(0, 0) + 2  = 0$，再由 $z(0, 0) = -1$，$\ds\pdiff{z}{x}(0, 0) = -\frac{2}{5\,z(0, 0)^4} = -\frac{2}{5}$。
+\end{sol}
+
+\begin{dfn}[高階偏導函數] 給定可微雙變數函數 $f(x, y)$，
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds\pdiff{}{x}\left(\pdiff{f}{x}\right)(x,y) = \frac{\partial^2 f}{\partial x^2}(x,y) = f_{xx}(x,y)$
+      \item $\ds\pdiff{}{y}\left(\pdiff{f}{x}\right)(x,y) = \frac{\partial^2 f}{\partial y\partial x}(x,y) = f_{xy}(x,y)$
+      \item $\ds\pdiff{}{x}\left(\pdiff{f}{y}\right)(x,y) = \frac{\partial^2 f}{\partial x\partial y}(x,y) = f_{yx}(x,y)$
+      \item $\ds\pdiff{}{y}\left(\pdiff{f}{y}\right)(x,y) = \frac{\partial^2 f}{\partial y^2}(x,y) = f_{yy}(x,y)$
+    \end{itemize}
+  \end{multicols}
+\end{dfn}
+
+\begin{ex}
+  令 $\ds f(x,y) = e^{my}\cos(nx)$，則
+  \begin{multicols}{3}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = -n e^{my}\sin(nx)$
+      \item $\ds f_y = m e^{my}\cos(nx)$
+      \item $\ds f_{xx} = -n^2 e^{my}\cos(nx)$
+      \item $\ds f_{yy} = m^2 e^{my}\cos(nx)$
+      \item $\ds f_{yx} = -m n e^{my}\sin(nx)$
+      \item $\ds f_{xy} = -m n e^{my}\sin(nx)$
+    \end{itemize}
+  \end{multicols}
+\end{ex}
+
+\begin{ex}
+  令 $\ds f(x,y) = e^{\al x+\be y}$，則
+  \begin{multicols}{3}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \al e^{\al x+\be y}$ 
+      \item $\ds f_y = \be e^{\al x+\be y}$
+      \item $\ds f_{xx} = \al^2 e^{\al x+\be y}$
+      \item $\ds f_{yx} = \be\al e^{\al x+\be y}$
+      \item $\ds f_{xy} = \al\be e^{\al x+\be y}$
+      \item $\ds f_{yy} = \be^2 e^{\al x+\be y}$
+    \end{itemize}
+  \end{multicols}
+  對整數 $m, n\geqslant 0$，$\ds\frac{\partial^{m+n} f}{\partial x^m\partial y^n} = \al^m\be^n e^{\al x+\be y}$。
+\end{ex}
+
+\begin{ex}
+  若 $\ds f(x_1,x_2,x_3,x_4) = x_1^4\, x_2^3\, x_3^2\, x_4$，則
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\ds\frac{\partial^4 f}{\partial x_1\partial x_2\partial x_3\partial x_4} = \frac{\partial^3}{\partial x_1\partial x_2\partial x_3}\left(x_1^4 x_2^3 x_3^2\right) = \frac{\partial^2}{\partial x_1\partial x_2}\left(2 x_1^4 x_2^3 x_3\right) = \pdiff{}{x_1}\left(6 x_1^4 x_2^2 x_3\right) = 24 x_1^3 x_2^2 x_3$ 
+    \item $\ds\frac{\partial^4 f}{\partial x_4\partial x_3\partial x_2\partial x_1} = \frac{\partial^3}{\partial x_4\partial x_3\partial x_2}\left(4 x_1^3 x_2^3 x_3^2 x_4\right) = \frac{\partial^2}{\partial x_4\partial x_3}\left(12 x_1^3 x_2^2 x_3^2 x_4\right) = \pdiff{}{x_4}\left(24 x_1^3 x_2^2 x_3 x_4\right) =  24 x_1^3 x_2^2 x_3$
+  \end{itemize}
+\end{ex}
+
+\begin{thm}[Clairaut-Young-Schwarz]
+  若 $\ds\frac{\partial^2 f}{\partial x\partial y}$ 與 $\ds\frac{\partial^2 f}{\partial y\partial x}$ 均存在且在 $(x_0,\,y_0)$ 連續，則 $\ds\frac{\partial^2 f}{\partial x\partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y\partial x}(x_0, y_0)$。
+\end{thm}
 
 \end{document}
+
+\section*{5.4 鏈鎖律} 
+\begin{thm}
+  給定 $\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big)$，則 \\
+  $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$ \\ 
+  $\ds\pdiff{F}{t}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)$
+\end{thm}
+$\ds\diff{}{t}f\big(x(t)\big) = \diff{f}{x}\big(x(t)\big)\,\diff{x}{t}(t)$
+
+\begin{ex}
+  若 $\ds f(x, y) = e^{xy}$，$\ds x(s, t) = s$，$\ds y(s, t) = \cos t$；定義 $\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big)$，求 $\ds\pdiff{F}{s}(s,t)$。
+\end{ex}
+\begin{sol}
+  由 $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s, t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$，$\ds\pdiff{f}{x}(x,y) = ye^{xy}$ $\pdiff{f}{x}\big(x(s,t), y(s,t)\big) = y(s,t)e^{x(s,t)\,y(s,t)} = \cos t e^{s\cos t}$ $\ds\pdiff{f}{y}(x,y) = xe^{xy}$ $\pdiff{f}{y}\big(x(s,t),y(s,t)\big) = x(s,t)\,e^{x(s,t)\,y(s,t)} = s e^{s\cos t}$ $\ds\pdiff{x}{s} = 1$$\ds\pdiff{y}{s} = 0$
+$\ds\pdiff{F}{s}(s,t)=\overbrace{\left\{\cos t e^{s\cos t}\right\}}^{\pdiff{f}{x}}\overbrace{(1)}^{\pdiff{x}{s}} + \overbrace{\left\{s\ e^{s\cos t}\right\}}^{\pdiff{f}{y}}\overbrace{(0)}^{\pdiff{y}{s}} = \cos t\ e^{s\cos t}$
+\end{sol}
+
+\begin{ex}
+  Find $\diff{}{t}f\big(x(t),y(t)\big)$ for
+\begin{equation*}
+f(x,y)=x^2-y^2\qquad x(t)=\cos t \qquad y(t)=\sin t
+\end{equation*}
+Define $F(t)=f\big(x(t),y(t)\big)$, then
+$$
+\diff{F}{t}(t)=
+\pdiff{f}{x}\big(x(t),y(t)\big) \diff{x}{t}(t)
++\pdiff{f}{y}\big(x(t),y(t)\big) \diff{y}{t}(t)
+$$
+\begin{align*}
+f(x,y)&=x^2-y^2  \\
+\pdiff{f}{x}(x,y)&= 2x  &
+\pdiff{f}{x}\big(x(t),y(t)\big)&= \phantom{-}2x(t) =\phantom{-}2\cos t  \\
+\pdiff{f}{y}(x,y)&= -2y  &
+\pdiff{f}{y}\big(x(t),y(t)\big)&= -2y(t)  =-2\sin t \\
+\diff{x}{t}&=-\sin t &
+\diff{y}{t}&=\cos t
+\end{align*}
+$$
+\diff{F}{t}(t)=(2\cos t)(-\sin t) +(-2\sin t)(\cos t) = -4\sin t\cos t
+$$
+Of course, we can compute $F(t)$ explicitly:
+$$
+F(t)=f\big(x(t),y(t)\big)=x(t)^2-y(t)^2=\cos^2t-\sin^2t
+$$
+$$
+F'(t)=2(\cos t)(-\sin t)-2(\sin t)(\cos t) = -4 \sin t\cos t
+$$
+\end{ex}
+\begin{ex}[$\pdiff{}{t}f(x+ct)$]
+Define
+$u(x,t)=x+ct$ and $w(x,t)=f(x+ct)=f\big(u(x,t)\big)$. Then
+$$
+\pdiff{}{t}f(x+ct)
+=\pdiff{w}{t}(x,t)
+=\diff{f}{u}\big(u(x,t)\big)  \pdiff{u}{t}(x,t)
+=c\, f'(x+ct)
+$$
+\end{ex}
+\begin{ex}[$\frac{\partial^2\hfill}{\partial t^2}f(x+ct)$]
+Define  $w(x,t)=f(x+ct)$ and
+$W(x,t)=\pdiff{w}{t}(x,t)=cf'(x+ct)=F\big(u(x,t)\big)$
+where $F(u)=cf'(u)$ and $u(x,t)=x+ct$. Then
+$$
+\frac{\partial^2\hfill}{\partial t^2}f(x+ct)
+=\pdiff{W}{t}(x,t)
+=\diff{F}{u}\big(u(x,t)\big)  \pdiff{u}{t}(x,t)
+=c\,f''(x+ct)\,c
+=c^2\,f''(x+ct)
+$$
+\end{ex}
+
+\begin{thm}[梯度、切平面、法線]
+  令 $\ds(x_0, y_0, z_0)$ 在 $G(x, y, z) = 0$ 上，梯度 \\$\ds\vnabla G(x_0, y_0, z_0)\equiv\llt\pdiff{G}{x}\big(x_0,y_0,z_0\big),\,\pdiff{G}{y}\big(x_0,y_0,z_0\big),\,\pdiff{G}{z}\big(x_0,y_0,z_0\big)\rgt\ne\vZero$，則
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item $\vnabla G(x_0,y_0,z_0)$ 在 $(x_0,y_0,z_0)$ 與 $G(x, y, z) = 0$ 垂直。
+    \item $G(x, y, z) = 0$ 在 $(x_0, y_0, z_0)$ 之切平面方程式為 $\ds\vnabla G(x_0,y_0,z_0)\cdot\llt x - x_0,\,y - y_0,\,z - z_0\rgt = 0$
+    \item $G(x, y, z) = 0$ 在 $(x_0, y_0, z_0)$ 之法線方程式為 $\ds\llt x,\,y,\,z\rgt = \llt x_0,\,y_0,\,z_0\rgt + t\,\vnabla G(x_0, y_0, z_0)$。
+  \end{enumerate}
+\end{thm}
+
+\begin{prf}
+  Then normal vector $\vn$ at a point $\vr(t_0) = (x(t_0), y(t_0), z(t_0))$ on the surface $G(x, y, z) = 0$: for all curves on $G$ that pass through $\vr(t_0)$, $\vn\cdot\vr'(t_0) = 0$.
+$\ds\frac{\text{d}}{\text{d}t}G(x(t), y(t), z(t)) = 0\,\Longrightarrow\,\frac{\partial G}{\partial x}\,\frac{\text{d}x}{\text{d}t} + \frac{\partial G}{\partial y}\,\frac{\text{d}y}{\text{d}t} + \frac{\partial G}{\partial z}\,\frac{\text{d}z}{\text{d}t} = 0\,\Longrightarrow\,\nabla G(\vr(t_0))\cdot\vr'(t_0) = 0$
+\end{prf}
+
+\begin{ex}
+  求 $z = x^2 + 5xy - 2y^2$ 在 $(1, 2, 3)$ 之切平面與法線方程式。
+\end{ex}
+\begin{sol}
+  $\ds f(x, y, z) = x^2 + 5xy - 2y^2 - z = 0$，故 $\nabla f = (2x + 5y)\,\hi + (-4y + 5x)\,\hj - \hk$。
+\end{sol}
+
+\section*{5.5 極值問題}
+
+\begin{dfn}
+  給定 $f:R\to\mathbb{R}^2$，$\ds B((x_i, y_i), h)\equiv\{x\;|\;|x - x_i| < h\}$。
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $f$ 在 $\ds x_\text{M}\in R$ 有最大值 (global maximum) $\ds f(x_\text{M})$：$\ds f(x_\text{M})\geqslant f(x),\;\forall\,x\in R$。
+    \item $f$ 在 $\ds x_\text{m}\in R$ 有最小值 (global minimum) $\ds f(x_\text{m})$：$\ds f(x_\text{m})\leqslant f(x),\;\forall\,x\in R$。
+    \item $f$ 在 $\ds (a, b)\in R$ 有極大值 (local maximum) ：$\ds\exists\,h_0 > 0$ 使 $\ds f(x_0)\geqslant f(x),\;\forall\,x\in B(x_0, h_0)\,\cap\,R$。
+    \item $f$ 在 $\ds (a, b)\in R$ 有極小值 (local minimum) $\ds f(x_1)$：$\ds\exists\,h_1 > 0$ 使 $\ds f(x_1)\leqslant f(x),\;\forall\,x\in B(x_1, h_1)\,\cap\,R$。
+  \end{itemize}
+\end{dfn}
+
+\section*{5.6 Lagrange 乘數法}
+\begin{align*}
+&\min_x\;f(x) \\
+\text{subject to}\quad &g_i(x) = 0,\quad i = 1, 2, \ldots, l. \\
+\end{align*}
+

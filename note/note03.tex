@@ -144,7 +144,7 @@
   \includegraphics[scale=1,page=1]{fig/rolle.pdf}
 \end{figure}
 
-\begin{thm}[均值定理（mean-value theorem，MVT）]
+\begin{thm}[均值定理 (mean-value theorem，MVT) ]
   若 $f(x)$ 在 $[a, b]$ 連續，在 $(a, b)$ 可微，則存在 $\ds c\in (a, b)$ 使 $\ds f'(c) = \frac{f(b) - f(a)}{b - a}$。
 \end{thm}
 \vspace{-1cm}
@@ -178,12 +178,14 @@
 
 \begin{prp}
   $f(x)$ 在 $[a, b]$ 連續，在 $(a, b)$ 可微。若
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item $\ds\forall\,x\in(a, b)\; f'(x) > 0$，則 $f$ 在 $[a, b]$ 嚴格遞增。
-    \item $\ds\forall\,x\in(a, b)\; f'(x) < 0$，則 $f$ 在 $[a, b]$ 嚴格遞減。
-    \item $\ds\forall\,x\in(a, b)\; f'(x) \geqslant 0$，則 $f$ 在 $[a, b]$ 遞增。
-    \item $\ds\forall\,x\in(a, b)\; f'(x) \leqslant 0$，則 $f$ 在 $[a, b]$ 遞減。
-  \end{enumerate}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds\forall\,x\in(a, b)\; f'(x) > 0$，則 $f$ 在 $[a, b]$ 嚴格遞增。
+      \item $\ds\forall\,x\in(a, b)\; f'(x) < 0$，則 $f$ 在 $[a, b]$ 嚴格遞減。
+      \item $\ds\forall\,x\in(a, b)\; f'(x) \geqslant 0$，則 $f$ 在 $[a, b]$ 遞增。
+      \item $\ds\forall\,x\in(a, b)\; f'(x) \leqslant 0$，則 $f$ 在 $[a, b]$ 遞減。
+    \end{enumerate}
+  \end{multicols}
 \end{prp}
 
 \begin{prf}
@@ -255,12 +257,12 @@
 %        \item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$。
 %      \end{itemize}
 %    則 $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$。
-%    \item （適當修改後）上述 $a+$ 可以是 $a-$，$a$；$a$ 可以是 $\pm\infty$。
+%    \item  (適當修改後) 上述 $a+$ 可以是 $a-$，$a$；$a$ 可以是 $\pm\infty$。
 %  \end{itemize}
 %\end{thm}
 
-\begin{thm}[L'H\^opital 法則（LHR）]
-  若 $f$ 與 $g$ 為實可微函數，且在 $(a, b)$ 上 $g'(x)\ne 0$（$a,\,b\in\overline{\mathbb{R}}$）。假設 
+\begin{thm}[L'H\^opital 法則 (LHR) ]
+  若 $f$ 與 $g$ 為實可微函數，且在 $(a, b)$ 上 $g'(x)\ne 0$ ($a,\,b\in\overline{\mathbb{R}}$) 。假設 
   \begin{align*}
     \lim_{x\to a+}f(x) = \lim_{x\to a+}g(x) = 0\quad\Big(\frac{0}{0}\;\text{型}\Big)\qquad\text{或}\qquad\lim_{x\to a+}g(x) = \infty\quad\Big(\frac{\infty}{\infty}\;\text{型}\Big)
   \end{align*}
@@ -354,10 +356,10 @@
 \begin{dfn}
   給定 $f:I\to\mathbb{R}$，$\ds B(x_i, h)\equiv\{x\;|\;|x - x_i| < h\}$。
   \begin{itemize}\setlength\itemsep{0em}
-    \item $f$ 在 $\ds x_\text{M}\in I$ 有最大值（global maximum）$\ds f(x_\text{M})$：$\ds f(x_\text{M})\geqslant f(x),\;\forall\,x\in I$。
-    \item $f$ 在 $\ds x_\text{m}\in I$ 有最小值（global minimum）$\ds f(x_\text{m})$：$\ds f(x_\text{m})\leqslant f(x),\;\forall\,x\in I$。
-    \item $f$ 在 $\ds x_0\in I$ 有極大值（local maximum）$\ds f(x_0)$：$\ds\exists\,h_0 > 0$ 使 $\ds f(x_0)\geqslant f(x),\;\forall\,x\in B(x_0, h_0)\,\cap\,I$。
-    \item $f$ 在 $\ds x_1\in I$ 有極小值（local minimum）$\ds f(x_1)$：$\ds\exists\,h_1 > 0$ 使 $\ds f(x_1)\leqslant f(x),\;\forall\,x\in B(x_1, h_1)\,\cap\,I$。
+    \item $f$ 在 $\ds x_\text{M}\in I$ 有最大值 (global maximum) $\ds f(x_\text{M})$：$\ds f(x_\text{M})\geqslant f(x),\;\forall\,x\in I$。
+    \item $f$ 在 $\ds x_\text{m}\in I$ 有最小值 (global minimum) $\ds f(x_\text{m})$：$\ds f(x_\text{m})\leqslant f(x),\;\forall\,x\in I$。
+    \item $f$ 在 $\ds x_0\in I$ 有極大值 (local maximum) $\ds f(x_0)$：$\ds\exists\,h_0 > 0$ 使 $\ds f(x_0)\geqslant f(x),\;\forall\,x\in B(x_0, h_0)\,\cap\,I$。
+    \item $f$ 在 $\ds x_1\in I$ 有極小值 (local minimum) $\ds f(x_1)$：$\ds\exists\,h_1 > 0$ 使 $\ds f(x_1)\leqslant f(x),\;\forall\,x\in B(x_1, h_1)\,\cap\,I$。
   \end{itemize}
 \end{dfn}
 
@@ -392,12 +394,7 @@
 \end{ex}
 
 \begin{thm}
-  若函數在定義域為
-  \begin{itemize}\setlength\itemsep{0em}
-    \item 有限閉區間，或
-    \item 有限閉區間的有限聯集
-  \end{itemize}
-  連續，則函數在定義域上有最大值及最小值。
+  若函數在定義域為{\color{M4}有限閉區間}，或{\color{M4}有限閉區間的有限聯集}連續，則函數在定義域上有最大值及最小值。
 \end{thm}
 
 \begin{thm}
@@ -409,39 +406,39 @@
   $a$ 可為 $-\infty$，$b$ 可為 $\infty$，$L$、$M$ 可為 $\pm\infty$。
 \end{thm}
 
-%\begin{prf}
-%  \begin{enumerate}
-%    \item[]
-%    \item 
-%    \begin{itemize}
-%      \item By $\ds \lim_{x\to a+}f(x) = L$, given $\varepsilon > 0$, $\exists\,\delta_1 > 0$ s.t. for $a < x < a + \delta_1$, $f(x) < L + \varepsilon$.
-%      \item Take $\varepsilon = f(u) - L$, then
-%        \begin{align}\label{joi}
-%          \exists\,x_1\in (a, u) \text{ s.t. for } a < x < x_1, \,f(x) < L + (f(u) - L) = f(u).
-%        \end{align}
-%      \item By $\ds \lim_{x\to b-}f(x) = M$, given $\varepsilon > 0$, $\exists\,\delta_2 > 0$ s.t. for $b - \delta_2 < x < b$, $f(x) < M + \varepsilon$.
-%      \item Take $\varepsilon = f(u) - M$, then
-%        \begin{align}\label{jio}
-%          \exists\,x_2\in (u, b)\text{ s.t. for } x_2 < x < b, \,f(x) < M + (f(u) - M) = f(u).
-%        \end{align}
-%      \item Apriori $f$ is continuous on $[x_1, x_2]$, so $f$ has global maxinum value on $[x_1, x_2]$, say at $w\in[x_1, x_2]$. But $u\in[x_1, x_2]\ie f(w)\geqslant f(u)$; together with \eqref{joi}, \eqref{jio}, $f$ has a global maximum value on $w\in(a, b)$.
-%    \end{itemize}
-%  \item 
-%    \begin{itemize}
-%      \item By $\ds \lim_{x\to a+}f(x) = L$, given $\varepsilon > 0$, $\exists\,\delta_1 > 0$ s.t. for $a < x < a + \delta_1$, $f(x) > L - \varepsilon$.
-%      \item Take $\varepsilon = L - f(u)$, then
-%        \begin{align}\label{joiw}
-%          \exists\,x_1\in (a, u) \text{ s.t. for } a < x < x_1, \,f(x) > L - (L - f(u)) = f(u).
-%        \end{align}
-%      \item By $\ds \lim_{x\to b-}f(x) = M$, given $\varepsilon > 0$, $\exists\,\delta_2 > 0$ s.t. for $b - \delta_2 < x < b$, $f(x) > M - \varepsilon$.
-%      \item Take $\varepsilon = M - f(u)$, then
-%        \begin{align}\label{jiow}
-%          \exists\,x_2\in (u, b)\text{ s.t. for } x_2 < x < b, \,f(x) > M - (M - f(u)) = f(u).
-%        \end{align}
-%      \item Apriori $f$ is continuous on $[x_1, x_2]$, so $f$ has global mininum value on $[x_1, x_2]$, say at $w\in[x_1, x_2]$. But $u\in[x_1, x_2]\ie f(w)\leqslant f(u)$; together with \eqref{joiw}, \eqref{jiow}, $f$ has a global minimum value on $w\in(a, b)$.
-%    \end{itemize}
-%  \end{enumerate}
-%\end{prf}
+\begin{prf}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item 
+    \begin{itemize}\setlength\itemsep{0em}
+      \item 由 $\ds\lim_{x\to a+}f(x) = L$，給定 $\varepsilon > 0$，$\exists\,\delta_1 > 0$ 使得當 $a < x < a + \delta_1$，$f(x) < L + \varepsilon$。
+      \item 取 $\varepsilon = f(u) - L$，則
+        \begin{align}\label{joi}
+          \exists\,x_1\in (a, u) \text{ 使得當 }\; a < x < x_1, \,f(x) < L + (f(u) - L) = f(u).
+        \end{align}
+      \item 由 $\ds \lim_{x\to b-}f(x) = M$，給定 $\varepsilon > 0$，$\exists\,\delta_2 > 0$ 使得當 $b - \delta_2 < x < b$，$f(x) < M + \varepsilon$。
+      \item 取 $\varepsilon = f(u) - M$，則
+        \begin{align}\label{jio}
+          \exists\,x_2\in (u, b)\text{ 使得當 }\; x_2 < x < b, \,f(x) < M + (f(u) - M) = f(u).
+        \end{align}
+      \item 因 $f$ 在 $[x_1, x_2]$ 連續，$f$ 在 $w\in[x_1, x_2]$ 有最大值。但 $u\in[x_1, x_2]\ie f(w)\geqslant f(u)$； 由 \eqref{joi}、\eqref{jio}，$f$ 在 $w\in(a, b)$ 有最大值。
+    \end{itemize}
+  \item 
+    \begin{itemize}\setlength\itemsep{0em}
+      \item 由 $\ds \lim_{x\to a+}f(x) = L$，給定 $\varepsilon > 0$，$\exists\,\delta_1 > 0$ 使得當 $a < x < a + \delta_1$，$f(x) > L - \varepsilon$。
+      \item 取 $\varepsilon = L - f(u)$，則
+        \begin{align}\label{joiw}
+          \exists\,x_1\in (a, u) \text{ 使得當 }\; a < x < x_1, \,f(x) > L - (L - f(u)) = f(u).
+        \end{align}
+      \item 由 $\ds \lim_{x\to b-}f(x) = M$，給定 $\varepsilon > 0$，$\exists\,\delta_2 > 0$ 使得當 $b - \delta_2 < x < b$，$f(x) > M - \varepsilon$。
+      \item 取 $\varepsilon = M - f(u)$，則
+        \begin{align}\label{jiow}
+          \exists\,x_2\in (u, b)\text{ 使得當 }\; x_2 < x < b, \,f(x) > M - (M - f(u)) = f(u).
+        \end{align}
+      \item 因 $f$ 在 $[x_1, x_2]$ 連續，$f$ 在 $w\in[x_1, x_2]$ 有最小值。但 $u\in[x_1, x_2]\ie f(w)\leqslant f(u)$； 由 \eqref{joiw}、\eqref{jiow}，$f$ 在 $w\in(a, b)$ 有最小值。
+    \end{itemize}
+  \end{enumerate}
+\end{prf}
 
 \begin{thm}
   若 $f$ 在 $c\in\dom f$ 有極值，且 $f'(c)$ 存在，則 $f'(c) = 0$。
@@ -467,11 +464,13 @@
 
 \begin{fact}
   設 $f:I\to\mathbb{R}$ 在 $x_0\in I$ 有極值，則 $x_0$ 為以下三情形之一：
-  \begin{itemize}\setlength\itemsep{0em}
-    \item 臨界點（critical point）：$\ds f'(x_0) = 0$。
-    \item 奇異點（singular point）：$f$ 在 $x_0$ 不可微。 
-    \item $I$ 的邊界點。
-  \end{itemize}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item 臨界點 (critical point) ：$\ds f'(x_0) = 0$。
+      \item 奇異點 (singular point) ：$f$ 在 $x_0$ 不可微。 
+      \item $I$ 的邊界點。
+    \end{itemize}
+  \end{multicols}
 \end{fact}
 
 \begin{ex}
@@ -620,7 +619,7 @@
 
 \vspace{1em}
 
-\begin{dfn}[反曲點（inflection point）]
+\begin{dfn}[反曲點 (inflection point) ]
   $x_0$ 為 $y = f(x)$ 的反曲點，若
   \begin{itemize}\setlength\itemsep{0em}
     \item $y = f(x)$ 在 $x = x_0$ 有切線。
@@ -631,8 +630,8 @@
 \begin{prp}
   令 $f:I\to\mathbb{R}$ 為可微。
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $f'$ 在 $I$ 嚴格遞增（$f'' > 0$ 在 $I$），$f$ 在 $I$ 凹向上（上凹）。
-    \item 若 $f'$ 在 $I$ 嚴格遞減（$f'' < 0$ 在 $I$），$f$ 在 $I$ 凹向下（下凹）。
+    \item 若 $f'$ 在 $I$ 嚴格遞增 ($f'' > 0$ 在 $I$) ，$f$ 在 $I$ 凹向上 (上凹) 。
+    \item 若 $f'$ 在 $I$ 嚴格遞減 ($f'' < 0$ 在 $I$) ，$f$ 在 $I$ 凹向下 (下凹) 。
     \item 若 $f''(x_0) = 0$，則 $x_0\in I$ 為 $f$ 的反曲點。 
   \end{itemize}
 \end{prp}
@@ -676,9 +675,9 @@
 \begin{center}
   \begin{tabular}{ccc}
     \toprule
-    & 嚴格遞減（$-$）& 嚴格遞增（$+$） \\
+    & 嚴格遞減 ($-$) & 嚴格遞增 ($+$)  \\
     \midrule
-    凹向上（$+$）& 
+    凹向上 ($+$) & 
     \parbox{3cm}{
         \begin{tikzpicture}[scale=1]
         \myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
@@ -689,7 +688,7 @@
         \draw[thick, C4] plot[domain=-0.98:0.98,smooth] (\x, {1 + 0.18 - sqrt(4 - (\x + 1)^2)});
       \end{tikzpicture}} \\
     \midrule
-    凹向下（$-$）& 
+    凹向下 ($-$) & 
     \parbox{3cm}{
         \begin{tikzpicture}[scale=1]
         \myaxis{x}{1.2}{1.2}{y}{1.2}{1.2}
@@ -704,7 +703,7 @@
   \end{tabular}
 \end{center}
 
-\begin{prp}[漸近線（asymptote）]
+\begin{prp}[漸近線 (asymptote) ]
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 若 $\ds\lim_{x\to a-}f(x) = \pm\infty$ 或 $\ds\lim_{x\to a+}f(x) = \pm\infty$，$f$ 在 $a$ 有垂直漸近線。 
@@ -746,10 +745,10 @@
         \node at (4, 0.25) {$f'$};
         \end{tikzpicture}
       \end{center}
-    \item 臨界點（$f' = 0$）：$x = 0$ 與 $\ds x = \frac{3}{2}$
-    \item 嚴格遞增區間（$f' > 0$）：$\ds \big(\frac{3}{2}, \infty\big)$
-    \item 嚴格遞減區間（$f' < 0$）：$\ds \big(-\infty, \frac{3}{2}\big)$
-    \item 反曲點（$f'' = 0$ 且前後 $f''$ 異號處）：$x = 0$ 與 $x = 1$
+    \item 臨界點 ($f' = 0$) ：$x = 0$ 與 $\ds x = \frac{3}{2}$
+    \item 嚴格遞增區間 ($f' > 0$) ：$\ds \big(\frac{3}{2}, \infty\big)$
+    \item 嚴格遞減區間 ($f' < 0$) ：$\ds \big(-\infty, \frac{3}{2}\big)$
+    \item 反曲點 ($f'' = 0$ 且前後 $f''$ 異號處) ：$x = 0$ 與 $x = 1$
     \item 作圖：\vspace{-8mm}
       \begin{center}
         \begin{tikzpicture}[scale=1.2]
@@ -793,10 +792,10 @@
         \end{tikzpicture}
       \end{center}
     \item 水平漸近線： $y = 0$，因 $\ds\lim_{x\to\pm\infty}\frac{x}{x^2 + 3} = 0$
-    \item 嚴格遞增區間（$f' > 0$）：$\ds (-\sqrt{3}, \sqrt{3})$
-    \item 嚴格遞減區間（$f' < 0$）：$\ds (-\infty, -\sqrt{3})$ 與 $\ds (\sqrt{3}, \infty)$
-    \item 臨界點（$f' = 0$）：$\ds x = \pm\sqrt{3}$
-    \item 反曲點（$f'' = 0$ 且前後 $f''$ 異號處）：$x = -3$ 與 $x = 0$ 與 $x = 3$
+    \item 嚴格遞增區間 ($f' > 0$) ：$\ds (-\sqrt{3}, \sqrt{3})$
+    \item 嚴格遞減區間 ($f' < 0$) ：$\ds (-\infty, -\sqrt{3})$ 與 $\ds (\sqrt{3}, \infty)$
+    \item 臨界點 ($f' = 0$) ：$\ds x = \pm\sqrt{3}$
+    \item 反曲點 ($f'' = 0$ 且前後 $f''$ 異號處) ：$x = -3$ 與 $x = 0$ 與 $x = 3$
     \item 作圖：\vspace{-8mm}
       \begin{center}
         \begin{tikzpicture}[scale=1.5]
@@ -841,10 +840,10 @@
       \end{center}
     \item 奇異點： $\ds x^2 - 1 = 0\ie x = \pm 1$，故垂直漸近線：$\ds x = \pm1$
     \item 斜漸近線： $y = x$，因 $\ds\lim_{x\to\pm\infty}\big(\frac{x^3}{x^2 - 1} - x\big) = 0$
-    \item 嚴格遞增區間（$f' > 0$）：$\ds (-\infty, -\sqrt{3})$ 與 $\ds (\sqrt{3}, \infty)$
-    \item 嚴格遞減區間（$f' < 0$）：$\ds(-\sqrt{3}, \sqrt{3})$
-    \item 臨界點（$f' = 0$）：$\ds x = 0$ 與 $\ds x = \pm\sqrt{3}$
-    \item 反曲點（$f'' = 0$ 且前後 $f''$ 異號處）：$x = 0$
+    \item 嚴格遞增區間 ($f' > 0$) ：$\ds (-\infty, -\sqrt{3})$ 與 $\ds (\sqrt{3}, \infty)$
+    \item 嚴格遞減區間 ($f' < 0$) ：$\ds(-\sqrt{3}, \sqrt{3})$
+    \item 臨界點 ($f' = 0$) ：$\ds x = 0$ 與 $\ds x = \pm\sqrt{3}$
+    \item 反曲點 ($f'' = 0$ 且前後 $f''$ 異號處) ：$x = 0$
     \item 作圖：\vspace{-8mm}
       \begin{center}
         \begin{tikzpicture}[scale=1.5]

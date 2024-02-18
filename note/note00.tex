@@ -124,10 +124,10 @@
     $x\in S$ & $x$ 為集合 $S$ 的元素 &  \\
     $S_1 =\{x_1, x_2, \ldots\}$ & 列舉式   &  \\
     $S_2 =\{ x\,|\, x \text{ 滿足某性質}\}$ & 敘述式 & \\
-    $S\cap T$ & $\{x\,|\, x\in S\,\wedge\,x\in T\}$ & 交集（intersection）   \\
-    $S\cup T$ & $\{x\,|\, x\in S\,\vee\,x\in T\}$ & 聯集（union）   \\
-    $S\setminus T$ & $\{x\,|\, x\in S\,\wedge\,x\not\in T\}$ & 差集（difference）  \\
-    $S\times T$ & $\{(x, y)\,|\, x\in S\,\wedge\,y\in T\}$ & 積集（Cartesian product） \\
+    $S\cap T$ & $\{x\,|\, x\in S\,\wedge\,x\in T\}$ & 交集 (intersection)    \\
+    $S\cup T$ & $\{x\,|\, x\in S\,\vee\,x\in T\}$ & 聯集 (union)    \\
+    $S\setminus T$ & $\{x\,|\, x\in S\,\wedge\,x\not\in T\}$ & 差集 (difference)   \\
+    $S\times T$ & $\{(x, y)\,|\, x\in S\,\wedge\,y\in T\}$ & 積集 (Cartesian product)  \\
     $\varnothing$ & 空集合 & \\
     $S_1\subset S_2$, $S_2\supset S_1$ & $S_1$ 為 $S_2$ 的真子集合 & \\
     $S_1\subseteq S_2$, $S_2\supseteq S_1$ & $S_1$ 為 $S_2$ 的子集合 & \\
@@ -196,7 +196,7 @@
 \end{sol}
 
 \subsection*{絕對值}
-令 $a\in\mathbb{R}$； $a$ 的絕對值（absolute value）$|a|$ 定義為 $\ds|a|=\begin{cases} a & \text{若}\;a\geqslant 0 \\ - a&\text{若}\;a < 0\end{cases}$
+令 $a\in\mathbb{R}$； $a$ 的絕對值 (absolute value) $|a|$ 定義為 $\ds|a|=\begin{cases} a & \text{若}\;a\geqslant 0 \\ - a&\text{若}\;a < 0\end{cases}$
 
 \begin{prp}
   若 $a > 0$，則
@@ -287,10 +287,10 @@
 \begin{dfn}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 函數（function）$f:A\to B$ 是一個對應關係：對所有 $a\in A$，存在唯一 $b\in B$，使得 $f$ 將 $a$ 對應到 $b$。$\ds\forall\,a\in A\;\exists\,!\,b\in B\;(f(a) = b)$.
-    \item $A$： 定義域（domain）； $\dom f = A$ \\
-          $B$： 對應域（codomain）； $\codom f = B$ \\
-          $f(A) = \{f(a)\,|\,a\in A\}\subseteq B$：值域（range）；$\ran f \equiv f(A)$      
+    \item 函數 (function) $f:A\to B$ 是一個對應關係：對所有 $a\in A$，存在唯一 $b\in B$，使得 $f$ 將 $a$ 對應到 $b$。$\ds\forall\,a\in A\;\exists\,!\,b\in B\;(f(a) = b)$.
+    \item $A$： 定義域 (domain) ； $\dom f = A$ \\
+          $B$： 對應域 (codomain) ； $\codom f = B$ \\
+          $f(A) = \{f(a)\,|\,a\in A\}\subseteq B$：值域 (range) ；$\ran f \equiv f(A)$      
   \end{itemize}
 \end{dfn}
 
@@ -313,8 +313,8 @@
 \subsection*{嵌射與蓋射}
 \begin{dfn} 給定函數 $f: A\to B$。
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall\,x_1, x_2\in A\,\wedge\,x_1\not=x_2\; (f(x_1)\not=f(x_2))$，則 $f$ 為嵌射（one-to-one, injective）。
-    \item 若 $\forall\,b\in B\;\exists\,a\in A\;(f(a) = b)$，則 $f$ 為蓋射（onto, surjective）。
+    \item 若 $\forall\,x_1, x_2\in A\,\wedge\,x_1\not=x_2\; (f(x_1)\not=f(x_2))$，則 $f$ 為嵌射 (one-to-one, injective) 。
+    \item 若 $\forall\,b\in B\;\exists\,a\in A\;(f(a) = b)$，則 $f$ 為蓋射 (onto, surjective) 。
   \end{itemize}
 \end{dfn}
 
@@ -333,8 +333,8 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item（嵌射）設 $f(m_1, n_1) = f(m_2, n_2)$。令 $k_1 = m_1 + n_1$，$k_2 = m_2 + n_2$，則 $\ds f(m_1, n_1) = \frac{k_1(k_1 + 1)}{2} + m_1$， $\ds f(m_2, n_2) = \frac{k_2(k_2 + 1)}{2} + m_2$。由 $f(m_1, n_1) = f(m_2, n_2) \ie k_1(k_1 + 1) + 2 m_1 = k_2(k_2 + 1) + 2 m_2 \ie k_1^2 + k_1 - k_2^2 - k_2 = 2(m_2 - m_1) \ie (k_1 - k_2)(k_1 + k_2 + 1) = 2(m_2 - m_1)$。若 $k_1 = k_2$，則 $m_2 = m_1$，亦即 $n_2 = n_1$。若 $k_1\not=k_2$，WLOG $k_1 > k_2$，則 $2(m_2 - m_1) = (k_1 - k_2)(k_1 + k_2 + 1)\geqslant k_1 + k_2 + 1 > 2k_2 + 1\geqslant 2m_2 + 2n_2 + 1 > 2m_2$，矛盾。
-    \item（蓋射）給定任意 $l\in\mathbb{N}$。由於整數列 $\ds\frac{k(k + 1)}{2}$ 遞增且 $\ds\frac{(k+1)(k+2)}{2} - \frac{k(k + 1)}{2} = k + 1$，存在 $k\in\mathbb{N}$ 使 $\ds\frac{k(k+1)}{2}\leqslant l < \frac{(k + 1)(k + 2)}{2}$。令 $\ds m = l - \frac{k(k + 1)}{2}$，$\ds n = k - m = k + \frac{k(k + 1)}{2} - l = \frac{(k + 1)(k + 2)}{2} - 1 - l\geqslant 0$，則 $m, n\in\mathbb{Z}^+$ 且 $f(m, n) = l$。  
+    \item (嵌射) 設 $f(m_1, n_1) = f(m_2, n_2)$。令 $k_1 = m_1 + n_1$，$k_2 = m_2 + n_2$，則 $\ds f(m_1, n_1) = \frac{k_1(k_1 + 1)}{2} + m_1$， $\ds f(m_2, n_2) = \frac{k_2(k_2 + 1)}{2} + m_2$。由 $f(m_1, n_1) = f(m_2, n_2) \ie k_1(k_1 + 1) + 2 m_1 = k_2(k_2 + 1) + 2 m_2 \ie k_1^2 + k_1 - k_2^2 - k_2 = 2(m_2 - m_1) \ie (k_1 - k_2)(k_1 + k_2 + 1) = 2(m_2 - m_1)$。若 $k_1 = k_2$，則 $m_2 = m_1$，亦即 $n_2 = n_1$。若 $k_1\not=k_2$，WLOG $k_1 > k_2$，則 $2(m_2 - m_1) = (k_1 - k_2)(k_1 + k_2 + 1)\geqslant k_1 + k_2 + 1 > 2k_2 + 1\geqslant 2m_2 + 2n_2 + 1 > 2m_2$，矛盾。
+    \item (蓋射) 給定任意 $l\in\mathbb{N}$。由於整數列 $\ds\frac{k(k + 1)}{2}$ 遞增且 $\ds\frac{(k+1)(k+2)}{2} - \frac{k(k + 1)}{2} = k + 1$，存在 $k\in\mathbb{N}$ 使 $\ds\frac{k(k+1)}{2}\leqslant l < \frac{(k + 1)(k + 2)}{2}$。令 $\ds m = l - \frac{k(k + 1)}{2}$，$\ds n = k - m = k + \frac{k(k + 1)}{2} - l = \frac{(k + 1)(k + 2)}{2} - 1 - l\geqslant 0$，則 $m, n\in\mathbb{Z}^+$ 且 $f(m, n) = l$。  
   \end{itemize}
 \end{sol}
 
@@ -385,7 +385,7 @@
 \section*{0.4 函數圖形}
 
 \begin{dfn}
-  若 $A$，$B\subseteq\mathbb{R}$，則函數 $f: A\to B$ 稱為實數值函數（real-valued function），集合 $\{(x, f(x))\,|\,x\in A\}$ 稱為 $f$ 的圖形（graph）。
+  若 $A$，$B\subseteq\mathbb{R}$，則函數 $f: A\to B$ 稱為實數值函數 (real-valued function) ，集合 $\{(x, f(x))\,|\,x\in A\}$ 稱為 $f$ 的圖形 (graph) 。
 \end{dfn}
 
 \begin{prp}函數 / 圖形判斷法
@@ -414,9 +414,9 @@
 \begin{ex}分段定義函數
   \begin{itemize}\setlength\itemsep{0em}
     \item $\ds|x| = \begin{cases} x & x\geqslant 0 \\ -x & x< 0\end{cases}$
-    \item （最大整數 / Gauss / 地板）函數（greatest integer / Gauss / floor）$\floor{x}$ \\
+    \item  (最大整數 / Gauss / 地板) 函數 (greatest integer / Gauss / floor) $\floor{x}$ \\
       $\ds\floor{x} = n$，若 $n\leqslant x < n + 1$，$n\in\mathbb{Z}$。$\floor{x}$ 為小於或等於 $x$ 的最大整數。    
-    \item 天花板函數（ceiling）$\ceil{x}$ \\
+    \item 天花板函數 (ceiling) $\ceil{x}$ \\
       $\ds\ceil{x} = n + 1$，若 $n < x \leqslant n + 1$，$n\in\mathbb{Z}$。$\ceil{x}$ 為大於或等於 $x$ 的最小整數。
     \item $\ds\ceil{x} = -\floor{-x}$。
     \item 若 $g$，$h$ 為實數值函數，則 $\ds f(x) = \max\,\{g(x),\,h(x)\} = \frac{|g(x) - h(x)|}{2} + \frac{g(x) + h(x)}{2}$。
@@ -427,8 +427,8 @@
 \subsection*{奇偶性}
 \begin{dfn} 給定實數值函數 $f$：
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall x\in\dom f$，$f(-x) = f(x)$，則 $f$ 為偶函數（even function）。
-    \item 若 $\forall x\in\dom f$，$f(-x) = -f(x)$，則 $f$ 為奇函數（odd function）。
+    \item 若 $\forall x\in\dom f$，$f(-x) = f(x)$，則 $f$ 為偶函數 (even function) 。
+    \item 若 $\forall x\in\dom f$，$f(-x) = -f(x)$，則 $f$ 為奇函數 (odd function) 。
   \end{itemize}
 \end{dfn}
 
@@ -438,8 +438,8 @@
 
 \begin{prf} 設實數值函數為 $f$。
   \begin{itemize}\setlength\itemsep{0em}
-    \item（存在性）令 $\ds E(x) = \frac{f(x) + f(-x)}{2}$，$\ds O(x) = \frac{f(x) - f(-x)}{2}$，則 $E$ 為偶函數，$O$ 為奇函數，$f(x) = E(x) + O(x)$。
-    \item（唯一性）已知 $\ds f(x) = E_1(x) + O_1(x) = E_2(x) + O_2(x)$。令 $E_2(x) - E_1(x) = e(x)$，$O_1(x) - O_2(x) = o(x)$，則 $e(x)$ 為偶函數，$o(x)$ 為奇函數，且 $e(x) - o(x) = 0$。若 $x\leftarrow -x$，則 $e(-x) - o(-x) = 0 \ie e(x) + o(x) = 0$，故 $e(x) = 0$，$o(x) = 0$。
+    \item (存在性) 令 $\ds E(x) = \frac{f(x) + f(-x)}{2}$，$\ds O(x) = \frac{f(x) - f(-x)}{2}$，則 $E$ 為偶函數，$O$ 為奇函數，$f(x) = E(x) + O(x)$。
+    \item (唯一性) 已知 $\ds f(x) = E_1(x) + O_1(x) = E_2(x) + O_2(x)$。令 $E_2(x) - E_1(x) = e(x)$，$O_1(x) - O_2(x) = o(x)$，則 $e(x)$ 為偶函數，$o(x)$ 為奇函數，且 $e(x) - o(x) = 0$。若 $x\leftarrow -x$，則 $e(-x) - o(-x) = 0 \ie e(x) + o(x) = 0$，故 $e(x) = 0$，$o(x) = 0$。
 % $E_2(x) - E_1(x) = O_1(x) - O_2(x)$ 同時為奇、偶函數，必恆為零 $\ie E_2 = E_1,\,O_1 = O_2$。 
   \end{itemize}
 \end{prf}
@@ -448,10 +448,10 @@
 
 \begin{dfn} 給定實數值函數 $f$ 與區間 $I$：
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) < f(y)$，則稱 $f$ 在 $I$ 為嚴格遞增 / 嚴格上升（increasing）。
-    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) > f(y)$，則稱 $f$ 在 $I$ 為嚴格遞減 / 嚴格下降（decreasing）。
-    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) \leqslant f(y)$，則稱 $f$ 在 $I$ 為遞增 / 上升（non-decreasing）。
-    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) \geqslant f(y)$，則稱 $f$ 在 $I$ 為遞減 / 下降（non-increasing）。
+    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) < f(y)$，則稱 $f$ 在 $I$ 為嚴格遞增 / 嚴格上升 (increasing) 。
+    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) > f(y)$，則稱 $f$ 在 $I$ 為嚴格遞減 / 嚴格下降 (decreasing) 。
+    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) \leqslant f(y)$，則稱 $f$ 在 $I$ 為遞增 / 上升 (non-decreasing) 。
+    \item 若 $\forall\,x, y\in I$，$x < y$ 有 $f(x) \geqslant f(y)$，則稱 $f$ 在 $I$ 為遞減 / 下降 (non-increasing) 。
   \end{itemize}
 \end{dfn}
 
@@ -481,7 +481,7 @@
 \begin{ex}
   令 $f(x) = \sin x$，若定義在
   \begin{itemize}\setlength\itemsep{0em}
-    \item $[0, \pi]$ 時，非為嵌射（一對一）。
+    \item $[0, \pi]$ 時，非為嵌射 (一對一) 。
     \item $\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$ 時為嚴格遞增，存在反函數 $\sin^{-1}:[-1, 1]\to\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$
   \end{itemize}
 \end{ex}
@@ -581,7 +581,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
   \vspace{-0.5em}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item $\ds\log_{10} (x^2 - 21 x) = \log_{10} 10^2 \ie x^2 - 21x - 100 = 0 \ie (x - 25)(x + 4) = 0 \ie x = 25\,\vee\,x = -4$（不合）。
+    \item $\ds\log_{10} (x^2 - 21 x) = \log_{10} 10^2 \ie x^2 - 21x - 100 = 0 \ie (x - 25)(x + 4) = 0 \ie x = 25\,\vee\,x = -4$ (不合) 。
     \item $\ds x^2 - 2x - 2 > 0\,\wedge\, x^2 - 2x - 2\leqslant 1 \ie x \in [-1, 1 - \sqrt{3})\cup (1 + \sqrt{3}, 3]$。
     \item $\ds 7 - 2 = \frac{1}{x} \ie x = \frac{1}{5}$。
   \end{enumerate}
@@ -605,7 +605,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 \begin{dfn}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 弧度 / 弳度（radian） 
+    \item 弧度 / 弳度 (radian)  
       \begin{figure}[ht]
         \centering
         \begin{tabularx}{0.3\textwidth}{X>{\centering\arraybackslash}X}
@@ -624,7 +624,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
       \end{figure}
 
      \vspace{-0.5em}
-    \item 直角三角形：畢氏定理（Pythagorean Theorem）$c^2 = a^2 + b^2$ \\
+    \item 直角三角形：畢氏定理 (Pythagorean Theorem) $c^2 = a^2 + b^2$ \\
       證明：由直角三角形面積公式 $\ds\frac{1}{2}\,c\cdot\overline{CO} = \frac{1}{2}\,a\cdot b\ie\overline{CO} = \frac{ab}{c}$。又 $\ds\Delta ABC\sim\Delta CBO\sim\Delta ACO$，則 $\ds\overline{AC}:\overline{BC} = \overline{CO}:\overline{BO} = \overline{AO}:\overline{CO}\ie b:a = \frac{ab}{c}: \overline{BO} = \overline{AO}: \frac{ab}{c} \ie \overline{BO} = \frac{a^2}{c},\,\overline{AO} = \frac{b^2}{c}$。由 $\ds\overline{AB} = \overline{AO} + \overline{BO}\ie c = \frac{b^2}{c} + \frac{a^2}{c}\ie c^2 = a^2 + b^2$。
       \vspace{-1em}
       \begin{figure}[!htbp]
@@ -708,7 +708,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
   \end{multicols}
 \end{prp}
 
-\begin{prp} 和角公式（addition formula） 
+\begin{prp} 和角公式 (addition formula)  
   \setlength{\columnsep}{-0mm}
   \begin{multicols}{2}
     \begin{itemize}\setlength\itemsep{0em}
@@ -838,7 +838,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
   \begin{multicols}{4}
   \begin{enumerate}
     \item $\ds\sin^{-1}\frac{\sqrt{3}}{2} = \frac{\pi}{3}$
-    \item $\ds\cos^{-1}\Big(-\frac{1}{2}\Big) = \frac{2\pi}{3}$%\quad\text{（$[0,\,\pi]$ 對稱）}$
+    \item $\ds\cos^{-1}\Big(-\frac{1}{2}\Big) = \frac{2\pi}{3}$%\quad\text{ ($[0,\,\pi]$ 對稱) }$
     \item $\ds\tan^{-1}1 = \frac{\pi}{4}$ 
     \item $\ds\cos\Big(\sin^{-1}\frac{3}{5}\Big) = \frac{4}{5}$
   \end{enumerate}
@@ -898,7 +898,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 \end{sol}
 
 \begin{ex}
-  將 $\ds\sin(\cos^{-1} x)$ 與 $\tan(\cos^{-1} x)$ 化簡為 $x$ 的（不含三角函數之）表示式，其中 $-1\leqslant x\leqslant 1$。
+  將 $\ds\sin(\cos^{-1} x)$ 與 $\tan(\cos^{-1} x)$ 化簡為 $x$ 的 (不含三角函數之) 表示式，其中 $-1\leqslant x\leqslant 1$。
 \end{ex}
 
 \begin{sol}
@@ -928,7 +928,7 @@ $y = f(x) = \log_a x$，$a > 0\,\wedge a\not=1$。
 \end{sol}
 
 \begin{ex}
-  將 $\ds \sin(\cos^{-1} x + \tan^{-1}y)$ 化簡為 $x$，$y$ 的（不含三角函數之）表示式，其中 $-1\leqslant x\leqslant 1$，$y\in\mathbb{R}$。
+  將 $\ds \sin(\cos^{-1} x + \tan^{-1}y)$ 化簡為 $x$，$y$ 的 (不含三角函數之) 表示式，其中 $-1\leqslant x\leqslant 1$，$y\in\mathbb{R}$。
 \end{ex}
 
 \begin{sol}

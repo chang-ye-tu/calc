@@ -122,7 +122,7 @@
 \begin{dfn}
   給定 $f(x)$，$a\in\dom f$。
   \begin{itemize}\setlength\itemsep{0em}
-    \item $f$ 在 $a$ 的導數（derivative）$f'(a)$ 定義為 $\ds f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$。若 $f'(a)$ 存在，則稱 $f$ 在 $a$ 可微（分）（differentiable）。
+    \item $f$ 在 $a$ 的導數 (derivative) $f'(a)$ 定義為 $\ds f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$。若 $f'(a)$ 存在，則稱 $f$ 在 $a$ 可微 (分)  (differentiable) 。
     \item $f$ 的導函數 $f'(x)$ 定義為 $\ds f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}$。
   \end{itemize}
 \end{dfn}
@@ -130,7 +130,7 @@
 \begin{rmk}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 求導函數之過程稱為微分（differentiation）：求 $f'(x)$ $\ifff$ $f(x)$（對 $x$）微分
+    \item 求導函數之過程稱為微分 (differentiation) ：求 $f'(x)$ $\ifff$ $f(x)$ (對 $x$) 微分
     \item 給定 $y = f(x)$，其導函數可記為 $\ds f'(x) = f' = y' = \frac{\text{d}y}{\text{d}x} = \frac{\text{d}f}{\text{d}x} = \frac{\text{d}}{\text{d}x} f(x) = Df(x) = D_x f(x)$。
     \item $f$ 在 $a$ 的導數可記為 $\ds f'(a) = \Big.\frac{\text{d}y}{\text{d}x}\Big|_{x = a}$。 
   \end{itemize}
@@ -153,15 +153,15 @@
 \end{sol}
 
 \begin{fact}
-  $x^\alpha$（$\alpha\in\mathbb{R}$）之導函數為 $\alpha\,x^{\alpha - 1}$。
+  $x^\alpha$ ($\alpha\in\mathbb{R}$) 之導函數為 $\alpha\,x^{\alpha - 1}$。
 \end{fact}
 
 \begin{dfn}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 若 $f$ 在 $(a, b)$ 上每一點均有導數，則稱 $f$ 在 $(a, b)$ 可微（分）。
+    \item 若 $f$ 在 $(a, b)$ 上每一點均有導數，則稱 $f$ 在 $(a, b)$ 可微 (分) 。
     %\item $f$ 在 $a$ 的右導數 $f'_+(a)$ 定義為 $\ds f'_+(a) = \lim_{h\to 0+}\frac{f(a + h) - f(a)}{h}$；\\$f$ 在 $a$ 的左導數 $f'_-(a)$ 定義為 $\ds f'_-(a) = \lim_{h\to 0-}\frac{f(a + h) - f(a)}{h}$。
-    %\item 若 $f$ 在 $(a, b)$ 可微，在 $a$ 有右導數，在 $b$ 有左導數，則稱 $f$ 在 $[a, b]$ 可微（分）。
+    %\item 若 $f$ 在 $(a, b)$ 可微，在 $a$ 有右導數，在 $b$ 有左導數，則稱 $f$ 在 $[a, b]$ 可微 (分) 。
   \end{itemize}
 \end{dfn}
 
@@ -175,14 +175,14 @@
 %    \item $f$ 在 $a$ 不可微之三情形：
 %      \begin{itemize}\setlength\itemsep{0em}
 %        \item $f$ 在 $a$ 不連續。
-%        \item $f$ 在 $a$ 連續，$\ds f'_+(a)\ne f'_-(a)$：$a$ 為拐點（corner，kink）。
-%        \item $f$ 在 $a$ 連續，$\ds\lim_{x\to a}|f'(x)| = \infty$：$a$ 為臍點（cusp），有垂直切線。
+%        \item $f$ 在 $a$ 連續，$\ds f'_+(a)\ne f'_-(a)$：$a$ 為拐點 (corner，kink) 。
+%        \item $f$ 在 $a$ 連續，$\ds\lim_{x\to a}|f'(x)| = \infty$：$a$ 為臍點 (cusp) ，有垂直切線。
 %      \end{itemize}
 %    \item 
 %      \begin{itemize}\setlength\itemsep{0em}
-%        \item 連續函數不一定可微。（$f(x) = |x|$ 在 $x = 0$ 處）
+%        \item 連續函數不一定可微。 ($f(x) = |x|$ 在 $x = 0$ 處) 
 %        \item 若 $f$ 在 $a$ 可微，則在 $a$ 必有切線。
-%        \item $f$ 在 $a$ 有切線，$f$ 在 $a$ 未必可微（垂直切線）。
+%        \item $f$ 在 $a$ 有切線，$f$ 在 $a$ 未必可微 (垂直切線) 。
 %      \end{itemize}
 %  \end{itemize}
 %\end{rmk}
@@ -215,7 +215,7 @@
   \end{enumerate}
 \end{sol}
 
-\begin{thm}[鏈鎖律（chain rule）]
+\begin{thm}[鏈鎖律 (chain rule) ]
   若 $f(u)$ 在 $u = g(x)$ 可微，$g(x)$ 在 $x$ 可微，則 $f\circ g$ 在 $x$ 可微：
   \begin{align*}
     (f\circ g)'(x)\,\equiv\,(f(g(x)))' = f'(g(x))\cdot g'(x)
@@ -344,7 +344,7 @@
 \end{fact}
 
 \begin{prp}
-  $\ds (x^\alpha)' = \alpha\,x^{\alpha - 1}$（$\alpha\in\mathbb{R}$）
+  $\ds (x^\alpha)' = \alpha\,x^{\alpha - 1}$ ($\alpha\in\mathbb{R}$) 
 \end{prp}
 
 \begin{sol}
@@ -452,8 +452,8 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item（解一）$\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
-    \item（解二）$\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
+    \item (解一) $\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
+    \item (解二) $\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
   \end{itemize}
 \end{sol}
 
@@ -468,8 +468,8 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item（顯函數微分）在點 $(3, -4)$ 附近 $\ds y = -\sqrt{25 - x^2}\ie y' = \frac{x}{\sqrt{25 - x^2}}$，故點 $(3, -4)$ 之切線斜率為 $\ds\frac{3}{\sqrt{25 - 3^2}} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。 
-    \item（隱函數微分）令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數（$y = y(x)$），圓方程式寫作 $\ds x^2 + y(x)^2 = 25$；兩邊同對 $x$ 微分：$\ds 2x + 2 y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$。點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。
+    \item (顯函數微分) 在點 $(3, -4)$ 附近 $\ds y = -\sqrt{25 - x^2}\ie y' = \frac{x}{\sqrt{25 - x^2}}$，故點 $(3, -4)$ 之切線斜率為 $\ds\frac{3}{\sqrt{25 - 3^2}} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。 
+    \item (隱函數微分) 令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數 ($y = y(x)$) ，圓方程式寫作 $\ds x^2 + y(x)^2 = 25$；兩邊同對 $x$ 微分：$\ds 2x + 2 y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$。點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$，切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$。
   \end{itemize}
 \end{sol}
 
@@ -478,7 +478,7 @@
 \end{ex}
 
 \begin{sol}
-  令 $y$ 為 $x$ 之函數（$y = y(x)$），等式寫作 $\ds x\cdot y(x) + e^x + e^{y(x)} = 1$；兩邊對 $x$ 微分：$\ds x\cdot y'(x) + y(x) + e^x + e^{y(x)}\cdot y'(x) = 0 \ie (x + e^{y(x)})\cdot y'(x) = -(y(x) + e^x) \ie \diff{y}{x} \equiv y'(x) = -\frac{y(x) + e^x}{x + e^{y(x)}}$。
+  令 $y$ 為 $x$ 之函數 ($y = y(x)$) ，等式寫作 $\ds x\cdot y(x) + e^x + e^{y(x)} = 1$；兩邊對 $x$ 微分：$\ds x\cdot y'(x) + y(x) + e^x + e^{y(x)}\cdot y'(x) = 0 \ie (x + e^{y(x)})\cdot y'(x) = -(y(x) + e^x) \ie \diff{y}{x} \equiv y'(x) = -\frac{y(x) + e^x}{x + e^{y(x)}}$。
 \end{sol}
 
 \begin{ex}
@@ -486,7 +486,7 @@
 \end{ex}
 
 \begin{sol}
-  令 $y$ 為 $x$ 之函數（$y = y(x)$），等式寫作 $\ds x^2 e^{y(x)} + 4x\cos{y(x)} = 5$；兩邊對 $x$ 微分：$\ds 2x\cdot e^{y(x)} + x^2\cdot e^{y(x)}\cdot y'(x) + 4\,\cos{y(x)} - 4x\cdot\sin{y(x)}\cdot y'(x) = 0$。當 $y(x) = 0$，上式為 $\ds 2x\cdot e^{0} + x^2\cdot e^{0}\cdot y'(x) + 4\,\cos{0} - 4x\cdot\sin{0}\cdot y'(x) = 0 \ie 2x + x^2\cdot y'(x) + 4 = 0 \ie y'(x) = -\frac{4 + 2x}{x^2}$。由 $\ds x^2 e^y + 4x\cos y = 5$ 知 $y = 0$ 時 $\ds x^2 + 4x = 5\ie x = -5\,\vee\,x = 1$，則 $\ds y'(-5) = -\frac{4 - 10}{(-5)^2} = \frac{6}{25}$，$\ds y'(1) = -\frac{4 + 2}{1^2} = -6$。
+  令 $y$ 為 $x$ 之函數 ($y = y(x)$) ，等式寫作 $\ds x^2 e^{y(x)} + 4x\cos{y(x)} = 5$；兩邊對 $x$ 微分：$\ds 2x\cdot e^{y(x)} + x^2\cdot e^{y(x)}\cdot y'(x) + 4\,\cos{y(x)} - 4x\cdot\sin{y(x)}\cdot y'(x) = 0$。當 $y(x) = 0$，上式為 $\ds 2x\cdot e^{0} + x^2\cdot e^{0}\cdot y'(x) + 4\,\cos{0} - 4x\cdot\sin{0}\cdot y'(x) = 0 \ie 2x + x^2\cdot y'(x) + 4 = 0 \ie y'(x) = -\frac{4 + 2x}{x^2}$。由 $\ds x^2 e^y + 4x\cos y = 5$ 知 $y = 0$ 時 $\ds x^2 + 4x = 5\ie x = -5\,\vee\,x = 1$，則 $\ds y'(-5) = -\frac{4 - 10}{(-5)^2} = \frac{6}{25}$，$\ds y'(1) = -\frac{4 + 2}{1^2} = -6$。
 \end{sol}
 
 \subsection*{雜題}
