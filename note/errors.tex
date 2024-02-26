@@ -52,6 +52,8 @@
             }
 \renewcommand\tabularxcolumn[1]{m{#1}}
 
+\usepackage{multicol}
+
 \begin{document}
 \title{\texorpdfstring{\vspace{-15mm}各種謬誤：積分篇}{各種謬誤：積分篇}} 
 \author{\vspace{-4em}}
@@ -70,5 +72,37 @@
   \end{itemize}
 \end{ex}
 
+\begin{ex} 微積分基本能力檢核
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item $\ds(x^\pi)' = \pi x^{\pi - 1}$
+      \item $\ds(\pi^x)' = \pi^x\ln\pi$
+      \item $\ds(xe^{\pi x})' = e^{\pi x} + \pi x e^{\pi x}$
+      \item $\ds(e^{\pi x^2})' = e^{\pi x^2}2\pi x$
+      \item $\ds(x^x)' = x^x(\ln x + 1)$
+      \item $\ds\int x^\pi\,\text{d}x = \frac{x^{\pi + 1}}{\pi + 1}$
+      \item $\ds\int\pi^x\,\text{d}x = \frac{\pi^{x}}{\ln\pi}$
+      \item $\ds\int\ln x\,\text{d}x = x\ln x - x$
+      \item $\ds\int x e^{\pi x^2}\,\text{d}x = \frac{e^{\pi x^2}}{2\pi}$
+      \item $\ds\int x^2 e^{\pi x}\,\text{d}x = e^{\pi x}\Big(\frac{x^2}{\pi} - \frac{2x}{\pi^2} + \frac{2}{\pi^3}\Big)$
+    \end{itemize}
+  \end{multicols}
+ 
+  錯誤答案例：
+  \begin{multicols}{3}
+    \begin{itemize}
+      \item $\ds(e^{\pi x})' = xe^{\pi}$
+      \item $\ds(\pi^x)' = x\pi$
+      \item $\ds(e^{-x^2})' = 2e^{-x}$
+      \item $\ds\int x^{\pi}\,\text{d}x = \frac{1}{2}x^{\pi^2}$
+      \item $\ds\int\pi^x\,\text{d}x = \frac{1}{2}\pi^{x^2}$
+      \item $\ds\int\ln x\,\text{d}x = \frac{1}{2}\ln x$
+      \item $\ds\int e^{\pi x}\,\text{d}x = \frac{1}{4}e^{\pi^2 x^2}$
+      \item $\ds\int x^2 e^x\,\text{d}x = \frac{1}{3}x^3\cdot\frac{1}{2}e^{x^2}$
+      \item $\ds\int xe^{-x^2}\,\text{d}x = \frac{1}{2}x^2\cdot\frac{1}{3}e^{-x^3}$
+    \end{itemize}
+  \end{multicols}
+
+\end{ex}
 
 \end{document}

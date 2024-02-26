@@ -194,6 +194,7 @@
 
 %\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
 \newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdifft}[2]{\frac{\partial^2 #1}{\partial #2^2}}
 \newcommand{\dblInt}{\iint}
 \newcommand{\tripInt}{\iiint}
 %\newcommand{\dblInt}{\int\!\!\int}
@@ -229,8 +230,8 @@
 \newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
 \newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
 \newcommand{\half}{\tfrac{1}{2}}
-\newcommand{\diff}[2]{ \frac{\mathrm{d}\hfil#1\hfil}{\mathrm{d}#2}}
-\newcommand{\difftwo}[2]{ \frac{\mathrm{d^2}\hfil#1\hfil}{\mathrm{d}{#2}^2}}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\difftwo}[2]{\frac{\mathrm{d^2} #1}{\mathrm{d}{#2}^2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -680,81 +681,104 @@
   \end{itemize}
 \end{ex}
 
-\begin{thm}[Clairaut-Young-Schwarz]
+\begin{thm}[Clairaut]
   若 $\ds\frac{\partial^2 f}{\partial x\partial y}$ 與 $\ds\frac{\partial^2 f}{\partial y\partial x}$ 均存在且在 $(x_0,\,y_0)$ 連續，則 $\ds\frac{\partial^2 f}{\partial x\partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y\partial x}(x_0, y_0)$。
 \end{thm}
 
-\end{document}
-
 \section*{5.4 鏈鎖律} 
 \begin{thm}
-  給定 $\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big)$，則 \\
-  $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$ \\ 
-  $\ds\pdiff{F}{t}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)$
+  若 $f$ 為 $x_1,\,x_2,\,\ldots,\,x_n$ 的可微函數，而 $x_j$ 是 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數，$n$，$m\geqslant 1$，則 $f$ 為 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數；令輔助函數 $F(t_1,\,t_2,\,\ldots,\,t_m)\equiv f(x_1(t_1,\,t_2,\,\ldots,\,t_m),\,x_2(t_1,\,t_2,\,\ldots,\,t_m),\,\ldots,\,x_n(t_1,\,t_2,\,\ldots,\,t_m))$，則 $\ds\pdiff{F}{t_i} = \pdiff{f}{x_1}\,\pdiff{x_1}{t_i} + \pdiff{f}{x_2}\,\pdiff{x_2}{t_i} + \cdots + \pdiff{f}{x_n}\,\pdiff{x_n}{t_i}$。
 \end{thm}
-$\ds\diff{}{t}f\big(x(t)\big) = \diff{f}{x}\big(x(t)\big)\,\diff{x}{t}(t)$
+
+\begin{ex}[$n = m = 2$]
+  令輔助函數 $\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$，
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$
+    \item $\ds\pdiff{F}{t}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)$
+  \end{itemize}
+\end{ex}
 
 \begin{ex}
-  若 $\ds f(x, y) = e^{xy}$，$\ds x(s, t) = s$，$\ds y(s, t) = \cos t$；定義 $\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big)$，求 $\ds\pdiff{F}{s}(s,t)$。
+  若 $\ds f(x, y) = e^{xy}$，$\ds x(s, t) = s$，$\ds y(s, t) = \cos t$；$\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$，求 $\ds\pdiff{F}{s}$。
 \end{ex}
 \begin{sol}
-  由 $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s, t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$，$\ds\pdiff{f}{x}(x,y) = ye^{xy}$ $\pdiff{f}{x}\big(x(s,t), y(s,t)\big) = y(s,t)e^{x(s,t)\,y(s,t)} = \cos t e^{s\cos t}$ $\ds\pdiff{f}{y}(x,y) = xe^{xy}$ $\pdiff{f}{y}\big(x(s,t),y(s,t)\big) = x(s,t)\,e^{x(s,t)\,y(s,t)} = s e^{s\cos t}$ $\ds\pdiff{x}{s} = 1$$\ds\pdiff{y}{s} = 0$
-$\ds\pdiff{F}{s}(s,t)=\overbrace{\left\{\cos t e^{s\cos t}\right\}}^{\pdiff{f}{x}}\overbrace{(1)}^{\pdiff{x}{s}} + \overbrace{\left\{s\ e^{s\cos t}\right\}}^{\pdiff{f}{y}}\overbrace{(0)}^{\pdiff{y}{s}} = \cos t\ e^{s\cos t}$
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由 $\ds\pdiff{f}{x} = y\,e^{xy} = y(s,t)\,e^{x(s,t)\,y(s,t)} = \cos t\,e^{s\cos t}$，$\ds\pdiff{f}{y} = x\,e^{xy} = x(s,t)\,e^{x(s,t)\,y(s,t)} = s\,e^{s\cos t}$，$\ds\pdiff{x}{s} = \pdiff{s}{s} = 1$，$\ds\pdiff{y}{s} = \pdiff{\cos t}{s} = 0$，故 $\ds\pdiff{F}{s} = \pdiff{f}{x}\,\pdiff{x}{s} + \pdiff{f}{y}\,\pdiff{y}{s} = \cos t\,e^{s\cos t}\cdot 1 + s\ e^{s\cos t}\cdot 0 = \cos t\ e^{s\cos t}$。
+    \item 直接寫出 $F(s, t)$ 並對 $s$ 偏微分：$\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big) = e^{s\cdot\cos t}$，$\ds\pdiff{F}{s} = e^{s\cdot\cos t}\,\cos t$。  
+  \end{itemize}
 \end{sol}
 
 \begin{ex}
-  Find $\diff{}{t}f\big(x(t),y(t)\big)$ for
-\begin{equation*}
-f(x,y)=x^2-y^2\qquad x(t)=\cos t \qquad y(t)=\sin t
-\end{equation*}
-Define $F(t)=f\big(x(t),y(t)\big)$, then
-$$
-\diff{F}{t}(t)=
-\pdiff{f}{x}\big(x(t),y(t)\big) \diff{x}{t}(t)
-+\pdiff{f}{y}\big(x(t),y(t)\big) \diff{y}{t}(t)
-$$
-\begin{align*}
-f(x,y)&=x^2-y^2  \\
-\pdiff{f}{x}(x,y)&= 2x  &
-\pdiff{f}{x}\big(x(t),y(t)\big)&= \phantom{-}2x(t) =\phantom{-}2\cos t  \\
-\pdiff{f}{y}(x,y)&= -2y  &
-\pdiff{f}{y}\big(x(t),y(t)\big)&= -2y(t)  =-2\sin t \\
-\diff{x}{t}&=-\sin t &
-\diff{y}{t}&=\cos t
-\end{align*}
-$$
-\diff{F}{t}(t)=(2\cos t)(-\sin t) +(-2\sin t)(\cos t) = -4\sin t\cos t
-$$
-Of course, we can compute $F(t)$ explicitly:
-$$
-F(t)=f\big(x(t),y(t)\big)=x(t)^2-y(t)^2=\cos^2t-\sin^2t
-$$
-$$
-F'(t)=2(\cos t)(-\sin t)-2(\sin t)(\cos t) = -4 \sin t\cos t
-$$
+  若 $\ds f(x,y) = x^2 - y^2$，且 $x(t) = \cos t$，$y(t) = \sin t$，求 $\ds\diff{f}{t}$。
 \end{ex}
-\begin{ex}[$\pdiff{}{t}f(x+ct)$]
-Define
-$u(x,t)=x+ct$ and $w(x,t)=f(x+ct)=f\big(u(x,t)\big)$. Then
-$$
-\pdiff{}{t}f(x+ct)
-=\pdiff{w}{t}(x,t)
-=\diff{f}{u}\big(u(x,t)\big)  \pdiff{u}{t}(x,t)
-=c\, f'(x+ct)
-$$
+\begin{sol}
+  令輔助函數 $\ds F(t)\equiv f\big(x(t),\,y(t)\big)$，
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 由 $\ds\pdiff{f}{x} = 2x = 2\cos t$，$\ds\pdiff{f}{y} = -2y = -2\sin t$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，故 $\ds\diff{F}{t} = \pdiff{f}{x}\,\diff{x}{t} + \pdiff{f}{y}\,\diff{y}{t} = (2\cos t)(-\sin t) + (-2\sin t)(\cos t) = -4\,\sin t\cos t$。
+    \item 直接寫出 $F(t)$ 並對 $t$ 微分：$\ds F(t) = f\big(x(t),y(t)\big) = x(t)^2 - y(t)^2 = \cos^2t - \sin^2t$，故 $\ds F'(t) = 2(\cos t)(-\sin t)-2(\sin t)(\cos t) = -4 \sin t\cos t$
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 令 $\ds u(x,t) = x + ct$，輔助函數 $\ds w(x,t)\equiv f\big(u(x,t)\big) = f(x + ct)$；\\$\ds\pdiff{}{t}f(x+ct) = \pdiff{w}{t} = \diff{f}{u}\,\pdiff{u}{t} = c\,f'(x + ct)$。
+    \item 承上，令輔助函數 $\ds W(x,t)\equiv\pdiff{w}{t}(x,t) = c\,f'(x + ct) = F\big(u(x,t)\big)$，其中 $\ds F(u) = c\,f'(u)$；\\$\ds\frac{\partial^2}{\partial t^2}f(x + ct) = \pdiff{W}{t} = \diff{F}{u}\,\pdiff{u}{t} = c\,f''(x + ct)\,c = c^2\,f''(x + ct)$。
+  \end{itemize}
 \end{ex}
-\begin{ex}[$\frac{\partial^2\hfill}{\partial t^2}f(x+ct)$]
-Define  $w(x,t)=f(x+ct)$ and
-$W(x,t)=\pdiff{w}{t}(x,t)=cf'(x+ct)=F\big(u(x,t)\big)$
-where $F(u)=cf'(u)$ and $u(x,t)=x+ct$. Then
-$$
-\frac{\partial^2\hfill}{\partial t^2}f(x+ct)
-=\pdiff{W}{t}(x,t)
-=\diff{F}{u}\big(u(x,t)\big)  \pdiff{u}{t}(x,t)
-=c\,f''(x+ct)\,c
-=c^2\,f''(x+ct)
-$$
+
+\begin{ex}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 令 $\ds w = xy + z$，$\ds x = \cos t$，$\ds y = \sin t$，$\ds z = t$，求 $\ds\diff{w}{t}$ 與 $\ds\diff{w}{t}\Big|_{t = 0}$。
+    \item 令 $\ds w = x + 2y + z^2$，$\ds x = \frac{r}{s}$，$\ds y = r^2 + \ln s$，$\ds z = 2r$，求 $\ds\pdiff{w}{r}$ 與 $\ds\pdiff{w}{s}$。
+    \item 令 $\ds w = x^4y + y^2z^3$，$\ds x = rse^{t}$，$\ds y = rs^2e^{-t}$，$\ds z = r^2s\sin t$，求 $\ds\pdiff{w}{t}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)}$。
+  \end{enumerate}
 \end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由 $\ds\pdiff{w}{x} = y = \sin t$，$\ds\pdiff{w}{y} = x = \cos t$，$\ds\pdiff{w}{z} = 1$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，$\ds\diff{z}{t} = 1$，故 $\ds\diff{w}{t} = \pdiff{w}{x}\,\diff{x}{t} + \pdiff{w}{y}\,\diff{y}{t} + \pdiff{w}{z}\,\diff{z}{t} = (\sin t)(-\sin t) + (\cos t)(\cos t) + (1)(1) = \cos 2t + 1$，$\ds\diff{w}{t}\Big|_{t = 0} = 1 + 1 = 2$。
+    \item 由 $\ds\pdiff{w}{x} = 1$，$\ds\pdiff{w}{y} = 2$，$\ds\pdiff{w}{z} = 2 z = 4 r$，$\ds\pdiff{x}{r} = \frac{1}{s}$，$\ds\pdiff{y}{r} = 2r$，$\ds\pdiff{z}{r} = 2$，$\ds\pdiff{x}{s} = -\frac{r}{s^2}$，$\ds\pdiff{y}{s} = \frac{1}{s}$，$\ds\pdiff{z}{s} = 0$，故 $\ds\pdiff{w}{r} = \pdiff{w}{x}\,\pdiff{x}{r} + \pdiff{w}{y}\,\pdiff{y}{r} + \pdiff{w}{z}\,\pdiff{z}{r} = (1)\Big(\frac{1}{s}\Big) + (2)(2r) + (4r)(2) = \frac{1}{s} + 12 r$，$\ds\pdiff{w}{s} = \pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s} = (1)\Big(-\frac{r}{s^2}\Big) + (2)\Big(\frac{1}{s}\Big) + (4r)(0) = -\frac{r}{s^2} + \frac{2}{s}$。
+    \item 由 $\ds\pdiff{w}{x} = 4x^3y = 4(rse^{t})^3(rs^2e^{-t}) = 4 r^4s^5e^{2t}$，$\ds\pdiff{w}{y} = x^4 + 2yz^3 = r^4s^4e^{4t} + 2rs^2e^{-t}r^6s^3\sin^3 t = r^4s^4e^{4t} + 2r^7s^5e^{-t}\sin^3 t$，$\ds\pdiff{w}{z} = 3y^2z^2 = 3r^2s^4e^{-2t}\,r^4s^2\sin^2 t = 3r^6s^6e^{-2t}\sin^2 t$，$\ds\pdiff{x}{s} = re^{t}$，$\ds\pdiff{y}{s} = 2rse^{-t}$，$\ds\pdiff{z}{s} = r^2\sin t$，故 $\ds\pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = \Big(\pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s}\Big)\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = (4\cdot2^4\cdot1)(2) + (2^4\cdot1\cdot1)(2\cdot2\cdot1) + (0)(0) = 192$。
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  若 $\ds g(s, t) = f(s^2 - t^2, t^2 - s^2)$ 且 $f$ 可微，證明 $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = 0$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds u(s, t) = s^2 - t^2$，$\ds v(s, t) = t^2 - s^2$，則 $\ds g(s, t) = f(u(s, t), v(s, t))$。由鏈鎖律 $\ds\pdiff{g}{s} = \pdiff{f}{u}\,\pdiff{u}{s} + \pdiff{f}{v}\,\pdiff{v}{s} = \pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)$，$\ds\pdiff{g}{t} = \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} = \pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)$，故 $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = t\,\bigg(\pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)\bigg) + s\,\bigg(\pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)\bigg) = 0$。 
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$ 且 $\ds x = g(s, t)$，$\ds y = h(s, t)$，證明 $\ds\pdifft{z}{t} = \pdiff{z}{x}\pdifft{x}{t} + \pdiff{z}{y}\pdifft{y}{t} + \pdifft{z}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 z}{\partial x\partial y}\pdiff{x}{t}\pdiff{y}{t} + \pdifft{z}{y}\bigg(\pdiff{y}{t}\bigg)^2$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds z = U(s, t) = u(x(s, t),\,y(s, t))$，由鏈鎖律 $\ds\pdiff{U}{t} = \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}$，$\ds\pdifft{U}{t} = \pdiff{}{t}\bigg(\pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)+ \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)+ \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t}\right) \\ + \pdiff{y}{t}\left(\pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t}\right) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdifft{u}{x}\,\pdiff{x}{t} + \frac{\partial^2 u}{\partial y\partial x}\,\pdiff{y}{t}\right) + \pdiff{y}{t}\left(\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t} + \pdifft{u}{y}\,\pdiff{y}{t}\right) \\ = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdifft{u}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t}\pdiff{y}{t} + \pdifft{u}{y}\bigg(\pdiff{y}{t}\bigg)^2$。
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$ 有連續二階偏導函數，且 $\ds x = r^2 + s^2$，$\ds y = 2rs$，求 $\ds\pdiff{z}{r}$ 與 $\ds\pdifft{z}{r}$。
+\end{ex}
+
+\begin{sol}
+  使用上題結果：令 $r\equiv t$，$\ds\pdiff{z}{r} = \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = 2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}$，$\ds\pdifft{z}{r} = \pdiff{u}{x}\pdifft{x}{r} + \pdiff{u}{y}\pdifft{y}{r} + \pdifft{u}{x}\bigg(\pdiff{x}{r}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{r}\pdiff{y}{r} + \pdifft{z}{y}\bigg(\pdiff{y}{r}\bigg)^2 = \pdiff{u}{x}\cdot 2 + \pdiff{u}{y}\cdot 0 + \pdifft{u}{x}\cdot(2r)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\cdot 2r\cdot 2s + \pdifft{z}{y}\cdot(2s)^2 = 2\,\pdiff{u}{x} + 4r^2\,\pdifft{u}{x} + 8rs\,\frac{\partial^2 u}{\partial x\partial y} + 4s^2\,\pdifft{u}{y}$。
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$ 且 $\ds x = r\cos\theta$，$\ds y = r\sin\theta$，證明 $\ds\pdifft{z}{x} + \pdifft{z}{y} = \pdifft{z}{r} + \frac{1}{r}\pdiff{z}{r} + \frac{1}{r^2}\pdifft{z}{\theta}$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds z = U(r, \theta) = u(x(r, \theta),\,y(r,\theta))$，由鏈鎖律 $\ds\pdiff{U}{r} = \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = \pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta$，$\ds\pdifft{U}{r} = \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{y}{r} = \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\cos\theta + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\sin\theta = \pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta$；$\ds\pdiff{U}{\theta} = \pdiff{u}{x}\,\pdiff{x}{\theta} + \pdiff{u}{y}\,\pdiff{y}{\theta} = \pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)$，$\ds\pdifft{U}{\theta} = \pdiff{ }{\theta}\bigg(\pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)\bigg) = \pdiff{u}{x}(-r\cos\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}(-r\sin\theta) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}\pdiff{x}{\theta} + \frac{\partial^2 u}{\partial y\partial x}\pdiff{y}{\theta}\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{\theta} + \pdifft{u}{y}\pdiff{y}{\theta}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}(r\cos\theta)\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}(-r\sin\theta) + \pdifft{u}{y}(r\cos\theta)\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}$。故 $\ds\pdifft{U}{r} + \frac{1}{r}\pdiff{U}{r} + \frac{1}{r^2}\pdifft{U}{\theta} = \bigg(\pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta\bigg) + \frac{1}{r}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg) + \frac{1}{r^2}\bigg(\pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}\bigg) = \pdifft{u}{x}+ \pdifft{u}{y}$。
+\end{sol}
+
+\end{document}
 
 \begin{thm}[梯度、切平面、法線]
   令 $\ds(x_0, y_0, z_0)$ 在 $G(x, y, z) = 0$ 上，梯度 \\$\ds\vnabla G(x_0, y_0, z_0)\equiv\llt\pdiff{G}{x}\big(x_0,y_0,z_0\big),\,\pdiff{G}{y}\big(x_0,y_0,z_0\big),\,\pdiff{G}{z}\big(x_0,y_0,z_0\big)\rgt\ne\vZero$，則
@@ -794,4 +818,5 @@ $\ds\frac{\text{d}}{\text{d}t}G(x(t), y(t), z(t)) = 0\,\Longrightarrow\,\frac{\p
 &\min_x\;f(x) \\
 \text{subject to}\quad &g_i(x) = 0,\quad i = 1, 2, \ldots, l. \\
 \end{align*}
+
 
