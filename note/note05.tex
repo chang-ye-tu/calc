@@ -687,15 +687,18 @@
 
 \section*{5.4 鏈鎖律} 
 \begin{thm}
-  若 $f$ 為 $x_1,\,x_2,\,\ldots,\,x_n$ 的可微函數，而 $x_j$ 是 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數，$n$，$m\geqslant 1$，則 $f$ 為 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數；令輔助函數 $F(t_1,\,t_2,\,\ldots,\,t_m)\equiv f(x_1(t_1,\,t_2,\,\ldots,\,t_m),\,x_2(t_1,\,t_2,\,\ldots,\,t_m),\,\ldots,\,x_n(t_1,\,t_2,\,\ldots,\,t_m))$，則 $\ds\pdiff{F}{t_i} = \pdiff{f}{x_1}\,\pdiff{x_1}{t_i} + \pdiff{f}{x_2}\,\pdiff{x_2}{t_i} + \cdots + \pdiff{f}{x_n}\,\pdiff{x_n}{t_i}$。
+  若 $f$ 為 $x_1,\,x_2,\,\ldots,\,x_n$ 的可微函數，而 $x_j$ 是 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數，$n$，$m\geqslant 1$，則 $f$ 為 $t_1,\,t_2,\,\ldots,\,t_m$ 的可微函數；輔助函數 $F(t_1,\,t_2,\,\ldots,\,t_m)\equiv f(x_1(t_1,\,t_2,\,\ldots,\,t_m),\,x_2(t_1,\,t_2,\,\ldots,\,t_m),\,\ldots,\,x_n(t_1,\,t_2,\,\ldots,\,t_m))$，則
+  \begin{align*}
+    \pdiff{F}{t_i} = \pdiff{f}{x_1}\,\pdiff{x_1}{t_i} + \pdiff{f}{x_2}\,\pdiff{x_2}{t_i} + \cdots + \pdiff{f}{x_n}\,\pdiff{x_n}{t_i}
+  \end{align*}
 \end{thm}
 
 \begin{ex}[$n = m = 2$]
-  令輔助函數 $\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$，
-  \begin{itemize}\setlength{\itemsep}{0pt}
-    \item $\ds\pdiff{F}{s}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t)$
-    \item $\ds\pdiff{F}{t}(s,t) = \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)$
-  \end{itemize}
+  輔助函數 $\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$，則
+  \begin{align*}
+    \pdiff{F}{s}(s,t) &= \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t) \\
+    \pdiff{F}{t}(s,t) &= \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)
+  \end{align*}
 \end{ex}
 
 \begin{ex}
@@ -704,18 +707,18 @@
 \begin{sol}
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
-    \item 由 $\ds\pdiff{f}{x} = y\,e^{xy} = y(s,t)\,e^{x(s,t)\,y(s,t)} = \cos t\,e^{s\cos t}$，$\ds\pdiff{f}{y} = x\,e^{xy} = x(s,t)\,e^{x(s,t)\,y(s,t)} = s\,e^{s\cos t}$，$\ds\pdiff{x}{s} = \pdiff{s}{s} = 1$，$\ds\pdiff{y}{s} = \pdiff{\cos t}{s} = 0$，故 $\ds\pdiff{F}{s} = \pdiff{f}{x}\,\pdiff{x}{s} + \pdiff{f}{y}\,\pdiff{y}{s} = \cos t\,e^{s\cos t}\cdot 1 + s\ e^{s\cos t}\cdot 0 = \cos t\ e^{s\cos t}$。
+    \item $\ds\pdiff{f}{x} = y\,e^{xy} = y(s,t)\,e^{x(s,t)\,y(s,t)} = \cos t\,e^{s\cos t}$，$\ds\pdiff{f}{y} = x\,e^{xy} = x(s,t)\,e^{x(s,t)\,y(s,t)} = s\,e^{s\cos t}$，$\ds\pdiff{x}{s} = \pdiff{s}{s} = 1$，$\ds\pdiff{y}{s} = \pdiff{\cos t}{s} = 0$，故 $\ds\pdiff{F}{s} = \pdiff{f}{x}\,\pdiff{x}{s} + \pdiff{f}{y}\,\pdiff{y}{s} = \cos t\,e^{s\cos t}\cdot 1 + s\ e^{s\cos t}\cdot 0 = \cos t\ e^{s\cos t}$。
     \item 直接寫出 $F(s, t)$ 並對 $s$ 偏微分：$\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big) = e^{s\cdot\cos t}$，$\ds\pdiff{F}{s} = e^{s\cdot\cos t}\,\cos t$。  
   \end{itemize}
 \end{sol}
 
 \begin{ex}
-  若 $\ds f(x,y) = x^2 - y^2$，且 $x(t) = \cos t$，$y(t) = \sin t$，求 $\ds\diff{f}{t}$。
+  若 $\ds f(x,y) = x^2 - y^2$，$x(t) = \cos t$，$y(t) = \sin t$，求 $\ds\diff{f}{t}$。
 \end{ex}
 \begin{sol}
-  令輔助函數 $\ds F(t)\equiv f\big(x(t),\,y(t)\big)$，
+  輔助函數 $\ds F(t)\equiv f\big(x(t),\,y(t)\big)$，則
   \begin{itemize}\setlength{\itemsep}{0pt}
-    \item 由 $\ds\pdiff{f}{x} = 2x = 2\cos t$，$\ds\pdiff{f}{y} = -2y = -2\sin t$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，故 $\ds\diff{F}{t} = \pdiff{f}{x}\,\diff{x}{t} + \pdiff{f}{y}\,\diff{y}{t} = (2\cos t)(-\sin t) + (-2\sin t)(\cos t) = -4\,\sin t\cos t$。
+    \item $\ds\pdiff{f}{x} = 2x = 2\cos t$，$\ds\pdiff{f}{y} = -2y = -2\sin t$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，故 $\ds\diff{F}{t} = \pdiff{f}{x}\,\diff{x}{t} + \pdiff{f}{y}\,\diff{y}{t} = (2\cos t)(-\sin t) + (-2\sin t)(\cos t) = -4\,\sin t\cos t$。
     \item 直接寫出 $F(t)$ 並對 $t$ 微分：$\ds F(t) = f\big(x(t),y(t)\big) = x(t)^2 - y(t)^2 = \cos^2t - \sin^2t$，故 $\ds F'(t) = 2(\cos t)(-\sin t)-2(\sin t)(\cos t) = -4 \sin t\cos t$
   \end{itemize}
 \end{sol}
@@ -724,7 +727,7 @@
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 令 $\ds u(x,t) = x + ct$，輔助函數 $\ds w(x,t)\equiv f\big(u(x,t)\big) = f(x + ct)$；\\$\ds\pdiff{}{t}f(x+ct) = \pdiff{w}{t} = \diff{f}{u}\,\pdiff{u}{t} = c\,f'(x + ct)$。
-    \item 承上，令輔助函數 $\ds W(x,t)\equiv\pdiff{w}{t}(x,t) = c\,f'(x + ct) = F\big(u(x,t)\big)$，其中 $\ds F(u) = c\,f'(u)$；\\$\ds\frac{\partial^2}{\partial t^2}f(x + ct) = \pdiff{W}{t} = \diff{F}{u}\,\pdiff{u}{t} = c\,f''(x + ct)\,c = c^2\,f''(x + ct)$。
+    \item 承上，輔助函數 $\ds W(x,t)\equiv\pdiff{w}{t}(x,t) = c\,f'(x + ct) = F\big(u(x,t)\big)$，其中 $\ds F(u) = c\,f'(u)$；\\$\ds\frac{\partial^2}{\partial t^2}f(x + ct) = \pdiff{W}{t} = \diff{F}{u}\,\pdiff{u}{t} = c\,f''(x + ct)\,c = c^2\,f''(x + ct)$。
   \end{itemize}
 \end{ex}
 
@@ -740,10 +743,33 @@
 \begin{sol}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item 由 $\ds\pdiff{w}{x} = y = \sin t$，$\ds\pdiff{w}{y} = x = \cos t$，$\ds\pdiff{w}{z} = 1$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，$\ds\diff{z}{t} = 1$，故 $\ds\diff{w}{t} = \pdiff{w}{x}\,\diff{x}{t} + \pdiff{w}{y}\,\diff{y}{t} + \pdiff{w}{z}\,\diff{z}{t} = (\sin t)(-\sin t) + (\cos t)(\cos t) + (1)(1) = \cos 2t + 1$，$\ds\diff{w}{t}\Big|_{t = 0} = 1 + 1 = 2$。
-    \item 由 $\ds\pdiff{w}{x} = 1$，$\ds\pdiff{w}{y} = 2$，$\ds\pdiff{w}{z} = 2 z = 4 r$，$\ds\pdiff{x}{r} = \frac{1}{s}$，$\ds\pdiff{y}{r} = 2r$，$\ds\pdiff{z}{r} = 2$，$\ds\pdiff{x}{s} = -\frac{r}{s^2}$，$\ds\pdiff{y}{s} = \frac{1}{s}$，$\ds\pdiff{z}{s} = 0$，故 $\ds\pdiff{w}{r} = \pdiff{w}{x}\,\pdiff{x}{r} + \pdiff{w}{y}\,\pdiff{y}{r} + \pdiff{w}{z}\,\pdiff{z}{r} = (1)\Big(\frac{1}{s}\Big) + (2)(2r) + (4r)(2) = \frac{1}{s} + 12 r$，$\ds\pdiff{w}{s} = \pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s} = (1)\Big(-\frac{r}{s^2}\Big) + (2)\Big(\frac{1}{s}\Big) + (4r)(0) = -\frac{r}{s^2} + \frac{2}{s}$。
-    \item 由 $\ds\pdiff{w}{x} = 4x^3y = 4(rse^{t})^3(rs^2e^{-t}) = 4 r^4s^5e^{2t}$，$\ds\pdiff{w}{y} = x^4 + 2yz^3 = r^4s^4e^{4t} + 2rs^2e^{-t}r^6s^3\sin^3 t = r^4s^4e^{4t} + 2r^7s^5e^{-t}\sin^3 t$，$\ds\pdiff{w}{z} = 3y^2z^2 = 3r^2s^4e^{-2t}\,r^4s^2\sin^2 t = 3r^6s^6e^{-2t}\sin^2 t$，$\ds\pdiff{x}{s} = re^{t}$，$\ds\pdiff{y}{s} = 2rse^{-t}$，$\ds\pdiff{z}{s} = r^2\sin t$，故 $\ds\pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = \Big(\pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s}\Big)\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = (4\cdot2^4\cdot1)(2) + (2^4\cdot1\cdot1)(2\cdot2\cdot1) + (0)(0) = 192$。
+    \item $\ds\pdiff{w}{x} = y = \sin t$，$\ds\pdiff{w}{y} = x = \cos t$，$\ds\pdiff{w}{z} = 1$，$\ds\diff{x}{t} = -\sin t$，$\ds\diff{y}{t} = \cos t$，$\ds\diff{z}{t} = 1$，故 $\ds\diff{w}{t} = \pdiff{w}{x}\,\diff{x}{t} + \pdiff{w}{y}\,\diff{y}{t} + \pdiff{w}{z}\,\diff{z}{t} = (\sin t)(-\sin t) + (\cos t)(\cos t) + (1)(1) = \cos 2t + 1$，$\ds\diff{w}{t}\Big|_{t = 0} = 1 + 1 = 2$。
+    \item $\ds\pdiff{w}{x} = 1$，$\ds\pdiff{w}{y} = 2$，$\ds\pdiff{w}{z} = 2 z = 4 r$，$\ds\pdiff{x}{r} = \frac{1}{s}$，$\ds\pdiff{y}{r} = 2r$，$\ds\pdiff{z}{r} = 2$，$\ds\pdiff{x}{s} = -\frac{r}{s^2}$，$\ds\pdiff{y}{s} = \frac{1}{s}$，$\ds\pdiff{z}{s} = 0$，故 
+      \begin{align*}
+        \pdiff{w}{r} &= \pdiff{w}{x}\,\pdiff{x}{r} + \pdiff{w}{y}\,\pdiff{y}{r} + \pdiff{w}{z}\,\pdiff{z}{r} = (1)\Big(\frac{1}{s}\Big) + (2)(2r) + (4r)(2) = \frac{1}{s} + 12 r \\
+        \pdiff{w}{s} &= \pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s} = (1)\Big(-\frac{r}{s^2}\Big) + (2)\Big(\frac{1}{s}\Big) + (4r)(0) = -\frac{r}{s^2} + \frac{2}{s}
+      \end{align*}
+    %\item $\ds\pdiff{w}{x} = 4x^3y = 4(rse^{t})^3(rs^2e^{-t}) = 4 r^4s^5e^{2t}$，$\ds\pdiff{w}{y} = x^4 + 2yz^3 = r^4s^4e^{4t} + 2rs^2e^{-t}r^6s^3\sin^3 t = r^4s^4e^{4t} + 2r^7s^5e^{-t}\sin^3 t$，$\ds\pdiff{w}{z} = 3y^2z^2 = 3r^2s^4e^{-2t}\,r^4s^2\sin^2 t = 3r^6s^6e^{-2t}\sin^2 t$，$\ds\pdiff{x}{s} = re^{t}$，$\ds\pdiff{y}{s} = 2rse^{-t}$，$\ds\pdiff{z}{s} = r^2\sin t$，故 $\ds\pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = \Big(\pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s}\Big)\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} = (4\cdot2^4\cdot1)(2) + (2^4\cdot1\cdot1)(2\cdot2\cdot1) + (0)(0) = 192$。
+    \item $\ds\pdiff{w}{x} = 4x^3y$，$\ds\pdiff{w}{y} = x^4 + 2yz^3$，$\ds\pdiff{w}{z} = 3y^2z^2$，$\ds\pdiff{x}{s} = re^{t}$，$\ds\pdiff{y}{s} = 2rse^{-t}$，$\ds\pdiff{z}{s} = r^2\sin t$。當 $(r,\,s,\,t) = (2,\,1,\,0)$，$(x,\,y,\,z) = (2,\,2,\,0)$，故
+      \begin{align*}
+        \pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} &= \Big(\pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s}\Big)\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} \\ &= (4\cdot2^3\cdot2)(2) + (2^4 + 0)(2\cdot2\cdot1) + (0)(0) = 192
+      \end{align*}
   \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = f(x - y)$，證明 $\ds\pdiff{z}{x} + \pdiff{z}{y} = 0$。
+\end{ex}
+
+\begin{sol} 令 $\ds u = x - y$，則 $\ds\pdiff{z}{x} = \diff{z}{u}\,\pdiff{u}{x} = \diff{z}{u}(1) = \diff{z}{u}$，$\ds\pdiff{z}{y} = \diff{z}{u}\,\pdiff{u}{y} = \diff{z}{u}(-1) = -\diff{z}{u}$，故 $\ds\pdiff{z}{x} + \pdiff{z}{y} = 0$。
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = f(x, y)$，$\ds x = s + t$，$\ds y = s - t$，證明 $\ds\bigg(\pdiff{z}{x}\bigg)^2 - \bigg(\pdiff{z}{y}\bigg)^2 = \pdiff{z}{s}\pdiff{z}{t}$。
+\end{ex}
+
+\begin{sol} 
+  $\ds\pdiff{z}{s} = \pdiff{z}{x}\,\pdiff{x}{s} + \pdiff{z}{y}\,\pdiff{y}{s} = \pdiff{z}{x} + \pdiff{z}{y}$，$\ds\pdiff{z}{t} = \pdiff{z}{x}\,\pdiff{x}{t} + \pdiff{z}{y}\,\pdiff{y}{t} = \pdiff{z}{x} - \pdiff{z}{y}$，故 $\ds\pdiff{z}{s}\,\pdiff{z}{t} = \bigg(\pdiff{z}{x}\bigg)^2 - \bigg(\pdiff{z}{y}\bigg)^2$。
 \end{sol}
 
 \begin{ex}
@@ -751,31 +777,145 @@
 \end{ex}
 
 \begin{sol}
-  令 $\ds u(s, t) = s^2 - t^2$，$\ds v(s, t) = t^2 - s^2$，則 $\ds g(s, t) = f(u(s, t), v(s, t))$。由鏈鎖律 $\ds\pdiff{g}{s} = \pdiff{f}{u}\,\pdiff{u}{s} + \pdiff{f}{v}\,\pdiff{v}{s} = \pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)$，$\ds\pdiff{g}{t} = \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} = \pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)$，故 $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = t\,\bigg(\pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)\bigg) + s\,\bigg(\pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)\bigg) = 0$。 
+  令 $\ds u(s, t) = s^2 - t^2$，$\ds v(s, t) = t^2 - s^2$，則 $\ds g(s, t) = f(u(s, t), v(s, t))$。由鏈鎖律 
+  \begin{align*}
+    \pdiff{g}{s} &= \pdiff{f}{u}\,\pdiff{u}{s} + \pdiff{f}{v}\,\pdiff{v}{s} = \pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s) \\
+    \pdiff{g}{t} &= \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} = \pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)
+  \end{align*}
+  故 $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = t\,\bigg(\pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)\bigg) + s\,\bigg(\pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)\bigg) = 0$。 
 \end{sol}
 
 \begin{ex}
-  若 $\ds z = u(x, y)$ 且 $\ds x = g(s, t)$，$\ds y = h(s, t)$，證明 $\ds\pdifft{z}{t} = \pdiff{z}{x}\pdifft{x}{t} + \pdiff{z}{y}\pdifft{y}{t} + \pdifft{z}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 z}{\partial x\partial y}\pdiff{x}{t}\pdiff{y}{t} + \pdifft{z}{y}\bigg(\pdiff{y}{t}\bigg)^2$。
+  若 $\ds z = f(x, y)$，$\ds x = r\cos\theta$，$\ds y = r\sin\theta$，證明 $\ds\bigg(\pdiff{z}{x}\bigg)^2 + \bigg(\pdiff{z}{y}\bigg)^2 = \bigg(\pdiff{z}{r}\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{\theta}\bigg)^2$。  
 \end{ex}
 
 \begin{sol}
-  令 $\ds z = U(s, t) = u(x(s, t),\,y(s, t))$，由鏈鎖律 $\ds\pdiff{U}{t} = \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}$，$\ds\pdifft{U}{t} = \pdiff{}{t}\bigg(\pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)+ \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)+ \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t}\right) \\ + \pdiff{y}{t}\left(\pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t}\right) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdifft{u}{x}\,\pdiff{x}{t} + \frac{\partial^2 u}{\partial y\partial x}\,\pdiff{y}{t}\right) + \pdiff{y}{t}\left(\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t} + \pdifft{u}{y}\,\pdiff{y}{t}\right) \\ = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdifft{u}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t}\pdiff{y}{t} + \pdifft{u}{y}\bigg(\pdiff{y}{t}\bigg)^2$。
+  \begin{align*}
+    \pdiff{z}{r} &= \pdiff{z}{x}\,\pdiff{x}{r} + \pdiff{z}{y}\,\pdiff{y}{r} = \pdiff{z}{x}\cos\theta + \pdiff{z}{y}\sin\theta \\
+    \pdiff{z}{\theta} &= \pdiff{z}{x}\,\pdiff{x}{\theta} + \pdiff{z}{y}\,\pdiff{y}{\theta} = \pdiff{z}{x}\cdot(-r\sin\theta) + \pdiff{z}{y}\cdot(r\cos\theta)
+  \end{align*}
+  故
+  \begin{align*}
+    \bigg(\pdiff{z}{r}\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{\theta}\bigg)^2 &= \bigg(\pdiff{z}{x}\cos\theta + \pdiff{z}{y}\sin\theta\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{x}\cdot(-r\sin\theta) + \pdiff{z}{y}\cdot(r\cos\theta)\bigg)^2 \\
+    &= \bigg(\pdiff{z}{x}\bigg)^2\cos^2\theta + 2\,\pdiff{z}{x}\pdiff{z}{y}\cos\theta\sin\theta + \bigg(\pdiff{z}{y}\bigg)^2\sin^2\theta \\ &\; + \bigg(\pdiff{z}{x}\bigg)^2\sin^2\theta - 2\,\pdiff{z}{x}\pdiff{z}{y}\sin\theta\cos\theta + \bigg(\pdiff{z}{y}\bigg)^2\cos^2\theta = \bigg(\pdiff{z}{x}\bigg)^2 + \bigg(\pdiff{z}{y}\bigg)^2 
+  \end{align*}
 \end{sol}
 
 \begin{ex}
-  若 $\ds z = u(x, y)$ 有連續二階偏導函數，且 $\ds x = r^2 + s^2$，$\ds y = 2rs$，求 $\ds\pdiff{z}{r}$ 與 $\ds\pdifft{z}{r}$。
+  若 $\ds u = f(x, y)$，$\ds x = e^s\cos t$，$\ds y = e^s\sin t$，證明 $\ds\bigg(\pdiff{u}{x}\bigg)^2 + \bigg(\pdiff{u}{y}\bigg)^2 = e^{-2s}\bigg(\bigg(\pdiff{u}{s}\bigg)^2 + \bigg(\pdiff{u}{t}\bigg)^2\bigg)$。  
 \end{ex}
 
 \begin{sol}
-  使用上題結果：令 $r\equiv t$，$\ds\pdiff{z}{r} = \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = 2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}$，$\ds\pdifft{z}{r} = \pdiff{u}{x}\pdifft{x}{r} + \pdiff{u}{y}\pdifft{y}{r} + \pdifft{u}{x}\bigg(\pdiff{x}{r}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{r}\pdiff{y}{r} + \pdifft{z}{y}\bigg(\pdiff{y}{r}\bigg)^2 = \pdiff{u}{x}\cdot 2 + \pdiff{u}{y}\cdot 0 + \pdifft{u}{x}\cdot(2r)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\cdot 2r\cdot 2s + \pdifft{z}{y}\cdot(2s)^2 = 2\,\pdiff{u}{x} + 4r^2\,\pdifft{u}{x} + 8rs\,\frac{\partial^2 u}{\partial x\partial y} + 4s^2\,\pdifft{u}{y}$。
+  \begin{align*}
+    \pdiff{u}{s} &= \pdiff{u}{x}\,\pdiff{x}{s} + \pdiff{u}{y}\,\pdiff{y}{s} = \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\\
+    \pdiff{u}{t} &= \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t} = \pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)
+  \end{align*}
+  故
+  \begin{align*}
+    \bigg(\pdiff{u}{s}\bigg)^2 + \bigg(\pdiff{u}{t}\bigg)^2 &= \bigg(\pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\bigg)^2 + \bigg(\pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)\bigg)^2 \\
+    &= \bigg(\pdiff{u}{x}\bigg)^2 e^{2s} \cos^2 t + 2\,\pdiff{u}{x}\pdiff{u}{y}e^{2s}\cos t\sin t + \bigg(\pdiff{u}{y}\bigg)^2 e^{2s}\sin^2 t \\ &\; + \bigg(\pdiff{u}{x}\bigg)^2 e^{2s}\sin^2 t - 2\,\pdiff{u}{x}\pdiff{u}{y} e^{2s} \sin t\cos t + \bigg(\pdiff{u}{y}\bigg)^2 e^{2s} cos^2 t = e^{2s}\bigg(\bigg(\pdiff{u}{x}\bigg)^2 + \bigg(\pdiff{u}{y}\bigg)^2\bigg) 
+  \end{align*}
 \end{sol}
 
 \begin{ex}
-  若 $\ds z = u(x, y)$ 且 $\ds x = r\cos\theta$，$\ds y = r\sin\theta$，證明 $\ds\pdifft{z}{x} + \pdifft{z}{y} = \pdifft{z}{r} + \frac{1}{r}\pdiff{z}{r} + \frac{1}{r^2}\pdifft{z}{\theta}$。
+  若 $\ds z = f(x, y)$，$\ds x = s + t$，$\ds y = s - t$，證明 $\ds\bigg(\pdiff{z}{x}\bigg)^2 - \bigg(\pdiff{z}{y}\bigg)^2 = \pdiff{z}{s}\pdiff{z}{t}$。
+\end{ex}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$，$\ds x = r^2 + s^2$，$\ds y = 2rs$，求 $\ds\pdiff{z}{r}$，$\ds\pdifft{z}{r}$，$\ds\frac{\partial^2 z}{\partial s\partial r}$。
 \end{ex}
 
 \begin{sol}
-  令 $\ds z = U(r, \theta) = u(x(r, \theta),\,y(r,\theta))$，由鏈鎖律 $\ds\pdiff{U}{r} = \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = \pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta$，$\ds\pdifft{U}{r} = \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{y}{r} = \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\cos\theta + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\sin\theta = \pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta$；$\ds\pdiff{U}{\theta} = \pdiff{u}{x}\,\pdiff{x}{\theta} + \pdiff{u}{y}\,\pdiff{y}{\theta} = \pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)$，$\ds\pdifft{U}{\theta} = \pdiff{ }{\theta}\bigg(\pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)\bigg) = \pdiff{u}{x}(-r\cos\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}(-r\sin\theta) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}\pdiff{x}{\theta} + \frac{\partial^2 u}{\partial y\partial x}\pdiff{y}{\theta}\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{\theta} + \pdifft{u}{y}\pdiff{y}{\theta}\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}(r\cos\theta)\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}(-r\sin\theta) + \pdifft{u}{y}(r\cos\theta)\bigg) = \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}$。故 $\ds\pdifft{U}{r} + \frac{1}{r}\pdiff{U}{r} + \frac{1}{r^2}\pdifft{U}{\theta} = \bigg(\pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta\bigg) + \frac{1}{r}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg) + \frac{1}{r^2}\bigg(\pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}\bigg) = \pdifft{u}{x}+ \pdifft{u}{y}$。
+  %使用上題結果：令 $r\equiv t$，
+  %\begin{align*}
+  %  \pdiff{z}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = 2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y} \\
+  %  \pdifft{z}{r} &= \pdiff{u}{x}\pdifft{x}{r} + \pdiff{u}{y}\pdifft{y}{r} + \pdifft{u}{x}\bigg(\pdiff{x}{r}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{r}\pdiff{y}{r} + \pdifft{z}{y}\bigg(\pdiff{y}{r}\bigg)^2 \\ &= \pdiff{u}{x}\cdot 2 + \pdiff{u}{y}\cdot 0 + \pdifft{u}{x}\cdot(2r)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\cdot 2r\cdot 2s + \pdifft{z}{y}\cdot(2s)^2 \\ &= 2\,\pdiff{u}{x} + 4r^2\,\pdifft{u}{x} + 8rs\,\frac{\partial^2 u}{\partial x\partial y} + 4s^2\,\pdifft{u}{y}
+  %\end{align*}
+  由鏈鎖律
+  \begin{align*}
+    \pdiff{z}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = 2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y} \\
+    \pdifft{z}{r} &= \pdiff{}{r}\left(2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}\right) = 2\,\pdiff{u}{x} + 2r\,\pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) + 2s\,\pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) \\ 
+    \frac{\partial^2 z}{\partial s\partial r} &= \pdiff{}{s}\left(2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}\right) = 2\,\pdiff{u}{y} + 2s\,\pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) + 2r\,\pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) 
+  \end{align*}
+  又
+  \begin{align*}
+    \pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{r} = \pdifft{u}{x}\cdot(2r) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2s) \\
+    \pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{r} = \frac{\partial^2 u}{\partial x\partial y}\cdot(2r) + \pdifft{u}{y}\cdot(2s) \\
+    \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{s} = \pdifft{u}{x}\cdot(2s) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2r) \\
+    \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{s} = \frac{\partial^2 u}{\partial x\partial y}\cdot(2s) + \pdifft{u}{y}\cdot(2r)
+  \end{align*}
+  故
+  \begin{align*}
+    \pdifft{z}{r} &= 2\,\pdiff{u}{x} + 2r\,\pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) + 2s\,\pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) \\
+    &= 2\,\pdiff{u}{x} + 2r\,\bigg(\pdifft{u}{x}\cdot(2r) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2s)\bigg) + 2s\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(2r) + \pdifft{u}{y}\cdot(2s)\bigg) \\
+    &= 2\,\pdiff{u}{x} + 4r^2\,\pdifft{u}{x} + 8rs\,\frac{\partial^2 u}{\partial x\partial y} + 4s^2\,\pdifft{u}{y} \\
+    \frac{\partial^2 z}{\partial s\partial r} &= 2\,\pdiff{u}{y} + 2s\,\pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) + 2r\,\pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) \\
+    &= 2\,\pdiff{u}{y} + 2s\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(2s) + \pdifft{u}{y}\cdot(2r)\bigg) + 2r\,\bigg(\pdifft{u}{x}\cdot(2s) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2r)\bigg) \\
+    &= 2\,\pdiff{u}{y} + 4rs\,\pdifft{u}{x} + 4(r^2 + s^2)\,\frac{\partial^2 u}{\partial x\partial y} + 4rs\,\pdifft{u}{y}
+  \end{align*}
+\end{sol}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$，$\ds x = g(s, t)$，$\ds y = h(s, t)$，證明 
+  \begin{align*}
+    \pdifft{z}{t} = \pdiff{z}{x}\pdifft{x}{t} + \pdiff{z}{y}\pdifft{y}{t} + \pdifft{z}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 z}{\partial x\partial y}\pdiff{x}{t}\pdiff{y}{t} + \pdifft{z}{y}\bigg(\pdiff{y}{t}\bigg)^2
+  \end{align*}
+\end{ex}
+
+\begin{sol}
+  令 $\ds z = U(s, t) = u(x(s, t),\,y(s, t))$，由鏈鎖律 $\ds\pdiff{U}{t} = \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}$，
+  \begin{align*}
+    \pdifft{U}{t} &= \pdiff{}{t}\bigg(\pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}\bigg) \\
+    &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) \\ 
+    &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)+ \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) \\
+    &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t}\right) + \pdiff{y}{t}\left(\pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t}\right) \\ &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{x}{t}\left(\pdifft{u}{x}\,\pdiff{x}{t} + \frac{\partial^2 u}{\partial y\partial x}\,\pdiff{y}{t}\right) + \pdiff{y}{t}\left(\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t} + \pdifft{u}{y}\,\pdiff{y}{t}\right) \\ &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdifft{u}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t}\pdiff{y}{t} + \pdifft{u}{y}\bigg(\pdiff{y}{t}\bigg)^2
+  \end{align*}
+\end{sol}
+
+%\begin{ex}
+%  若 $\ds u = f(x, y)$，$\ds x = e^s\cos t$，$\ds y = e^s\sin t$，證明 $\ds\pdifft{u}{x} + \pdifft{u}{y} = e^{-2s}\bigg(\pdifft{u}{s} + \pdifft{u}{t}\bigg)$。  
+%\end{ex}
+%
+%\begin{sol}
+%  \begin{align*}
+%    \pdiff{u}{s} &= \pdiff{u}{x}\,\pdiff{x}{s} + \pdiff{u}{y}\,\pdiff{y}{s} = \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\\
+%    \pdiff{u}{t} &= \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t} = \pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t) \\
+%    \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{s} = \pdifft{u}{x}\cdot(e^s\cos t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\sin t)\\
+%  \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{s} = \frac{\partial^2 u}{\partial x\partial y}\cdot(e^s\cos t) + \pdifft{u}{y}\cdot(e^s\sin t) \\
+%    \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t} = \pdifft{u}{x}\cdot(-e^s\sin t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\cos t)\\
+%  \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t} = \frac{\partial^2 u}{\partial x\partial y}\cdot(-e^s\sin t) + \pdifft{u}{y}\cdot(e^s\cos t) \\
+%    \pdiff{}{s}\bigg(\pdiff{u}{s}\bigg) &= \pdiff{}{s}\bigg(\pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\bigg)\\
+%    &= \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg)\cdot(e^s\cos t) + \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\cos t) \\
+%    \pdiff{}{t}\bigg(\pdiff{u}{t}\bigg) &= \pdiff{}{t}\bigg(\pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)\bigg)\\
+%    &= \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)\cdot(-e^s\sin t) + \pdiff{u}{x}\cdot(-e^s\cos t) + \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(-e^s\sin t) \\
+%  \end{align*}
+%  故
+%\end{sol}
+
+\begin{ex}
+  若 $\ds z = u(x, y)$，$\ds x = r\cos\theta$，$\ds y = r\sin\theta$，證明 $\ds\pdifft{z}{x} + \pdifft{z}{y} = \pdifft{z}{r} + \frac{1}{r}\pdiff{z}{r} + \frac{1}{r^2}\pdifft{z}{\theta}$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds z = U(r, \theta) = u(x(r, \theta),\,y(r,\theta))$，由鏈鎖律 
+  \begin{align*}
+    \pdiff{U}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = \pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta \\
+    \pdifft{U}{r} &= \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{y}{r} \\
+    &= \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\cos\theta + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\sin\theta \\
+    &= \pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta \\
+    \pdiff{U}{\theta} &= \pdiff{u}{x}\,\pdiff{x}{\theta} + \pdiff{u}{y}\,\pdiff{y}{\theta} = \pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta) \\
+    \pdifft{U}{\theta} &= \pdiff{}{\theta}\bigg(\pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}(-r\sin\theta) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}\pdiff{x}{\theta} + \frac{\partial^2 u}{\partial y\partial x}\pdiff{y}{\theta}\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{\theta} + \pdifft{u}{y}\pdiff{y}{\theta}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}(r\cos\theta)\bigg) \\
+    &\qquad\qquad\qquad\;\,\,+ r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}(-r\sin\theta) + \pdifft{u}{y}(r\cos\theta)\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}
+  \end{align*}
+  由上， 
+  \begin{align*}
+    \pdifft{U}{r} + \frac{1}{r}\pdiff{U}{r} + \frac{1}{r^2}\pdifft{U}{\theta} &= \bigg(\pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta\bigg) + \frac{1}{r}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg) \\ &\quad+ \frac{1}{r^2}\bigg(\pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}\bigg) \\ &= \pdifft{u}{x}+ \pdifft{u}{y}
+  \end{align*}
 \end{sol}
 
 \end{document}
