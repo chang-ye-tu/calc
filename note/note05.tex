@@ -633,6 +633,22 @@
   局域下 $z$ 為 $x$、$y$ 之函數；當 $x = y = 0$，原方程式為 $\ds z(0, 0)^5 = -1\ie z(0, 0) = -1$。令 $z\equiv z(x, y)$ 代入原方程式並對 $x$ 偏微分得 $\ds 5\,z(x, y)^4\,\pdiff{z}{x}(x, y) + y^2\,e^{z(x, y)}\,\pdiff{z}{x}(x,y) + 2\,e^{2x} = 0$；代入 $(x,\,y) = (0,\,0)$ 得 $\ds 5\,z(0, 0)^4\,\pdiff{z}{x}(0, 0) + 2  = 0$，再由 $z(0, 0) = -1$，$\ds\pdiff{z}{x}(0, 0) = -\frac{2}{5\,z(0, 0)^4} = -\frac{2}{5}$。
 \end{sol}
 
+\begin{ex}
+  若 $x$、$y$、$z$ 滿足方程式 $\ds x^2 + y^2 + z^2 = 1$，證明 $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = z - \frac{1}{z}$。
+\end{ex}
+
+\begin{sol}
+  局域下 $z$ 為 $x$、$y$ 之函數；$\ds x^2 + y^2 + z^2 = 1$ 對 $x$ 偏微分得 $\ds 2x + 2z\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = -\frac{x}{z}$；對 $y$ 偏微分得 $\ds 2y + 2z\,\pdiff{z}{y} = 0 \ie \pdiff{z}{x} = -\frac{y}{z}$。故 $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = -\frac{x^2 + y^2}{z} = \frac{z^2 - 1}{z} = z - \frac{1}{z}$。
+\end{sol}
+
+\begin{ex}
+  若 $x$、$y$、$z$ 滿足方程式 $\ds x\sin z - z^2 y = 1$，求 $\ds\pdiff{z}{x}$，$\ds\pdiff{z}{y}$。
+\end{ex}
+
+\begin{sol}
+  局域下 $z$ 為 $x$、$y$ 之函數；$\ds x\sin z - z^2 y = 1$ 對 $x$ 偏微分得 $\ds\sin z + x\cos z\,\pdiff{z}{x} - 2yz\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = \frac{x}{z}$；對 $y$ 偏微分得 $\ds 2y + 2z\,\pdiff{z}{y} = 0 \ie \pdiff{z}{x} = -\frac{y}{z}$。故 $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = -\frac{x^2 + y^2}{z} = \frac{z^2 - 1}{z} = z - \frac{1}{z}$。
+\end{sol}
+
 \begin{dfn}[高階偏導函數] 給定可微雙變數函數 $f(x, y)$，
   \begin{multicols}{2}
     \begin{itemize}\setlength{\itemsep}{0pt}
@@ -671,6 +687,32 @@
     \end{itemize}
   \end{multicols}
   對整數 $m, n\geqslant 0$，$\ds\frac{\partial^{m+n} f}{\partial x^m\partial y^n} = \al^m\be^n e^{\al x+\be y}$。
+\end{ex}
+
+\begin{ex}
+  令 $\ds f(x,y) = \ln(x^2 + y^2)$，則
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \frac{2x}{x^2 + y^2}$ 
+      \item $\ds f_y = \frac{2y}{x^2 + y^2}$ 
+      \item $\ds f_{xx} = \frac{(x^2 + y^2)\cdot 2 - 2x\cdot 2x}{(x^2 + y^2)^2} = \frac{2\,(y^2 - x^2)}{(x^2 + y^2)^2}$
+      \item $\ds f_{yy} = \frac{(x^2 + y^2)\cdot 2 - 2y\cdot 2y}{(x^2 + y^2)^2} = \frac{2\,(x^2 - y^2)}{(x^2 + y^2)^2}$
+    \end{itemize}
+  \end{multicols}
+  $\ds f(x, y)$ 滿足 Laplace 方程式 $\ds f_{xx} + f_{yy} = 0$。
+\end{ex}
+
+\begin{ex}
+  令 $\ds f(x,y) = \tan^{-1}\frac{y}{x}$，則
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \frac{1}{1 + \big(\frac{y}{x}\big)^2}\cdot\bigg(\frac{-y}{x^2}\bigg) = -\frac{y}{x^2 + y^2}$ 
+      \item $\ds f_y = \frac{1}{1 + \big(\frac{y}{x}\big)^2}\cdot\bigg(\frac{1}{x}\bigg) = \frac{x}{x^2 + y^2}$ 
+      \item $\ds f_{xx} = \frac{y\cdot 2x}{(x^2 + y^2)^2} = \frac{2 x y}{(x^2 + y^2)^2}$
+      \item $\ds f_{yy} = -\frac{x\cdot 2y}{(x^2 + y^2)^2} = -\frac{2 x y}{(x^2 + y^2)^2}$
+    \end{itemize}
+  \end{multicols}
+  $\ds f(x, y)$ 滿足 Laplace 方程式 $\ds f_{xx} + f_{yy} = 0$。
 \end{ex}
 
 \begin{ex}
@@ -724,19 +766,11 @@
 \end{sol}
 
 \begin{ex}
-  \begin{itemize}\setlength{\itemsep}{0pt}
-    \item[]
-    \item 令 $\ds u(x,t) = x + ct$，輔助函數 $\ds w(x,t)\equiv f\big(u(x,t)\big) = f(x + ct)$；\\$\ds\pdiff{}{t}f(x+ct) = \pdiff{w}{t} = \diff{f}{u}\,\pdiff{u}{t} = c\,f'(x + ct)$。
-    \item 承上，輔助函數 $\ds W(x,t)\equiv\pdiff{w}{t}(x,t) = c\,f'(x + ct) = F\big(u(x,t)\big)$，其中 $\ds F(u) = c\,f'(u)$；\\$\ds\frac{\partial^2}{\partial t^2}f(x + ct) = \pdiff{W}{t} = \diff{F}{u}\,\pdiff{u}{t} = c\,f''(x + ct)\,c = c^2\,f''(x + ct)$。
-  \end{itemize}
-\end{ex}
-
-\begin{ex}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
     \item 令 $\ds w = xy + z$，$\ds x = \cos t$，$\ds y = \sin t$，$\ds z = t$，求 $\ds\diff{w}{t}$ 與 $\ds\diff{w}{t}\Big|_{t = 0}$。
     \item 令 $\ds w = x + 2y + z^2$，$\ds x = \frac{r}{s}$，$\ds y = r^2 + \ln s$，$\ds z = 2r$，求 $\ds\pdiff{w}{r}$ 與 $\ds\pdiff{w}{s}$。
-    \item 令 $\ds w = x^4y + y^2z^3$，$\ds x = rse^{t}$，$\ds y = rs^2e^{-t}$，$\ds z = r^2s\sin t$，求 $\ds\pdiff{w}{t}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)}$。
+    \item 令 $\ds w = x^4y + y^2z^3$，$\ds x = rse^{t}$，$\ds y = rs^2e^{-t}$，$\ds z = r^2s\sin t$，求 $\ds\pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)}$。
   \end{enumerate}
 \end{ex}
 
@@ -868,6 +902,26 @@
   \end{align*}
 \end{sol}
 
+\begin{ex} 若 $\ds f(x, t) = g(x + at) + h(x - at)$，其中 $g$，$h$ 可二次微分，證明 $f$ 滿足波動方程式 $\ds\pdifft{f}{t} = a^2\pdifft{f}{x}$。
+\end{ex}
+
+\begin{sol}
+  令 $\ds u(x, t) = x + at$，$\ds v(x, t) = x - at$，$\ds f\big(u(x,t), v(x, t)\big) = g(u(x, t)) + h(v(x, t))$。由鏈鎖律 
+  \begin{align*}
+    \pdiff{f}{t} &= \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} \\
+                 &= g'(u(x, t))\cdot a + h'(v(x, t))\cdot(-a) = a\,g'(x + at) - a\,h'(x - at) = a\,g'(u(x, t)) - a\,h'(v(x, t)) \\
+    \pdifft{f}{t} &= \pdiff{}{t}\bigg(\pdiff{f}{t}\bigg) \\ 
+    &= \pdiff{}{u}\big(a\,g'(u) - a\,h'(v)\big)\big(u(x,t), v(x, t)\big)\,\pdiff{u}{t} + \pdiff{}{v}\big(a\,g'(u) - a\,h'(v)\big)\big(u(x,t), v(x, t)\big)\pdiff{v}{t} \\ &= a\,g''(u(x,t))\cdot a - a\,h''(v(x, t))\cdot(-a) \\ &= a^2\,(g''(x + at) + h''(x - at)) \\
+    \pdiff{f}{x} &= \pdiff{f}{u}\,\pdiff{u}{x} + \pdiff{f}{v}\,\pdiff{v}{x} \\
+                 &= g'(u(x, t))\cdot 1 + h'(v(x, t))\cdot(1) = g'(x + at) + h'(x - at) = g'(u(x, t)) + h'(v(x, t)) \\
+    \pdifft{f}{x} &= \pdiff{}{x}\bigg(\pdiff{f}{x}\bigg) \\ 
+    &= \pdiff{}{x}\big(g'(u) + h'(v)\big)\big(u(x,t), v(x, t)\big)\,\pdiff{u}{x} + \pdiff{}{v}\big(g'(u) + h'(v)\big)\big(u(x,t), v(x, t)\big)\pdiff{v}{x} \\ 
+    &= g''(u(x,t))\cdot 1 + h''(v(x, t))\cdot 1\\ 
+    &= g''(x + at) + h''(x - at)
+  \end{align*}
+  故 $\ds\pdifft{f}{t} = a^2\pdifft{f}{x}$。
+\end{sol}
+
 \begin{ex}
   若 $\ds u = f(x, y)$，$\ds x = e^s\cos t$，$\ds y = e^s\sin t$，證明 $\ds\pdifft{u}{x} + \pdifft{u}{y} = e^{-2s}\bigg(\pdifft{u}{s} + \pdifft{u}{t}\bigg)$。  
 \end{ex}
@@ -970,45 +1024,59 @@
   \end{align*}
 \end{sol}
 
-\end{document}
-
-\begin{thm}[梯度、切平面、法線]
-  令 $\ds(x_0, y_0, z_0)$ 在 $G(x, y, z) = 0$ 上，梯度 \\$\ds\vnabla G(x_0, y_0, z_0)\equiv\llt\pdiff{G}{x}\big(x_0,y_0,z_0\big),\,\pdiff{G}{y}\big(x_0,y_0,z_0\big),\,\pdiff{G}{z}\big(x_0,y_0,z_0\big)\rgt\ne\vZero$，則
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\vnabla G(x_0,y_0,z_0)$ 在 $(x_0,y_0,z_0)$ 與 $G(x, y, z) = 0$ 垂直。
-    \item $G(x, y, z) = 0$ 在 $(x_0, y_0, z_0)$ 之切平面方程式為 $\ds\vnabla G(x_0,y_0,z_0)\cdot\llt x - x_0,\,y - y_0,\,z - z_0\rgt = 0$
-    \item $G(x, y, z) = 0$ 在 $(x_0, y_0, z_0)$ 之法線方程式為 $\ds\llt x,\,y,\,z\rgt = \llt x_0,\,y_0,\,z_0\rgt + t\,\vnabla G(x_0, y_0, z_0)$。
-  \end{enumerate}
-\end{thm}
-
-\begin{prf}
-  Then normal vector $\vn$ at a point $\vr(t_0) = (x(t_0), y(t_0), z(t_0))$ on the surface $G(x, y, z) = 0$: for all curves on $G$ that pass through $\vr(t_0)$, $\vn\cdot\vr'(t_0) = 0$.
-$\ds\frac{\text{d}}{\text{d}t}G(x(t), y(t), z(t)) = 0\,\Longrightarrow\,\frac{\partial G}{\partial x}\,\frac{\text{d}x}{\text{d}t} + \frac{\partial G}{\partial y}\,\frac{\text{d}y}{\text{d}t} + \frac{\partial G}{\partial z}\,\frac{\text{d}z}{\text{d}t} = 0\,\Longrightarrow\,\nabla G(\vr(t_0))\cdot\vr'(t_0) = 0$
-\end{prf}
-
-\begin{ex}
-  求 $z = x^2 + 5xy - 2y^2$ 在 $(1, 2, 3)$ 之切平面與法線方程式。
-\end{ex}
-\begin{sol}
-  $\ds f(x, y, z) = x^2 + 5xy - 2y^2 - z = 0$，故 $\nabla f = (2x + 5y)\,\hi + (-4y + 5x)\,\hj - \hk$。
-\end{sol}
-
-\section*{5.5 極值問題}
+\section*{5.5 方向導數與梯度}
 
 \begin{dfn}
-  給定 $f:R\to\mathbb{R}^2$，$\ds B((x_i, y_i), h)\equiv\{x\;|\;|x - x_i| < h\}$。
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $f$ 在 $\ds x_\text{M}\in R$ 有最大值 (global maximum) $\ds f(x_\text{M})$：$\ds f(x_\text{M})\geqslant f(x),\;\forall\,x\in R$。
-    \item $f$ 在 $\ds x_\text{m}\in R$ 有最小值 (global minimum) $\ds f(x_\text{m})$：$\ds f(x_\text{m})\leqslant f(x),\;\forall\,x\in R$。
-    \item $f$ 在 $\ds (a, b)\in R$ 有極大值 (local maximum) ：$\ds\exists\,h_0 > 0$ 使 $\ds f(x_0)\geqslant f(x),\;\forall\,x\in B(x_0, h_0)\,\cap\,R$。
-    \item $f$ 在 $\ds (a, b)\in R$ 有極小值 (local minimum) $\ds f(x_1)$：$\ds\exists\,h_1 > 0$ 使 $\ds f(x_1)\leqslant f(x),\;\forall\,x\in B(x_1, h_1)\,\cap\,R$。
+  令 $S\subseteq\mathbb{R}^n$，$\vc\in S$，$\vu\in\mathbb{R}^n$，可微函數 $\ds f:S\to\mathbb{R}$；$\mathbb{R}^n$ 中直角座標系單位向量為 $\ve_1,\,\ve_2,\,\ldots,\,\ve_n$。
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $f$ 在 $\vc$ 之 $\ds\vu$ 方向導數 (directional derivative) 為 $\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h}$。
+    \item $f$ 之偏導數 $\ds f_i(\vc) = D_{\ve_i}f(\vc)$，$i = 1,\,2,\,\ldots,\,n$。
+    \item $f$ 在 $\vc$ 之梯度 (gradient) 為 $\ds\nabla f(\vc) = \llt f_1(\vc),\,f_2(\vc),\,\ldots,\,f_n(\vc)\rgt$。
   \end{itemize}
 \end{dfn}
 
-\section*{5.6 Lagrange 乘數法}
+\begin{prp}
+  $\ds D_{\vu}f(\vc) = \nabla f(\vc)\cdot\vu$。 
+\end{prp}
+
+\begin{prf}
+  令 $\ds g(x) = f(\vc + x\vu) = f(v_1 + x u_1,\,v_2 + x u_2,\,\ldots,\,v_n + x u_n)$，$\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h} = \lim_{h\to 0}\frac{g(h) - g(0)}{h} = g'(x)\,\big|_{x = 0}$。由鏈鎖律，$\ds g'(x)\,\big|_{x = 0} = \sum_{i = 1}^n f_i(\vc + x\vu)\,\diff{(v_i + x u_i)}{x}\,\bigg|_{x = 0} = \sum_{i = 1}^n f_i(\vc + x\vu)\,u_i\,\bigg|_{x = 0} = \nabla f(\vc)\cdot\vu$。
+\end{prf}
+
+\begin{prp}
+  給定 $\mathbb{R}^n$ 曲面 $\ds G(\vx) = 0$。令 $\ds\vx_0\in\mathbb{R}^n$ 使 $\ds G(\vx_0) = 0$（$\ds\vx_0$ 位於 $\ds G(\vx)$ 上），則 $\nabla G(\vx_0)$ 在 $\vx_0$ 與 $\ds G(\vx)$ 垂直。 
+\end{prp}
+
+\begin{prf}
+  令 $\mathbb{R}^n$ 曲線 $\ds\vr(t) = \llt x_1(t),\,x_2(t),\,\ldots,\,x_n(t)\rgt$ 位於 $\ds G(\vx)$ 上且通過 $\ds\vx_0$，則 $\ds G(\vr(t)) = 0$，且存在 $t_0\in\mathbb{R}$ 使 $\ds\vr(t_0) = \vx_0$。由鏈鎖律，$\ds G(\vr(t)) = 0$ 等式兩邊對 $t$ 微分並代入 $t = t_0$ 得 
+  \begin{align*}
+    \diff{G(\vr(t))}{t}\,\bigg|_{t = t_0} = 0 \ie \sum_{i=1}^n G_i(\vr(t))\,x_i'(t)\,\bigg|_{t = t_0} = 0 \ie \nabla G(\vr(t_0))\cdot\vr'(t_0) = 0
+  \end{align*}
+\end{prf}
+
+\begin{ex}
+  求 $z = x^2 + 5xy - 2y^2$ 在 $(1, 2, 3)$ 之切平面方程式。
+\end{ex}
+\begin{sol}
+  $\ds f(x, y, z) = x^2 + 5xy - 2y^2 - z = 0$，故 $\nabla f = (2x + 5y)\,\hi + (-4y + 5x)\,\hj - \hk$，$\nabla f(1, 2, 3) = \llt12,\,-3,\,-1\rgt$，切平面方程式為 $12(x - 1) - 3(y - 2) - (z - 3) = 0 \ie 12 x - 3y - z = 3$。
+\end{sol}
+
+\section*{5.6 極值問題}
+
+\begin{dfn}
+  給定 $\ds R\subseteq\mathbb{R}^n$，$\ds f:R\to\mathbb{R}$，$\ds B(\vx, h)\equiv\{\vy\in\mathbb{R}^n\;|\;|\vy - \vx| < h\}$。
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $f$ 在 $\ds\vx_\text{M}\in R$ 有最大值 (global maximum) $\ds f(\vx_\text{M})$：$\ds f(\vx_\text{M})\geqslant f(\vx),\;\forall\,\vx\in R$。
+    \item $f$ 在 $\ds \vx_\text{m}\in R$ 有最小值 (global minimum) $\ds f(\vx_\text{m})$：$\ds f(\vx_\text{m})\leqslant f(\vx),\;\forall\,\vx\in R$。
+    \item $f$ 在 $\ds\vx_0\in R$ 有極大值 (local maximum) $\ds f(\vx_0)$：$\ds\exists\,h_0 > 0$ 使 $\ds f(\vx_0)\geqslant f(\vx),\;\forall\,\vx\in B(\vx_0, h_0)\,\cap\,R$。
+    \item $f$ 在 $\ds\vx_1\in R$ 有極小值 (local minimum) $\ds f(\vx_1)$：$\ds\exists\,h_1 > 0$ 使 $\ds f(\vx_1)\leqslant f(\vx),\;\forall\,\vx\in B(\vx_1, h_1)\,\cap\,R$。
+  \end{itemize}
+\end{dfn}
+
+\section*{5.7 Lagrange 乘數法}
 \begin{align*}
 &\min_x\;f(x) \\
 \text{subject to}\quad &g_i(x) = 0,\quad i = 1, 2, \ldots, l. \\
 \end{align*}
 
-
+\end{document}
