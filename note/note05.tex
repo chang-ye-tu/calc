@@ -649,7 +649,7 @@
 \end{ex}
 
 \begin{sol}
-  局域下 $z$ 為 $x$、$y$ 之函數；$\ds x\sin z - z^2 y = 1$ 對 $x$ 偏微分得 $\ds\sin z + x\cos z\,\pdiff{z}{x} - 2yz\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = \frac{x}{z}$；對 $y$ 偏微分得 $\ds 2y + 2z\,\pdiff{z}{y} = 0 \ie \pdiff{z}{x} = -\frac{y}{z}$。故 $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = -\frac{x^2 + y^2}{z} = \frac{z^2 - 1}{z} = z - \frac{1}{z}$。
+  局域下 $z$ 為 $x$、$y$ 之函數；$\ds x\sin z - z^2 y = 1$ 對 $x$ 偏微分得 $\ds\sin z + x\cos z\,\pdiff{z}{x} - 2yz\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = \frac{\sin z}{2yz - x\cos z}$；對 $y$ 偏微分得 $\ds x\cos z\,\pdiff{z}{y} - 2z\,\pdiff{z}{y}\,y - z^2 = 0 \ie \pdiff{z}{y} = \frac{z^2}{x\cos z - 2yz}$。
 \end{sol}
 
 \begin{dfn}[高階偏導函數] 給定可微雙變數函數 $f(x, y)$，
