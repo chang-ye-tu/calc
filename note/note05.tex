@@ -1304,11 +1304,64 @@
   \end{center}
 \end{sol}
 
-\end{document}
-
 \section*{5.7 Lagrange 乘數法}
-\begin{align*}
-&\min_x\;f(x) \\
-\text{subject to}\quad &g_i(x) = 0,\quad i = 1, 2, \ldots, l. \\
-\end{align*}
+
+\begin{thm}
+  給定開集 $S\subseteq\mathbb{R}^n$，可微函數 $f:S\to\mathbb{R}$ 與 $g_j:S\to\mathbb{R}$，$j=1,\,2,\,\ldots,\,m$，$m < n$，及 $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$。若 $\ds\vx_0\in S\,\cap\,X_0$ 有極值且 $\det\big(D_i\,g_j(\vx_0)\big)\ne 0$，則 $\exists\,\lambda_1,\,\lambda_2,\,\ldots,\,\lambda_m$ 使得 $\ds D_i\,f(\vx_0) + \sum_{j = 1}^m\lambda_j\,D_i g_j(\vx_0) = 0$，$\ds i = 1,\,2,\,\ldots,\,n$。
+\end{thm}
+
+\begin{rmk}
+  令 $\ds\mathcal{L}\equiv f + \sum_{j = 1}^m \lambda_j\,g_j$，上述充分條件可寫作
+  \begin{align*}
+    D_i\,\mathcal{L}(\vx_0) &= 0,\quad i = 1,\,2,\,\ldots,\,n \\
+    g_j(\vx_0) &= 0,\quad j=1,\,2,\,\ldots,\,m
+  \end{align*}
+\end{rmk}
+
+\begin{ex} 
+  求 $\ds x^2 - 10 x - y^2$ 在限制式 $\ds x^2 + 4 y^2 = 16$ 下的最大值，最小值。
+\end{ex}
+
+\begin{sol}
+  令 $\ds\mathcal{L} = x^2 - 10 x - y^2 + \lambda\,(x^2 + 4 y^2 - 16)$，則 
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x - 10 + 2\lambda x = 0\ie x - 5 + \lambda x = 0 \label{eq:1}\\
+    \pdiff{\mathcal{L}}{y} &= -2y + 8\lambda y = 0\ie -y + 4\lambda y = 0 \label{eq:2} \\
+    x^2 &+ 4 y^2 - 16 = 0 \label{eq:3}
+  \end{align}
+  由 \eqref{eq:2} $(1 - 4\lambda) y = 0$，則 $y = 0\orr\lambda = \frac{1}{4}$。若 $y = 0$，由 \eqref{eq:3} $x = \pm 4$；若 $\lambda=\frac{1}{4}$，由 \eqref{eq:1} $(1 + \lambda)\,x = 5\ie x = 4$，代入 \eqref{eq:3} 得 $y = 0$。故極值點為 $(x, y) = (4, 0),\,(-4, 0),\,(0, 4)$；$x^2 - 10x - y^2$ 最大值為 $56$ ($(x, y) = (-4, 0)$)，最小值為 $-24$ ($(x, y) = (4, 0)$)。
+\end{sol}
+
+\begin{ex}
+  求 $x^2 = y^2 + z^2$ 上距離 $(0, 1, 3)$ 最近的點。
+\end{ex}
+
+\begin{sol}
+  距離平方函數為 $x^2 + (y - 1)^2 + (z - 3)^2$，限制式為 $x^2 - y^2 - z^2 = 0$。令 $\ds\mathcal{L} = x^2 + (y - 1)^2 + (z - 3)^2 + \lambda(x^2 - y^2 - z^2)$，則
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x + 2\lambda x = 0\ie (1 + \lambda) x = 0 \label{eq:4}\\
+    \pdiff{\mathcal{L}}{y} &= 2\,(y - 1) - 2\lambda y = 0\ie (1 - \lambda) y = 1 \label{eq:5} \\
+    \pdiff{\mathcal{L}}{z} &= 2\,(z - 3) - 2\lambda z = 0\ie (1 - \lambda) z = 3 \label{eq:6} \\
+    x^2 &- y^2 - z^2 = 0 \label{eq:7}
+  \end{align}
+  由 \eqref{eq:4} $(1 + \lambda) x = 0$，則 $x = 0\orr\lambda = -1$。若 $x = 0$，由 \eqref{eq:7} $y = z = 0$；若 $\lambda = -1$，由 \eqref{eq:5} $y = \frac{1}{2}$，由 \eqref{eq:6} $z = \frac{3}{2}$，代入 \eqref{eq:7} 得 $x = \pm\sqrt{\frac{5}{2}}$。故極值點為 $(x, y, z) = (0, 0, 0),\,\Big(\pm\sqrt{\frac{5}{2}}, \frac{1}{2}, \frac{3}{2}\Big)$；距離平方 $x^2 + (y - 1)^2 + (z - 3)^2$ 最小值為 $5$，當 $(x, y, z) = \Big(\pm\sqrt{\frac{5}{2}}, \frac{1}{2}, \frac{3}{2}\Big)$。
+\end{sol}
+
+\begin{ex}
+  若 $L$ 為 $z^2 = x^2 + y^2$ 與 $x - 2z = 3$ 相交的曲線，求 $L$ 上與原點距離最短之點與最短距離。
+\end{ex}
+
+\begin{sol}
+  距離平方函數為 $x^2 + y^2 + z^2$，限制式為 $x^2 + y^2 - z^2 = 0$ 與 $x - 2z - 3 = 0$。令 $\ds\mathcal{L} = x^2 + y^2 + z^2 + \lambda_1\,(x^2 + y^2 - z^2) + \lambda_2\,(x - 2z - 3)$，則
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x + 2\lambda_1 x + \lambda_2 = 0 \ie 2\,(1 + \lambda_1) x + \lambda_2 = 0\label{eq:8}\\
+    \pdiff{\mathcal{L}}{y} &= 2 y + 2\lambda_1 y = 0 \ie (1 + \lambda_1)y = 0\label{eq:9} \\
+    \pdiff{\mathcal{L}}{z} &= 2 z - 2\lambda_1 z - 2\lambda_2 = 0 \ie (1 - \lambda_1)z - \lambda_2 = 0\label{eq:10}\\
+    x^2 &+ y^2 - z^2 = 0 \label{eq:11} \\
+    x &- 2z - 3 = 0 \label{eq:12}
+  \end{align}
+  由 \eqref{eq:9} $(1 + \lambda_1) y = 0$，則 $y = 0\orr\lambda_1 = -1$。若 $y = 0$，由 \eqref{eq:11} $x^2 = z^2 \ie x = \pm z$。若 $x = z$，由 \eqref{eq:12} $x = z = -3$。若 $x = -z$，由 \eqref{eq:12} $x = 1$，$z = -1$；若 $\lambda_1 = -1$，由 \eqref{eq:8} $\lambda_2 = 0$，由 \eqref{eq:10} $z = 0$，代入 \eqref{eq:11} 得 $x = y = 0$，與 \eqref{eq:12} 不合。故極值點為 $(x, y, z) = (-3, 0, -3),\,(1, 0, -1)$；距離平方 $x^2 + y^2 + z^2$ 最小值為 $2$（最短距離為 $\sqrt{2}$），當 $(x, y, z) = (1, 0, -1)$。
+\end{sol}
+
+\end{document}
 
