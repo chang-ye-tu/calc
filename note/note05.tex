@@ -1307,11 +1307,14 @@
 \section*{5.7 Lagrange 乘數法}
 
 \begin{thm}
-  給定開集 $S\subseteq\mathbb{R}^n$，可微函數 $f:S\to\mathbb{R}$ 與 $g_j:S\to\mathbb{R}$，$j=1,\,2,\,\ldots,\,m$，$m < n$，及 $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$。若 $\ds\vx_0\in S\,\cap\,X_0$ 有極值且 $\det\big(D_i\,g_j(\vx_0)\big)\ne 0$，則 $\exists\,\lambda_1,\,\lambda_2,\,\ldots,\,\lambda_m$ 使得 $\ds D_i\,f(\vx_0) + \sum_{j = 1}^m\lambda_j\,D_i g_j(\vx_0) = 0$，$\ds i = 1,\,2,\,\ldots,\,n$。
+  給定開集 $S\subseteq\mathbb{R}^n$，可微函數 $f:S\to\mathbb{R}$ 與 $g_j:S\to\mathbb{R}$，$j=1,\,2,\,\ldots,\,m$，$m < n$，及 $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$。若 $\ds\vx_0\in S\,\cap\,X_0$ 有極值且 $\det\big(D_i g_j(\vx_0)\big)\ne 0$，則 \vspace{-2mm}
+  \begin{align*}
+    \exists\,\lambda_1,\,\lambda_2,\,\ldots,\,\lambda_m\quad\text{使}\quad D_i f(\vx_0) + \sum_{j = 1}^m\lambda_j D_i g_j(\vx_0) = 0,\quad\ds i = 1,\,2,\,\ldots,\,n
+  \end{align*}
 \end{thm}
-
 \begin{rmk}
   令 $\ds\mathcal{L}\equiv f + \sum_{j = 1}^m \lambda_j\,g_j$，上述充分條件可寫作
+  \vspace{-2mm}
   \begin{align*}
     D_i\,\mathcal{L}(\vx_0) &= 0,\quad i = 1,\,2,\,\ldots,\,n \\
     g_j(\vx_0) &= 0,\quad j=1,\,2,\,\ldots,\,m
