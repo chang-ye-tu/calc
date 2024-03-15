@@ -1144,7 +1144,7 @@
 \end{thm}
 
 \begin{ex}
-  考慮 $3\times 3$ 對稱矩陣 $\ds\vA = \begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$，若 $\ds\vv = \llt a,\,b,\,c\rgt$，$a,\,b,\,c\in\mathbb{R}$，則 $\ds\vv\vA\vv^\top = \begin{pmatrix}a & b & c\end{pmatrix}\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}2a - b&-a + 2b - c&-b + 2c\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = (2a - b)a + (-a + 2b - c)b + (-b + 2c)c = 2a^2-2ab+2b^2 - 2bc + 2c^2 = a^2 + (a - b)^2 + (b - c)^2 + c^2 > 0$，除 $a = b = c = 0$ 外，故為正定。又 $\vA$ 之 $M_1$，$M_2$, $M_3$ 依次為 $\ds 2,\;\begin{vmatrix}2 & -1 \\ -1 & 2\end{vmatrix} = 3,\;\begin{vmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{vmatrix} = 4$，由上判斷準則 $\vA$ 為正定。
+  考慮 $3\times 3$ 對稱矩陣 $\ds\vA = \begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$：令 $\ds\vv = \llt a,\,b,\,c\rgt$，$\ds\vv\vA\vv^\top = \begin{pmatrix}a & b & c\end{pmatrix}\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}2a - b&-a + 2b - c&-b + 2c\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = (2a - b)a + (-a + 2b - c)b + (-b + 2c)c = 2a^2-2ab+2b^2 - 2bc + 2c^2 = a^2 + (a - b)^2 + (b - c)^2 + c^2 > 0$，除 $a = b = c = 0$ 外，故為正定。又 $\vA$ 之 $M_1$，$M_2$, $M_3$ 依次為 $\ds 2,\;\begin{vmatrix}2 & -1 \\ -1 & 2\end{vmatrix} = 3,\;\begin{vmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{vmatrix} = 4$，由上判斷準則 $\vA$ 為正定。
 \end{ex}
 
 \begin{thm}[二階導數判定法]
@@ -1344,7 +1344,7 @@
 \begin{sol}
   由於 $f$ 可微，無奇異點；$f$ 之極值發生在臨界點 ($\vc\in S,\,\nabla f(\vc) = 0$) 與 $S$ 之邊界點上。
   \begin{itemize}\setlength\itemsep{0em}
-    \item 由 $\ds f_x(x, y) = y\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-x) = y(1 - x^2)\,e^{-\frac{x^2 + y^2}{2}}$，$\ds f_y(x, y) = x\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-y) = x(1 - y^2)\,e^{-\frac{x^2 + y^2}{2}}$，臨界點 $(x, y)$ 滿足 $\ds y\,(1 - x^2) = 0$ 與 $x\,(1 - y^2) = 0$，解得 $(x, y) = (0, 0),\;(1, 1),\;(1, -1),\;(-1, 1),\;(-1, -1)$；僅 $(0, 0),\;(1, 1)$ 於 $S$ 內。
+    \item 由 $\ds f_x(x, y) = y\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-x) = y(1 - x^2)\,e^{-\frac{x^2 + y^2}{2}}$，$\ds f_y(x, y) = x\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-y) = x(1 - y^2)\,e^{-\frac{x^2 + y^2}{2}}$，臨界點 $(x, y)$ 滿足 $\ds y\,(1 - x^2) = 0$ 與 $x\,(1 - y^2) = 0$，解得 $(x, y) = (0, 0),\,(1, 1),\,(1, -1),\,(-1, 1),\,(-1, -1)$；僅 $(0, 0),\;(1, 1)$ 於 $S$ 內。
     \item 邊界點由 $L_1:\;x = 0\andd 0\leqslant y\leqslant 2$、$L_2:\;y = 0\andd 0\leqslant x\leqslant 2$、$L_3:\;x^2 + y^2 = 4$ 於第一象限所組成。
       \begin{itemize}\setlength\itemsep{0em}
         \item $L_1$：$f(x, y) = 0$。
