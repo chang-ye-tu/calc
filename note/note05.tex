@@ -1107,21 +1107,45 @@
 \begin{dfn}[Hessian 矩陣]
   給定 $\ds S\subseteq\mathbb{R}^n$、$S$ 之內點 $\vc$、與可微函數 $\ds f:S\to\mathbb{R}$，
   \begin{align*}
-    \vH(f, \vc) = \begin{pmatrix}f_{11} & f_{12} & \cdots & f_{1n} \\ f_{21} & f_{22} & \cdots & f_{2n} \\ \vdots & \vdots & \cdots & \vdots \\ f_{n1} & f_{n2} & \cdots & f_{nn}\end{pmatrix}, \qquad f_{ij} = \frac{\partial^2 f}{\partial x_j\partial x_i}(\vc), \qquad i,\,j = 1,\,2,\,\ldots,\,n.
+    \vH(f, \vc) = \begin{pmatrix}f_{11} & f_{12} & \cdots & f_{1n} \\ f_{21} & f_{22} & \cdots & f_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ f_{n1} & f_{n2} & \cdots & f_{nn}\end{pmatrix}, \qquad f_{ij} = \frac{\partial^2 f}{\partial x_j\partial x_i}(\vc), \qquad i,\,j = 1,\,2,\,\ldots,\,n.
   \end{align*}
 \end{dfn}
 
 \begin{dfn}[矩陣正 / 負定性] 
-  給定 $n\times n$ 實矩陣 $\vM$。對任意 $\ds\vv\in\mathbb{R}^n\ne\vZero$，若 $\ds\vv\vM\vv^\top > 0$ 恆成立，則稱 $\vM$ 為正定 (positive-definite)；若 $\ds\vv\vM\vv^\top < 0$ 恆成立，則稱 $\vM$ 為負定 (negative-definite)。
+  給定 $n\times n$ 實對稱矩陣 $\vA$。對任意 $\ds\vv\in\mathbb{R}^n\ne\vZero$，若 
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\vv\vA\vv^\top > 0$：$\vA$ 正定 (positive-definite)
+      \item $\ds\vv\vA\vv^\top < 0$：$\vA$ 負定 (negative-definite)
+      \item $\ds\vv\vA\vv^\top \geqslant 0$：$\vA$ 半正定 (positive-semidefinite)
+      \item $\ds\vv\vA\vv^\top \leqslant 0$：$\vA$ 半負定 (negative-semidefinite)
+    \end{itemize}
+  \end{multicols}
 \end{dfn}
 
-\begin{rmk}
-  \begin{itemize}
-    \item 正定 $3\times 3$ 矩陣範例：$\ds\vM = \begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$。若 $\ds\vv = \llt a,\,b,\,c\rgt$，$a,\,b,\,c\in\mathbb{R}$，則 $\ds\vv\vM\vv^\top = \begin{pmatrix}a & b & c\end{pmatrix}\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}2a - b&-a + 2b - c&-b + 2c\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = (2a - b)a + (-a + 2b - c)b + (-b + 2c)c = 2a^2-2ab+2b^2 - 2bc + 2c^2 = a^2 + (a - b)^2 + (b - c)^2 + c^2 > 0$，除 $a = b = c = 0$ 外。
-    \item 正定矩陣判定準則 (Sylvester)：$\vM$ 為正定 $\ifff$ $\vM$ 所有 principal minor 之行列式值均為正。
-    \item 矩陣 $\ds\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$ 之所有 principal minors 依次為 $\ds2,\;\begin{pmatrix}2 & -1 \\ -1 & 2\end{pmatrix},\;\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$，行列式值分別為 $2,\,3,\,4$，故為正定。
+\begin{dfn}[餘子式] 
+  給定 $n\times n$ 矩陣 $\ds\vA = \begin{pmatrix}a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix}$ 與餘子式 $\ds\vA\begin{pmatrix}i_1,\,i_2,\,\cdots,\,i_k\\j_1,\,j_2,\,\cdots,\,j_k\end{pmatrix} = \begin{vmatrix}a_{i_1 j_1} & a_{i_1 j_2} & \cdots & a_{i_1 j_k} \\ a_{i_2 j_1} & a_{i_2 j_2} & \cdots & a_{i_2 j_k} \\ \vdots & \vdots & \ddots & \vdots \\ a_{i_k j_1} & a_{i_k j_2} & \cdots & a_{i_k j_k} \end{vmatrix}$，$1\leqslant k\leqslant n$，$1\leqslant i_1 < i_2 < \cdots < i_k \leqslant n$，$1\leqslant j_1 < j_2 < \cdots < j_k \leqslant n$。
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $\ds\Delta_k\equiv\vA\begin{pmatrix}i_1,\,i_2,\,\cdots,\,i_k\\i_1,\,i_2,\,\cdots,\,i_k\end{pmatrix}$ 為 $A$ 之 $k$ 階主餘子式 ($k$-th order principal minor)。
+    \item $\ds M_k\equiv\vA\begin{pmatrix}1,\,2,\,\cdots,\,k\\1,\,2,\,\cdots,\,k\end{pmatrix}$ 為 $A$ 之 $k$ 階領導主餘子式 ($k$-th order leading principal minor)。
   \end{itemize}
-\end{rmk}
+\end{dfn}
+
+\begin{thm}[矩陣正 / 負定性判斷準則] 
+  給定 $n\times n$ 實對稱矩陣 $\vA$，則 $\forall\,k\leqslant n$，
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\vA$ 正定 $\ifff M_k > 0$
+      \item $\vA$ 負定 $\ifff (-1)^k M_k> 0$
+      \item $\vA$ 半正定 $\ifff \Delta_k \geqslant 0$
+      \item $\vA$ 半負定 $\ifff (-1)^k \Delta_k \geqslant 0$
+    \end{itemize}
+  \end{multicols}
+\end{thm}
+
+\begin{ex}
+  考慮 $3\times 3$ 對稱矩陣 $\ds\vA = \begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$，若 $\ds\vv = \llt a,\,b,\,c\rgt$，$a,\,b,\,c\in\mathbb{R}$，則 $\ds\vv\vA\vv^\top = \begin{pmatrix}a & b & c\end{pmatrix}\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}2a - b&-a + 2b - c&-b + 2c\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = (2a - b)a + (-a + 2b - c)b + (-b + 2c)c = 2a^2-2ab+2b^2 - 2bc + 2c^2 = a^2 + (a - b)^2 + (b - c)^2 + c^2 > 0$，除 $a = b = c = 0$ 外，故為正定。又 $\vA$ 之 $M_1$，$M_2$, $M_3$ 依次為 $\ds 2,\;\begin{vmatrix}2 & -1 \\ -1 & 2\end{vmatrix} = 3,\;\begin{vmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{vmatrix} = 4$，由上判斷準則 $\vA$ 為正定。
+\end{ex}
 
 \begin{thm}[二階導數判定法]
   給定 $\ds S\subseteq\mathbb{R}^n$ 與可微函數 $\ds f:S\to\mathbb{R}$，且 $f$ 在 $S$ 之內點 $\vc$ 有 $\ds\nabla f(\vc) = 0$。
@@ -1159,7 +1183,7 @@
     臨界點   & $f_{xx}f_{yy}-f_{xy}^2$ & $f_{xx}$ & 分類 \\    
     \midrule
     $(0, 0)$ & $(-6)\times(-8) - (0)^2 > 0$ & $-6$ & 極大值 \\ 
-    $(2, 0)$ & $6\times(-4) - 0^2 > 0$      &      & 鞍點 \\ \bottomrule
+    $(2, 0)$ & $6\times(-4) - 0^2 < 0$      &      & 鞍點 \\ \bottomrule
   \end{tabular}
   \renewcommand{\arraystretch}{1.0}
   \end{center}
