@@ -2,7 +2,7 @@
 
 ## 講義
 
-<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note05.pdf">第五章</a>
+<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note00.pdf">第零章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note01.pdf">第一章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note02.pdf">第二章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note03.pdf">第三章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note04.pdf">第四章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note05.pdf">第五章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note06.pdf">第六章</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/note/note07.pdf">第七章</a>
 
 ## 參考書
 
@@ -188,10 +188,10 @@
 | 02/20, 02/22        | CLP3 1.2, 1.4                  |
 | 02/27, 02/29        | CLP3 1.5, 1.6, 2.1 -- 2.3      |
 | 03/05, 03/07        | CLP3 2.4                       | 
-| 03/12, 03/14        | CLP3 2.5, 2.7, 2.6, 2.9        |
-| 03/19, 03/21        | CLP3 2.9, 2.10                 |
-| 03/26, 03/28        | CLP2 3.1 -- 3.4                |
-| 04/09, 04/11        | CLP2 3.4 -- 3.6                |
+| 03/12, 03/14        | CLP3 2.5, 2.7, 2.9             |
+| 03/19, 03/21        | CLP3 2.9, 2.10, CLP2 3.1       |
+| 03/26, 03/28        | CLP2 3.2 -- 3.4                |
+| 04/09, 04/11        | CLP2 3.5, 3.6, CLP3 2.6        |
 | 04/16, 04/18 期中考 |                                |
 | 04/23, 04/25        | CLP3                           |
 | 04/30, 05/02        | CLP3                           |
