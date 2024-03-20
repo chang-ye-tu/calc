@@ -58,6 +58,7 @@
    \renewcommand{\headrulewidth}{0pt} 
 }
 \usepackage{datetime2}
+\usepackage{multicol}
 
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第一章\ \ 極限與連續性}{第一章\ \ 極限與連續性}} 
@@ -160,12 +161,14 @@
 \end{ex}
 
 \begin{ex}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $\ds\lim_{x\to0}|x| = 0$
-    \item $\ds\lim_{x\to0}\frac{|x|}{x} = \text{DNE}$
-    \item $\ds\lim_{x\to3+}\floor{x} = 3$，$\ds\lim_{x\to3-}\floor{x} = 2$，$\ds\lim_{x\to\pi}\floor{x} = 3$。
-  \end{itemize}
+  \setlength{\columnsep}{-30mm}
+  \begin{multicols}{3}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\lim_{x\to0}|x| = 0$
+      \item $\ds\lim_{x\to0}\frac{|x|}{x} = \text{DNE}$
+      \item $\ds\lim_{x\to3+}\floor{x} = 3$，$\ds\lim_{x\to3-}\floor{x} = 2$，$\ds\lim_{x\to\pi}\floor{x} = 3$。
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \begin{thm}
@@ -187,45 +190,53 @@
 
 \subsection*{在無限遠的極限 (Limits at Infinity) }
 \begin{ex}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $\ds\lim_{x\to\infty}\frac{1}{x^\alpha} = 0$，$\alpha > 0$；$\ds\lim_{x\to-\infty}\frac{1}{x^N} = 0$，$\forall\,N\in\mathbb{N}$
-    \item $\ds\lim_{x\to\infty}\tan^{-1} x = \frac{\pi}{2}$，$\ds\lim_{x\to-\infty}\tan^{-1} x = -\frac{\pi}{2}$
-    \item $\ds\lim_{x\to\infty}a^x = \infty$，$\ds\lim_{x\to-\infty}a^x = 0$，$\ds\lim_{x\to0-}a^{\frac{1}{x}} = 0$，$\forall\,a > 1$。
-  \end{itemize}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\lim_{x\to\infty}\frac{1}{x^\alpha} = 0$，$\alpha > 0$；$\ds\lim_{x\to-\infty}\frac{1}{x^N} = 0$，$\forall\,N\in\mathbb{N}$
+      \item $\ds\lim_{x\to\infty}\tan^{-1} x = \frac{\pi}{2}$，$\ds\lim_{x\to-\infty}\tan^{-1} x = -\frac{\pi}{2}$
+      \item $\ds\lim_{x\to\infty}a^x = \infty$，$\ds\lim_{x\to-\infty}a^x = 0$，$\ds\lim_{x\to0-}a^{\frac{1}{x}} = 0$，$\forall\,a > 1$。
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \subsection*{無窮極限 (Infinite Limits) }
 \begin{ex}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $\ds\lim_{x\to0+}\frac{1}{x} = \infty$，$\ds\lim_{x\to0-}\frac{1}{x} = -\infty$，$\ds\lim_{x\to0}\frac{1}{x} = \text{DNE}$
-    \item $\ds\lim_{x\to0}\frac{1}{x^2} = \infty$
-    \item $\ds\lim_{x\to\frac{\pi}{2}-}\tan x = \infty$
-  \end{itemize}
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{5}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\lim_{x\to0+}\frac{1}{x} = \infty$
+      \item $\ds\lim_{x\to0-}\frac{1}{x} = -\infty$
+      \item $\ds\lim_{x\to0}\frac{1}{x} = \text{DNE}$
+      \item $\ds\lim_{x\to0}\frac{1}{x^2} = \infty$
+      \item $\ds\lim_{x\to\frac{\pi}{2}-}\tan x = \infty$
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \section*{1.3 極限運算}
 
 \begin{thm}[極限四則運算]
   若 $\ds\lim_{x\to a}f(x) = L$，$\ds\lim_{x\to a}g(x) = M$，則
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item $\ds\lim_{x\to a} c = c$，$\ds\lim_{x\to a} x = a$
-    \item $\ds\lim_{x\to a} k\,f(x) = k\,L$ 
-    \item $\ds\lim_{x\to a} \big(f(x)\pm g(x)\big) = L\pm M$ 
-    \item $\ds\lim_{x\to a} \big(f(x)\cdot g(x)\big) = L\cdot M$ 
-    \item $\ds\lim_{x\to a} \frac{f(x)}{g(x)} = \frac{L}{M}$，若 $M\not=0$
-    \item $\ds\lim_{x\to a} \big(f(x)\big)^\alpha = L^\alpha$，若 $\alpha\in\mathbb{Q}\,\wedge\,L > 0$
-  \end{enumerate}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds\lim_{x\to a} c = c$，$\ds\lim_{x\to a} x = a$
+      \item $\ds\lim_{x\to a} k\,f(x) = k\,L$ 
+      \item $\ds\lim_{x\to a} \big(f(x)\pm g(x)\big) = L\pm M$ 
+      \item $\ds\lim_{x\to a} \big(f(x)\cdot g(x)\big) = L\cdot M$ 
+      \item $\ds\lim_{x\to a} \frac{f(x)}{g(x)} = \frac{L}{M}$，若 $M\not=0$
+      \item $\ds\lim_{x\to a} \big(f(x)\big)^\alpha = L^\alpha$，若 $\alpha\in\mathbb{Q}\,\wedge\,L > 0$
+    \end{enumerate}
+  \end{multicols}
   當 $L$，$M$ 存在 (非為無窮) ，此定理敘述對「單側極限」及「無限遠之極限」均成立。
 \end{thm}
 
 \begin{ex}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item $\ds\lim_{t\to-1}\frac{t - 2}{t + 3} = \frac{\lim_{t\to-1} t - 2}{\lim_{t\to-1}t + 3} = \frac{-3}{2}$
-    \item $\ds\lim_{t\to-3}\frac{1 - t}{\cos t} = \frac{\lim_{t\to-3} 1 - t}{\lim_{t\to-3}\cos t} = \frac{4}{\cos{3}}$
-  \end{itemize}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\lim_{t\to-1}\frac{t - 2}{t + 3} = \frac{\lim_{t\to-1} t - 2}{\lim_{t\to-1}t + 3} = \frac{-3}{2}$
+      \item $\ds\lim_{t\to-3}\frac{1 - t}{\cos t} = \frac{\lim_{t\to-3} 1 - t}{\lim_{t\to-3}\cos t} = \frac{4}{\cos{3}}$
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \begin{ex}
@@ -304,10 +315,12 @@
 
 \begin{dfn}[端點連續性]
   給定 $f$，$\dom f = [a, b]$。 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $f$ 在 $b$ 左連續，則稱 $f$ 在 $b$ 連續。 
-    \item 若 $f$ 在 $a$ 右連續，則稱 $f$ 在 $a$ 連續。 
-  \end{itemize}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item 若 $f$ 在 $b$ 左連續，則稱 $f$ 在 $b$ 連續。 
+      \item 若 $f$ 在 $a$ 右連續，則稱 $f$ 在 $a$ 連續。 
+    \end{itemize}
+  \end{multicols}
 \end{dfn}
 
 \begin{dfn}[連續函數] 
