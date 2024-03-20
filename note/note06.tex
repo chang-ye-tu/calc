@@ -313,7 +313,7 @@
 \begin{ex}
   \begin{multicols}{2}
     \begin{enumerate}\setlength\itemsep{0em}
-      \item 若 $\ds\lim_{n\to\infty} |a_n| = 0$，則 $\ds\lim_{n\to\infty} a_n = 0$。
+      \item $\ds\lim_{n\to\infty} |a_n| = 0 \ifff \lim_{n\to\infty} a_n = 0$。
       \item 若 $\ds |b_n|\leqslant c_n$ 且 $\ds\lim_{n\to\infty} c_n = 0$，則 $\ds\lim_{n\to\infty} b_n = 0$。
       \item 若 $\ds\lim_{n\to\infty} a_n = 0$ 且 $\ds\{b_n\}$ 有界，則 $\ds\lim_{n\to\infty} a_n b_n = 0$。
     \end{enumerate}
@@ -341,7 +341,6 @@
   求以下數列極限 $\ds\lim_{n\to\infty}a_n$。
   \begin{multicols}{4}
     \begin{enumerate}\setlength\itemsep{0em}
-      \item $\ds a_n = \frac{n!}{n^n}$
       \item $\ds a_n = \frac{\ln n}{n}$
       \item $\ds a_n = \Big(1 + \frac{a}{n}\Big)^n$
       \item $\ds a_n = \Big(\frac{n - 1}{n + 1}\Big)^n$
@@ -350,6 +349,7 @@
       \item $\ds a_n = n^{\frac{2}{n}}$
       \item $\ds a_n = \frac{\tan^{-1} n}{n}$
       \item $\ds a_n = n\sin\frac{1}{n}$
+      \item $\ds a_n = \frac{n!}{n^n}$
       \item $\ds a_n = \frac{a^n}{n!}$
       \item $\ds a_n = \frac{\ln n}{\ln 2n}$
       \item $\ds a_n = \ln(n + 1) - \ln n$
@@ -358,24 +358,22 @@
 \end{ex}
 
 \begin{sol}
-  \setlength{\columnsep}{-40mm}
-  \begin{multicols}{2}
-    \begin{enumerate}\setlength\itemsep{0em}
-      \item $\ds 0 < \frac{n!}{n^n} = \frac{1\cdot 2\cdot\,\cdots\,n}{n\cdot n\cdot\,\cdots\cdot n} < \frac{1}{n}$
-      \item $\ds \lim_{x\to\infty}\frac{\ln x}{x} = 0$
-      \item $\ds a_n = \Big(1 + \frac{a}{n}\Big)^n$
-      \item $\ds a_n = \Big(\frac{n - 1}{n + 1}\Big)^n$
-      \item $\ds a_n = a^{\frac{1}{n}},\;a > 0$
-      \item $\ds a_n = n^{\frac{1}{n}}$
-      \item $\ds a_n = n^{\frac{2}{n}}$
-      \item $\ds \lim_{x\to\infty}\frac{\tan^{-1} x}{x} = 0$
-      \item $\ds \lim_{x\to\infty}x\sin\frac{1}{x} = \lim_{x\to\infty}\frac{\sin\frac{1}{x}}{\frac{1}{x}} = 1$
-      \item 取 $N = \floor{|a|} + 1$，則 $\forall n > N$，$\ds 0 < \frac{|a|^n}{n!}$ $\ds= \frac{|a|^N}{N!}\frac{|a|^{n - N}}{(N + 1)(N + 2)\cdots n}$ $\ds< \frac{|a|^N}{N!}\cdot\bigg(\frac{|a|}{N}\bigg)^{n - N}$；又 $\ds\lim_{n\to\infty}\bigg(\frac{|a|}{N}\bigg)^{n - N} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{|a|^n}{n!} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{|a|^n}{n!} = 0$ 
-      \item $\ds \lim_{x\to\infty}\frac{\ln x}{\ln x + \ln 2} = 0$
-      \item $\ds \lim_{x\to\infty}(\ln(x + 1) - \ln x) = \lim_{x\to\infty}\ln\frac{x + 1}{x} = 0$
-    \end{enumerate}
-  \end{multicols}
-\end{ex}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item $\ds \lim_{x\to\infty}\frac{\ln x}{x} = 0$
+    \item $\ds \lim_{x\to\infty}\Big(1 + \frac{a}{x}\Big)^x = \lim_{x\to\infty}e^{x\ln(1 + \frac{a}{x})} = e^{\lim_{x\to\infty}x\ln(1 + \frac{a}{x})} = e^{\lim_{x\to\infty}\frac{\ln(1 + \frac{a}{x})}{\frac{1}{x}}} = e^{\lim_{x\to\infty}\frac{\frac{-\frac{a}{x^2}}{1 + \frac{a}{x}}}{-\frac{1}{x^2}}} = e^a$
+    \item $\ds \lim_{x\to\infty}\Big(\frac{x - 1}{x + 1}\Big)^x = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\Big(1 - \frac{2}{x + 1}\Big)^{-1} = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{-1} = e^{-2}\cdot 1 = e^{-2}$
+    \item $\ds\lim_{x\to\infty} a^{\frac{1}{x}} = \lim_{x\to\infty}e^{\frac{1}{x}\ln a} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{1}{x}} = \lim_{x\to\infty}e^{\frac{1}{x}\ln x} = e^{\lim_{x\to\infty}\frac{\ln x}{x}} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{2}{x}} = \lim_{x\to\infty}e^{\frac{2}{x}\ln x} = e^{2\lim_{x\to\infty}\frac{\ln x}{x}} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty}\frac{\tan^{-1} x}{x} = 0$
+    \item $\ds \lim_{x\to\infty}x\sin\frac{1}{x} = \lim_{x\to\infty}\frac{\sin\frac{1}{x}}{\frac{1}{x}} = 1$
+    \item $\ds 0 < \frac{n!}{n^n} = \frac{1\cdot 2\cdot\,\cdots\,n}{n\cdot n\cdot\,\cdots\cdot n} < \frac{1}{n}$
+    \item 取 $N = \floor{|a|} + 1$，則 $\forall n > N$，$\ds 0 < \frac{|a|^n}{n!}$ $\ds= \frac{|a|^N}{N!}\frac{|a|^{n - N}}{(N + 1)(N + 2)\cdots n}$ $\ds< \frac{|a|^N}{N!}\cdot\bigg(\frac{|a|}{N}\bigg)^{n - N}$；又 $\ds\lim_{n\to\infty}\bigg(\frac{|a|}{N}\bigg)^{n - N} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{|a|^n}{n!} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{|a|^n}{n!} = 0$ 
+    \item $\ds \lim_{x\to\infty}\frac{\ln x}{\ln x + \ln 2} = 0$
+    \item $\ds \lim_{x\to\infty}(\ln(x + 1) - \ln x) = \lim_{x\to\infty}\ln\frac{x + 1}{x} = 0$
+  \end{enumerate}
+\end{sol}
 
 %\begin{figure}[!htbp]
 %  \centering
