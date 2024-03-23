@@ -578,13 +578,59 @@
 \end{sol}
 
 \begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4}$。
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 令 $y = mx$，$m\ne 0$，則 $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4} = \lim_{x\to 0}\frac{2m^2x^3}{x^2 + m^4 x^4} = \lim_{x\to 0}\frac{2m^2x}{1 + m^4 x^2} = 0$。
+    \item 令 $x = y^2$，則 $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4} = \lim_{y\to 0}\frac{2y^4}{2y^4} = 1$。
+    \item 結論：$\ds\lim\limits_{(x,\,y)\to(0,\,0)}\frac{2xy^2}{x^2+y^4} = \text{DNE}$
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^2 + y^2}$。
+\end{ex}
+\begin{sol}
+  由 $\ds\frac{x^2y^2}{x^2 + y^2} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^2} = r^2\cos^2\theta\sin^2\theta\leqslant\frac{r^2}{4}$，$\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^2 + y^2} = 0$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3}$。
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由 $\ds\frac{x^2y^2}{x^3 + y^3} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^3(\cos^3\theta + \sin^3\theta)} = r\,\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta}$，但 $\ds\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta}$ 非為有界 (取 $\ds\theta = \frac{3\pi}{4}$ 時 $\cos^3\theta + \sin^3\theta = 0$)，$\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{r\to 0}\,r\,\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta} = \text{DNE}$。
+    \item 另解：
+      \begin{itemize}\setlength{\itemsep}{0pt}
+        \item 令 $y = mx$，$m\ne 0$，則 $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{x\to 0}\frac{x^2m^2x^2}{x^3 + m^3 x^3} = \lim_{x\to 0}\frac{m^2x}{1 + m^3} = 0$。
+        \item 令 $\ds y = -xe^x$，則 $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{x\to 0}\frac{x^2x^2e^{2x}}{x^3 - x^3e^{3x}} = \lim_{x\to 0}\frac{xe^{2x}}{1 - e^{3x}} = \lim_{x\to 0}\frac{e^{2x}(1 + 2x)}{3e^{3x}} = \frac{1}{3}$。
+        \item 結論：$\ds\lim\limits_{(x,\,y)\to(0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \text{DNE}$
+      \end{itemize}
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  求 $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4}$。
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由 $\ds\frac{x^2y^2}{x^4 + y^4} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^4(\cos^4\theta + \sin^4\theta)} = \frac{\cos^2\theta\sin^2\theta}{\cos^4\theta + \sin^4\theta}$，$\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4} = \lim_{r\to 0}\frac{\cos^2\theta\sin^2\theta}{\cos^4\theta + \sin^4\theta} = \text{DNE}$。
+    \item 另解：令 $y = mx$，$m\ne 0$，則 $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4} = \lim_{x\to 0}\frac{x^2m^2x^2}{x^4 + m^4 x^4} = \lim_{x\to 0}\frac{m^2}{1 + m^4} = \text{DNE}$。
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
   若 $\ds f(x,y) = \begin{cases}\frac{(2x-y)^2}{x-y}, & x\ne y\\0, & x = y\end{cases}$，求 $\ds\lim_{(x,\,y)\to (0,\,0)} f(x,y)$。
 \end{ex}
 \begin{sol}
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
-    \item 延 $y = x - x^3$，$\ds f(x,x - x^3) = \frac{{(2 x - x + x^3)}^2}{x - x + x^3} = \frac{{(x + x^3)}^2}{x^3} = \frac{{(1 + x^2)}^2}{x}\,\longrightarrow\,\begin{cases}+\infty, & x\to 0+\\-\infty, & x\to 0-\end{cases}$
-    \item 延 $y = x - ax^2$，$a\ne 0$：$\ds\lim_{x\to 0}f(x,x - a x^2) = \lim_{x\to 0}\frac{{(2x - x + a x^2)}^2}{x - x + a x^2} = \lim_{x\to 0}\frac{{(x + a x^2)}^2}{a x^2} = \lim_{x\to 0}\frac{{(1 + a x)}^2}{a} = \frac{1}{a}$
+    \item 令 $y = x - x^3$，$\ds f(x,x - x^3) = \frac{{(2 x - x + x^3)}^2}{x - x + x^3} = \frac{{(x + x^3)}^2}{x^3} = \frac{{(1 + x^2)}^2}{x}\,\longrightarrow\,\begin{cases}+\infty, & x\to 0+\\-\infty, & x\to 0-\end{cases}$
+    \item 令 $y = x - ax^2$，$a\ne 0$：$\ds\lim_{x\to 0}f(x,x - a x^2) = \lim_{x\to 0}\frac{{(2x - x + a x^2)}^2}{x - x + a x^2} = \lim_{x\to 0}\frac{{(x + a x^2)}^2}{a x^2} = \lim_{x\to 0}\frac{{(1 + a x)}^2}{a} = \frac{1}{a}$
     \item 結論：$\ds\lim\limits_{(x,\,y)\to(0,\,0)}f(x,y) = \text{DNE}$
   \end{itemize}
 \end{sol}
