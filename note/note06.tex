@@ -361,11 +361,11 @@
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
     \item $\ds \lim_{x\to\infty}\frac{\ln x}{x} = 0$
-    \item $\ds \lim_{x\to\infty}\Big(1 + \frac{a}{x}\Big)^x = \lim_{x\to\infty}e^{x\ln(1 + \frac{a}{x})} = e^{\lim_{x\to\infty}x\ln(1 + \frac{a}{x})} = e^{\lim_{x\to\infty}\frac{\ln(1 + \frac{a}{x})}{\frac{1}{x}}} = e^{\lim_{x\to\infty}\frac{\frac{-\frac{a}{x^2}}{1 + \frac{a}{x}}}{-\frac{1}{x^2}}} = e^a$
+    \item $\ds \lim_{x\to\infty}\Big(1 + \frac{a}{x}\Big)^x = \lim_{x\to\infty}\exp\Big\{x\ln\Big(1 + \frac{a}{x}\Big)\Big\} = \exp\Big\{\lim_{x\to\infty}x\ln\Big(1 + \frac{a}{x}\Big)\Big\} = \exp\bigg\{\lim_{x\to\infty}\frac{\ln(1 + \frac{a}{x})}{\frac{1}{x}}\bigg\} = \exp\Bigg\{\lim_{x\to\infty}\frac{\frac{-\frac{a}{x^2}}{1 + \frac{a}{x}}}{-\frac{1}{x^2}}\Bigg\} = e^a$
     \item $\ds \lim_{x\to\infty}\Big(\frac{x - 1}{x + 1}\Big)^x = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\Big(1 - \frac{2}{x + 1}\Big)^{-1} = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{-1} = e^{-2}\cdot 1 = e^{-2}$
-    \item $\ds\lim_{x\to\infty} a^{\frac{1}{x}} = \lim_{x\to\infty}e^{\frac{1}{x}\ln a} = e^0 = 1$
-    \item $\ds \lim_{x\to\infty} x^{\frac{1}{x}} = \lim_{x\to\infty}e^{\frac{1}{x}\ln x} = e^{\lim_{x\to\infty}\frac{\ln x}{x}} = e^0 = 1$
-    \item $\ds \lim_{x\to\infty} x^{\frac{2}{x}} = \lim_{x\to\infty}e^{\frac{2}{x}\ln x} = e^{2\lim_{x\to\infty}\frac{\ln x}{x}} = e^0 = 1$
+    \item $\ds\lim_{x\to\infty} a^{\frac{1}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{1}{x}\ln a\Big\} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{1}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{1}{x}\ln x\Big\} = \exp\Big\{\lim_{x\to\infty}\frac{\ln x}{x}\Big\} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{2}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{2}{x}\ln x\Big\} = \exp\Big\{2\lim_{x\to\infty}\frac{\ln x}{x}\Big\} = e^0 = 1$
     \item $\ds \lim_{x\to\infty}\frac{\tan^{-1} x}{x} = 0$
     \item $\ds \lim_{x\to\infty}x\sin\frac{1}{x} = \lim_{x\to\infty}\frac{\sin\frac{1}{x}}{\frac{1}{x}} = 1$
     \item $\ds 0 < \frac{n!}{n^n} = \frac{1\cdot 2\cdot\,\cdots\,n}{n\cdot n\cdot\,\cdots\cdot n} < \frac{1}{n}$

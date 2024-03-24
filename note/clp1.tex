@@ -1,4 +1,4 @@
-\begin{theorem}[Limits and one sided limits]\label{thm_1_3_1}
+\begin{theorem}[Limits and one sided limits]
 \begin{align*}
 \lim_{x \to a} f(x) = L && \mbox{ if and only if } && \lim_{x \to a^-} f(x) = L \mbox{ and } \lim_{x \to a^+} f(x) = L
 \end{align*}
@@ -6,8 +6,8 @@
 \begin{align*}
 \lim_{x \to 0} \frac{1}{x^2} &= +\infty & \lim_{x \to 0} -\frac{1}{x^2} &= -\infty
 \end{align*}
-\section{Calculating Limits with Limit Laws}\label{sec_1_4}
-\begin{theorem}[Easiest limits]\label{thm_easy_lim}
+\section{Calculating Limits with Limit Laws}
+\begin{theorem}[Easiest limits]
 Let $a, c\in\mathbb{R}$, then
 \begin{align*}
 \lim_{x \to a} c & = c & \text{ and }&& \lim_{x \to a} x &= a.
@@ -24,39 +24,25 @@ exist with $F,G \in \mathbb{R}$. Then
 \item $\ds \lim_{x \to a} (f(x) - g(x)) = F - G$ --- limit of the difference is the difference of the limits.
 \item $\ds \lim_{x \to a} c f(x) = c F$
 \item $\ds \lim_{x \to a} ( f(x) \cdot g(x) ) = F \cdot G$ --- limit of the product is the product of limits.
-\item If $G \neq 0$ then $\ds \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{F}{G}$ and, in particular, $\ds \lim_{x\rightarrow a}\frac{1}{g(x)}=\frac{1}{G}$.
+\item If $G \neq 0$ then $\ds \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{F}{G}$ and, in particular, $\ds \lim_{x\to a}\frac{1}{g(x)}=\frac{1}{G}$.
 \end{itemize}
 \end{theorem}
-\section{Limits at Infinity}\label{sec_1_5}
-\begin{defn}[Limits at infinity --- informal]\label{def_1_5_1}
-\begin{itemize}
-\item We write
-\begin{align*}
-\lim_{x \to \infty} f(x) &= L
-\end{align*}
-when $f(x)$ gets closer and closer to $L$ as we make $x$ larger and larger and positive.
-\item We write
-\begin{align*}
-\lim_{x \to -\infty} f(x) &= L
-\end{align*}
-when $f(x)$ gets closer and closer to $L$ as we make $x$ larger and larger and negative.
-\end{itemize}
-\end{defn}
-\begin{eg}\label{eg_1_5_1}
+\section{Limits at Infinity}
+\begin{ex}
 \begin{efig}
 \begin{center}
 \includegraphics[height=4cm]{lim7}
 \end{center}
 \end{efig}
-\end{eg}
-\begin{theorem}\label{thm basic lim inf}
+\end{ex}
+\begin{theorem}
 Given $c\in\mathbb{R}$,
 \begin{align*}
 \lim_{x \to \infty} c &= c & \lim_{x \to -\infty} c &= c \\
 \lim_{x \to \infty} \frac{1}{x} &= 0 & \lim_{x \to -\infty} \frac{1}{x} &= 0
 \end{align*}
 \end{theorem}
-\begin{theorem}[Arithmetic of limits at infinity]\label{thm_1_5_1}
+\begin{theorem}[Arithmetic of limits at infinity]
 Given $f(x)$, $g(x)$ with
 \begin{align*}
 \lim_{x \to \infty} f(x)=F, \qquad\lim_{x \to \infty} g(x) = G,
@@ -85,13 +71,12 @@ This is true only if the least denomiator of $r$ is not even!
 \item On the other hand, $x^{4/3}$ is defined for negative values of $x$ and $\ds \lim_{x \to -\infty} \frac{1}{x^{4/3}} = 0$.
 \end{itemize}
 \begin{theorem}[Arithmetic of infinite limits]
-\label{thm arith inf lim}
 Let $a,c,H \in \mathbb{R}$ and let $f,g,h$ be functions defined in
 an interval around $a$ (but they need not be defined at $x=a$), so that
 \begin{align*}
-\lim_{x \to a} f(x) &= +\infty &
-\lim_{x \to a} g(x) &= +\infty &
-\lim_{x \to a} h(x) &= H
+  \lim_{x \to a} f(x) &= +\infty &
+  \lim_{x \to a} g(x) &= +\infty &
+  \lim_{x \to a} h(x) &= H
 \end{align*}
 Then
 \begin{itemize}
@@ -132,34 +117,34 @@ $
 \begin{itemize}
 \item Examples of
 \begin{align*}
-\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} h(x) = 0\quad\Longrightarrow\quad\lim_{x \to 0} f(x) h(x) = \text{undetermined}
+  \lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} h(x) = 0 \ie \lim_{x \to 0} f(x) h(x) = \text{undetermined}
 \end{align*}
 Take $f(x) = \frac{1}{x^4}$, $h(x) = x^2,\,x^3,\,x^4,\,x^5$, then
 \begin{align*}
 \lim_{x \to 0} f(x) h(x) =
 \begin{cases}
-\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^2 = \lim_{x \to 0} \frac{1}{x^2} = +\infty \\
-\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^3 = \lim_{x \to 0} \frac{1}{x} = \text{DNE}\\
-\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^4 = \lim_{x \to 0} 1 = 1                   \\
-\displaystyle\lim_{x \to 0} \frac{1}{x^4} x^5 = \lim_{x \to 0} x = 0                   \\
+\ds\lim_{x \to 0} \frac{1}{x^4} x^2 = \lim_{x \to 0} \frac{1}{x^2} = +\infty \\
+\ds\lim_{x \to 0} \frac{1}{x^4} x^3 = \lim_{x \to 0} \frac{1}{x} = \text{DNE}\\
+\ds\lim_{x \to 0} \frac{1}{x^4} x^4 = \lim_{x \to 0} 1 = 1                   \\
+\ds\lim_{x \to 0} \frac{1}{x^4} x^5 = \lim_{x \to 0} x = 0                   \\
 \end{cases}
 \end{align*}
 \end{itemize}
 \begin{itemize}
 \item Examples of
 \begin{align*}
-\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} g(x) = +\infty\quad\Longrightarrow\quad\lim_{x \to 0} \frac{f(x)}{g(x)} = \text{undetermined}
+\lim_{x \to 0} f(x) = +\infty, \quad \lim_{x \to 0} g(x) = +\infty \ie \lim_{x \to 0} \frac{f(x)}{g(x)} = \text{undetermined}
 \end{align*}
 Take $f(x) = \frac{1}{x^4}$, $g(x) = \frac{1}{x^6},\,\frac{1}{x^4},\,\frac{1}{x^2}$, then
 \begin{align*}
 \lim_{x \to 0} \frac{f(x)}{g(x)} = \begin{cases}
-\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^6}} = \lim_{x \to 0} x^2 = 0 \\
-\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^4}} = \lim_{x \to 0} 1 = 1 \\
-\displaystyle\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^2}} = \lim_{x \to 0} \frac{1}{x^2} = +\infty
+\ds\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^6}} = \lim_{x \to 0} x^2 = 0 \\
+\ds\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^4}} = \lim_{x \to 0} 1 = 1 \\
+\ds\lim_{x \to 0}\frac{\frac{1}{x^4}}{\frac{1}{x^2}} = \lim_{x \to 0} \frac{1}{x^2} = +\infty
 \end{cases}
 \end{align*}
 \end{itemize}
-\begin{eg}\label{eg_1_5_4}
+\begin{ex}
 Consider the following 3 functions:
 \begin{align*}
 f(x)&=x^{-2} & g(x)&=2x^{-2} &h(x)&=x^{-2}-1. \\
@@ -174,26 +159,26 @@ But
 \lim_{x\to0} \left( f(x)-h(x) \right) &= \lim_{x\to0} 1 = 1 \\
 \lim_{x\to0} \left( g(x)-h(x) \right) &= \lim_{x\to0} x^{-2}+1 = +\infty
 \end{align*}
-\end{eg}
-\section{Continuity}\label{sec_1_6}
-\begin{defn}\label{def_1_6_1}
+\end{ex}
+\section{Continuity}
+\begin{defn}
 A function $f(x)$ is continuous at $a$ if
 \begin{align*}
-\lim_{x \to a} f(x) &= f(a).
+  \lim_{x \to a} f(x) &= f(a).
 \end{align*}
 \begin{itemize}
-\item $f$ is not continuous / discontinuous at $a$
-\item $f$ is continuous: $f$ is continuous at $a$ for all $a \in \mathbb{R}$
-\item $f(x)$ is continuous on $(a,b)$: $f$ is continuous $\forall c$ where $a < c <b$
+  \item $f$ is not continuous / discontinuous at $a$
+  \item $f$ is continuous: $f$ is continuous at $a$ for all $a \in \mathbb{R}$
+  \item $f(x)$ is continuous on $(a,b)$: $f$ is continuous $\forall c$ where $a < c <b$
 \end{itemize}
 \end{defn}
 $f$ is continuous at $a$ then
 \begin{itemize}
-\item $f(a)$ exists
-\item $\ds \lim_{x \to a^-}$ exists and is equal to $f(a)$, and
-\item $\ds \lim_{x \to a^+}$ exists and is equal to $f(a)$.
+  \item $f(a)$ exists
+  \item $\ds \lim_{x \to a^-}$ exists and is equal to $f(a)$, and
+  \item $\ds \lim_{x \to a^+}$ exists and is equal to $f(a)$.
 \end{itemize}
-\begin{defn}\label{def_1_6_2}
+\begin{defn}
 $f(x)$ is continuous \emph{from the right} at $a$ if
 \begin{align*}
 \lim_{x\to a^+} f(x) &= f(a).
@@ -203,7 +188,7 @@ $f(x)$ is continuous \emph{from the left} at $a$ if
 \lim_{x\to a^-} f(x) &= f(a)
 \end{align*}
 \end{defn}
-\begin{defn}\label{def_1_6_3}
+\begin{defn}
 $f(x)$ is continuous on $[a,b]$ when
 \begin{itemize}
 \item $f(x)$ is continuous on $(a,b)$
@@ -226,7 +211,7 @@ Note that the last two condition are equivalent to
 \end{cases}
 \end{align*}
 \end{itemize}
-\begin{theorem}[Arithmetic of continuity]\label{thm arith cont}
+\begin{theorem}[Arithmetic of continuity]
 Let $a,c \in \mathbb{R}$, $f(x)$ and $g(x)$ be continuous at $a$. Then
 \begin{itemize}
 \item $f(x) \pm g(x)$
@@ -235,28 +220,23 @@ Let $a,c \in \mathbb{R}$, $f(x)$ and $g(x)$ be continuous at $a$. Then
 \end{itemize}
 are continuous at $x=a$.
 \end{theorem}
-\begin{lemma}\label{lem_1_6_1}
+\begin{lemma}
 Let $c \in \mathbb{R}$, then
 \begin{align*}
 f(x) = c,\qquad g(x) = x
 \end{align*}
 are continuous on $\mathbb{R}$.
 \end{lemma}
-\section{}\label{sec opt formal limit}
-\begin{defn}\label{def_1_7_1}
+\begin{defn}
 Let $a \in \mathbb{R}$ and %let
 $f(x)$ be a function defined everywhere in a neighbourhood of $a$, except possibly at $a$. %We say that
-Then
+Then $\ds\lim_{x \to a} f(x) = L$ if and only if for every $\epsilon >0$ there exists $\delta>0$ so that
 \begin{align*}
-\lim_{x \to a} f(x) &= L
-\end{align*}
-if and only if for every $\epsilon >0$ there exists $\delta>0$ so that
-\begin{align*}
-\text{if } 0 < |x-a| < \delta \text{ then } |f(x) - L| <\epsilon.
+  \text{if } 0 < |x-a| < \delta \text{ then } |f(x) - L| <\epsilon.
 \end{align*}
 In symbols:
 \begin{align*}
-\lim_{x \to a} f(x) = L\,\,\Longleftrightarrow\,\,\forall\,\epsilon > 0\,\,\exists\,\delta > 0\,(0 < |x - a| < \delta\,\Longrightarrow\,|f(x) - L| < \epsilon)
+  \lim_{x \to a} f(x) = L \ie \forall\,\epsilon > 0\;\exists\,\delta > 0\,(0 < |x - a| < \delta \ie |f(x) - L| < \epsilon)
 \end{align*}
 \end{defn}
 \begin{itemize}
@@ -364,7 +344,7 @@ Take $\delta = \min\{\sqrt{a^2 + \epsilon} - a, |-a|\}$ suffices.
 \includegraphics[width=\textwidth]{epsdelt1}
 \end{center}
 \end{fig}
-\begin{eg}\label{eg_1_7_1}
+\begin{ex}
 Given
 \begin{align*}
 f(x) &= \begin{cases}
@@ -379,12 +359,12 @@ Prove that
 \begin{proof}
 Given $\epsilon > 0$, we want to find $\delta > 0$ such that %and $\delta = \epsilon/2$.
 \begin{align*}
-0 < |x - 3| < \delta \Longrightarrow |f(x) - 6| < \epsilon
+0 < |x - 3| < \delta \ie |f(x) - 6| < \epsilon
 \end{align*}
 Note that $|f(x) - 6| < \epsilon$ for $x\neq 3$ implies $0 < |x - 3| < \frac{\epsilon}{2}$, so take $\delta = \frac{\epsilon}{2}$ suffices.
 \end{proof}
-\end{eg}
-\begin{eg}\label{eg_1_7_2}
+\end{ex}
+\begin{ex}
 \begin{align*}
 f(x) &= \begin{cases}
 x & x<2 \\
@@ -397,7 +377,7 @@ x+3 & x>2
 \includegraphics[width=\textwidth]{epsdelt2}
 \end{center}
 \end{efig}
-\end{eg}
+\end{ex}
 \begin{align*}
 \lim_{x \to a} c = c \text{ and } \lim_{x \to a} x = a.
 \end{align*}
@@ -408,378 +388,296 @@ x+3 & x>2
 \end{itemize}
 \end{proof}
 \stepcounter{section}
-\section{Proving the Arithmetic of Limits}\label{sec proof arith lim}
-\begin{lemma}[The triangle inequality]\label{lem_1_9_1}
-For any $x,y \in \mathbb{R}$
-\begin{align*}
-|x+y| \leqslant |x| + |y|
-\end{align*}
+\section{Proving the Arithmetic of Limits}
+\begin{lemma}[The triangle inequality]
+  For any $x,y \in \mathbb{R}$ $\ds|x+y| \leqslant |x| + |y|$
 \end{lemma}
 \begin{proof}
-\begin{itemize}
-\item (First Proof) Note that $|x| = \max\{x, -x\}$ and $\pm x\leqslant |x|$. From
-\begin{align*}
-x + y \leqslant |x| + y \leqslant |x| + |y|, \\
--x - y \leqslant |x| - y \leqslant |x| + |y|,
-\end{align*}
-$|x + y|\leqslant |x| + |y|$.
-\item (Second Proof) Note that $\forall x\in\mathbb{R}$, $x^2 = |x|^2$ and $x \leqslant |x|$. From
-\begin{align*}
-|x + y|^2 = (x + y)^2 = x^2 + 2 x y + y^2 \leqslant |x|^2 + 2 |x||y| + |y|^2 = (|x| + |y|)^2,
-\end{align*}
-$|x + y|\leqslant |x| + |y|$.
-\end{itemize}
+  \begin{itemize}
+    \item (First Proof) Note that $|x| = \max\{x, -x\}$ and $\pm x\leqslant |x|$. From
+      \begin{align*}
+        x + y \leqslant |x| + y \leqslant |x| + |y|, \\
+        -x - y \leqslant |x| - y \leqslant |x| + |y|,
+      \end{align*}
+      $\ds |x + y|\leqslant |x| + |y|$.
+    \item (Second Proof) Note that $\forall x\in\mathbb{R}$, $x^2 = |x|^2$ and $x \leqslant |x|$. From
+      \begin{align*}
+        |x + y|^2 = (x + y)^2 = x^2 + 2 x y + y^2 \leqslant |x|^2 + 2 |x||y| + |y|^2 = (|x| + |y|)^2,
+      \end{align*}
+      $|x + y|\leqslant |x| + |y|$.
+  \end{itemize}
 \end{proof}
 From
 \begin{align*}
-|x| = |y + (x - y)| &\leqslant |y| + |x - y| \\
-|y| = |x + (y - x)| &\leqslant |x| + |y - x|
+  |x| = |y + (x - y)| &\leqslant |y| + |x - y| \\
+  |y| = |x + (y - x)| &\leqslant |x| + |y - x|
 \end{align*}
-We have
-\begin{align*}
-||x| - |y|| \leqslant |x - y|
-\end{align*}
-\begin{lemma}\label{lem fx F1}
-If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$, then $\exists\,\delta >0$ such that when $0<|x-a|<\delta$ we have $|f(x)| < |F| + 1$.
+We have $\ds||x| - |y|| \leqslant |x - y|$
+\begin{lemma}
+  If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$, then $\exists\,\delta > 0$ such that when $0 < |x - a| < \delta$ we have $|f(x)| < |F| + 1$.
 \end{lemma}
 \begin{proof}
-Take $\epsilon = 1$, by definition of $\ds \lim_{x \to a} f(x) = F$,
-\begin{align*}
-\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\,\Longrightarrow\,\, |f(x) - F| < 1)
-\end{align*}
-From the formula $||x| - |y|| \leqslant |x - y|$,
-\begin{align*}
-||f(x)| - |F|| \leqslant |f(x) - F| < 1
-\end{align*}
-Hence
-\begin{align*}
--1 < |f(x)| - |F| < 1
-\end{align*}
-So $|f(x)| < |F| + 1$.
+  Take $\epsilon = 1$, by definition of $\ds \lim_{x \to a} f(x) = F$,
+  \begin{align*}
+    \exists\,\delta > 0\;(0 < |x - a| < \delta \ie  |f(x) - F| < 1)
+  \end{align*}
+  From the formula $\ds ||x| - |y|| \leqslant |x - y|$, $\ds ||f(x)| - |F|| \leqslant |f(x) - F| < 1$, hence $\ds-1 < |f(x)| - |F| < 1$, so $\ds |f(x)| < |F| + 1$.
 \end{proof}
-\begin{lemma}\label{lem fx F2}
-If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$ with $F\ne 0$, then $\exists\,\delta >0$ such that when $0 < |x-a| < \delta$ we have $|f(x)|> \frac{|F|}{2}$.
+\begin{lemma}
+  If $\ds \lim_{x \to a} f(x) = F$, $a$, $F\in\mathbb{R}$ with $F\ne 0$, then $\exists\,\delta >0$ such that when $0 < |x-a| < \delta$ we have $|f(x)|> \frac{|F|}{2}$.
 \end{lemma}
 \begin{proof}
-Take $\epsilon = \frac{|F|}{2}$, by definition of $\ds \lim_{x \to a} f(x) = F$,
-\begin{align*}
-\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\,\Longrightarrow\,\, |f(x) - F| < \frac{|F|}{2})
-\end{align*}
-\begin{itemize}
-\item
-From the formula $||x| - |y|| \leqslant |x - y|$,
-\begin{align*}
-||f(x)| - |F|| \leqslant |f(x) - F| < \frac{|F|}{2}
-\end{align*}
-Hence
-\begin{align*}
--\frac{|F|}{2} < |f(x)| - |F| < \frac{|F|}{2}
-\end{align*}
-So $\frac{|F|}{2} < |f(x)|$.
-\end{itemize}
+  Take $\epsilon = \frac{|F|}{2}$, by definition of $\ds \lim_{x \to a} f(x) = F$, $\ds\exists\,\delta > 0\;(0 < |x - a| < \delta \ie  |f(x) - F| < \frac{|F|}{2})$. From the formula $||x| - |y|| \leqslant |x - y|$, $\ds||f(x)| - |F|| \leqslant |f(x) - F| < \frac{|F|}{2}$, so $\ds-\frac{|F|}{2} < |f(x)| - |F| < \frac{|F|}{2} \ie \frac{|F|}{2} < |f(x)|$.
 \end{proof}
 \begin{theorem}[Uniqueness of Limit]
-Let $a, F_1, F_2 \in \mathbb{R}$ with
-\begin{align*}
-\lim_{x \to a} f(x) = F_1 \text{ and }\lim_{x \to a} f(x) = F_2
-\end{align*}
-then $F_1 = F_2$.
+  Let $a, F_1, F_2 \in \mathbb{R}$ with
+  \begin{align*}
+    \lim_{x \to a} f(x) = F_1 \text{ and }\lim_{x \to a} f(x) = F_2
+  \end{align*}
+  then $F_1 = F_2$.
 \end{theorem}
 \begin{proof}
-If $F_1\ne F_2$, set $\epsilon = \frac{|F_1 - F_2|}{3}$.
-\begin{itemize}
-\item By $\lim_{x\to a}f(x) = F_1$, $$\exists\,\delta_1 > 0\,\,(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F_1| < \epsilon)$$
-\item By $\lim_{x\to a}f(x) = F_2$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|f(x) - F_2| < \epsilon)$$
-\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
-\begin{align*}
-3\epsilon = |F_1 - F_2| = |(f(x) - F_2) - (f(x) - F_1)| \leqslant |f(x) - F_2| + |f(x) - F_1| < \epsilon + \epsilon = 2\epsilon
-\end{align*}
-$3 < 2$, a contradiction. Hence $F_1 = F_2$.
-\end{itemize}
+  If $F_1\ne F_2$, set $\epsilon = \frac{|F_1 - F_2|}{3}$.
+  \begin{itemize}
+    \item By $\lim_{x\to a}f(x) = F_1$, $$\exists\,\delta_1 > 0\;(0 < |x - a| < \delta_1 \ie |f(x) - F_1| < \epsilon)$$
+    \item By $\lim_{x\to a}f(x) = F_2$, $$\exists\,\delta_2 > 0\;(0 < |x - a| < \delta_2 \ie |f(x) - F_2| < \epsilon)$$
+    \item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+      \begin{align*}
+        3\epsilon = |F_1 - F_2| = |(f(x) - F_2) - (f(x) - F_1)| \leqslant |f(x) - F_2| + |f(x) - F_1| < \epsilon + \epsilon = 2\epsilon
+      \end{align*}
+      $3 < 2$, a contradiction. Hence $F_1 = F_2$.
+  \end{itemize}
 \end{proof}
-\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a sum.]
-If $\lim_{x\to a}f(x) = F$, $\lim_{x\to a}g(x) = G$ then
-\begin{align*}
-\lim_{x\to a} f(x) + g(x) = F + G.
-\end{align*}
+\begin{theorem}[Limit of a Sum]
+  If $\ds\lim_{x\to a}f(x) = F$, $\ds\lim_{x\to a}g(x) = G$ then $\ds\lim_{x\to a} f(x) + g(x) = F + G$.
 \end{theorem}
 \begin{proof}
-Let $\epsilon > 0$ be given.
-\begin{itemize}
-\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F| < \frac{\epsilon}{2}\Big)$$
-\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x) - G| < \frac{\epsilon}{2}\Big)$$
-\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
-\begin{align*}
-|f(x) + g(x) - (F + G)| &= |(f(x) - F) + (g(x) - G)| \\
-&\leqslant |f(x) - F| + |g(x) - G| \\
-&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
-\end{align*}
-\end{itemize}
+  Let $\epsilon > 0$ be given.
+  \begin{itemize}
+    \item By $\ds\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\;\Big(0 < |x - a| < \delta_1\ie |f(x) - F| < \frac{\epsilon}{2}\Big)$$
+    \item By $\ds\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\;\Big(0 < |x - a| < \delta_2\ie |g(x) - G| < \frac{\epsilon}{2}\Big)$$
+    \item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+      \begin{align*}
+        |f(x) + g(x) - (F + G)| &= |(f(x) - F) + (g(x) - G)| \\
+        &\leqslant |f(x) - F| + |g(x) - G| \\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+      \end{align*}
+  \end{itemize}
 \end{proof}
-\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a product.]
-If $\lim_{x\to a}f(x) = F$, $\lim_{x\to a}g(x) = G$ then
-\begin{align*}
-\lim_{x\to a} f(x)\cdot g(x) = F\cdot G.
-\end{align*}
+\begin{theorem}[Limit of a Product]
+  If $\ds\lim_{x\to a}f(x) = F$, $\ds\lim_{x\to a}g(x) = G$ then $\ds\lim_{x\to a} f(x)\cdot g(x) = F\cdot G$.
 \end{theorem}
 \begin{proof}
-Let $\epsilon > 0$ be given.
-\begin{itemize}
-\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - F| < \frac{\epsilon}{2(|G| + 1)}\Big)$$
-\item By $\lim_{x\to a}f(x) = F$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|f(x)| < |F| + 1\Big)$$
-\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_3 > 0\,\,\Big(0 < |x - a| < \delta_3\,\Longrightarrow\,|g(x) - G| < \frac{\epsilon}{2(|F| + 1)}\Big)$$
-\item Take $\delta = \min\{\delta_1, \delta_2, \delta_3\}$, then for $ 0 < |x - a| < \delta$,
-\begin{align*}
-|f(x)\cdot g(x) - F\cdot G| &= |f(x)(g(x) - G) + G(f(x) - F)| \\
-&\leqslant |f(x)|\,|g(x) - G| + |G|\,|f(x) - F|\\
-&< (|F| + 1)\cdot\frac{\epsilon}{2(|F| + 1)} + |G|\,\frac{\epsilon}{2(|G| + 1)}\\
-&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
-\end{align*}
-\end{itemize}
+  Let $\epsilon > 0$ be given.
+  \begin{itemize}
+    \item By $\ds\lim_{x\to a}f(x) = F$, $$\exists\,\delta_1 > 0\;\Big(0 < |x - a| < \delta_1 \ie |f(x) - F| < \frac{\epsilon}{2(|G| + 1)}\Big)$$
+    \item By $\ds\lim_{x\to a}f(x) = F$, $$\exists\,\delta_2 > 0\;\Big(0 < |x - a| < \delta_2 \ie |f(x)| < |F| + 1\Big)$$
+    \item By $\ds\lim_{x\to a}g(x) = G$, $$\exists\,\delta_3 > 0\;\Big(0 < |x - a| < \delta_3 \ie |g(x) - G| < \frac{\epsilon}{2(|F| + 1)}\Big)$$
+    \item Take $\ds\delta = \min\{\delta_1, \delta_2, \delta_3\}$, then for $ 0 < |x - a| < \delta$,
+      \begin{align*}
+        |f(x)\cdot g(x) - F\cdot G| &= |f(x)(g(x) - G) + G(f(x) - F)| \\
+        &\leqslant |f(x)|\,|g(x) - G| + |G|\,|f(x) - F|\\
+        &< (|F| + 1)\cdot\frac{\epsilon}{2(|F| + 1)} + |G|\,\frac{\epsilon}{2(|G| + 1)}\\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+      \end{align*}
+  \end{itemize}
 \end{proof}
-\begin{theorem}[Theorem~\ref{thm arith lim} --- limit of a reciprocal]
-If $\lim_{x\to a}g(x) = G$, $G\ne 0$, then
-\begin{align*}
-\lim_{x\to a}\frac{1}{g(x)} = \frac{1}{G}.
-\end{align*}
+\begin{theorem}[Limit of a Reciprocal]
+  If $\ds\lim_{x\to a}g(x) = G$, $G\ne 0$, then $\ds\lim_{x\to a}\frac{1}{g(x)} = \frac{1}{G}$.
 \end{theorem}
 \begin{proof}
-Let $\epsilon > 0$ be given.
-\begin{itemize}
-\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_1 > 0\,\,\Big(0 < |x - a| < \delta_1\,\Longrightarrow\,|g(x) - G| < \frac{|G|^2}{2}\epsilon\Big)$$
-\item By $\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\,\,\Big(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x)| > \frac{|G|}{2}\Big)$$
-\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
-\begin{align*}
-\bigg|\frac{1}{g(x)} - \frac{1}{G}\bigg| &= \bigg|\frac{g(x) - G}{g(x)G}\bigg| \\
-&\leqslant \frac{\frac{|G|^2}{2}\epsilon}{\frac{|G|}{2}|G|} = \epsilon.
-\end{align*}
-\end{itemize}
+  Let $\epsilon > 0$ be given. For $G\ne 0$,
+  \begin{itemize}
+    \item By $\ds\lim_{x\to a}g(x) = G$, $$\exists\,\delta_1 > 0\;\Big(0 < |x - a| < \delta_1 \ie |g(x) - G| < \frac{|G|^2}{2}\epsilon\Big)$$
+    \item By $\ds\lim_{x\to a}g(x) = G$, $$\exists\,\delta_2 > 0\;\Big(0 < |x - a| < \delta_2 \ie |g(x)| > \frac{|G|}{2}\Big)$$
+    \item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+      \begin{align*}
+        \bigg|\frac{1}{g(x)} - \frac{1}{G}\bigg| &= \bigg|\frac{g(x) - G}{g(x)G}\bigg| \\
+        &\leqslant \frac{\frac{|G|^2}{2}\epsilon}{\frac{|G|}{2}|G|} = \epsilon.
+      \end{align*}
+    \end{itemize}
 \end{proof}
-\begin{theorem}[Theorem~\ref{thm squeeze} --- Squeeze theorem] %(or sandwich theorem or pinch theorem)]
-Let $a \in \mathbb{R}$ and let $f, g, h$ be functions s.t.%three functions so that
-\begin{align*}
-f(x) \leqslant g(x) \leqslant h(x)
-\end{align*}
-for all $x$ in an interval around $a$, except possibly at $x=a$. If
-\begin{align*}
-\lim_{x \to a} f(x) &= \lim_{x \to a} h(x) = L
-\end{align*}
-then %it is also the case that
-\begin{align*}
-\lim_{x \to a} g(x) &= L
-\end{align*}
+\begin{theorem}[Squeeze theorem] %(or sandwich theorem or pinch theorem)]
+  Let $a \in \mathbb{R}$ and let $f, g, h$ be functions s.t.%three functions so that
+  \begin{align*}
+    f(x) \leqslant g(x) \leqslant h(x)
+  \end{align*}
+  for all $x$ in an interval around $a$, except possibly at $x=a$. If
+  \begin{align*}
+    \lim_{x \to a} f(x) &= \lim_{x \to a} h(x) = L
+  \end{align*}
+  then %it is also the case that
+  \begin{align*}
+    \lim_{x \to a} g(x) &= L
+  \end{align*}
 \end{theorem}
 \begin{proof}
-Let $\epsilon > 0$ be given.
-\begin{itemize}
-\item By $\lim_{x\to a}f(x) = L$, $$\exists\,\delta_1 > 0\,\,(0 < |x - a| < \delta_1\,\Longrightarrow\,|f(x) - L| < \epsilon\,\Longrightarrow\, L - \epsilon < f(x) < L + \epsilon)$$
-\item By $\lim_{x\to a}h(x) = L$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|h(x) - L| < \epsilon\,\Longrightarrow\, L - \epsilon < h(x) < L + \epsilon)$$
-\item Take $\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
-\begin{align*}
-L - \epsilon < f(x)\leqslant g(x)\leqslant h(x) < L + \epsilon
-\end{align*}
-Hence
-\begin{align*}
-L - \epsilon < g(x) < L + \epsilon\,\,\Longrightarrow\,\,|g(x) - L| < \epsilon
-\end{align*}
-\end{itemize}
+  Let $\epsilon > 0$ be given.
+  \begin{itemize}
+    \item By $\ds\lim_{x\to a}f(x) = L$, $$\ds\exists\,\delta_1 > 0\;(0 < |x - a| < \delta_1 \ie |f(x) - L| < \epsilon \ie L - \epsilon < f(x) < L + \epsilon)$$
+    \item By $\ds\lim_{x\to a}h(x) = L$, $$\exists\,\delta_2 > 0\;(0 < |x - a| < \delta_2 \ie |h(x) - L| < \epsilon \ie L - \epsilon < h(x) < L + \epsilon)$$
+    \item Take $\ds\delta = \min\{\delta_1, \delta_2\}$, then for $ 0 < |x - a| < \delta$,
+      \begin{align*}
+        L - \epsilon < f(x)\leqslant g(x)\leqslant h(x) < L + \epsilon
+      \end{align*}
+      Hence
+      \begin{align*}
+        L - \epsilon < g(x) < L + \epsilon \ie |g(x) - L| < \epsilon
+      \end{align*}
+    \end{itemize}
 \end{proof}
-\begin{theorem}[Theorem~\ref{thm comp cont}]
-If $f$ is continuous at $b$ and $\ds \lim_{x \to a} g(x) = b$ then $\ds \lim_{x\to a} f(g(x)) = f(b)$. I.e.
-\begin{align*}
-\lim_{x \to a} f\big(g(x)\big) &= f\big(\lim_{x \to a} g(x)\big)
-\end{align*}
+\begin{theorem}
+  If $f$ is continuous at $b$ and $\ds \lim_{x \to a} g(x) = b$ then $\ds \lim_{x\to a} f(g(x)) = f(b)$. I.e.
+  \begin{align*}
+    \lim_{x \to a} f\big(g(x)\big) &= f\big(\lim_{x \to a} g(x)\big)
+  \end{align*}
 \end{theorem}
 \begin{proof}
-Let $\epsilon > 0$ be given. We want to show that
-$$\exists\,\delta > 0\,\,(0 < |x - a| < \delta\,\Longrightarrow\,|f(g(x)) - f(b)| < \epsilon)$$
-\begin{itemize}
-\item By the continuity of $f$ at $b$, $\lim_{y\to b}f(y) = f(b)$. So
-\begin{align}\label{eq:cont}
-\exists\,\delta_1 > 0\,\,(0 < |y - b| < \delta_1\,\Longrightarrow\,|f(y) - f(b)| < \epsilon)
-\end{align}
-\item By $\lim_{x\to a}g(x) = b$, $$\exists\,\delta_2 > 0\,\,(0 < |x - a| < \delta_2\,\Longrightarrow\,|g(x) - b| < \delta_1)$$
-\item Take $\delta = \delta_2$ and let $y = g(x)$, then for $ 0 < |x - a| < \delta$ $\Longrightarrow$ $|g(x) - b| < \delta_1$, by \eqref{eq:cont} $|f(g(x)) - f(b)| < \epsilon$, as required.
-\end{itemize}
+  Let $\epsilon > 0$ be given. We want to show that
+    $$\exists\,\delta > 0\;(0 < |x - a| < \delta \ie |f(g(x)) - f(b)| < \epsilon)$$
+  \begin{itemize}
+    \item By the continuity of $f$ at $b$, $\lim_{y\to b}f(y) = f(b)$. So
+      \begin{align}
+        \exists\,\delta_1 > 0\;(0 < |y - b| < \delta_1 \ie |f(y) - f(b)| < \epsilon)
+      \end{align}
+    \item By $\lim_{x\to a}g(x) = b$, $$\exists\,\delta_2 > 0\;(0 < |x - a| < \delta_2 \ie |g(x) - b| < \delta_1)$$
+    \item Take $\delta = \delta_2$ and let $y = g(x)$, then for $ 0 < |x - a| < \delta$ $\ie$ $|g(x) - b| < \delta_1$, by \eqref{eq:cont} $|f(g(x)) - f(b)| < \epsilon$, as required.
+  \end{itemize}
 \end{proof}
-\section{Proofs of the Arithmetic of Derivatives}\label{sec proof arith deriv}
+
+\section{Proofs of the Arithmetic of Derivatives}
 Note that, for differentiable $g(x)$
 \begin{align*}
-\lim_{h\to 0}g(x + h) = g(x)
+  \lim_{h\to 0}g(x + h) = g(x)
 \end{align*}
 \subsection*{Proof of the Linearity of Differentiation}
 \begin{align*}
-\diff{}{x} \big\{\alpha\,f(x) + \beta\,g(x)\big\} &= \lim_{h\to 0}\frac{(\alpha\,f(x+h) + \beta\,g(x+h)) - (\alpha\,f(x) + \beta\,g(x))}{h} \\
-&=\lim_{h\to 0}\frac{\alpha\,(f(x+h) - f(x)) + \beta\,(g(x+h)-g(x))}{h} \\
-&=\lim_{h\to 0}\alpha\,\frac{f(x+h) - f(x)}{h} + \beta\,\frac{g(x+h)-g(x)}{h} \\
-&= \alpha\,f'(x) + \beta\,g'(x)
+  \diff{}{x} \big\{\alpha\,f(x) + \beta\,g(x)\big\} &= \lim_{h\to 0}\frac{(\alpha\,f(x+h) + \beta\,g(x+h)) - (\alpha\,f(x) + \beta\,g(x))}{h} \\
+  &=\lim_{h\to 0}\frac{\alpha\,(f(x+h) - f(x)) + \beta\,(g(x+h)-g(x))}{h} \\
+  &=\lim_{h\to 0}\alpha\,\frac{f(x+h) - f(x)}{h} + \beta\,\frac{g(x+h)-g(x)}{h} \\
+  &= \alpha\,f'(x) + \beta\,g'(x)
 \end{align*}
 \subsection*{Proof of the Product Rule}
 \begin{align*}
-\diff{}{x} \big\{f(x)g(x)\big\} &= \lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h} \\
-&=\lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
-&=\lim_{h\to 0}\frac{(f(x+h)- f(x))g(x+h) + f(x)(g(x+h) - g(x))}{h} \\
-&=\lim_{h\to 0}\frac{f(x+h)- f(x)}{h}g(x+h) + f(x)\frac{g(x+h) - g(x)}{h} \\
-&= f'(x)\, g(x) + f(x)\,g'(x)
+  \diff{}{x} \big\{f(x)g(x)\big\} &= \lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h} \\
+  &=\lim_{h\to 0}\frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
+  &=\lim_{h\to 0}\frac{(f(x+h)- f(x))g(x+h) + f(x)(g(x+h) - g(x))}{h} \\
+  &=\lim_{h\to 0}\frac{f(x+h)- f(x)}{h}g(x+h) + f(x)\frac{g(x+h) - g(x)}{h} \\
+  &= f'(x)\, g(x) + f(x)\,g'(x)
 \end{align*}
 \subsection*{Proof of the Quotient Rule}
 \begin{align*}
-\diff{}{x} \left\{ \frac{f(x)}{g(x)} \right\} &= \lim_{h\to 0}\frac{\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}}{h} =\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
-&=\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
-&=\lim_{h\to 0}\frac{\frac{(f(x+h) - f(x))\,g(x) - f(x)\,(g(x + h) - g(x))}{g(x+h)g(x)}}{h} \\
-&=\lim_{h\to 0}\frac{\frac{f(x+h) - f(x)}{h}g(x) - f(x)\frac{g(x + h) - g(x)}{h}}{g(x+h)g(x)} \\
-&= \frac{f'(x) \, g(x) - f(x) \, g'(x)}{g(x)^2}
+  \diff{}{x} \left\{ \frac{f(x)}{g(x)} \right\} &= \lim_{h\to 0}\frac{\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}}{h} =\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
+  &=\lim_{h\to 0}\frac{\frac{f(x+h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x+h)}{g(x+h)g(x)}}{h} \\
+  &=\lim_{h\to 0}\frac{\frac{(f(x+h) - f(x))\,g(x) - f(x)\,(g(x + h) - g(x))}{g(x+h)g(x)}}{h} \\
+  &=\lim_{h\to 0}\frac{\frac{f(x+h) - f(x)}{h}g(x) - f(x)\frac{g(x + h) - g(x)}{h}}{g(x+h)g(x)} \\
+  &= \frac{f'(x) \, g(x) - f(x) \, g'(x)}{g(x)^2}
 \end{align*}
 \subsection*{Derivation of the Chain Rule}
 \begin{itemize}
-\item Straightforward but flawed:
-\begin{align*}
-\big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\frac{g(x + h) - g(x)}{h} \\
-& ??\,=\lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
-\end{align*}
-\item For $f$ is differentiable at $u = g(x)$ and $g$ is differentiable at $x$, set
-\begin{align}\label{eq:E(k)}
-E(k) = \frac{f(u + k) - f(u)}{k} - f'(u), \qquad E(0) = 0
-\end{align}
-Then $E(k)$ is continuous at $k = 0$ from
-\begin{align*}
-\lim_{k\to 0}E(k) = f'(u) - f'(u) = 0 = E(0)
-\end{align*}
-From \eqref{eq:E(k)}
-\begin{align*}
-f(u + k) - f(u) = k\big(E(k) + f'(u)\big)
-\end{align*}
-Set $u = g(x)$ and $k = g(x + h) - g(x)$, then $u + k = g(x + h)$; for $g$ is differentiable at $x$,
-\begin{align*}
-\lim_{h\to 0}k = \lim_{h\to 0} g(x + h) - g(x) = 0.
-\end{align*}
-So
-\begin{align*}
-\big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\frac{g(x + h) - g(x)}{h} \\
-&\,=\lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
-\end{align*}
+  \item Straightforward but flawed:
+    \begin{align*}
+      \big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\frac{g(x + h) - g(x)}{h} \\
+      & ??\,=\lim_{h\to 0}\frac{f(g(x+h)) - f(g(x))}{g(x + h) - g(x)}\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
+    \end{align*}
+  \item For $f$ is differentiable at $u = g(x)$ and $g$ is differentiable at $x$, set
+    \begin{align}\label{eq:E(k)}
+      E(k) = \frac{f(u + k) - f(u)}{k} - f'(u), \qquad E(0) = 0
+    \end{align}
+    Then $E(k)$ is continuous at $k = 0$ from
+    \begin{align*}
+      \lim_{k\to 0}E(k) = f'(u) - f'(u) = 0 = E(0)
+    \end{align*}
+    From \eqref{eq:E(k)}
+    \begin{align*}
+      f(u + k) - f(u) = k\big(E(k) + f'(u)\big)
+    \end{align*}
+    Set $u = g(x)$ and $k = g(x + h) - g(x)$, then $u + k = g(x + h)$; for $g$ is differentiable at $x$,
+    \begin{align*}
+      \lim_{h\to 0}k = \lim_{h\to 0} g(x + h) - g(x) = 0.
+    \end{align*}
+    So
+    \begin{align*}
+      \big(f(g(x))\big)' &= \lim_{h\to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\frac{g(x + h) - g(x)}{h} \\
+      &\,=\lim_{h\to 0}\big(f'(g(x)) + E(k)\big)\cdot\lim_{h\to 0}\frac{g(x + h) - g(x)}{h} = f'(g(x))\cdot g'(x)
+    \end{align*}
 \end{itemize}
-\begin{theorem}[L'H\^opital's Rule]\label{thm:APPlhopital}
-\begin{itemize}
-\item $\big(\frac{0}{0}\text{ type}\big)$ If
-\begin{itemize}
-\item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable and $g(x)\ne 0$.
-\item $\ds\lim_{x\to a+}f(x) = \lim_{x\to a+}g(x) = 0$.
-\item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
-\end{itemize}
-Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
-\item $\big(\frac{\infty}{\infty}\text{ type}\big)$ If
-\begin{itemize}
-\item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable.
-\item $\ds\lim_{x\to a+}|f(x)| = \lim_{x\to a+}|g(x)| = \infty$.
-\item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
-\end{itemize}
-Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
-\end{itemize}
-Here $a+$ could be $a-$, $a$; $a$ could be $\pm\infty$ (with some minor modification).
+\begin{theorem}[L'H\^opital's Rule]
+  \begin{itemize}
+    \item $\big(\frac{0}{0}\text{ type}\big)$ If
+      \begin{itemize}
+        \item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable and $g(x)\ne 0$.
+        \item $\ds\lim_{x\to a+}f(x) = \lim_{x\to a+}g(x) = 0$.
+        \item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
+      \end{itemize}
+      Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
+    \item $\big(\frac{\infty}{\infty}\text{ type}\big)$ If
+      \begin{itemize}
+        \item $\exists\,\delta > 0$ s.t. $\forall\,x\in(a, a + \delta)$, $f(x)$, $g(x)$ are differentiable.
+        \item $\ds\lim_{x\to a+}|f(x)| = \lim_{x\to a+}|g(x)| = \infty$.
+        \item $\ds\lim_{x\to a+}\frac{f'(x)}{g'(x)} = l\in\overline{\mathbb{R}}$.
+      \end{itemize}
+      Then $\ds\lim_{x\to a+}\frac{f(x)}{g(x)} = l$.
+  \end{itemize}
+  Here $a+$ could be $a-$, $a$; $a$ could be $\pm\infty$ (with some minor modification).
 \end{theorem}
-\subsection{Standard Examples}\label{ssec_3_7_1}
-\begin{eg}\label{eg:hopitalA}
-\begin{align*}
-\lim_{x\to 0} \frac{\sin x}{x}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg:hopitalB}
-\begin{align*}
-\lim_{x\to 0} \frac{\sin(x)}{\sin(2x)}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg:hopitalC}
-\begin{align*}
-\lim_{x\to 0} \frac{\sin(x^2)}{1-\cos x}
-\end{align*}
-\end{eg}
-\begin{warning}[Limit of ratio of derivatives DNE]\label{warning:lhopital3}
-If $\ds\lim_{x\to a}f(x) = 0$ and $\ds\lim_{x\to a}g(x) = 0$ and
-\begin{align*}
-\lim\limits_{x\to a}\frac{f'(x)}{g'(x)} = \text{DNE}
-\end{align*}
-then it is still possible that
-\begin{align*}
-\lim\limits_{x\to a}\frac{f(x)}{g(x)} & \text{ exists.}
-\end{align*}
-Take
-\begin{align*}
-a=0,\quad f(x)=x^2\sin\frac{1}{x}, \quad g(x)= x.
-\end{align*}
-then
-\begin{gather*}
-\lim_{x\to 0} f(x) = 0\quad\text{and}\quad\lim_{x\to 0} g(x) = 0. \\
-f'(x) = 2x\sin\frac{1}{x} -\cos\frac{1}{x}\quad\text{and}\quad g'(x) = 1
-\end{gather*}
-\begin{align*}
-\lim_{x\to 0} \frac{f'(x)}{g'(x)} &= \lim_{x\to 0} \left( 2x\sin\frac{1}{x} -\cos\frac{1}{x}\right) = \text{DNE} \\
-\lim_{x\to 0}\frac{f(x)}{g(x)} &= \lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x} =\lim_{x\to 0} x\sin\frac{1}{x}= 0\qquad\text{By squeeze theorem}
-\end{align*}
+
+\subsection{Standard Examples}
+\begin{ex}
+  $\ds\lim_{x\to 0}\frac{\sin x}{x}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x\to 0} \frac{\sin(x)}{\sin(2x)}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x\to 0} \frac{\sin(x^2)}{1-\cos x}$
+\end{ex}
+\begin{warning}[Limit of ratio of derivatives DNE]
+  If $\ds\lim_{x\to a}f(x) = 0$ and $\ds\lim_{x\to a}g(x) = 0$ and $\ds\lim_{x\to a}\frac{f'(x)}{g'(x)} = \text{DNE}$ then it is still possible that $\ds\lim_{x\to a}\frac{f(x)}{g(x)} & \text{ exists.}$
+Take $\ds a=0,\quad f(x)=x^2\sin\frac{1}{x}, \quad g(x)= x.$ then
+  \begin{gather*}
+    \lim_{x\to 0} f(x) = 0\quad\text{and}\quad\lim_{x\to 0} g(x) = 0. \\
+    f'(x) = 2x\sin\frac{1}{x} -\cos\frac{1}{x}\quad\text{and}\quad g'(x) = 1
+  \end{gather*}
+  \begin{align*}
+    \lim_{x\to 0} \frac{f'(x)}{g'(x)} &= \lim_{x\to 0} \left( 2x\sin\frac{1}{x} -\cos\frac{1}{x}\right) = \text{DNE} \\
+    \lim_{x\to 0}\frac{f(x)}{g(x)} &= \lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x} =\lim_{x\to 0} x\sin\frac{1}{x}= 0\qquad\text{By squeeze theorem}
+  \end{align*}
 \end{warning}
-\subsection{Variations}\label{ssec_3_7_2}
-\begin{eg}\label{eg:hopitalH}
-\begin{align*}
-\lim_{x\to\infty} \frac{\arctan x - \frac{\pi}{2}}{ \nicefrac{1}{x} }
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg_3_7_2}
-\begin{align*}
-\lim_{x \to \infty} \frac{\log x}{x}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg_3_7_3}
-\begin{align*}
-\lim_{x \to \infty} \frac{5x^2+3x-3}{x^2+1}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg:hopitalI}
-\begin{align*}
-\lim_{x\rightarrow 0+} \frac{\log x}{\tan\big(\frac{\pi}{2}-x\big)}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg_3_7_4}
-\begin{align*}
-\lim_{x\to\infty} \frac{ e^x + e^{-x} }{e^x - e^{-x}}
-\end{align*}
-\end{eg}
-\begin{eg}\label{eg:hopitalKK}
-\begin{align*}
-\lim_{x\rightarrow 0}\Big(
-\underbrace{\frac{1}{x}}_{\rightarrow \pm\infty}
-- \underbrace{\frac{1}{\log(1+x)}}_{\rightarrow\pm\infty}\Big)
-\end{align*}
+\subsection{Variations}
+\begin{ex}
+  $\ds\lim_{x\to\infty} \frac{\arctan x - \frac{\pi}{2}}{ \nicefrac{1}{x}}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x \to \infty} \frac{\ln x}{x}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x \to \infty} \frac{5x^2+3x-3}{x^2+1}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x\to 0+} \frac{\ln x}{\tan\big(\frac{\pi}{2}-x\big)}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x\to\infty} \frac{e^x + e^{-x}}{e^x - e^{-x}}$
+\end{ex}
+\begin{ex}
+  $\ds\lim_{x\to 0}\Big(\underbrace{\frac{1}{x}}_{\to \pm\infty} - \underbrace{\frac{1}{\ln(1+x)}}_{\to\pm\infty}\Big)$
 \begin{equation}
-\lim_{x\rightarrow 0}\Big(
-\underbrace{\frac{1}{x}}_{\rightarrow \pm\infty}
-- \underbrace{\frac{1}{\log(1+x)}}_{\rightarrow\pm\infty}\Big)
-=\lim_{x\rightarrow 0}\underbrace{\frac{\log(1+x)-x}{x\log(1+x)}}_{\atp
-{\mathrm{num}\rightarrow 0}
-{\mathrm{den}\rightarrow 0}}
-\tag{E1}
+\lim_{x\to 0}\Big(\underbrace{\frac{1}{x}}_{\to \pm\infty} - \underbrace{\frac{1}{\ln(1+x)}}_{\to\pm\infty}\Big)
+=\lim_{x\to 0}\underbrace{\frac{\ln(1+x)-x}{x\ln(1+x)}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to 0}}\tag{E1}
 \end{equation}
 \begin{align}
-\lim_{x\rightarrow 0}\underbrace{\frac{\log(1+x)-x}{x\log(1+x)}}_{\atp
-{\mathrm{num}\rightarrow 0}
-{\mathrm{den}\rightarrow 0}}
-&=\lim_{x\rightarrow 0}\frac{\frac{1}{1+x}-1} {\log(1+x)+\frac{x}{1+x}}
-=\lim_{x\rightarrow 0}\frac{1-(1+x)} {(1+x)\log(1+x)+x}\notag\\
-&=-\lim_{x\rightarrow 0}\underbrace{\frac{x} {(1+x)\log(1+x)+x}}_{\atp
-{\mathrm{num}\rightarrow 0}
-{\mathrm{den}\rightarrow 1\times 0+0=0}} \tag{E2}
+\lim_{x\to 0}\underbrace{\frac{\ln(1+x)-x}{x\ln(1+x)}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to 0}}
+&=\lim_{x\to 0}\frac{\frac{1}{1+x}-1} {\ln(1+x)+\frac{x}{1+x}}
+=\lim_{x\to 0}\frac{1-(1+x)} {(1+x)\ln(1+x)+x}\notag\\
+&=-\lim_{x\to 0}\underbrace{\frac{x} {(1+x)\ln(1+x)+x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to 1\times 0+0=0}} \tag{E2}
 \end{align}
 \begin{equation}
--\lim_{x\rightarrow 0}\underbrace{\frac{x} {(1+x)\log(1+x)+x}}_{\atp
-{\mathrm{num}\rightarrow 0}
-{\mathrm{den}\rightarrow 1\times 0+0=0}}
-=-\lim_{x\rightarrow 0}\underbrace{\frac{1} {\log(1+x)+\frac{1+x}{1+x}+1}}_{\atp
-{\mathrm{num}\rightarrow 1}
-{\mathrm{den}\rightarrow 0+1+1=2}}
+-\lim_{x\to 0}\underbrace{\frac{x} {(1+x)\ln(1+x)+x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to 1\times 0+0=0}}
+=-\lim_{x\to 0}\underbrace{\frac{1} {\ln(1+x)+\frac{1+x}{1+x}+1}}_{\atp{\mathrm{num}\to 1}{\mathrm{den}\to 0+1+1=2}}
 =-\frac{1}{2}
 \tag{E3}
 \end{equation}
 Combining (E1), (E2) and (E3) gives our final answer
-\begin{align*}
-\lim_{x\rightarrow 0}\Big(\frac{1}{x} - \frac{1}{\log(1+x)}\Big)=-\frac{1}{2}
-\end{align*}
-\end{eg}
+  $\ds\lim_{x\to 0}\Big(\frac{1}{x} - \frac{1}{\ln(1+x)}\Big) = -\frac{1}{2}$
+\end{ex}
