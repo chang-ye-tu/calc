@@ -615,6 +615,31 @@
   \end{enumerate}
 \end{thm}
 
+\begin{ex} 判斷以下各級數之斂散。
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{5}{5 n - 1}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n}{n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{2n^2 + 4n + 3}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{n!}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  %\setlength{\columnsep}{-5mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item[]
+      \item 發散：$\ds a_n = \frac{5}{5 n - 1} > \frac{1}{n} = c_n$
+      \item 發散：$\ds a_n = \frac{\ln n}{n} > \frac{1}{n} = c_n$
+      \item[]
+      \item 收斂：$\ds a_n = \frac{1}{2n^2 + 4n + 3} < \frac{1}{2n^2} = b_n$
+      \item 收斂：$\ds a_n = \frac{1}{n!} < \frac{1}{n^2} = b_n$，$n\geqslant N = 4$
+    \end{enumerate}
+  \end{multicols}
+\end{sol}
+
 \begin{thm}[極限比較法 (limit comparison test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$、$\ds\sum_{n = 1}^\infty b_n$ 且 $\ds a_n > 0$、$\ds b_n > 0$。
   \begin{enumerate}\setlength{\itemsep}{0pt}
@@ -623,6 +648,44 @@
     \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \infty$ 且 $\ds\sum_{n = 1}^\infty b_n$ 發散，則 $\ds\sum_{n = 1}^\infty a_n$ 發散。
   \end{enumerate}
 \end{thm}
+
+\begin{ex} 判斷以下各級數之斂散。
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{2 n + 1}{n^2 + 2n + 1}$
+      \item $\ds\sum_{n = 1}^\infty\frac{2n^2 + 3n}{\sqrt{5 + n^5}}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n}{n^{\frac{3}{2}}}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1 + n\ln n}{n^2 + 5}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由極限比較法，
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 發散：取 $\ds b_n = \frac{1}{n}$，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{2n^2 + n}{n^2 + 2n + 1} = \lim_{n\to\infty}\frac{2 + \frac{1}{n}}{1 + \frac{2}{n} + \frac{1}{n^2}} = 2$
+    \item 發散：取 $\ds b_n = \frac{1}{\sqrt{n}}$，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{(2n^2 + 3n)\sqrt{n}}{\sqrt{5 + n^5}} = \lim_{n\to\infty}\frac{2 + \frac{3}{n}}{\sqrt{\frac{5}{n^5} + 1}} = 2$ 
+    \item 收斂：取 $\ds b_n = \frac{1}{n^{\frac{5}{4}}}$，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\ln n}{n^\frac{1}{4}} = \lim_{n\to\infty}\frac{\frac{1}{n}}{\frac{1}{4}n^{-\frac{3}{4}}} = \lim_{n\to\infty}\frac{4}{n^{\frac{1}{4}}} = 0$
+    \item 發散：取 $\ds b_n = \frac{1}{n}$，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{n + n^2\ln n}{n^2 + 5} = \lim_{n\to\infty}\frac{\frac{1}{n} + \ln n}{1 + \frac{5}{n^2}} = \infty$
+  \end{enumerate}
+\end{sol}
+
+\begin{ex} 若正項級數 $\ds\{a_n\}$、$\ds\{b_n\}$ 收斂，證明以下級數均收斂。
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\ln(1 + a_n)$
+      \item $\ds\sum_{n = 1}^\infty\sin a_n$
+      \item $\ds\sum_{n = 1}^\infty a_n b_n$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由極限比較法，
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 與 $\ds\sum_{n = 1}^\infty a_n$ 做比較：$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\ln(1 + a_n)}{a_n} = \lim_{x\to 0}\frac{\ln(1 + x)}{x} = 0$，故收斂。
+    \item 與 $\ds\sum_{n = 1}^\infty a_n$ 做比較：$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\sin a_n}{a_n} = \lim_{x\to 0}\frac{\sin x}{x} = 1$，故收斂。
+    \item $\ds\sum_{n = 1}^\infty b_n$ 收斂，則 $\ds\exists N\in\mathbb{N}$，$\ds b_n\leqslant 1\;\forall\,n\geqslant N$ $\ie$ $\ds 0 < a_n b_n < a_n\;\forall\,n\geqslant N$，$\ds\sum_{n = 1}^\infty a_n b_n$ 收斂。
+  \end{enumerate}
+\end{sol}
 
 \begin{thm}[比值法 (ratio test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\frac{a_{n + 1}}{a_n}$。
@@ -652,7 +715,7 @@
 \begin{sol}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\sqrt{(n + 1)^3 + 3(n + 1) - 1}}{(n+1)^2 + 5}}{\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}} = \lim_{n\to\infty}\frac{n^2 + 5}{(n+1)^2 + 5}\sqrt{\frac{(n + 1)^3 + 3(n + 1) - 1}{n^3 + 3n - 1}} \\= \lim_{n\to\infty}\frac{1 + \frac{5}{n^2}}{\big(1 + \frac{1}{n}\big)^2 + \frac{5}{n^2}}\sqrt{\frac{\big(1 + \frac{1}{n}\big)^3 + 3\big(\frac{1}{n^2} + \frac{1}{n^3}\big) - \frac{1}{n^3}}{1 + 3\frac{1}{n^2} - \frac{1}{n^3}}} = 1$
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\sqrt{(n + 1)^3 + 3(n + 1) - 1}}{(n+1)^2 + 5}}{\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}} = \lim_{n\to\infty}\frac{n^2 + 5}{(n+1)^2 + 5}\sqrt{\frac{(n + 1)^3 + 3(n + 1) - 1}{n^3 + 3n - 1}} \\= \lim_{n\to\infty}\frac{1 + \frac{5}{n^2}}{\big(1 + \frac{1}{n}\big)^2 + \frac{5}{n^2}}\sqrt{\frac{\big(1 + \frac{1}{n}\big)^3 + 3\big(\frac{1}{n^2} + \frac{1}{n^3}\big) - \frac{1}{n^3}}{1 + 3\frac{1}{n^2} - \frac{1}{n^3}}} = 1$，但由極限比較法與 $\ds\sum_{n = 1}^\infty\frac{1}{\sqrt{n}}$ 比較，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\sqrt{n}\,\sqrt{n^3 + 3n - 1}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{n^4 + 3n^2 - n}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{1 + \frac{3}{n^2} - \frac{1}{n^3}}}{1 + \frac{5}{n^2}} = 1$，故發散。
     \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\pi^{n+1} + 5}{e^{n + 1}}}{\frac{\pi^n + 5}{e^n}} = \lim_{n\to\infty}\frac{e^n}{e^{n+1}}\cdot\frac{\pi^{n + 1} + 5}{\pi^n + 5} = \lim_{n\to\infty}\frac{1}{e}\cdot\frac{\pi + \frac{5}{\pi^n}}{1 + \frac{5}{\pi^n}} = \frac{\pi}{e} > 1$，發散。
     \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{(2(n + 1))!}{((n + 1)!)^2}}{\frac{(2n)!}{(n!)^2}} = \lim_{n\to\infty}{\frac{(2n + 2)(2n + 1)}{(n + 1)(n + 1)}} = 4$，發散。
     \item $\ds\lim_{n\to\infty}\frac{\frac{(n + 1)^{(n + 1)}}{(n + 1)!}}{\frac{n^n}{n!}} = \lim_{n\to\infty}\Big(1 + \frac{1}{n}\Big)^n = e > 1$，發散。

@@ -1269,7 +1269,7 @@
 \end{thm}
 
 \begin{thm}
-  令 $f$、$g$ 在 $[a,\,\infty)$，$a\in\mathbb{R}$ 連續，均為正值，且 $\ds\lim_{x\to\infty}\frac{f(x)}{g(x)}$ 存在，則 $\ds\int_a^\infty\!f(x)\,\text{d}x$ 與 $\ds\int_a^\infty\!f(x)\,\text{d}x$ 同為收斂或發散。
+  令 $f$、$g$ 在 $[a,\,\infty)$，$a\in\mathbb{R}$ 連續，均為正值，且 $\ds\lim_{x\to\infty}\frac{f(x)}{g(x)}$ 存在，則 $\ds\int_a^\infty\!f(x)\,\text{d}x$ 與 $\ds\int_a^\infty\!g(x)\,\text{d}x$ 同為收斂或發散。
 \end{thm}
 
 \begin{ex}
@@ -1319,23 +1319,5 @@
       \end{enumerate}
   \end{enumerate}
 \end{sol}
-
-%\subsection*{積分順序交換}
-%
-%\begin{ex}
-%  求 $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\text{d}x$，$b > a > 0$。
-%\end{ex}
-%
-%\begin{sol}
-%  由 $\ds\int_a^b e^{-xy}\,\text{d}y = \frac{1}{-x}e^{-xy}\,\Big|_{y=a}^{y=b} = \frac{1}{-x}(e^{-xb} - e^{-xa}) = \frac{e^{-ax} - e^{-bx}}{x}$。\\故 $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\text{d}x = \int_0^\infty\bigg(\int_a^b e^{-xy}\,\text{d}y\bigg)\,\text{d}x = \int_a^b\bigg(\int_0^\infty e^{-xy}\,\text{d}x\bigg)\,\text{d}y = \int_a^b\frac{1}{y}\,\text{d}y = \ln\frac{b}{a}$。
-%\end{sol}
-%
-%\begin{ex}
-%  求 $\ds\int_0^\infty\frac{\sin x}{x}\,\text{d}x$。
-%\end{ex}
-%
-%\begin{sol}
-%  由 $\ds\int_0^\infty e^{-xy}\,\text{d}y = \frac{1}{x}$，$x > 0$；又 $\ds\int e^{ax}\sin bx\,\text{d}x = \frac{e^{ax}(a\cdot\sin bx - b\cdot\cos bx)}{a^2 + b^2}$。\\故 $\ds\int_0^\infty\frac{\sin x}{x}\,\text{d}x = \int_0^\infty\bigg(\sin x\int_0^\infty e^{-xy}\,\text{d}y\bigg)\,\text{d}x = \int_0^\infty\bigg(\int_0^\infty e^{-xy}\sin x\,\text{d}y\bigg)\,\text{d}x = \int_0^\infty\bigg(\int_0^\infty e^{-xy}\sin x\,\text{d}x\bigg)\,\text{d}y = \int_0^\infty\frac{e^{-xy}((-y)\cdot\sin x - 1\cdot\cos x)}{(-y)^2 + 1^2}\,\Big|_{x = 0}^{x = \infty}\,\text{d}y = \int_0^\infty\frac{0 - (-1)}{1 + y^2}\,\text{d}y = \int_0^\infty\frac{1}{1 + y^2}\,\text{d}y = \tan^{-1}y\,\Big|_{y = 0}^{y = \infty} = \frac{\pi}{2}$。
-%\end{sol}
 
 \end{document}
