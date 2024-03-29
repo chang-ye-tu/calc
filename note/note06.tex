@@ -404,9 +404,9 @@
   有上界且有下界之數列通稱為有界 (bounded) 數列。
 \end{dfn}
 
-\begin{dfn}[實數完備性公理 (Completeness Axiom)]
+\begin{prp}[實數完備性公理 (Completeness Axiom)]
   若 $\varnothing\ne S\subseteq\mathbb{R}$ 有上界，則 $S$ 有最小上界。 
-\end{dfn}
+\end{prp}
 
 \begin{thm}
   給定單調數列 $\{a_n\}$；$\{a_n\}$ 收斂 $\ifff$ $\{a_n\}$ 有界。 
@@ -496,6 +496,8 @@
   \end{enumerate}
 \end{sol}
 
+\myline
+
 \begin{ex}
   給定 $a_1$，$a_2$ 之值且 $\ds a_n = \frac{1}{2}\,(a_{n - 1} + a_{n - 2})$，求 $\ds\lim_{n\to\infty}a_n$。
 \end{ex}
@@ -556,7 +558,7 @@
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds f:[N,\,\infty)\to\mathbb{R}$ 為正值、連續、遞減函數，$\ds a_n = f(n),\;\forall\,n \geqslant N$，則 $\ds\sum_{n = 1}^\infty a_n$ 與 $\ds\int_N^\infty f(x)\,\text{d}x$ 同斂散。 
 \end{thm}
 
-\begin{ex} 判斷以下數列之斂散。
+\begin{ex} 判斷以下級數之斂散。
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\sum_{n = 1}^\infty\frac{1}{n^2 + 1}$
@@ -599,6 +601,8 @@
   \end{enumerate}
 \end{sol}
 
+\myline
+
 \begin{ex}
   證明 $\ds a_n = \sum_{k = 1}^n\frac{1}{k} - \ln n$ 收斂。
 \end{ex}
@@ -610,12 +614,12 @@
 \begin{thm}[比較法 (comparison test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$。
   \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item 若存在收斂 $\ds\sum_{n = 1}^\infty b_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\leqslant b_n,\;\forall\,n\geqslant N$，則 $\ds\sum_{n = 1}^\infty a_n$ 收斂。
-    \item 若存在發散 $\ds\sum_{n = 1}^\infty c_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\geqslant c_n,\;\forall\,n\geqslant N$，則 $\ds\sum_{n = 1}^\infty a_n$ 發散。
+    \item 若存在收斂 $\ds\sum_{n = 1}^\infty b_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\leqslant b_n,\;\forall\,n\geqslant N$，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+    \item 若存在發散 $\ds\sum_{n = 1}^\infty c_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\geqslant c_n,\;\forall\,n\geqslant N$，$\ds\sum_{n = 1}^\infty a_n$ 發散。
   \end{enumerate}
 \end{thm}
 
-\begin{ex} 判斷以下各級數之斂散。
+\begin{ex} 判斷以下級數之斂散。
   \begin{multicols}{4}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\sum_{n = 1}^\infty\frac{5}{5 n - 1}$
@@ -643,13 +647,13 @@
 \begin{thm}[極限比較法 (limit comparison test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$、$\ds\sum_{n = 1}^\infty b_n$ 且 $\ds a_n > 0$、$\ds b_n > 0$。
   \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = c > 0$，則 $\ds\sum_{n = 1}^\infty a_n$ 與 $\ds\sum_{n = 1}^\infty b_n$ 同斂散。
-    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = 0$ 且 $\ds\sum_{n = 1}^\infty b_n$ 收斂，則 $\ds\sum_{n = 1}^\infty a_n$ 收斂。
-    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \infty$ 且 $\ds\sum_{n = 1}^\infty b_n$ 發散，則 $\ds\sum_{n = 1}^\infty a_n$ 發散。
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = c > 0$，$\ds\sum_{n = 1}^\infty a_n$ 與 $\ds\sum_{n = 1}^\infty b_n$ 同斂散。
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = 0$ 且 $\ds\sum_{n = 1}^\infty b_n$ 收斂，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \infty$ 且 $\ds\sum_{n = 1}^\infty b_n$ 發散，$\ds\sum_{n = 1}^\infty a_n$ 發散。
   \end{enumerate}
 \end{thm}
 
-\begin{ex} 判斷以下各級數之斂散。
+\begin{ex} 判斷以下級數之斂散。
   \begin{multicols}{4}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\sum_{n = 1}^\infty\frac{2 n + 1}{n^2 + 2n + 1}$
@@ -689,14 +693,16 @@
 
 \begin{thm}[比值法 (ratio test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\frac{a_{n + 1}}{a_n}$。
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item 若 $\ds\rho < 1$，則 $\ds\sum_{n = 1}^\infty a_n$ 收斂。
-    \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大，則 $\ds\sum_{n = 1}^\infty a_n$ 發散。
-    \item 若 $\ds\rho = 1$，$\ds\sum_{n = 1}^\infty a_n$ 斂散性未定。
-  \end{enumerate}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item 若 $\ds\rho < 1$，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+      \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大，$\ds\sum_{n = 1}^\infty a_n$ 發散。
+      \item 若 $\ds\rho = 1$，$\ds\sum_{n = 1}^\infty a_n$ 斂散性未定。
+    \end{enumerate}
+  \end{multicols}
 \end{thm}
 
-\begin{ex} 求以下各級數之斂散性。
+\begin{ex} 判斷以下級數之斂散。
   \setlength{\columnsep}{-20mm}
   \begin{multicols}{3}
     \begin{enumerate}\setlength{\itemsep}{0pt}
@@ -728,14 +734,98 @@
 
 \begin{thm}[根式法 (root test)]
   給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n}$。
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item 若 $\ds\rho < 1$，則 $\ds\sum_{n = 1}^\infty a_n$ 收斂。
-    \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大，則 $\ds\sum_{n = 1}^\infty a_n$ 發散。
-    \item 若 $\ds\rho = 1$，$\ds\sum_{n = 1}^\infty a_n$ 斂散性未定。
-  \end{enumerate}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item 若 $\ds\rho < 1$，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+      \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大，$\ds\sum_{n = 1}^\infty a_n$ 發散。
+      \item 若 $\ds\rho = 1$，$\ds\sum_{n = 1}^\infty a_n$ 斂散性未定。
+    \end{enumerate}
+  \end{multicols}
 \end{thm}
 
+\begin{ex} 判斷以下級數之斂散。
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\Big(\frac{1}{n + 1}\Big)^n$
+      \item $\ds\sum_{n = 1}^\infty\Big(\frac{2 n + 3}{3n + 2}\Big)^n$
+      \item $\ds\sum_{n = 1}^\infty\frac{n^2}{2^n}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{1}{n} = 0$，收斂。
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{2 n + 3}{3 n + 2} = \frac{2}{3}$，收斂。
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{n^{\frac{2}{n}}}{2} = \frac{1}{2}$，收斂。
+  \end{enumerate}
+\end{sol}
+
+\myline
+
 \section*{6.4 條件與絕對收斂}
+
+\begin{dfn}
+  給定 $\ds\sum_{n = 1}^\infty a_n$。
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 若 $\ds\sum_{n = 1}^\infty|a_n|$ 收斂，$\ds\sum_{n = 1}^\infty a_n$ 為絕對收斂 (absolutely convergent)。
+    \item 若 $\ds\sum_{n = 1}^\infty|a_n|$ 發散但 $\ds\sum_{n = 1}^\infty a_n$ 收斂，$\ds\sum_{n = 1}^\infty a_n$ 為條件收斂 (conditionally convergent)。
+  \end{enumerate}
+\end{dfn}
+
+\begin{thm}
+  若 $\ds\sum_{n = 1}^\infty|a_n|$ 收斂，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+\end{thm}
+
+\begin{prf}
+  由 $\ds|s_n - s_m| = |a_n + a_{n - 1} + \cdots + a_{m + 1}|\leqslant|a_n| + |a_{n - 1}| + \cdots + |a_{m + 1}|,\;\forall\,n > m$ 與 Cauchy 準則，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
+\end{prf}
+
+\begin{prp}[Abel 公式]
+  給定 $\ds\{a_n\}$、$\ds\{b_n\}$，令 $\ds A_n = \sum_{k = 1}^n a_k$ 且 $A_0 = 0$，則 $\ds\sum_{k = 1}^n a_k b_k = A_n b_{n + 1} - \sum_{k = 1}^n A_k(b_{k + 1} - b_k)$。
+\end{prp}
+
+\begin{prf}
+  $\ds\sum_{k = 1}^n a_k b_k = \sum_{k = 1}^n (A_k - A_{k - 1}) b_k = \sum_{k = 1}^n A_k b_k - \sum_{k = 1}^n A_{k - 1} b_k = \sum_{k = 1}^n A_k b_k - \sum_{k = 1}^n A_k b_{k + 1} + A_n b_{n + 1} = A_n b_{n + 1} - \sum_{k = 1}^n A_k (b_{k + 1} - b_k)$。
+\end{prf}
+
+\begin{thm}[Dirichlet 判定法]
+  若 $\ds\sum_{n = 1}^\infty a_n$ 部份和數列有界，$\ds b_n\searrow$ 且 $\ds\lim_{n\to\infty}b_n = 0$，則 $\ds\sum_{n = 1}^\infty a_n b_n$ 收斂。 
+\end{thm}
+
+\begin{prf}
+  由 Abel 公式 $\ds\sum_{k = 1}^n a_k b_k = A_n b_{n + 1} - \sum_{k = 1}^n A_k(b_{k + 1} - b_k)$。因 $\ds\sum_{n = 1}^\infty a_n$ 之部份和數列有界，$\ds\exists\,M\;|A_n|\leqslant M$，又 $\ds\lim_{n\to\infty}b_n = 0 \ie \lim_{n\to\infty}A_n b_{n + 1} = 0$；由 $\ds\sum_{k = 1}^n \Big|A_k(b_{k + 1} - b_k)\Big|\leqslant M\sum_{k = 1}^n(b_k - b_{k + 1})$ 與 $\ds b_n\searrow$、$\ds\lim_{n\to\infty}b_n = 0$，$\ds\sum_{k = 1}^n A_k(b_{k + 1} - b_k)$ 絕對收斂 $\ie$ $\ds\sum_{k = 1}^n A_k(b_{k + 1} - b_k)$ 收斂；故 $\ds\sum_{n = 1}^\infty a_n b_n$ 收斂。
+\end{prf}
+
+\begin{dfn}[交錯級數]
+  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，$\ds\sum_{n = 1}^\infty(-1)^n a_n$ 稱為交錯級數 (alternating series)。 
+\end{dfn}
+
+\begin{thm}
+  若正項級數 $\ds\sum_{n = 1}^\infty a_n$ 中 $\ds a_n\searrow$ 且 $\ds\lim_{n\to\infty}a_n = 0$，交錯級數 $\ds\sum_{n = 1}^\infty(-1)^n a_n$ 收斂。 
+\end{thm}
+
+\begin{prf}
+  $\{(-1)^n\}$ 部份和數列有界，$\ds a_n\searrow$ 且 $\ds\lim_{n\to\infty}a_n = 0$；由 Dirichlet 判定法 $\ds\sum_{n = 1}^\infty(-1)^n a_n$ 收斂。 
+\end{prf}
+
+\begin{ex} 若 $\ds\sum_{n = 1}^\infty a_n$ 條件收斂，
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty n^2 a_n$ 發散。
+      \item $\ds\sum_{n = 1}^\infty n a_n$ 不為絕對收斂。
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 若 $\ds\sum_{n = 1}^\infty n^2 a_n$ 收斂，則 $\ds\lim_{n\to\infty} n^2 a_n = 0 \ie \exists N\in\mathbb{N}, \;n^2 |a_n| < 1\;\forall\,n\geqslant N \ie |a_n| < \frac{1}{n^2}\;\forall\,n\geqslant N \ie$ $\ds\sum_{n = 1}^\infty |a_n|$ 收斂，矛盾。 
+    \item 令 $\ds a_n = (-1)^n\frac{1}{n}$，則 $\ds\sum_{n = 1}^\infty n a_n$ 發散；令 $\ds a_n = (-1)^n\frac{1}{n\ln n}$，則 $\ds\sum_{n = 1}^\infty n a_n$ 條件收斂。若 $\ds\sum_{n = 1}^\infty n a_n$ 絕對收斂，由 $\ds|a_n|\leqslant|n a_n|\;\forall\,n\geqslant 1\ie \sum_{n = 1}^\infty a_n$ 絕對收斂，矛盾。
+  \end{enumerate}
+\end{sol}
 
 \section*{6.5 冪級數}
 
