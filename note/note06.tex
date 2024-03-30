@@ -835,7 +835,7 @@
   \end{enumerate}
 \end{sol}
 
-\end{document}
+\myline
 
 \section*{6.5 冪級數}
 
@@ -844,9 +844,26 @@
 \end{dfn}
 
 \begin{thm}
-  
+  令 $\ds\alpha = \lim_{n\to\infty}\sqrt[n]{|a_n|}$，$\ds R = \begin{cases}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty\end{cases}$，則 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 為 $\begin{cases}\text{絕對收斂} & \forall\,|x - c| < R \\ \text{發散} & \forall\,|x - c| > R\end{cases}$。
 \end{thm}
+
+\begin{prf}
+  由根式法，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n(x - c)^n|} = \lim_{n\to\infty}\sqrt[n]{|a_n|}\cdot|x - c| = \frac{|x - c|}{R}$；若 $\ds\rho < 1 \ie \frac{|x - c|}{R} < 1 \ie |x - c| < R $ 冪級數絕對收斂、$\ds\rho > 1 \ie \frac{|x - c|}{R} > 1 \ie |x - c| > R$ 冪級數發散。
+\end{prf}
+
+\begin{rmk}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $R$ 稱為 $x - c$ 的冪級數 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 之收斂半徑 (radius of convergence)。若 $0 < R < \infty$，稱 $|x - c| = R$ 為其收斂圓 (circle of convergence)。
+    \item $R$ 之計算可不依根式法 --- 使用比值法於冪級數 $\ds\sum_{n = 0}^\infty\frac{n^n}{n!}z^n$，$\ds\lim_{n\to\infty}\frac{\frac{(n + 1)^{n + 1}}{(n + 1)!}|z|^{n + 1}}{\frac{n^n}{n!}|z|^n} = \lim_{n\to\infty}\Big(1 + \frac{1}{n}\Big)^n|z| = e\,|z| < 1$ 為絕對收斂、$\ds e\,|z| > 1$ 發散 $\ie$ $\ds R = \frac{1}{e}$。
+    \item 不同冪級數 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 在其收斂圓上有不同收斂特性： $\ds\sum_{n = 0}^\infty x^n$ 於 $|x| = 1$ 發散、$\ds\sum_{n = 0}^\infty\frac{x^n}{n(n + 1)}$ 於 $|x| = 1$ 絕對收斂、$\ds\sum_{n = 0}^\infty\frac{x^n}{n}$ 於 $x = 1$ 發散，$x = -1$ 條件收斂。
+  \end{enumerate}
+\end{rmk}
 
 \section*{6.6 Taylor 級數}
 
+\begin{dfn}
+  給定 $f\in C^\infty(a, b)$，$x_0\in(a, b)$，$\ds\sum_{n = 0}^\infty\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 Tayler 級數 / 展開式；若 $x_0 = 0$ 稱為 $f(x)$ 之 MacLaurin 級數 / 展開式。
+\end{dfn}
 
+\end{document}
