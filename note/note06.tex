@@ -803,7 +803,7 @@
 \end{ex}
 
 \begin{sol}
-  由於 $\sin nx$ 為週期 $2\pi$ 之函數，只需驗證 $x\in(0, 2\pi)$。令 $\ds A_n(x) = \sum_{k = 1}^n\sin k x$，則 $\ds 2\sin\frac{x}{2}\cdot A_n(x) = \sum_{k = 1}^n 2\sin\frac{x}{2}\cdot\sin k x = \sum_{k = 1}^n\bigg(\cos\Big(k - \frac{1}{2}\Big)x - \cos\Big(k + \frac{1}{2}\Big)x\bigg) = \cos\frac{x}{2} - \cos\Big(n + \frac{1}{2}\Big)x$ $\ie$ $\ds|A_n(x)| = \Bigg|\frac{\cos\frac{x}{2} - \cos\Big(n + \frac{1}{2}\Big)x}{\sin\frac{x}{2}}\Bigg|\leqslant\frac{1}{\sin\frac{x}{2}}\;\forall\,x\in(0, 2\pi)$ 為有界，$\ds\lim_{n\to\infty}\frac{1}{n}\searrow 0$，由 Dirichlet 判定法 $\ds\sum_{n = 1}^\infty\frac{\sin nx}{n}$ 收斂，$\forall\,x\in\mathbb{R}$。
+  由於 $\sin nx$ 為週期 $2\pi$ 之函數，且 $\ds x= 0$ 時 $\ds\sin nx = 0$，只需考慮 $x\in(0,\,2\pi)$。令 $\ds A_n(x) = \sum_{k = 1}^n\sin k x$，$\ds 2\sin\frac{x}{2}\cdot A_n(x) = \sum_{k = 1}^n 2\sin\frac{x}{2}\cdot\sin k x = \sum_{k = 1}^n\bigg(\cos\Big(k - \frac{1}{2}\Big)x - \cos\Big(k + \frac{1}{2}\Big)x\bigg) = \cos\frac{x}{2} - \cos\Big(n + \frac{1}{2}\Big)x$ $\ie$ $\ds|A_n(x)| = \Bigg|\frac{\cos\frac{x}{2} - \cos\big(n + \frac{1}{2}\big)x}{2\sin\frac{x}{2}}\Bigg|\leqslant\frac{1}{\sin\frac{x}{2}}$，$\ds\lim_{n\to\infty}\frac{1}{n}\searrow 0$，由 Dirichlet 判定法 $\ds\sum_{n = 1}^\infty\frac{\sin nx}{n}$ 收斂，$\forall\,x\in(0,\,2\pi)$。
 \end{sol}
 
 \begin{dfn}[交錯級數]
@@ -835,8 +835,18 @@
   \end{enumerate}
 \end{sol}
 
+\end{document}
+
 \section*{6.5 冪級數}
+
+\begin{dfn}
+  $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 之無窮級數稱為 $x - c$ 的冪級數 (power series)，$\{a_n\}$ 為其係數 (coefficient)。
+\end{dfn}
+
+\begin{thm}
+  
+\end{thm}
 
 \section*{6.6 Taylor 級數}
 
-\end{document}
+
