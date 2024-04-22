@@ -1,11 +1,12 @@
 \documentclass[12pt]{extarticle} 
-%\usepackage{unicode-math}
-\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+\usepackage{unicode-math}
+\usepackage{amsthm,graphicx,xcolor,natbib,enumitem,booktabs,tabularx}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
 %\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
 \usepackage[margin=1cm,footskip=5mm]{geometry}
 \pagenumbering{gobble}
 
-\usepackage[inline]{enumitem}
+%\usepackage[inline]{enumitem}
 \usepackage[BoldFont,SlantFont]{xeCJK}  
 \xeCJKsetemboldenfactor{2}
 \setCJKmainfont{cwTeX Q Yuan Medium}
@@ -25,6 +26,10 @@
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\ceil}[1]{\lceil #1 \rceil}
 \newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+\newcommand{\vaa}{\symbfup{\alpha}}
+\newcommand{\vbb}{\symbfup{\beta}}
+\newcommand{\vnu}{\symbfup{\nu}}
 
 % figure --> 圖
 \renewcommand{\appendixname}{附錄}
@@ -132,6 +137,7 @@
 \newcommand{\vz}{\mathbf{z}}
 \newcommand{\vF}{\mathbf{F}}
 \newcommand{\vG}{\mathbf{G}}
+\newcommand{\vh}{\mathbf{h}}
 \newcommand{\vH}{\mathbf{H}}
 \newcommand{\vM}{\mathbf{M}}
 \newcommand{\vT}{\mathbf{T}}
@@ -146,6 +152,7 @@
 \newcommand{\vPhi}{\mathbf{\Phi}}
 \newcommand{\vOmega}{\mathbf{\Omega}}
 \newcommand{\vTheta}{\mathbf{\Theta}}
+
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cM}{\mathcal{M}}
@@ -673,7 +680,7 @@
   \end{enumerate}
 \end{sol}
 
-\begin{ex} 若正項級數 $\ds\{a_n\}$、$\ds\{b_n\}$ 收斂，證明以下級數均收斂。
+\begin{ex} 若正項級數 $\ds\sum_{n = 1}^\infty a_n$、$\ds\sum_{n = 1}^\infty b_n$ 收斂，證明以下級數均收斂。
   \begin{multicols}{3}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\sum_{n = 1}^\infty\ln(1 + a_n)$
@@ -692,7 +699,7 @@
 \end{sol}
 
 \begin{thm}[比值法 (ratio test)]
-  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\frac{a_{n + 1}}{a_n}$。
+  給定 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\bigg|\frac{a_{n + 1}}{a_n}\bigg|$。
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item 若 $\ds\rho < 1$，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
@@ -708,8 +715,8 @@
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\sum_{n = 1}^\infty\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}$
       \item $\ds\sum_{n = 1}^\infty\frac{\pi^n + 5}{e^n}$
-      \item $\ds\sum_{n = 1}^\infty\frac{(2n)!}{(n!)^2}$
-      \item $\ds\sum_{n = 1}^\infty\frac{n^n}{n!}$
+      \item $\ds\sum_{n = 1}^\infty\frac{(n!)^2}{(2n)!}$
+      \item $\ds\sum_{n = 1}^\infty\frac{n!}{n^n}$
     %  \item $\ds\sum_{n = 1}^\infty\frac{4^n(n!)^2}{(2n)!}$
     %  \item $\ds\sum_{n = 1}^\infty a_n$，$\ds a_n = \begin{cases}\frac{n}{2^n} & \text{$n$ 為奇數} \\ \frac{1}{2^n} & \text{$n$ 為偶數}\end{cases}$
       \item $\ds\sum_{n = 1}^\infty\frac{n^4 + 3n^3 + 2n^2 + 4n + 5}{3^n}$
@@ -723,8 +730,8 @@
     \item[]
     \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\sqrt{(n + 1)^3 + 3(n + 1) - 1}}{(n+1)^2 + 5}}{\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}} = \lim_{n\to\infty}\frac{n^2 + 5}{(n+1)^2 + 5}\sqrt{\frac{(n + 1)^3 + 3(n + 1) - 1}{n^3 + 3n - 1}} \\= \lim_{n\to\infty}\frac{1 + \frac{5}{n^2}}{\big(1 + \frac{1}{n}\big)^2 + \frac{5}{n^2}}\sqrt{\frac{\big(1 + \frac{1}{n}\big)^3 + 3\big(\frac{1}{n^2} + \frac{1}{n^3}\big) - \frac{1}{n^3}}{1 + 3\frac{1}{n^2} - \frac{1}{n^3}}} = 1$，但由極限比較法與 $\ds\sum_{n = 1}^\infty\frac{1}{\sqrt{n}}$ 比較，$\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\sqrt{n}\,\sqrt{n^3 + 3n - 1}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{n^4 + 3n^2 - n}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{1 + \frac{3}{n^2} - \frac{1}{n^3}}}{1 + \frac{5}{n^2}} = 1$，故發散。
     \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\pi^{n+1} + 5}{e^{n + 1}}}{\frac{\pi^n + 5}{e^n}} = \lim_{n\to\infty}\frac{e^n}{e^{n+1}}\cdot\frac{\pi^{n + 1} + 5}{\pi^n + 5} = \lim_{n\to\infty}\frac{1}{e}\cdot\frac{\pi + \frac{5}{\pi^n}}{1 + \frac{5}{\pi^n}} = \frac{\pi}{e} > 1$，發散。
-    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{(2(n + 1))!}{((n + 1)!)^2}}{\frac{(2n)!}{(n!)^2}} = \lim_{n\to\infty}{\frac{(2n + 2)(2n + 1)}{(n + 1)(n + 1)}} = 4$，發散。
-    \item $\ds\lim_{n\to\infty}\frac{\frac{(n + 1)^{(n + 1)}}{(n + 1)!}}{\frac{n^n}{n!}} = \lim_{n\to\infty}\Big(1 + \frac{1}{n}\Big)^n = e > 1$，發散。
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{((n + 1)!)^2}{(2(n + 1))!}}{\frac{(n!)^2}{(2n)!}} = \lim_{n\to\infty}\frac{(n + 1)(n + 1)}{(2n + 2)(2n + 1)} = \frac{1}{4}$，收斂。
+    \item $\ds\lim_{n\to\infty}\frac{\frac{(n + 1)!}{(n + 1)^{(n + 1)}}}{\frac{n!}{n^n}} = \lim_{n\to\infty}\Big(1 - \frac{1}{n}\Big)^n = e^{-1} < 1$，收斂。
     %\item $\ds\rho = \lim_{n\to\infty}\frac{\frac{4^{n+1}((n + 1)!)^2}{(2(n + 1))!}}{\frac{4^n(n!)^2}{(2n)!}} = \lim_{n\to\infty}\frac{4(n + 1)^2}{(2n + 2)(2 n + 1)} = 1$
     %\item $\ds\sum_{n = 1}^\infty a_n$，$\ds a_n = \begin{cases}\frac{n}{2^n} & \text{$n$ 為奇數} \\ \frac{1}{2^n} & \text{$n$ 為偶數}\end{cases}$
     \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{(n + 1)^4 + 3(n + 1)^3 + 2(n + 1)^2 + 4(n + 1) + 5}{3^{n + 1}}}{\frac{n^4 + 3n^3 + 2n^2 + 4n + 5}{3^n}} = \lim_{n\to\infty}\frac{(n + 1)^4}{n^4}\cdot\frac{1 + \frac{3}{n + 1} + \frac{2}{(n + 1)^2} + \frac{4}{(n + 1)^3} + \frac{5}{(n + 1)^4}}{1 + \frac{3}{n} + \frac{2}{n^2} + \frac{4}{n^3} + \frac{5}{n^4}}\cdot\frac{1}{3} = \frac{1}{3}$，收斂。
@@ -733,7 +740,7 @@
 \end{sol}
 
 \begin{thm}[根式法 (root test)]
-  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n}$。
+  給定 $\ds\sum_{n = 1}^\infty a_n$，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n|}$。
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item 若 $\ds\rho < 1$，$\ds\sum_{n = 1}^\infty a_n$ 收斂。
@@ -840,30 +847,145 @@
 \section*{6.5 冪級數}
 
 \begin{dfn}
-  $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 之無窮級數稱為 $x - c$ 的冪級數 (power series)，$\{a_n\}$ 為其係數 (coefficient)。
+  $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 之無窮級數稱為 $x - x_0$ 的冪級數 (power series)，$\{a_n\}$ 為其係數 (coefficient)。
 \end{dfn}
 
 \begin{thm}
-  令 $\ds\alpha = \lim_{n\to\infty}\sqrt[n]{|a_n|}$，$\ds R = \begin{cases}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty\end{cases}$，則 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 為 $\begin{cases}\text{絕對收斂} & \forall\,|x - c| < R \\ \text{發散} & \forall\,|x - c| > R\end{cases}$。
+  令 $\ds\alpha = \lim_{n\to\infty}\sqrt[n]{|a_n|}$，$\ds R = \begin{cases}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty\end{cases}$，則 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 為 $\begin{cases}\text{絕對收斂} & \forall\,|x - x_0| < R \\ \text{發散} & \forall\,|x - x_0| > R\end{cases}$。
 \end{thm}
 
 \begin{prf}
-  由根式法，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n(x - c)^n|} = \lim_{n\to\infty}\sqrt[n]{|a_n|}\cdot|x - c| = \frac{|x - c|}{R}$；若 $\ds\rho < 1 \ie \frac{|x - c|}{R} < 1 \ie |x - c| < R $ 冪級數絕對收斂、$\ds\rho > 1 \ie \frac{|x - c|}{R} > 1 \ie |x - c| > R$ 冪級數發散。
+  由根式法，令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n(x - x_0)^n|} = \lim_{n\to\infty}\sqrt[n]{|a_n|}\cdot|x - x_0| = \frac{|x - x_0|}{R}$；若 $\ds\rho < 1 \ie \frac{|x - x_0|}{R} < 1 \ie |x - x_0| < R $ 冪級數絕對收斂、$\ds\rho > 1 \ie \frac{|x - x_0|}{R} > 1 \ie |x - x_0| > R$ 冪級數發散。
 \end{prf}
 
 \begin{rmk}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item $R$ 稱為 $x - c$ 的冪級數 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 之收斂半徑 (radius of convergence)。若 $0 < R < \infty$，稱 $|x - c| = R$ 為其收斂圓 (circle of convergence)。
+    \item $R$ 稱為 $x - x_0$ 的冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 之收斂半徑 (radius of convergence)。若 $0 < R < \infty$，稱 $|x - x_0| = R$ 為其收斂圓 (circle of convergence)。若 $\forall\,x\in I$ 使 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 收斂，則 $I$ 稱為其收斂區間 (interval of convergence)。
     \item $R$ 之計算可不依根式法 --- 使用比值法於冪級數 $\ds\sum_{n = 0}^\infty\frac{n^n}{n!}z^n$，$\ds\lim_{n\to\infty}\frac{\frac{(n + 1)^{n + 1}}{(n + 1)!}|z|^{n + 1}}{\frac{n^n}{n!}|z|^n} = \lim_{n\to\infty}\Big(1 + \frac{1}{n}\Big)^n|z| = e\,|z| < 1$ 為絕對收斂、$\ds e\,|z| > 1$ 發散 $\ie$ $\ds R = \frac{1}{e}$。
-    \item 不同冪級數 $\ds\sum_{n = 0}^\infty a_n (x - c)^n$ 在其收斂圓上有不同收斂特性： $\ds\sum_{n = 0}^\infty x^n$ 於 $|x| = 1$ 發散、$\ds\sum_{n = 0}^\infty\frac{x^n}{n(n + 1)}$ 於 $|x| = 1$ 絕對收斂、$\ds\sum_{n = 0}^\infty\frac{x^n}{n}$ 於 $x = 1$ 發散，$x = -1$ 條件收斂。
+    \item 不同冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 在其收斂圓上有不同收斂特性： $\ds\sum_{n = 0}^\infty x^n$ 於 $|x| = 1$ 發散、$\ds\sum_{n = 0}^\infty\frac{x^n}{n(n + 1)}$ 於 $|x| = 1$ 絕對收斂、$\ds\sum_{n = 0}^\infty\frac{x^n}{n}$ 於 $x = 1$ 發散，$x = -1$ 條件收斂。
+    \item $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 在 $\ds x\in(c - R, c + R)$ (亦即 $|x - x_0| < R$) 定義函數 $f$，寫作 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$; $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$ 為 $f(x)$ 在 $x = x_0$ 之冪級數表示式。 
   \end{enumerate}
 \end{rmk}
+
+\begin{ex} 求以下 $x$ 的冪級數之收斂區間。
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n^2}$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n!}$
+      \item $\ds\sum_{n = 1}^\infty n!x^n$
+      \item $\ds\sum_{n = 1}^\infty n x^n$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{\ln(n + 1)}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\lim_{n\to\infty}\frac{n}{n + 1} = 1$; $x = 1$ 時發散，$x = -1$ 時條件收斂，故收斂區間為 $-1\leqslant x < 1$。
+    \item $\ds\lim_{n\to\infty}\frac{n^2}{(n + 1)^2} = 1$; $x = \pm 1$ 時均收斂，故收斂區間為 $-1\leqslant x\leqslant 1$。
+    \item $\ds\lim_{n\to\infty}\frac{n!}{(n + 1)!} = 0$; 故收斂區間為 $x\in\mathbb{R}$。
+    \item $\ds\lim_{n\to\infty}\frac{(n + 1)!}{n!} = \infty$， 故只在 $x = 0$ 收斂。
+    \item $\ds\lim_{n\to\infty}\frac{n + 1}{n} = 1$; $x = \pm 1$ 時均發散，故收斂區間為 $-1 < x < 1$。
+    \item $\ds\lim_{n\to\infty}\frac{\ln(n + 2)}{\ln(n + 1)} = \lim_{n\to\infty}\frac{\ln(n + 2) - \ln(n + 1) + \ln(n + 1)}{\ln(n + 1)} = \lim_{n\to\infty}\frac{\ln\frac{n + 2}{n + 1}}{\ln(n + 1)} + 1 = 1$; $x = 1$ 時發散，$x = -1$ 時條件收斂，故收斂區間為 $-1\leqslant x < 1$。
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}[冪級數運算]
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 兩冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$、$\ds\sum_{n = 0}^\infty \widetilde{a}_n (x - \widetilde{c})^n,\;|x - \widetilde{c}| < \widetilde{R}$ 之線性組合仍為函數，其定義域為 $(c - R, c + R)\cap(\widetilde{c} - \widetilde{R}, \widetilde{c} + \widetilde{R})$。
+    \item 冪級數在收斂半徑內可逐項微分與積分：若 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$，則 $\ds f'(x) = \sum_{n = 1}^\infty n a_n (x - x_0)^{n - 1},\;|x - x_0| < R$，$\ds\int f(x)\,\text{d}x = \sum_{n = 0}^\infty a_n \frac{(x - x_0)^{n + 1}}{n + 1},\;|x - x_0| < R$。
+  \end{itemize}
+\end{thm}
+
+\begin{ex}
+  求 $\ds\frac{1}{(1 - x)^2}$ 在 $x = 0$ 之冪級數表示式。
+\end{ex}
+
+\begin{sol}
+  逐項微分 $\ds\frac{1}{1 - x} = 1 + x + x^2 + x^3 + x^4 + \cdots$, $|x| < 1$ $\ie$ $\ds\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n = 0}^\infty(n + 1) x^n$, $|x| < 1$。
+\end{sol}
+
+\begin{ex}
+  求 $\ds\ln(1 + x)$ 在 $x = 0$ 之冪級數表示式。
+\end{ex}
+
+\begin{sol}
+  逐項積分 $\ds\frac{1}{1 + x} = 1 - x + x^2 - x^3 + x^4 + \cdots$, $|x| < 1$ $\ie$ $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} -+ \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$, $|x| < 1$。
+\end{sol}
+
+\begin{ex}
+  證明 $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$。
+\end{ex}
+
+\begin{sol}
+  逐項積分 $\ds\frac{1}{1 + x^2} = 1 - x^2 + x^4 - x^6 +- \cdots$, $|x| < 1$, 又 $\tan^{-1} 0 = 0$, 故 $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$。
+\end{sol}
+
+\begin{ex}
+  若 $k > 1$，求 $\ds\sum_{n = 1}^\infty\frac{n}{k^n} = \frac{1}{k} + \frac{2}{k^2} + \frac{3}{k^3} + \frac{4}{k^4} + \cdots$。
+\end{ex}
+
+\begin{sol}
+  由 $\ds\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n = 0}^\infty(n + 1) x^n$, $|x| < 1$, $\ds\frac{x}{(1 - x)^2} = x + 2x^2 + 3x^3 + 4x^4 + \cdots = \sum_{n = 0}^\infty(n + 1) x^{n + 1} = \sum_{n = 1}^\infty n x^{n}$, $|x| < 1$; 代入 $\ds x = \frac{1}{k}$, $\ds\sum_{n = 1}^\infty\frac{n}{k^n} = \frac{1}{k} + \frac{2}{k^2} + \frac{3}{k^3} + \frac{4}{k^4} + \cdots = \frac{\frac{1}{k}}{\big(1 - \frac{1}{k}\big)^2} = \frac{k}{(k - 1)^2}$。
+\end{sol}
 
 \section*{6.6 Taylor 級數}
 
 \begin{dfn}
-  給定 $f\in C^\infty(a, b)$，$x_0\in(a, b)$，$\ds\sum_{n = 0}^\infty\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 Tayler 級數 / 展開式；若 $x_0 = 0$ 稱為 $f(x)$ 之 MacLaurin 級數 / 展開式。
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 給定 $f\in C^\infty(a, b)$，$x_0\in(a, b)$，$\ds\sum_{n = 0}^\infty\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 Tayler 級數 / 展開式；若 $x_0 = 0$ 稱為 $f(x)$ 之 MacLaurin 級數 / 展開式。
+    \item 給定 $f\in C^N(a, b)$，$x_0\in(a, b)$, $0\leqslant n\leqslant N$，$\ds\sum_{k = 0}^n\frac{f^{(k)}(x_0)}{k!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 $n$ 階 Tayler 多項式；若 $x_0 = 0$ 稱為 $f(x)$ 之 $n$ 階 MacLaurin 多項式。
+  \end{itemize}
 \end{dfn}
+
+\begin{thm}
+  若 $f(x)$ 在 $x = x_0$ 有冪級數表示式 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$, 則 $\ds a_n = \frac{f^{(n)}(x_0)}{n!}$。 
+\end{thm}
+
+\begin{prf}
+  在 $|x - x_0| < R$ 可逐項微分得 $\ds f'(x) = \sum_{n = 1}^\infty n\,a_n (x - x_0)^{n - 1}$, $\ds f''(x) = \sum_{n = 2}^\infty n(n - 1)\,a_n (x - x_0)^{n - 2}$, $\ds\ldots$, $\ds f^{(k)}(x) = \sum_{n = k}^\infty n(n - 1)\cdots(n - (k - 1))\cdot a_n (x - x_0)^{n - k}$; 代入 $\ds x = x_0 \ie f^{(k)}(x_0) = k(k - 1)\cdots 1\cdot a_k = k!\,a_k \ie a_k = \frac{f^{(k)}(x_0)}{k!}$。
+\end{prf}
+
+\begin{ex} 常用 Maclaurin 級數。
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \frac{x^7}{7!} + \cdots = \sum_{n = 0}^\infty\frac{x^n}{n!}$
+    \item $\ds\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{(2n + 1)!}$
+    \item $\ds\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n}}{(2n)!}$
+    \item $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$
+  \end{enumerate}
+\end{ex}
+
+\begin{dfn}[多重指標 (multi-index)]
+  $n$ 維多重指標 $\vaa$ 為一非負整數之 $n$ 元組 (tuple): $\ds\vaa = (\alpha_1,\,\alpha_2,\,\ldots,\,\alpha_n)\in\mathbb{N}_0^n$。給定 $\vaa,\;\vbb\in\mathbb{N}_0^n$, $x = (x_1,\,x_2,\,\ldots,\,x_n)\in\mathbb{R}^n$，定義運算
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 加減 $\ds\vaa\pm\vbb = (\alpha_1\pm\beta_1,\,\alpha_2\pm\beta_2,\,\ldots,\,\alpha_n\pm\beta_n)$
+    \item 部份序 $\ds\vaa\leqslant\vbb\ifff\alpha_i\leqslant\beta_i,\;\forall\,i\,\in\,\{1,\,2,\,\ldots,\,n\}$
+    \item 分量和 $\ds|\vaa| = \alpha_1 + \alpha_2 + \cdots + \alpha_n$
+    \item 階乘 $\ds\vaa! = \alpha_1!\,\alpha_2!\cdots\alpha_n!$
+    \item 二項式係數 $\ds\binom{\vaa}{\vbb} = \binom{\alpha_1}{\beta_1}\binom{\alpha_2}{\beta_2}\cdots\binom{\alpha_n}{\beta_n} = \frac{\vaa!}{\vbb!\,(\vaa - \vbb)!}$  
+    \item 多項式係數 $\ds\binom{|\vaa|}{\vaa} = \frac{|\vaa|!}{\alpha_1!\,\alpha_2!\cdots\alpha_n!}$  
+    \item 冪次 $\ds\vx^{\vaa} = x_1^{\alpha_1}\,x_2^{\alpha_2}\cdots x_n^{\alpha_n}$  
+    \item 高階偏導數 $\ds\partial^{\vaa} = \partial_{1}^{\alpha_1}\,\partial_{2}^{\alpha_2}\cdots \partial_{n}^{\alpha_n}$, 其中 $\ds\partial_i^{\alpha_i} = \frac{\partial^{\alpha_i}}{\partial x_i^{\alpha_i}}$; $\ds D^{\vaa}\equiv\partial^{\vaa}$。  
+  \end{itemize}
+\end{dfn}
+
+\begin{prp} 給定 $\ds\vx,\;\vy,\;\vh\in\mathbb{R}^n$, $\vaa,\,\vnu\in\mathbb{N}_0^n$, $f,\;g:\mathbb{R}^n\to\mathbb{R}$。 
+  \setlength{\columnsep}{-30mm}
+  \begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 多項式定理 $\ds\bigg(\sum_{j = 1}^n x_j\bigg)^k = \sum_{|\vaa| = k}\binom{k}{\vaa}\vx^{\vaa}$
+    \item 二項式定理 $\ds(\vx + \vy)^{\vaa} = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\vx^{\vnu}\vy^{\vaa - \vnu}$  
+    \item Leibnitz 公式 $\ds\partial^{\vaa}(f\,g) = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\partial^{\vnu}\!f\,\partial^{\vaa - \vnu}\!g$ 
+    \item Taylor 級數 $\ds f(\vx + \vh) = \sum_{\vaa\in\mathbb{N}_0^n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa}$  
+    \item Taylor 定理 $\ds f(\vx + \vh) = \sum_{|\vaa| < n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa} + R_n(\vx,\,\vh)$, $\ds R_n(\vx,\,\vh) = n\sum_{|\vaa| = n}\frac{\vh^{\vaa}}{\vaa!}\int_0^1 (1 - t)^n\,\partial^{\vaa}\!f(\vx + t\vh)\,\text{d}t$
+  \end{itemize}
+  \end{multicols}
+  對定義於有界 $\Omega\subseteq\mathbb{R}^n$ 之平滑緊致支撐函數 $u,\;v$ $\ds\int_{\Omega}u\,\partial^{\vaa}v\,\text{d}x = (-1)^{|\vaa|}\int_{\Omega}v\,\partial^{\vaa}u\,\text{d}x$
+\end{prp}
 
 \end{document}
