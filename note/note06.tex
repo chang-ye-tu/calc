@@ -960,32 +960,92 @@
   \end{enumerate}
 \end{ex}
 
-\begin{dfn}[多重指標 (multi-index)]
-  $n$ 維多重指標 $\vaa$ 為一非負整數之 $n$ 元組 (tuple): $\ds\vaa = (\alpha_1,\,\alpha_2,\,\ldots,\,\alpha_n)\in\mathbb{N}_0^n$。給定 $\vaa,\;\vbb\in\mathbb{N}_0^n$, $x = (x_1,\,x_2,\,\ldots,\,x_n)\in\mathbb{R}^n$，定義運算
-  \begin{itemize}\setlength{\itemsep}{0pt}
-    \item 加減 $\ds\vaa\pm\vbb = (\alpha_1\pm\beta_1,\,\alpha_2\pm\beta_2,\,\ldots,\,\alpha_n\pm\beta_n)$
-    \item 部份序 $\ds\vaa\leqslant\vbb\ifff\alpha_i\leqslant\beta_i,\;\forall\,i\,\in\,\{1,\,2,\,\ldots,\,n\}$
-    \item 分量和 $\ds|\vaa| = \alpha_1 + \alpha_2 + \cdots + \alpha_n$
-    \item 階乘 $\ds\vaa! = \alpha_1!\,\alpha_2!\cdots\alpha_n!$
-    \item 二項式係數 $\ds\binom{\vaa}{\vbb} = \binom{\alpha_1}{\beta_1}\binom{\alpha_2}{\beta_2}\cdots\binom{\alpha_n}{\beta_n} = \frac{\vaa!}{\vbb!\,(\vaa - \vbb)!}$  
-    \item 多項式係數 $\ds\binom{|\vaa|}{\vaa} = \frac{|\vaa|!}{\alpha_1!\,\alpha_2!\cdots\alpha_n!}$  
-    \item 冪次 $\ds\vx^{\vaa} = x_1^{\alpha_1}\,x_2^{\alpha_2}\cdots x_n^{\alpha_n}$  
-    \item 高階偏導數 $\ds\partial^{\vaa} = \partial_{1}^{\alpha_1}\,\partial_{2}^{\alpha_2}\cdots \partial_{n}^{\alpha_n}$, 其中 $\ds\partial_i^{\alpha_i} = \frac{\partial^{\alpha_i}}{\partial x_i^{\alpha_i}}$; $\ds D^{\vaa}\equiv\partial^{\vaa}$。  
-  \end{itemize}
-\end{dfn}
+%\begin{dfn}[多重指標 (multi-index)]
+%  $n$ 維多重指標 $\vaa$ 為一非負整數之 $n$ 元組 (tuple): $\ds\vaa = (\alpha_1,\,\alpha_2,\,\ldots,\,\alpha_n)\in\mathbb{N}_0^n$。給定 $\vaa,\;\vbb\in\mathbb{N}_0^n$, $x = (x_1,\,x_2,\,\ldots,\,x_n)\in\mathbb{R}^n$，定義運算
+%  \begin{itemize}\setlength{\itemsep}{0pt}
+%    \item 加減 $\ds\vaa\pm\vbb = (\alpha_1\pm\beta_1,\,\alpha_2\pm\beta_2,\,\ldots,\,\alpha_n\pm\beta_n)$
+%    \item 部份序 $\ds\vaa\leqslant\vbb\ifff\alpha_i\leqslant\beta_i,\;\forall\,i\,\in\,\{1,\,2,\,\ldots,\,n\}$
+%    \item 分量和 $\ds|\vaa| = \alpha_1 + \alpha_2 + \cdots + \alpha_n$
+%    \item 階乘 $\ds\vaa! = \alpha_1!\,\alpha_2!\cdots\alpha_n!$
+%    \item 二項式係數 $\ds\binom{\vaa}{\vbb} = \binom{\alpha_1}{\beta_1}\binom{\alpha_2}{\beta_2}\cdots\binom{\alpha_n}{\beta_n} = \frac{\vaa!}{\vbb!\,(\vaa - \vbb)!}$  
+%    \item 多項式係數 $\ds\binom{|\vaa|}{\vaa} = \frac{|\vaa|!}{\alpha_1!\,\alpha_2!\cdots\alpha_n!}$  
+%    \item 冪次 $\ds\vx^{\vaa} = x_1^{\alpha_1}\,x_2^{\alpha_2}\cdots x_n^{\alpha_n}$  
+%    \item 高階偏導數 $\ds\partial^{\vaa} = \partial_{1}^{\alpha_1}\,\partial_{2}^{\alpha_2}\cdots \partial_{n}^{\alpha_n}$, 其中 $\ds\partial_i^{\alpha_i} = \frac{\partial^{\alpha_i}}{\partial x_i^{\alpha_i}}$; $\ds D^{\vaa}\equiv\partial^{\vaa}$。  
+%  \end{itemize}
+%\end{dfn}
+%
+%\begin{prp} 給定 $\ds\vx,\;\vy,\;\vh\in\mathbb{R}^n$, $\vaa,\,\vnu\in\mathbb{N}_0^n$, $f,\;g:\mathbb{R}^n\to\mathbb{R}$。 
+%  \setlength{\columnsep}{-30mm}
+%  \begin{multicols}{2}
+%  \begin{itemize}\setlength{\itemsep}{0pt}
+%    \item 多項式定理 $\ds\bigg(\sum_{j = 1}^n x_j\bigg)^k = \sum_{|\vaa| = k}\binom{k}{\vaa}\vx^{\vaa}$
+%    \item 二項式定理 $\ds(\vx + \vy)^{\vaa} = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\vx^{\vnu}\vy^{\vaa - \vnu}$  
+%    \item Leibnitz 公式 $\ds\partial^{\vaa}(f\,g) = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\partial^{\vnu}\!f\,\partial^{\vaa - \vnu}\!g$ 
+%    \item Taylor 級數 $\ds f(\vx + \vh) = \sum_{\vaa\in\mathbb{N}_0^n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa}$  
+%    \item Taylor 定理 $\ds f(\vx + \vh) = \sum_{|\vaa| < n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa} + R_n(\vx,\,\vh)$, $\ds R_n(\vx,\,\vh) = n\sum_{|\vaa| = n}\frac{\vh^{\vaa}}{\vaa!}\int_0^1 (1 - t)^n\,\partial^{\vaa}\!f(\vx + t\vh)\,\text{d}t$
+%  \end{itemize}
+%  \end{multicols}
+%  對定義於有界 $\Omega\subseteq\mathbb{R}^n$ 之平滑緊致支撐函數 $u,\;v$ $\ds\int_{\Omega}u\,\partial^{\vaa}v\,\text{d}x = (-1)^{|\vaa|}\int_{\Omega}v\,\partial^{\vaa}u\,\text{d}x$
+%\end{prp}
 
-\begin{prp} 給定 $\ds\vx,\;\vy,\;\vh\in\mathbb{R}^n$, $\vaa,\,\vnu\in\mathbb{N}_0^n$, $f,\;g:\mathbb{R}^n\to\mathbb{R}$。 
-  \setlength{\columnsep}{-30mm}
-  \begin{multicols}{2}
-  \begin{itemize}\setlength{\itemsep}{0pt}
-    \item 多項式定理 $\ds\bigg(\sum_{j = 1}^n x_j\bigg)^k = \sum_{|\vaa| = k}\binom{k}{\vaa}\vx^{\vaa}$
-    \item 二項式定理 $\ds(\vx + \vy)^{\vaa} = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\vx^{\vnu}\vy^{\vaa - \vnu}$  
-    \item Leibnitz 公式 $\ds\partial^{\vaa}(f\,g) = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\partial^{\vnu}\!f\,\partial^{\vaa - \vnu}\!g$ 
-    \item Taylor 級數 $\ds f(\vx + \vh) = \sum_{\vaa\in\mathbb{N}_0^n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa}$  
-    \item Taylor 定理 $\ds f(\vx + \vh) = \sum_{|\vaa| < n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa} + R_n(\vx,\,\vh)$, $\ds R_n(\vx,\,\vh) = n\sum_{|\vaa| = n}\frac{\vh^{\vaa}}{\vaa!}\int_0^1 (1 - t)^n\,\partial^{\vaa}\!f(\vx + t\vh)\,\text{d}t$
+\begin{thm}[Taylor]
+  若 $f(x)\in C^k(a, b)$, $f^{(k - 1)}(x)$ 在 $[a, b]$ 連續, $1\leqslant k\leqslant N$, $x_0\in(a, b)$. 則 $\exists\,x_1$ 介於 $x$ 與 $x_0$ 間使 $\ds f(x) = f(x_0) + \sum_{k = 1}^{N - 1}\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(N)}(x_1)}{N!}(x - x_0)^N$。  
+\end{thm}
+
+%\begin{prf}
+%\end{prf}
+
+\begin{ex}
+  估計以 $3$ 階 MacLaurin 多項式作為 $\ds e^{\frac{1}{2}}$ 近似之誤差。
+\end{ex}
+
+\begin{sol}
+  由 $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$, $\ds e^{\frac{1}{2}} = 1 + \frac{1}{2} + \frac{1}{2!}\Big(\frac{1}{2}\Big)^2 + \frac{1}{3!}\Big(\frac{1}{2}\Big)^3\approx 1.64583$. 代入 Taylor 定理：$\ds x = \frac{1}{2}$, $x_0 = 0$, $f(x) = e^x$, $\ds f^{(k)}(x) = e^x,\;\forall\,k\in\mathbb{N}$, 故 $\ds\exists\,x_1\in\Big(0,\,\frac{1}{2}\Big)$ 使 $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}\,e^{x_1}$, 則誤差為 $\ds\frac{1}{4!}\Big(\frac{1}{2}\Big)^4\,e^{x_1} \leqslant \frac{1}{4!}\Big(\frac{1}{2}\Big)^4\,2 = \frac{1}{192}\approx 0.0052$. 
+\end{sol}
+
+\begin{ex}
+  應使用幾階 MacLaurin 多項式作為 $\ds e^1$ 之近似使誤差 $ < 0.005$？
+\end{ex}
+
+\begin{sol}
+  由 $f(x) = e^x$, $\ds f^{(k)}(x) = e^x\;\forall\,k\in\mathbb{N}$ 與 Taylor 定理，$\exists\,x_1\in(0, 1)$ 使 $\ds e = 1 + \sum_{k = 1}^{N - 1}\frac{1}{k!} + \frac{e^{x_1}}{N!}$。又 $e^{x_1} < 3$, 誤差項 $\ds\frac{e^{x_1}}{N!} < \frac{3}{N!} < 0.005\ie N! > \frac{3}{0.005} = 600 \ie N = 6$，故使用 $N - 1 = 5$ 階 MacLaurin 多項式作為 $\ds e^1$ 之近似：$\ds e^1 \approx 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!} = \frac{326}{120} \approx 2.72$.  
+\end{sol}
+
+\begin{ex}
+  $\ds f(x) = \begin{cases}e^{-\frac{1}{x^2}} & x\ne 0 \\ 0 & x = 0\end{cases}$，求 $f(x)$ 的 MacLaurin 級數。 
+\end{ex}
+
+\begin{sol}
+  由數學歸納法可得 $\ds f^{(n)}(x) = e^{-\frac{1}{x^2}}\frac{P_{2n - 2}(x)}{x^{3n}},\;n\in\mathbb{N}$，其中 $P_{2n - 2}(x)$ 為 $x$ 的 $2n - 2$ 次多項式。令 $\ds g\Big(\frac{1}{x}\Big) = \frac{P_{2n - 2}(x)}{x^{3n}}$，則 $g(y)$ 為 $y$ 的多項式 (變數變換 $\ds y = \frac{1}{x}$)，$\ds f^{(n)}(0) = \lim_{x\to 0}e^{-\frac{1}{x^2}}\frac{P_{2n - 2}(x)}{x^{3n}} = \lim_{y\to\pm\infty}e^{-y^2}g(y) = 0$。故 $f(x)$ 的 MacLaurin 級數為 $0$。
+\end{sol}
+
+\begin{thm}[Abel]
+  若 $\ds f(x) = \sum_{n = 0}^\infty a_n x^n,\;|x| < R$，且 $\ds\sum_{n = 0}^\infty a_n R^n$ 收斂，則 $\ds\lim_{x\to R-}f(x) = \sum_{n = 0}^\infty a_n R^n$。
+\end{thm}
+
+\begin{ex}
+  \begin{itemize}\setlength{\itemsep}{-1pt}
+    \item[]
+    \item $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$, $|x| < 1$。因 $\ds\sum_{n = 0}^\infty\frac{(-1)^n}{n + 1}$ 收斂，$\ds 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} +- \cdots = \lim_{x\to 1-}\ln(1 + x) = \ln 2$.
+    \item $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$。因 $\ds\sum_{n = 0}^\infty\frac{(-1)^n}{2 n + 1}$ 收斂，$\ds1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} +- \cdots = \lim_{x\to 1-}\tan^{-1}x = \tan^{-1}1 = \frac{\pi}{4}$.
   \end{itemize}
-  \end{multicols}
-  對定義於有界 $\Omega\subseteq\mathbb{R}^n$ 之平滑緊致支撐函數 $u,\;v$ $\ds\int_{\Omega}u\,\partial^{\vaa}v\,\text{d}x = (-1)^{|\vaa|}\int_{\Omega}v\,\partial^{\vaa}u\,\text{d}x$
-\end{prp}
+\end{ex}
+
+\begin{ex}
+  \begin{multicols}{2}
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item 若 $\ds f(x) = \tan^{-1}{x}$，求 $\ds f^{(99)}(0)$。
+    \item 若 $\ds f(x) = e^{-x^2}$，求 $\ds f^{(100)}(0)$。
+  \end{enumerate}
+\end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item[]
+    \item $\ds\tan^{-1}x = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1} = \sum_{n = 0}^\infty\frac{f^{(n)}(0)\,x^n}{n!}$, $|x| < 1$. 故 $\ds\frac{f^{(99)}(0)}{99!} = \frac{(-1)^{49}}{2\cdot 49 + 1} \ie f^{(99)}(0) = -(98!)$.
+    \item $\ds e^{-x^2} = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n}}{n!} = \sum_{n = 0}^\infty\frac{f^{(n)}(0)\,x^n}{n!}$, $\forall\,x\in\mathbb{R}$. 故 $\ds\frac{f^{(100)}(0)}{100!} = \frac{(-1)^{50}}{50!} \ie f^{(100)}(0) = \frac{100!}{50!}$.
+  \end{enumerate}
+\end{sol}
 
 \end{document}
