@@ -972,7 +972,7 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int_0^{\sqrt{3}}\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x$。
+  求 $\ds\int_0^{\sqrt{3}}\!\frac{4x}{\sqrt{1 + x^2}}\,\text{d}x$。
 \end{ex}
 
 \begin{sol}
@@ -1000,7 +1000,7 @@
 \end{ex}
 
 \begin{sol}
-  $\ds\int_a^b(x-a)(b-x)\,f''(x)\,\mathrm{d}x = \big((x - a)(b - x)\,f'(x) - (a + b - 2 x)\,f(x)\big)\,\Big|_a^b - 2\int_a^b f(x)\,\mathrm{d}x = \big((b - a)(b - b)\,f'(b) - (a + b - 2 b)\,f(b)\big) - \big((a - a)(b - a)\,f'(a) - (a + b - 2 a)\,f(a)\big) - 2\int_a^b f(x)\,\mathrm{d}x = -2\int_a^b f(x)\,\mathrm{d}x$。
+  $\ds\int_a^b\!(x-a)(b-x)\,f''(x)\,\mathrm{d}x = \big((x - a)(b - x)\,f'(x) - (a + b - 2 x)\,f(x)\big)\,\Big|_a^b - 2\int_a^b f(x)\,\mathrm{d}x = \big((b - a)(b - b)\,f'(b) - (a + b - 2 b)\,f(b)\big) - \big((a - a)(b - a)\,f'(a) - (a + b - 2 a)\,f(a)\big) - 2\int_a^b f(x)\,\mathrm{d}x = -2\int_a^b f(x)\,\mathrm{d}x$。
 
   \begin{minipage}{0.35\textwidth}
     \begin{tikzpicture}[yscale=0.75]
@@ -1021,25 +1021,25 @@
   \end{minipage}
   \hspace{5mm}
   \begin{minipage}{0.65\textwidth}
-    $\ds\int_a^b(x-a)(b-x)\,f''(x)\,\mathrm{d}x \\= \big((x - a)(b - x)\,f'(x) - (a + b - 2 x)\,f(x)\big) - 2\int\!f(x)\,\mathrm{d}x$
+    $\ds\int(x-a)(b-x)\,f''(x)\,\mathrm{d}x \\= \big((x - a)(b - x)\,f'(x) - (a + b - 2 x)\,f(x)\big) - 2\int\!f(x)\,\mathrm{d}x$
   \end{minipage}
 \end{sol}
 
 \begin{prp}
-  令 $\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau$，則 $\ds F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。
+  令 $\ds F(x) = \int_{v(x)}^{u(x)}\!f(\tau)\,\mathrm{d}\tau$，則 $\ds F'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。
 \end{prp}
 
 \begin{prf}
-  令 $a\in\mathbb{R}$，$\ds F(x) = \int_{v(x)}^{u(x)} f(\tau)\,\mathrm{d}\tau = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau$。令 $\ds G(x)\equiv\int_a^x f(\tau)\,\mathrm{d}\tau$，則 $\ds G'(x) = f(x)$，$\ds F(x) = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau = G(u(x)) - G(v(x))$；故 $\ds F'(x) = (G(u(x)) - G(v(x)))' = G'(u(x))\cdot u'(x) - G'(v(x))\cdot v'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。  
+  令 $a\in\mathbb{R}$，$\ds F(x) = \int_{v(x)}^{u(x)}\!f(\tau)\,\mathrm{d}\tau = \int_{a}^{u(x)}\!f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)}\!f(\tau)\,\mathrm{d}\tau$。令 $\ds G(x)\equiv\int_a^x f(\tau)\,\mathrm{d}\tau$，則 $\ds G'(x) = f(x)$，$\ds F(x) = \int_{a}^{u(x)} f(\tau)\,\mathrm{d}\tau - \int_{a}^{v(x)} f(\tau)\,\mathrm{d}\tau = G(u(x)) - G(v(x))$；故 $\ds F'(x) = (G(u(x)) - G(v(x)))' = G'(u(x))\cdot u'(x) - G'(v(x))\cdot v'(x) = f(u(x))\cdot u'(x) - f(v(x))\cdot v'(x)$。  
 \end{prf}
 
 \begin{ex} 
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item $\ds F(x) = \int_1^x\frac{1}{1 + \tau^4}\,\mathrm{d}\tau \ie F'(x) = \frac{1}{1 + x^4}$ 
-    \item $\ds F(x) = \int_2^{\sqrt{x}}\sin\tau\,\mathrm{d}\tau \ie F'(x) = \sin\sqrt{x}\cdot\frac{1}{2\sqrt{x}}$
-    \item $\ds F(x) = \int_{x}^{2x}\tau^3\,\mathrm{d}\tau \ie F'(x) = (2x)^3\cdot 2 - x^3\cdot 1 = 15x^3$
-    \item $\ds F(x) = \int_{\sin x}^{\tan^{-1}x}e^{\tau^2}\,\mathrm{d}\tau \ie F'(x) = e^{(\tan^{-1}x)^2}\cdot\frac{1}{1 + x^2} - e^{\sin^2 x}\cdot\cos x$
+    \item $\ds F(x) = \int_1^x\!\frac{1}{1 + \tau^4}\,\mathrm{d}\tau \ie F'(x) = \frac{1}{1 + x^4}$ 
+    \item $\ds F(x) = \int_2^{\sqrt{x}}\!\sin\tau\,\mathrm{d}\tau \ie F'(x) = \sin\sqrt{x}\cdot\frac{1}{2\sqrt{x}}$
+    \item $\ds F(x) = \int_{x}^{2x}\!\tau^3\,\mathrm{d}\tau \ie F'(x) = (2x)^3\cdot 2 - x^3\cdot 1 = 15x^3$
+    \item $\ds F(x) = \int_{\sin x}^{\tan^{-1}x}\!e^{\tau^2}\,\mathrm{d}\tau \ie F'(x) = e^{(\tan^{-1}x)^2}\cdot\frac{1}{1 + x^2} - e^{\sin^2 x}\cdot\cos x$
   \end{enumerate}
 \end{ex}
 
