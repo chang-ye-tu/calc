@@ -448,7 +448,7 @@
 \end{ex}
 
 \begin{sol}
-  顯然 $\dom f = \mathbb{R}$. 對 $x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $x_1 - x_2 = 0\ie x_1 = x_2$ 或 $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
+  顯然 $\dom f = \mathbb{R}$. 對 $x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $\ds x_1 - x_2 = 0\ie x_1 = x_2$ $\vee$ $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
 \end{sol}
 
 \section*{函數圖形}
@@ -1275,6 +1275,23 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     \end{itemize}
 \end{sol}
 
+\section*{Taylor 展開式}
+
+\begin{dfn}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 給定 $f\in C^\infty(a, b)$，$x_0\in(a, b)$，$\ds\sum_{n = 0}^\infty\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 Tayler 級數 / 展開式；若 $x_0 = 0$ 稱為 $f(x)$ 之 MacLaurin 級數 / 展開式。
+    \item 給定 $f\in C^N(a, b)$，$x_0\in(a, b)$, $0\leqslant n\leqslant N$，$\ds\sum_{k = 0}^n\frac{f^{(k)}(x_0)}{k!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 $n$ 階 Tayler 多項式；若 $x_0 = 0$ 稱為 $f(x)$ 之 $n$ 階 MacLaurin 多項式。
+  \end{itemize}
+\end{dfn}
+
+\begin{ex} 常用 Maclaurin 級數。
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item $\ds \frac{1}{1 - x} = 1 + x + x^2 + x^3 + x^4 + x^5 + x^6 + x^7 + \cdots = \sum_{n = 0}^\infty x^n$, $\forall\,|x| < 1$.
+    \item $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \frac{x^7}{7!} + \cdots = \sum_{n = 0}^\infty\frac{x^n}{n!}$, $\forall\,x\in\mathbb{R}$.
+  \end{enumerate}
+\end{ex}
+
 \section*{不定積分}
 
 \begin{dfn}[反導函數]
@@ -1665,13 +1682,10 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
     \item $\ds\int_{-\sqrt{2}}^{\sqrt{2}} \sqrt{2 - x^2}\,\mathrm{d}x = \pi$ (半徑 $\sqrt{2}$ 之半圓面積) 
-    \item $\ds\int_{-1}^2 \sgn(x)\,\mathrm{d}x = 2\cdot 1 - 1\cdot 1 = 1$; $\ds\sgn(x)\equiv\begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases}$ 
     \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\mathrm{d}x = 0$ ($e^{x} - e^{-x}$ 為奇函數) 
     \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\mathrm{d}x = 0$ ($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數)  
     \item $\ds\int_{-a}^a |x|\,\mathrm{d}x = 2\int_0^a |x|\,\mathrm{d}x = a^2$ ($|x|$ 為偶函數; 兩 $a\times a$ 等腰直角三角形面積) 
     \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\mathrm{d}\tau\equiv\ln x$, 則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\mathrm{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\mathrm{d}x + \int_1^3 \frac{1}{x}\,\mathrm{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\mathrm{d}x + \int_1^3\frac{1}{x}\,\mathrm{d}x = \ln 12$
-    \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\mathrm{d}x = \int_0^1\sqrt{4 - x^2}\,\text{d}x - \int_1^2\sqrt{4 - x^2}\,\text{d}x = \Big(\frac{4\pi}{12} + \frac{\sqrt{3}}{2}\Big) - \Big(\frac{4\pi}{6} - \frac{\sqrt{3}}{2}\Big) = \sqrt{3} - \frac{\pi}{3}$ 
-    \item $\ds\forall\,n\in\mathbb{N},\;\int_n^{n+1}\floor{x}\,\mathrm{d}x = n$ 
   \end{enumerate}
 \end{ex}
 
@@ -1730,7 +1744,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 \end{sol}
 
 \begin{ex}
-  若 $f$ 在 $[a, b]$ 二次可微且 $f(a) = f(b) = 0$, 證明 $\ds\int_a^b\!(x-a)(b-x)\,f''(x)\,\mathrm{d}x = -2\int_a^b\!f(x)\,\mathrm{d}x$. 
+  若 $f$ 在 $[a, b]$ 二次可微且 $f(a) = f(b) = 0$, 證明 $\ds\int_a^b\!(x-a)(b-x)\,f''(x)\,\mathrm{d}x = -2\int_a^b\!f(x)\,\mathrm{d}x$.
 \end{ex}
 
 \begin{sol}

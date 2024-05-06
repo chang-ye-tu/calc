@@ -276,7 +276,17 @@
   \item 在短時間區間 $\Delta t$ 內, 發生兩次以上事件的機率可忽略. 
   \item 在不重疊之時間區間內, 事件各自發生的次數為獨立. 
 \end{enumerate}
-令 $\ds P(k,\,T)$ 為在時間區間 $T$ 中發生 $k$ 次事件的機率. 由 (i) $\ds P(1,\,\Delta t) = \lambda\,\Delta t$, 由 (ii) $\ds P(k,\,\Delta t) = 0$, $k\geqslant 2$. 將 $T$ 分割成 $N$ 個短時間區段，亦即 $\ds T = N\Delta t$. 由 (iii) 「在不重疊之時間區間內, 事件各自發生的次數為獨立」可知 $\ds P(k,\,T) = \binom{N}{k}(\lambda\,\Delta t)^k(1 - \lambda\,\Delta t)^{N - k} = \frac{N(N - 1)\cdots(N - k + 1)}{k!}\,\frac{(\lambda\,T)^k}{N^k}\,\frac{\big(1 - \frac{\lambda\,T}{N}\big)^N}{\big(1 - \frac{\lambda\,T}{N}\big)^k}$. 固定 $k$, 當 $N\to\infty$ 時 $\ds\Big(1 + \frac{\alpha}{N}\Big)^N \to e^{\alpha} \ie P(k,\,T) \to \frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T}$. 由此可知 Poisson 分配是二項分配 ${\sf B}(N,\,p,\,q)$ 的一種極限, 其中 $N\,p = \lambda\,T$, 然後 $N\to\infty$. 另外, 我們通常令 $\lambda\,T = m$; $m$ 表示在時間區間 $T$ 中的平均發生次數. 
+令 $\ds P(k,\,T)$ 為在時間區間 $T$ 內發生 $k$ 次事件的機率. 由 (i) $\ds P(1,\,\Delta t) = \lambda\,\Delta t$, 由 (ii) $\ds P(k,\,\Delta t) = 0$, $k\geqslant 2$. 將 $T$ 分割成 $n$ 個短時間區段, 亦即 $\ds T = n\Delta t$. 由 (iii) 「在不重疊之時間區間內, 事件各自發生的次數為獨立」 
+\begin{align*}
+  P(k,\,T) \approx \binom{n}{k}\,(\lambda\,\Delta t)^k\,(1 - \lambda\,\Delta t)^{n - k} = \frac{n(n - 1)\cdots(n - k + 1)}{k!}\,\frac{(\lambda\,T)^k}{n^k}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k}
+\end{align*}
+固定 $k$, 令 $n\to\infty$ 時上式極限趨近於真實 $\ds P(k,\,T)$，亦即
+\begin{align*}
+  P(k,\,T) &= \lim_{n\to\infty}\frac{n(n - 1)\cdots(n - k + 1)}{k!}\,\frac{(\lambda\,T)^k}{n^k}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} \\
+  &= \lim_{n\to\infty}\underbrace{\frac{n}{n}\,\frac{n - 1}{n}\cdots\frac{n - k + 1}{n}}_{\text{共 $k$ 項}}\,\frac{(\lambda\,T)^k}{k!}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} \\
+  &= \lim_{n\to\infty}1\,\Big(1 - \frac{1}{n}\Big)\cdots\Big(1 - \frac{k - 1}{n}\Big)\,\frac{(\lambda\,T)^k}{k!}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} = \frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T}
+\end{align*}
+其中 $\ds\lim_{n\to\infty}\Big(1 - \frac{\lambda\,T}{n}\Big)^n = \lim_{n\to\infty}\Big(1 + \frac{-\lambda\,T}{n}\Big)^n = e^{-\lambda\,T}$. 由此推導 Poisson 分配是二項分配 ${\sf B}(n,\,p)$ 的極限, 固定 $n\,p = \lambda\,T$ 後再取 $n\to\infty$. 我們常令 $\lambda\,T = \mu$; $\mu$ 表示在時間區間 $T$ 內的平均發生次數. 
 
 \myline
 
@@ -285,7 +295,7 @@
   \begin{multicols}{2}
     \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
       \item 證明 $\ds\sum_{k = 0}^{\infty} P(k,T) = 1$.
-      \item 令 $\ds P_X(k) = \frac{m^k}{k!}e^{-m}$, $k = 1,\,2,\,3,\,\cdots$. 求 $\expc\{X\}$ 與 $\var\{X\}$.
+      \item 令 $\ds P_X(k) = \frac{\mu^k}{k!}e^{-\mu}$, $k = 1,\,2,\,3,\,\cdots$. 求 $\expc\{X\}$ 與 $\var\{X\}$.
     \end{enumerate}
   \end{multicols}
 \end{ex}
@@ -293,8 +303,8 @@
 \begin{sol} 由 $e^x$ 之 MacLaurin 展開式 $\ds e^x = \sum_{k = 0}^{\infty}\frac{x^k}{k!}$, 代入 $x = \lambda\,T$ 得 $\ds e^{\lambda\,T} = \sum_{k = 0}^{\infty}\frac{(\lambda\,T)^k}{k!}$.
   \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
     \item $\ds\sum_{k = 0}^{\infty} P(k,T) = \sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\cdot e^{\lambda\,T} = 1$.
-    \item $\ds\expc\{X\} = \sum_{k = 0}^\infty k\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\cdot\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = \lambda\,T\cdot e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!} = \lambda\,T = m$.\\ 
-    $\ds\expc\{X^2\} = \sum_{k = 0}^\infty k^2\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\sum_{k = 1}^\infty k^2\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{(k - 1)!} = e^{-\lambda\,T}\sum_{k = 0}^\infty (k + 1)\frac{(\lambda\,T)^{k + 1}}{k!} \\= e^{-\lambda\,T}\sum_{k = 0}^\infty k\frac{(\lambda\,T)^{k + 1}}{k!} + e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty\frac{(\lambda\,T)^{k + 1}}{(k - 1)!} + \lambda = e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 2}}{k!} + \lambda = (\lambda\,T)^2 + \lambda\,T = m^2 + m$. 故 $\ds\var\{X\} = \expc\{X^2\} - (\expc\{X\})^2 = m^2 + m - m^2 = m$.
+    \item $\ds\expc\{X\} = \sum_{k = 0}^\infty k\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\cdot\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = \lambda\,T\cdot e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!} = \lambda\,T = \mu$.\\ 
+    $\ds\expc\{X^2\} = \sum_{k = 0}^\infty k^2\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\sum_{k = 1}^\infty k^2\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{(k - 1)!} = e^{-\lambda\,T}\sum_{k = 0}^\infty (k + 1)\frac{(\lambda\,T)^{k + 1}}{k!} \\= e^{-\lambda\,T}\sum_{k = 0}^\infty k\frac{(\lambda\,T)^{k + 1}}{k!} + e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty\frac{(\lambda\,T)^{k + 1}}{(k - 1)!} + \lambda = e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 2}}{k!} + \lambda = (\lambda\,T)^2 + \lambda\,T = \mu^2 + \mu$. 故 $\ds\var\{X\} = \expc\{X^2\} - (\expc\{X\})^2 = \mu^2 + \mu - \mu^2 = \mu$.
   \end{enumerate}
 \end{sol}
 
@@ -310,7 +320,7 @@
 \end{ex}
 
 \begin{sol}
-  每小時 20 通, 則每分鐘平均 $\lambda = \frac{1}{3}$ 通; 在 5 分鐘時間區間中, 平均電話通數為 $m = \lambda\,T = \frac{1}{3}\times 5 = \frac{5}{3}$. 故 $\ds P(k)\equiv P(k,\,5) = \frac{(\frac{5}{3})^k}{k!} e^{-\frac{5}{3}},\quad k=0,\,1,\,2,\,\cdots$.  
+  來電數每小時 20 通, 則平均每分鐘來電數 $\lambda = \frac{1}{3}$; 在 5 分鐘時間區間內, 平均來電數 $\mu = \lambda\,T = \frac{1}{3}\times 5 = \frac{5}{3}$. 故 5 分鐘內來電 $k$ 通機率 $\ds P(k)\equiv P(k,\,5) = \frac{(\frac{5}{3})^k}{k!} e^{-\frac{5}{3}},\quad k=0,\,1,\,2,\,\cdots$.  
   \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
     \item 無來電之機率 $\ds P(0)= e^{-\frac{5}{3}}\approx 0.19$.
     \item 4 通來電之機率為 $\ds P(4)=\frac{(\frac{5}{3})^4}{4!}e^{-\frac{5}{3}}\approx 0.06$. 
@@ -325,7 +335,7 @@
 \end{exe}
 
 \begin{sol}
-  Let $N$ be the number of claims filed; we have $\ds\prb\{N = 2\} = \frac{e^{-m}m^2}{2!} = 3\,\prb\{N = 4\} = \frac{e^{-m}m^4}{4!} \ie \frac{1}{2}m^2 = \frac{3}{24}m^4 \ie m^2 = 4 \ie m = 2$. 
+  Let $N$ be the number of claims filed; we have $\ds\prb\{N = 2\} = \frac{e^{-\mu}\mu^2}{2!} = 3\,\prb\{N = 4\} = \frac{e^{-\mu}\mu^4}{4!} \ie \frac{1}{2}\mu^2 = \frac{3}{24}\mu^4 \ie \mu^2 = 4 \ie \mu = 2$. 
 \end{sol}
 
 \begin{exe}[2024.q.60]
@@ -344,7 +354,7 @@
   From the Law of Total Probability, the required probability is 
   \begin{align*}
     &\sum_{k = 0}^\infty\prb(\text{$0$ accidents with an uninsured driver}\,|\,\text{$k$ accidents})\,\prb(\text{$k$ accidents}) \\
-    &\quad = \sum_{k = 0}^\infty 0.75^k\,\frac{e^{-5}{5^k}}{k!} = e^{-5}\sum_{k = 0}^\infty \frac{(0.75\cdot 5)^k}{k!} = e^{-5}\,e^{0.75\cdot 5} \approx 0.287
+    &\quad = \sum_{k = 0}^\infty 0.75^k\,\frac{e^{-5}{5^k}}{k!} = e^{-5}\sum_{k = 0}^\infty \frac{(0.75\cdot 5)^k}{k!} = e^{-5}\,e^{0.75\cdot 5} = e^{-1.25} \approx 0.287
   \end{align*}
 \end{sol}
 

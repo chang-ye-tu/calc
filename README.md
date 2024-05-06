@@ -12,7 +12,7 @@
 - [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
   - [Calculus Notes.](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,N)
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
-  - [Practice Problems (With Solutions).]( https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S )
+  - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 -->
 
 ## 其他可合法下載參考文獻
@@ -199,12 +199,12 @@
 | 04/09, 04/11        | CLP2 3.3, 3.4                  |
 | 04/16, 04/18 期中考 | CLP2 3.5                       |
 | 04/23, 04/25        | CLP2 3.6, CLP3 2.6             |
-| 04/30, 05/02        | CLP3                           |
-| 05/07, 05/09        | CLP3                           |
-| 05/14, 05/16        | CLP3                           |
-| 05/21, 05/23        | CLP3                           |
-| 05/28, 05/30        | CLP3                           |
-| 06/04, 06/06        | CLP3                           |
+| 04/30, 05/02        | CLP3 3.1, 3.2                  |
+| 05/07, 05/09        | CLP3 3.2                       |
+| 05/14, 05/16        | CLP3 3.4                       |
+| 05/21, 05/23        | CLP3 3.5                       |
+| 05/28, 05/30        | CLP3 3.6                       |
+| 06/04, 06/06        | CLP3 3.7                       |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06/13 學期考 |                                 |
 
 ## 授課教師
