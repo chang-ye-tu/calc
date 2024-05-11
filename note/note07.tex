@@ -353,7 +353,7 @@
       \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x$
       \item $\ds\int_1^2\!\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x\,\text{d}y$
       \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y$
-      \item $\ds\int_0^1\!\int_0^z\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z$
+    %  \item $\ds\int_0^1\!\int_0^z\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z$
     \end{enumerate}
   \end{multicols}
 \end{exe}
@@ -369,14 +369,23 @@
     \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x = \int_0^1\!\bigg(x^2y + \frac{y^3}{3}\bigg)\,\bigg|_{y = x^2}^{y = x^3}\,\text{d}x = \int_0^1\!\bigg(x^2\cdot x^3 + \frac{x^9}{3} - x^2\cdot x^2 - \frac{x^6}{3}\bigg)\,\text{d}x \\= \bigg(\frac{x^6}{6} + \frac{x^{10}}{30} - \frac{x^5}{5} - \frac{x^7}{21}\bigg)\,\bigg|_0^1 = -\frac{1}{21}$
     \item $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x$ 中, 令 $\ds u = y^2 - x^2$, 則 $\ds\text{d}u = -2x\,\text{d}x\ie x\,\text{d}x = \frac{-1}{2}\,\text{d}u$. 積分範圍 $x$ 由 $0$ 至 $y$, 則變數變換 $u = y^2 - x^2$ 由 $y^2 - 0^2 = y^2$ 至 $y^2 - y^2 = 0$. 則 $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x = \int_{y^2}^0\!\!\sqrt{u}\,\frac{-1}{2}\,\text{d}u = \frac{1}{2}\int_0^{y^2}\!\!\!\sqrt{u}\,\text{d}u = \frac{1}{2}\,\frac{2}{3}u^{\frac{3}{2}}\,\Big|_0^{y^2} = \frac{y^3}{3}$. 故 $\ds\int_1^2\!\!\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x\,\text{d}y = \int_1^2\!\frac{y^3}{3}\,\text{d}y = \frac{y^4}{12}\,\Big|_1^2 = \frac{5}{4}$.
     \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y = \int_0^1\!\sqrt{y}\,\bigg(\int_{y^4}^{y^2}\!\!\frac{1}{\sqrt{x}}\,\text{d}x\bigg)\,\text{d}y = \int_0^1\!\sqrt{y}\,(2\sqrt{x})\,\Big|_{y^4}^{y^2}\,\text{d}y = 2\int_0^1\!\big(y^{\frac{3}{2}} - y^{\frac{5}{2}}\big)\,\text{d}y \\= 2\,\bigg(\frac{2}{5}\,y^{\frac{5}{2}} - \frac{2}{7}\,y^{\frac{7}{2}}\bigg)\,\bigg|_0^1 = \frac{8}{35}$
-    \item $\ds\int_0^1\!\int_0^z\!\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\int_0^y\!(x + y + z)\,\text{d}x\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\frac{x^2}{2} + (y + z)x\bigg)\,\bigg|_{x = 0}^{x = y}\,\text{d}y\,\text{d}z \\ = \int_0^1\!\int_0^z\!\bigg(\frac{3y^2}{2} + zy\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\bigg(\frac{y^3}{2} + \frac{zy^2}{2}\bigg)\,\bigg|_{y = 0}^{y = z}\,\text{d}z = \int_0^1\!z^3\,\text{d}z = \frac{1}{4}$
+   % \item $\ds\int_0^1\!\int_0^z\!\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\int_0^y\!(x + y + z)\,\text{d}x\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\frac{x^2}{2} + (y + z)x\bigg)\,\bigg|_{x = 0}^{x = y}\,\text{d}y\,\text{d}z \\ = \int_0^1\!\int_0^z\!\bigg(\frac{3y^2}{2} + zy\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\bigg(\frac{y^3}{2} + \frac{zy^2}{2}\bigg)\,\bigg|_{y = 0}^{y = z}\,\text{d}z = \int_0^1\!z^3\,\text{d}z = \frac{1}{4}$
   \end{enumerate}
 \end{sol}
 
 \subsubsection*{一般積分區域}
 
+\begin{fact}[基本區域積分]
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 選擇積分方向 $v$: 延 $x$ 方向為 $\text{d}x$, 延 $y$ 方向為 $\text{d}y$. 
+    \item 想像積分方向 $v$ 為一射線, 進入區域之邊界函數為積分下界, 離開區域之邊界函數為積分上界; 邊界函數本身不含變數 $v$. 
+    \item 次第積分區域為原始積分區域延 $v$ 之投影, 亦即令 $v = 0$ 之方程式; 積分方向選擇如上步驟. 
+  \end{enumerate}
+\end{fact}
+
 \begin{minipage}{0.4\textwidth}
-\begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=2]
   \draw[thick,->,>=stealth] (-0.5,0.5) -- (2.5,0.5);
   \node[right] at (2.5,0.5) {$x$};
   \draw[thick,->,>=stealth] (0,0.2) -- (0,2.5);
@@ -398,7 +407,9 @@
 \begin{minipage}{0.6\textwidth}
   $\ds\int_\Omega f(x, y)\,\text{d}A = \int_a^b\!\int_{g_1(x)}^{g_2(x)}f(x, y)\,\text{d}y\,\text{d}x$
 \end{minipage}
+
 \quad
+
 \begin{minipage}{0.4\textwidth}
   \begin{tikzpicture}[scale=2]
     \draw[thick,->,>=stealth] (-1.05,0.2) --(2,0.2);
@@ -724,7 +735,7 @@
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item 證明 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y = \sum_{n = 1}^\infty\frac{1}{n^2}$.
-      \item 變數變換 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y$, 證明 $\ds\sum_{n = 1}^\infty\frac{1}{n^2} = \frac{\pi^2}{6}$.
+      \item 以變數變換證明 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y = \frac{\pi^2}{6}$.
     \end{enumerate}
   \end{multicols}
 \end{ex}
@@ -733,10 +744,9 @@
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
     \item $\ds|xy| < 1$ 時 $\ds\frac{1}{1 - xy} = \sum_{n = 0}^\infty(xy)^n$ 且可逐項積分; 代入 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y = \int_0^1\!\int_0^1\sum_{n = 0}^\infty(xy)^n\,\text{d}x\,\text{d}y = \sum_{n = 0}^\infty\int_0^1\! x^n\,\text{d}x\int_0^1\!y^n\,\text{d}y = \sum_{n = 0}^\infty\frac{1}{(n + 1)^2} = \sum_{n = 1}^\infty\frac{1}{n^2}$.
-    \item 令 $\ds\begin{cases}x = \frac{u - v}{\sqrt{2}} \\ y = \frac{u + v}{\sqrt{2}}\end{cases}\!\!\!\!\!$; Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u}& \frac{\partial y}{\partial v}\end{vmatrix} = \begin{vmatrix}\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{vmatrix} = 1$. 變數變換前積分區域由 $x = 0$, $x = 1$, $y = 0$, $y = 1$ 所圍成, 變數變換 $(x,\,y)\to(u,\,v)$ 後積分區域由 $u - v = 0$, $u - v = \sqrt{2}$, $u + v = 0$, $u + v = \sqrt{2}$ 圍成, 故 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y = \int_0^{\frac{\sqrt{2}}{2}}\!\!\int_{-u}^u\frac{\text{d}v\,\text{d}u}{1 - \frac{u - v}{\sqrt{2}}\frac{u + v}{\sqrt{2}}} + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\int_{-\sqrt{2} + u}^{\sqrt{2} - u}\frac{\text{d}v\,\text{d}u}{1 - \frac{u - v}{\sqrt{2}}\frac{u + v}{\sqrt{2}}} = 2\left(\int_0^{\frac{\sqrt{2}}{2}}\!\!\int_{-u}^u\frac{\text{d}v\,\text{d}u}{2 - u^2 + v^2} + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\int_{-\sqrt{2} + u}^{\sqrt{2} - u}\frac{\text{d}v\,\text{d}u}{2 - u^2 + v^2}\right) = 2\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\bigg(\tan^{-1}\frac{v}{\sqrt{2 - u^2}}\,\bigg|_{v = -u}^{v = u}\bigg)\,\text{d}u \\ + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\bigg(\tan^{-1}\frac{v}{\sqrt{2 - u^2}}\,\bigg|_{v = -\sqrt{2} + u}^{v = \sqrt{2} - u}\bigg)\,\text{d}u\bigg) \\ = 4\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{u}{\sqrt{2 - u^2}}\,\text{d}u + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{\sqrt{2} - u}{\sqrt{2 - u^2}}\,\text{d}u\bigg)$. 令 $u = \sqrt{2}\,\sin\theta$, 則 $\text{d}u = \sqrt{2}\,\cos\theta\,\text{d}\theta$; 化簡 $\ds 4\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{u}{\sqrt{2 - u^2}}\,\text{d}u + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{\sqrt{2} - u}{\sqrt{2 - u^2}}\,\text{d}u\bigg) \\= 4\,\bigg(\int_0^{\frac{\pi}{6}}\tan^{-1}(\tan\theta)\,\text{d}\theta + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\tan^{-1}\Big(\frac{1 - \sin\theta}{\cos\theta}\Big)\,\text{d}\theta\bigg) = 4\,\bigg(\int_0^{\frac{\pi}{6}}\theta\,\text{d}\theta + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\frac{1}{2}\,\Big(\frac{\pi}{2} - \theta\Big)\,\text{d}\theta\bigg) = \frac{\pi^2}{6}$; 其中 $\ds\frac{1 - \sin\theta}{\cos\theta} = \frac{1 - \cos\big(\frac{\pi}{2} - \theta\big)}{\sin\big(\frac{\pi}{2} - \theta\big)} = \frac{2\,\sin^2\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)}{2\,\sin\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)\,\cos\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)} = \tan\frac{1}{2}\Big(\frac{\pi}{2} - \theta\Big)$.
+    \item 令 $\ds\begin{cases}x = \frac{u - v}{\sqrt{2}} \\ y = \frac{u + v}{\sqrt{2}}\end{cases}\!\!\!\!\!$; Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u}& \frac{\partial y}{\partial v}\end{vmatrix} = \begin{vmatrix}\frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{vmatrix} = 1$. 變數變換前積分區域由 $x = 0$, $x = 1$, $y = 0$, $y = 1$ 所圍成, 變數變換 $(x,\,y)\to(u,\,v)$ 後積分區域由 $u - v = 0$, $u - v = \sqrt{2}$, $u + v = 0$, $u + v = \sqrt{2}$ 圍成, 故 $\ds\int_0^1\!\int_0^1\!\frac{1}{1 - xy}\,\text{d}x\,\text{d}y = \int_0^{\frac{\sqrt{2}}{2}}\!\!\int_{-u}^u\frac{\text{d}v\,\text{d}u}{1 - \frac{u - v}{\sqrt{2}}\frac{u + v}{\sqrt{2}}} + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\int_{-\sqrt{2} + u}^{\sqrt{2} - u}\frac{\text{d}v\,\text{d}u}{1 - \frac{u - v}{\sqrt{2}}\frac{u + v}{\sqrt{2}}} = 2\left(\int_0^{\frac{\sqrt{2}}{2}}\!\!\int_{-u}^u\frac{\text{d}v\,\text{d}u}{2 - u^2 + v^2} + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\int_{-\sqrt{2} + u}^{\sqrt{2} - u}\frac{\text{d}v\,\text{d}u}{2 - u^2 + v^2}\right) = 2\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\bigg(\tan^{-1}\frac{v}{\sqrt{2 - u^2}}\,\bigg|_{v = -u}^{v = u}\bigg)\,\text{d}u \\ + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\bigg(\tan^{-1}\frac{v}{\sqrt{2 - u^2}}\,\bigg|_{v = -\sqrt{2} + u}^{v = \sqrt{2} - u}\bigg)\,\text{d}u\bigg) \\ = 4\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{u}{\sqrt{2 - u^2}}\,\text{d}u + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{\sqrt{2} - u}{\sqrt{2 - u^2}}\,\text{d}u\bigg)$. 令 $u = \sqrt{2}\,\sin\theta$, 則 $\text{d}u = \sqrt{2}\,\cos\theta\,\text{d}\theta$; 化簡 $\ds 4\,\bigg(\int_0^{\frac{\sqrt{2}}{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{u}{\sqrt{2 - u^2}}\,\text{d}u + \int_{\frac{\sqrt{2}}{2}}^{\sqrt{2}}\!\!\frac{1}{\sqrt{2 - u^2}}\tan^{-1}\frac{\sqrt{2} - u}{\sqrt{2 - u^2}}\,\text{d}u\bigg) \\= 4\,\bigg(\int_0^{\frac{\pi}{6}}\tan^{-1}(\tan\theta)\,\text{d}\theta + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\tan^{-1}\Big(\frac{1 - \sin\theta}{\cos\theta}\Big)\,\text{d}\theta\bigg) = 4\,\bigg(\int_0^{\frac{\pi}{6}}\theta\,\text{d}\theta + \int_{\frac{\pi}{6}}^{\frac{\pi}{2}}\frac{1}{2}\,\Big(\frac{\pi}{2} - \theta\Big)\,\text{d}\theta\bigg) = \frac{\pi^2}{6}$; 其中 $\ds\frac{1 - \sin\theta}{\cos\theta} = \frac{1 - \cos\big(\frac{\pi}{2} - \theta\big)}{\sin\big(\frac{\pi}{2} - \theta\big)} = \frac{2\,\sin^2\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)}{2\,\sin\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)\cos\frac{1}{2}\big(\frac{\pi}{2} - \theta\big)} = \tan\frac{1}{2}\Big(\frac{\pi}{2} - \theta\Big)$.
   \end{enumerate}
 \end{sol}
-
 
 \subsection*{極座標二重積分}
 
@@ -766,7 +776,18 @@
   變數變換 $(x,\,y)\to(r,\,\theta)$ 後 $\Omega$ 由 $r = a$, $r = b$, $\theta = 0$, $\ds\theta = \frac{\pi}{4}$ 圍成, 故 $\ds\int_\Omega\frac{y^2}{x^2}\,\text{d}A = \int_0^{\frac{\pi}{4}}\!\int_a^b\!\tan^2\theta\cdot r\,\text{d}r\,\text{d}\theta = \frac{b^2 - a^2}{2}\int_0^{\frac{\pi}{4}}\tan^2\theta\,\text{d}\theta = \frac{b^2 - a^2}{2}\int_0^{\frac{\pi}{4}}(\sec^2\theta - 1)\,\text{d}\theta = \frac{b^2 - a^2}{2}(\tan\theta - \theta)\,\Big|_{0}^{\frac{\pi}{4}} = \frac{b^2 - a^2}{2}\Big(1 - \frac{\pi}{4}\Big)$.
 \end{sol}
 
+\begin{ex}
+  求 $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x$. 
+\end{ex}
+
+\begin{sol}
+  $\ds\bigg(\int_0^\infty\!e^{-x^2}\,\text{d}x\bigg)^2 = \bigg(\int_0^\infty\!e^{-x^2}\,\text{d}x\bigg)\bigg(\int_0^\infty\!e^{-y^2}\,\text{d}y\bigg) = \int_0^\infty\!\!\!\int_0^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y$. 極座標變數變換得 \\$\ds\int_0^\infty\!\!\!\int_0^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y = \lim_{R\to\infty}\int_0^{\frac{\pi}{2}}\!\!\!\int_0^R\!\!e^{-r^2}r\,\text{d}r\,\text{d}\theta = \frac{\pi}{2}\lim_{R\to\infty}\!\!\bigg(\frac{-e^{-r^2}}{2}\,\bigg|_0^R\bigg) = \frac{\pi}{4}$, 故$\ds\int_0^\infty\!e^{-x^2}\,\text{d}x = \frac{\sqrt{\pi}}{2}$.
+\end{sol}
+
 %\section*{7.2 三重積分}
+%
+%\subsection*{逐次積分}
+
 %\section*{7.3 綜合例題}
 
 \end{document}
