@@ -369,7 +369,6 @@
     \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x = \int_0^1\!\bigg(x^2y + \frac{y^3}{3}\bigg)\,\bigg|_{y = x^2}^{y = x^3}\,\text{d}x = \int_0^1\!\bigg(x^2\cdot x^3 + \frac{x^9}{3} - x^2\cdot x^2 - \frac{x^6}{3}\bigg)\,\text{d}x \\= \bigg(\frac{x^6}{6} + \frac{x^{10}}{30} - \frac{x^5}{5} - \frac{x^7}{21}\bigg)\,\bigg|_0^1 = -\frac{1}{21}$
     \item $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x$ 中, 令 $\ds u = y^2 - x^2$, 則 $\ds\text{d}u = -2x\,\text{d}x\ie x\,\text{d}x = \frac{-1}{2}\,\text{d}u$. 積分範圍 $x$ 由 $0$ 至 $y$, 則變數變換 $u = y^2 - x^2$ 由 $y^2 - 0^2 = y^2$ 至 $y^2 - y^2 = 0$. 則 $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x = \int_{y^2}^0\!\!\sqrt{u}\,\frac{-1}{2}\,\text{d}u = \frac{1}{2}\int_0^{y^2}\!\!\!\sqrt{u}\,\text{d}u = \frac{1}{2}\,\frac{2}{3}u^{\frac{3}{2}}\,\Big|_0^{y^2} = \frac{y^3}{3}$. 故 $\ds\int_1^2\!\!\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x\,\text{d}y = \int_1^2\!\frac{y^3}{3}\,\text{d}y = \frac{y^4}{12}\,\Big|_1^2 = \frac{5}{4}$.
     \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y = \int_0^1\!\sqrt{y}\,\bigg(\int_{y^4}^{y^2}\!\!\frac{1}{\sqrt{x}}\,\text{d}x\bigg)\,\text{d}y = \int_0^1\!\sqrt{y}\,(2\sqrt{x})\,\Big|_{y^4}^{y^2}\,\text{d}y = 2\int_0^1\!\big(y^{\frac{3}{2}} - y^{\frac{5}{2}}\big)\,\text{d}y \\= 2\,\bigg(\frac{2}{5}\,y^{\frac{5}{2}} - \frac{2}{7}\,y^{\frac{7}{2}}\bigg)\,\bigg|_0^1 = \frac{8}{35}$
-   % \item $\ds\int_0^1\!\int_0^z\!\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\int_0^y\!(x + y + z)\,\text{d}x\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\frac{x^2}{2} + (y + z)x\bigg)\,\bigg|_{x = 0}^{x = y}\,\text{d}y\,\text{d}z \\ = \int_0^1\!\int_0^z\!\bigg(\frac{3y^2}{2} + zy\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\bigg(\frac{y^3}{2} + \frac{zy^2}{2}\bigg)\,\bigg|_{y = 0}^{y = z}\,\text{d}z = \int_0^1\!z^3\,\text{d}z = \frac{1}{4}$
   \end{enumerate}
 \end{sol}
 
@@ -777,17 +776,74 @@
 \end{sol}
 
 \begin{ex}
-  求 $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x$. 
+  求 $\ds\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x$. 
 \end{ex}
 
 \begin{sol}
-  $\ds\bigg(\int_0^\infty\!e^{-x^2}\,\text{d}x\bigg)^2 = \bigg(\int_0^\infty\!e^{-x^2}\,\text{d}x\bigg)\bigg(\int_0^\infty\!e^{-y^2}\,\text{d}y\bigg) = \int_0^\infty\!\!\!\int_0^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y$. 極座標變數變換得 \\$\ds\int_0^\infty\!\!\!\int_0^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y = \lim_{R\to\infty}\int_0^{\frac{\pi}{2}}\!\!\!\int_0^R\!\!e^{-r^2}r\,\text{d}r\,\text{d}\theta = \frac{\pi}{2}\lim_{R\to\infty}\!\!\bigg(\frac{-e^{-r^2}}{2}\,\bigg|_0^R\bigg) = \frac{\pi}{4}$, 故$\ds\int_0^\infty\!e^{-x^2}\,\text{d}x = \frac{\sqrt{\pi}}{2}$.
+  $\ds\bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)^2 = \bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)\bigg(\int_{-\infty}^\infty\!e^{-y^2}\,\text{d}y\bigg) = \int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y$. 變數變換 $(x,\,y)\to(r,\,\theta)$ 後得 $\ds\int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y = \int_0^{2\pi}\!\!\!\int_0^\infty\!\!e^{-r^2}r\,\text{d}r\,\text{d}\theta = 2\pi\,\bigg(\frac{-e^{-r^2}}{2}\,\bigg|_0^\infty\bigg) = \pi$, 故$\ds\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x = \sqrt{\pi}$.
 \end{sol}
 
-%\section*{7.2 三重積分}
-%
-%\subsection*{逐次積分}
+\begin{ex}[$\Gamma$ 函數]
+  \setlength{\columnsep}{-2mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item[]
+      \item 證明 $\ds\Gamma(x)\equiv\int_0^\infty\!t^{x - 1}e^{-t}\,\mathrm{d}t$ 收斂, $\ds\forall\,x > 0$. 
+      \item 證明 $\ds\Gamma(x + 1) = x\,\Gamma(x)$, $\ds\forall\,x > 0$. 
+      \item 證明 $\ds\Gamma(n + 1) = n!$, $\ds\forall\,n\in\mathbb{N}$. 
+      \item 求 $\ds\Gamma\Big(\frac{1}{2}\Big)$ 與 $\ds\Gamma\Big(\frac{3}{2}\Big)$. 
+      \item 求 $\ds\int_0^\infty\!t\,e^{-\alpha\,t^2}\,\mathrm{d}t$ 與 $\ds\int_0^\infty\!t^2\,e^{-\alpha\,t^2}\,\mathrm{d}t$, $\alpha > 0$. 
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
 
-%\section*{7.3 綜合例題}
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item (證一)  由 $\ds\lim_{t\to\infty}t^{x-1}e^{-\frac{t}{2}} = 0$, $\ds\exists\,T > 0$ 使 $\ds t^{x-1}e^{-\frac{t}{2}}\leqslant 1\;\forall\,t\geqslant T$. $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\mathrm{d}t = \int_0^T\!t^{x-1}e^{-t}\,\mathrm{d}t + \int_T^\infty\!t^{x-1}e^{-t}\,\mathrm{d}t\leqslant\int_0^T\!t^{x - 1}\,\mathrm{d}t + \int_T^\infty 1\cdot e^{-\frac{t}{2}}\,\mathrm{d}t = \frac{T^x}{x} + 2\,e^{-\frac{T}{2}}$. 故 $\forall\,x > 0$, $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\mathrm{d}t$ 收斂. 
+
+      (證二) $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\mathrm{d}t = \int_0^1\!t^{x - 1}e^{-t}\,\mathrm{d}t + \int_1^\infty\!t^{x - 1}e^{-t}\,\mathrm{d}t$. $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂, 因為  
+      \begin{itemize}\setlength{\itemsep}{0pt}
+        \item $\ds\int_0^1\!t^{x - 1}e^{-t}\,\mathrm{d}t\leqslant\int_0^1\!t^{x - 1}\,\text{d}t = \frac{t^x}{x}\,\bigg|_{x = 0}^{x = 1} = \frac{1}{x}$, $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
+        \item $\ds\int_1^\infty\!\frac{1}{t^2}\,\text{d}t$ 收斂, $\ds\lim_{t\to\infty}\frac{t^{x - 1}e^{-t}}{\frac{1}{t^2}} = \lim_{t\to\infty}\frac{t^{x + 1}}{e^t} = 0$, $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
+      \end{itemize}
+    \item $\ds\Gamma(x + 1) = \int_0^\infty\!t^x e^{-t}\,\mathrm{d}t = \lim_{\substack{a\to0+ \\ b\to\infty}}\int_a^b\!t^{x}e^{-t}\,\mathrm{d}t$. 令 $\ds u = t^x$, 則 $\ds\mathrm{d}u = xt^{x-1}\,\mathrm{d}t$. 令 $\ds\mathrm{d}v = e^{-t}\,\mathrm{d}t$, 則 $\ds v = -e^{-t}$. 故 $\ds\lim_{\substack{a\to0+\\b\to\infty}}\int_a^b\!t^{x}e^{-t}\,\mathrm{d}t = \lim_{\substack{a\to0+\\b\to\infty}}\Big(-t^x e^{-t}\,\Big|_a^b + \int_a^b\!e^{-t}\cdot xt^{x-1}\,\mathrm{d}t\Big) = 0 + x\int_0^\infty\!t^{x-1}e^{-t}\,\mathrm{d}t =x\,\Gamma(x)$. 
+    \item 由上 $\ds\Gamma(n + 1) = n\,\Gamma(n) = n(n - 1)\,\Gamma(n - 2) = \cdots = n(n - 1)\cdots 2\,\Gamma(1)$, 又 $\ds\Gamma(1) = \lim_{b\to\infty}\int_0^b\!e^{-t}\,\text{d}t = \lim_{b\to\infty}-e^{-t}\,\Big|_0^b = \lim_{b\to\infty} 1 - e^{-b} = 1$, 得證. 
+    \item 
+      \begin{enumerate}\setlength{\itemsep}{0pt}
+        \item $\ds\Gamma\Big(\frac{1}{2}\Big)=\int_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\,\mathrm{d}t = \int_{0}^{\infty}\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t$. 令 $\ds u = \sqrt{t}$, 則 $\ds t = u^2$, $\ds\mathrm{d}u = \frac{1}{2\sqrt{t}}\,\mathrm{d}t \ie \frac{1}{\sqrt{t}}\,\mathrm{d}t = 2\,\mathrm{d}u$. 積分範圍 $t$ 由 $0$ 至 $\infty$, 則變數變換後 $u$ 由 $\ds\sqrt{0} = 0$ 至 $\ds\sqrt{\infty} = \infty$, 故 $\ds\Gamma\Big(\frac{1}{2}\Big) = \int_{0}^{\infty}\!\frac{e^{-t}}{\sqrt{t}}\,\mathrm{d}t = 2\int_0^\infty\!\!e^{-u^2}\,\mathrm{d}u = 2\cdot\frac{\sqrt{\pi}}{2} = \sqrt{\pi}$. 
+        \item 由 $\ds\Gamma(x + 1) = x\,\Gamma(x)$, $\ds\Gamma\Big(\frac{3}{2}\Big) = \Gamma\Big(\frac{1}{2} + 1\Big) = \frac{1}{2}\,\Gamma\Big(\frac{1}{2}\Big) = \frac{1}{2}\,\sqrt{\pi}$. 
+      \end{enumerate}
+    \item
+      \begin{enumerate}\setlength{\itemsep}{0pt}
+        \item 令 $\ds u = \alpha\,t^2$, 則 $\ds\mathrm{d}u = 2\,\alpha\,t\,\mathrm{d}t \ie t\,\mathrm{d}t = \frac{\mathrm{d}u}{2\alpha}$. 積分範圍 $t$ 由 $0$ 至 $\infty$, 則變數變換後 $u$ 由 $\ds\alpha\cdot0^2 = 0$ 至 $\ds\alpha\cdot\infty^2 = \infty$, 故 $\ds\int_0^\infty t\,e^{-\alpha\,t^2}\,\mathrm{d}t = \int_0^\infty\!e^{-u}\,\frac{\mathrm{d}u}{2\,\alpha} = \frac{1}{2\,\alpha}\int_0^\infty\!e^{-u}\,\mathrm{d}u = \frac{1}{2\,\alpha}\,\Big(-e^{-u}\,\Big|_0^\infty\Big) = \frac{1}{2\,\alpha}$. 
+        \item 令 $\ds u = \alpha\,t^2$, 則 $\ds t = \frac{\sqrt{u}}{\sqrt{\alpha}}$, $\ds\mathrm{d}u = 2\,\alpha\,t\,\mathrm{d}t \ie t\,\mathrm{d}t = \frac{\mathrm{d}u}{2\,\alpha}$. 積分範圍 $t$ 由 $0$ 至 $\infty$, 則變數變換後 $u$ 由 $\ds\alpha\cdot0^2 = 0$ 至 $\ds\alpha\cdot\infty^2 = \infty$, 故 $\ds\int_0^\infty\!t^2\,e^{-\alpha\,t^2}\,\mathrm{d}t = \int_0^\infty\!t\,e^{-\alpha\,t^2}\,t\,\mathrm{d}t = \int_0^\infty\!\frac{\sqrt{u}}{\sqrt{\alpha}}\,e^{-u}\,\frac{\mathrm{d}u}{2\,\alpha} = \frac{1}{2\,\alpha^{\frac{3}{2}}}\int_0^\infty\!u^{\frac{1}{2}}\,e^{-u}\,\mathrm{d}u = \frac{1}{2\,\alpha^{\frac{3}{2}}}\cdot\Gamma\Big(\frac{3}{2}\Big) = \frac{1}{2\,\alpha^{\frac{3}{2}}}\cdot\frac{1}{2}\sqrt{\pi} = \frac{\sqrt{\pi}}{4\,\alpha^{\frac{3}{2}}}$. 
+      \end{enumerate}
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  已知 $\forall\;0 < \alpha < 1$, $\ds\int_0^\infty\!\frac{x^{\alpha - 1}}{1 + x}\,\text{d}x = \frac{\pi}{\sin\alpha\pi}$, 證明 $\ds\Gamma(\alpha)\,\Gamma(1 - \alpha) = \frac{\pi}{\sin\alpha\pi}$.
+\end{ex}
+
+\begin{sol}
+  $\ds\Gamma(\alpha)\,\Gamma(1 - \alpha) = \int_0^\infty\!\!e^{-t}t^{\alpha - 1}\,\text{d}t\int_0^\infty\!\!e^{-s}s^{-\alpha}\,\text{d}s = \int_0^\infty\!\!\!\int_0^\infty\!\!e^{-(t + s)}t^{\alpha - 1}s^{-\alpha}\,\text{d}s\,\text{d}t$. 令 $\ds\begin{cases}u = s + t \\ v = \frac{t}{s}\end{cases}\!\!\!\!\!$, 則 $\ds\begin{cases}s = \frac{u}{1 + v}\\ t = \frac{uv}{1 + v}\end{cases}\!\!\!\!\!$; Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial s}{\partial u} & \frac{\partial s}{\partial v} \\ \frac{\partial t}{\partial u}& \frac{\partial t}{\partial v}\end{vmatrix} = \begin{vmatrix}\frac{1}{1 + v} & \frac{-u}{(1 + v)^2} \\ \frac{v}{1 + v} & \frac{u}{(1 + v)^2}\end{vmatrix} = \frac{u}{(1 + v)^2}$. 變數變換 $(s,\,t)\to(u,\,v)$ 後積分範圍仍為 $0< u < \infty,\;0 < v < \infty$, 故 $\ds\int_0^\infty\!\!\!\int_0^\infty e^{-(t + s)}t^{\alpha - 1}s^{-\alpha}\,\text{d}s\,\text{d}t = \int_0^\infty\!\!\!\int_0^\infty e^{-(t + s)}\Big(\frac{t}{s}\Big)^{\alpha}t^{-1}\,\text{d}s\,\text{d}t = \int_0^\infty\!\!\!\int_0^\infty e^{-u}v^{\alpha}\frac{1 + v}{u v}\frac{u}{(1 + v)^2}\,\text{d}u\,\text{d}v = \int_0^\infty\!\!\!\int_0^\infty\!\! e^{-u}\frac{v^{\alpha - 1}}{1 + v}\,\text{d}u\,\text{d}v = \int_0^\infty\!\!e^{-u}\,\text{d}u\int_0^\infty\!\frac{v^{\alpha - 1}}{1 + v}\,\text{d}v = \int_0^\infty\!\frac{v^{\alpha - 1}}{1 + v}\,\text{d}v = \frac{\pi}{\sin\alpha\pi}$.
+\end{sol}
+
+\section*{7.2 三重積分}
+
+\begin{ex}
+  求 $\ds\int_0^1\!\int_0^z\!\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z$.
+\end{ex}
+
+\begin{sol}
+  $\ds\int_0^1\!\int_0^z\!\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\int_0^y\!(x + y + z)\,\text{d}x\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\int_0^z\!\bigg(\frac{x^2}{2} + (y + z)x\bigg)\,\bigg|_{x = 0}^{x = y}\,\text{d}y\,\text{d}z \\ = \int_0^1\!\int_0^z\!\bigg(\frac{3y^2}{2} + zy\bigg)\,\text{d}y\,\text{d}z = \int_0^1\!\bigg(\frac{y^3}{2} + \frac{zy^2}{2}\bigg)\,\bigg|_{y = 0}^{y = z}\,\text{d}z = \int_0^1\!z^3\,\text{d}z = \frac{1}{4}$
+\end{sol}
+
+\subsection*{逐次積分}
+\subsubsection*{一般積分區域}
+
+
+\subsection*{積分順序交換}
 
 \end{document}

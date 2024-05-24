@@ -1,8 +1,9 @@
-\documentclass[12pt]{extarticle} 
+\documentclass[12pt,a4paper]{extarticle} 
 %\usepackage{unicode-math}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
 %\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
-\usepackage[margin=1cm,footskip=5mm]{geometry}
+%\usepackage[margin=1cm,footskip=5mm]{geometry}
+\usepackage[margin=2cm]{geometry}
 \pagenumbering{gobble}
 
 \usepackage[inline]{enumitem}
@@ -238,7 +239,7 @@
 \usepackage{fancyhdr}
 \fancypagestyle{firststyle} {
    \fancyhf{}
-   \fancyfoot[R]{\footnotesize \DTMnow}
+   \fancyfoot[R]{\footnotesize} %\DTMnow}
    \renewcommand{\headrulewidth}{0pt} 
 }
 \usepackage{datetime2}
@@ -256,6 +257,7 @@
 \section*{基本概念}
 \subsection*{記號}
 
+\vspace{-5mm}
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{lll}
@@ -275,8 +277,10 @@
   \end{tabular}
 \end{table}
 
+\vspace{-5mm}
 \subsection*{數}
 
+\vspace{-5mm}
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{llll}
@@ -289,8 +293,10 @@
   \end{tabular}
 \end{table}
 
+\vspace{-5mm}
 \subsection*{集合}
 
+\vspace{-3mm}
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{lll}
@@ -311,6 +317,7 @@
   \end{tabular}
 \end{table}
 
+\vspace{-5mm}
 \subsection*{不等式}
 \begin{prp}
   令 $a,\;b,\;c\in\mathbb{R}$. 
@@ -345,7 +352,7 @@
     \item $\ds 3 \leqslant x < 7$
     \item $\ds x^3 - x > 0 \ie x(x^2 - 1) > 0 \ie x(x + 1)(x - 1) > 0 \ie x > 1 \vee -1 < x < 0$
     \item $\ds (2 - x)(1 - x)^2 x^3 \leqslant 0 \ie (x - 2)(x - 1)^2 x^3 \geqslant 0 \ie x\geqslant 2 \vee x\leqslant 0\vee x = 1$
-    \item $\ds -2 < \frac{2x - 3}{x + 1} < 1 \ie \Big(-2 < \frac{2x - 3}{x + 1}\Big)\wedge\Big(\frac {2x - 3}{x + 1} < 1\Big) \ie \Big(\frac{4x - 1}{x + 1} > 0\Big) \wedge \Big(\frac{x - 4}{x + 1} < 0\Big) \\ \ie \Big(x < -1 \vee x > \frac{1}{4}\Big) \wedge (-1 < x < 4) \ie \frac{1}{4} < x < 4$
+    \item $\ds -2 < \frac{2x - 3}{x + 1} < 1 \ie \Big(-2 < \frac{2x - 3}{x + 1}\Big)\wedge\Big(\frac {2x - 3}{x + 1} < 1\Big) \ie \Big(\frac{4x - 1}{x + 1} > 0\Big) \wedge \Big(\frac{x - 4}{x + 1} < 0\Big) \ie \Big(x < -1 \vee x > \frac{1}{4}\Big) \wedge (-1 < x < 4) \ie \frac{1}{4} < x < 4$
   \end{enumerate}
 \end{sol}
 
@@ -419,22 +426,22 @@
   \end{itemize}
 \end{dfn}
 
-\begin{ex}
-  $f(x) = \sqrt{-x^2 + x + 2}$, 求 $\dom f$ 與 $\ran f$. 
-\end{ex}
-
-\begin{sol}
-  由 $-x^2 + x + 2 = -(x + 1)(x - 2)\geqslant 0 \ie (x + 1)(x - 2)\leqslant 0 \ie -1\leqslant x\leqslant 2$, $\dom f = [-1, 2]$. 又 $\ds -x^2 + x + 2 = -\Big(x - \frac{1}{2}\Big)^2 + \frac{4}{9}$, 當 $x\in [-1,2]$ 時, $\ds f(x)\in\Big[0, \sqrt{\frac{4}{9}}\Big] = \Big[0, \frac{2}{3}\Big]$, 故 $\ds\ran f = \Big[0, \frac{2}{3}\Big]$. 
-\end{sol}
-
-\begin{ex}
-  $\ds f(x) = \frac{1}{(x-2)(x-3)}$, 求 $\dom f$ 與 $\ran f$. 
-\end{ex}
-
-\begin{sol}
-  $\dom f = \mathbb{R}\setminus\{2, 3\}$. 令 $\ds y = \frac{1}{(x - 2)(x - 3)} = \frac{1}{x^2 - 5x + 6}\ie x^2 - 5 x + \big(6 - \frac{1}{y}\big) = 0$. 當判別式 $\geqslant 0$ 時有實數解 $\ds\ie 5^2 - 4\big(6 - \frac{1}{y}\big)\geqslant 0 \ie 1 + \frac{4}{y}\geqslant 0 \ie \frac{y + 4}{y}\geqslant 0$, 故 $\ds\ran f = \{y\,|\,y > 0\,\vee\,y\leqslant -4\}$. 
-\end{sol}
-
+%\begin{ex}
+%  $f(x) = \sqrt{-x^2 + x + 2}$, 求 $\dom f$ 與 $\ran f$. 
+%\end{ex}
+%
+%\begin{sol}
+%  由 $-x^2 + x + 2 = -(x + 1)(x - 2)\geqslant 0 \ie (x + 1)(x - 2)\leqslant 0 \ie -1\leqslant x\leqslant 2$, $\dom f = [-1, 2]$. 又 $\ds -x^2 + x + 2 = -\Big(x - \frac{1}{2}\Big)^2 + \frac{4}{9}$, 當 $x\in [-1,2]$ 時, $\ds f(x)\in\Big[0, \sqrt{\frac{4}{9}}\Big] = \Big[0, \frac{2}{3}\Big]$, 故 $\ds\ran f = \Big[0, \frac{2}{3}\Big]$. 
+%\end{sol}
+%
+%\begin{ex}
+%  $\ds f(x) = \frac{1}{(x-2)(x-3)}$, 求 $\dom f$ 與 $\ran f$. 
+%\end{ex}
+%
+%\begin{sol}
+%  $\dom f = \mathbb{R}\setminus\{2, 3\}$. 令 $\ds y = \frac{1}{(x - 2)(x - 3)} = \frac{1}{x^2 - 5x + 6}\ie x^2 - 5 x + \big(6 - \frac{1}{y}\big) = 0$. 當判別式 $\geqslant 0$ 時有實數解 $\ds\ie 5^2 - 4\big(6 - \frac{1}{y}\big)\geqslant 0 \ie 1 + \frac{4}{y}\geqslant 0 \ie \frac{y + 4}{y}\geqslant 0$, 故 $\ds\ran f = \{y\,|\,y > 0\,\vee\,y\leqslant -4\}$. 
+%\end{sol}
+%
 \subsection*{嵌射與蓋射}
 \begin{dfn} 給定函數 $f: A\to B$. 
   \begin{itemize}\setlength\itemsep{0em}
@@ -443,13 +450,13 @@
   \end{itemize}
 \end{dfn}
 
-\begin{ex}
-  證明 $f(x) = x^3$ 為嵌射. 
-\end{ex}
-
-\begin{sol}
-  顯然 $\dom f = \mathbb{R}$. 對 $x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $\ds x_1 - x_2 = 0\ie x_1 = x_2$ $\vee$ $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
-\end{sol}
+%\begin{ex}
+%  證明 $f(x) = x^3$ 為嵌射. 
+%\end{ex}
+%
+%\begin{sol}
+%  顯然 $\dom f = \mathbb{R}$. 對 $x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $\ds x_1 - x_2 = 0\ie x_1 = x_2$ $\vee$ $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
+%\end{sol}
 
 \section*{函數圖形}
 
@@ -495,14 +502,14 @@
 \end{prp}
 
 \begin{ex} 求反函數. 
-  \setlength{\columnsep}{-0mm}
-  \begin{multicols}{2}
+  %\setlength{\columnsep}{20mm}
+  %\begin{multicols}{2}
     \begin{enumerate}\setlength\itemsep{0em}
       \item 求 $f(x) = x^3 + 2$ 的反函數. 
-      \item 求 $f(x) = x^2$, $x\geqslant 0$ 的反函數. 若 $x\leqslant 0$ 時？
+      \item 求 $f(x) = x^2$, $x\geqslant 0$ 與 $x\leqslant 0$ 的反函數.
       \item 求 $\ds f(x) = \frac{1 + 9 x}{4 - x}$, $x < 4$ 的反函數. 
     \end{enumerate}
-  \end{multicols}
+  %\end{multicols}
 \end{ex}
 
 \begin{sol} 
@@ -510,8 +517,7 @@
     \item[]
     \item $y = x^3 + 2$; $x\longleftrightarrow y$: $x = y^3 + 2 \ie y^3 = x - 2 \ie y = \sqrt[3]{x - 2} \ie f^{-1}(x) = \sqrt[3]{x - 2}$.  
     \item $y = x^2$, $x\geqslant 0$;  $x\longleftrightarrow y$: $x = y^2 \ie y^2 = x \ie y = \sqrt{x} \ie f^{-1}(x) = \sqrt{x}$; $f^{-1}:[0, \infty)\to [0, \infty)$. \\$y = x^2$, $x\leqslant 0$;  $x\longleftrightarrow y$: $x = y^2 \ie y^2 = x \ie y = -\sqrt{x} \ie f^{-1}(x) = -\sqrt{x}$; $f^{-1}:[0, \infty)\to (-\infty, 0]$. 
-    \item $\ds f(x) = \frac{1 + 9x}{4 - x} \ie y = \frac{1 + 9x}{4 - x}$; $x\longleftrightarrow y$: $\ds x = \frac{1 + 9 y}{4 - y} \ie y = \frac{4 x - 1}{x + 9} \ie f^{-1}(x) = \frac{4 x - 1}{x + 9}$. \\
-      檢驗: $\ds (f^{-1}\circ f)(x) = f^{-1}(f(x)) = \frac{4\cdot\frac{1 + 9x}{4 - x} - 1}{\frac{1 + 9x}{4 - x} + 9} = \frac{\frac{4 + 36 x - 4 + x}{4 - x}}{\frac{1 + 9x + 36 - 9x}{4 - x}} = \frac{37 x}{37} = x$; $\ds(f\circ f^{-1})(x) = f(f^{-1}(x)) = \frac{1 + 9\cdot\frac{4x - 1}{x + 9}}{4 - \frac{4 x - 1}{x + 9}} = \frac{\frac{x + 9 + 36 x - 9}{x + 9}}{\frac{4 x + 36 - 4x + 1}{x + 9}} = \frac{37x}{37} = x$. 
+    \item $\ds f(x) = \frac{1 + 9x}{4 - x} \ie y = \frac{1 + 9x}{4 - x}$; $x\longleftrightarrow y$: $\ds x = \frac{1 + 9 y}{4 - y} \ie y = \frac{4 x - 1}{x + 9} \ie f^{-1}(x) = \frac{4 x - 1}{x + 9}$. 檢驗: $\ds (f^{-1}\circ f)(x) = f^{-1}(f(x)) = \frac{4\cdot\frac{1 + 9x}{4 - x} - 1}{\frac{1 + 9x}{4 - x} + 9} = \frac{\frac{4 + 36 x - 4 + x}{4 - x}}{\frac{1 + 9x + 36 - 9x}{4 - x}} = \frac{37 x}{37} = x$; $\ds(f\circ f^{-1})(x) = f(f^{-1}(x)) = \frac{1 + 9\cdot\frac{4x - 1}{x + 9}}{4 - \frac{4 x - 1}{x + 9}} = \frac{\frac{x + 9 + 36 x - 9}{x + 9}}{\frac{4 x + 36 - 4x + 1}{x + 9}} = \frac{37x}{37} = x$. 
   \end{enumerate}
 \end{sol}
 
@@ -521,8 +527,8 @@ $y = f(x) = a^x$, $a > 0\,\wedge a\not=1$.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[scale=1.8,page=1]{fig/power.pdf}
-  \includegraphics[scale=1.8,page=2]{fig/power.pdf}
+  \includegraphics[scale=1.34,page=1]{fig/power.pdf}\qquad\qquad
+  \includegraphics[scale=1.34,page=2]{fig/power.pdf}
   \caption{$y = a^x$: 圖左 $0 < a < 1$, 圖右 $a > 1$}
 \end{figure}
 
@@ -546,8 +552,8 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[scale=1.5,page=3]{fig/power.pdf}
-  \includegraphics[scale=1.5,page=4]{fig/power.pdf}
+  \includegraphics[scale=1.,page=3]{fig/power.pdf}\qquad\qquad
+  \includegraphics[scale=1.,page=4]{fig/power.pdf}
   \caption{$y = \log_a x$}
 \end{figure}
 
@@ -575,7 +581,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 \end{prp}
 
 \begin{ex} 解下列 $x$ 的方程式與不等式. 
-  \setlength{\columnsep}{-0mm}
+  \setlength{\columnsep}{-5mm}
   \begin{multicols}{3}
     \begin{enumerate}\setlength\itemsep{0em}
       \item $\ds\log_{10} x + \log_{10}(x - 21) = 2$
@@ -612,11 +618,14 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \subsection*{畫圖; 兩邊取接近值}
 
+\begin{minipage}{0.23\textwidth}
 \begin{align*}
   \lim_{x\to 2}x = 2
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\quad
+\begin{minipage}{0.77\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -625,13 +634,20 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     $f(x)$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
 
+\vspace{5mm}
+
+\hspace{-7mm}
+\begin{minipage}{0.23\textwidth}
 \begin{align*}
   \lim_{x\to 2}x^2 = 4
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\quad
+\begin{minipage}{0.77\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -640,13 +656,20 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     $f(x)$ & 3.61 & 3.9601 & 3.996 & $\circ$ & 4.004 & 4.040 & 4.41 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
 
+\vspace{5mm}
+
+\hspace{-5mm}
+\begin{minipage}{0.18\textwidth}
 \begin{align*}
   \lim_{x\to 2}\frac{x - 2}{x^2 + x - 6} = 0.2
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\quad
+\begin{minipage}{0.85\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -655,11 +678,13 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     $f(x)$ & 0.20408 & 0.20040 &0.20004 & $\circ$ & 0.19996 & 0.19960 & 0.19608 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
 
 \section*{單側極限, 在無限遠之極限, 無窮極限}
 
 \subsection*{單側極限 (One-Sided Limits) }
+\vspace{-10mm}
 
 \begin{figure}[ht]
   \centering
@@ -673,6 +698,8 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
   \includegraphics[scale=1.4,page=1]{fig/g.pdf}
  \end{tabularx}
 \end{figure}
+
+\vspace{-12mm}
 
 \begin{ex}
   $\ds g(x) = \begin{cases}\sqrt{x - 4} & \text{若 } x > 4 \\ 8 - 2x & \text{若 } x < 4 \end{cases}$, $\ds\lim_{x\to 4}g(x) = 0$. 
@@ -760,7 +787,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 \end{ex}
 
 \begin{sol}
-  $\ds\lim_{x\to\infty}\big(\sqrt{x^2 + 5x} - \sqrt{x^2 - x}\big) = \lim_{x\to\infty}\frac{(x^2 + 5x) - (x^2 - x)}{\sqrt{x^2 + 5x} + \sqrt{x^2 - x}} = \lim_{x\to\infty}\frac{6 x}{\sqrt{x^2\big(1 + \frac{5}{x}\big)} + \sqrt{x^2\big(1 - \frac{1}{x}\big)}} \\ = \lim_{x\to\infty}\frac{6 x}{|x|\sqrt{1 + \frac{5}{x}} + |x|\sqrt{1 - \frac{1}{x}}} = \lim_{x\to\infty}\frac{6 x}{x\sqrt{1 + \frac{5}{x}} + x\sqrt{1 - \frac{1}{x}}} =\lim_{x\to\infty}\frac{6}{\sqrt{1 + \frac{5}{x}} + \sqrt{1 - \frac{1}{x}}} =\frac{6}{\sqrt{1 + 0} + \sqrt{1 - 0}} = 3$
+  $\ds\lim_{x\to\infty}\big(\sqrt{x^2 + 5x} - \sqrt{x^2 - x}\big) = \lim_{x\to\infty}\frac{(x^2 + 5x) - (x^2 - x)}{\sqrt{x^2 + 5x} + \sqrt{x^2 - x}} = \lim_{x\to\infty}\frac{6 x}{\sqrt{x^2\big(1 + \frac{5}{x}\big)} + \sqrt{x^2\big(1 - \frac{1}{x}\big)}} \\ = \lim_{x\to\infty}\frac{6 x}{|x|\sqrt{1 + \frac{5}{x}} + |x|\sqrt{1 - \frac{1}{x}}} = \lim_{x\to\infty}\frac{6 x}{x\sqrt{1 + \frac{5}{x}} + x\sqrt{1 - \frac{1}{x}}} = \lim_{x\to\infty}\frac{6}{\sqrt{1 + \frac{5}{x}} + \sqrt{1 - \frac{1}{x}}} \\= \frac{6}{\sqrt{1 + 0} + \sqrt{1 - 0}} = 3$
 \end{sol}
 
 \begin{ex}
@@ -830,18 +857,20 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \section*{導數與導函數}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[scale=1,page=1]{fig/tangentA.pdf}
-\end{figure}
-
-\begin{dfn}
-  給定 $f(x)$, $a\in\dom f$. 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $f$ 在 $a$ 的導數 (derivative) $f'(a)$ 定義為 $\ds f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$. 若 $f'(a)$ 存在, 則稱 $f$ 在 $a$ 可微 (分)  (differentiable) . 
-    \item $f$ 的導函數 $f'(x)$ 定義為 $\ds f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}$. 
-  \end{itemize}
-\end{dfn}
+\begin{minipage}{0.4\textwidth}
+  %\begin{figure}[!htbp]
+  %  \centering
+  \includegraphics[scale=0.8,page=1]{fig/tangentA.pdf}
+  %\end{figure}
+\end{minipage}
+\quad
+\begin{minipage}{0.6\textwidth}
+  \begin{dfn}
+    給定 $f(x)$, $a\in\dom f$. $f$ 在 $a$ 的導數 (derivative) $f'(a)$ 定義為 $$f'(a) = \lim_{h\to 0}\frac{f(a + h) - f(a)}{h}$$ 若 $f'(a)$ 存在, 則稱 $f$ 在 $a$ 可微(分)(differentiable). \\  
+    $f$ 的導函數 $f'(x)$ 定義為 $$f'(x) = \lim_{h\to 0}\frac{f(x + h) - f(x)}{h}$$ 
+    %\end{itemize}
+  \end{dfn}
+\end{minipage}
 
 \begin{rmk}
   \begin{itemize}\setlength\itemsep{0em}
@@ -1023,7 +1052,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 \begin{thm}[均值定理 (mean-value theorem, MVT) ]
   若 $f(x)$ 在 $[a, b]$ 連續, 在 $(a, b)$ 可微, 則存在 $\ds c\in (a, b)$ 使 $\ds f'(c) = \frac{f(b) - f(a)}{b - a}$. 
 \end{thm}
-\vspace{-1cm}
+\vspace{-5mm}
 \begin{figure}[!htbp]
   \centering
   \includegraphics[scale=1,page=1]{fig/rolle_to_mvt.pdf}
@@ -1031,31 +1060,32 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{prp}
   $f(x)$ 在 $[a, b]$ 連續, 在 $(a, b)$ 可微. 若
-  \begin{multicols}{2}
+  %\setlength{\columnsep}{15mm}
+  %\begin{multicols}{2}
     \begin{enumerate}\setlength\itemsep{0em}
       \item $\ds\forall\,x\in(a, b)\; f'(x) > 0$, 則 $f$ 在 $[a, b]$ 嚴格遞增. 
       \item $\ds\forall\,x\in(a, b)\; f'(x) < 0$, 則 $f$ 在 $[a, b]$ 嚴格遞減. 
       \item $\ds\forall\,x\in(a, b)\; f'(x) \geqslant 0$, 則 $f$ 在 $[a, b]$ 遞增. 
       \item $\ds\forall\,x\in(a, b)\; f'(x) \leqslant 0$, 則 $f$ 在 $[a, b]$ 遞減. 
     \end{enumerate}
-  \end{multicols}
+  %\end{multicols}
 \end{prp}
 
 \begin{prf}
   令 $\ds x$, $y\in[a, b]$, $x < y$. 由 MVT $\ds\exists\,c\in(x, y)\subseteq(a, b)$ 使 $\ds f(y) - f(x) = f'(c)\,(y - x)$. 又 $y - x > 0$, $f(y) - f(x)$ 與 $f'(c)$ 同號.  
 \end{prf}
 
-\begin{fact}
-  若 $f(x)$, $g(x)$ 在 $[a, b]$ 連續, 在 $(a, b)$ 可微, 且 $f'(x) = g'(x)\;\forall\,x\in(a, b)$, 則存在 $C\in\mathbb{R}$ 使 $f(x) = g(x) + C,\;\forall\,x\in[a, b]$. 
-\end{fact}
-
-\begin{ex}
-  證明 $\ds\ln\big(1 + \frac{1}{x}\big) > \frac{1}{1 + x}$, $\forall\,x > 0$. 
-\end{ex}
-
-\begin{sol}
-  考慮 $\ds\ln x$ 在 $\ds[x, x + 1]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(x, x + 1)\;\ln(x + 1) - \ln x = \frac{1}{c} > \frac{1}{x + 1}$. 
-\end{sol}
+%\begin{fact}
+%  若 $f(x)$, $g(x)$ 在 $[a, b]$ 連續, 在 $(a, b)$ 可微, 且 $f'(x) = g'(x)\;\forall\,x\in(a, b)$, 則存在 $C\in\mathbb{R}$ 使 $f(x) = g(x) + C,\;\forall\,x\in[a, b]$. 
+%\end{fact}
+%
+%\begin{ex}
+%  證明 $\ds\ln\big(1 + \frac{1}{x}\big) > \frac{1}{1 + x}$, $\forall\,x > 0$. 
+%\end{ex}
+%
+%\begin{sol}
+%  考慮 $\ds\ln x$ 在 $\ds[x, x + 1]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(x, x + 1)\;\ln(x + 1) - \ln x = \frac{1}{c} > \frac{1}{x + 1}$. 
+%\end{sol}
 
 \section*{L'H\^opital 法則}
 
@@ -1069,7 +1099,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{table}[!htbp]
   \centering
-  \scalebox{0.97}{
+  \scalebox{0.85}{
   \begin{tabular}{cccccccc} 
     \toprule
     \addlinespace[2mm]
@@ -1161,9 +1191,9 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[scale=1,page=1]{fig/maxmin3.pdf}
+  \includegraphics[scale=0.9,page=1]{fig/maxmin3.pdf}
   \hspace{25mm}
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=0.9]
     \begin{axis}%
       [grid=both,
        unit vector ratio={8 1},
@@ -1188,18 +1218,18 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
   \end{itemize}
 \end{ex}
 
-\begin{thm}
-  若函數在定義域為{\color{M4}有限閉區間}, 或{\color{M4}有限閉區間的有限聯集}連續, 則函數在定義域上有最大值及最小值. 
-\end{thm}
-
-\begin{thm}
-  若 $f(x)$ 在 $(a, b)$ 連續, 且 $\ds\lim_{x\to a+}f(x) = L$, $\ds\lim_{x\to b-}f(x) = M$. 
-  \begin{enumerate}\setlength\itemsep{0em}
-    \item 若 $\exists\,u\in(a, b)$ 使 $f(u) > L$ 且 $f(u) > M$, 則 $f$ 在 $(a, b)$ 有最大值. 
-    \item 若 $\exists\,u\in(a, b)$ 使 $f(u) < L$ 且 $f(u) < M$, 則 $f$ 在 $(a, b)$ 有最小值. 
-  \end{enumerate}
-  $a$ 可為 $-\infty$, $b$ 可為 $\infty$, $L$, $M$ 可為 $\pm\infty$. 
-\end{thm}
+%\begin{thm}
+%  若函數在定義域為{\color{M4}有限閉區間}, 或{\color{M4}有限閉區間的有限聯集}連續, 則函數在定義域上有最大值及最小值. 
+%\end{thm}
+%
+%\begin{thm}
+%  若 $f(x)$ 在 $(a, b)$ 連續, 且 $\ds\lim_{x\to a+}f(x) = L$, $\ds\lim_{x\to b-}f(x) = M$. 
+%  \begin{enumerate}\setlength\itemsep{0em}
+%    \item 若 $\exists\,u\in(a, b)$ 使 $f(u) > L$ 且 $f(u) > M$, 則 $f$ 在 $(a, b)$ 有最大值. 
+%    \item 若 $\exists\,u\in(a, b)$ 使 $f(u) < L$ 且 $f(u) < M$, 則 $f$ 在 $(a, b)$ 有最小值. 
+%  \end{enumerate}
+%  $a$ 可為 $-\infty$, $b$ 可為 $\infty$, $L$, $M$ 可為 $\pm\infty$. 
+%\end{thm}
 
 \begin{thm}
   若 $f$ 在 $c\in\dom f$ 有極值, 且 $f'(c)$ 存在, 則 $f'(c) = 0$. 
@@ -1207,13 +1237,14 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{fact}
   設 $f:I\to\mathbb{R}$ 在 $x_0\in I$ 有極值, 則 $x_0$ 為以下三情形之一: 
-  \begin{multicols}{2}
+  %\setlength{\columnsep}{20mm}
+  %\begin{multicols}{2}
     \begin{itemize}\setlength\itemsep{0em}
       \item 臨界點 (critical point) : $\ds f'(x_0) = 0$. 
       \item 奇異點 (singular point) : $f$ 在 $x_0$ 不可微.  
       \item $I$ 的邊界點 (boundary). 
     \end{itemize}
-  \end{multicols}
+  %\end{multicols}
 \end{fact}
 
 \begin{ex}
@@ -1234,46 +1265,46 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
   \end{itemize}
 \end{sol}
 
-\begin{ex}
-  證明 $\ds f(x) = x + \frac{4}{x}$ 在 $\ds (0, \infty)$ 有最小值, 並求其值. 
-\end{ex}
-
-\begin{sol}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item 由 $\ds\lim_{x\to 0+}f(x) = \infty$, $\ds\lim_{x\to\infty}f(x) = \infty$, $f(1) = 5 < \infty$, $f$ 在 $(0, \infty)$ 有最小值. 
-    \item 
-      \begin{itemize}\setlength\itemsep{0em}
-        \item $\ds f'(x) = 1 - \frac{4}{x^2} = \frac{(x + 2)(x - 2)}{x^2}$, 臨界點為 $2$: $f(2) = 4$. 
-        \item $f$ 在 $(0, \infty)$ 可微, 無奇異點. 
-        \item $(0, \infty)$ 無邊界點. 
-      \end{itemize}
-      故 $f$ 在 $(0, \infty)$ 之最小值為 $f(2) = 4$. 
-  \end{itemize}
-\end{sol}
-
-\begin{ex}
-  求點 $(2,\,0)$ 到 $y^2 = x^2 + 1$ 之最短距離. 
-  %\begin{center}
-  %  \includegraphics[scale=1]{fig/hyperbolaMaxMin.pdf}
-  %\end{center}
-\end{ex}
-
-\begin{sol}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item 最小化距離平方 $\equiv$ 最小化距離. 
-    \item 令 $\ell$ 為 $(2, 0)$ 至 $y^2 = x^2 + 1$ 之距離: $\ds\ell^2 = (x - 2)^2 + y^2 = (x - 2)^2 + (x^2 + 1)$. 
-    \item 由 $\ds\ell^2(\pm\infty)=\infty$, $\ds\ell^2(0) = 5 < \infty$, $\ell^2$ 在 $(-\infty, \infty)$ 有最小值. 
-    \item 
-      \begin{itemize}\setlength\itemsep{0em}
-        \item $\ds\diff{}{x} \ell^2(x) = 2(x - 2) + 2x = 4(x - 1)$, 臨界點為 $1$; $\ell^2(1) = (1 - 2)^2 + (1 + 1) = 3\ie \ell(1) = \sqrt{3}$. 
-        \item $\ell^2$ 在 $(-\infty,\,\infty)$ 可微, 無奇異點. 
-        \item $(-\infty,\,\infty)$ 無邊界點. 
-      \end{itemize}
-      故最短距離為 $\ell(1) = \sqrt{3}$. 
-    \end{itemize}
-\end{sol}
+%\begin{ex}
+%  證明 $\ds f(x) = x + \frac{4}{x}$ 在 $\ds (0, \infty)$ 有最小值, 並求其值. 
+%\end{ex}
+%
+%\begin{sol}
+%  \begin{itemize}\setlength\itemsep{0em}
+%    \item[]
+%    \item 由 $\ds\lim_{x\to 0+}f(x) = \infty$, $\ds\lim_{x\to\infty}f(x) = \infty$, $f(1) = 5 < \infty$, $f$ 在 $(0, \infty)$ 有最小值. 
+%    \item 
+%      \begin{itemize}\setlength\itemsep{0em}
+%        \item $\ds f'(x) = 1 - \frac{4}{x^2} = \frac{(x + 2)(x - 2)}{x^2}$, 臨界點為 $2$: $f(2) = 4$. 
+%        \item $f$ 在 $(0, \infty)$ 可微, 無奇異點. 
+%        \item $(0, \infty)$ 無邊界點. 
+%      \end{itemize}
+%      故 $f$ 在 $(0, \infty)$ 之最小值為 $f(2) = 4$. 
+%  \end{itemize}
+%\end{sol}
+%
+%\begin{ex}
+%  求點 $(2,\,0)$ 到 $y^2 = x^2 + 1$ 之最短距離. 
+%  \begin{center}
+%    \includegraphics[scale=1]{fig/hyperbolaMaxMin.pdf}
+%  \end{center}
+%\end{ex}
+%
+%\begin{sol}
+%  \begin{itemize}\setlength\itemsep{0em}
+%    \item[]
+%    \item 最小化距離平方 $\equiv$ 最小化距離. 
+%    \item 令 $\ell$ 為 $(2, 0)$ 至 $y^2 = x^2 + 1$ 之距離: $\ds\ell^2 = (x - 2)^2 + y^2 = (x - 2)^2 + (x^2 + 1)$. 
+%    \item 由 $\ds\ell^2(\pm\infty)=\infty$, $\ds\ell^2(0) = 5 < \infty$, $\ell^2$ 在 $(-\infty, \infty)$ 有最小值. 
+%    \item 
+%      \begin{itemize}\setlength\itemsep{0em}
+%        \item $\ds\diff{}{x} \ell^2(x) = 2(x - 2) + 2x = 4(x - 1)$, 臨界點為 $1$; $\ell^2(1) = (1 - 2)^2 + (1 + 1) = 3\ie \ell(1) = \sqrt{3}$. 
+%        \item $\ell^2$ 在 $(-\infty,\,\infty)$ 可微, 無奇異點. 
+%        \item $(-\infty,\,\infty)$ 無邊界點. 
+%      \end{itemize}
+%      故最短距離為 $\ell(1) = \sqrt{3}$. 
+%    \end{itemize}
+%\end{sol}
 
 \section*{Taylor 展開式}
 
@@ -1333,7 +1364,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{ex}
   \setlength{\columnsep}{-7mm}
-  \begin{multicols}{3}
+  \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\int\!\sqrt{x}\,\text{d}x = \frac{2}{3}\,x^{\frac{3}{2}} + c$
       \item $\ds\int x^\pi\,\text{d}x = \frac{1}{\pi + 1}\,x^{\pi + 1} + c$
@@ -1569,7 +1600,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     \item $\ds\int x^5 e^{-x^2}\,\mathrm{d}x {\color{C2}\;= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + c}$
     \item $\ds\int x e^{\sqrt{x}}\,\mathrm{d}x {\color{C2}\;= 2\,e^{\sqrt{x}}\,\big(x\sqrt{x} - 3x + 6\sqrt{x} - 6\big) + c}$
     \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\mathrm{d}x {\color{C2}\;= \frac{e^x}{x + 1} + c}  $
-    \item $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x {\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
+   % \item $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x {\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
   \end{enumerate}
 \end{exe}
 
@@ -1630,7 +1661,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     \end{align*}
   \end{minipage}
     \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x$. 令 $\ds u = e^x$, 則 $\ds\text{d}u = e^x\,\text{d}x$; $\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$, 則 $\ds v = \frac{-1}{x + 1}$. 故 $\ds\int\!\frac{e^x}{(x + 1)^2}\,\mathrm{d}x = e^x\cdot\frac{-1}{x + 1} + \int\!\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x$; 原式 $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$. 
-  \item 令 $\ds u = \ln x$, 則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$; $\ds\text{d}v = \frac{1}{\sqrt{1 + x}}\,\text{d}x$, 則 $\ds v = 2\sqrt{1 + x}$. 故 $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\text{d}x = \ln x\cdot 2\sqrt{1 + x} - 2 \int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x$. 令 $\ds w = \sqrt{1 + x}$, 則 $\ds w^2 = 1 + x \ie x= w^2 - 1$, $\ds 2w\,\text{d}w = \text{d}x$, 故 $\ds\int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x = \int\!\frac{w}{w^2 - 1}\cdot 2w\,\text{d}w = 2\int\!\frac{w^2}{w^2 - 1}\,\text{d}w = 2\int\!\frac{(w^2 - 1) + 1}{w^2 - 1}\,\text{d}w = 2 w + 2\int\!\frac{1}{w^2 - 1}\,\text{d}w = 2\sqrt{1 + x} + 2\int\!\frac{1}{w^2 -1}\,\text{d}w$. 由 $\ds\frac{1}{w^2 - 1} = \frac{1}{2}\,\bigg(\frac{1}{w - 1} - \frac{1}{w + 1}\bigg)$, $\ds\int\!\frac{1}{w^2 - 1}\,\text{d}w = \frac{1}{2}\int\!\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)\,\text{d}w =\frac{1}{2}\,\big(\ln|w - 1| - \ln|w + 1|\big) = \frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)$. 以上, $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x = \ln x\cdot 2\sqrt{1 + x} - 2\,\big(2\sqrt{1+x} + 2\,\big(\frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)\big)\big) = \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1 + x} - 2\ln|\sqrt{1 + x} - 1| + 2\ln|\sqrt{1 + x} + 1| + c$. 
+ % \item 令 $\ds u = \ln x$, 則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$; $\ds\text{d}v = \frac{1}{\sqrt{1 + x}}\,\text{d}x$, 則 $\ds v = 2\sqrt{1 + x}$. 故 $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\text{d}x = \ln x\cdot 2\sqrt{1 + x} - 2 \int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x$. 令 $\ds w = \sqrt{1 + x}$, 則 $\ds w^2 = 1 + x \ie x= w^2 - 1$, $\ds 2w\,\text{d}w = \text{d}x$, 故 $\ds\int\!\frac{\sqrt{1 + x}}{x}\,\text{d}x = \int\!\frac{w}{w^2 - 1}\cdot 2w\,\text{d}w = 2\int\!\frac{w^2}{w^2 - 1}\,\text{d}w = 2\int\!\frac{(w^2 - 1) + 1}{w^2 - 1}\,\text{d}w = 2 w + 2\int\!\frac{1}{w^2 - 1}\,\text{d}w = 2\sqrt{1 + x} + 2\int\!\frac{1}{w^2 -1}\,\text{d}w$. 由 $\ds\frac{1}{w^2 - 1} = \frac{1}{2}\,\bigg(\frac{1}{w - 1} - \frac{1}{w + 1}\bigg)$, $\ds\int\!\frac{1}{w^2 - 1}\,\text{d}w = \frac{1}{2}\int\!\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)\,\text{d}w =\frac{1}{2}\,\big(\ln|w - 1| - \ln|w + 1|\big) = \frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)$. 以上, $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\mathrm{d}x = \ln x\cdot 2\sqrt{1 + x} - 2\,\big(2\sqrt{1+x} + 2\,\big(\frac{1}{2}\,\big(\ln|\sqrt{1 + x} - 1| - \ln|\sqrt{1 + x} + 1|\big)\big)\big) = \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1 + x} - 2\ln|\sqrt{1 + x} - 1| + 2\ln|\sqrt{1 + x} + 1| + c$. 
   \end{enumerate}
 \end{sol}
 
