@@ -909,4 +909,133 @@
   \end{minipage}
 \end{sol}
 
+\begin{ex}
+  若 $\ds\int_E f(x, y, z)\,\text{d}V = \int_0^1\!\int_{\sqrt{x}}^{1}\int_0^{1 - y}\!\!f(x, y, z)\,\text{d}z\,\text{d}y\,\text{d}x$, 寫出其他五個等價但積分順序不同之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.45\textwidth}
+    \includegraphics[scale=0.7,page=12]{fig/prob.pdf} \\
+    \includegraphics[scale=0.7,page=11]{fig/prob.pdf} \\ 
+    \includegraphics[scale=0.6,page=10]{fig/prob.pdf} 
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.55\textwidth}
+    \begin{align*}
+      &\;\quad\int_E f(x, y, z)\,\text{d}V & \\
+      &= \int_0^1\!\int_{\sqrt{x}}^{1}\int_0^{1 - y}\!\!f(x, y, z)\,\text{d}z\,\text{d}y\,\text{d}x \\
+      &= \int_0^1\!\int_{0}^{y^2}\!\!\!\int_0^{1 - y}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &= \int_0^1\!\int_{0}^{1 - \sqrt{x}}\!\!\int_{\sqrt{x}}^{1 - z}\!\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x \\
+      &= \int_0^1\!\int_{0}^{(1 - z)^2}\!\!\!\int_{\sqrt{x}}^{1 - z}\!\!f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z \\
+      &= \int_0^1\!\int_{0}^{1 - y}\!\!\!\int_{0}^{y^2}\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y \\
+      &= \int_0^1\!\int_{0}^{1 - z}\!\!\!\int_0^{y^2}\!\!f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z 
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $\ds\int_E f(x, y, z)\,\text{d}V = \int_{-1}^1\!\int_0^{1 - y^2}\!\!\int_0^{2 - y - z}\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y$, 寫出等價依積分順序 $z\to x\to y$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.25\textwidth}
+    \includegraphics[scale=0.62,page=2]{fig/prob.pdf} \\
+    \includegraphics[scale=0.56,page=3]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.25\textwidth}
+    \includegraphics[scale=0.68,page=4]{fig/prob.pdf} \\
+    \includegraphics[scale=0.68,page=5]{fig/prob.pdf} 
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.5\textwidth}
+    \begin{align*}
+      &\;\quad\int_E f(x, y, z)\,\text{d}V & \\
+      &= \int_{-1}^1\int_0^{1 + y^2 - y}\!\!\int_0^{1 - y^2}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &\quad + \int_{-1}^1\int_{1 + y^2 - y}^{2 - y}\int_0^{2 - x - y}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y 
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $\ds\int_E f(x, y, z)\,\text{d}V = \int_0^1\!\int_0^{1 - \frac{x}{2}}\!\!\int_{0}^{4 - 2x - 4z}\!\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x$, 寫出等價依積分順序 $z\to x\to y$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.28\textwidth}
+    \includegraphics[scale=0.62,page=6]{fig/prob.pdf} \\
+    \includegraphics[scale=0.62,page=7]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.28\textwidth}
+    \includegraphics[scale=0.62,page=8]{fig/prob.pdf} \\
+    \includegraphics[scale=0.62,page=9]{fig/prob.pdf} 
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.44\textwidth}
+    \begin{align*}
+      &\;\quad\int_E f(x, y, z)\,\text{d}V & \\
+      &= \int_0^2\!\int_0^1\!\!\int_0^{\frac{4 - 2x - y}{2}}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &\quad + \int_2^4\!\int_0^{\frac{4 - y}{2}}\!\!\int_0^{\frac{4 - 2x - y}{2}}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y 
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $E$ 為第一卦限中由 $y = x^2$, $y + z = 1$ 圍成之區域, 求 $\ds\int_E x\,\text{d}V$.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.57\textwidth}
+    \includegraphics[scale=0.6,page=13]{fig/prob.pdf} 
+    \includegraphics[scale=0.6,page=14]{fig/prob.pdf}
+    \includegraphics[scale=0.6,page=15]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.43\textwidth}
+    \begin{align*}
+      \int_E x\,\text{d}V 
+      &= \int_0^1\!\!\int_{x^2}^1\!\int_0^{1 - y}\!\!x\,\text{d}z\,\text{d}y\,\text{d}x \\
+      &= \int_0^1\!\!\int_{x^2}^1\!x\,(1 - y)\,\text{d}y\,\text{d}x \\ 
+      &= \int_0^1\!\!\bigg(x(1 - x^2) - x\,\bigg(\frac{y^2}{2}\,\bigg|^{y = 1}_{y = x^2}\bigg)\bigg)\,\text{d}x \\ 
+      &= \int_0^1\!\!\bigg(x - x^3 + \frac{x^5}{2} - \frac{x}{2}\bigg)\,\text{d}x = \frac{1}{12}
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $E$ 為第一卦限中由 $z = y^2$, $x + y = 1$ 圍成之區域, 求 $\ds\int_E z\,\text{d}V$.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.65\textwidth}
+    \includegraphics[scale=0.6,page=16]{fig/prob.pdf}
+    \includegraphics[scale=0.6,page=17]{fig/prob.pdf}
+    \includegraphics[scale=0.6,page=18]{fig/prob.pdf} 
+    \includegraphics[scale=0.7,page=19]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.35\textwidth}
+    \begin{align*}
+      \int_E z\,\text{d}V &= \int_0^1\!\!\int_0^{1 - x}\!\!\!\int_0^{y^2}\!\!z\,\text{d}z\,\text{d}y\,\text{d}x \\ 
+      &= \int_0^1\!\!\int_0^{1 - x}\frac{y^4}{2}\,\text{d}y\,\text{d}x \\
+      &= \int_0^1\!\frac{(1 - x)^5}{10}\,\text{d}x = \frac{1}{60}
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $E$ 為 $z = 1 - x^2$, $y = z$, $y = 0$, $z = 0$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.69\textwidth}
+    \includegraphics[scale=0.7,page=20]{fig/prob.pdf}\vspace{-3mm} 
+    \includegraphics[scale=0.7,page=21]{fig/prob.pdf}\vspace{-3mm}
+    \includegraphics[scale=0.7,page=22]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.31\textwidth}
+    \begin{align*}
+      &\qquad\int_E f(x, y, z)\,\text{d}V \\
+      &= \int_{-1}^1\!\int_0^{1 - x^2}\!\!\!\!\!\int_{y}^{1 - x^2}\!\!\!\!\!\!f(x, y, z)\,\text{d}z\,\text{d}y\,\text{d}x
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
 \end{document}
