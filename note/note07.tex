@@ -1038,4 +1038,50 @@
   \end{minipage}
 \end{sol}
 
+\begin{ex}
+  若 $E$ 為 $z = 2x$, $z = y^2$, $x = 3$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to z\to y$, 與 $y\to x\to z$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.55\textwidth}
+    \includegraphics[scale=0.72,page=23]{fig/prob.pdf} 
+    \includegraphics[scale=0.72,page=24]{fig/prob.pdf} 
+    \includegraphics[scale=0.72,page=25]{fig/prob.pdf} \\
+    \includegraphics[scale=0.78,page=26]{fig/prob.pdf} 
+    \includegraphics[scale=0.55,page=27]{fig/prob.pdf} 
+    \includegraphics[scale=0.6,page=28]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.45\textwidth}
+    \begin{align*}
+      &\quad\;\int_E\!\!f(x, y, z)\,\text{d}V \\
+      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{\frac{y^2}{2}}^{3}\!\int_{y^2}^{2x}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{y^2}^{6}\!\!\int_{\frac{z}{2}}^3\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y \\
+      &= \int_0^6\!\!\int_{\frac{z}{2}}^{3}\!\!\int_{-\sqrt{z}}^{\sqrt{z}}\!\!f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  若 $E$ 為 $x^2 + y^2 = 1$, $z = y$, $z = -1$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to y\to z$, 與 $y\to z\to x$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.55\textwidth}
+    \includegraphics[scale=0.6,page=30]{fig/prob.pdf} 
+    \includegraphics[scale=0.6,page=32]{fig/prob.pdf} \\
+    \includegraphics[scale=0.5,page=31]{fig/prob.pdf} 
+    \includegraphics[scale=0.6,page=33]{fig/prob.pdf} 
+  \end{minipage}
+  \quad
+  \begin{minipage}{0.45\textwidth}
+    \begin{align*}
+      &\quad\;\int_E\!\!f(x, y, z)\,\text{d}V \\
+      &= \int_{-1}^{1}\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!\int_{-1}^{y}\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &= \int_{-1}^{1}\int_{z}^{1}\!\!\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z \\
+      &= \int_{-1}^{1}\int_{-1}^{-\sqrt{1 - x^2}}\!\!\!\!\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x \\
+      &\quad + \int_{-1}^{1}\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!\int_{z}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x \\
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
 \end{document}
