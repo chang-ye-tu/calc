@@ -1124,7 +1124,7 @@
 \end{sol}
 
 \begin{ex}
-  寫出 $\ds\int_0^1\!\!\int_0^{1 - z}\!\!\!\int_0^{2}\!\!\,\text{d}x\,\text{d}y\,\text{d}z$ 所有積分順序積分式。
+  寫出 $\ds\int_0^1\!\!\int_0^{1 - z}\!\!\!\int_0^{2}\!\!\,\text{d}x\,\text{d}y\,\text{d}z$ 所有積分順序積分式.
 \end{ex}
 
 \begin{sol}
@@ -1150,7 +1150,7 @@
 \end{sol}
 
 \begin{ex}
-  若 $E$ 為以 $(0, 0, 0)$, $(1, 1, 0)$, $(0, 1, 0)$, $(0, 1, 1)$ 為頂點之四面體, 寫出 $\ds\int_E\text{d}V$ 所有積分順序積分式。
+  若 $E$ 為以 $(0, 0, 0)$, $(1, 1, 0)$, $(0, 1, 0)$, $(0, 1, 1)$ 為頂點之四面體, 寫出 $\ds\int_E\text{d}V$ 所有積分順序積分式.
 \end{ex}
 
 \begin{sol}
@@ -1158,7 +1158,7 @@
 \end{sol}
 
 \begin{ex}
-  寫出 $\ds\int_0^1\!\!\int_y^{1}\!\!\int_0^{z}\!\!\,\text{d}x\,\text{d}z\,\text{d}y$ 所有積分順序積分式。
+  寫出 $\ds\int_0^1\!\!\int_y^{1}\!\!\int_0^{z}\!\!\,\text{d}x\,\text{d}z\,\text{d}y$ 所有積分順序積分式.
 \end{ex}
 
 \begin{sol}
@@ -1166,11 +1166,19 @@
 \end{sol}
 
 \begin{ex}
-  寫出 $\ds\int_0^1\!\!\int_0^{x^2}\!\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}y\,\text{d}x$ 所有積分順序積分式。
+  寫出 $\ds\int_0^1\!\!\int_0^{x^2}\!\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}y\,\text{d}x$ 所有積分順序積分式.
 \end{ex}
 
 \begin{sol}
   $\ds\int_0^1\!\!\int_0^{x^2}\!\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}y\,\text{d}x = \int_0^1\!\!\int_{\sqrt{y}}^1\int_0^{y}\!\!\,\text{d}z\,\text{d}x\,\text{d}y = \int_0^1\!\!\int_z^1\!\!\int_{\sqrt{y}}^1\!\!\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\!\int_0^y\!\!\int_{\sqrt{y}}^1\!\!\,\text{d}x\,\text{d}z\,\text{d}y = \int_0^1\!\!\int_0^{x^2}\!\!\!\int_z^{x^2}\!\!\,\text{d}y\,\text{d}z\,\text{d}x \\= \int_0^1\!\!\int_{\sqrt{z}}^1\int_z^{x^2}\!\!\,\text{d}y\,\text{d}x\,\text{d}z = \frac{1}{10}$.
+\end{sol}
+
+\begin{ex}
+  寫出 $\ds\int_0^1\!\!\int_y^{1}\!\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}x\,\text{d}y$ 所有積分順序積分式.
+\end{ex}
+
+\begin{sol}
+  $\ds\int_0^1\!\!\int_y^{1}\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}x\,\text{d}y = \int_0^1\!\!\int_0^{x}\!\!\int_0^{y}\!\!\,\text{d}z\,\text{d}y\,\text{d}x = \int_0^1\!\!\int_z^1\!\!\int_{y}^1\!\!\,\text{d}x\,\text{d}y\,\text{d}z = \int_0^1\!\!\int_0^y\!\!\int_{y}^1\!\!\,\text{d}x\,\text{d}z\,\text{d}y = \int_0^1\!\!\int_0^{x}\!\!\int_z^{x}\!\!\,\text{d}y\,\text{d}z\,\text{d}x \\= \int_0^1\!\!\int_{z}^1\!\!\int_z^{x}\!\!\,\text{d}y\,\text{d}x\,\text{d}z$.
 \end{sol}
 
 \begin{ex}
@@ -1187,6 +1195,14 @@
 
 \begin{sol}
   $\ds\int_E y\,\text{d}V = \int_0^1\!\!\int_{\frac{x}{2}}^{\frac{2 - x}{2}}\!\!\!\!\int_0^{2 - x - 2y}\!\!y\,\text{d}z\,\text{d}y\,\text{d}x = \int_0^1\!\!\int_{\frac{x}{2}}^{\frac{2 - x}{2}}(2 - x - 2y)\,y\,\text{d}y\,\text{d}x = \int_0^1\bigg(\frac{(2 - x)y^2}{2} - \frac{2y^3}{3}\bigg)\,\bigg|_{\frac{x}{2}}^{\frac{2 - x}{2}}\,\text{d}x  = \int_0^1\bigg(\frac{2 - x}{2}\Big(\Big(\frac{2 - x}{2}\Big)^2 - \Big(\frac{x}{2}\Big)^2\Big) - \frac{2}{3}\Big(\Big(\frac{2 - x}{2}\Big)^3 - \Big(\frac{x}{2}\Big)^3\bigg)\,\text{d}x = \int_0^1\bigg(\frac{2 - x}{2}\,(1 - x) - \frac{2}{3}(1 - x)\Big(\Big(\frac{2 - x}{2}\Big)^2 + \frac{2 - x}{2}\cdot\frac{x}{2} + \Big(\frac{x}{2}\Big)^2\bigg)\,\text{d}x = \frac{1}{6}\int_0^1(x^3 - 3x + 2)\,\text{d}x = \frac{1}{6}\,\Big(\frac{1}{4} - \frac{3}{2} + 2\Big) = \frac{1}{8}$.
+\end{sol}
+
+\begin{ex}
+  證明 $\ds\int_0^{x}\!\int_0^{y}\!\int_0^{z}\!f(t)\,\text{d}t\,\text{d}z\,\text{d}y = \frac{1}{2}\int_0^{x}(x - t)^2f(t)\,\text{d}t$.
+\end{ex}
+
+\begin{sol}
+  建立 $(t, z, y)$ 座標系, 其相對位置如 $(x, y, z)$; $\ds\int_0^{x}\!\int_0^{y}\!\int_0^{z}\!f(t)\,\text{d}t\,\text{d}z\,\text{d}y = \int_0^{x}\!\int_t^{x}\!\int_{t}^{y}\!f(t)\,\text{d}z\,\text{d}y\,\text{d}t \\= \int_0^{x}\!\int_t^{x}\!(y - t)\,f(t)\,\text{d}y\,\text{d}t = \int_0^{x}\Big(\frac{x^2 - t^2}{2} f(t) - (x - t)\,t\,f(t)\Big)\,\text{d}t = \frac{1}{2}\int_0^x(x - t)^2 f(t)\,\text{d}t$. 
 \end{sol}
 
 \subsection*{變數變換}
@@ -1236,7 +1252,7 @@
 \end{minipage}
 
 \begin{ex}
-  半徑為 $a$ 之球中心對稱鑽半徑為 $b$ 之圓孔, $a > b > 0$, 求球剩下的體積。
+  半徑為 $a$ 之球中心對稱鑽半徑為 $b$ 之圓孔, $a > b > 0$, 求球剩下的體積.
 \end{ex}
 
 \begin{sol}
