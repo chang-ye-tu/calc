@@ -877,7 +877,7 @@
 \end{sol}
 
 \begin{ex}
-  求 $x^2 + y^2 = a^2$ 與 $x^2 + z^2 = a^2$ 交集區域之體積.
+  求 $x^2 + y^2 = a^2$ 與 $x^2 + z^2 = a^2$ 交集區域之表面積與體積.
 \end{ex}
 
 \begin{sol}
@@ -886,6 +886,7 @@
   \end{minipage}
   \begin{minipage}{0.8\textwidth}
     \begin{align*}
+      \text{(表面積)} &= 16\int_0^a\!\!\int_0^x\!\!\sqrt{1 + \Big(\frac{-x}{\sqrt{a^2 - x^2}}\Big)^2}\,\text{d}y\,\text{d}x = 16\int_0^a\!\!\int_0^x\!\!\sqrt{\frac{a^2}{a^2 - x^2}}\,\text{d}y\,\text{d}x \\ &= 16 a\int_0^a\!\!\frac{x}{\sqrt{a^2 - x^2}}\,\text{d}x = 16 a^2. \\
       \text{(體積)} &= 8\int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\text{d}z\,\text{d}y\,\text{d}x = 8\int_0^a(a^2 - x^2)\,\text{d}x = \frac{16 a^3}{3}. 
     \end{align*}
   \end{minipage}
