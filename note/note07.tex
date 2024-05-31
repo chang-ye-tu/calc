@@ -377,9 +377,9 @@
 \begin{fact}[基本區域積分]
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item 選擇積分方向 $v$: 延 $x$ 方向為 $\text{d}x$, 延 $y$ 方向為 $\text{d}y$. 
+    \item 選擇初始積分方向 $v$: 延 $x$ 方向為 $\text{d}x$, 延 $y$ 方向為 $\text{d}y$. 
     \item 想像積分方向 $v$ 為一射線, 進入區域之邊界函數為積分下界, 離開區域之邊界函數為積分上界; 邊界函數本身不含變數 $v$. 
-    \item 次第積分區域為原始積分區域延 $v$ 之投影, 亦即令 $v = 0$ 之方程式; 積分方向選擇如上步驟. 
+    \item 次第區域為原始區域延 $v$ 之投影 (令 $v = \text{(常數)}$ 之方程式, 或邊界的交集); 若此投影區域維度 $> 1$, 選擇積分方向. 
   \end{enumerate}
 \end{fact}
 
@@ -830,6 +830,24 @@
   $\ds\Gamma(\alpha)\,\Gamma(1 - \alpha) = \int_0^\infty\!\!e^{-t}t^{\alpha - 1}\,\text{d}t\int_0^\infty\!\!e^{-s}s^{-\alpha}\,\text{d}s = \int_0^\infty\!\!\!\int_0^\infty\!\!e^{-(t + s)}t^{\alpha - 1}s^{-\alpha}\,\text{d}s\,\text{d}t$. 令 $\ds\begin{cases}u = s + t \\ v = \frac{t}{s}\end{cases}\!\!\!\!\!$, 則 $\ds\begin{cases}s = \frac{u}{1 + v}\\ t = \frac{uv}{1 + v}\end{cases}\!\!\!\!\!$; Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial s}{\partial u} & \frac{\partial s}{\partial v} \\ \frac{\partial t}{\partial u}& \frac{\partial t}{\partial v}\end{vmatrix} = \begin{vmatrix}\frac{1}{1 + v} & \frac{-u}{(1 + v)^2} \\ \frac{v}{1 + v} & \frac{u}{(1 + v)^2}\end{vmatrix} = \frac{u}{(1 + v)^2}$. 變數變換 $(s,\,t)\to(u,\,v)$ 後積分範圍仍為 $0< u < \infty,\;0 < v < \infty$, 故 $\ds\int_0^\infty\!\!\!\int_0^\infty e^{-(t + s)}t^{\alpha - 1}s^{-\alpha}\,\text{d}s\,\text{d}t = \int_0^\infty\!\!\!\int_0^\infty e^{-(t + s)}\Big(\frac{t}{s}\Big)^{\alpha}t^{-1}\,\text{d}s\,\text{d}t = \int_0^\infty\!\!\!\int_0^\infty e^{-u}v^{\alpha}\frac{1 + v}{u v}\frac{u}{(1 + v)^2}\,\text{d}u\,\text{d}v = \int_0^\infty\!\!\!\int_0^\infty\!\! e^{-u}\frac{v^{\alpha - 1}}{1 + v}\,\text{d}u\,\text{d}v = \int_0^\infty\!\!e^{-u}\,\text{d}u\int_0^\infty\!\frac{v^{\alpha - 1}}{1 + v}\,\text{d}v = \int_0^\infty\!\frac{v^{\alpha - 1}}{1 + v}\,\text{d}v = \frac{\pi}{\sin\alpha\pi}$.
 \end{sol}
 
+\subsection*{曲面表面積}
+
+\begin{fact}
+  若曲面 $S$ 由 $z = f(x, y)$, $(x, y)\in\Omega$ 所定義, 則 $S$ 的表面積為 $\ds\int_\Omega\sqrt{1 + f_x^2 + f_y^2}\,\text{d}A$.
+\end{fact}
+
+\begin{prf}[sketch]
+  以切平面近似曲面 $S$; $S$ 參數式為 $\vr = (x, y, f(x, y))$, $x$, $y$ 方向切向量分別為 $\vr_x = (1, 0, f_x)$, $\vr_y = (0, 1, f_y)$; $\ds|\vr_x\times\vr_y| = |(-f_x, -f_y, 1)| = \sqrt{1 + f_x^2 + f_y^2}$. 
+\end{prf}
+
+\begin{ex}
+  求半球面 $z = \sqrt{a^2 - x^2 - y^2}$ 與圓柱體 $(x - \frac{a}{2})^2 + y^2 = (\frac{a}{2})^2$ 相交區域之表面積.
+\end{ex}
+
+\begin{sol}
+  由 $z = f(x, y) = \sqrt{a^2 - x^2 - y^2}$, $\ds f_x = \frac{-x}{\sqrt{a^2 - x^2 - y^2}}$, $\ds f_y = \frac{-y}{\sqrt{a^2 - x^2 - y^2}}$, $\ds\text{d}S = \sqrt{1 + f_x^2 + f_y^2}\,\text{d}x\,\text{d}y = \sqrt{1 + \frac{x^2}{a^2 - x^2 - y^2} + \frac{y^2}{a^2 - x^2 - y^2}}\,\text{d}x\,\text{d}y = \sqrt{\frac{a^2}{a^2 - x^2 - y^2}}\,\text{d}x\,\text{d}y$. 所求表面積為 $\ds\int_\Omega\,\text{d}S$, $\Omega = \big\{(x,y)\,\big|\,(x - \frac{a}{2})^2 + y^2 \leqslant (\frac{a}{2})^2\big\}$; $\ds\int_\Omega\,\text{d}S = \int_\Omega\sqrt{\frac{a^2}{a^2 - x^2 - y^2}}\,\text{d}x\,\text{d}y = 2\int_0^{\frac{\pi}{2}}\!\!\!\int_0^{a\cos\theta}\!\!\!\!\sqrt{\frac{a^2}{a^2 - r^2}}\,r\,\text{d}r\,\text{d}\theta \\ = 2a\int_0^{\frac{\pi}{2}}\!\Big(-\sqrt{a^2 - r^2}\,\Big|_{r = 0}^{r = a\cos\theta}\Big)\,\text{d}\theta = 2a^2\int_0^{\frac{\pi}{2}}(a - \sin\theta)\,\text{d}\theta = a^2(\pi - 2)$.  
+\end{sol}
+
 \section*{7.2 三重積分}
 
 %\begin{ex}
@@ -843,12 +861,35 @@
 \subsection*{一般區域積分}
 
 \begin{ex}
-  若 $E$ 為單位球, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$.
+  若 $E$ 為中心 $0$, 半徑 $a$ 之球體, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$.
 \end{ex}
 
+\begin{sol}
+  $\ds\int_E f(x, y, z)\,\text{d}V \\= \int_{-a}^{a}\!\int_{-\sqrt{a^2 - x^2}}^{\sqrt{a^2 - x^2}}\!\int_{-\sqrt{a^2 - x^2 - y^2}}^{\sqrt{a^2 - x^2 - y^2}}f(x, y, z)\,\text{d}z\,\text{d}y\,\text{d}x = \int_{-a}^{a}\!\int_{-\sqrt{a^2 - y^2}}^{\sqrt{a^2 - y^2}}\!\int_{-\sqrt{a^2 - x^2 - y^2}}^{\sqrt{a^2 - x^2 - y^2}}f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\ = \int_{-a}^{a}\!\int_{-\sqrt{a^2 - x^2}}^{\sqrt{a^2 - x^2}}\!\int_{-\sqrt{a^2 - x^2 - z^2}}^{\sqrt{a^2 - x^2 - z^2}}f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x = \int_{-a}^{a}\!\int_{-\sqrt{a^2 - z^2}}^{\sqrt{a^2 - z^2}}\!\int_{-\sqrt{a^2 - x^2 - z^2}}^{\sqrt{a^2 - x^2 - z^2}}f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z \\ = \int_{-a}^{a}\!\int_{-\sqrt{a^2 - y^2}}^{\sqrt{a^2 - y^2}}\!\int_{-\sqrt{a^2 - y^2 - z^2}}^{\sqrt{a^2 - y^2 - z^2}}f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y = \int_{-a}^{a}\!\int_{-\sqrt{a^2 - z^2}}^{\sqrt{a^2 - z^2}}\!\int_{-\sqrt{a^2 - y^2 - z^2}}^{\sqrt{a^2 - y^2 - z^2}}f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z$ 
+\end{sol}
+
 \begin{ex}
-  若 $E$ 為第一卦限中 $\ds\frac{x}{a} + \frac{y}{b} + \frac{z}{c} \leqslant 1$, $a,\;b,\;c > 0$, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$.
+  若 $E$ 為第一卦限中 $\ds\frac{x}{a} + \frac{y}{b} + \frac{z}{c} \leqslant 1$ 圍成之區域, $a,\;b,\;c > 0$, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$.
 \end{ex}
+
+\begin{sol}
+  $\ds\int_E f(x, y, z)\,\text{d}V \\ = \int_{0}^{a}\!\!\int_{0}^{b - \frac{bx}{a}}\!\!\!\!\int_{0}^{c - \frac{cx}{a} - \frac{cy}{b}}\!\!f(x, y, z)\,\text{d}z\,\text{d}y\,\text{d}x = \int_{0}^{b}\!\!\int_{0}^{a - \frac{ay}{b}}\!\!\!\!\int_{0}^{c - \frac{cx}{a} - \frac{cy}{b}}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\ = \int_{0}^{a}\!\!\int_{0}^{c - \frac{cx}{a}}\!\!\!\!\int_{0}^{b - \frac{bx}{a} - \frac{bz}{c}}\!\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x = \int_{0}^{c}\!\!\int_{0}^{a - \frac{az}{c}}\!\!\!\!\int_{0}^{b - \frac{bx}{a} - \frac{bz}{c}}\!\!f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z \\ = \int_{0}^{b}\!\!\int_{0}^{c - \frac{cy}{b}}\!\!\!\!\int_{0}^{a - \frac{ay}{b} - \frac{az}{c}}\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y = \int_{0}^{c}\!\!\int_{0}^{b - \frac{bz}{c}}\!\!\!\!\int_{0}^{a - \frac{ay}{b} - \frac{az}{c}}\!\!f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z$ 
+\end{sol}
+
+\begin{ex}
+  求 $x^2 + y^2 = a^2$ 與 $x^2 + z^2 = a^2$ 交集區域之體積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.2\textwidth}
+    \includegraphics[scale=0.9,page=18]{fig/text.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.8\textwidth}
+    \begin{align*}
+      \text{(體積)} &= 8\int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\text{d}z\,\text{d}y\,\text{d}x = 8\int_0^a(a^2 - x^2)\,\text{d}x = \frac{16 a^3}{3}. 
+    \end{align*}
+  \end{minipage}
+\end{sol}
 
 \begin{ex}
   若 $E$ 為 $x = 1$, $y = 1$, $z = 1$, $x + y + z = 2$ 圍成之四面體, 求 $\ds\int_E x\,\text{d}V$.
@@ -1074,6 +1115,29 @@
 \end{sol}
 
 \begin{ex}
+  若 $E$ 為 $z = 2x$, $z = y^2$, $x = 3$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to z\to y$, 與 $y\to x\to z$ 之積分式.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.6\textwidth}
+    \includegraphics[scale=0.82,page=23]{fig/prob.pdf} 
+    \includegraphics[scale=0.82,page=24]{fig/prob.pdf} 
+    \includegraphics[scale=0.82,page=25]{fig/prob.pdf} \\
+    \includegraphics[scale=0.88,page=26]{fig/prob.pdf} 
+    \includegraphics[scale=0.65,page=27]{fig/prob.pdf} 
+    \includegraphics[scale=0.7,page=28]{fig/prob.pdf} 
+  \end{minipage}
+  \begin{minipage}{0.4\textwidth}
+    \begin{align*}
+      &\quad\;\int_E f(x, y, z)\,\text{d}V \\
+      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{\frac{y^2}{2}}^{3}\!\int_{y^2}^{2x}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{y^2}^{6}\!\!\int_{\frac{z}{2}}^3\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y \\
+      &= \int_0^6\!\!\int_{\frac{z}{2}}^{3}\!\!\int_{-\sqrt{z}}^{\sqrt{z}}\!\!f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
   若 $\ds\int_E f(x, y, z)\,\text{d}V = \int_0^1\!\int_0^{1 - \frac{x}{2}}\!\!\int_{0}^{4 - 2x - 4z}\!\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x$, 寫出依積分順序 $z\to x\to y$ 之積分式.
 \end{ex}
 
@@ -1097,24 +1161,23 @@
 \end{sol}
 
 \begin{ex}
-  若 $E$ 為 $z = 2x$, $z = y^2$, $x = 3$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to z\to y$, 與 $y\to x\to z$ 之積分式.
+  若 $E$ 為 $x^2 + y^2 = 1$, $z = y$, $z = -1$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to y\to z$, 與 $y\to z\to x$ 之積分式.
 \end{ex}
 
 \begin{sol}
-  \begin{minipage}{0.6\textwidth}
-    \includegraphics[scale=0.82,page=23]{fig/prob.pdf} 
-    \includegraphics[scale=0.82,page=24]{fig/prob.pdf} 
-    \includegraphics[scale=0.82,page=25]{fig/prob.pdf} \\
-    \includegraphics[scale=0.88,page=26]{fig/prob.pdf} 
-    \includegraphics[scale=0.65,page=27]{fig/prob.pdf} 
-    \includegraphics[scale=0.7,page=28]{fig/prob.pdf} 
+  \begin{minipage}{0.57\textwidth}
+    \includegraphics[scale=0.8,page=30]{fig/prob.pdf}\hspace{-8mm} 
+    \includegraphics[scale=0.75,page=31]{fig/prob.pdf} 
+    \includegraphics[scale=0.8,page=32]{fig/prob.pdf} \\ 
+    \includegraphics[scale=0.8,page=33]{fig/prob.pdf} 
   \end{minipage}
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.43\textwidth}
     \begin{align*}
       &\quad\;\int_E f(x, y, z)\,\text{d}V \\
-      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{\frac{y^2}{2}}^{3}\!\int_{y^2}^{2x}\!\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
-      &= \int_{-\sqrt{6}}^{\sqrt{6}}\int_{y^2}^{6}\!\!\int_{\frac{z}{2}}^3\!\!f(x, y, z)\,\text{d}x\,\text{d}z\,\text{d}y \\
-      &= \int_0^6\!\!\int_{\frac{z}{2}}^{3}\!\!\int_{-\sqrt{z}}^{\sqrt{z}}\!\!f(x, y, z)\,\text{d}y\,\text{d}x\,\text{d}z
+      &= \int_{-1}^{1}\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!\int_{-1}^{y}\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
+      &= \int_{-1}^{1}\int_{z}^{1}\!\!\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z \\
+      &= \int_{-1}^{1}\int_{-1}^{-\sqrt{1 - x^2}}\!\!\!\!\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x \\
+      &\quad + \int_{-1}^{1}\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!\int_{z}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x 
     \end{align*}
   \end{minipage}
 \end{sol}
@@ -1145,27 +1208,6 @@
   \end{minipage}
 \end{sol}
 
-\begin{ex}
-  若 $E$ 為 $x^2 + y^2 = 1$, $z = y$, $z = -1$ 圍成之區域, 寫出 $\ds\int_E f(x, y, z)\,\text{d}V$ 依積分順序 $z\to x\to y$, $x\to y\to z$, 與 $y\to z\to x$ 之積分式.
-\end{ex}
-
-\begin{sol}
-  \begin{minipage}{0.57\textwidth}
-    \includegraphics[scale=0.8,page=30]{fig/prob.pdf}\hspace{-8mm} 
-    \includegraphics[scale=0.75,page=31]{fig/prob.pdf} 
-    \includegraphics[scale=0.8,page=32]{fig/prob.pdf} \\ 
-    \includegraphics[scale=0.8,page=33]{fig/prob.pdf} 
-  \end{minipage}
-  \begin{minipage}{0.43\textwidth}
-    \begin{align*}
-      &\quad\;\int_E f(x, y, z)\,\text{d}V \\
-      &= \int_{-1}^{1}\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!\int_{-1}^{y}\!f(x, y, z)\,\text{d}z\,\text{d}x\,\text{d}y \\
-      &= \int_{-1}^{1}\int_{z}^{1}\!\!\int_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}}\!f(x, y, z)\,\text{d}x\,\text{d}y\,\text{d}z \\
-      &= \int_{-1}^{1}\int_{-1}^{-\sqrt{1 - x^2}}\!\!\!\!\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x \\
-      &\quad + \int_{-1}^{1}\int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}}\!\int_{z}^{\sqrt{1 - x^2}}\!f(x, y, z)\,\text{d}y\,\text{d}z\,\text{d}x 
-    \end{align*}
-  \end{minipage}
-\end{sol}
 
 \begin{ex}
   寫出 $\ds\int_0^1\!\!\int_0^{1 - z}\!\!\!\int_0^{2}\!\!\,\text{d}x\,\text{d}y\,\text{d}z$ 所有積分順序積分式.
