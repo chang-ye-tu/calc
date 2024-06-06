@@ -353,6 +353,7 @@
       \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x$
       \item $\ds\int_1^2\!\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x\,\text{d}y$
       \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y$
+      \item $\ds\int_0^{\frac{\pi}{2}}\!\!\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r\,\text{d}\theta$  
     %  \item $\ds\int_0^1\!\int_0^z\int_0^y\!(x + y + z)\,\text{d}x\,\text{d}y\,\text{d}z$
     \end{enumerate}
   \end{multicols}
@@ -366,9 +367,10 @@
     \item $\ds\int_0^{\ln 4}\!\!\int_0^{\ln 3}\!\!e^{x + y}\,\text{d}x\,\text{d}y = \bigg(\int_0^{\ln 4}\!\!e^{y}\,\text{d}y\bigg)\cdot\bigg(\int_0^{\ln 3}\!\!e^x\,\text{d}x\bigg) = (4 - 1)(3 - 1) = 6$
     \item $\ds\int_0^{\frac{\pi}{2}}\!\int_0^{\cos y}\!e^x\sin y\,\text{d}x\,\text{d}y = \int_0^{\frac{\pi}{2}}\!\sin y\,\bigg(\int_0^{\cos y}\!e^x\,\text{d}x\bigg)\,\text{d}y = \int_0^{\frac{\pi}{2}}\!\sin y\,(e^{\cos y} - 1)\,\text{d}y = \big(-e^{\cos y} + \cos y\big)\,\Big|_0^{\frac{\pi}{2}} = e - 2$
     \item $\ds\int_0^{\frac{\pi}{2}}\!\int_0^{\cos\theta}\!\!\rho^2\sin\theta\,\text{d}\rho\,\text{d}\theta = \int_0^{\frac{\pi}{2}}\!\sin\theta\,\bigg(\int_0^{\cos\theta}\!\!\rho^2\,\text{d}\rho\bigg)\,\text{d}\theta = \int_0^{\frac{\pi}{2}}\!\sin\theta\,\frac{\cos^3\theta}{3}\,\text{d}\theta = -\frac{\cos^4\theta}{12}\,\bigg|_0^{\frac{\pi}{2}} = \frac{1}{12}$
-    \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x = \int_0^1\!\bigg(x^2y + \frac{y^3}{3}\bigg)\,\bigg|_{y = x^2}^{y = x^3}\,\text{d}x = \int_0^1\!\bigg(x^2\cdot x^3 + \frac{x^9}{3} - x^2\cdot x^2 - \frac{x^6}{3}\bigg)\,\text{d}x \\= \bigg(\frac{x^6}{6} + \frac{x^{10}}{30} - \frac{x^5}{5} - \frac{x^7}{21}\bigg)\,\bigg|_0^1 = -\frac{1}{21}$
+    \item $\ds\int_0^1\!\int_{x^2}^{x^3}\!(x^2 + y^2)\,\text{d}y\,\text{d}x = \int_0^1\!\bigg(x^2y + \frac{y^3}{3}\bigg)\,\bigg|_{y = x^2}^{y = x^3}\,\text{d}x = \int_0^1\!\bigg(x^2\cdot x^3 + \frac{x^9}{3} - x^2\cdot x^2 - \frac{x^6}{3}\bigg)\,\text{d}x = -\frac{1}{21}$ %\\= \bigg(\frac{x^6}{6} + \frac{x^{10}}{30} - \frac{x^5}{5} - \frac{x^7}{21}\bigg)\,\bigg|_0^1 = -\frac{1}{21}$
     \item $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x$ 中, 令 $\ds u = y^2 - x^2$, 則 $\ds\text{d}u = -2x\,\text{d}x\ie x\,\text{d}x = \frac{-1}{2}\,\text{d}u$. 積分範圍 $x$ 由 $0$ 至 $y$, 則變數變換 $u = y^2 - x^2$ 由 $y^2 - 0^2 = y^2$ 至 $y^2 - y^2 = 0$. 則 $\ds\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x = \int_{y^2}^0\!\!\sqrt{u}\,\frac{-1}{2}\,\text{d}u = \frac{1}{2}\int_0^{y^2}\!\!\!\sqrt{u}\,\text{d}u = \frac{1}{2}\,\frac{2}{3}u^{\frac{3}{2}}\,\Big|_0^{y^2} = \frac{y^3}{3}$. 故 $\ds\int_1^2\!\!\int_0^y\!x\sqrt{y^2 - x^2}\,\text{d}x\,\text{d}y = \int_1^2\!\frac{y^3}{3}\,\text{d}y = \frac{y^4}{12}\,\Big|_1^2 = \frac{5}{4}$.
-    \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y = \int_0^1\!\sqrt{y}\,\bigg(\int_{y^4}^{y^2}\!\!\frac{1}{\sqrt{x}}\,\text{d}x\bigg)\,\text{d}y = \int_0^1\!\sqrt{y}\,(2\sqrt{x})\,\Big|_{y^4}^{y^2}\,\text{d}y = 2\int_0^1\!\big(y^{\frac{3}{2}} - y^{\frac{5}{2}}\big)\,\text{d}y \\= 2\,\bigg(\frac{2}{5}\,y^{\frac{5}{2}} - \frac{2}{7}\,y^{\frac{7}{2}}\bigg)\,\bigg|_0^1 = \frac{8}{35}$
+    \item $\ds\int_0^1\!\int_{y^4}^{y^2}\!\!\sqrt{\frac{y}{x}}\,\text{d}x\,\text{d}y = \int_0^1\!\sqrt{y}\,\bigg(\int_{y^4}^{y^2}\!\!\frac{1}{\sqrt{x}}\,\text{d}x\bigg)\,\text{d}y = \int_0^1\!\sqrt{y}\,(2\sqrt{x})\,\Big|_{y^4}^{y^2}\,\text{d}y = 2\int_0^1\!\big(y^{\frac{3}{2}} - y^{\frac{5}{2}}\big)\,\text{d}y = \frac{8}{35}$ %\\= 2\,\bigg(\frac{2}{5}\,y^{\frac{5}{2}} - \frac{2}{7}\,y^{\frac{7}{2}}\bigg)\,\bigg|_0^1 = \frac{8}{35}$
+    \item $\ds\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r$ 中, 令 $\ds u = a^2 - r^2\cos^2\theta$, 則 $\ds\text{d}u = -2\cos^2\theta\,r\,\text{d}r\ie r\,\text{d}r = \frac{-1}{2\cos^2\theta}\,\text{d}u$. 積分範圍 $r$ 由 $0$ 至 $a$, 則變數變換 $u = a^2 - r^2\cos^2\theta$ 由 $a^2 - 0^2\cos^2\theta = a^2$ 至 $a^2 - a^2\cos^2\theta = a^2\sin^2\theta$. 則 $\ds\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r = \int_{a^2}^{a^2\sin^2\theta}\!\!\frac{1}{\sqrt{u}}\,\frac{-1}{2\cos^2\theta}\,\text{d}u = \int_{a^2\sin^2\theta}^{a^2}\frac{1}{2\cos^2\theta\sqrt{u}}\,\text{d}u = \frac{\sqrt{u}}{\cos^2\theta}\,\Big|_{u = a^2\sin^2\theta}^{u = a^2} = a\,\frac{1 - \sin\theta}{\cos^2\theta}$. 故 $\ds\int_0^{\frac{\pi}{2}}\!\!\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r\,\text{d}\theta = a\int_0^{\frac{\pi}{2}}\frac{1 - \sin\theta}{\cos^2\theta}\,\text{d}\theta = a\,\frac{\sin\theta - 1}{\cos\theta}\,\Big|_0^{\frac{\pi}{2}} = a\,\Big(\lim_{\theta\to\frac{\pi}{2}}\frac{\sin\theta - 1}{\cos\theta} + 1\Big) = a$.  
   \end{enumerate}
 \end{sol}
 
@@ -776,6 +778,10 @@
 \end{sol}
 
 \begin{ex}
+  反變數變換: $\ds\int_0^{\frac{\pi}{2}}\!\!\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r\,\text{d}\theta = \int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\frac{1}{\sqrt{a^2 - x^2}}\,\text{d}y\,\text{d}x = \int_0^a\frac{\sqrt{a^2 - x^2}}{\sqrt{a^2 - x^2}}\,\text{d}x = a$.  
+\end{ex}
+
+\begin{ex}
   求 $\ds\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x$. 
 \end{ex}
 
@@ -886,7 +892,7 @@
   \end{minipage}
   \begin{minipage}{0.8\textwidth}
     \begin{align*}
-      \text{(表面積)} &= 16\int_0^a\!\!\int_0^x\!\!\sqrt{1 + \Big(\frac{-x}{\sqrt{a^2 - x^2}}\Big)^2}\,\text{d}y\,\text{d}x = 16\int_0^a\!\!\int_0^x\!\!\sqrt{\frac{a^2}{a^2 - x^2}}\,\text{d}y\,\text{d}x \\ &= 16 a\int_0^a\!\!\frac{x}{\sqrt{a^2 - x^2}}\,\text{d}x = 16 a^2. \\
+      \text{(表面積)} &= 16\int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\!\!\sqrt{1 + \Big(\frac{-x}{\sqrt{a^2 - x^2}}\Big)^2}\,\text{d}y\,\text{d}x = 16\int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\!\!\sqrt{\frac{a^2}{a^2 - x^2}}\,\text{d}y\,\text{d}x \\ &= 16 a\int_0^a\!\frac{\sqrt{a^2 - x^2}}{\sqrt{a^2 - x^2}}\,\text{d}x = 16 a^2. \\
       \text{(體積)} &= 8\int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\text{d}z\,\text{d}y\,\text{d}x = 8\int_0^a(a^2 - x^2)\,\text{d}x = \frac{16 a^3}{3}. 
     \end{align*}
   \end{minipage}
