@@ -133,7 +133,7 @@
     \item[]
     \item 求導函數之過程稱為微分 (differentiation) : 求 $f'(x)$ $\ifff$ $f(x)$ (對 $x$) 微分
     \item 給定 $y = f(x)$, 其導函數可記為 $\ds f'(x) = f' = y' = \frac{\text{d}y}{\text{d}x} = \frac{\text{d}f}{\text{d}x} = \frac{\text{d}}{\text{d}x} f(x) = Df(x) = D_x f(x)$. 
-    \item $f$ 在 $a$ 的導數可記為 $\ds f'(a) = \Big.\frac{\text{d}y}{\text{d}x}\Big|_{x = a}$.  
+    \item $f$ 在 $a$ 的導數可記為 $\ds f'(a) = \frac{\text{d}y}{\text{d}x}\,\bigg|_{\,x = a}$.  
   \end{itemize}
 \end{rmk}
 
@@ -319,7 +319,7 @@
     \item 給定 $a > 0$, 求 $f(x) = a^x$ 之導函數
     \item $\ds\diff{f}{x}=\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} = \lim_{h \to 0} a^x \cdot \frac{a^{h} - 1}{h} = a^x \cdot \lim_{h \to 0} \frac{a^{h} - 1}{h}$
     \item 令 $\ds C(a) = \lim_{h \to 0} \frac{a^{h} - 1}{h}$, 則 $\ds\diff{}{x}a^x =  C(a)\cdot a^x$
-    \item 觀察: $C(a)$ 隨 $a$ 遞增; 對於某個介於 $2$, $3$ 間的 $a$, $C(a) = 1$. 
+    \item 觀察: $C(a)$ 隨 $a$ 遞增; 存在 $\frac{27}{10} < e < \frac{68}{25}$ 使 $C(e) = 1$. 
       \begin{table}[!htbp]
         \centering
         \begin{tabular}{cccccccc}
@@ -329,16 +329,24 @@
         \addlinespace[1mm]
         $\ds\frac{2^h-1}{h}$ & 0.7177 & 0.6956 & 0.6934 & 0.6932 & 0.6931 & 0.6931 & 0.6931 \\
         \addlinespace[1mm]
+        $\ds\frac{(\frac{5}{2})^h-1}{h}$ & 0.9596 & 0.9205 & 0.9167 & 0.9163 & 0.9163 & 0.9163 & 0.9163 \\
+        \addlinespace[1mm]
+        $\ds\frac{(\frac{27}{10})^h-1}{h}$ & 1.0442 & 0.9982 & 0.9937 & 0.9933 & 0.9933 & 0.9933 & 0.9933 \\
+        \addlinespace[1mm]
+        $\ds\frac{(\frac{68}{25})^h-1}{h}$ & 1.0524 & 1.0056 & 1.0011 & 1.0007 & 1.0006 & 1.0006 & 1.0006 \\
+        \addlinespace[1mm]
+        $\ds\frac{(\frac{28}{10})^h-1}{h}$ & 1.0845 & 1.0349 & 1.0301 & 1.0297 & 1.0296 & 1.0296 & 1.0296 \\
+        \addlinespace[1mm]
         $\ds\frac{3^h-1}{h}$ & 1.1612 & 1.1047 & 1.0992 & 1.0987 & 1.0986 & 1.0986 & 1.0986 \\
         \addlinespace[1mm]
-        $\ds\frac{5^h-1}{h}$ & 1.7462 & 1.6225 & 1.6107 & 1.6096 & 1.6095 & 1.6094 & 1.6094 \\
-        \addlinespace[1mm]
-        $\ds\frac{10^h-1}{h}$ & 2.5893 & 2.3293 & 2.3052 & 2.3028 & 2.3026 & 2.3026 & 2.3026 \\ 
-        \addlinespace[1mm]
+        %$\ds\frac{5^h-1}{h}$ & 1.7462 & 1.6225 & 1.6107 & 1.6096 & 1.6095 & 1.6094 & 1.6094 \\
+        %\addlinespace[1mm]
+        %$\ds\frac{10^h-1}{h}$ & 2.5893 & 2.3293 & 2.3052 & 2.3028 & 2.3026 & 2.3026 & 2.3026 \\ 
+        %\addlinespace[1mm]
         \bottomrule
         \end{tabular}
       \end{table}
-    \item 定義 $\ds C(e) = 1 \ie \lim_{h\to 0}\frac{e^h - 1}{h} = 1$, 則 $\ds\diff{}{x}e^x = C(e)\cdot e^x \ie (e^x)' = e^x$. $\ds\;\ln x \equiv\log_e x$
+    \item $\ds C(e) = 1 \ie \lim_{h\to 0}\frac{e^h - 1}{h} = 1 \ie \diff{}{x}e^x = C(e)\cdot e^x \ie (e^x)' = e^x$. $\ds\;\ln x \equiv\log_e x$
   \end{itemize}
 \end{dfn}
 
@@ -383,15 +391,13 @@
 \end{prp}
 
 \begin{prf}
-  %\vspace{-1cm}
-  \begin{figure}[!htbp]
-    \centering
-    \includegraphics[scale=1.15,page=1]{fig/sind.pdf}
-    \hspace{1cm}
-    \includegraphics[scale=0.8,page=2]{fig/sind.pdf}
-    %\caption{$\ds\lim_{h\to0}\frac{\sin h}{h} = 1$}
-  \end{figure}
-  由面積關係 $\ds\Delta OPR \leqslant \text{扇形}\;OPR \leqslant \Delta OQR\ie\sin h\leqslant h \leqslant\frac{\sin h}{\cos h}\ie\frac{\sin h}{h}\leqslant 1,\;\cos h\leqslant \frac{\sin h}{h}\ie\cos h\leqslant\frac{\sin h}{h}\leqslant 1$. 由 $\ds\lim_{h\to 0}\cos h = 1$ 與夾擊定理, $\ds\lim_{h\to 0}\frac{\sin h}{h} = 1$. 
+  \begin{minipage}{0.52\textwidth}
+    \includegraphics[scale=.85,page=1]{fig/sind.pdf}
+    \includegraphics[scale=.6,page=2]{fig/sind.pdf}
+  \end{minipage}
+  \begin{minipage}{0.48\textwidth}
+    $\ds\text{由面積關係}\;\Delta OPR \leqslant \text{扇形}\;OPR \leqslant \Delta OQR \\ \ie\sin h\leqslant h \leqslant\frac{\sin h}{\cos h} \ie\cos h\leqslant\frac{\sin h}{h}\leqslant 1$. \\ 由 $\ds\lim_{h\to 0}\cos h = 1$ 與夾擊定理, $\ds\lim_{h\to 0}\frac{\sin h}{h} = 1$. 
+  \end{minipage}
 \end{prf}
 
 \begin{prp}
