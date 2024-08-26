@@ -542,6 +542,15 @@
   可得 $\ds\sum_{n = 1}^{2^k}\frac{1}{n} > 1 + \frac{k}{2}$, $\forall\,k\in\mathbb{N}$, 故 $\ds\sum_{n = 1}^\infty\frac{1}{n}$ 發散. 
 \end{sol}
 
+\begin{ex}
+  \href{http://math.stackexchange.com/questions/29450/self-contained-proof-that-sum-limits-n-1-infty-frac1np-converges-for/29466\#29466}{$\ds\sum_{n = 1}^\infty\frac{1}{n^p}$ 收斂 $\ifff$ $p > 1$.}
+\end{ex}
+
+\begin{sol}
+  定義 $\ds s_k = \sum_{n = 1}^k\frac{1}{n^p}$, 則 $\ds s_{2k + 1} = \sum_{n = 1}^{2 k + 1}\frac{1}{n^p} = 1 + \sum_{j = 1}^k\bigg(\frac{1}{(2j)^p} + \frac{1}{(2j + 1)^p}\bigg) < 1 + \sum_{j = 1}^k\frac{2}{(2j)^p} = 1 + 2^{1-p}s_k < 1 + 2^{1-p}s_{2k + 1}\ie s_{2k + 1} < \frac{1}{1 - 2^{1 - p}}$; 當 $p > 1$ 時 $\{s_n\}\nearrow$ 且有上界, 故收斂. 若 $p\leqslant 1$, 則 $s_n < 1$, 不合。 
+\end{sol}
+
+
 %\begin{ex}
 %  證明 $\ds s_n = \sum_{k = 1}^n\frac{1}{k}$, $n > 1$ 不為正整數.  
 %\end{ex}
