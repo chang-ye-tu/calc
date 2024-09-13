@@ -368,6 +368,8 @@
   \end{enumerate}
 \end{ex}
 
+% There's no such function $f$ s.t. $f(f(z)) = az^2 + bz + c$: See: Rice R. E., Schweizer B., Sklar A. When is $f(f(z)) = az^2 + bz + c$, The American Mathematical Monthly, Vol. 87, No. 4. (Apr., 1980), pp. 252-263, \href{http://yaroslavvb.com/papers/rice-when.pdf}{link}
+
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[] 
@@ -518,6 +520,7 @@ $y = f(x) = a^x$, $a > 0\,\wedge a\not=1$.
   \caption{$y = a^x$: 圖左 $0 < a < 1$, 圖右 $a > 1$}
 \end{figure}
 
+\vspace{-5mm}
 \begin{prp} 若 $a$, $b > 0$, $x$, $y\in\mathbb{R}$, 則
   \setlength{\columnsep}{-0mm}
   \begin{multicols}{3}
@@ -568,11 +571,12 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 
 \begin{ex} 解下列 $x$ 的方程式與不等式. 
   \setlength{\columnsep}{-0mm}
-  \begin{multicols}{3}
+  \begin{multicols}{2}
     \begin{enumerate}\setlength\itemsep{0em}
       \item $\ds\log_{10} x + \log_{10}(x - 21) = 2$
       \item $\ds\log_2\big(x^2 - 2x - 2\big)\leqslant 0$
       \item $\ds 3^{\log_3 7} - 4^{\log_4 2} = 5^{\log_5 x - \log_5 x^2}$
+      \item $\ds\Big(\frac{4}{3}\Big)^{-x^2 + \frac{3}{2}x + 1} < \Big(\frac{\sqrt{3}}{2}\Big)^{-4x + 1}$
     \end{enumerate}
   \end{multicols}
 \end{ex}
@@ -584,6 +588,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     \item $\ds\log_{10} (x^2 - 21 x) = \log_{10} 10^2 \ie x^2 - 21x - 100 = 0 \ie (x - 25)(x + 4) = 0 \ie x = 25\,\vee\,x = -4$ (不合) . 
     \item $\ds x^2 - 2x - 2 > 0\,\wedge\, x^2 - 2x - 2\leqslant 1 \ie x \in [-1, 1 - \sqrt{3})\cup (1 + \sqrt{3}, 3]$. 
     \item $\ds 7 - 2 = \frac{1}{x} \ie x = \frac{1}{5}$. 
+    \item $\ds\Big(\frac{4}{3}\Big)^{-x^2 + \frac{3}{2}x + 1} < \Big(\frac{\sqrt{3}}{2}\Big)^{-4x + 1} \ie \Big(\frac{2}{\sqrt{3}}\Big)^{-2x^2 -x + 3} < 1\ie -2x^2 -x + 3 < 0 \ie x > 1\,\vee\,x < -\frac{3}{2}$. 
   \end{enumerate}
 \end{sol}
 
@@ -600,7 +605,15 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
   \end{itemize}
 \end{sol}
 
-\newpage
+\begin{ex}
+  若 $x > 0$, 若 $\ds f(x) = (32\,x)^{7 - \log_2 x}$ 在 $x = a$ 有最大值 $M$, 求 $(a, M)$. 
+\end{ex}
+
+\begin{sol}
+  令 $u = \log_2x$, 則 $x = 2^u$; $f(u) = (32\cdot 2^u)^{7 - u} = (2^5\cdot 2^u)^{7 - u} = 2^{(5 + u)(7 - u)} = 2^{-u^2 + 2u + 35} = 2^{-(u - 1)^2 + 36}$. 故 $f(u)$ 在 $u = 1$, 亦即 $x = 2$ 有最大值 $2^{36}$; $(a, M) = (2, 2^{36})$.
+\end{sol}
+
+%\newpage
 
 \section*{0.10 三角函數}
 
