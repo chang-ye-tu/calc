@@ -228,7 +228,7 @@
   \end{multicols}
 \end{prp}
 
-\begin{prf}
+\begin{prf}[不等式]
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds (|a + b|)^2 = (a + b)^2 = a^2 + 2 a b + b^2 = |a|^2 + 2 a b + |b|^2 \leqslant |a|^2 + 2 |a b| + |b|^2 = |a|^2 + 2 |a|\,|b| + |b|^2 = (|a| + |b|)^2$, 故 $\ds |a + b|\leqslant|a| + |b|$. 
@@ -307,23 +307,23 @@
 \subsection*{嵌射與蓋射}
 \begin{dfn} 給定函數 $f: A\to B$. 
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall\,x_1, x_2\in A\,\wedge\,x_1\not=x_2\; (f(x_1)\not=f(x_2))$, 則 $f$ 為嵌射 (one-to-one, injective) . 
-    \item 若 $\forall\,b\in B\;\exists\,a\in A\;(f(a) = b)$, 則 $f$ 為蓋射 (onto, surjective) . 
+    \item $f$ 為嵌射 (one-to-one, injective): $\forall\,x_1, x_2\in A\;(f(x_1) = f(x_2) \ie x_1 = x_2)$. 
+    \item $f$ 為蓋射 (onto, surjective): $\forall\,b\in B\;\exists\,a\in A\;(f(a) = b)$. 
   \end{itemize}
 \end{dfn}
 
 \myline
 
 \begin{ex}
-  證明 $f(x) = x^3$ 為嵌射. 
+  證明函數 $f:\mathbb{R}\to\mathbb{R}$, $f(x) = x^3$ 為嵌射. 
 \end{ex}
 
 \begin{sol}
-  顯然 $\dom f = \mathbb{R}$. 對 $x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $x_1 - x_2 = 0\ie x_1 = x_2$ 或 $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
+  $\forall\,x_1, x_2\in\mathbb{R}$, $x_1^3 - x_2^3 = (x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2)$. 若 $x_1^3 = x_2^3$, 則 $x_1 - x_2 = 0\ie x_1 = x_2$ 或 $\ds x_1^2 + x_1 x_2 + x_2^2 = 0 \ie \Big(x_1 + \frac{x_2}{2}\Big)^2 + \frac{3x_2^2}{4} = 0 \ie x_2 = x_1 = 0$, 得證.  
 \end{sol}
 
 \begin{ex}
-  令 $\mathbb{Z}^+ = \mathbb{N}\cup\{0\}$, 函數 $f:\mathbb{Z}^+\times\mathbb{Z}^+\to\mathbb{Z}^+$ 定義為 $\ds f(m, n) = \frac{(m + n)(m + n + 1)}{2} + m$. 證明 $f$ 同時為嵌射與蓋射. 
+  令 $\mathbb{Z}^+ = \mathbb{N}\cup\{0\}$. 定義函數 $f:\mathbb{Z}^+\times\mathbb{Z}^+\to\mathbb{Z}^+$ 為 $\ds f(m, n) = \frac{(m + n)(m + n + 1)}{2} + m$. 證明 $f$ 為嵌射, 亦為蓋射. 
 \end{ex}
 
 \begin{sol}
@@ -351,15 +351,19 @@
 \begin{ex}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
+    \item 設 $\ds f\Big(x - \frac{1}{x}\Big) = x^2 + \frac{1}{x^2}$, 求 $f(2)$. 
     \item 設 $f(x) = x$, $\ds g(x) = \frac{1}{x}$, $\ds h(x) = (f\cdot g)(x) = x\cdot\frac{1}{x} = 1$, 求 $\dom h$. 
     \item 設 $F(x) = \sin^3(x + 3)$, 求函數 $f$, $g$, $h$ 使得 $F = f\circ g\circ h$. 
     \item 設 $\ds f(x) = \frac{x + 1}{1 + \frac{1}{x + 1}}$, 求 $\dom f$. 
     \item 設 $\ds f(x) = \sqrt{x}$, $g(x) = \sqrt{2 - x}$, 求 $f\circ f$, $f\circ g$, $g\circ f$, $g\circ g$, 以及其定義域. 
-    \item 設 $\ds g(x) = 2x + 1$, $h(x) = 4x^2 + 4x + 7$. 
-      \begin{itemize}\setlength\itemsep{0em}
-        \item 求函數 $f(x)$ 使得 $f\circ g = h$. 
-        \item 求函數 $f(x)$ 使得 $g\circ f = h$. 
-      \end{itemize}
+    \item 設 $\ds g(x) = 2x + 1$, $h(x) = 4x^2 + 4x + 7$.
+      \setlength{\columnsep}{-0mm}
+      \begin{multicols}{2}
+        \begin{itemize}\setlength\itemsep{0em}
+          \item 求函數 $f(x)$ 使得 $f\circ g = h$. 
+          \item 求函數 $f(x)$ 使得 $g\circ f = h$. 
+        \end{itemize}
+      \end{multicols}
     \item 若 $\ds f_0(x) = \frac{x}{x + 1}$, $\ds f_{n+1} = f_0\circ f_n$, $n = 0,\,1,\,2,\,\ldots$. 求 $f_n(x)$ 之公式.  
   \end{enumerate}
 \end{ex}
@@ -367,6 +371,7 @@
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[] 
+    \item 若 $\ds x - \frac{1}{x} = 2$, $\ds 4 = \Big(x - \frac{1}{x}\Big)^2 = x^2 - 2 + \frac{1}{x^2}\ie x^2 + \frac{1}{x^2} = 6$. 由 $\ds f\Big(x - \frac{1}{x}\Big) = x^2 + \frac{1}{x^2}$, $f(2) = 6$. 
     \item 由 $\dom(f\cdot g) = \dom f\,\cap\,\dom g$, $\dom h = \mathbb{R}\,\cap\,\big(\mathbb{R}\setminus\{0\}\big) = \mathbb{R}\setminus\{0\}$. 
     \item $f(x) = x^3$, $g(x) = \sin x$, $h(x) = x + 3$. 
     \item 由 $\ds\dom\frac{f}{g} = \dom f\,\cap\,\dom g\,\setminus\,\{ x\,|\,g(x) = 0\}$, $\dom f = \mathbb{R}\,\cap\,\big(\mathbb{R}\cap\big(\mathbb{R}\setminus\{-1\}\big)\big)\setminus\big\{x\,|\,1 + \frac{1}{x + 1} = 0\big\} \\= \mathbb{R}\setminus\{-1, -2\}$
@@ -472,10 +477,13 @@
 
 \begin{ex}
   令 $f(x) = \sin x$, 若定義在
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $[0, \pi]$ 時, 非為嵌射 (一對一) . 
-    \item $\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$ 時為嚴格遞增, 存在反函數 $\sin^{-1}:[-1, 1]\to\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$
-  \end{itemize}
+  \setlength{\columnsep}{-6cm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $[0, \pi]$ 時, 非為嵌射 (一對一) 
+      \item $\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$ 時為嚴格遞增, 存在反函數 $\sin^{-1}:[-1, 1]\to\big[\frac{-\pi}{2}, \frac{\pi}{2}\big]$
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \begin{ex} 求反函數. 
@@ -607,7 +615,7 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
            \theta = \frac{s}{r}
          \end{align*}
         &  
-        \begin{tikzpicture}[scale=0.8,>={[inset=0,angle'=27]Stealth}]
+        \begin{tikzpicture}[scale=0.71,>={[inset=0,angle'=27]Stealth}]
           \draw circle(2);
           \draw [thick,fill=cyan!20](230:2)--(0,0)--(130:2) arc (130:230:2)--cycle;
           \draw [->] (0, 0) -- node[above]{$r$} (10:2);
