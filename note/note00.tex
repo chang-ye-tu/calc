@@ -232,7 +232,7 @@
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds (|a + b|)^2 = (a + b)^2 = a^2 + 2 a b + b^2 = |a|^2 + 2 a b + |b|^2 \leqslant |a|^2 + 2 |a b| + |b|^2 = |a|^2 + 2 |a|\,|b| + |b|^2 = (|a| + |b|)^2$, 故 $\ds |a + b|\leqslant|a| + |b|$. 
-    \item $\ds |a| = |(a - b) + b| \leqslant |a - b| + |b| \ie |a| - |b| \leqslant |a - b|$;  $\ds |b| = |(b - a) + a| \leqslant |b - a| + |a| = |a - b| + |a| \ie |b| - |a| \leqslant |a - b|$.  故 $\ds \big|\,|a| - |b|\,\big|\leqslant|a - b|$. 
+    \item $\ds |a| = |(a - b) + b| \leqslant |a - b| + |b| \ie |a| - |b| \leqslant |a - b|$;  $\ds |b| = |(b - a) + a| \leqslant |b - a| + |a| = |a - b| + |a| \ie |a| - |b| \geqslant -|a - b|$.  故 $\ds \big|\,|a| - |b|\,\big|\leqslant|a - b|$. 
   \end{itemize}
 \end{prf}
 
@@ -593,6 +593,14 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
 \end{sol}
 
 \begin{ex}
+  若 $x > 0$, 若 $\ds f(x) = (32\,x)^{7 - \log_2 x}$ 在 $x = a$ 有最大值 $M$, 求 $(a, M)$. 
+\end{ex}
+
+\begin{sol}
+  令 $u = \log_2x$, 則 $x = 2^u$; $f(u) = (32\cdot 2^u)^{7 - u} = (2^5\cdot 2^u)^{7 - u} = 2^{(5 + u)(7 - u)} = 2^{-u^2 + 2u + 35} = 2^{-(u - 1)^2 + 36}$. 故 $f(u)$ 在 $u = 1$, 亦即 $x = 2$ 有最大值 $2^{36}$; $(a, M) = (2, 2^{36})$.
+\end{sol}
+
+\begin{ex}
   證明 $\ds f(x) = \log_2\big(x + \sqrt{x^2 + 1}\big)$ 為奇函數, 並求其反函數. 
 \end{ex}
 
@@ -604,16 +612,6 @@ $y = f(x) = \log_a x$, $a > 0\,\wedge a\not=1$.
     \item $\ds y = \log_2\big(x + \sqrt{x^2 + 1}\big)$; $x\longleftrightarrow y$: $\ds x = \log_2\big(y + \sqrt{y^2 + 1}\big)\ie 2^x - y = \sqrt{y^2 + 1} \ie 2^{2x} - 2\cdot2^x y + y^2 = y^2 + 1 \ie y = \frac{2^x - 2^{-x}}{2}$. 
   \end{itemize}
 \end{sol}
-
-\begin{ex}
-  若 $x > 0$, 若 $\ds f(x) = (32\,x)^{7 - \log_2 x}$ 在 $x = a$ 有最大值 $M$, 求 $(a, M)$. 
-\end{ex}
-
-\begin{sol}
-  令 $u = \log_2x$, 則 $x = 2^u$; $f(u) = (32\cdot 2^u)^{7 - u} = (2^5\cdot 2^u)^{7 - u} = 2^{(5 + u)(7 - u)} = 2^{-u^2 + 2u + 35} = 2^{-(u - 1)^2 + 36}$. 故 $f(u)$ 在 $u = 1$, 亦即 $x = 2$ 有最大值 $2^{36}$; $(a, M) = (2, 2^{36})$.
-\end{sol}
-
-%\newpage
 
 \section*{0.10 三角函數}
 
