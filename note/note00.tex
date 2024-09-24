@@ -466,10 +466,10 @@
 
 \section*{0.6 函數特性}
 \subsection*{奇偶性}
-\begin{dfn} 給定實數值函數 $f$: 
+\begin{dfn} 給定實數值函數 $f$, $\forall x\in\dom f$ 
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall x\in\dom f$, $f(-x) = f(x)$, 則 $f$ 為偶函數 (even function) . 
-    \item 若 $\forall x\in\dom f$, $f(-x) = -f(x)$, 則 $f$ 為奇函數 (odd function) . 
+    \item 若 $f(-x) = f(x)$, 則 $f$ 為偶函數 (even function) . 
+    \item 若 $f(-x) = -f(x)$, 則 $f$ 為奇函數 (odd function) . 
   \end{itemize}
 \end{dfn}
 
@@ -480,19 +480,18 @@
 \begin{prf} 設實數值函數為 $f$. 
   \begin{itemize}\setlength\itemsep{0em}
     \item (存在性) 令 $\ds E(x) = \frac{f(x) + f(-x)}{2}$, $\ds O(x) = \frac{f(x) - f(-x)}{2}$, 則 $E$ 為偶函數, $O$ 為奇函數, $f(x) = E(x) + O(x)$. 
-    \item (唯一性) 已知 $\ds f(x) = E_1(x) + O_1(x) = E_2(x) + O_2(x)$. 令 $E_2(x) - E_1(x) = e(x)$, $O_1(x) - O_2(x) = o(x)$, 則 $e(x)$ 為偶函數, $o(x)$ 為奇函數, 且 $e(x) - o(x) = 0$. 若 $x\leftarrow -x$, 則 $e(-x) - o(-x) = 0 \ie e(x) + o(x) = 0$, 故 $e(x) = 0$, $o(x) = 0$. 
-% $E_2(x) - E_1(x) = O_1(x) - O_2(x)$ 同時為奇, 偶函數, 必恆為零 $\ie E_2 = E_1,\,O_1 = O_2$.  
+    \item (唯一性) 已知 $\ds f(x) = E_1(x) + O_1(x) = E_2(x) + O_2(x)$. 令 $E_1(x) - E_2(x) = e(x)$, $O_1(x) - O_2(x) = o(x)$, 則 $e(x)$ 為偶函數, $o(x)$ 為奇函數, 且 $e(x) + o(x) = 0$. 若 $x\leftarrow -x$, 則 $e(-x) + o(-x) = 0 \ie e(x) - o(x) = 0$, 故 $e(x) = 0$, $o(x) = 0$. 
   \end{itemize}
 \end{prf}
 
 \subsection*{增減性}
 
-\begin{dfn} 給定實數值函數 $f$ 與區間 $I$: 
+\begin{dfn} 給定實數值函數 $f$ 與區間 $I$. $\forall\,x, y\in I$, $x < y$: 
   \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\forall\,x, y\in I$, $x < y$ 有 $f(x) < f(y)$, 則稱 $f$ 在 $I$ 為嚴格遞增 / 嚴格上升 (increasing) . 
-    \item 若 $\forall\,x, y\in I$, $x < y$ 有 $f(x) > f(y)$, 則稱 $f$ 在 $I$ 為嚴格遞減 / 嚴格下降 (decreasing) . 
-    \item 若 $\forall\,x, y\in I$, $x < y$ 有 $f(x) \leqslant f(y)$, 則稱 $f$ 在 $I$ 為遞增 / 上升 (non-decreasing) . 
-    \item 若 $\forall\,x, y\in I$, $x < y$ 有 $f(x) \geqslant f(y)$, 則稱 $f$ 在 $I$ 為遞減 / 下降 (non-increasing) . 
+    \item 若 $f(x) < f(y)$, 則稱 $f$ 在 $I$ 為嚴格遞增 / 嚴格上升 (increasing) . 
+    \item 若 $f(x) > f(y)$, 則稱 $f$ 在 $I$ 為嚴格遞減 / 嚴格下降 (decreasing) . 
+    \item 若 $f(x) \leqslant f(y)$, 則稱 $f$ 在 $I$ 為遞增 / 上升 (non-decreasing) . 
+    \item 若 $f(x) \geqslant f(y)$, 則稱 $f$ 在 $I$ 為遞減 / 下降 (non-increasing) . 
   \end{itemize}
 \end{dfn}
 
@@ -534,7 +533,7 @@
     \begin{enumerate}\setlength\itemsep{0em}
       \item[]
       \item 求 $f(x) = x^3 + 2$ 的反函數. 
-      \item 求 $f(x) = x^2$, $x\geqslant 0$ 的反函數. 若 $x\leqslant 0$ 時？
+      \item 求 $f(x) = x^2$, $x\geqslant 0$ 的反函數, 並求 $x\leqslant 0$ 時的反函數.
       \item 求 $\ds f(x) = \frac{1 + 9 x}{4 - x}$, $x < 4$ 的反函數. 
     \end{enumerate}
   %\end{multicols}
@@ -575,6 +574,8 @@ $y = f(x) = a^x$, $a > 0\,\wedge\, a\not=1$.
     \end{itemize}
   \end{multicols}
 \end{prp}
+
+\myline
 
 \section*{0.9 對數函數}
 
