@@ -62,22 +62,23 @@
 
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第一章\ \ 極限與連續性}{第一章\ \ 極限與連續性}} 
-\author{\vspace{-5em}}
-\date{\vspace{-5em}}
+\author{\vspace{-4em}}
+\date{\vspace{-4em}}
 \maketitle
 \thispagestyle{firststyle}
 
 %\newpage
 
-\section*{1.1 直觀極限}
-
-\subsection*{畫圖; 兩邊取接近值}
-
+\section*{1.1 直觀極限: 取雙邊接近值}
+\vspace{2mm}
+\begin{minipage}{0.23\textwidth}
 \begin{align*}
   \lim_{x\to 2}x = 2
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\qquad
+\begin{minipage}{0.77\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -86,13 +87,20 @@
     $f(x)$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
 
+\vspace{5mm}
+
+\hspace{-7mm}
+\begin{minipage}{0.23\textwidth}
 \begin{align*}
   \lim_{x\to 2}x^2 = 4
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\qquad
+\begin{minipage}{0.77\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -101,13 +109,20 @@
     $f(x)$ & 3.61 & 3.9601 & 3.996 & $\circ$ & 4.004 & 4.040 & 4.41 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
 
+\vspace{5mm}
+
+%\hspace{-5mm}
+\begin{minipage}{0.18\textwidth}
 \begin{align*}
-  \lim_{x\to 2}\frac{x - 2}{x^2 + x - 6} = \frac{1}{5}\;(= 0.2)
+  \lim_{x\to 2}\frac{x - 2}{x^2 + x - 6} = 0.2
 \end{align*}
-
-\begin{center}
+\end{minipage}
+\qquad
+\begin{minipage}{0.85\textwidth}
+%\begin{center}
   \begin{tabular}{cccccccc}
     \toprule
     $x$ & 1.9 & 1.99 & 1.999 & $\circ$ & 2.001 & 2.01 & 2.1 \\
@@ -116,7 +131,10 @@
     $f(x)$ & 0.20408 & 0.20040 &0.20004 & $\circ$ & 0.19996 & 0.19960 & 0.19608 \\
     \bottomrule
   \end{tabular}
-\end{center}
+%\end{center}
+\end{minipage}
+
+\vspace{2mm}
 
 %\begin{align*}
 %  f(x) = \begin{cases}x & x < 2 \\ -1 & x = 2 \\ x + 3 & x > 2\end{cases} \\
@@ -137,18 +155,20 @@
 
 \subsection*{單側極限 (One-Sided Limits) }
 
-\begin{figure}[ht]
-  \centering
-  \begin{tabularx}{0.8\textwidth}{X>{\centering\arraybackslash}X}
-    \begin{align*}
-      \lim_{x\to2-}g(x) = 3,\qquad\lim_{x\to5-}g(x) = 2 \\
-      \lim_{x\to2+}g(x) = 1,\qquad\lim_{x\to5+}g(x) = 2 \\
-      \lim_{x\to2}g(x) = \text{DNE},\qquad\lim_{x\to5}g(x) = 2
-    \end{align*}
-  &  
-  \includegraphics[scale=1.4,page=1]{fig/g.pdf}
- \end{tabularx}
-\end{figure}
+\vspace{-3mm}
+\hspace{1cm}
+\begin{minipage}{0.4\textwidth}
+  \begin{align*}
+    \lim_{x\to2-}g(x) = 3,\qquad\lim_{x\to5-}g(x) = 2 \\
+    \lim_{x\to2+}g(x) = 1,\qquad\lim_{x\to5+}g(x) = 2 \\
+    \lim_{x\to2}g(x) = \text{DNE},\qquad\lim_{x\to5}g(x) = 2
+  \end{align*}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+  \begin{center}
+    \includegraphics[scale=1.,page=1]{fig/g.pdf}
+  \end{center}
+\end{minipage}
 
 \begin{ex}
   $\ds g(x) = \begin{cases}\sqrt{x - 4} & \text{若 } x > 4 \\ 8 - 2x & \text{若 } x < 4 \end{cases}$, $\ds\lim_{x\to 4}g(x) = 0$. 
