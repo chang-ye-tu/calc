@@ -352,11 +352,11 @@
 \end{ex}
 
 \begin{sol}
-  $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}}$ 為 $(\frac{\infty}{\infty})$ 型, 理應可使用 LHR, 但 $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \ds\lim_{x\to\infty}\frac{e^x - e^{-x}}{e^x + e^{-x}} = \lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \ldots$, 無限循環; $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \lim_{x\to\infty}\frac{e^x\,(1 + e^{-2x})}{e^x\,(1 - e^{-2x})} = \lim_{x\to\infty}\frac{1 + e^{-2x}}{1 - e^{-2x}} = 1$. 
+  $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}}$ 為 $\frac{\infty}{\infty}$ 型, 理應可使用 LHR, 但 $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \ds\lim_{x\to\infty}\frac{e^x - e^{-x}}{e^x + e^{-x}} = \lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \ldots$, 無限循環; $\ds\lim_{x\to\infty}\frac{e^x + e^{-x}}{e^x - e^{-x}} = \lim_{x\to\infty}\frac{e^x\,(1 + e^{-2x})}{e^x\,(1 - e^{-2x})} = \lim_{x\to\infty}\frac{1 + e^{-2x}}{1 - e^{-2x}} = 1$. 
 \end{sol}
 
 \begin{ex}[LHR 與 DNE]
-  若 $\ds\lim_{x\to a}f(x) = 0$, $\ds\lim_{x\to a}g(x) = 0$ 而 $\ds\lim_{x\to a}\frac{f'(x)}{g'(x)} = \text{DNE}$, $\ds\lim_{x\to a}\frac{f(x)}{g(x)}$ 仍存在. 取 $\ds f(x) = x^2\sin\frac{1}{x}$, $g(x)= x$ 與 $a = 0$, 則 $\ds\lim_{x\to 0} f(x) = 0$ 且 $\ds\lim_{x\to 0} g(x) = 0$, $\ds\lim_{x\to 0}\frac{f'(x)}{g'(x)} = \lim_{x\to 0}\left(2x\sin\frac{1}{x} -\cos\frac{1}{x}\right) = \text{DNE}$, 但 $\ds\lim_{x\to 0}\frac{f(x)}{g(x)} = \lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x} = \lim_{x\to 0} x\sin\frac{1}{x}= 0$. 
+  若 $\ds\lim_{x\to a}f(x) = 0$, $\ds\lim_{x\to a}g(x) = 0$ 與 $\ds\lim_{x\to a}\frac{f'(x)}{g'(x)} = \text{DNE}$, $\ds\lim_{x\to a}\frac{f(x)}{g(x)}$ 仍可能存在: 取 $\ds f(x) = x^2\sin\frac{1}{x}$, $g(x)= x$ 與 $a = 0$, 則 $\ds\lim_{x\to 0} f(x) = 0$ 且 $\ds\lim_{x\to 0} g(x) = 0$, $\ds\lim_{x\to 0}\frac{f'(x)}{g'(x)} = \lim_{x\to 0}\left(2x\sin\frac{1}{x} -\cos\frac{1}{x}\right) = \text{DNE}$, 但 $\ds\lim_{x\to 0}\frac{f(x)}{g(x)} = \lim_{x\to 0}\frac{x^2\sin\frac{1}{x}}{x} = \lim_{x\to 0} x\sin\frac{1}{x}= 0$. 
 \end{ex}
 
 \section*{3.3 極值問題}
