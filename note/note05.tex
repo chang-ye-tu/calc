@@ -326,7 +326,7 @@
   給定三維向量 $\va = \llt a_1,\,a_2,\,a_3\rgt$, $\vb = \llt b_1,\,b_2,\,b_3\rgt$, 則 $\va$ 與 $\vb$ 的外積 / 叉積 (outer product / cross product) 定義為 $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \llt a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rgt$. 
 \end{dfn}
 
-\begin{prp} $\va$, $\vb$, $\vc\in\mathbb{R}^3$, $s\in\mathbb{R}$, 則
+\begin{prp} 令 $\va$, $\vb$, $\vc\in\mathbb{R}^3$, $s\in\mathbb{R}$,
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item $|\va\times\vb| = |\va|\,|\vb|\,\sin\theta$, $0\leqslant\theta\leqslant\pi$ 為 $\va$ 與 $\vb$ 的夾角; $|\va\times\vb|$ 為 $\va$ 與 $\vb$ 張成之平行四邊形面積. 
     \item $\va\times\vb = |\va|\,|\vb|\,\sin\theta\,\hn$, $0\leqslant\theta\leqslant\pi$ 為 $\va$ 與 $\vb$ 的夾角, $(\va,\,\vb,\,\hn)$ 滿足右手定則且 $|\hn| = 1$, $\hn\,\bot\,\va$, $\hn\,\bot\,\vb$.  
@@ -372,7 +372,7 @@
   \end{itemize}
 \end{prf}
 
-\begin{ex} 若 $\va$, $\vb$, $\vc$, $\vd\in\mathbb{R}^3$, 則
+\begin{ex} 令 $\va$, $\vb$, $\vc$, $\vd\in\mathbb{R}^3$,
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\va\times(\vb\times\vc) + \vb\times(\vc\times\va) + \vc\times(\va\times\vb) = 0$
@@ -1418,7 +1418,7 @@
 \section*{5.7 Lagrange 乘數法}
 
 \begin{thm}
-  給定開集 $S\subseteq\mathbb{R}^n$, 可微函數 $f:S\to\mathbb{R}$ 與 $g_j:S\to\mathbb{R}$, $j=1,\,2,\,\ldots,\,m$, $m < n$, 及 $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$. 若 $\ds\vx_0\in S\,\cap\,X_0$ 有極值且 $\det\big(D_i g_j(\vx_0)\big)\ne 0$, 則 \vspace{-2mm}
+  給定開集 $S\subseteq\mathbb{R}^n$, 可微函數 $f:S\to\mathbb{R}$ 與 $g_j:S\to\mathbb{R}$, $j=1,\,2,\,\ldots,\,m$, $m < n$, 及 $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$. 若 $f$ 在 $\ds\vx_0\in S\,\cap\,X_0$ 有極值且 $\det\big(D_i g_j(\vx_0)\big)\ne 0$, 則 \vspace{-2mm}
   \begin{align*}
     \exists\,\lambda_1,\,\lambda_2,\,\ldots,\,\lambda_m\quad\text{使}\quad D_i f(\vx_0) + \sum_{j = 1}^m\lambda_j D_i g_j(\vx_0) = 0,\quad\ds i = 1,\,2,\,\ldots,\,n
   \end{align*}
