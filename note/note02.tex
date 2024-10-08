@@ -169,12 +169,13 @@
 \end{fact}
 
 \begin{dfn}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item[]
-    \item 若 $f$ 在 $(a, b)$ 上每一點均有導數, 則稱 $f$ 在 $(a, b)$ 可微 (分) . 
+  %\begin{itemize}\setlength\itemsep{0em}
+    %\item[]
+    %\item 
+      若 $f$ 在 $(a, b)$ 上每一點均有導數, 則稱 $f$ 在 $(a, b)$ 可微 (分) . 
     %\item $f$ 在 $a$ 的右導數 $f'_+(a)$ 定義為 $\ds f'_+(a) = \lim_{h\to 0+}\frac{f(a + h) - f(a)}{h}$; \\$f$ 在 $a$ 的左導數 $f'_-(a)$ 定義為 $\ds f'_-(a) = \lim_{h\to 0-}\frac{f(a + h) - f(a)}{h}$. 
     %\item 若 $f$ 在 $(a, b)$ 可微, 在 $a$ 有右導數, 在 $b$ 有左導數, 則稱 $f$ 在 $[a, b]$ 可微 (分) . 
-  \end{itemize}
+  %\end{itemize}
 \end{dfn}
 
 \begin{thm}
@@ -471,7 +472,7 @@
 \end{ex}
 
 \begin{sol}
-  $\ds\ln f(x) = \frac{1}{4}\ln\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1} = \frac{1}{4}\big(\ln(x^4 + 12) + \ln(x^5 - x^2 + 2) - \ln(x^3 + 1)\big)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = \frac{1}{4}\big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\big) \ie f'(x) = \sqrt[4]{\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1}}\cdot\frac{1}{4}\big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\big)$. 
+  $\ds\ln f(x) = \frac{1}{4}\ln\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1} = \frac{1}{4}\big(\ln(x^4 + 12) + \ln(x^5 - x^2 + 2) - \ln(x^3 + 1)\big)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = \frac{1}{4}\,\Big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\Big) \ie f'(x) = \sqrt[4]{\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1}}\cdot\frac{1}{4}\,\Big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\Big)$. 
 \end{sol}
 
 \begin{ex}
@@ -481,8 +482,8 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item (解一) $\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
-    \item (解二) $\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
+    \item $\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
+    \item 另解: $\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
   \end{itemize}
 \end{sol}
 
@@ -496,7 +497,7 @@
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item (顯函數微分) 在點 $(3, -4)$ 附近 $\ds y = -\sqrt{25 - x^2}\ie y' = \frac{x}{\sqrt{25 - x^2}}$, 故點 $(3, -4)$ 之切線斜率為 $\ds\frac{3}{\sqrt{25 - 3^2}} = \frac{3}{4}$, 切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$.  
-    \item (隱函數微分) 令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數 ($y = y(x)$) , 圓方程式寫作 $\ds x^2 + y(x)^2 = 25$; 兩邊同對 $x$ 微分: $\ds 2x + 2 y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$. 點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$, 切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$. 
+    \item (隱函數微分) 令點 $(3, -4)$ 附近 $y$ 為 $x$ 之函數 ($y = y(x)$) , 圓方程式寫作 $\ds x^2 + y(x)^2 = 25$; 兩邊同對 $x$ 微分: $\ds 2x + 2\,y(x)\cdot y'(x) = 0 \ie y'(x) = -\frac{x}{y(x)}$. 點 $(3, -4)$ 之切線斜率為 $\ds y'(3) = -\frac{3}{y(3)} = \frac{3}{4}$, 切線方程式為 $\ds(y + 4) = \frac{3}{4}(x - 3)$. 
   \end{itemize}
 \end{sol}
 
