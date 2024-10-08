@@ -332,11 +332,11 @@
 \end{thm}
 
 \begin{ex}
-  求 $\ds\lim_{x\to 0}x\sin^2\Big(\frac{1}{x}\Big)$. 
+  求 $\ds\lim_{x\to 0}x\sin^2\frac{1}{x}$. 
 \end{ex}
 
 \begin{sol}
-  若 $x\ne 0$, $\ds 0\leqslant\sin^2\Big(\frac{1}{x}\Big)\leqslant 1$, 則 $\ds-|x|\leqslant x\sin^2\Big(\frac{1}{x}\Big)\leqslant|x|$. 又 $\ds\lim_{x\to 0}(-|x|) = \lim_{x\to 0}|x| = 0$, 由夾擠定理 $\ds\lim_{x\to 0}x\sin^2\Big(\frac{1}{x}\Big) = 0$. 
+  若 $x\ne 0$, $\ds 0\leqslant\sin^2\frac{1}{x}\leqslant 1$, 則 $\ds-|x|\leqslant x\sin^2\frac{1}{x}\leqslant|x|$. 又 $\ds\lim_{x\to 0}(-|x|) = \lim_{x\to 0}|x| = 0$, 由夾擠定理 $\ds\lim_{x\to 0}x\sin^2\frac{1}{x} = 0$. 
 \end{sol}
 
 \section*{1.4 連續性}
@@ -404,28 +404,28 @@
   若 $f$ 在 $[a, b]$ 連續, 則對任意介於 $f(a)$ 與 $f(b)$ 之間的數 $d$, 存在 $c\in[a, b]$ 使得 $f(c) = d$.   
 \end{thm}
 
-\begin{rmk}
+\begin{rmk}%\leavevmode
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 中間值定理不適用於不連續函數: 取 $\ds f(x) = \begin{cases}x + 2 & -1 < x \leqslant 1 \\ x & -2\leqslant x\leqslant -1\end{cases}$, 則 $f(-2) < 0$, $f(1) > 0$, 但 $f(x) = 0$ 無解. 
-    \item $\ds f(x) = \begin{cases}x\sin\Big(\frac{1}{x}\Big)& x \ne 0 \\ 0 & x = 0\end{cases}$, 則存在無限多 $\ds x\in\Big[-\frac{2}{3\pi},\,\frac{2}{\pi}\Big]$ 使 $f(x) = 0$. 
+    \item $\ds f(x) = \begin{cases}x\sin\frac{1}{x}& x \ne 0 \\ 0 & x = 0\end{cases}$, 則存在無限多 $x\in[-\frac{2}{3\pi},\,\frac{2}{\pi}]$ 使 $f(x) = 0$. 
   \end{itemize}
 \end{rmk}
 
 \begin{ex}
-  證明 $4x^3 - 6x^2 + 3x - 2 = 0$ 在 $1$, $2$ 間有解. 
+  證明 $4x^3 - 6x^2 + 3x - 2 = 0$ 在 $1$, $2$ 間有實根. 
 \end{ex}
 
 \begin{sol}
-  令 $f(x) = 4x^3 - 6x^2 + 3x - 2$. $f$ 為連續函數且 $f(1) < 0$, $f(2) > 0$, 由 Bolzano 定理知存在 $c\in(1, 2)$ 使得 $f(c) = 0$, 亦即 $4x^3 - 6x^2 + 3x - 2 = 0$ 在 $1$, $2$ 間有解. 
+  令 $f(x) = 4x^3 - 6x^2 + 3x - 2$. $f$ 為連續函數且 $f(1) < 0$, $f(2) > 0$, 由 Bolzano 定理知存在 $c\in(1, 2)$ 使得 $f(c) = 0$, 亦即 $4x^3 - 6x^2 + 3x - 2 = 0$ 在 $1$, $2$ 間有實根. 
 \end{sol}
 
 \begin{ex}
-  證明 $\ds\sqrt{\cos\pi x} = \sin 2\pi x + \frac{1}{2}$ 至少有一實根. 
+  證明 $\sqrt{\cos\pi x} = \sin 2\pi x + \frac{1}{2}$ 至少有一實根. 
 \end{ex}
 
 \begin{sol}
-  令 $\ds f(x) = \sqrt{\cos\pi x} - (\sin 2\pi x + \frac{1}{2})$. $f$ 在 $\ds\Big[-\frac{1}{2},\,\frac{1}{2}\Big]$ 為連續且 $\ds f(0) = \frac{1}{2} > 0$, $\ds f\,\bigg(\frac{1}{2}\bigg) = -\frac{1}{2} < 0$, 由 Bolzano 定理知存在 $\ds c\in\Big(0,\,\frac{1}{2}\,\Big)$ 使得 $f(c) = 0$, 亦即 $\ds\sqrt{\cos\pi x} = \sin 2\pi x + \frac{1}{2}$ 在 $\ds 0$, $\ds\frac{1}{2}$ 間有一實根. 
+  令 $f(x) = \sqrt{\cos\pi x} - (\sin 2\pi x + \frac{1}{2})$. $f$ 在 $[-\frac{1}{2},\,\frac{1}{2}]$ 連續, 顯然在 $[0,\,\frac{1}{2}]$ 連續且 $f(0) = \frac{1}{2} > 0$, $f(\frac{1}{2}) = -\frac{1}{2} < 0$, 由 Bolzano 定理知存在 $c\in(0,\,\frac{1}{2})$ 使得 $f(c) = 0$, 亦即 $\sqrt{\cos\pi x} = \sin 2\pi x + \frac{1}{2}$ 在 $0$, $\frac{1}{2}$ 間有一實根. 
 \end{sol}
 
 \begin{ex}
