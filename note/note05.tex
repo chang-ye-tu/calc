@@ -1134,7 +1134,7 @@
 \end{thm}
 
 \begin{prf}
-  若 $\ds\vc = (c_1,\,c_2,\,\ldots,\,c_n)$, 令 $\ds g_j(t)\equiv f(c_1,\,c_2,\,\ldots,\,c_{j - 1},\,t,\,c_{j + 1},\,\ldots,\,c_n)$, $j = 1,\,2,\,\ldots,\,n$. 因 $f$ 在 $\vc$ 有極值 $f(\vc) = g_j(c_j)$, $g_j$ 在 $c_j$ 有極值 $\ie g'(t)\,\big|_{t = c_j} = 0 \ie f_j(\vc) = 0\;\forall\,j$, 故 $\ds\nabla f(\vc) = \vZero$.  
+  若 $\ds\vc = (c_1,\,c_2,\,\ldots,\,c_n)$, 令 $\ds g_j(t)\equiv f(c_1,\,c_2,\,\ldots,\,c_{j - 1},\,t,\,c_{j + 1},\,\ldots,\,c_n)$, $j = 1,\,2,\,\ldots,\,n$. 因 $f$ 在 $\vc$ 有極值 $f(\vc) = g_j(c_j)$, $g_j$ 在 $c_j$ 有極值 $\ie g_j'(t)\,\big|_{t = c_j} = 0 \ie D_j f(\vc) = 0\;\forall\,j$, 故 $\ds\nabla f(\vc) = \vZero$.  
 \end{prf}
 
 \begin{fact}
@@ -1215,11 +1215,7 @@
   求 $\ds f(x, y) = x^3 + xy^2 - 3x^2 - 4y^2 + 4$ 之臨界點並予以分類. 
 \end{ex}
 
-\begin{sol} 由 $\ds f_x(x, y) = 3x^2 + y^2 - 6x$, $\ds f_y(x, y) = 2xy - 8y$, 臨界點為同時滿足以上二式為零之 $(x, y)$. 故 
-  \begin{align*}
-    \big\{3x^2 + y^2 - 6x = 0\big\} \orr \big\{y\,(x - 4) = 0\big\} \ie \big\{y = 0,\;3x^2 - 6x = 0\big\}\orr\big\{x = 4,\;3\cdot 4^2 + y^2 + 6\cdot 4 = 0\big\}
-  \end{align*}
-  故臨界點為 $(0, 0)$, $(2, 0)$. 又 $\ds f_{xx} = 6x - 6$, $\ds f_{yy} = 2x - 8$, $\ds f_{xy} = f_{yx} = 2y$, 分類如下表: 
+\begin{sol} 由 $\ds f_x(x, y) = 3x^2 + y^2 - 6x$, $\ds f_y(x, y) = 2xy - 8y$, 臨界點為同時滿足以上二式為零之 $(x, y)$. 故 $\ds\big\{3x^2 + y^2 - 6x = 0\big\} \andd \big\{y\,(x - 4) = 0\big\} \ie \big\{3x^2 + y^2 - 6x = 0\andd y = 0\big\}\orr\big\{3x^2 + y^2 - 6x = 0\andd x = 4\big\} \ie \big\{3x^2 - 6x = 0\andd y = 0\big\}\orr\big\{3\cdot 4^2 + y^2 - 6\cdot 4 = 0\andd x = 4\big\}$, 臨界點為 $(0, 0)$, $(2, 0)$. 又 $\ds f_{xx} = 6x - 6$, $\ds f_{yy} = 2x - 8$, $\ds f_{xy} = f_{yx} = 2y$, 分類如下表: 
   \begin{center}
   \renewcommand{\arraystretch}{1.3}
   \begin{tabular}{cccc}
@@ -1242,12 +1238,7 @@
     f_x(x, y) &= y\,(5x+y-15)+xy\,(5) = y\,(5x+y-15)+y\,(5x) = y\,(10x+y-15) \\
     f_y(x, y) &= x\,(5x+y-15) + xy\,(1) = x\,(5x+y-15)+ x\,(y) = x\,(5x+2y-15)
   \end{align*}
-  臨界點為同時滿足以上二式為零之 $(x, y)$. 故 
-  \begin{align*}
-    &\big\{y=0 \orr 10x+y=15\big\} \orr \big\{x=0 \orr 5x+2y=15\big\} \\
-    \ie \big\{y=0,\, x=0\big\}\orr\big\{y&=0,\ 5x+2y=15\big\}\orr\big\{10x+y=15,\ x=0\big\}\orr\big\{10x+y=15,\ 5x+2y=15\big\}
-  \end{align*}
-  故臨界點為 $(0, 0)$, $(3, 0)$, $(0, 15)$, $(1,5)$. 又 $\ds f_{xx} = 10 y$, $\ds f_{yy} = 2x$, $\ds f_{xy} = f_{yx} = 10x + 2y - 15$, 分類如下表: 
+  臨界點為同時滿足以上二式為零之 $(x, y)$. 故 $\ds\big\{y = 0 \orr 10x + y = 15\big\} \andd \big\{x = 0 \orr 5x + 2y = 15\big\} \ie \big\{y = 0\andd x = 0\big\}\orr\big\{y = 0\andd 5x + 2y = 15\big\}\orr\big\{10x + y = 15\andd x = 0\big\}\orr\big\{10x + y = 15\andd 5x + 2y = 15\big\}$, 臨界點為 $(0, 0)$, $(3, 0)$, $(0, 15)$, $(1,5)$. 又 $\ds f_{xx} = 10 y$, $\ds f_{yy} = 2x$, $\ds f_{xy} = f_{yx} = 10x + 2y - 15$, 分類如下表: 
   \begin{center}
   \renewcommand{\arraystretch}{1.3}
   \begin{tabular}{cccc}
