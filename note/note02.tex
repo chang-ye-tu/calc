@@ -244,7 +244,7 @@
 \begin{ex} 求導函數.
   \begin{multicols}{4}
     \begin{enumerate}\setlength\itemsep{0em}
-      \item $(x^3 - 1)^{2023}$
+      \item $(x^3 - 1)^{2024}$
       \item $\sqrt{x^2 + 1}$
       \item $\frac{1}{x^2 + 3}$
       \item $\sqrt{\frac{x - 1}{x + 1}}$
@@ -255,7 +255,7 @@
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item 令 $\ds f(u) = u^{2023}$, $g(x) = x^3 - 1$, 則 $\ds f'(u) = 2023\,u^{2022}$, $\ds(x^3 - 1)^{2023} = f(g(x))$. \\由鏈鎖律 $\ds((x^3 - 1)^{2023})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = 2023\cdot(x^3 - 1)^{2022}\cdot(3x^2)$. 
+    \item 令 $\ds f(u) = u^{2024}$, $g(x) = x^3 - 1$, 則 $\ds f'(u) = 2024\,u^{2023}$, $\ds(x^3 - 1)^{2024} = f(g(x))$. \\由鏈鎖律 $\ds((x^3 - 1)^{2024})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = 2024\cdot(x^3 - 1)^{2023}\cdot(3x^2)$. 
     \item 令 $\ds f(u) = \sqrt{u} = u^{\frac{1}{2}}$, $g(x) = x^2 + 1$, 則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$, $\ds\sqrt{x^2 + 1} = f(g(x))$. \\由鏈鎖律 $\ds (\sqrt{x^2 + 1})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{x^2 + 1}}\cdot(2x) = \frac{x}{\sqrt{x^2 + 1}}$. 
     \item 令 $\ds f(u) = \frac{1}{u}$, $g(x) = x^2 + 3$, 則 $\ds f'(u) = \frac{-1}{u^2}$, $\ds\frac{1}{x^2 + 3} = f(g(x))$. \\由鏈鎖律 $\ds\Big(\frac{1}{x^2 + 3}\Big)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{-1}{(x^2 + 3)^2}\cdot(x^2 + 3)' = \frac{-2x}{(x^2 + 3)^2}$. 
     \item 令 $\ds f(u) = \sqrt{u}$, $\ds g(x) = \frac{x - 1}{x + 1}$, 則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$, $\ds\sqrt{\frac{x - 1}{x + 1}} = f(g(x))$. \\由鏈鎖律 $\ds\bigg(\sqrt{\frac{x - 1}{x + 1}}\bigg)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\cdot\Big(\frac{x - 1}{x + 1}\Big)' = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\frac{2}{(x + 1)^2} = \frac{1}{\sqrt{(x - 1)(x + 1)^3}}$. 
@@ -296,6 +296,8 @@
 %    \end{tabular}
 %  \end{table}
 %\end{fact}
+
+\subsubsection*{常用微分公式}
 
 \begin{table}[!htbp]
   \centering
@@ -431,6 +433,14 @@
   $\ds(\tan x)' = \Big(\frac{\sin x}{\cos x}\Big)' = \frac{\cos x\cdot\cos x - (-\sin x)\cdot\sin x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x$
 \end{prf}
 
+\begin{prp}
+  $\ds(\sec x)' = \sec x\tan x$
+\end{prp}
+
+\begin{prf}
+  $\ds(\sec x)' = \Big(\frac{1}{\cos x}\Big)' = \frac{\cos x\cdot 0 - (-\sin x)\cdot 1}{\cos^2 x} = \frac{\sin x}{\cos^2 x} = \frac{1}{\cos x}\,\frac{\sin x}{\cos x} = \sec x\tan x$
+\end{prf}
+
 \section*{2.5 反三角函數微分}
 
 \begin{prp}
@@ -543,6 +553,8 @@
   $\ds f(g(x)) = x$ 兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1 \ie g'(x) = \frac{1}{f'(g(x))} = \frac{1}{1 + (f(g(x)))^2} = \frac{1}{1 + x^2}$. 
 \end{sol}
 
+\newpage
+
 \begin{exe} 求下列導函數.  
   \setlength{\columnsep}{5mm}
   \begin{multicols}{2}
@@ -569,11 +581,97 @@
       \item $\ds \left((\ln(2 x - 1))^3\right)' = {\color{C2}\;\frac{6\,(\ln(2 x - 1))^2}{2 x - 1}}$
       \item $\ds \left(\ln\cos x\right)' = {\color{C2}\;-\tan x}$
       \item $\ds \left(\ln\frac{x - 1}{x + 1}\right)' = {\color{C2}\;\frac{2}{x^2 - 1}}$
-      \item $\ds \left(e^{\frac{1}{x}}\right)' = {\color{C2}\;\frac{-e^{\frac{1}{x}}}{x^2}}$
+      \item $\ds \left(e^{\frac{1}{x}}\right)' = {\color{C2}\;-\frac{1}{x^2}e^{\frac{1}{x}}}$
       \item $\ds \left(e^{\sin 2x}\right)' = {\color{C2}\;2\,e^{\sin 2x}\cos 2x}$
       \item $\ds \left(3^{\sin\pi x}\right)' = {\color{C2}\;\pi\ln 3\cdot\cos\pi x\cdot 3^{\sin\pi x}}$
       \item $\ds \left(x^x\right)' = {\color{C2}\;x^x(1 + \ln x)}$
       \item $\ds \left(x^{\ln x}\right)' = {\color{C2}\;2x^{\ln x - 1}\cdot\ln x}$
+      %\item $\ds\left(3x^4 - 2x^3 + 5x - 1\right)' = {\color{C2}\;12x^3 - 6x^2 + 5}$
+      \item $\ds\left(\frac{2x^2 + 3x - 1}{x - 2}\right)' = {\color{C2}\;\frac{2x^2 - 8x - 5}{(x - 2)^2}}$
+      %\item $\ds\left(e^{2x+1}\right)' = {\color{C2}\;2e^{2x+1}}$
+      %\item $\ds\left(\ln(x^2 + 1)\right)' = {\color{C2}\;\frac{2x}{x^2 + 1}}$
+      %\item $\ds\left(\sin3x\cos2x\right)' = {\color{C2}\;3\cos3x\cos2x - 2\sin3x\sin2x}$
+      \item $\ds\left(\tan^2 x\right)' = {\color{C2}\;2\tan x\sec^2x}$
+      \item $\ds\left(\frac{1}{1 + e^{-x}}\right)' = {\color{C2}\;\frac{e^{-x}}{(1 + e^{-x})^2}}$
+      \item $\ds\left(x^3 \ln x\right)' = {\color{C2}\;3x^2 \ln x + x^2}$
+      \item $\ds\left(\sqrt{1 - x^2}\right)' = {\color{C2}\;-\frac{x}{\sqrt{1 - x^2}}}$
+      \item $\ds\left(e^x \sin x\right)' = {\color{C2}\;e^x \sin x + e^x \cos x}$
+      \item $\ds\left(\sin2x\cos3x\right)' = {\color{C2}\;2\cos2x\cos3x - 3\sin2x\sin3x}$
+      \item $\ds\left(\ln\tan x\right)' = {\color{C2}\;\frac{1}{\sin x\cos x}}$
+      \item $\ds\left(x^{\sin x}\right)' = {\color{C2}\;x^{\sin x}\left(\sin x \cdot \frac{1}{x} + \ln x \cdot \cos x\right)}$
+      %\item $\ds\left(e^{x^2}\right)' = {\color{C2}\;2xe^{x^2}}$
+      %\item $\ds\left(\sin^3 x\right)' = {\color{C2}\;3\sin^2x\cos x}$
+      \item $\ds\left(\frac{x}{1 + x^2}\right)' = {\color{C2}\;\frac{1 - x^2}{(1 + x^2)^2}}$
+      %\item $\ds\left(e^{\sin x}\right)' = {\color{C2}\;e^{\sin x}\cos x}$
+      \item $\ds\left(\frac{1}{\ln x}\right)' = {\color{C2}\;-\frac{1}{x(\ln x)^2}}$
+      %\item $\ds\left(\tan x + \sec x\right)' = {\color{C2}\;\sec^2x + \sec x\tan x}$
+      \item $\ds\left(x^4 e^{-x}\right)' = {\color{C2}\;e^{-x}(4x^3 - x^4)}$
+      \item $\ds\left(\frac{\sin x}{\cos x + 2}\right)' = {\color{C2}\;\frac{1 + 2\cos x}{(\cos x + 2)^2}}$
+      \item $\ds\left(\ln(\sec x + \tan x)\right)' = {\color{C2}\;\sec x}$
+      \item $\ds\left((1 - x^2)^3\right)' = {\color{C2}\;-6x(1 - x^2)^2}$
+      \item $\ds\left(e^{2x} \cos\pi x\right)' = {\color{C2}\;e^{2x}(2\cos\pi x - \pi\sin\pi x)}$
+      \item $\ds\left(\frac{x^2 - 1}{x^2 + 1}\right)' = {\color{C2}\;\frac{4x}{(x^2 + 1)^2}}$
+      %\item $\ds\left(\sin x^2\right)' = {\color{C2}\;2x\cos x^2}$
+      \item $\ds\left(\frac{1}{1 - \sin 2x}\right)' = {\color{C2}\;\frac{2\cos 2x}{(1 - \sin 2x)^2}}$
+      \item $\ds\left(x^3\cos\pi x\right)' = {\color{C2}\;3x^2\cos\pi x - \pi x^3\sin\pi x}$
+      \item $\ds\left(\cos(x\ln x)\right)' = {\color{C2}\;-(1 + \ln x)\sin(x\ln x)}$
+      \item $\ds\left(\frac{e^{\pi x} - e^{-\pi x}}{2}\right)' = {\color{C2}\;\frac{\pi(e^{\pi x} + e^{-\pi x})}{2}}$
+      \item $\ds\left(\frac{x^3 + 1}{x^2 + 1}\right)' = {\color{C2}\;\frac{x^4 + 3x^2 - 2x}{(x^2 + 1)^2}}$
+      \item $\ds\left(e^{1- 2x^2}\right)' = {\color{C2}\;-4x\,e^{1 - 2x^2}}$
+      \item $\ds\left(\ln(x^2 + x + 1)\right)' = {\color{C2}\;\frac{2x + 1}{x^2 + x + 1}}$
+      \item $\ds\left(\frac{1}{x \ln x}\right)' = {\color{C2}\;-\frac{1 + \ln x}{(x\ln x)^2}}$
+      \item $\ds\left(\frac{x}{e^x + 1}\right)' = {\color{C2}\;\frac{e^x + 1 - xe^x}{(e^x + 1)^2}}$
+      \item $\ds\left(e^{\tan\pi x}\right)' = {\color{C2}\;\pi e^{\tan\pi x}\sec^2\pi x}$
+      \item $\ds\left(\frac{1}{\sqrt{1 - 2x^2}}\right)' = {\color{C2}\;\frac{2x}{(1 - 2x^2)^{\frac{3}{2}}}}$
+      \item $\ds\left(\sin x\ln(\cos x)\right)' = {\color{C2}\;\cos x\ln(\cos x) - \sin x\tan x}$
+      \item $\ds\left(\frac{x^2}{\sqrt{1 + 2x^2}}\right)' = {\color{C2}\;\frac{2x(x^2 + 1)}{(1 + 2x^2)^{\frac{3}{2}}}}$
+      \item $\ds\left(e^{\pi x}\ln 2x\right)' = {\color{C2}\;e^{\pi x}\left(\pi\ln 2x + \frac{1}{x}\right)}$
+      \item $\ds\left(\frac{\tan 2x}{x}\right)' = {\color{C2}\;\frac{2x\sec^2 2x - \tan 2x}{x^2}}$
+      \item $\ds\left(\frac{1}{1 + \cos2x}\right)' = {\color{C2}\;\frac{2\sin 2x}{(1 + \cos 2x)^2}}$
+      \item $\ds\left(x^2 e^{-x^2}\right)' = {\color{C2}\;2xe^{-x^2} - 2x^3 e^{-x^2}}$
+      \item $\ds\left(\sin x^3\right)' = {\color{C2}\;3x^2 \cos x^3}$
+      \item $\ds\left(\frac{e^{-\pi x} - 1}{e^{-\pi x} + 1}\right)' = {\color{C2}\;\frac{-2\pi e^{\pi x}}{(e^{\pi x} + 1)^2} = \frac{-2\pi e^{-\pi x}}{(e^{-\pi x} + 1)^2}}$
+      \item $\ds\left(\tan(\pi\ln x)\right)' = {\color{C2}\;\frac{\pi\sec^2(\pi\ln x)}{x}}$
+      %\item $\ds\left(\frac{x^2 - 3x + 2}{x - 1}\right)' = {\color{C2}\;\frac{x^2 - 2x + 1}{(x - 1)^2} = 1}$
+      \item $\ds\left(e^{\sin x}\cos x\right)' = {\color{C2}\;e^{\sin x}(\cos^2x - \sin x)}$
+      \item $\ds\left(\frac{1}{\ln(1 + x)}\right)' = {\color{C2}\;-\frac{1}{(1 + x)(\ln(1 + x))^2}}$
+      \item $\ds\left((\sin x + \cos x)^2\right)' = {\color{C2}\;2(\sin x + \cos x)(\cos x - \sin x)}$
+      \item $\ds\left(x^3\tan x\right)' = {\color{C2}\;3x^2 \tan x + x^3 \sec^2x}$
+      \item $\ds\left(\frac{\ln x}{x}\right)' = {\color{C2}\;\frac{1 - \ln x}{x^2}}$
+      \item $\ds\left(e^{x^2} \sin x\right)' = {\color{C2}\;e^{x^2}(2x\sin x + \cos x)}$
+      \item $\ds\left(\frac{1}{1 + e^x}\right)' = {\color{C2}\;-\frac{e^x}{(1 + e^x)^2}}$
+      \item $\ds\left(\ln\sin x\right)' = {\color{C2}\;\cot x}$
+      \item $\ds\left(\sin^2x \cos^2x\right)' = {\color{C2}\;2\sin x\cos^3x - 2\sin^3x\cos x}$
+      \item $\ds\left(\frac{x^2}{1 + x^4}\right)' = {\color{C2}\;\frac{2x(1 - x^4)}{(1 + x^4)^2}}$
+      %\item $\ds\left(e^{\cos x}\right)' = {\color{C2}\;-e^{\cos x} \sin x}$
+      \item $\ds\left(\frac{1}{\sqrt{x^2 - 1}}\right)' = {\color{C2}\;-\frac{x}{(x^2 - 1)^{\frac{3}{2}}}}$
+      \item $\ds\left(x\sin\frac{1}{x}\right)' = {\color{C2}\;\sin\frac{1}{x} - \frac{1}{x}\cos\frac{1}{x}}$
+      \item $\ds\left(\frac{e^x}{1 + e^x}\right)' = {\color{C2}\;\frac{e^x}{(1 + e^x)^2}}$
+      \item $\ds\big(\ln\big(x + \sqrt{x^2 + a^2}\big)\big)' = {\color{C2}\;\frac{1}{\sqrt{x^2 + a^2}}}$
+      \item $\ds\left(\cos(x^2 + 1)\right)' = {\color{C2}\;-2x\sin(x^2 + 1)}$
+      \item $\ds\left(\frac{x^3 - 3x + 1}{x^2 - 1}\right)' = {\color{C2}\;\frac{x^4 - 2x + 3}{(x^2 - 1)^2}}$
+      %\item $\ds\left(e^{-x^2}\right)' = {\color{C2}\;-2xe^{-x^2}}$
+      \item $\ds\bigg(\frac{x}{\sqrt{1 - x^2}}\bigg)' = {\color{C2}\;\frac{1}{(1 - x^2)^{\frac{3}{2}}}}$
+      \item $\ds\left(e^{\pi x}\sin^2x\right)' = {\color{C2}\;e^{\pi x}(\pi\sin^2x + 2\sin x\cos x)}$
+      \item $\ds\left(\frac{1}{x^3 + 1}\right)' = {\color{C2}\;-\frac{3x^2}{(x^3 + 1)^2}}$
+      \item $\ds\left(\sin^{-1}\!\frac{x}{\sqrt{1 + x^2}}\right)' = {\color{C2}\;\frac{1}{1 + x^2}}$
+      \item $\ds\left(\frac{\ln x}{1 + \ln x}\right)' = {\color{C2}\;\frac{1}{x(1 + \ln x)^2}}$
+      \item $\ds\left(x^2\cos\frac{1}{x}\right)' = {\color{C2}\;2x\cos\frac{1}{x} + \sin\frac{1}{x}}$
+      \item $\ds\left(e^{x^2}\cos x^2\right)' = {\color{C2}\;2xe^{x^2}(\cos x^2 - \sin x^2)}$
+      \item $\ds\left(\frac{\sin x + \cos x}{\sin x - \cos x}\right)' = {\color{C2}\;-\frac{2}{(\sin x - \cos x)^2}}$
+      %\item $\ds\left(\ln(x + \sqrt{x^2 - a^2})\right)' = {\color{C2}\;\frac{1}{\sqrt{x^2 - a^2}}}$
+      \item $\ds\left(\sin e^x\right)' = {\color{C2}\;e^x \cos e^x}$
+      \item $\ds\left(e^{\sin^2x}\right)' = {\color{C2}\;2e^{\sin^2x}\sin x\cos x}$
+      \item $\ds\left(\ln(\sec x + \tan x)\right)' = {\color{C2}\;\sec x}$
+      \item $\ds\left(\frac{x}{\sin x}\right)' = {\color{C2}\;\frac{\sin x - x\cos x}{\sin^2x}}$
+      %\item $\ds\left(\cos^{-1}\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;-\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
+      \item $\ds\left(x \ln x - x\right)' = {\color{C2}\;\ln x}$
+      \item $\ds\left(\frac{e^x - e^{-x}}{e^x + e^{-x}}\right)' = {\color{C2}\;\frac{4}{(e^x + e^{-x})^2}}$
+      \item $\ds\left(\sin^{-1}\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
+      \item $\ds\left(\frac{\ln(1 + x^2)}{x}\right)' = {\color{C2}\;\frac{2}{1 + x^2} - \frac{\ln(1 + x^2)}{x^2}}$
+      \item $\ds\left(e^{\pi x}\tan^{-1}\pi x\right)' = {\color{C2}\;\pi e^{\pi x}\left(\tan^{-1}\pi x + \frac{1}{1 + \pi^2 x^2}\right)}$
+      \item $\ds\left(\frac{1}{\sqrt{x^2 + 4x + 5}}\right)' = {\color{C2}\;-\frac{x + 2}{(x^2 + 4x + 5)^{\frac{3}{2}}}}$
+      \item $\ds\left(\sin x\cos2x\right)' = {\color{C2}\;\cos x\cos2x - 2\sin x\sin2x}$
     \end{enumerate} 
   \end{multicols}
 \end{exe}
