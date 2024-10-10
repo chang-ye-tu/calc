@@ -696,8 +696,8 @@
 
 \begin{exe} 以部份積分法求下列不定積分. 注意: 可能會因為常數項而跟此處答案不同. 
   \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\ds\frac{\sin^{-1}x}{x^2}\,\mathrm{d}x {\color{C2}\;= - \frac{\sin^{-1}x}{x} - \ln\Big|\frac{1 - \sqrt{1 - x^2}}{x}\Big| + c}$
-    \item $\ds\ln(x + \sqrt{1 + x^2})\,\mathrm{d}x {\color{C2}\;= x\,\ln(x + \sqrt{1 + x^2}) - \sqrt{1 + x^2} + c}$
+    \item $\ds\int\frac{\sin^{-1}x}{x^2}\,\mathrm{d}x {\color{C2}\;= - \frac{\sin^{-1}x}{x} - \ln\Big|\frac{1 - \sqrt{1 - x^2}}{x}\Big| + c}$
+    \item $\ds\int\ln(x + \sqrt{1 + x^2})\,\mathrm{d}x {\color{C2}\;= x\,\ln(x + \sqrt{1 + x^2}) - \sqrt{1 + x^2} + c}$
     \item $\ds\int x^3\ln x\,\mathrm{d}x {\color{C2}\;= \frac{x^4}{4}\ln x -\frac{x^4}{16} + c}$
     \item $\ds\int x(\ln x)^3\,\mathrm{d}x {\color{C2}\;= \frac{x^2}{2}\Big((\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + c}$
     \item $\ds\int x^2\tan^{-1} x\,\mathrm{d}x {\color{C2}\;= \frac{x^3}{3}\tan^{-1} x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + c}$
@@ -1099,7 +1099,7 @@
 \end{sol}
 
 \begin{fact}
-  \begin{enumerate}\setlength{\itemsep}{0pt}
+  \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 實係數多項式可分解成不可約的一次及二次因式的乘積. 
     \item 有理式可寫成多項式與真分式之和. 
@@ -1119,16 +1119,17 @@
     %    \item $\ds\frac{f(x)}{(x + a)^m}$, $\degr{f(x)} < m$ 可表成 $\ds\frac{f(x)}{(x + a)^m} = \frac{\alpha_1}{x + a} + \frac{\alpha_2}{(x + a)^2} + \cdots + \frac{\alpha_m}{(x + a)^m}$, $\alpha_i\in\mathbb{R}$. 
     %    \item $\ds\frac{g(x)}{(x^2 + b x + c)^n}$, $\degr{g(x)} < 2 n$ 可表成 $\ds\frac{g(x)}{(x^2 + b x + c)^n} = \frac{\beta_1 x + \gamma_1}{x^2 + b x + c} + \frac{\beta_2 x + \gamma_2}{(x^2 + b x + c)^2} + \cdots + \frac{\beta_n x + \gamma_n}{(x^2 + b x + c)^n}$, $\beta_i,\;\gamma_i\in\mathbb{R}$. 
     %  \end{itemize}
-
-  \end{enumerate}
+  \end{itemize}
 \end{fact}
 
 \begin{rmk} 任一有理函數之積分可分解為多項式積分與以下型式積分: 
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\ds\int\!\frac{1}{(x + a)^n}\,\text{d}x$, $n\in\mathbb{N}$
-    \item $\ds\int\!\frac{1}{(x^2 + b x + c)^n}\,\text{d}x$, $b^2 - 4 c < 0$, $n\in\mathbb{N}$
-    \item $\ds\int\!\frac{x}{(x^2 + b x + c)^n}\,\text{d}x$, $b^2 - 4 c < 0$, $n\in\mathbb{N}$
-  \end{enumerate}
+  \setlength{\columnsep}{-5cm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds\int\!\frac{1}{(x + a)^n}\,\text{d}x$, $n\in\mathbb{N}$
+      \item $\ds\int\!\frac{f(x)}{(x^2 + b x + c)^n}\,\text{d}x$, $f(x) = 1$ 或 $f(x) = x$; $b^2 - 4 c < 0$, $n\in\mathbb{N}$
+    \end{itemize}
+  \end{multicols}
 \end{rmk}
 
 \begin{ex}
@@ -1160,7 +1161,7 @@
 \subsection*{三角函數代換}
 
 \begin{fact}
-  \begin{enumerate}\setlength{\itemsep}{0pt}
+  \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 遇 $\ds\sqrt{a^2 - x^2}$, 考慮 $\ds x = a\sin\theta \ie \theta = \sin^{-1}\frac{x}{a}$, $\ds\text{d}x = a\cos\theta\,\text{d}\theta$ 
     \item 遇 $\ds\sqrt{a^2 + x^2}$, 考慮 $\ds x = a\tan\theta \ie \theta = \tan^{-1}\frac{x}{a}$, $\ds\text{d}x = a\sec^2\theta\,\text{d}\theta$
@@ -1171,7 +1172,7 @@
         \item $\ds\cos x = 2\cos^2\frac{x}{2} - 1 = 2\cdot\frac{1}{1 + u^2} - 1 = \frac{1 - u^2}{1 + u^2}$
         \item $\ds\text{d}u = \frac{1}{2}\,\sec^2\frac{x}{2}\,\text{d}x \ie \text{d}x = \frac{2}{1 + u^2}\,\text{d}u$
       \end{itemize}
-  \end{enumerate}
+  \end{itemize}
 \end{fact}
 
 \begin{ex} 若 $a\ne 0$, 求下列不定積分. 
@@ -1223,28 +1224,23 @@
   \end{itemize}
 \end{dfn}
 
-\begin{ex}
-  求 $\ds\int_{-\infty}^{\infty}\!\frac{1}{1 + x^2}\,\mathrm{d}x$. 
+\begin{ex} 
+  %\setlength{\columnsep}{-2mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\int_{-\infty}^{\infty}\!\frac{1}{1 + x^2}\,\mathrm{d}x$. 
+      \item $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\mathrm{d}x$.
+      \item $\ds\int_0^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x$. 
+    \end{enumerate}
+  \end{multicols}
 \end{ex}
 
-\begin{sol}
-  $\ds\int_{-\infty}^{\infty}\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\int_0^\infty\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\lim_{b\to\infty}\int_0^b\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\lim_{b\to\infty}\tan^{-1} b = 2\cdot\frac{\pi}{2} = \pi$. 
-\end{sol}
-
-\begin{ex}
-  求 $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\mathrm{d}x$. 
-\end{ex}
-
-\begin{sol}
-  $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\mathrm{d}x = \lim_{b\to\infty}\int_1^b\!\frac{1}{x^2}\,\mathrm{d}x = \lim_{b\to\infty}\big(-\frac{1}{b} + 1\big) = 1$
-\end{sol}
-
-\begin{ex}
-  求 $\ds\int_0^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x$. 
-\end{ex}
-
-\begin{sol}
-  $\ds\int_0^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{c\to0+}\int_c^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{c\to0+}2\sqrt{x}\,\Big|^1_c = \lim_{c\to0+}(2-2\sqrt{c}) = 2$
+\begin{sol}\leavevmode
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item $\ds\int_{-\infty}^{\infty}\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\int_0^\infty\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\lim_{b\to\infty}\int_0^b\!\frac{1}{1 + x^2}\,\mathrm{d}x = 2\lim_{b\to\infty}\tan^{-1} b = 2\cdot\frac{\pi}{2} = \pi$. 
+    \item $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\mathrm{d}x = \lim_{b\to\infty}\int_1^b\!\frac{1}{x^2}\,\mathrm{d}x = \lim_{b\to\infty}\big(-\frac{1}{b} + 1\big) = 1$
+    \item $\ds\int_0^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{c\to0+}\int_c^1\!\frac{1}{\sqrt{x}}\,\mathrm{d}x = \lim_{c\to0+}2\sqrt{x}\,\Big|^1_c = \lim_{c\to0+}(2-2\sqrt{c}) = 2$
+  \end{enumerate}
 \end{sol}
 
 \begin{thm} 給定 $\ds 0 < a < \infty$. 
