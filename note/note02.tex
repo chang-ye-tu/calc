@@ -571,15 +571,25 @@
   $\ds\ln f(x) = \ln(e^{-x}\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds\ln(e^{-x}) + \ln(\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds -x + 2\ln(\cos x) - \ln(x^2 + x + 1)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = -1 - 2\tan x - \frac{2x + 1}{x^2 + x + 1}$ $\ie$ $\ds f'(x) = \frac{e^{-x}\cos^2 x}{x^2 + x + 1}\cdot\Big(1 + 2\tan x + \frac{2x + 1}{x^2 + x + 1}\Big)$. 
 \end{sol}
 
-\begin{ex}
-  $\ds f(x) = (\cos x)^{(\sin x)}$, $\ds 0 < x < \frac{\pi}{2}$, 求 $f'(x)$. 
+\begin{ex} 給定 $f(x)$, 求 $f'(x)$.
+  \setlength{\columnsep}{5mm}
+  \begin{multicols}{3}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds f(x) = (\sin x)^{\ln x}$
+      \item $\ds f(x) = (\tan x)^{\frac{1}{x}}$
+      \item $\ds f(x) = (\cos x)^{\sin x}$
+    \end{itemize}
+  \end{multicols}
 \end{ex}
 
 \begin{sol}
+  \vspace{-2mm}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item $\ds f(x) = (\cos x)^{(\sin x)} = e^{\ln(\cos x)^{(\sin x)}} = e^{(\sin x)\,\ln(\cos x)} \ie f'(x) = e^{(\sin x)\,\ln(\cos x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$ 
-    \item 另解: $\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{(\sin x)}\cdot\big(\cos x\cdot\ln(\cos x) + \sin x\cdot\big(\frac{-\sin x}{\cos x}\big)\big)$
+    \item $\ds\log f(x) = \ln x\cdot\ln(\sin x)\ie f'(x) = (\sin x)^{\ln x}\cdot\Big(\frac{1}{x}\cdot\ln(\sin x) + \ln x\cdot\frac{\cos x}{\sin x}\Big) = (\sin x)^{\ln x}\cdot\Big(\frac{\ln(\sin x)}{x} + \ln x\cdot\cot x\Big)$
+    \item $\ds\log f(x) = \frac{1}{x}\cdot\ln(\tan x)\ie f'(x) = (\tan x)^{\frac{1}{x}}\cdot\Big(-\frac{1}{x^2}\cdot\ln(\tan x) + \frac{1}{x}\cdot\frac{\sec^2 x}{\tan x}\Big) = (\tan x)^{\frac{1}{x}}\cdot\Big(-\frac{\ln(\tan x)}{x^2} + \frac{\sec x\csc x}{x}\Big)$
+    \item $\ds\log f(x) = \sin x\cdot\ln(\cos x)\ie f'(x) = (\cos x)^{\sin x}\cdot\Big(\cos x\cdot\ln(\cos x) + \sin x\cdot\frac{-\sin x}{\cos x}\Big)$
+    %\item 另解: $\ds f(x) = (\cos x)^{\sin x} = e^{\ln(\cos x)^{\sin x}} = e^{\sin x\cdot\ln(\cos x)} \ie f'(x) = e^{\sin x\cdot\ln(\cos x)}\cdot\Big(\cos x\cdot\ln(\cos x) + \sin x\cdot\frac{-\sin x}{\cos x}\Big) = (\cos x)^{(\sin x)}\cdot\Big(\cos x\cdot\ln(\cos x) + \sin x\cdot\frac{-\sin x}{\cos x}\Big)$ 
   \end{itemize}
 \end{sol}
 
@@ -602,6 +612,7 @@
 \end{ex}
 
 \begin{sol}
+  \vspace{-2mm}
   令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds x\cdot y(x) + e^x + e^{y(x)} = 1$; 兩邊對 $x$ 微分: $\ds x\cdot y'(x) + y(x) + e^x + e^{y(x)}\cdot y'(x) = 0 \ie (x + e^{y(x)})\cdot y'(x) = -(y(x) + e^x) \ie \diff{y}{x} \equiv y'(x) = -\frac{y(x) + e^x}{x + e^{y(x)}}$. 
 \end{sol}
 
@@ -618,6 +629,7 @@
 \end{ex}
 
 \begin{sol}
+  \vspace{-2mm}
   令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds y(x) = \ln\left(x^2 + y(x)^2\right)$; 兩邊對 $x$ 微分: $\ds y'(x) = \frac{2 x + 2\,y(x)\,y'(x)}{x^2 + y(x)^2}$ $\ie$ $\ds y' = \frac{2 x + 2 y y'}{x^2 + y^2}$ $\ie$ $\ds (x^2 + y^2) y' = 2x + 2y y'$ $\ie$ $\ds(x^2 + y^2 - 2y)y' = 2x$ $\ie$ $\ds y' = \frac{2x}{x^2 + y^2 - 2y}$.
 \end{sol}
 
@@ -629,7 +641,10 @@
   令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds x^2 e^{y(x)} + 4x\cos{y(x)} = 5$; 兩邊對 $x$ 微分: $\ds 2x\cdot e^{y(x)} + x^2\cdot e^{y(x)}\cdot y'(x) + 4\,\cos{y(x)} - 4x\cdot\sin{y(x)}\cdot y'(x) = 0$. 當 $y(x) = 0$, 上式為 $\ds 2x\cdot e^{0} + x^2\cdot e^{0}\cdot y'(x) + 4\,\cos{0} - 4x\cdot\sin{0}\cdot y'(x) = 0 \ie 2x + x^2\cdot y'(x) + 4 = 0 \ie y'(x) = -\frac{4 + 2x}{x^2}$. 由 $\ds x^2 e^y + 4x\cos y = 5$ 知 $y = 0$ 時 $\ds x^2 + 4x = 5\ie x = -5\,\vee\,x = 1$, 則 $\ds y'(-5) = -\frac{4 - 10}{(-5)^2} = \frac{6}{25}$, $\ds y'(1) = -\frac{4 + 2}{1^2} = -6$. 
 \end{sol}
 
+\newpage
+
 \begin{exe}[基礎微分運算] 求下列導函數.  
+  \vspace{-2mm}
   \setlength{\columnsep}{5mm}
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
