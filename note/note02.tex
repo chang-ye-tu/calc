@@ -17,6 +17,8 @@
 \newcommand{\ds}{\displaystyle}
 \newcommand{\ie}{\;\Longrightarrow\;}
 \newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
 \newcommand{\mi}{\mathrm{i}}
 \DeclareMathOperator*{\dom}{dom}
 \DeclareMathOperator*{\codom}{codom}
@@ -263,7 +265,7 @@
 \end{sol}
 
 \begin{fact}
-  若 $f(g(x)) = x$, 則等式兩邊對 $x$ 微分 $\ie$ $\ds(f(g(x)))' = 1$ $\ie$ $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds g'(x) = \frac{1}{f'(g(x))}$.   
+  若 $f(g(x)) = x$, 等式兩邊對 $x$ 微分 $\ie$ $\ds(f(g(x)))' = 1$ $\ie$ $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds g'(x) = \frac{1}{f'(g(x))}$.   
 \end{fact}
 
 %\begin{fact}
@@ -296,6 +298,30 @@
 %    \end{tabular}
 %  \end{table}
 %\end{fact}
+
+\begin{ex}
+  $f$, $g$ 為可微函數且 $\ds f(g(x)) = x$. 若 $\ds f'(x) = 1 + (f(x))^2$, 求 $g'(x)$.   
+\end{ex}
+
+\begin{sol}
+  $\ds f(g(x)) = x$ 等式兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds g'(x) = \frac{1}{f'(g(x))}$ $=$ $\ds\frac{1}{1 + (f(g(x)))^2}$ $=$ $\ds\frac{1}{1 + x^2}$. 
+\end{sol}
+
+\begin{ex}
+  令 $\ds f(x) = e^x + x$, 求 $\ds (f^{-1})'(e + 1)$. 
+\end{ex}
+
+\begin{sol}
+  令 $\ds g(x) = f^{-1}(x)$, 則 $\ds g(f(x)) = f^{-1}(f(x)) = x$. 等式兩邊對 $x$ 微分得 $\ds g'(f(x))\cdot f'(x) = 1$ $\ie$ $\ds g'(f(x)) = \frac{1}{f'(x)}$. 由 $f(1) = e + 1$, $\ds g'(e + 1) = g'(f(1)) = \frac{1}{f'(1)} = \frac{1}{e + 1}$. 
+\end{sol}
+
+\begin{ex}
+  若 $F(x) = f(x\cdot f(x\cdot f(x)))$, 且 $f(1) = 2$, $f(2) = 3$, $f'(1) = 4$, $f'(2) = 5$, $f'(3) = 6$, 求 $F'(1)$. 
+\end{ex}
+
+\begin{sol}
+  由鏈鎖律 $\ds\big(f(x\cdot f(x\cdot f(x)))\big)' = f'(x\cdot f(x\cdot f(x)))\cdot(x\cdot f(x\cdot f(x)))'$. 又 $\ds(x\cdot f(x\cdot f(x)))' = f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f(x))' =  f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))$. 故 $\ds F'(1) = \big(f(x\cdot f(x\cdot f(x)))\big)'\,\big|_{x = 1} = f'(x\cdot f(x\cdot f(x)))\cdot\big(f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))\big)\,\big|_{x = 1} = f'(f(f(1)))\cdot\big(f(f(1)) + f'(f(1))\cdot(f'(1) + f(1))\big) = 6\cdot\big(3 + 5\cdot(4 + 2)\big) = 198$. 
+\end{sol}
 
 \subsubsection*{常用微分公式}
 
@@ -385,6 +411,14 @@
   $\ds x^\alpha = e^{\ln x^\alpha} = e^{\alpha\ln x}$. 故 $\ds(x^\alpha)' = (e^{\alpha\ln x})' = e^{\alpha\ln x}\cdot\big(\alpha\cdot\frac{1}{x}\big) = x^\alpha\cdot\alpha\cdot\frac{1}{x} = \alpha\,x^{\alpha - 1}$. 
 \end{sol}
 
+\begin{ex}
+  證明 $\ds\lim_{x\to 0}\frac{\ln(1 + x)}{x} = 1$.
+\end{ex}
+
+\begin{sol}
+  令 $f(x) = \ln(1 + x)$, 則 $f(0) = 0$, $\ds f'(x) = \frac{1}{1 + x}$, $f'(0) = 1$. 故 $\ds\lim_{x\to 0}\frac{\ln(1 + x)}{x}$ $=$ $\ds\lim_{x\to 0}\frac{f(x)}{x}$ $=$ $\ds\lim_{x\to 0}\frac{f(x) - f(0)}{x - 0}$ $=$ $f'(0) = 1$.
+\end{sol}
+
 \section*{2.4 三角函數微分}
 
 \begin{prp}
@@ -441,6 +475,22 @@
   $\ds(\sec x)' = \Big(\frac{1}{\cos x}\Big)' = \frac{\cos x\cdot 0 - (-\sin x)\cdot 1}{\cos^2 x} = \frac{\sin x}{\cos^2 x} = \frac{1}{\cos x}\,\frac{\sin x}{\cos x} = \sec x\tan x$
 \end{prf}
 
+%\begin{prp}
+%  $\ds(\cot x)' = -\csc^2 x$
+%\end{prp}
+%
+%\begin{prf}
+%  $\ds(\cot x)' = \Big(\frac{\cos x}{\sin x}\Big)' = \frac{\sin x\cdot(-\sin x) - \cos x\cdot\cos x}{\sin^2 x} = -\frac{1}{\sin^2 x} = -\csc^2 x$
+%\end{prf}
+%
+%\begin{prp}
+%  $\ds(\csc x)' = -\csc x\cot x$
+%\end{prp}
+%
+%\begin{prf}
+%  $\ds(\csc x)' = \Big(\frac{1}{\sin x}\Big)' = \frac{\sin x\cdot 0 - (\cos x)\cdot 1}{\sin^2 x} = -\frac{\cos x}{\sin^2 x} = -\frac{1}{\sin x}\,\frac{\cos x}{\sin x} = -\csc x\cot x$
+%\end{prf}
+
 \section*{2.5 反三角函數微分}
 
 \begin{prp}
@@ -467,6 +517,34 @@
   $\tan(\tan^{-1}x) = x$, $x\in(-\infty, \infty)$. 令 $f(u) = \tan u$, $g(x) = \tan^{-1} x$, 則 $\ds f'(u) = \sec^2 u$, $\ds f(g(x)) = x$; 故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\tan^{-1} x)' = \frac{1}{\sec^2(\tan^{-1} x)} = \frac{1}{1 + x^2}$. 
 \end{prf}
 
+%\begin{prp}
+%  $\ds(\cot^{-1} x)' = -\frac{1}{1 + x^2}$
+%\end{prp}
+%
+%\begin{prf}
+%  $\cot(\cot^{-1}x) = x$, $x\in(-\infty, \infty)$. 令 $f(u) = \cot u$, $g(x) = \cot^{-1} x$, 則 $\ds f'(u) = -\csc^2 u$, $\ds f(g(x)) = x$; 故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\cot^{-1} x)' = \frac{1}{-\csc^2(\cot^{-1} x)} = -\frac{1}{1 + x^2}$. 
+%\end{prf}
+%
+%\begin{prp}
+%  $\ds(\sec^{-1} x)' = \frac{1}{x\sqrt{x^2 - 1}}$
+%\end{prp}
+%
+%\begin{prf}
+%  $\sec(\sec^{-1}x) = x$, $x\in(1, \infty)\orr(-\infty, -1)$. 令 $f(u) = \sec u$, $g(x) = \sec^{-1} x$, 則 $\ds f'(u) = \sec u\tan u$, $\ds f(g(x)) = x$; 故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\sec^{-1} x)' = \frac{1}{\sec(\sec^{-1} x)\tan(\sec^{-1} x)} = \frac{1}{x\sqrt{x^2 - 1}}$. 
+%\end{prf}
+%
+%\begin{prp}
+%  $\ds(\csc^{-1} x)' = -\frac{1}{x\sqrt{x^2 - 1}}$
+%\end{prp}
+%
+%\begin{prf}
+%  $\csc(\csc^{-1}x) = x$, $x\in(1, \infty)\orr(-\infty, -1)$. 令 $f(u) = \csc u$, $g(x) = \csc^{-1} x$, 則 $\ds f'(u) = -\csc u\cot u$, $\ds f(g(x)) = x$; 故 $\ds g'(x) = \frac{1}{f'(g(x))}$ $\ie$ $\ds(\csc^{-1} x)' = -\frac{1}{\csc(\csc^{-1} x)\cot(\csc^{-1} x)} = -\frac{1}{x\sqrt{x^2 - 1}}$. 
+%\end{prf}
+%
+%\begin{rmk}
+%  由定義 $\sec:[0, \frac{\pi}{2})\,\cup\,[\pi, \frac{3\pi}{2})\to(-\infty, -1]\,\cup\,[1,\infty)$, $\csc:(0, \frac{\pi}{2}]\,\cup\,(\pi, \frac{3\pi}{2}]\to(-\infty, -1]\,\cup\,[1,\infty)$, 其反三角函數為 $\sec^{-1}:(-\infty, -1]\,\cup\,[1,\infty)\to[0, \frac{\pi}{2})\,\cup\,[\pi, \frac{3\pi}{2})$, $\csc^{-1}:(-\infty, -1]\,\cup\,[1,\infty)\to(0, \frac{\pi}{2}]\,\cup\,(\pi, \frac{3\pi}{2}]$, 故 $\tan(\sec^{-1} x)$ 與 $\cot(\csc^{-1} x)$ 恆為正值. 依此, 若 $u = \sec^{-1}x$, 則 $\tan^2 u = \sec^2 u - 1\ie\tan u = \sqrt{\sec^2 u - 1} = \sqrt{x^2 - 1} \ie\tan(\sec^{-1} x) = \sqrt{x^2 - 1}$ (開平方僅需取正值). 同理, 若 $u = \csc^{-1}x$, 則 $\cot^2 u = \csc^2 u - 1\ie\cot u = \sqrt{\csc^2 u - 1} = \sqrt{x^2 - 1}\ie \cot(\csc^{-1} x) = \sqrt{x^2 - 1}$. 若初始定義 $\sec:[0, \frac{\pi}{2})\,\cup\,(\frac{\pi}{2}, \pi]\to(-\infty, -1]\,\cup\,[1,\infty)$, $\csc:\big(0, \frac{\pi}{2}\big]\,\cup\,[\frac{\pi}{2}, \pi)\to(-\infty, -1]\,\cup\,[1,\infty)$ 則 $\tan(\sec^{-1} x)$ 與 $\cot(\csc^{-1} x)$ \href{https://math.stackexchange.com/questions/3735966/why-the-derivative-of-inverse-secant-has-an-absolute-value}{之正負將依 $x$ 之正負而定.}
+%\end{rmk}
+
 \section*{2.6 對數微分法}
 
 \begin{prp}
@@ -483,6 +561,14 @@
 
 \begin{sol}
   $\ds\ln f(x) = \frac{1}{4}\ln\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1} = \frac{1}{4}\big(\ln(x^4 + 12) + \ln(x^5 - x^2 + 2) - \ln(x^3 + 1)\big)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = \frac{1}{4}\,\Big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\Big) \ie f'(x) = \sqrt[4]{\frac{(x^4 + 12)(x^5 - x^2 + 2)}{x^3 + 1}}\cdot\frac{1}{4}\,\Big(\frac{4x^3}{x^4 + 12} + \frac{5x^4 - 2x}{x^5 - x^2 + 2} - \frac{3x^2}{x^3 + 1}\Big)$. 
+\end{sol}
+
+\begin{ex}
+  $\ds f(x) = \frac{e^{-x}\cos^2 x}{x^2 + x + 1}$, 求 $f'(x)$. 
+\end{ex}
+
+\begin{sol}
+  $\ds\ln f(x) = \ln(e^{-x}\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds\ln(e^{-x}) + \ln(\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds -x + 2\ln(\cos x) - \ln(x^2 + x + 1)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = -1 - 2\tan x - \frac{2x + 1}{x^2 + x + 1}$ $\ie$ $\ds f'(x) = \frac{e^{-x}\cos^2 x}{x^2 + x + 1}\cdot\Big(1 + 2\tan x + \frac{2x + 1}{x^2 + x + 1}\Big)$. 
 \end{sol}
 
 \begin{ex}
@@ -520,6 +606,22 @@
 \end{sol}
 
 \begin{ex}
+  若 $\ds x^y = y^x$, 求 $y'$.     
+\end{ex}
+
+\begin{sol}
+  令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds x^{y(x)} = {y(x)}^x$ $\ie$ $\ds e^{y(x)\ln x} = e^{x\ln y(x)}$; 兩邊對 $x$ 微分: $\ds e^{y(x)\ln x}\cdot\Big(y'(x)\ln x + \frac{y(x)}{x}\Big) = e^{x\ln y(x)}\cdot\Big(\ln y(x) + x\cdot\frac{y'(x)}{y(x)}\Big)$ $\ie$ $\ds y'(x)\ln x + \frac{y(x)}{x} = \ln y(x) + x\cdot\frac{y'(x)}{y(x)}$ $\ie$ $\ds y'\ln x + \frac{y}{x} = \ln y + x\frac{y'}{y}$ $\ie$ $\ds y'\Big(\ln x - \frac{x}{y}\Big) = \ln y - \frac{y}{x}$ $\ie$ $\ds y' = \frac{\ln y - \frac{y}{x}}{\ln x - \frac{x}{y}}$. 
+\end{sol}
+
+\begin{ex}
+  若 $\ds y = \ln(x^2 + y^2)$, 求 $y'$.     
+\end{ex}
+
+\begin{sol}
+  令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds y(x) = \ln\left(x^2 + y(x)^2\right)$; 兩邊對 $x$ 微分: $\ds y'(x) = \frac{2 x + 2\,y(x)\,y'(x)}{x^2 + y(x)^2}$ $\ie$ $\ds y' = \frac{2 x + 2 y y'}{x^2 + y^2}$ $\ie$ $\ds (x^2 + y^2) y' = 2x + 2y y'$ $\ie$ $\ds(x^2 + y^2 - 2y)y' = 2x$ $\ie$ $\ds y' = \frac{2x}{x^2 + y^2 - 2y}$.
+\end{sol}
+
+\begin{ex}
   若 $\ds x^2 e^y + 4x\cos y = 5$, 求在 $y = 0$ 時之 $\ds y'$.     
 \end{ex}
 
@@ -527,35 +629,7 @@
   令 $y$ 為 $x$ 之函數 ($y = y(x)$) , 等式寫作 $\ds x^2 e^{y(x)} + 4x\cos{y(x)} = 5$; 兩邊對 $x$ 微分: $\ds 2x\cdot e^{y(x)} + x^2\cdot e^{y(x)}\cdot y'(x) + 4\,\cos{y(x)} - 4x\cdot\sin{y(x)}\cdot y'(x) = 0$. 當 $y(x) = 0$, 上式為 $\ds 2x\cdot e^{0} + x^2\cdot e^{0}\cdot y'(x) + 4\,\cos{0} - 4x\cdot\sin{0}\cdot y'(x) = 0 \ie 2x + x^2\cdot y'(x) + 4 = 0 \ie y'(x) = -\frac{4 + 2x}{x^2}$. 由 $\ds x^2 e^y + 4x\cos y = 5$ 知 $y = 0$ 時 $\ds x^2 + 4x = 5\ie x = -5\,\vee\,x = 1$, 則 $\ds y'(-5) = -\frac{4 - 10}{(-5)^2} = \frac{6}{25}$, $\ds y'(1) = -\frac{4 + 2}{1^2} = -6$. 
 \end{sol}
 
-\subsection*{雜題}
-
-\begin{ex}
-  令 $\ds f(x) = e^x + x$, 求 $\ds (f^{-1})'(e + 1)$. 
-\end{ex}
-
-\begin{sol}
-  令 $\ds g(x)\equiv f^{-1}(x)$, 則 $\ds g(f(x)) = x$. 等式兩邊對 $x$ 微分: $\ds g'(f(x))\cdot f'(x) = 1 \ie g'(f(x)) = \frac{1}{f'(x)}$. 由 $f(1) = e + 1$, $\ds g'(e + 1) = g'(f(1)) = \frac{1}{f'(1)} = \frac{1}{e + 1}$. 
-\end{sol}
-
-\begin{ex}
-  若 $F(x) = f(x\cdot f(x\cdot f(x)))$, 且 $f(1) = 2$, $f(2) = 3$, $f'(1) = 4$, $f'(2) = 5$, $f'(3) = 6$, 求 $F'(1)$. 
-\end{ex}
-
-\begin{sol}
-  由鏈鎖律 $\ds\big(f(x\cdot f(x\cdot f(x)))\big)' = f'(x\cdot f(x\cdot f(x)))\cdot(x\cdot f(x\cdot f(x)))'$. 又 $\ds(x\cdot f(x\cdot f(x)))' = f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f(x))' =  f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))$. 故 $\ds F'(1) = \big(f(x\cdot f(x\cdot f(x)))\big)'\,\big|_{x = 1} = f'(x\cdot f(x\cdot f(x)))\cdot\big(f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))\big)\,\big|_{x = 1} = f'(f(f(1)))\cdot\big(f(f(1)) + f'(f(1))\cdot(f'(1) + f(1))\big) = 6\cdot\big(3 + 5\cdot(4 + 2)\big) = 198$. 
-\end{sol}
-
-\begin{ex}
-  $f$, $g$ 為可微函數且 $\ds f(g(x)) = x$. 若 $\ds f'(x) = 1 + (f(x))^2$, 求 $g'(x)$.   
-\end{ex}
-
-\begin{sol}
-  $\ds f(g(x)) = x$ 兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1 \ie g'(x) = \frac{1}{f'(g(x))} = \frac{1}{1 + (f(g(x)))^2} = \frac{1}{1 + x^2}$. 
-\end{sol}
-
-\newpage
-
-\begin{exe} 求下列導函數.  
+\begin{exe}[基礎微分運算] 求下列導函數.  
   \setlength{\columnsep}{5mm}
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
@@ -584,10 +658,14 @@
       \item $\ds \left(e^{\frac{1}{x}}\right)' = {\color{C2}\;-\frac{1}{x^2}e^{\frac{1}{x}}}$
       \item $\ds \left(e^{\sin 2x}\right)' = {\color{C2}\;2\,e^{\sin 2x}\cos 2x}$
       \item $\ds \left(3^{\sin\pi x}\right)' = {\color{C2}\;\pi\ln 3\cdot\cos\pi x\cdot 3^{\sin\pi x}}$
+      \item $\ds\left(\ln(\ln x)\right)' = {\color{C2}\;\frac{1}{x\ln x}}$
       \item $\ds \left(x^x\right)' = {\color{C2}\;x^x(1 + \ln x)}$
       \item $\ds \left(x^{\ln x}\right)' = {\color{C2}\;2x^{\ln x - 1}\cdot\ln x}$
       %\item $\ds\left(3x^4 - 2x^3 + 5x - 1\right)' = {\color{C2}\;12x^3 - 6x^2 + 5}$
       \item $\ds\left(\frac{2x^2 + 3x - 1}{x - 2}\right)' = {\color{C2}\;\frac{2x^2 - 8x - 5}{(x - 2)^2}}$
+      %\item $\ds\left(e^{x^2}\right)' = {\color{C2}\;2xe^{x^2}}$
+      %\item $\ds\left(\sin x^2\right)' = {\color{C2}\;2x\cos x^2}$
+      %\item $\ds\left(\sin^3 x\right)' = {\color{C2}\;3\sin^2x\cos x}$
       %\item $\ds\left(e^{2x+1}\right)' = {\color{C2}\;2e^{2x+1}}$
       %\item $\ds\left(\ln(x^2 + 1)\right)' = {\color{C2}\;\frac{2x}{x^2 + 1}}$
       %\item $\ds\left(\sin3x\cos2x\right)' = {\color{C2}\;3\cos3x\cos2x - 2\sin3x\sin2x}$
@@ -599,8 +677,6 @@
       \item $\ds\left(\sin2x\cos3x\right)' = {\color{C2}\;2\cos2x\cos3x - 3\sin2x\sin3x}$
       \item $\ds\left(\ln\tan x\right)' = {\color{C2}\;\frac{1}{\sin x\cos x}}$
       \item $\ds\left(x^{\sin x}\right)' = {\color{C2}\;x^{\sin x}\left(\sin x \cdot \frac{1}{x} + \ln x \cdot \cos x\right)}$
-      %\item $\ds\left(e^{x^2}\right)' = {\color{C2}\;2xe^{x^2}}$
-      %\item $\ds\left(\sin^3 x\right)' = {\color{C2}\;3\sin^2x\cos x}$
       \item $\ds\left(\frac{x}{1 + x^2}\right)' = {\color{C2}\;\frac{1 - x^2}{(1 + x^2)^2}}$
       %\item $\ds\left(e^{\sin x}\right)' = {\color{C2}\;e^{\sin x}\cos x}$
       \item $\ds\left(\frac{1}{\ln x}\right)' = {\color{C2}\;-\frac{1}{x(\ln x)^2}}$
@@ -611,7 +687,6 @@
       \item $\ds\left((1 - x^2)^3\right)' = {\color{C2}\;-6x(1 - x^2)^2}$
       \item $\ds\left(e^{2x} \cos\pi x\right)' = {\color{C2}\;e^{2x}(2\cos\pi x - \pi\sin\pi x)}$
       \item $\ds\left(\frac{x^2 - 1}{x^2 + 1}\right)' = {\color{C2}\;\frac{4x}{(x^2 + 1)^2}}$
-      %\item $\ds\left(\sin x^2\right)' = {\color{C2}\;2x\cos x^2}$
       \item $\ds\left(\frac{1}{1 - \sin 2x}\right)' = {\color{C2}\;\frac{2\cos 2x}{(1 - \sin 2x)^2}}$
       \item $\ds\left(x^3\cos\pi x\right)' = {\color{C2}\;3x^2\cos\pi x - \pi x^3\sin\pi x}$
       \item $\ds\left(\cos(x\ln x)\right)' = {\color{C2}\;-(1 + \ln x)\sin(x\ln x)}$
@@ -629,7 +704,7 @@
       \item $\ds\left(\frac{\tan 2x}{x}\right)' = {\color{C2}\;\frac{2x\sec^2 2x - \tan 2x}{x^2}}$
       \item $\ds\left(\frac{1}{1 + \cos2x}\right)' = {\color{C2}\;\frac{2\sin 2x}{(1 + \cos 2x)^2}}$
       \item $\ds\left(x^2 e^{-x^2}\right)' = {\color{C2}\;2xe^{-x^2} - 2x^3 e^{-x^2}}$
-      \item $\ds\left(\sin x^3\right)' = {\color{C2}\;3x^2 \cos x^3}$
+      \item $\ds\left(\ln\left(e^{-x} + xe^{-x}\right)\right)' = {\color{C2}\;-\frac{x}{1 + x}}$
       \item $\ds\left(\frac{e^{-\pi x} - 1}{e^{-\pi x} + 1}\right)' = {\color{C2}\;\frac{-2\pi e^{\pi x}}{(e^{\pi x} + 1)^2} = \frac{-2\pi e^{-\pi x}}{(e^{-\pi x} + 1)^2}}$
       \item $\ds\left(\tan(\pi\ln x)\right)' = {\color{C2}\;\frac{\pi\sec^2(\pi\ln x)}{x}}$
       %\item $\ds\left(\frac{x^2 - 3x + 2}{x - 1}\right)' = {\color{C2}\;\frac{x^2 - 2x + 1}{(x - 1)^2} = 1}$
@@ -662,16 +737,17 @@
       %\item $\ds\left(\ln(x + \sqrt{x^2 - a^2})\right)' = {\color{C2}\;\frac{1}{\sqrt{x^2 - a^2}}}$
       \item $\ds\left(\sin e^x\right)' = {\color{C2}\;e^x \cos e^x}$
       \item $\ds\left(e^{\sin^2x}\right)' = {\color{C2}\;2e^{\sin^2x}\sin x\cos x}$
+      \item $\ds\left(\sin x\cos2x\right)' = {\color{C2}\;\cos x\cos2x - 2\sin x\sin2x}$
       \item $\ds\left(\ln(\sec x + \tan x)\right)' = {\color{C2}\;\sec x}$
       \item $\ds\left(\frac{x}{\sin x}\right)' = {\color{C2}\;\frac{\sin x - x\cos x}{\sin^2x}}$
       %\item $\ds\left(\cos^{-1}\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;-\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
       \item $\ds\left(x \ln x - x\right)' = {\color{C2}\;\ln x}$
+      \item $\ds\left(\ln(\cos\ln x)\right)' = {\color{C2}\;-\frac{\tan\ln x}{x}}$
       \item $\ds\left(\frac{e^x - e^{-x}}{e^x + e^{-x}}\right)' = {\color{C2}\;\frac{4}{(e^x + e^{-x})^2}}$
       \item $\ds\left(\sin^{-1}\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
       \item $\ds\left(\frac{\ln(1 + x^2)}{x}\right)' = {\color{C2}\;\frac{2}{1 + x^2} - \frac{\ln(1 + x^2)}{x^2}}$
       \item $\ds\left(e^{\pi x}\tan^{-1}\pi x\right)' = {\color{C2}\;\pi e^{\pi x}\left(\tan^{-1}\pi x + \frac{1}{1 + \pi^2 x^2}\right)}$
-      \item $\ds\left(\frac{1}{\sqrt{x^2 + 4x + 5}}\right)' = {\color{C2}\;-\frac{x + 2}{(x^2 + 4x + 5)^{\frac{3}{2}}}}$
-      \item $\ds\left(\sin x\cos2x\right)' = {\color{C2}\;\cos x\cos2x - 2\sin x\sin2x}$
+      %\item $\ds\left(\frac{1}{\sqrt{x^2 + 4x + 5}}\right)' = {\color{C2}\;-\frac{x + 2}{(x^2 + 4x + 5)^{\frac{3}{2}}}}$
     \end{enumerate} 
   \end{multicols}
 \end{exe}
