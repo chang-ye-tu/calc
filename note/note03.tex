@@ -131,8 +131,6 @@
 \maketitle
 \thispagestyle{firststyle}
 
-%\newpage
-
 \section*{3.1 均值定理}
 
 \begin{thm}[Rolle]
@@ -217,7 +215,7 @@
 \end{ex}
 
 \begin{sol}
-  考慮 $\ds\ln x$ 在 $\ds[x, x + 1]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(x, x + 1)\;\ln(x + 1) - \ln x = \frac{1}{c} > \frac{1}{x + 1}$. 
+  考慮 $\ds\ln t$ 在 $\ds[x, x + 1]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(x, x + 1)\;\ln(x + 1) - \ln x = \frac{1}{c} > \frac{1}{x + 1}$. 
 \end{sol}
 
 \begin{ex}
@@ -233,7 +231,7 @@
 \end{ex}
 
 \begin{sol}
-  令 $\ds g(x) = \begin{cases}\frac{\sin x}{x} & \text{若}\;x\ne 0 \\ 1 & \text{若}\;x = 0 \end{cases}$, 則 $g$ 為連續, 且 $\ds\forall\,x\in\big(0,\frac{\pi}{2}\big)\quad g'(x) = \frac{x\cos x - \sin x}{x^2} = \frac{\cos x}{x^2}(x - \tan x) < 0$ $\ie$ $g$ 在 $\ds\big(0,\frac{\pi}{2}\big)$ 為嚴格遞減函數 $\ie$ $\ds\frac{2}{\pi} = g\,\big(\frac{\pi}{2}\big) < g(x) = \frac{\sin x}{x} < g(0) = 1$     
+  令 $\ds g(x) = \begin{cases}\frac{\sin x}{x} & \text{若}\;x\ne 0 \\ 1 & \text{若}\;x = 0 \end{cases}$, 則 $g$ 為連續, 且 $\ds\forall\,x\in\Big(0,\frac{\pi}{2}\Big)\quad g'(x) = \frac{x\cos x - \sin x}{x^2} = \frac{\cos x}{x^2}(x - \tan x) < 0$ $\ie$ $g$ 在 $\ds\Big(0,\frac{\pi}{2}\Big)$ 為嚴格遞減函數 $\ie$ $\ds\frac{2}{\pi} = g\,\Big(\frac{\pi}{2}\Big) < g(x) = \frac{\sin x}{x} < g(0) = 1$     
 \end{sol}
 
 \begin{ex}
@@ -241,7 +239,7 @@
 \end{ex}
 
 \begin{sol}
-  考慮 $\ds\sqrt{1 + t}$ 在 $\ds[0, x]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(0, x)\;\sqrt{1 + x} - 1 = \frac{1}{2\sqrt{1 + c}} x < \frac{1}{2}x \ie \sqrt{1 + x} < 1 + \frac{1}{2}x$. 
+  考慮 $\ds\sqrt{1 + t}$ 在 $\ds[0, x]$, $\ds x > 0$. 由 MVT $\ds\exists\,c\in(0, x)\;\sqrt{1 + x} - \sqrt{1} = \frac{1}{2\sqrt{1 + c}} x < \frac{1}{2}x \ie \sqrt{1 + x} < 1 + \frac{1}{2}x$. 
 \end{sol}
 
 \begin{ex}
@@ -261,11 +259,11 @@
 \end{sol}
 
 \begin{ex}
-  證明 $\ds\sin^{-1}\frac{x - 1}{x + 1} = 2\tan^{-1}\sqrt{x} - \frac{\pi}{2}$, $\forall\,x\geqslant 0$. 
+  證明 $\ds\sin^{-1}\frac{x - 1}{x + 1} = 2\,\tan^{-1}\sqrt{x} - \frac{\pi}{2}$, $\forall\,x\geqslant 0$. 
 \end{ex}
 
 \begin{sol}
-  令 $\ds f(x) = \sin^{-1}\frac{x - 1}{x + 1} - 2\tan^{-1}\sqrt{x} + \frac{\pi}{2}$. $\forall\,x > 0$, $\ds f'(x) = \frac{1}{\sqrt{1 - (\frac{x - 1}{x + 1})^2}}\cdot\frac{(x + 1) - (x - 1)}{(x + 1)^2} - 2\frac{1}{1 + x}\cdot\frac{1}{2\sqrt{x}} = 0$ $\ie$ $f(x)$ 為常數 $\ie$ $\ds f(x) = f(1) = -2\cdot\frac{\pi}{4} + \frac{\pi}{2} = 0$; 由 $f(x)$ 之連續性或代入 $x = 0$ 均可得 $f(0) = 0$.   
+  令 $\ds f(x) = \sin^{-1}\frac{x - 1}{x + 1} - 2\,\tan^{-1}\sqrt{x} + \frac{\pi}{2}$. $\forall\,x > 0$, $\ds f'(x) = \frac{1}{\sqrt{1 - (\frac{x - 1}{x + 1})^2}}\cdot\frac{(x + 1) - (x - 1)}{(x + 1)^2} - 2\,\frac{1}{(\sqrt{x})^2 + 1}\cdot\frac{1}{2\sqrt{x}} = \frac{1}{\sqrt{\frac{(x + 1)^2 - (x - 1)^2}{(x + 1)^2}}}\cdot\frac{2}{(x + 1)^2} - \frac{1}{(x + 1)\sqrt{x}} = \frac{1}{\sqrt{x}\sqrt{(x + 1)^2}} - \frac{1}{(x + 1)\sqrt{x}} = \frac{1}{\sqrt{x}|x + 1|} - \frac{1}{(x + 1)\sqrt{x}} = 0$ $\ie$ $f(x)$ 為常數 $\ie$ $\ds f(x) = f(1) = -2\cdot\frac{\pi}{4} + \frac{\pi}{2} = 0$; 由 $f(x)$ 之連續性或代入 $x = 0$ 均可得 $f(0) = 0$.   
 \end{sol}
 
 \section*{3.2 L'H\^opital 法則}
@@ -538,7 +536,7 @@
 \begin{sol}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
-    \item 由 $\ds\lim_{x\to 0+}f(x) = \infty$, $\ds\lim_{x\to\infty}f(x) = \infty$, $f(1) = 5 < \infty$, $f$ 在 $(0, \infty)$ 有最小值. 
+    \item 由 $\ds\lim_{x\to 0+}f(x) = \infty$, $\ds\lim_{x\to\infty}f(x) = \infty$, $f(1) = 5 < \infty$, $f$ 在 $(0, \infty)$ 有最小值.
     \item 
       \begin{itemize}\setlength\itemsep{0em}
         \item $\ds f'(x) = 1 - \frac{4}{x^2} = \frac{(x + 2)(x - 2)}{x^2}$, 臨界點為 $2$: $f(2) = 4$. 
