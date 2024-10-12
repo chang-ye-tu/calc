@@ -332,11 +332,11 @@
   \begin{tabular}{c|ccccccccccc}
     \toprule
     \addlinespace[2mm]
-    $\ds f(x)$ & & $\ds e^x$ & $\ds\ln |x|$ & $\ds x^\alpha$ & $\ds\sin x$ & $\ds\cos x$ & $\ds\tan x$ & $\ds\sec x$ & $\ds\sin^{-1} x$ & $\ds\cos^{-1} x$ & $\ds\tan^{-1} x$ \\
+    $\ds f(x)$ & & $\ds e^x$ & $\ds\ln |x|$ & $\ds x^\alpha$ & $\ds\sin x$ & $\ds\cos x$ & $\ds\tan x$ & $\ds\sec x$ & $\ds\sin^{-1}\!x$ & $\ds\cos^{-1}\!x$ & $\ds\tan^{-1}\!x$ \\
     \addlinespace[2mm]
     \midrule
     \addlinespace[2mm]
-    $\ds f'(x)$ & & $\ds e^x$ & $\ds\frac{1}{x}$ & $\ds \alpha\,x^{\alpha - 1}$ & $\ds\cos x$ & $\ds-\sin x$ & $\ds\sec^2 x$ & $\ds\sec x\tan x$ & $\ds\frac{1}{\sqrt{1 - x^2}}$ & $\ds -\frac{1}{\sqrt{1 - x^2}}$ & $\ds\frac{1}{1 + x^2}$ \\
+    $\ds f'(x)$ & & $\ds e^x$ & $\ds\frac{1}{x}$ & $\ds \alpha\,x^{\alpha - 1}$ & $\ds\cos x$ & $\ds-\sin x$ & $\ds\sec^2\!x$ & $\ds\sec x\tan x$ & $\ds\frac{1}{\sqrt{1 - x^2}}$ & $\ds -\frac{1}{\sqrt{1 - x^2}}$ & $\ds\frac{1}{1 + x^2}$ \\
     \addlinespace[2mm]
     \bottomrule
   \end{tabular}
@@ -442,7 +442,7 @@
 \end{prp}
 
 \begin{sol}
-  由 $\ds\cos h = \cos\Big(\frac{h}{2} + \frac{h}{2}\Big) = \cos^2\frac{h}{2} - \sin^2\frac{h}{2} = 1 - 2\sin^2\frac{h}{2}\ie\cos h - 1 = -2 \sin^2\frac{h}{2}$, 則 $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\frac{h}{2}}{h} = -\lim_{h\to 0}\frac{\sin^2\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{令 $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0$
+  由 $\ds\cos h = \cos\Big(\frac{h}{2} + \frac{h}{2}\Big) = \cos^2\!\frac{h}{2} - \sin^2\!\frac{h}{2} = 1 - 2\sin^2\!\frac{h}{2}\ie\cos h - 1 = -2 \sin^2\!\frac{h}{2}$, 則 $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\!\frac{h}{2}}{h} = -\lim_{h\to 0}\frac{\sin^2\!\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{令 $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0$
 \end{sol}
 
 \begin{prp}
@@ -570,7 +570,7 @@
 \end{ex}
 
 \begin{sol}
-  $\ds\ln f(x) = \ln(e^{-x}\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds\ln(e^{-x}) + \ln(\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds -x + 2\ln(\cos x) - \ln(x^2 + x + 1)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = -1 - 2\tan x - \frac{2x + 1}{x^2 + x + 1}$ $\ie$ $\ds f'(x) = \frac{e^{-x}\cos^2 x}{x^2 + x + 1}\cdot\Big(1 + 2\tan x + \frac{2x + 1}{x^2 + x + 1}\Big)$. 
+  $\ds\ln f(x) = \ln(e^{-x}\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds\ln(e^{-x}) + \ln(\cos^2 x) - \ln(x^2 + x + 1)$ $=$ $\ds -x + 2\ln(\cos x) - \ln(x^2 + x + 1)$; 等式兩邊對 $x$ 微分得 $\ds\frac{f'(x)}{f(x)} = -1 - 2\tan x - \frac{2x + 1}{x^2 + x + 1}$ $\ie$ $\ds f'(x) = -\frac{e^{-x}\cos^2 x}{x^2 + x + 1}\cdot\Big(1 + 2\tan x + \frac{2x + 1}{x^2 + x + 1}\Big)$. 
 \end{sol}
 
 \begin{ex} 給定 $f(x)$, 求 $f'(x)$.
