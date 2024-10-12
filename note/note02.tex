@@ -104,6 +104,8 @@
    \renewcommand{\headrulewidth}{0pt} 
 }
 \usepackage{datetime2}
+\usepackage{calc}
+\def\theyear{\the\year}
 
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第二章\ \ 微分}{第二章\ \ 微分}} 
@@ -246,7 +248,7 @@
 \begin{ex} 求導函數.
   \begin{multicols}{4}
     \begin{enumerate}\setlength\itemsep{0em}
-      \item $(x^3 - 1)^{2024}$
+      \item $(x^3 - 1)^{\theyear}$
       \item $\sqrt{x^2 + 1}$
       \item $\frac{1}{x^2 + 3}$
       \item $\sqrt{\frac{x - 1}{x + 1}}$
@@ -257,7 +259,7 @@
 \begin{sol}
   \begin{enumerate}\setlength\itemsep{0em}
     \item[]
-    \item 令 $\ds f(u) = u^{2024}$, $g(x) = x^3 - 1$, 則 $\ds f'(u) = 2024\,u^{2023}$, $\ds(x^3 - 1)^{2024} = f(g(x))$. \\由鏈鎖律 $\ds((x^3 - 1)^{2024})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = 2024\cdot(x^3 - 1)^{2023}\cdot(3x^2)$. 
+    \item 令 $\ds f(u) = u^{\theyear}$, $g(x) = x^3 - 1$, 則 $\ds f'(u) = \theyear\,u^{\the\numexpr\theyear-1\relax}$, $\ds(x^3 - 1)^{\theyear} = f(g(x))$. \\由鏈鎖律 $\ds((x^3 - 1)^{\theyear})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \theyear\cdot(x^3 - 1)^{\the\numexpr\theyear-1\relax}\cdot(3x^2)$. 
     \item 令 $\ds f(u) = \sqrt{u} = u^{\frac{1}{2}}$, $g(x) = x^2 + 1$, 則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$, $\ds\sqrt{x^2 + 1} = f(g(x))$. \\由鏈鎖律 $\ds (\sqrt{x^2 + 1})' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{x^2 + 1}}\cdot(2x) = \frac{x}{\sqrt{x^2 + 1}}$. 
     \item 令 $\ds f(u) = \frac{1}{u}$, $g(x) = x^2 + 3$, 則 $\ds f'(u) = \frac{-1}{u^2}$, $\ds\frac{1}{x^2 + 3} = f(g(x))$. \\由鏈鎖律 $\ds\Big(\frac{1}{x^2 + 3}\Big)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{-1}{(x^2 + 3)^2}\cdot(x^2 + 3)' = \frac{-2x}{(x^2 + 3)^2}$. 
     \item 令 $\ds f(u) = \sqrt{u}$, $\ds g(x) = \frac{x - 1}{x + 1}$, 則 $\ds f'(u) = \frac{1}{2\sqrt{u}}$, $\ds\sqrt{\frac{x - 1}{x + 1}} = f(g(x))$. \\由鏈鎖律 $\ds\bigg(\sqrt{\frac{x - 1}{x + 1}}\bigg)' = (f(g(x)))' = f'(g(x))\cdot g'(x) = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\cdot\Big(\frac{x - 1}{x + 1}\Big)' = \frac{1}{2\sqrt{\frac{x - 1}{x + 1}}}\frac{2}{(x + 1)^2} = \frac{1}{\sqrt{(x - 1)(x + 1)^3}}$. 
