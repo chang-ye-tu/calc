@@ -212,9 +212,9 @@
     \begin{enumerate}\setlength\itemsep{0em}
       \item $\ds (c)' = 0$
       \item $\ds (c\,f)' = c\,f'$
-      \item $\ds (f\pm g)' = f'\pm g'$
-      \item $\ds (f\cdot g)' = f'\cdot g + f\cdot g'$
-      \item $\ds \Big(\frac{f}{g}\Big)' = \frac{f'\cdot g - f\cdot g'}{g^2}$
+      \item $\ds (f\pm g)' = f'\!\pm g'$
+      \item $\ds (f\cdot g)' = f'\!\cdot g + f\cdot g'$
+      \item $\ds \Big(\frac{f}{g}\Big)' = \frac{f'\!\cdot g - f\cdot g'}{g^2}$
     \end{enumerate}
   \end{multicols}
 \end{thm}
@@ -398,7 +398,7 @@
 \end{prp}
 
 \begin{prf}
-  $\ds a = e^{\log_e a} \equiv e^{\ln a} \ie a^x = e^{x\ln a}$. 令 $f(u) = e^u$, $g(x) = x\ln a$, 則 $\ds f'(u) = e^u$, $\ds f(g(x)) = e^{x\ln a} = a^x$; 故 $(f(g(x)))' = f'(g(x))\cdot g'(x) = e^{x\ln a}\cdot(x\ln a)' = a^x\cdot\ln a$. 
+  $\ds a = e^{\log_e a} = e^{\ln a} \ie a^x = e^{x\ln a}$. 令 $f(u) = e^u$, $g(x) = x\ln a$, 則 $\ds f'(u) = e^u$, $\ds f(g(x)) = e^{x\ln a} = a^x$; 故 $(f(g(x)))' = f'(g(x))\cdot g'(x) = e^{x\ln a}\cdot(x\ln a)' = a^x\cdot\ln a$. 
 \end{prf}
 
 \begin{fact}
@@ -410,7 +410,7 @@
 \end{prp}
 
 \begin{sol}
-  $\ds x^\alpha = e^{\ln x^\alpha} = e^{\alpha\ln x}$. 故 $\ds(x^\alpha)' = (e^{\alpha\ln x})' = e^{\alpha\ln x}\cdot\big(\alpha\cdot\frac{1}{x}\big) = x^\alpha\cdot\alpha\cdot\frac{1}{x} = \alpha\,x^{\alpha - 1}$. 
+  $\ds x^\alpha = e^{\ln x^\alpha} = e^{\alpha\ln x}$. 故 $\ds(x^\alpha)' = (e^{\alpha\ln x})' = e^{\alpha\ln x}\cdot\Big(\alpha\cdot\frac{1}{x}\Big) = x^\alpha\cdot\alpha\cdot\frac{1}{x} = \alpha\,x^{\alpha - 1}$. 
 \end{sol}
 
 \begin{ex}
@@ -442,7 +442,7 @@
 \end{prp}
 
 \begin{sol}
-  由 $\ds\cos h = \cos\big(\frac{h}{2} + \frac{h}{2}\big) = \cos^2\frac{h}{2} - \sin^2\frac{h}{2} = 1 - 2\sin^2\frac{h}{2}\ie\cos h - 1 = -2 \sin^2\frac{h}{2}$, 則 $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\frac{h}{2}}{h} = -\lim_{h\to 0}\frac{\sin^2\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{令 $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0$
+  由 $\ds\cos h = \cos\Big(\frac{h}{2} + \frac{h}{2}\Big) = \cos^2\frac{h}{2} - \sin^2\frac{h}{2} = 1 - 2\sin^2\frac{h}{2}\ie\cos h - 1 = -2 \sin^2\frac{h}{2}$, 則 $\ds\lim_{h\to 0}\frac{\cos h - 1}{h} = \lim_{h\to 0}-\frac{2\sin^2\frac{h}{2}}{h} = -\lim_{h\to 0}\frac{\sin^2\frac{h}{2}}{\frac{h}{2}} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\sin\frac{h}{2} = \lim_{h\to 0}\frac{\sin\frac{h}{2}}{\frac{h}{2}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = \underbrace{\lim_{H\to 0}\frac{\sin H}{H}}_{\text{令 $H\equiv\frac{h}{2}$}}\cdot\lim_{h\to 0}\sin\frac{h}{2} = 1\cdot 0 = 0$
 \end{sol}
 
 \begin{prp}
@@ -458,7 +458,7 @@
 \end{prp}
 
 \begin{prf}
-  $\ds(\cos x)' = \big(\sin\big(\frac{\pi}{2} - x\big)\big)' = \cos\big(\frac{\pi}{2} - x\big)\cdot\big(\frac{\pi}{2} - x\big)' = -\sin x$
+  $\ds(\cos x)' = \Big(\sin\Big(\frac{\pi}{2} - x\Big)\Big)' = \cos\Big(\frac{\pi}{2} - x\Big)\cdot\Big(\frac{\pi}{2} - x\Big)' = -\sin x$
 \end{prf}
 
 \begin{prp}
@@ -666,9 +666,9 @@
       \item $\ds \left(\sqrt{1 - \sin x^2}\right)' = {\color{C2}\;\frac{-x\cos x^2}{\sqrt{1 - \sin x^2}}}$
       \item $\ds \left(\tan^{-1}{\frac{x}{2}}\right)' = {\color{C2}\;\frac{2}{x^2 + 4}}$
       \item $\ds \left(\tan^{-1}{\frac{2}{x}}\right)' = {\color{C2}\;\frac{-2}{x^2 + 4}}$
-      \item $\ds \left(\tan^{-1}{e^{2x}}\right)' = {\color{C2}\;\frac{2e^{2x}}{e^{4x} + 1}}$
-      \item $\ds \left(\ln(\tan^{-1}x)\right)' = {\color{C2}\;\frac{1}{(x^2 + 1)\tan^{-1} x}}$
-      \item $\ds \left(\tan^{-1}{\frac{a + x}{1 - a x}}\right)' = {\color{C2}\;\frac{1}{x^2 + 1}}$
+      \item $\ds \left(\tan^{-1}\!{e^{2x}}\right)' = {\color{C2}\;\frac{2e^{2x}}{e^{4x} + 1}}$
+      \item $\ds \left(\ln(\tan^{-1}\!x)\right)' = {\color{C2}\;\frac{1}{(x^2 + 1)\tan^{-1}\!x}}$
+      \item $\ds \left(\tan^{-1}\!{\frac{a + x}{1 - a x}}\right)' = {\color{C2}\;\frac{1}{x^2 + 1}}$
       \item $\ds \left((\ln(2 x - 1))^3\right)' = {\color{C2}\;\frac{6\,(\ln(2 x - 1))^2}{2 x - 1}}$
       \item $\ds \left(\ln\cos x\right)' = {\color{C2}\;-\tan x}$
       \item $\ds \left(\ln\frac{x - 1}{x + 1}\right)' = {\color{C2}\;\frac{2}{x^2 - 1}}$
@@ -746,7 +746,7 @@
       \item $\ds\bigg(\frac{x}{\sqrt{1 - x^2}}\bigg)' = {\color{C2}\;\frac{1}{(1 - x^2)^{\frac{3}{2}}}}$
       \item $\ds\left(e^{\pi x}\sin^2x\right)' = {\color{C2}\;e^{\pi x}(\pi\sin^2x + 2\sin x\cos x)}$
       \item $\ds\left(\frac{1}{x^3 + 1}\right)' = {\color{C2}\;-\frac{3x^2}{(x^3 + 1)^2}}$
-      \item $\ds\left(\sin^{-1}\!\frac{x}{\sqrt{1 + x^2}}\right)' = {\color{C2}\;\frac{1}{1 + x^2}}$
+      \item $\ds\left(\sin^{-1}\!\!\frac{x}{\sqrt{1 + x^2}}\right)' = {\color{C2}\;\frac{1}{1 + x^2}}$
       \item $\ds\left(\frac{\ln x}{1 + \ln x}\right)' = {\color{C2}\;\frac{1}{x(1 + \ln x)^2}}$
       \item $\ds\left(x^2\cos\frac{1}{x}\right)' = {\color{C2}\;2x\cos\frac{1}{x} + \sin\frac{1}{x}}$
       \item $\ds\left(e^{x^2}\cos x^2\right)' = {\color{C2}\;2xe^{x^2}(\cos x^2 - \sin x^2)}$
@@ -761,9 +761,9 @@
       \item $\ds\left(x \ln x - x\right)' = {\color{C2}\;\ln x}$
       \item $\ds\left(\ln(\cos\ln x)\right)' = {\color{C2}\;-\frac{\tan\ln x}{x}}$
       \item $\ds\left(\frac{e^x - e^{-x}}{e^x + e^{-x}}\right)' = {\color{C2}\;\frac{4}{(e^x + e^{-x})^2}}$
-      \item $\ds\left(\sin^{-1}\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
+      \item $\ds\left(\sin^{-1}\!\!\frac{2x}{1 + x^2}\right)' = {\color{C2}\;\frac{2}{1 + x^2}\frac{|1 - x^2|}{1 - x^2}}$
       \item $\ds\left(\frac{\ln(1 + x^2)}{x}\right)' = {\color{C2}\;\frac{2}{1 + x^2} - \frac{\ln(1 + x^2)}{x^2}}$
-      \item $\ds\left(e^{\pi x}\tan^{-1}\pi x\right)' = {\color{C2}\;\pi e^{\pi x}\left(\tan^{-1}\pi x + \frac{1}{1 + \pi^2 x^2}\right)}$
+      \item $\ds\left(e^{\pi x}\tan^{-1}\!\pi x\right)' = {\color{C2}\;\pi e^{\pi x}\left(\tan^{-1}\!\pi x + \frac{1}{1 + \pi^2 x^2}\right)}$
       %\item $\ds\left(\frac{1}{\sqrt{x^2 + 4x + 5}}\right)' = {\color{C2}\;-\frac{x + 2}{(x^2 + 4x + 5)^{\frac{3}{2}}}}$
     \end{enumerate} 
   \end{multicols}
