@@ -183,7 +183,7 @@
       \item $\ds\int e^{-2x}\,\text{d}x = -\frac{1}{2}\,e^{-2 x} + c$
       \item $\ds\int\!\frac{1}{\sqrt{\pi - x^2}}\,\text{d}x = \sin^{-1}\frac{x}{\sqrt{\pi}} + c$
       \item $\ds\int\!\frac{1}{e + u^2}\,\text{d}u = \frac{1}{\sqrt{e}}\,\tan^{-1}\frac{u}{\sqrt{e}} + c$
-      \item $\ds\int\!\big(\frac{\pi}{x} - e^{\pi x}\big)\,\text{d}u = \pi\ln x - \frac{e^{\pi x}}{\pi} + c$
+      \item $\ds\int\!\Big(\frac{\pi}{x} - e^{\pi x}\Big)\,\text{d}u = \pi\ln x - \frac{e^{\pi x}}{\pi} + c$
       \item $\ds\int\!\frac{3 + x^2}{1 + x^2}\,\text{d}u = x + 2\,\tan^{-1}x + c$
       %\item[\vspace{\fill}]
     \end{enumerate} 
@@ -321,7 +321,7 @@
 \end{ex}
    
 \begin{sol}
-  $\ds\int\!\cos^4 ax\,\text{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\text{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\cos^2 2ax\big)\,\text{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\big)\,\text{d}x \\= \int\!\big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\big)\,\text{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
+  $\ds\int\!\cos^4 ax\,\text{d}x = \int\Big(\frac{1+\cos 2ax}{2}\Big)^2\,\text{d}x = \frac{1}{4}\int\!\big(1+2\cos 2ax+\cos^2 2ax\big)\,\text{d}x = \frac{1}{4}\int\!\Big(1+2\cos 2ax+\frac{1 + \cos 4ax}{2}\Big)\,\text{d}x \\= \int\!\Big(\frac{3}{8}+\frac{1}{2}\cos 2ax+\frac{1}{8}\cos 4ax\Big)\,\text{d}x = \frac{3}{8}x +\frac{1}{4a}\sin 2ax+\frac{1}{32a}\sin 4ax + c$
 \end{sol}
  
 \begin{exe} 以變數變換法求下列不定積分. 注意: 可能會因為常數項而跟此處答案不同. 
@@ -396,10 +396,10 @@
     \item $\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$. 令 $\ds u = \sqrt{1 - x^2}$, 則 $\ds\text{d}u = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x\ie \frac{x}{\sqrt{1 - x^2}}\,\text{d}x = -\text{d}u$, 故 $\ds\int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \int-\text{d}u = -u + c = -\sqrt{1 - x^2}$, $\ds\int\!\frac{x + 1}{\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = -\sqrt{1 - x^2} + \sin^{-1}x + c$. 
     \item 令 $\ds u = \tan x$, 則 $\ds\text{d}u = \sec^2 x\,\text{d}x$, 故 $\ds\int\!\frac{\sec^2 x}{\sqrt{1 - \tan^2 x}}\,\text{d}x = \int\!\frac{1}{\sqrt{1 - \tan^2 x}}\cdot \sec^2 x\,\text{d}x = \int\!\frac{1}{\sqrt{1 - u^2}}\,\text{d}u = \sin^{-1} u + c = \sin^{-1}(\tan{x}) + c $
     \item $\ds\int\!\sin^4 x\cos^5 x\,\text{d}x = \int\!\sin^4 x\cdot\cos^4 x\cdot\cos x\,\text{d}x = \int\!\sin^4x\cdot(1 - \sin^2 x)^2\cdot\cos x\,\text{d}x = \int\!\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x$.  令 $\ds u = \sin x$, 則 $\ds\text{d}u = \cos x\,\text{d}x$, 故 $\ds\int\!\big(\sin^4x  - 2\sin^6x + \sin^8x\big)\cdot\cos x\,\text{d}x = \int\!\big(u^4 - 2u^6 + u^8\big)\,\text{d}u = \frac{u^5}{5} - \frac{2u^7}{7} + \frac{u^9}{9} + c = \frac{\sin^5 x}{5} - \frac{2\sin^7 x}{7} + \frac{\sin^9 x}{9} + c$
-    \item $\ds\int\!\sin^2 x\cos^2 x\,\text{d}x = \int\!\frac{1 - \cos 2x}{2}\cdot\frac{1 + \cos 2x}{2}\,\text{d}x = \frac{1}{4}\int\!\big(1 - \cos^2{2x}\big)\,\text{d}x = \frac{1}{4}\int\!\big(1 - \frac{1 + \cos 4x}{2}\big)\,\text{d}x = \frac{1}{4}\int\!\big(\frac{1}{2} + \frac{\cos 4x}{2}\big)\,\text{d}x = \frac{x}{8} - \frac{\sin 4x}{32} + c$
+    \item $\ds\int\!\sin^2 x\cos^2 x\,\text{d}x = \int\!\frac{1 - \cos 2x}{2}\cdot\frac{1 + \cos 2x}{2}\,\text{d}x = \frac{1}{4}\int\!\big(1 - \cos^2{2x}\big)\,\text{d}x = \frac{1}{4}\int\!\Big(1 - \frac{1 + \cos 4x}{2}\Big)\,\text{d}x = \frac{1}{4}\int\!\Big(\frac{1}{2} + \frac{\cos 4x}{2}\Big)\,\text{d}x = \frac{x}{8} - \frac{\sin 4x}{32} + c$
     \item $\ds\int\!\sin^{-\frac{2}{3}} x\cos^3 x\,\text{d}x = \int\!\sin^{-\frac{2}{3}} x\cdot\cos^2 x\cdot\cos x\,\text{d}x = \int\!\sin^{-\frac{2}{3}} x\cdot(1 - \sin^2 x)\cdot\cos x\,\text{d}x = \int\!\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\text{d}x$. 令 $u = \sin x$, 則 $\ds\text{d}u = \cos x\,\text{d}x$, 故 $\ds\int\!\big(\sin^{-\frac{2}{3}} x - \sin^{\frac{4}{3}} x\big)\cdot\cos x\,\text{d}x = \int\!\big(u^{-\frac{2}{3}} - u^{\frac{4}{3}}\big)\,\text{d}u = 3u^{\frac{1}{3}} - \frac{3}{7}u^{\frac{7}{3}} + c = 3\sin^{\frac{1}{3}}x - \frac{3}{7}\sin^{\frac{7}{3}}x + c$
     \item 令 $\ds u = \ln x$, 則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$, 故 $\ds\int\!\frac{\sin^3(\ln x)\cos^3(\ln x)}{x}\,\text{d}x = \int\!\sin^3(\ln x)\cos^3(\ln x)\cdot\frac{1}{x}\,\text{d}x = \int\!\sin^3u\cos^3u\,\text{d}u = \int\!\sin^3u\cdot\cos^2u\cdot\cos u\,\text{d}u = \int\!\sin^3 u\big(1 - \sin^2 u\big)\cdot\cos u\,\text{d}u = \int\!\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u$. 令 $\ds w = \sin u$, 則 $\ds\text{d}w = \cos u\,\text{d}u$, 故 $\ds\int\!\big(\sin^3u - \sin^5u\big)\cdot\cos u\,\text{d}u = \int\!\big(w^3 - w^5\big)\,\text{d}w = \frac{w^4}{4} - \frac{w^6}{6} + c = \frac{\sin^4(\ln x)}{4} - \frac{\sin^6(\ln x)}{6} + c$
-    \item $\ds\int\!\frac{\sin^3 x}{\cos^4 x}\,\text{d}x = \int\!\frac{\sin^2x\cdot\sin x}{\cos^4 x}\,\text{d}x = \int\!\frac{\sin^2x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\frac{1 - \cos^2 x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x$. 令 $\ds u = \cos x$, 則 $\ds\text{d}u = -\sin x\,\text{d}x\ie\sin x\,\text{d}x = -\text{d}u$, 故 $\ds\int\!\big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\big)\cdot\sin x\,\text{d}x = \int\!\big(\frac{1}{u^4} - \frac{1}{u^2}\big)(-)\,\text{d}u = \int\!\big(\frac{1}{u^2} - \frac{1}{u^4}\big)\,\text{d}u = -\frac{1}{u} + \frac{1}{3u^3} + c = -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c$
+    \item $\ds\int\!\frac{\sin^3 x}{\cos^4 x}\,\text{d}x = \int\!\frac{\sin^2x\cdot\sin x}{\cos^4 x}\,\text{d}x = \int\!\frac{\sin^2x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\frac{1 - \cos^2 x}{\cos^4 x}\cdot\sin x\,\text{d}x = \int\!\Big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\Big)\cdot\sin x\,\text{d}x$. 令 $\ds u = \cos x$, 則 $\ds\text{d}u = -\sin x\,\text{d}x\ie\sin x\,\text{d}x = -\text{d}u$, 故 $\ds\int\!\Big(\frac{1}{\cos^4 x} - \frac{1}{\cos^2 x}\Big)\cdot\sin x\,\text{d}x = \int\!\Big(\frac{1}{u^4} - \frac{1}{u^2}\Big)(-)\,\text{d}u = \int\!\Big(\frac{1}{u^2} - \frac{1}{u^4}\Big)\,\text{d}u = -\frac{1}{u} + \frac{1}{3u^3} + c = -\frac{1}{\cos x} + \frac{1}{3\cos^3 x} + c$
     \item 由積化和差公式 $\ds\cos\alpha\cos\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) + \cos(\alpha + \beta)\big)$, $\ds\int\!\cos ax\cos bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(ax - bx) + \cos(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(a - b)x + \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} + \frac{\sin{(a+b)x}}{2(a+b)}+ c$. 
     \item 由積化和差公式 $\ds\sin\alpha\sin\beta = \frac{1}{2}\,\big(\cos(\alpha - \beta) - \cos(\alpha + \beta)\big)$, $\ds\int\!\sin ax\sin bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(ax - bx) - \cos(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\cos(a - b)x - \cos(a + b)x\big)\,\text{d}x = \frac{\sin{(a-b)x}}{2(a-b)} - \frac{\sin{(a+b)x}}{2(a+b)}+ c$. 
     \item 由積化和差公式 $\ds\sin\alpha\cos\beta = \frac{1}{2}\,\big(\sin(\alpha - \beta) + \sin(\alpha + \beta)\big)$, $\ds\int\!\sin ax\cos bx\,\text{d}x = \int\!\frac{1}{2}\,\big(\sin(ax - bx) + \sin(ax + bx)\big)\,\text{d}x = \int\!\frac{1}{2}\,\big(\sin(a - b)x + \sin(a + b)x\big)\,\text{d}x = -\frac{\cos{(a-b)x}}{2(a-b)} - \frac{\cos{(a+b)x}}{2(a+b)}+ c$. 
@@ -433,7 +433,7 @@
 \end{ex}
 
 \begin{sol}
-  令 $\ds u = \tan^{-1} x$, 則 $\ds\text{d}u = \frac{1}{1 + x^2}\text{d}x$. 令 $\ds\text{d}v = x\,\text{d}x$, 則 $\ds v = \frac{x^2}{2}$. 故 $\ds\int x\tan^{-1} x\,\text{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\frac{x^2}{1 + x^2}\,\text{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\big(1 - \frac{1}{1 + x^2}\big)\,\text{d}x = \tan^{-1}x \cdot\frac{x^2}{2} - \frac{1}{2}\big(x - \tan^{-1} x\big) + c$. 
+  令 $\ds u = \tan^{-1} x$, 則 $\ds\text{d}u = \frac{1}{1 + x^2}\text{d}x$. 令 $\ds\text{d}v = x\,\text{d}x$, 則 $\ds v = \frac{x^2}{2}$. 故 $\ds\int x\tan^{-1} x\,\text{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\frac{x^2}{1 + x^2}\,\text{d}x = \tan^{-1} x\cdot\frac{x^2}{2} - \frac{1}{2}\int\!\Big(1 - \frac{1}{1 + x^2}\Big)\,\text{d}x = \tan^{-1}x \cdot\frac{x^2}{2} - \frac{1}{2}\big(x - \tan^{-1} x\big) + c$. 
 \end{sol}
 
 \begin{ex}
@@ -856,14 +856,14 @@
 \begin{ex}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item $\ds\int_{-\sqrt{2}}^{\sqrt{2}} \sqrt{2 - x^2}\,\text{d}x = \pi$ (半徑 $\sqrt{2}$ 之半圓面積) 
-    \item $\ds\int_{-1}^2 \sgn(x)\,\text{d}x = 2\cdot 1 - 1\cdot 1 = 1$; $\ds\sgn(x)\equiv\begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases}$ 
-    \item $\ds\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\text{d}x = 0$ ($\sin(x^7-5x^3)$ 為奇函數) 
-    \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\text{d}x = 0$ ($e^{-x^4}\sin(\sin x)$ 為奇函數) 
-    \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\text{d}x = 0$ ($e^{x} - e^{-x}$ 為奇函數) 
-    \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\text{d}x = 0$ ($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數)  
-    \item $\ds\int_{-a}^a |x|\,\text{d}x = 2\int_0^a |x|\,\text{d}x = a^2$ ($|x|$ 為偶函數; 兩 $a\times a$ 等腰直角三角形面積) 
-    \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\text{d}\tau\equiv\ln x$, 則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\text{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\text{d}x + \int_1^3 \frac{1}{x}\,\text{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\text{d}x + \int_1^3\frac{1}{x}\,\text{d}x = \ln 12$
+    \item $\ds\int_{-\sqrt{2}}^{\sqrt{2}} \sqrt{2 - x^2}\,\text{d}x = \pi\quad$(半徑 $\sqrt{2}$ 之半圓面積) 
+    \item 定義 $\ds\sgn(x)=\begin{cases} 1 & x > 0 \\ -1 & x < 0\end{cases}$, 則 $\ds\int_{-1}^2 \sgn(x)\,\text{d}x = 2\cdot 1 - 1\cdot 1 = 1$
+    \item $\ds\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\text{d}x = 0\quad$($\sin(x^7-5x^3)$ 為奇函數) 
+    \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\text{d}x = 0\quad$($e^{-x^4}\sin(\sin x)$ 為奇函數) 
+    \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\text{d}x = 0\quad$($e^{x} - e^{-x}$ 為奇函數) 
+    \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\text{d}x = 0\quad$($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數)  
+    \item $\ds\int_{-a}^a |x|\,\text{d}x = 2\int_0^a |x|\,\text{d}x = a^2\quad$($|x|$ 為偶函數; 兩 $a\times a$ 等腰直角三角形面積) 
+    \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\text{d}\tau = \ln x$, 則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\text{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\text{d}x + \int_1^3 \frac{1}{x}\,\text{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\text{d}x + \int_1^3\frac{1}{x}\,\text{d}x = \ln 12$
     \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\text{d}x = \int_0^1\sqrt{4 - x^2}\,\text{d}x - \int_1^2\sqrt{4 - x^2}\,\text{d}x = \Big(\frac{4\pi}{12} + \frac{\sqrt{3}}{2}\Big) - \Big(\frac{4\pi}{6} - \frac{\sqrt{3}}{2}\Big) = \sqrt{3} - \frac{\pi}{3}$ 
     \item $\ds\forall\,n\in\mathbb{N},\;\int_n^{n+1}\floor{x}\,\text{d}x = n$ 
   \end{enumerate}
@@ -1237,7 +1237,7 @@
 \begin{sol}\leavevmode
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item $\ds\int_{-\infty}^{\infty}\!\frac{1}{1 + x^2}\,\text{d}x = 2\int_0^\infty\!\frac{1}{1 + x^2}\,\text{d}x = 2\lim_{b\to\infty}\int_0^b\!\frac{1}{1 + x^2}\,\text{d}x = 2\lim_{b\to\infty}\tan^{-1} b = 2\cdot\frac{\pi}{2} = \pi$. 
-    \item $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\text{d}x = \lim_{b\to\infty}\int_1^b\!\frac{1}{x^2}\,\text{d}x = \lim_{b\to\infty}\big(-\frac{1}{b} + 1\big) = 1$
+    \item $\ds\int_{1}^{\infty}\!\frac{1}{x^2}\,\text{d}x = \lim_{b\to\infty}\int_1^b\!\frac{1}{x^2}\,\text{d}x = \lim_{b\to\infty}\Big(-\frac{1}{b} + 1\Big) = 1$
     \item $\ds\int_0^1\!\frac{1}{\sqrt{x}}\,\text{d}x = \lim_{c\to0+}\int_c^1\!\frac{1}{\sqrt{x}}\,\text{d}x = \lim_{c\to0+}2\sqrt{x}\,\Big|^1_c = \lim_{c\to0+}(2-2\sqrt{c}) = 2$
   \end{enumerate}
 \end{sol}
