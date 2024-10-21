@@ -1,0 +1,1127 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+\usepackage[margin=1cm,footskip=5mm]{geometry}
+
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+%\usepackage[BoldFont,SlantFont]{xeCJK}  
+%\xeCJKsetemboldenfactor{2}
+%\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+
+\usepackage{nicefrac}
+\newcommand{\eqover}[1]{}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} A Collection of Integrals}{A Collection of Integrals}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+%\begin{problem}
+%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{x^2-0.1}}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\int_1^\infty\frac{1+e^{-x}}{x}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\int_1^\infty\frac{2+\sin x}{\sqrt{x}}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{1+x^4}}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\int_0^\infty\!\!\frac{x^a}{1+x^b}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\int_0^\infty\!\left(\frac{1}{\sqrt{x^2+4}} - \frac{C}{x+2}\right)\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\lim_{n\to\infty}\sqrt[n]{\frac{n!}{n^n}}$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+%
+%\begin{problem}
+%  $\ds\lim_{n\to\infty}\left(\frac{(2n)!}{n!n^n}\right)^{\frac{1}{n}}$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1(\ln x)^n\,\text{d}x = (-1)^n n!$, $n\in\mathbb{N}$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1(1-x^2)^n\,\text{d}x = \frac{2^{2n}(n!)^2}{(2n+1)!}$, $n\in\mathbb{N}$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{-2}^2\!|x^2 - 4x|\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^5\frac{3 x - 1}{x + 2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^4\!\frac{x-1}{x^2-4x-5}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x-1}{x^2-4x+5}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x-1}{x^2-2x+5}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^2 \frac{2x}{(x-3)^2} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{3x^2-2}{x^3-2x-8}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_2^3 \frac{x^3 + 1}{x^3 - x^2} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{(x - 2)(x^2 + 4)}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x^4 + 4}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x}{x^4 - a^4}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x}{x^4 + x^2 + 1}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{x(x^4 + 1)}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_1^\infty\!\!\frac{x^2 - 3}{x^4 + 2x^2 + 9}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x^6 - 1}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x^3}{(x + 1)^{10}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x^4}{x^{10}+16}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{-1}^\infty\!\left(\frac{x^4}{1 + x^6}\right)^2\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x^n - x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x^n(x - a)}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^\infty\!\frac{x^n}{(1 + x^2)^{1 + \frac{n}{2}}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x \sqrt[3]{x + c}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1(1 + \sqrt{x})^8\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sqrt{x}}{1+x^3}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sqrt{x}}{1+\sqrt[3]{x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{\sqrt{x+1}+\sqrt{x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x\sqrt{4x+1}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x^2\sqrt{4x+1}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x+4+4\sqrt{x+1}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{\frac{1+x}{1-x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sqrt{2-x}}{\sqrt{x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^\infty\!\frac{\text{d}x}{\sqrt{x+x^2}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{3 - 2x - x^2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{(2x-1)\sqrt{x^2-x}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{2x^2 + \sqrt{1 - x^2}}{x\sqrt{1 - x^2}} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{(1-x^2)^{\frac{3}{2}}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^{\frac{1}{2}}\!\frac{x}{\sqrt{1-x^2}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^{\frac{\sqrt{2}}{2}}\!\frac{x^2}{\sqrt{1-x^2}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x}{1 - x^2 + \sqrt{1 - x^2}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{\sqrt{4x^2 - 4x - 3}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{x - \sqrt{1 - x^2}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x}{\sqrt{3 - x^4}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{\sqrt{1 + \sqrt[3]{x}}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1\!\left(\sqrt[3]{1 - x^7} - \sqrt[7]{1 - x^3}\right)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1 3(x-1)^2\left(\int_0^x \sqrt{1+(t-1)^4}\,\text{d}t\right)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sin^3 x \cos^5 x \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sin x \cos(\cos x)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\tan^3 x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\tan^5 x \sec^4 x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\tan^5 x \sec^7 x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^{\frac{\pi}{4}}\!\cos^2 x \tan^2 x \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!(\sin x + \cos x)^2\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sin 4x \cos 3x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sin x \sin 2x \sin 3x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sin \sqrt{a x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\cos^5 x}{\sqrt{\sin x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\cos^6 x}{\sin^4 x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\tan x}{\sec^2 x} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\tan^3 x}{\cos^3 x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{1 - \cos x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{3\sin x - 4\cos x}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{1 + \sin x - \cos x}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\cos x + \sin x}{\sin 2x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sin x \cos x}{\sin^4 x + \cos^4 x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\cos x}{\sqrt{\cos^2x + 2}} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sec x \cos 2x}{\sin x + \sec x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\tan x}{\tan x + \sec x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{1 - \tan^2 x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{3 + \sec^2 x + \sin x}{\tan x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\frac{1 + 4 \cot x}{4 - \cot x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{\tan x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sin 2x}{1 + \tan x} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{\tan x+\sin x}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\sqrt{\frac{\tan x}{\sin 2x}} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\tan^5 x \sqrt[3]{\cos x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x \sin^2 x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!(x + \sin x)^2\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x\sin^2 x\cos x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x\tan^2 x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{-1}^1\!x^8\sin x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x\sin^{-1}x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x^{-2}\tan^{-1}x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_1^3\!\frac{\tan^{-1} \sqrt{x}}{\sqrt{x}} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{1-x^2}\sin^{-1} x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^1\!\frac{\sin^{-1}\sqrt{x}}{\sqrt{x(1-x)}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!e^{x+e^x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{e^{3x}-e^x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{e^{2x}}{1+e^x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{1}{1+2e^x-e^{-x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{e^{2x}}{1+e^{4x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!e^x\sqrt{1 + e^x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{1 + e^x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{2e^{2x}-e^x}{\sqrt{3e^{2x}-6e^x-1}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!e^{\sqrt[3]{x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\sqrt{x}e^{\sqrt{x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x^5 e^{-x^3}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x^3 e^{-2x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int(2x^2 + 1)e^{x^2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int {27}^{3x+1}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{-1}^1\frac{e^{\tan^{-1} x}}{1 + x^2} \,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!e^x \sin(ax - 3)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{xe^x}{\sqrt{1 + e^x}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^\infty\!xe^{-x} \sin x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!x^2 \ln(1 + x)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\ln \sqrt{x - 1}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\ln(\sqrt{x} + \sqrt{1 + x})\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\sqrt{1+\ln x}}{x \ln x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{x\sqrt{\ln x}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_0^\infty\!\!\frac{\ln x}{1+x^2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\frac{\ln(x+1)}{x^2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{x \ln x}{\sqrt{x^2-1}}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\text{d}x}{x(1+\ln x)\sqrt{(\ln x)(2+\ln x)}}$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\sin \ln x\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\cot x \ln(\sin x)\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\frac{\ln(\tan x)}{\sin x \cos x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int\!\frac{\cot x}{\ln \sin x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+  $\ds\int(1 + \ln x)\sqrt{1 + (x \ln x)^2}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\end{document}
