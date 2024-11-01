@@ -421,6 +421,7 @@
 \end{figure}
 
 \begin{ex}
+  %\begin{multicols}{2}
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item $\ds f(x) = \sin x$ 在 $I = \mathbb{R}$ 有最大值 $1$, 最小值 $-1$. 
@@ -429,6 +430,7 @@
     \item $\ds f(x) = x$ 在 $I = [0, 1]$ 有最大值 $1$, 最小值 $0$. 
     \item 若 $I = [-3,\,3]$, $\ds f(x) = x^3 - 3x$ 在 $x = 3$ 有最大值 $18$, 在 $x = -3$ 有最小值 $-18$, 在 $x = -1$ 有極大值 $2$, 在 $x = 1$ 有極小值 $-2$. 
   \end{itemize}
+  %\end{multicols}
 \end{ex}
 
 \begin{thm}
@@ -570,6 +572,14 @@
     \end{itemize}
 \end{sol}
 
+%\begin{ex}
+%  求總表面積為 $A$ 之圓柱體之最大體積.
+%\end{ex}
+%
+%\begin{sol}
+%  令圓柱體底面圓半徑為 $r$, 圓柱體高為 $h$. 由 $\ds A = 2 \pi r^2 + h\cdot 2\pi r$ $\ie$ $\ds h = \frac{A - 2\pi r^2}{2\pi r}$. 則圓柱體體積 $V(r)$ 為 $\ds V(r) = \pi r^2 \cdot h = \pi r^2\cdot\frac{A - 2\pi r^2}{2\pi r} = \frac{A}{2}r - \pi r^3$. 求臨界點 $r^\star$ 使 $V'(r^\star) = 0$ $\ie$ $\ds\frac{A}{2} - 3\pi(r^\star)^2 = 0$ $\ie$ $\ds r^\star = \sqrt{\frac{A}{6\pi}}$. 故最大體積為 $\ds\frac{A}{2}\sqrt{\frac{A}{6\pi}} - \pi\bigg(\sqrt{\frac{A}{6\pi}}\bigg)^3 = \frac{A^{\frac{3}{2}}}{3\sqrt{6\pi}}$.
+%\end{sol}
+
 \begin{ex}
   Fermat 原理: 光的行進走需時最短路徑. 如下圖, 試由 Fermat 原理推導 Snell 法則: $\ds\frac{\sin\theta_i}{\sin\theta_r} = \frac{c_a}{c_w}$, 其中 $c_a$, $c_w$ 分別為光在空氣與在水中之速度. 
   \begin{center}
@@ -657,10 +667,12 @@
 
 \begin{dfn}[反曲點 (inflection point) ]
   $x_0$ 為 $y = f(x)$ 的反曲點, 若
-  \begin{itemize}\setlength\itemsep{0em}
-    \item $y = f(x)$ 在 $x = x_0$ 有切線. 
-    \item $f$ 的凹向在 $x_0$ 的左右兩邊恰相反. 
-  \end{itemize}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $y = f(x)$ 在 $x = x_0$ 有切線. 
+      \item $f$ 的凹向在 $x_0$ 的左右兩邊恰相反. 
+    \end{itemize}
+  \end{multicols}
 \end{dfn}
 
 \begin{prp}
