@@ -361,7 +361,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!x\sqrt[3]{x + c}\,\text{d}x}_{\text{Let}\; u\;=\;\sqrt[3]{x + c}} = \int\!(u^3 - c)\cdot u\cdot 3u^2\,\text{d}u = 3\int\!u^6\,\text{d}u - 3c\int\!u^3\,\text{d}u = \frac{3}{7}u^7 - \frac{3c}{4}u^4 = \frac{3}{7}(\sqrt[3]{x + c})^7 - \frac{3c}{4}(\sqrt[3]{x + c})^4$
 \end{solution}
 
 \begin{problem}
@@ -369,7 +369,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_0^1\!(1 + \sqrt{x})^8\,\text{d}x}_{\text{Let}\; u\;=\;1\,+\,\sqrt{x}} = \int_1^2\!u^8\cdot 2(u - 1)\,\text{d}u = 2\int_1^2\!(u^9 - u^8)\,\text{d}u = 2\,\Big(\frac{u^{10}}{10} - \frac{u^9}{9}\Big)\,\Big|_1^2 = 2\cdot\Big(\Big(\frac{2^{10}}{10} - \frac{2^9}{9}\Big) - \Big(\frac{1}{10} - \frac{1}{9}\Big)\Big) = \frac{4097}{45}$
 \end{solution}
 
 \begin{problem}
@@ -377,7 +377,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\sqrt{x}}{1+x^3}\,\text{d}x}_{\text{Let}\; u\;=\;x^{\frac{3}{2}}} = \int\!\frac{\frac{2}{3}\,\text{d}u}{1 + u^2} = \frac{2}{3}\int\!\frac{\text{d}u}{1 + u^2} = \frac{2}{3}\tan^{-1}u = \frac{2}{3}\tan^{-1}\!x^{\frac{3}{2}}$
 \end{solution}
 
 \begin{problem}
@@ -385,7 +385,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\sqrt{x}}{1+\sqrt[3]{x}}\,\text{d}x}_{\text{Let}\; u\;=\;x^{\frac{1}{6}}} = \int\!\frac{u^3}{1 + u^2}\cdot 6u^5\,\text{d}u = 6\int\!\Big(u^6 - u^4 + u^2 - 1 + \frac{1}{1 + u^2}\Big)\,\text{d}u = 6\,\Big(\frac{u^7}{7} - \frac{u^5}{5} + \frac{u^3}{3} - u + \tan^{-1}u\Big) = 6\,\Big(\frac{x^{\frac{7}{6}}}{7} - \frac{x^{\frac{5}{6}}}{5} + \frac{x^{\frac{1}{2}}}{3} - x^{\frac{1}{6}} + \tan^{-1}\!x^{\frac{1}{6}}\Big) $
 \end{solution}
 
 \begin{problem}
@@ -393,7 +393,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{\sqrt{x+1}+\sqrt{x}}\,\text{d}x = \int\!\frac{\sqrt{x+1} - \sqrt{x}}{\sqrt{x+1} - \sqrt{x}}\cdot\frac{1}{\sqrt{x + 1} + \sqrt{x}}\,\text{d}x = \int\!\frac{\sqrt{x+1} - \sqrt{x}}{(\sqrt{x+1})^2 - (\sqrt{x})^2}\,\text{d}x = \int\!(\sqrt{x + 1} - \sqrt{x})\,\text{d}x = \frac{2}{3}\big((x + 1)^{\frac{3}{2}} - x^{\frac{3}{2}}\big)$
 \end{solution}
 
 \begin{problem}
@@ -401,7 +401,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{1}{x\sqrt{4x+1}}\,\text{d}x}_{\text{Let}\; u\;=\;\sqrt{4 x + 1}} = \int\!\frac{\frac{1}{2}u\,\text{d}u}{\frac{u^2 - 1}{4}\cdot u} = \int\!\frac{2}{u^2 - 1}\,\text{d}u = \int\!\Big(\frac{1}{u - 1} - \frac{1}{u + 1}\Big)\,\text{d}u = \ln\Big|\frac{u - 1}{u + 1}\Big| = \ln\Big|\frac{\sqrt{4 x + 1} - 1}{\sqrt{4x + 1} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -409,7 +409,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{1}{x^2\sqrt{4x+1}}\,\text{d}x}_{\text{Let}\; u\;=\;\sqrt{4 x + 1}} = \int\!\frac{\frac{1}{2}u\,\text{d}u}{\frac{(u^2 - 1)^2}{16}\cdot u} = \int\!\frac{8}{(u^2 - 1)^2}\,\text{d}u = 2\int\!\Big(\frac{1}{u - 1} - \frac{1}{u + 1}\Big)^2\,\text{d}u \\= 2\int\!\Big(\frac{1}{(u - 1)^2} + \frac{1}{(u + 1)^2} - \frac{2}{(u - 1)(u + 1)}\Big)\,\text{d}u = 2\int\!\Big(\frac{1}{(u - 1)^2} + \frac{1}{(u + 1)^2} + \frac{1}{u + 1} - \frac{1}{u - 1}\Big)\,\text{d}u = 2\Big(-\frac{1}{u + 1} - \frac{1}{u - 1} + \ln\Big|\frac{u + 1}{u - 1}\Big|\Big) = -\frac{\sqrt{4 x + 1}}{x} + 2\ln\Big|\frac{\sqrt{4 x + 1} + 1}{\sqrt{4x + 1} - 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -417,7 +417,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{1}{x+4+4\sqrt{x+1}}\,\text{d}x}_{\text{Let}\; u\;=\;\sqrt{x + 1}} = \int\!\frac{2u\,\text{d}u}{u^2 + 3 + 4u} = \int\!\frac{2u}{(u + 3)(u + 1)}\,\text{d}u = \int\!\Big(\frac{3}{u + 3} - \frac{1}{u + 1}\Big)^2\,\text{d}u = \ln\Big|\frac{(u + 3)^3}{u + 1}\Big| = \ln\Big|\frac{(\sqrt{x + 1} + 3)^3}{\sqrt{x + 1} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -425,7 +425,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sqrt{\frac{1+x}{1-x}}\,\text{d}x = \int\!\frac{\sqrt{1 + x}}{\sqrt{1 - x}}\,\text{d}x = \int\!\frac{\sqrt{1 + x}}{\sqrt{1 - x}}\cdot\frac{\sqrt{1 + x}}{\sqrt{1 + x}}\,\text{d}x = \int\!\frac{1 + x}{\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{x}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x - \sqrt{1 - x^2}$
 \end{solution}
 
 \begin{problem}
@@ -433,7 +433,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\sqrt{2-x}}{\sqrt{x}}\,\text{d}x}_{\text{Let}\; u\;=\;1 - x} = -\int\!\frac{\sqrt{1 + u}}{\sqrt{1 - u}}\,\text{d}u = \sqrt{1 - u^2} - \sin^{-1}u = \sqrt{x(2 - x)} - \sin^{-1}(1 - x)$
 \end{solution}
 
 \begin{problem}
@@ -497,7 +497,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{x}{1 - x^2 + \sqrt{1 - x^2}}\,\text{d}x}_{\text{Let}\; u\;=\;\sqrt{1 - x^2}} = \int\!\frac{-u\,\text{d}u}{u^2 + u} = -\ln|u + 1| = -\ln|\sqrt{1 - x^2} + 1|$
 \end{solution}
 
 \begin{problem}
@@ -529,7 +529,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{\sqrt{1 + \sqrt[3]{x}}}}_{\text{Let}\;u\,=\,\sqrt{1 + \sqrt[3]{x}}} = \int\!\frac{(u^2 - 1)^2\,6u\,\text{d}u}{u} = 6\int(u^4 - 2u^2 + 1)\,\text{d}u = \frac{6}{5}u^5 - 4u^3 + 6u = \frac{6}{5}\Big(\sqrt{1 + \sqrt[3]{x}}\Big)^5 - 4\Big(\sqrt{1 + \sqrt[3]{x}}\Big)^3 + 6\sqrt{1 + \sqrt[3]{x}} = \frac{2}{5}\sqrt{1 + \sqrt[3]{x}}\,\Big(8 - 4\sqrt[3]{x} + 6\sqrt[3]{x^2}\Big)$
 \end{solution}
 
 \begin{problem}
@@ -549,11 +549,11 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\sin^3 x \cos^5 x \,\text{d}x$
+  $\ds\int\!\sin^3\!x \cos^5\!x \,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sin^3\!x \cos^5\!x \,\text{d}x = \int\!\sin^3\!x \cos^4\!x \cos x\,\text{d}x = \underbrace{\int\!\sin^3\!x (1 - \sin^2\!x)^2 \cos x\,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = \int\!u^3(1 - u^2)^2\,\text{d}u = \int(u^3 - 2u^5 + u^7)\,\text{d}u = \frac{u^4}{4} - \frac{u^6}{3} + \frac{u^8}{8} = \frac{\sin^4\!x}{4} - \frac{\sin^6\!x}{3} + \frac{\sin^8\!x}{8}$
 \end{solution}
 
 \begin{problem}
@@ -561,23 +561,23 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\sin x\cos(\cos x)\,\text{d}x}_{\text{Let}\;u\,=\,\cos x} = -\int\!\cos u\,\text{d}u = -\sin u = -\sin(\cos x)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\tan^3 x\,\text{d}x$
+  $\ds\int\!\tan^3\!x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\tan^3 x\,\text{d}x = \int\!(\sec^2 x - 1)\tan x\,\text{d}x = \int\!\sec^2 x\tan x\,\text{d}x - \int\!\tan x\,\text{d}x = \underbrace{\int\!\sec x\cdot\sec x\tan x\,\text{d}x}_{\text{Let}\;u\,=\,\sec x} - \underbrace{\int\!\frac{\sin x}{\cos x}\,\text{d}x}_{\text{Let}\;w\,=\,\cos x} = \frac{\sec^2 x}{2} + \ln|\cos x|$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\tan^5 x \sec^4 x\,\text{d}x$
+  $\ds\int\!\tan^5 x\sec^4 x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\tan^5 x\sec^4 x\,\text{d}x = \int\!\tan^5 x\sec^2 x\sec^2 x\,\text{d}x = \underbrace{\int\!\tan^5 x(\tan^2 x + 1)\sec^2 x\,\text{d}x}_{\text{Let}\;u\,=\,\tan x} = \int\!(u^7 + u^5)\,\text{d}u = \frac{u^8}{8} + \frac{u^6}{6} = \frac{\tan^8 x}{8} + \frac{\tan^6 x}{6}$
 \end{solution}
 
 \begin{problem}
@@ -585,7 +585,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\tan^5 x \sec^7 x\,\text{d}x = \int\!\tan^4 x \sec^6 x\cdot\tan x\sec x\,\text{d}x = \underbrace{\int\!(\sec^2 x - 1)^2\sec^6 x\cdot\tan x\sec x\,\text{d}x}_{\text{Let}\;u\,=\,\sec x} = \int\!(u^2 - 1)^2 u^6\,\text{d}u = \int\!(u^{10} - 2u^8 + u^6)\,\text{d}u = \frac{u^{11}}{11} - \frac{2u^9}{9} + \frac{u^7}{7} = \frac{\sec^{11}x}{11} - \frac{2\sec^9 x}{9} + \frac{\sec^7 x}{7}$
 \end{solution}
 
 \begin{problem}
@@ -593,7 +593,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_0^{\frac{\pi}{4}}\!\cos^2 x \tan^2 x \,\text{d}x = \int_0^{\frac{\pi}{4}}\!\sin^2 x\,\text{d}x = \int_0^{\frac{\pi}{4}}\!\frac{1 - \cos 2x}{2}\,\text{d}x = \frac{\pi}{8} - \frac{1}{4}\sin 2x\,\Big|_0^{\frac{\pi}{4}} = \frac{\pi}{8} - \frac{1}{4}$
 \end{solution}
 
 \begin{problem}
@@ -601,15 +601,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!(\sin x + \cos x)^2\,\text{d}x = \int\!(\sin^2 x + 2\sin x\cos x + \cos^2 x)\,\text{d}x = \int\!(1 + \sin 2x)\,\text{d}x = x - \frac{\cos 2x}{2}$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\sin 4x \cos 3x\,\text{d}x$
+  $\ds\int\!\sin 4x\cos 3x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sin 4x\cos 3x\,\text{d}x = \frac{1}{2}\int\!(\sin(4x + 3x) + \sin(4x - 3x))\,\text{d}x = -\frac{1}{2}\bigg(\frac{\cos 7x}{7} + \cos x\bigg)$
 \end{solution}
 
 \begin{problem}
@@ -617,47 +617,47 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sin x \sin 2x \sin 3x\,\text{d}x = \frac{1}{2}\int\!(\cos(x - 2x) - \cos(x + 2x))\sin 3x\,\text{d}x = \frac{1}{2}\int\!(\cos x\sin 3x - \cos 3x\sin 3x)\,\text{d}x = \frac{1}{4}\int\!(\sin(3x - x) + \sin(3x + x) - \sin 6x)\,\text{d}x = \frac{1}{4}\int\!(\sin 2x + \sin 4x - \sin 6x)\,\text{d}x = -\frac{\cos 2x}{8} - \frac{\cos 4x}{16} + \frac{\cos 6x}{24}$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\sin \sqrt{a x}\,\text{d}x$
+  $\ds\int\!\sin\!\sqrt{a x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\sin\!\sqrt{a x}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{a x}} = \int\!\sin u\cdot\frac{2u}{a}\,\text{d}u = \frac{2}{a}\int\!u\sin u\,\text{d}u = \frac{2}{a}(\sin u - u\cos u) = \frac{2}{a}(\sin\!\sqrt{ax} - \sqrt{ax}\cos\!\sqrt{ax})$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\cos^5 x}{\sqrt{\sin x}}\,\text{d}x$
+  $\ds\int\!\frac{\cos^5\!x}{\sqrt{\sin x}}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\cos^5\!x}{\sqrt{\sin x}}\,\text{d}x = \int\!\frac{\cos^4\!x\cos x}{\sqrt{\sin x}}\,\text{d}x = \underbrace{\int\!\frac{(1 - \sin^2\!x)^2\cos x}{\sqrt{\sin x}}\,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = \int\!\frac{(1 - u^2)^2}{\sqrt{u}}\,\text{d}u = \int\!\big(u^{-\frac{1}{2}} - 2u^{\frac{3}{2}} + u^{\frac{7}{2}}\big)\,\text{d}u = 2u^{\frac{1}{2}} - \frac{4}{5}u^{\frac{5}{2}} + \frac{2}{9}u^{\frac{9}{2}} = 2\sin^{\frac{1}{2}}\!x - \frac{4}{5}\sin^{\frac{5}{2}}\!x + \frac{2}{9}\sin^{\frac{9}{2}}\!x$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\cos^6 x}{\sin^4 x}\,\text{d}x$
+  $\ds\int\!\frac{\cos^6\!x}{\sin^4\!x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\cos^6\!x}{\sin^4\!x}\,\text{d}x = \int\!\frac{(1 - \sin^2\!x)^3}{\sin^4\!x}\,\text{d}x = \int\!\frac{1 - 3\sin^2\!x + 3\sin^4\!x - \sin^6\!x}{\sin^4\!x}\,\text{d}x = \int\!(\csc^4\!x - 3\csc^2\!x + 3 - \sin^2\!x)\,\text{d}x = \Big(-\frac{1}{3}\cot^3\!x - \cot x\Big) + 3\cot x + 3x - \Big(\frac{x}{2} - \frac{\sin\!2x}{4}\Big) = -\frac{1}{3}\cot^3\!x + 2\cot x + \frac{5x}{2} + \frac{\sin\!2x}{4} $
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\tan x}{\sec^2 x} \,\text{d}x$
+  $\ds\int\!\frac{\tan x}{\sec^2\!x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\tan x}{\sec^2\!x}\,\text{d}x = \int\!\frac{\frac{\sin x}{\cos x}}{\frac{1}{\cos^2\!x}}\,\text{d}x = \int\!\sin x\cos x\,\text{d}x = \frac{1}{2}\int\!\sin 2x\,\text{d}x = -\frac{1}{4}\cos 2x$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\tan^3 x}{\cos^3 x}\,\text{d}x$
+  $\ds\int\!\frac{\tan^3\!x}{\cos^3\!x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\tan^3\!x}{\cos^3\!x}\,\text{d}x = \int\!\tan^2\!x\sec^2\!x\cdot\tan x\sec x\,\text{d}x = \underbrace{\int\!(\sec^2\!x - 1)\sec^2\!x\cdot\tan x\sec x\,\text{d}x}_{\text{Let}\;u\,=\,\sec x} = \int\!(u^2 - 1)\,u^2\,\text{d}u = \int\!(u^4 - u^2)\,\text{d}u = \frac{u^5}{5} - \frac{u^3}{3} = \frac{\sec^5\!x}{5} - \frac{\sec^3\!x}{3}$
 \end{solution}
 
 \begin{problem}
@@ -665,7 +665,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{1 - \cos x}\,\text{d}x = \int\!\frac{1 + \cos x}{1 - \cos^2\!x}\,\text{d}x = \int\!\frac{1 + \cos x}{\sin^2\!x}\,\text{d}x = \int\!(\csc^2 x + \csc x\cot x)\,\text{d}x = - \cot x - \csc x$
 \end{solution}
 
 \begin{problem}
@@ -673,7 +673,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds 3\sin x - 4\cos x = -5\,\Big(\frac{4}{5}\cos x - \frac{3}{5}\sin x\Big) = -5\cos(x + \alpha)$, where $\ds\cos\alpha = \frac{4}{5}$. So $\ds\int\!\frac{\text{d}x}{3\sin x - 4\cos x} = -\frac{1}{5}\int\!\frac{\text{d}x}{\cos(x + \alpha)} = -\frac{1}{5}\int\!\sec(x + \alpha)\,\text{d}x = -\frac{1}{5}\ln|\sec(x + \alpha) + \tan(x + \alpha)|$
 \end{solution}
 
 \begin{problem}
@@ -681,7 +681,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\text{d}x}{1 + \sin x - \cos x} = \int\!\frac{1 + \sin x + \cos x}{(1 + \sin x)^2 - \cos^2\!x}\,\text{d}x = \int\!\frac{(1 + \sin x) + \cos x}{2\sin x(1 + \sin x)}\,\text{d}x = \frac{1}{2}\int\frac{1}{\sin x}\,\text{d}x \\ + \frac{1}{2}\underbrace{\int\frac{\cos x}{\sin x(1 + \sin x)}\,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = -\frac{1}{2}\ln|\csc x + \cot x| + \frac{1}{2}\int\!\frac{\text{d}u}{u(1 + u)} = -\frac{1}{2}\ln|\csc x + \cot x| + \frac{1}{2}\int\!\Big(\frac{1}{u} - \frac{1}{u + 1}\Big)\,\text{d}u = -\frac{1}{2}\ln|\csc x + \cot x| + \frac{1}{2}\ln\Big|\frac{\sin x}{\sin x + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -689,23 +689,23 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\cos x + \sin x}{\sin 2x}\,\text{d}x = \int\!\frac{\cos x + \sin x}{2\sin x\cos x}\,\text{d}x = \frac{1}{2}\int\!\Big(\frac{1}{\sin x} + \frac{1}{\cos x}\Big)\,\text{d}x = \frac{1}{2}\int\!(\csc x + \sec x)\,\text{d}x = \frac{1}{2}(-\ln|\csc x + \cot x| + \ln|\sec x + \tan x|) = \frac{1}{2}\ln\Big|\frac{\sec x + \tan x}{\csc x + \cot x}\Big| = \frac{1}{2}\ln\Big|\frac{(1 + \sin x)\sin x}{(1 + \cos x)\cos x}\Big|$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\sin x \cos x}{\sin^4 x + \cos^4 x}\,\text{d}x$
+  $\ds\int\!\frac{\sin x \cos x}{\sin^4\!x + \cos^4\!x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\sin x \cos x}{\sin^4\!x + \cos^4\!x}\,\text{d}x = \int\!\frac{\frac{1}{2}\sin 2x}{(\frac{1 - \cos 2x}{2})^2 + (\frac{1 + \cos 2x}{2})^2}\,\text{d}x = \underbrace{\int\!\frac{\sin 2x}{1 + \cos^2\!2x}\,\text{d}x}_{\text{Let}\;u\,=\,\cos 2x} = -\frac{1}{2}\int\!\frac{\text{d}u}{1 + u^2} = -\frac{1}{2}\tan^{-1}u = -\frac{1}{2}\tan^{-1}(\cos 2x)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\cos x}{\sqrt{\cos^2x + 2}} \,\text{d}x$
+  $\ds\int\!\frac{\cos x}{\sqrt{\cos^2\!x + 2}} \,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\cos x}{\sqrt{\cos^2\!x + 2}} \,\text{d}x = \underbrace{\int\!\frac{\cos x}{\sqrt{3 - \sin^2\!x}} \,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = \int\!\frac{\text{d}u}{\sqrt{3 - u^2}} = \sin^{-1}\!\frac{u}{\sqrt{3}} = \sin^{-1}\!\Big(\frac{\sin x}{\sqrt{3}}\Big)$
 \end{solution}
 
 \begin{problem}
@@ -713,7 +713,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\sec x \cos 2x}{\sin x + \sec x}\,\text{d}x = \int\!\frac{\cos 2x}{\sin x\cos x + 1}\,\text{d}x = \underbrace{\int\!\frac{\cos 2x}{\frac{1}{2}\sin 2x + 1}\,\text{d}x}_{\text{Let}\;u\,=\,\frac{1}{2}\sin 2x\,+\,1} = \int\!\frac{\text{d}u}{u} = \ln\Big|\frac{1}{2}\sin 2x + 1\Big|$
 \end{solution}
 
 \begin{problem}
@@ -721,15 +721,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\tan x}{\tan x + \sec x}\,\text{d}x = \int\!\frac{\frac{\sin x}{\cos x}}{\frac{\sin x}{\cos x} + \frac{1}{\cos x}}\,\text{d}x = \int\!\frac{\sin x}{1 + \sin x}\,\text{d}x = \int\!\frac{(1 - \sin x)\sin x}{(1 - \sin x)(1 + \sin x)}\,\text{d}x = \int\!\frac{\sin x - \sin^2 x}{\cos^2\!x}\,\text{d}x \\= \int\!\frac{\sin x}{\cos^2\!x}\,\text{d}x - \int\!\frac{\sin^2\!x}{\cos^2\!x}\,\text{d}x = \sec x - \int\!\tan^2\!x\,\text{d}x = \sec x - \int\!(\sec^2\!x - 1)\,\text{d}x = \sec x - \tan x + x$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{1}{1 - \tan^2 x}\,\text{d}x$
+  $\ds\int\!\frac{1}{1 - \tan^2\!x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{1 - \tan^2\!x}\,\text{d}x = \int\!\frac{1 + \tan^2\!x}{1 - \tan^4\!x}\,\text{d}x = \underbrace{\int\!\frac{\sec^2\!x}{1 - \tan^4\!x}\,\text{d}x}_{\text{Let}\;u\,=\,\tan x} = \int\!\frac{\text{d}u}{1 - u^4} = \frac{1}{2}\int\!\Big(\frac{1}{1 + u^2} + \frac{1}{1 - u^2}\Big)\,\text{d}u = \frac{1}{2}\int\!\Big(\frac{1}{1 + u^2} + \frac{1}{2}\Big(\frac{1}{1 - u} + \frac{1}{1 + u}\Big)\Big)\,\text{d}u = \frac{1}{2}\tan^{-1}u + \frac{1}{4}\ln\Big|\frac{1 + u}{1 - u}\Big| = \frac{x}{2} + \frac{1}{4}\ln\Big|\frac{1 + \tan x}{1 - \tan x}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -1041,7 +1041,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\sqrt{1+\ln x}}{x \ln x}\,\text{d}x}_{\text{Let}\;u\,=\,\ln x} = \underbrace{\int\!\frac{\sqrt{1+u}}{u}\,\text{d}u}_{\text{Let}\;v\,=\,\sqrt{1 + u}} = \int\!\frac{v}{v^2 - 1}\,2v\,\text{d}v = \int\!\frac{2v^2}{v^2 - 1}\,\text{d}v = \int\!\Big(\frac{2v^2 - 2}{v^2 - 1} + \frac{2}{v^2 - 1}\Big)\,\text{d}v = 2v + \int\!\Big(\frac{1}{v - 1} - \frac{1}{v + 1}\Big)\,\text{d}v = 2v + \ln\Big|\frac{v - 1}{v + 1}\Big| = 2\sqrt{1 + \ln x} + \ln\Big|\frac{\sqrt{1 + \ln x} - 1}{\sqrt{1 + \ln x} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -1049,7 +1049,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{x\sqrt{\ln x}}}_{\text{Let}\;u\,=\,\ln x} = \int\!\frac{\text{d}u}{\sqrt{u}} = 2\sqrt{u} = 2\sqrt{\ln x}$
 \end{solution}
 
 \begin{problem}
@@ -1065,7 +1065,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\frac{\ln(x+1)}{x^2}\,\text{d}x}_{\text{Let}\;u\,=\,\ln(x + 1),\,\text{d}v = \frac{1}{x^2}\,\text{d}x} = \ln(x + 1)\cdot\frac{-1}{x} + \int\frac{1}{x}\cdot\frac{1}{x + 1}\,\text{d}x = \frac{-\ln(x + 1)}{x} + \int\Big(\frac{1}{x}-\frac{1}{x + 1}\Big)\,\text{d}x \\ = \frac{-\ln(x + 1)}{x} + \ln\frac{x}{x + 1}$
 \end{solution}
 
 \begin{problem}
@@ -1081,7 +1081,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{x(1+\ln x)\sqrt{(\ln x)(2+\ln x)}}}_{\text{Let}\;u\,=\,1\,+\,\ln x} = \underbrace{\int\!\frac{\text{d}u}{u\sqrt{u^2 - 1}}}_{\text{Let}\;w\,=\,\ln u} = \int\!w\,\text{d}w = \frac{w^2}{2} = \frac{(\ln\sin x)^2}{2}$
 \end{solution}
 
 \begin{problem}
@@ -1089,7 +1089,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\cot x\ln \sin x\,\text{d}x = \underbrace{\int\!\frac{\cos x}{\sin x}\ln \sin x\,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = \underbrace{\int\!\frac{\ln u}{u}\,\text{d}u}_{\text{Let}\;w\,=\,\ln u} = \int\!w\,\text{d}w = \frac{w^2}{2} = \frac{(\ln\sin x)^2}{2}$
 \end{solution}
 
 \begin{problem}
@@ -1105,7 +1105,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\cot x}{\ln \sin x}\,\text{d}x = \underbrace{\int\!\frac{\cos x}{\sin x\ln \sin x}\,\text{d}x}_{\text{Let}\;u\,=\,\sin x} = \underbrace{\int\!\frac{\text{d}u}{u\ln u}}_{\text{Let}\;w\,=\,\ln u} = \int\!\frac{\text{d}w}{w} = \ln |w| = \ln|\ln(\sin x)|$
 \end{solution}
 
 \begin{problem}
@@ -1113,7 +1113,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int(1 + \ln x)\sqrt{1 + (x \ln x)^2}\,\text{d}x}_{\text{Let}\;u\,=\,x\ln x} = \int\sqrt{1 + u^2}\,\text{d}u = \frac{u\sqrt{u^2 + 1} + \ln|\sqrt{u^2 + 1} + u|}{2} \\= \frac{x\ln x\sqrt{(x\ln x)^2 + 1} + \ln|\sqrt{(x\ln x)^2 + 1} + x\ln x|}{2}$
 \end{solution}
 
 \end{document}
