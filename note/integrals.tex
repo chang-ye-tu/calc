@@ -177,16 +177,16 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_0^1\ln x\,\text{d}x = (x\ln x - x)\,\Big|_0^1 = -1 - \lim_{x\to 0+}x\ln x = -1 + \lim_{x\to 0+}\frac{\ln\frac{1}{x}}{\frac{1}{x}} = -1 + \lim_{y\to\infty}\frac{\ln y}{y} = -1 = (-1)^1\,1!$ by LH. Suppose that the identity holds for $n - 1$ $\ie$ $\ds\int_0^1(\ln x)^{n - 1}\,\text{d}x = (-1)^{n - 1} (n - 1)!$; $\ds\int_0^1(\ln x)^n\,\text{d}x = x\,(\ln x)^n\,\Big|_0^1 - n\int_0^1\!x\cdot(\ln x)^{n - 1}\frac{1}{x}\,\text{d}x = 0 - \lim_{x\to0+}x\,(\ln x)^n + (-1)\cdot n\cdot(-1)^{n - 1}(n - 1)! = (-1)^{n + 1}\cdot\lim_{x\to0+}\frac{(\ln\frac{1}{x})^n}{\frac{1}{x}} + (-1)^n n! = (-1)^{n + 1}\cdot\lim_{y\to\infty}\frac{(\ln y)^n}{y} + (-1)^n n! = (-1)^n n!$.  
 \end{solution}
 
-\begin{problem}
-  $\ds\int_0^1(1-x^2)^n\,\text{d}x = \frac{2^{2n}(n!)^2}{(2n+1)!}$, $n\in\mathbb{N}$.
-\end{problem}
-
-\begin{solution}
-
-\end{solution}
+%\begin{problem}
+%  $\ds\int_0^1(1-x^2)^n\,\text{d}x = \frac{2^{2n}(n!)^2}{(2n+1)!}$, $n\in\mathbb{N}$.
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
 
 \begin{problem}
   $\ds\int_{-2}^2\!|x^2 - 4x|\,\text{d}x$
@@ -305,7 +305,7 @@
 \end{problem}
 
 \begin{solution}
-  $\ds\int\!\frac{1}{x^6 - 1}\,\text{d}x = \frac{1}{2}\int\!\bigg(\frac{1}{x^3 - 1} - \frac{1}{x^3 + 1}\bigg)\,\text{d}x = \frac{1}{6}\int\!\bigg(\frac{1}{x - 1} - \frac{x + 2}{x^2 + x + 1} - \frac{1}{x + 1} + \frac{x - 2}{x^2 - x + 1}\bigg)\,\text{d}x$
+  $\ds\frac{1}{x^6 - 1} = \frac{1}{2}\,\Big(\frac{1}{x^3 - 1} - \frac{1}{x^3 + 1}\Big)$. $\ds\frac{1}{x^3 - 1} = \frac{a}{x - 1} + \frac{b x + C}{x^2 + x + 1}$ $\ie$ $\ds 1 = a(x^2 + x + 1) + (b x + C)(x - 1)$ $\ie$ $\ds a = \frac{1}{3}$, $\ds b = -\frac{1}{3}$, $\ds c = -\frac{2}{3}$; $\ds\frac{1}{x^3 + 1} = \frac{a}{x + 1} + \frac{b x + C}{x^2 - x + 1}$ $\ie$ $\ds 1 = a(x^2 - x + 1) + (b x + C)(x + 1)$ $\ie$ $\ds a = \frac{1}{3}$, $\ds b = -\frac{1}{3}$, $\ds c = \frac{2}{3}$. So $\ds\frac{1}{x^6 - 1} = \frac{1}{6}\,\bigg(\frac{1}{x - 1} - \frac{x + 2}{x^2 + x + 1} - \frac{1}{x + 1} + \frac{x - 2}{x^2 - x + 1}\bigg)$, $\ds\int\!\frac{1}{x^6 - 1}\,\text{d}x = \frac{1}{6}\int\!\bigg(\frac{1}{x - 1} - \frac{x + 2}{x^2 + x + 1} - \frac{1}{x + 1} + \frac{x - 2}{x^2 - x + 1}\bigg)\,\text{d}x = \frac{1}{6}\int\!\bigg(\frac{1}{x - 1} - \frac{\frac{1}{2}(2x + 1) + \frac{3}{2}}{x^2 + x + 1} - \frac{1}{x + 1} + \frac{\frac{1}{2}(2x - 1) - \frac{3}{2}}{x^2 - x + 1}\bigg)\,\text{d}x = \frac{1}{6}\ln\Big|\frac{x - 1}{x + 1}\Big| + \frac{1}{12}\ln\Big|\frac{x^2 - x + 1}{x^2 + x + 1}\Big| - \frac{1}{2\sqrt{3}}\Big(\tan^{-1}\!\frac{2 x + 1}{\sqrt{3}} + \tan^{-1}\!\frac{2 x - 1}{\sqrt{3}}\Big)$
 \end{solution}
 
 \begin{problem}
@@ -337,7 +337,7 @@
 \end{problem}
 
 \begin{solution}
-
+$\ds\int\!\frac{1}{x^n - x}\,\text{d}x = \int\!\frac{1}{x(x^{n - 1} - 1)}\,\text{d}x = \int\!\bigg(\frac{x^{n - 2}}{x^{n - 1} - 1} - \frac{1}{x}\bigg)\,\text{d}x = \underbrace{\int\!\frac{x^{n - 2}}{x^{n - 1} - 1}\,\text{d}x}_{\text{Let}\; u\,=\,x^{n - 1} - 1} - \int\frac{1}{x}\,\text{d}x = \frac{1}{n - 1}\ln|x^{n - 1} - 1| - \ln|x|$
 \end{solution}
 
 \begin{problem}
@@ -349,11 +349,11 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^\infty\!\frac{x^n}{(1 + x^2)^{1 + \frac{n}{2}}}\,\text{d}x$
+  $\ds\int_0^\infty\!\frac{x^n}{(1 + x^2)^{1 + \frac{n}{2}}}\,\text{d}x$, $\forall\,n\in\mathbb{N}$.
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_0^\infty\!\frac{x^n}{(1 + x^2)^{1 + \frac{n}{2}}}\,\text{d}x}_{\text{Let}\; x\,=\,\tan\theta} = \int_0^{\frac{\pi}{2}}\!\frac{\tan^n\!\theta}{\sec^2\!\theta\cdot\sec^n\!\theta}\cdot\sec^2\!\theta\,\text{d}\theta = \int_0^{\frac{\pi}{2}}\!\sin^n\!\theta\,\text{d}\theta = \begin{cases}\frac{n - 1}{n}\cdot\frac{n - 3}{n - 2}\cdots\frac{2}{3} & n\;\text{odd} \\ \frac{n - 1}{n}\cdot\frac{n - 3}{n - 2}\cdots\frac{1}{2}\cdot\frac{\pi}{2} & n\;\text{even}\end{cases}$
 \end{solution}
 
 \begin{problem}
@@ -437,11 +437,11 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^\infty\!\frac{\text{d}x}{\sqrt{x+x^2}}$
+  $\ds\int_0^\infty\!\frac{\text{d}x}{\sqrt{x}+x^2}$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_0^\infty\!\!\frac{\text{d}x}{\sqrt{x}+x^2}}_{\text{Let}\; u\;=\;\sqrt{x}} = \int_0^\infty\!\!\frac{2u\,\text{d}u}{u + u^4} = 2\int_0^\infty\!\!\frac{\text{d}u}{1 + u^3}$. From $\ds\frac{1}{u^3 + 1} = \frac{\frac{1}{3}}{u + 1} + \frac{-\frac{1}{3}u + \frac{2}{3}}{u^2 - u + 1} = \frac{\frac{1}{3}}{u + 1} + \frac{-\frac{1}{3}(u - \frac{1}{2}) + \frac{1}{2}}{u^2 - u + 1} = \frac{\frac{1}{3}}{u + 1} + \frac{-\frac{1}{6}(2u - 1)}{u^2 - u + 1} + \frac{\frac{1}{2}}{(u - \frac{1}{2})^2 + \frac{3}{4}}$, $\ds\int\!\!\frac{\text{d}u}{u^3 + 1} = \frac{1}{3}\ln|u + 1| - \frac{1}{6}\ln(u^2 - u + 1) + \frac{1}{\sqrt{3}}\tan^{-1}\frac{2u - 1}{\sqrt{3}}$, so $\ds\int_0^\infty\frac{\text{d}x}{x^2 + \sqrt{x}} = 2\int_0^\infty\frac{\text{d}u}{u^3 + 1} = \frac{4\pi}{3\sqrt{3}}$ by $\ds\lim_{u\to\infty}\frac{(u + 1)^2}{u^2 - u + 1} = 1$, $\ds\lim_{u\to 0}\frac{(u + 1)^2}{u^2 - u + 1} = 1$, $\ds\lim_{u\to\infty}\tan^{-1}\frac{2 u - 1}{\sqrt{3}} = \frac{\pi}{2}$, and $\ds\lim_{u\to 0}\tan^{-1}\frac{2 u - 1}{\sqrt{3}} = -\frac{\pi}{6}$.
 \end{solution}
 
 \begin{problem}
@@ -449,7 +449,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sqrt{3 - 2x - x^2}\,\text{d}x = \int\!\sqrt{4 - 1 - 2x - x^2}\,\text{d}x = \underbrace{\int\!\sqrt{4 - (x + 1)^2}\,\text{d}x}_{\text{Let}\; u\;=\;x\,+\,1} = \underbrace{\int\!\sqrt{4 - u^2}\,\text{d}u}_{\text{Let}\; u\;=\;2\sin\theta} \\ = \int\!2\cos\theta\cdot2\cos\theta\,\text{d}\theta = 2\int\!(\cos 2\theta + 1)\,\text{d}\theta = \sin 2\theta + 2\theta = 2\sin\theta\cos\theta + 2\sin^{-1}\!\frac{u}{2} = 2\cdot\frac{u}{2}\cdot\frac{\sqrt{4 - u^2}}{2} + 2\sin^{-1}\!\frac{u}{2} = \frac{(x + 1)\sqrt{3 - 2x - x^2}}{2} + 2\sin^{-1}\!\frac{x + 1}{2}$
 \end{solution}
 
 \begin{problem}
@@ -457,7 +457,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{(2x-1)\sqrt{x^2-x}}}_{\text{Let}\; u\;=\;\sqrt{x^2 - x}} = \int\!\frac{2u\,\text{d}u}{(4u^2 + 1)u} = \tan^{-1}(2\sqrt{x^2 - x})$
 \end{solution}
 
 \begin{problem}
@@ -465,7 +465,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{2x^2 + \sqrt{1 - x^2}}{x\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{2x}{\sqrt{1 - x^2}}\,\text{d}x + \int\!\frac{\text{d}x}{x} = -2\sqrt{1 - x^2} + \ln|x|$
 \end{solution}
 
 \begin{problem}
@@ -473,7 +473,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{(1-x^2)^{\frac{3}{2}}}}_{\text{Let}\; x\;=\;\sin\theta} = \int\!\frac{\cos\theta\,\text{d}\theta}{\cos^3\!\theta} = \int\!\sec^2\!\theta\,\text{d}\theta = \tan\theta = \frac{x}{\sqrt{1 - x^2}}$
 \end{solution}
 
 \begin{problem}
@@ -481,7 +481,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_0^{\frac{1}{2}}\!\frac{x}{\sqrt{1-x^2}}\,\text{d}x = -\sqrt{1 - x^2}\,\Big|_0^{\frac{1}{2}} = -\Big(\frac{\sqrt{3}}{2} - 1\Big) = 1 - \frac{\sqrt{3}}{2}$
 \end{solution}
 
 \begin{problem}
@@ -489,7 +489,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_0^{\frac{\sqrt{2}}{2}}\!\frac{x^2}{\sqrt{1-x^2}}\,\text{d}x = \int_0^{\frac{\sqrt{2}}{2}}\!\frac{(x^2 - 1) + 1}{\sqrt{1-x^2}}\,\text{d}x = -\int_0^{\frac{\sqrt{2}}{2}}\!\!\!\sqrt{1 - x^2}\,\text{d}x + \sin^{-1}{x}\,\Big|_0^{\frac{\sqrt{2}}{2}} = -\Big(\frac{\pi}{8} + \frac{1}{4}\Big) + \frac{\pi}{4} = \frac{\pi}{8} - \frac{1}{4}$
 \end{solution}
 
 \begin{problem}
@@ -505,7 +505,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{\sqrt{4x^2 - 4x - 3}}\,\text{d}x = \int\!\frac{1}{\sqrt{4x^2 - 4x + 1 - 4}}\,\text{d}x = \underbrace{\int\!\frac{1}{\sqrt{(2 x - 1)^2 - 2^2}}\,\text{d}x}_{\text{Let}\; 2x\,-\,1\;=\;2\sec\theta} = \int\!\frac{\sec\theta\tan\theta\,\text{d}\theta}{2\tan\theta} \\= \frac{1}{2}\int\!\sec\theta\,\text{d}\theta = \frac{1}{2}\ln|\sec\theta + \tan\theta| = \frac{1}{2}\ln\Big|x - \frac{1}{2} + \sqrt{x^2 - x - \frac{3}{4}}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -513,7 +513,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{1}{x - \sqrt{1 - x^2}}\,\text{d}x}_{\text{Let}\; x\;=\;\sin\theta} = \int\!\frac{\cos\theta}{\sin\theta - \cos\theta}\,\text{d}\theta = \frac{1}{2}\int\!\frac{2\cos\theta}{\sin\theta - \cos\theta}\,\text{d}\theta = \frac{1}{2}\int\!\frac{(\cos\theta - \sin\theta) + (\cos\theta + \sin\theta)}{\sin\theta - \cos\theta}\,\text{d}\theta \\ -\frac{1}{2}\theta + \frac{1}{2}\underbrace{\int\!\frac{\cos\theta + \sin\theta}{\sin\theta - \cos\theta}\,\text{d}\theta}_{\text{Let}\; u\;=\;\sin\theta\,-\,\cos\theta} = \frac{1}{2}\,(-\theta + \ln|\sin\theta - \cos\theta|) = \frac{1}{2}\,(-\sin^{-1}x + \ln|x - \sqrt{1 - x^2}|)$
 \end{solution}
 
 \begin{problem}
@@ -521,7 +521,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{x}{\sqrt{3 - x^4}}\,\text{d}x}_{\text{Let}\; u\;=\;x^2} = \int\!\frac{\frac{\text{d}u}{2}}{\sqrt{3 - u^2}} = \frac{1}{2}\int\!\frac{\text{d}u}{\sqrt{3 - u^2}} = \frac{1}{2}\sin^{-1}\!\frac{u}{\sqrt{3}} = \frac{1}{2}\sin^{-1}\!\frac{x^2}{\sqrt{3}}$
 \end{solution}
 
 \begin{problem}
@@ -533,19 +533,19 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^1\!\left(\sqrt[3]{1 - x^7} - \sqrt[7]{1 - x^3}\right)\,\text{d}x$
+  $\ds\int_0^1\!\big(\sqrt[3]{1 - x^7} - \sqrt[7]{1 - x^3}\big)\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  Let $\ds u = \sqrt[3]{1 - x^7}$ $\ie$ $\ds x = \sqrt[7]{1 - u^3}$. Integration by parts yield $\ds\int_0^1\!\sqrt[3]{1 - x^7}\,\text{d}x = \int_1^0\!u\,\text{d}(\sqrt[7]{1 - u^3}) = u\cdot\sqrt[7]{1 - u^3}\,\Big|_1^0 - \int_1^0\!\sqrt[7]{1 - u^3}\,\text{d}u = \int_0^1\!\sqrt[7]{1 - u^3}\,\text{d}u$. So $\ds\int_0^1\!\big(\sqrt[3]{1 - x^7} - \sqrt[7]{1 - x^3}\big)\,\text{d}x = 0$.
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^1 3(x-1)^2\left(\int_0^x \sqrt{1+(t-1)^4}\,\text{d}t\right)\,\text{d}x$
+  $\ds\int_0^1 3(x-1)^2\left(\int_0^x\!\!\sqrt{1+(t-1)^4}\,\text{d}t\right)\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_0^1 3(x-1)^2\left(\int_0^x\!\!\sqrt{1+(t-1)^4}\,\text{d}t\right)\,\text{d}x}_{\text{Let}\;u\,=\,\int_0^x\!\!\sqrt{1+(t-1)^4}\,\text{d}t,\;\text{d}v\;=\;3(x-1)^2\,\text{d}x} \\= \left(\int_0^x\!\!\sqrt{1+(t-1)^4}\,\text{d}t\right)\cdot(x - 1)^3\,\bigg|_0^1 - \underbrace{\int_0^1(x - 1)^3\cdot\sqrt{1 + (x - 1)^4}\,\text{d}x}_{\text{Let}\;u\,=\,1\,+\,(x - 1)^4} = \frac{1}{4}\int_1^2\!\!\sqrt{u}\,\text{d}u = \frac{2\sqrt{2} - 1}{6}$
 \end{solution}
 
 \begin{problem}
@@ -737,7 +737,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{3 + \sec^2 x + \sin x}{\tan x}\,\text{d}x = \int\!(3\cot x + 2\csc 2x + \cos x)\,\text{d}x = 3\ln|\sin x| - \ln|\csc 2x + \cot 2x| + \sin x = 4\ln|\sin x| - \ln|\cos x| + \sin x$
 \end{solution}
 
 \begin{problem}
@@ -745,7 +745,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\frac{1 + 4 \cot x}{4 - \cot x}\,\text{d}x = \int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\frac{1 + 4\frac{\cos x}{\sin x}}{4 - \frac{\cos x}{\sin x}}\,\text{d}x = \int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\frac{\frac{\sin x + 4\cos x}{\sin x}}{\frac{4\sin x - \cos x}{\sin x}}\,\text{d}x = \underbrace{\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\frac{\sin x + 4\cos x}{4\sin x - \cos x}\,\text{d}x}_{\text{Let}\;u\,=\,4\sin x\,-\,\cos x} = \int_{\frac{3}{\sqrt{2}}}^4\frac{\text{d}u}{u} = \frac{5}{2}\ln 2 - \ln 3$
 \end{solution}
 
 \begin{problem}
@@ -753,23 +753,23 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\sqrt{\tan x}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{\tan x}} = \int\!\frac{2u^2}{1 + u^4}\,\text{d}u$. By $\ds 1 + u^4 = 1 + 2u^2 + u^4 - 2u^2 = (1 + u^2)^2 - (\sqrt{2}u)^2 = (1 + \sqrt{2}u + u^2)(1 - \sqrt{2}u + u^2)$, $\ds\frac{2u^2}{1 + u^4} = \frac{a u + b}{1 + \sqrt{2}u + u^2} + \frac{c u + d}{1 - \sqrt{2}u + u^2}$ $\ie$ $\ds (a u + b)(1 - \sqrt{2}u + u^2) + (c u + d)(1 + \sqrt{2}u + u^2) = 2u^2$ $\ie$ $\ds(a + c)u^3 + (-\sqrt{2}a + b + \sqrt{2}c + d)u^2 + (a - \sqrt{2}b + c + \sqrt{2}d)u + (b + d) = 2u^2$ $\ie$ $\ds a + c = 0$, $\ds -\sqrt{2}a + b + \sqrt{2}c + d = 2$, $\ds a - \sqrt{2}b + c + \sqrt{2}d = 0$, $\ds b + d = 0$ $\ie$ $\ds a = -\frac{\sqrt{2}}{2}$, $\ds c = \frac{\sqrt{2}}{2}$, $\ds b = d = 0$ $\ie$ $\ds\frac{2u^2}{1 + u^4} = \frac{-\frac{1}{\sqrt{2}}u}{1 + \sqrt{2}u + u^2} + \frac{\frac{1}{\sqrt{2}}u}{1 - \sqrt{2}u + u^2} = \frac{-\frac{1}{2\sqrt{2}}(2u + \sqrt{2}) + \frac{1}{2}}{1 + \sqrt{2}u + u^2} + \frac{\frac{1}{2\sqrt{2}}(2u - \sqrt{2}) + \frac{1}{2}}{1 - \sqrt{2}u + u^2}$. So $\ds\int\!\frac{2u^2}{1 + u^4}\,\text{d}u = \frac{1}{2\sqrt{2}}\ln\Big|\frac{1 - \sqrt{2}u + u^2}{1 + \sqrt{2}u + u^2}\Big| + \frac{1}{2}\int\!\bigg(\frac{1}{(u + \frac{1}{\sqrt{2}})^2 + (\frac{1}{\sqrt{2}})^2} + \frac{1}{(u - \frac{1}{\sqrt{2}})^2 + (\frac{1}{\sqrt{2}})^2}\bigg)\,\text{d}u = \frac{1}{2\sqrt{2}}\ln\Big|\frac{1 - \sqrt{2}u + u^2}{1 + \sqrt{2}u + u^2}\Big| \\+ \frac{1}{\sqrt{2}}\,\big(\tan^{-1}(\sqrt{2}u + 1) + \tan^{-1}(\sqrt{2}u - 1)\big) = \frac{1}{2\sqrt{2}}\ln\Big|\frac{1 - \sqrt{2\tan x} + \tan x}{1 + \sqrt{2\tan x} + \tan x}\Big| + \frac{1}{\sqrt{2}}\,\big(\tan^{-1}(\sqrt{2\tan x} + 1) + \tan^{-1}(\sqrt{2\tan x} - 1)\big)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\sin 2x}{1 + \tan x} \,\text{d}x$
+  $\ds\int\!\frac{\sin 2x}{1 + \tan x}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{\sin 2x}{1 + \tan x}\,\text{d}x = \int\!\frac{2\sin x\cos x}{1 + \frac{\sin x}{\cos x}}\,\text{d}x = \int\!\frac{2\sin x\cos^2\!x}{\cos x + \sin x}\,\text{d}x = \int\!\frac{2\sin x\cos^2\!x}{\cos x + \sin x}\cdot\frac{\cos x - \sin x}{\cos x - \sin x}\,\text{d}x \\= \int\!\frac{\cos^2\!x\sin 2x - \frac{1}{2}\sin^2\!2x}{\cos 2x}\,\text{d}x = \int\!\frac{\frac{1 + \cos 2x}{2}\cdot\sin 2x - \frac{1}{2}(1 - \cos^2\!2x)}{\cos 2x}\,\text{d}x = \frac{1}{2}\int\!\frac{(1 + \cos 2x)\cdot\sin 2x - (1 - \cos^2\!2x)}{\cos 2x}\,\text{d}x = \frac{1}{2}\int\!\Big(\frac{\sin 2x}{\cos 2x} + \sin 2x - \sec 2x + \cos 2x\Big)\,\text{d}x = \frac{1}{4}\,\Big(\ln|\sec 2x| - \cos 2x - \ln|\sec 2x + \tan 2x| + \sin 2x\Big)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{\text{d}x}{\tan x+\sin x}$
+  $\ds\int\!\frac{\text{d}x}{\tan x + \sin x}$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{\text{d}x}{\tan x + \sin x}}_{\text{Let}\;u\,=\,\tan\frac{x}{2}} = \int\!\frac{\frac{2\text{d}u}{1 + u^2}}{\frac{2u}{1 - u^2} + \frac{2u}{1 + u^2}} = \int\!\frac{1 - u^2}{2u}\,\text{d}u = \frac{\ln|u|}{2} - \frac{u^2}{4} = \frac{\ln|\tan\frac{x}{2}|}{2} - \frac{\tan^2\!\frac{x}{2}}{4}$
 \end{solution}
 
 \begin{problem}
@@ -777,15 +777,23 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\sqrt{\frac{\tan x}{\sin 2x}}\,\text{d}x = \int\!\sqrt{\frac{\frac{\sin x}{\cos x}}{2\sin x\cos x}}\,\text{d}x = \frac{1}{\sqrt{2}}\int\!\sec x\,\text{d}x = \frac{1}{\sqrt{2}}\ln|\sec x + \tan x|$, so $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\sqrt{\frac{\tan x}{\sin 2x}} \,\text{d}x = \frac{1}{\sqrt{2}}\ln|\sec x + \tan x|\,\Big|_{\frac{\pi}{4}}^{\frac{\pi}{3}} = \frac{1}{\sqrt{2}}\ln\frac{2 + \sqrt{3}}{\sqrt{2} + 1}$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\tan^5 x \sqrt[3]{\cos x}\,\text{d}x$
+  $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\frac{\sqrt{\tan x}}{\sin 2x} \,\text{d}x$
 \end{problem}
 
 \begin{solution}
+  By $\ds(\sqrt{\tan x})' = \frac{1}{2\sqrt{\tan x}}\cdot\sec^2\!x = \frac{\sec^2\!x\sqrt{\tan x}}{2\tan x} = \frac{\sqrt{\tan x}}{\sin 2x}$, $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\frac{\sqrt{\tan x}}{\sin 2x} \,\text{d}x = \sqrt{\tan x}\,\Big|_{\frac{\pi}{4}}^{\frac{\pi}{3}} = \sqrt[4]{3} - 1$
+\end{solution}
 
+\begin{problem}
+  $\ds\int\!\tan^5\!x\,\sqrt[3]{\cos x}\,\text{d}x$
+\end{problem}
+
+\begin{solution}
+  $\ds\int\!\tan^5\!x\,\sqrt[3]{\cos x}\,\text{d}x = \int\!\frac{\sin^5\!x}{\cos^5\!x}\,\sqrt[3]{\cos x}\,\text{d}x = \underbrace{\int\!(1 - \cos^2\!x)^2\,\cos^{\frac{1}{3} - 5}\!x\cdot\sin x\,\text{d}x}_{\text{Let}\;u\,=\,\cos x} = -\int\!\big(u^{-\frac{14}{3}} - 2u^{-\frac{8}{3}} + u^{-\frac{2}{3}}\big)\,\text{d}u = \frac{3}{11}u^{-\frac{11}{3}} - \frac{6}{5}u^{-\frac{5}{3}} - 3u^{\frac{1}{3}} = \frac{3}{11}\cos^{-\frac{11}{3}}\!x - \frac{6}{5}\cos^{-\frac{5}{3}}\!x - 3\cos^{\frac{1}{3}}\!x$
 \end{solution}
 
 \begin{problem}
@@ -793,7 +801,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!x \sin^2 x\,\text{d}x = \frac{1}{2}\int\!(x - x\cos 2x)\,\text{d}x = \frac{1}{2}\Big(x\cdot\frac{1}{2}\sin 2x + \frac{1}{4}\cos 2x\Big) = \frac{x\sin 2x}{4} + \frac{\cos 2x}{8}$
 \end{solution}
 
 \begin{problem}
@@ -801,7 +809,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!(x + \sin x)^2\,\text{d}x = \int\!\Big(x^2 + 2x\sin x + \sin^2 x\Big)\,\text{d}x = \frac{x^3}{6} + 2\int\!x\sin x\,\text{d}x + \frac{1}{2}\int\!\Big(1 - \cos 2x\Big)\,\text{d}x = \frac{x^3}{6} + 2\,(\sin x - x\cos x) + \frac{x}{2} - \frac{1}{4}\sin 2x$
 \end{solution}
 
 \begin{problem}
@@ -809,15 +817,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!x\sin^2 x\cos x\,\text{d}x = \int\!x\cdot\frac{1 - \cos 2x}{2}\cdot\cos x\,\text{d}x = \frac{1}{2}\,\int\!\big(x\cos x - x\cos 2x\cos x\big)\,\text{d}x = \frac{1}{2}\,\int\!\Big(x\cos x - x\cdot\frac{1}{2}\big(\cos (2x - x) + \cos(2x + x)\big)\Big)\,\text{d}x = \frac{1}{4}\,\int\!\big(2x\cos x - x\cos x - x\cos 3x\big)\,\text{d}x = \frac{1}{4}\,\int\!x\,(\cos x - \cos 3x)\,\text{d}x = \frac{1}{4}\,\Big(x\Big(\sin x - \frac{1}{3}\sin 3x\Big) + \cos x - \frac{1}{9}\cos 3x\Big)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!x\tan^2 x\,\text{d}x$
+  $\ds\int\!x\tan^2\!x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!x\tan^2\!x\,\text{d}x = \int\!x(\sec^2\!x - 1)\,\text{d}x = \underbrace{\int\!x\sec^2\!x\,\text{d}x}_{\text{Let}\;u\,=\,x,\,\text{d}v\,=\,\sec^2\!x\,\text{d}x} - \frac{x^2}{2} = x\tan x + \ln|\cos x| - \frac{x^2}{2}$
 \end{solution}
 
 \begin{problem}
@@ -825,15 +833,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int_{-1}^1\!x^8\sin x\,\text{d}x = 0$ for $x^8\sin x$ is odd.
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!x\sin^{-1}x\,\text{d}x$
+  $\ds\int\!x\sin^{-1}\!x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!x\sin^{-1}\!x\,\text{d}x}_{\text{Let}\;u\,=\,\sin^{-1}x,\,\text{d}v\,=\,\text{d}x} = \sin^{-1}\!x\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \frac{x^2\sin^{-1}\!x}{2} - \frac{1}{2}\int\!\frac{(x^2 - 1) + 1}{\sqrt{1 - x^2}}\,\text{d}x = \frac{x^2\sin^{-1}\!x}{2} + \frac{1}{2}\underbrace{\int\!\!\sqrt{1 - x^2}\,\text{d}x}_{\text{Let}\;x\,=\,\sin\theta} - \frac{1}{2}\int\!\!\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \frac{x^2\sin^{-1}\!x}{2} + \frac{1}{2}\,\Big(\frac{\theta}{2} + \frac{1}{4}\sin2\theta\Big) - \frac{1}{2}\sin^{-1}x = \frac{x^2\sin^{-1}\!x}{2} + \frac{1}{4}\,\Big(\sin^{-1}\!x + x\sqrt{1 - x^2}\Big) - \frac{1}{2}\sin^{-1}x = \frac{x^2\sin^{-1}\!x}{2} + \frac{x\sqrt{1 - x^2}}{4} - \frac{\sin^{-1}\!x}{4}$
 \end{solution}
 
 \begin{problem}
@@ -841,15 +849,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!x^{-2}\tan^{-1}\!x\,\text{d}x}_{\text{Let}\;u\,=\,\tan^{-1}x,\,\text{d}v\,=\,x^{-2}\text{d}x} = \tan^{-1}\!x\cdot\frac{-1}{x} + \int\!\frac{1}{x}\cdot\frac{1}{1 + x^2}\,\text{d}x = -\frac{\tan^{-1}\!x}{x} + \int\!\Big(\frac{1}{x} - \frac{x}{1 + x^2}\Big)\,\text{d}x = -\frac{\tan^{-1}\!x}{x} + \ln|x| - \underbrace{\int\!\frac{x}{1 + x^2}\,\text{d}x}_{\text{Let}\;u\,=\,1\,+\,x^2} = -\frac{\tan^{-1}\!x}{x} + \ln|x| - \int\!\frac{\frac{\text{d}u}{2}}{u} = -\frac{\tan^{-1}\!x}{x} + \ln|x| - \frac{1}{2}\ln(1 + x^2)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int_1^3\!\frac{\tan^{-1} \sqrt{x}}{\sqrt{x}} \,\text{d}x$
+  $\ds\int_1^3\frac{\tan^{-1}\sqrt{x}}{\sqrt{x}} \,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_1^3\frac{\tan^{-1}\sqrt{x}}{\sqrt{x}} \,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{x}} = \int_1^{\sqrt{3}}\frac{\tan^{-1}\!u}{u}\cdot 2u\,\text{d}u = 2\int_1^{\sqrt{3}}\tan^{-1}\!u\,\text{d}u$. From $\ds\underbrace{\int\tan^{-1}\!w\,\text{d}w}_{\text{Let}\;u\,=\,\tan^{-1}w,\,\text{d}v\,=\,\text{d}w} = \tan^{-1}\!w\cdot w - \int\!w\cdot\frac{1}{1 + w^2}\,\text{d}w = w\tan^{-1}\!w - \frac{1}{2}\ln(1 + w^2)$, $\ds 2\int_1^{\sqrt{3}}\tan^{-1}\!u\,\text{d}u = \big(2u\tan^{-1}\!u - \ln(1 + u^2)\big)\,\Big|_1^{\sqrt{3}} = \frac{(4\sqrt{3} - 3)\pi}{6} - \ln 2$
 \end{solution}
 
 \begin{problem}
@@ -857,15 +865,15 @@
 \end{problem}
 
 \begin{solution}
-
+  First note that $\ds\underbrace{\int\!\sqrt{1 - x^2}\,\text{d}x}_{\text{Let}\;u\,=\,\sin\theta} = \int\!\cos\theta\cdot\cos\theta\,\text{d}\theta = \frac{1}{2}\int\!(1 + \cos 2\theta)\,\text{d}\theta = \frac{\theta}{2} + \frac{\sin 2\theta}{4} = \frac{1}{2}\,\big(\theta + \sin\theta\cos\theta\big) = \frac{1}{2}\,\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big)$, then $\ds\underbrace{\int\!\sqrt{1-x^2}\sin^{-1} x\,\text{d}x}_{\text{Let}\;u\,=\,\sin^{-1}x,\,\text{d}v\,=\,\sqrt{1 - x^2}\,\text{d}x} = \sin^{-1}\!x\cdot\frac{1}{2}\,\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big) - \frac{1}{2}\int\!\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big)\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \frac{1}{2}\sin^{-1}\!x\,\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big) - \frac{1}{2}\int\!\Big(\frac{\sin^{-1}\!x}{\sqrt{1 - x^2}} + x\Big)\,\text{d}x = \frac{1}{2}\sin^{-1}\!x\,\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big) - \frac{x^2}{4} - \frac{1}{2}\underbrace{\int\!\frac{\sin^{-1}\!x}{\sqrt{1 - x^2}}\,\text{d}x}_{\text{Let}\;u\,=\,\sin^{-1}x} = \frac{1}{2}\sin^{-1}\!x\,\big(\sin^{-1}\!x + x\sqrt{1 - x^2}\big) - \frac{x^2}{4} - \frac{1}{4}\,(\sin^{-1}\!x)^2 = \frac{1}{4}\,(\sin^{-1}\!x)^2 + \frac{1}{2}\,x\sqrt{1 - x^2}\,\sin^{-1}\!x - \frac{x^2}{4}$
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^1\!\frac{\sin^{-1}\sqrt{x}}{\sqrt{x(1-x)}}\,\text{d}x$
+  $\ds\int_0^1\!\frac{\sin^{-1}\!\!\sqrt{x}}{\sqrt{x(1-x)}}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  By $\ds(\sin^{-1}\!\!\sqrt{x})' = \frac{1}{\sqrt{1 - (\sqrt{x})^2}}\cdot\frac{1}{2\sqrt{x}} = \frac{1}{2\sqrt{x(1 - x)}}$, $\ds\int_0^1\!\frac{\sin^{-1}\!\!\sqrt{x}}{\sqrt{x(1-x)}}\,\text{d}x = 2\int_0^1\!\sin^{-1}\!\!\sqrt{x}\,\text{d}(\sin^{-1}\!\!\sqrt{x}) \\= (\sin^{-1}\!\!\sqrt{x})^2\,\Big|_0^1 = \frac{\pi^2}{4}$
 \end{solution}
 
 \begin{problem}
@@ -873,7 +881,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!e^{x+e^x}\,\text{d}x = \underbrace{\int\!e^{e^x}\cdot e^x\,\text{d}x}_{\text{Let}\;u\,=\,e^x} = \int\!e^u\,\text{d}u = e^u = e^{e^x}$
 \end{solution}
 
 \begin{problem}
@@ -881,7 +889,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{e^{3x}-e^x}\,\text{d}x = \underbrace{\int\!\frac{e^{-3x}}{1 - e^{-2x}}\,\text{d}x}_{\text{Let}\;u\,=\,e^{-x}} = \int\!\frac{u^2}{u^2 - 1}\,\text{d}u = \int\!\Big(1 + \frac{1}{2}\,\Big(\frac{1}{u - 1} - \frac{1}{u + 1}\Big)\Big)\,\text{d}u = u + \frac{1}{2}\ln\Big|\frac{u - 1}{u + 1}\Big| = e^{-x} + \frac{1}{2}\ln\Big|\frac{e^{-x} - 1}{e^{-x} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -889,7 +897,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{e^{2x}}{1+e^x}\,\text{d}x}_{\text{Let}\;u\,=\,e^x} = \int\!\frac{u}{1 + u}\,\text{d}u = \int\!\Big(1 - \frac{1}{1 + u}\Big)\,\text{d}u = u - \ln|1 + u| = e^x - \ln(1 + e^x)$
 \end{solution}
 
 \begin{problem}
@@ -897,7 +905,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{1}{1+2e^x-e^{-x}}\,\text{d}x = \underbrace{\int\!\frac{e^x}{e^x+2e^{2x}-1}\,\text{d}x}_{\text{Let}\;u\,=\,e^x} = \int\!\frac{1}{u + 2u^2 - 1}\,\text{d}u = \int\!\Big(\frac{-\frac{1}{3}}{u + 1} + \frac{\frac{2}{3}}{2 u - 1}\Big)\,\text{d}u = \frac{1}{3}\ln\Big|\frac{2u - 1}{u + 1}\Big| = \frac{1}{3}\ln\Big|\frac{2e^x - 1}{e^x + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -905,7 +913,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{e^{2x}}{1+e^{4x}}\,\text{d}x}_{\text{Let}\;u\,=\,e^{2x}} = \frac{1}{2}\int\!\frac{\text{d}u}{1 + u^2} = \frac{1}{2}\tan^{-1}u = \frac{1}{2}\tan^{-1}\!e^{2x}$
 \end{solution}
 
 \begin{problem}
@@ -913,7 +921,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!e^x\sqrt{1 + e^x}\,\text{d}x}_{\text{Let}\;u\,=\,1 + e^x} = \int\!\sqrt{u}\,\text{d}u = \frac{2}{3}u^{\frac{3}{2}} = \frac{2}{3}\,(1 + e^x)^{\frac{3}{2}}$
 \end{solution}
 
 \begin{problem}
@@ -921,7 +929,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\sqrt{1 + e^x}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{1 + e^x}} = \int\!u\cdot\frac{2u}{u^2 - 1}\,\text{d}u = \int\!\frac{2(u^2 - 1) + 2}{u^2 - 1}\,\text{d}u = 2u + \int\!\Big(\frac{1}{u - 1} - \frac{1}{u + 1}\Big)\,\text{d}u = 2u + \ln\Big|\frac{u - 1}{u + 1}\Big| = 2\sqrt{1 + e^x} + \ln\Big|\frac{\sqrt{1 + e^x} - 1}{\sqrt{1 + e^x} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
@@ -929,7 +937,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!\frac{2e^{2x}-e^x}{\sqrt{3e^{2x}-6e^x-1}}\,\text{d}x = \int\!\frac{(2e^{2x}-2e^x) + e^x}{\sqrt{3e^{2x}-6e^x-1}}\,\text{d}x = \frac{1}{3}\underbrace{\int\!\frac{6e^{2x}-6e^x}{\sqrt{3e^{2x}-6e^x-1}}\,\text{d}x}_{\text{Let}\;u\,=\,3e^{2x}\,-\,6e^x\,-\,1} + \underbrace{\int\!\frac{e^x}{\sqrt{3e^{2x}-6e^x-1}}\,\text{d}x}_{\text{Let}\;w\,=\,e^x} = \frac{1}{3}\int\!\frac{\text{d}u}{\sqrt{u}} + \int\!\frac{\text{d}w}{\sqrt{3w^2 - 6w - 1}} = \frac{2}{3}\sqrt{3e^{2x} - 6e^{x} - 1} + \int\!\frac{\text{d}w}{\sqrt{3(w - 1)^2 - 4}} = \frac{2}{3}\sqrt{3e^{2x} - 6e^{x} - 1} \\+ \frac{1}{\sqrt{3}}\int\!\frac{\text{d}w}{\sqrt{(w - 1)^2 - (\frac{2}{\sqrt{3}})^2}} = \frac{2}{3}\sqrt{3e^{2x} - 6e^{x} - 1} + \frac{1}{\sqrt{3}}\ln\bigg|\frac{e^x - 1}{\frac{2}{\sqrt{3}}} + \frac{\sqrt{(e^x - 1)^2 - (\frac{2}{\sqrt{3}})^2}}{\frac{2}{\sqrt{3}}}\bigg| = \frac{2}{3}\sqrt{3e^{2x} - 6e^{x} - 1} + \frac{1}{\sqrt{3}}\ln\bigg|\frac{\sqrt{3}(e^x - 1)}{2} + \frac{\sqrt{3(e^x - 1)^2 - 4}}{2}\bigg|$ by $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|$
 \end{solution}
 
 \begin{problem}
@@ -937,7 +945,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!e^{\sqrt[3]{x}}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt[3]{x}} = \int\!e^u\cdot 3u^2\,\text{d}u = (3u^2 - 6u + 6)\,e^u = (3(\sqrt[3]{x})^2 - 6\sqrt[3]{x} + 6)\,e^{\sqrt[3]{x}}$
 \end{solution}
 
 \begin{problem}
@@ -945,7 +953,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\sqrt{x}e^{\sqrt{x}}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{x}} = \int\!u\cdot e^u\cdot 2u\,\text{d}u = \int\!2u^2 e^u\,\text{d}u = (2u^2 - 4u + 4)\,e^u = (2x - 4\sqrt{x} + 4)\,e^{\sqrt{x}}$
 \end{solution}
 
 \begin{problem}
@@ -953,7 +961,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!x^5 e^{-x^3}\,\text{d}x}_{\text{Let}\;u\,=\,x^3} = \frac{1}{3}\int\!u\cdot e^{-u}\,\text{d}u = -\frac{u + 1}{3}\,e^u = -\frac{x^3 + 1}{3}\,e^{-x^3}$
 \end{solution}
 
 \begin{problem}
@@ -961,7 +969,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!x^3 e^{-2x}\,\text{d}x = -\Big(\frac{x^3}{2} + \frac{3x^2}{4} + \frac{3x}{4} + \frac{3}{8}\Big)\,e^{-2x}$
 \end{solution}
 
 \begin{problem}
@@ -969,15 +977,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int(2x^2 + 1)\,e^{x^2}\,\text{d}x = \int\!e^{x^2}\,\text{d}x + \underbrace{\int\!2x^2\,e^{x^2}\,\text{d}x}_{\text{Let}\;u\,=\,x,\,\text{d}v = 2x\,e^{x^2}\,\text{d}x} = \int\!e^{x^2}\,\text{d}x + x\cdot e^{x^2} - \int\!e^{x^2}\text{d}x = xe^{x^2}$
 \end{solution}
 
 \begin{problem}
-  $\ds\int {27}^{3x+1}\,\text{d}x$
+  $\ds\int{27}^{3x+1}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int{27}^{3x+1}\,\text{d}x = \int\!e^{(3 x + 1)\ln 27}\,\text{d}x = 27\int\!e^{3\ln 27\cdot x}\,\text{d}x = \frac{27}{3\ln 27}\,e^{3\ln 27\cdot x} = \frac{27^{3x + 1}}{3\ln 27}$
 \end{solution}
 
 \begin{problem}
@@ -985,7 +993,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int_{-1}^1\frac{e^{\tan^{-1} x}}{1 + x^2} \,\text{d}x}_{\text{Let}\;u\,=\,\tan^{-1}x} = \int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\!e^u\,\text{d}u = e^{\frac{\pi}{4}} - e^{-\frac{\pi}{4}}$
 \end{solution}
 
 \begin{problem}
@@ -993,7 +1001,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\int\!e^x \sin(ax - 3)\,\text{d}x = -\frac{1}{a}\,e^x\cos(ax - 3) + \frac{1}{a^2}\,e^x\sin(ax - 3) - \frac{1}{a^2}\int\!e^x\sin(ax - 3)\,\text{d}x$ \\$\ie$ $\ds\int\!e^x \sin(ax - 3)\,\text{d}x = \frac{e^x\,(\sin(ax - 3) - a\cos(ax - 3))}{a^2 + 1}$
 \end{solution}
 
 \begin{problem}
@@ -1001,15 +1009,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{xe^x}{\sqrt{1 + e^x}}\,\text{d}x}_{\text{Let}\;u\,=\,x,\,\text{d}v = \frac{e^x}{\sqrt{1 + e^x}}\,\text{d}x} = x\cdot2\sqrt{1 + e^x} - 2\int\!\sqrt{1 + e^x}\,\text{d}x = 2x\sqrt{1 + e^x} - 2\int\!\sqrt{1 + e^x}\,\text{d}x = 2x\sqrt{1 + e^x} - 4\sqrt{1 + e^x} - 2\ln\Big|\frac{\sqrt{1 + e^x} - 1}{\sqrt{1 + e^x} + 1}\Big|$
 \end{solution}
 
 \begin{problem}
-  $\ds\int_0^\infty\!xe^{-x} \sin x\,\text{d}x$
+  $\ds\int_0^\infty\!xe^{-x}\sin x\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  From $\ds\int\!e^{ax}\sin bx\,\text{d}x = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$, $\ds\int\!e^{ax}\cos bx\,\text{d}x = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$, $\ds\int\!e^{-x}\sin x\,\text{d}x = -\frac{e^{-x}(\sin x + \cos x)}{2}$, $\ds\int\!e^{-x}\cos x\,\text{d}x = \frac{e^{-x}(\sin x - \cos x)}{2}$, by tabulation $\ds\int\!xe^{-x}\sin x\,\text{d}x = x\cdot-\frac{e^{-x}(\sin x + \cos x)}{2} + \frac{1}{2}\,\Big(-\frac{e^{-x}(\sin x + \cos x)}{2} + \frac{e^{-x}(\sin x - \cos x)}{2}\Big) = -\frac{e^{-x}}{2}(x\sin x + (x + 1)\,\cos x)$, so $\ds\int_0^\infty\!xe^{-x}\sin x\,\text{d}x = \frac{1}{2}$.
 \end{solution}
 
 \begin{problem}
@@ -1017,7 +1025,7 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!x^2 \ln(1 + x)\,\text{d}x}_{\text{Let}\;u\,=\,\ln(x + 1),\,\text{d}v = x^2\,\text{d}x} = \ln(x + 1)\cdot\frac{x^3}{3} - \frac{1}{3}\int\!x^3\cdot\frac{1}{1 + x}\,\text{d}x = \ln(x + 1)\cdot\frac{x^3}{3} - \frac{1}{3}\int\!\Big(x^2 - x + 1 - \frac{1}{x + 1}\Big)\,\text{d}x = \ln(x + 1)\cdot\frac{x^3}{3} - \frac{x^3}{9} + \frac{x^2}{6} - \frac{x}{3} + \frac{\ln(x + 1)}{3}$
 \end{solution}
 
 \begin{problem}
@@ -1025,15 +1033,15 @@
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\ln \sqrt{x - 1}\,\text{d}x}_{\text{Let}\;u\,=\,\ln\sqrt{x - 1}} = \int\!u\cdot 2e^{2u}\,\text{d}u = \Big(u - \frac{1}{2}\Big)\,e^{2u} = \Big(\ln\sqrt{x - 1} - \frac{1}{2}\Big)(x - 1)$
 \end{solution}
 
 \begin{problem}
-  $\ds\int\ln(\sqrt{x} + \sqrt{1 + x})\,\text{d}x$
+  $\ds\int\!\ln(\sqrt{x} + \sqrt{1 + x})\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+$\ds\underbrace{\int\!\ln(\sqrt{x} + \sqrt{1 + x})\,\text{d}x}_{\text{Let}\;u\,=\,\ln(\sqrt{x} + \sqrt{1 + x}),\,\text{d}v = \text{d}x} = \ln(\sqrt{x} + \sqrt{1 + x})\cdot x - \int\!x\cdot\frac{1}{2\sqrt{x(1 + x)}}\,\text{d}x = x\ln(\sqrt{x} + \sqrt{1 + x}) - \underbrace{\frac{1}{2}\int\!\sqrt{\frac{x}{1 + x}}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{1 + x}} = x\ln(\sqrt{x} + \sqrt{1 + x}) - \frac{1}{2}\int\!\frac{\sqrt{u^2 - 1}}{u}\cdot 2u\,\text{d}u = x\ln(\sqrt{x} + \sqrt{1 + x}) - \underbrace{\int\!\!\sqrt{u^2 - 1}\,\text{d}u}_{\text{Let}\;u\,=\,\sec\theta} = x\ln(\sqrt{x} + \sqrt{1 + x}) - \frac{1}{2}\,\big(u\sqrt{u^2 - 1} - \ln|u + \sqrt{u^2 - 1}|\big) = \Big(x + \frac{1}{2}\Big)\,\ln(\sqrt{x} + \sqrt{1 + x}) - \frac{1}{2}\sqrt{x(1 + x)}$
 \end{solution}
 
 \begin{problem}
@@ -1052,13 +1060,13 @@
   $\ds\underbrace{\int\!\frac{\text{d}x}{x\sqrt{\ln x}}}_{\text{Let}\;u\,=\,\ln x} = \int\!\frac{\text{d}u}{\sqrt{u}} = 2\sqrt{u} = 2\sqrt{\ln x}$
 \end{solution}
 
-\begin{problem}
-  $\ds\int_0^\infty\!\!\frac{\ln x}{1+x^2}\,\text{d}x$
-\end{problem}
-
-\begin{solution}
-
-\end{solution}
+%\begin{problem}
+%  $\ds\int_0^\infty\!\!\frac{\ln x}{1+x^2}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
 
 \begin{problem}
   $\ds\int\frac{\ln(x+1)}{x^2}\,\text{d}x$
@@ -1069,11 +1077,11 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{x \ln x}{\sqrt{x^2-1}}\,\text{d}x$
+  $\ds\int\!\frac{x \ln x}{\sqrt{x^2 - 1}}\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-
+  $\ds\underbrace{\int\!\frac{x \ln x}{\sqrt{x^2 - 1}}\,\text{d}x}_{\text{Let}\;u\,=\,\ln x,\,\text{d}v = \frac{x}{\sqrt{x^2 - 1}}\,\text{d}x} = \ln x\cdot\sqrt{x^2 - 1} - \int\!\sqrt{x^2 - 1}\cdot\frac{1}{x}\,\text{d}x = \sqrt{x^2 - 1}\ln x - \underbrace{\int\frac{\sqrt{x^2 - 1}}{x}\,\text{d}x}_{\text{Let}\;u\,=\,\sqrt{x^2 - 1}} = \sqrt{x^2 - 1}\ln x - \int\!\frac{u^2}{u^2 + 1}\,\text{d}u = \sqrt{x^2 - 1}\ln x - \int\!\Big(1 - \frac{1}{u^2 + 1}\Big)\,\text{d}u = \sqrt{x^2 - 1}\ln x - u + \tan^{-1}u = \sqrt{x^2 - 1}\ln x - \sqrt{x^2 - 1} + \tan^{-1}\!\sqrt{x^2 - 1}$
 \end{solution}
 
 \begin{problem}
@@ -1097,7 +1105,7 @@
 \end{problem}
 
 \begin{solution}
-
+  Note that $\ds(\ln(\tan x))' = \frac{1}{\sin x\cos x}$, so $\ds\int\!\frac{\ln(\tan x)}{\sin x \cos x}\,\text{d}x = \int\!\ln(\tan x)\,\text{d}(\ln(\tan x)) = \frac{1}{2}(\ln(\tan x))^2$; $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\frac{\ln(\tan x)}{\sin x \cos x}\,\text{d}x = \frac{1}{2}(\ln(\tan x))^2\,\Big|_{\frac{\pi}{4}}^{\frac{\pi}{3}} = \frac{(\ln 3)^2}{8}$. 
 \end{solution}
 
 \begin{problem}
