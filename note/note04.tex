@@ -1092,727 +1092,199 @@
   \end{enumerate}
 \end{sol}
 
-%
-%\section*{4.3 面積與體積}
-%\subsection*{面積}
-%\begin{align*}
-%  \int_a^b f(x) \,\text{d}x
-%\end{align*}
-%is equal to the signed area between the the curve $y=f(x)$, the $x$-axis, and the
-%vertical lines $x=a$ and $x=b$.
-%
-%We found the area of this region by approximating it by the union of tall thin
-%rectangles,
-%and then found the exact area by taking the limit as the width of the approximating
-%rectangles went to zero. We can use the same strategy to find areas of more
-%complicated regions in the $xy$-plane.
-%
-%As a preview of the material to come, let $f(x)>g(x)>0$ and $a<b$ and suppose that we are
-%interested in the area of the region
-%\begin{align*}
-%S_1=\big\{\ (x,y)\ \big|\ a\leqslant x\leqslant b\,,\, g(x)\leqslant y\leqslant f(x)\ \big\}
-%\end{align*}
-%that is sketched in the left hand figure below.
-%\begin{figure}
-% \centering
-% \includegraphics[width=.95\textwidth]{area_between2}
-%\end{figure}
-%We already know that $\int_a^b f(x)\,\text{d}x$ is the area of the region
-%\begin{align*}
-%S_2=\big\{\ (x,y)\ \big|\ a\leqslant x\leqslant b\,,\, 0\leqslant y\leqslant f(x)\ \big\}
-%\end{align*}
-%sketched in the middle figure above and that $\int_a^b g(x)\,\text{d}x$ is the area of the
-%region
-%\begin{align*}
-%S_3=\big\{\ (x,y)\ \big|\ a\leqslant x\leqslant b\,,\, 0\leqslant y\leqslant g(x)\ \big\}
-%\end{align*}
-%sketched in the right hand figure above. Now the region $S_1$ of the left hand figure
-%can be constructed by taking the region $S_2$ of center figure and removing from it the
-%region $S_3$ of the right hand figure. So the area of $S_1$ is exactly
-%\begin{align*}
-%  \int_a^b f(x)\,\text{d}x -  \int_a^b g(x)\,\text{d}x
-%  &=  \int_a^b \big(f(x)-g(x)\big)\,\text{d}x
-%\end{align*}
-%This computation depended on the assumption that $f(x)>g(x)$ and,
-%in particular, that the curves $y=g(x)$ and $y=f(x)$ did not cross.
-%If they do cross, as in this figure
-%\begin{figure}
-% \centering
-%\includegraphics[height=45mm]{area_between1a}
-%\end{figure}
-%
-%\begin{ex}
-%  Find the area bounded by the curves $y=4-x^2$, $y=x$, $x=-1$ and $x=1$.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item Before we do any calculus, it is a very good idea to make a sketch of the area in
-%question. The curves $y=x$, $x=-1$ and $x=1$ are all straight lines, while the curve
-%$y=4-x^2$ is a parabola whose apex is at $(0,4)$ and then curves down  (because of the
-%minus sign in $-x^2$) with $x$-intercepts at $(\pm2,0)$. Putting these together gives
-%\begin{figure}
-% \centering
-%\includegraphics[height=5cm]{area_between3}
-%\end{figure}
-%Notice that the curves $y=4-x^2$ and $y=x$ intersect when $4-x^2=x$, namely when $x=
-%\frac{1}{2}\left(-1\pm\sqrt{17}\right) \approx 1.56,-2.56$. Hence the curve $y=4-x^2$
-%lies above the line $y=x$ for all $-1\leqslant x\leqslant 1$.
-%
-%\item We are to find the area of the shaded region. Each point $(x,y)$ in this
-%shaded region has $-1\leqslant x\leqslant 1$ and $x \leqslant y \leqslant 4-x^2$. When we were
-%defining the integral (way back in Definition we used $a$ and $b$
-%to denote the smallest and largest allowed values of $x$; let's do that here too.
-%Let's also use $B(x)$ to denote the bottom curve (i.e. to denote the smallest allowed
-%value of $y$ for a given $x$) and use $T(x)$ to denote the top curve (i.e. to denote the
-%largest allowed value of $y$ for a given $x$). So in this example
-%\begin{align*}
-%a=-1&& b=1&& B(x)=x&& T(x)=4-x^2
-%\end{align*}
-%and the shaded region is
-%\begin{align*}
-%\big\{\ (x,y)\ \big|\ a\leqslant x\leqslant b,\ B(x)\leqslant y\leqslant T(x)\ \big\}
-%\end{align*}
-%\item We use the same strategy as we used when defining the integral in
-%\begin{itemize}
-% \item Pick a natural number $n$ (that we will later send to infinity), then
-%\item subdivide the region into $n$ narrow slices, each of width $\Delta x=\frac{b-a}{n}$.
-%\item For each $i=1,2,\dots,n$, slice number $i$ runs from $x=x_{i-1}$ to $x=x_i$, and we
-%approximate its area by the area of a rectangle. We pick a number $x_i^*$ between
-%$x_{i-1}$ and $x_i$ and approximate the slice by a rectangle whose top is at $y=T(x_i^*)$
-%and whose bottom is at $y=B(x_i^*)$.
-%\item Thus the area of slice $i$ is approximately $\big[T(x_i^*)-B(x_i^*)\big]\Delta x$ (as
-%shown in the figure below).
-%\end{itemize}
-%\begin{figure}
-% \centering
-%\includegraphics[height=5cm]{area_between4}
-%\end{figure}
-%\item So the Riemann sum approximation of the area is
-%\begin{align*}
-%  \text{Area} &\approx \sum_{i=1}^n  \big[T(x_i^*)-B(x_i^*)\big]\Delta x
-%\end{align*}
-%\item By taking the limit as $n \to \infty$ (i.e. taking the limit as the width of the
-%rectangles goes to zero), we convert the Riemann sum into a definite integral
-% and at the same time our approximation of the area
-%becomes the exact area:
-%\begin{align*}
-%\lim_{n\rightarrow\infty}\sum_{i=1}^n  \big[T(x_i^*)-B(x_i^*)\big]\Delta x
-%&=\int_a^b \big[T(x)-B(x)\big]\text{d}x & \text{Riemann sum $\to$ integral}\\
-%&=\int_{-1}^1\big[(4-x^2)-x\big]\text{d}x\\
-%&=\int_{-1}^1\big[4-x-x^2\big]\text{d}x \\
-%&=\bigg[4x - \frac{x^2}{2} - \frac{x^3}{3} \bigg]_{-1}^1\\
-%&= \left(4 - \frac{1}{2}-\frac{1}{3} \right) - \left(-4-\frac{1}{2}+\frac{1}{3} \right)\\
-%&= \frac{24-3-2}{6} - \frac{-24-3+2}{6} \\
-%&= \frac{19}{6} + \frac{25}{6}\\
-%&= \frac{44}{6} = \frac{22}{3}.
-%\end{align*}
-%\end{itemize}
-%\begin{align}
-%  \text{Area} = \int_a^b \big[T(x)-B(x)\big]\text{d}x.
-%\end{align}
-%\end{sol}
-%
-%\begin{ex}           
-% Find the area bounded by the curves $y=4-x^2$, $y=x$, $x=-1$ and $x=1$.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item We first sketch the region
-%\begin{figure}
-% \centering
-%\includegraphics[height=5cm]{area_between3}
-%\end{figure}
-%and verify that $y=T(x)=4-x^2$ lies above the curve $y=B(x)=x$ on the region $-1\leq x\leq 1$.
-%
-%\item The area between the curves is then
-%\begin{align*}
-%\text{Area} &= \int_a^b \big[T(x)-B(x)\big]\text{d}x\\
-%&=\int_{-1}^1\big[4-x-x^2\big]\text{d}x \\
-%&=\bigg[4x - \frac{x^2}{2} - \frac{x^3}{3} \bigg]_{-1}^1\\
-%&= \frac{19}{6} + \frac{25}{6} = \frac{44}{6} = \frac{22}{3}.
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%
-%\begin{ex}
-%  Find the area of the finite region bounded by $y=x^2$ and $y=6x-2x^2$.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-%\item Start by sketching the region:
-%\begin{itemize}
-%\item The curve $y=x^2$ is a parabola. The point on this parabola with the
-%smallest $y$--coordinate is $(0,0)$. As $|x|$ increases, $y$ increases
-%so the parabola opens upward.
-%
-%\item The curve $y=6x-2x^2 =-2(x^2-3x) =-2(x-\frac{3}{2})^2+\frac{9}{2}$ is also a
-%parabola. The point on this parabola with the largest value of $y$ has
-%$x=\nicefrac{3}{2}$
-%(so that the negative term in $-2(x-\frac{3}{2})^2+\frac{9}{2}$ is zero). So the point
-%with the largest value of $y$ is is $(\nicefrac{3}{2},\nicefrac{9}{2})$. As $x$ moves
-%away
-%from $\nicefrac{3}{2}$, either to the right or to the left, $y$ decreases. So the
-%parabola
-%opens downward. The parabola crosses the $x$--axis when $0=6x-2x^2=2x(3-x)$. That is,
-%when
-%$x=0$ and $x=3$.
-%
-%\item The two parabolas intersect when $x^2= 6x-2x^2$, or
-%   \begin{align*}
-%      3x^2-6x&=0 \\
-%      3x(x-2)&=0
-%    \end{align*}
-%So there are two points of intersection, one being $x=0$, $y=0^2=0$
-%and the other being $x=2$, $y=2^2=4$.
-%\item The finite region between the curves lies between these two points of
-%intersection.
-%\end{itemize}
-%\begin{figure}
-%  \centering
-%    \includegraphics{areaSMPL}
-%\end{figure}
-%\item So on this region we have $0\leq x\leq 2$, the top curve is $T(x)=6x-x^2$ and the bottom curve is $B(x)=x^2$. Hence the area is given by
-%\begin{align*}
-%  \text{Area} &=\int_a^b \big[T(x)-B(x)\big]\text{d}x \\
-%&=\int_0^2\big[(6x-2x^2)-(x^2)\big]\text{d}x\\
-%&=\int_0^2\big[6x-3x^2\big]\text{d}x \\
-%&=\bigg[6\frac{x^2}{2}-3\frac{x^3}{3}\bigg]_0^2\\
-%&=3(2)^2-2^3 =4
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%  Find the area of the finite region bounded by $y^2=2x+6$ and $y=x-1$.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-%\item The curve $y^2=2x+6$, or equivalently $x=\frac{1}{2} y^2-3$
-%is a parabola. The point on this parabola with the smallest $x$--coordinate
-%has $y=0$ (so that the positive term in $\frac{1}{2} y^2-3$ is
-%zero). So the point on this parabola with the smallest $x$--coordinate
-%is $(-3,0)$. As $|y|$ increases, $x$ increases so the parabola opens to
-%the right.
-%
-%\item The curve $y=x-1$ is a straight line of slope $1$ that passes through
-%$x=1$, $y=0$.
-%
-%\item The two curves intersect when $\frac{y^2}{2}-3=y+1$, or
-%   \begin{align*}
-%      y^2-6 &= 2y+2 \\
-%      y^2-2y-8 &= 0 \\
-%      (y+2)(y-4) &= 0
-%    \end{align*}
-%So there are two points of intersection, one being $y=4$, $x=4+1=5$
-%and the other being $y=-2$, $x=-2+1=-1$.
-%\item Putting this all together gives us the sketch
-%\begin{figure}
-%\centering
-%   \includegraphics{areaY}
-%\end{figure}
-%\end{itemize}
-%
-%\noindent\emph{Harder solution:}\\
-%\begin{itemize}
-% \item As we have done previously, we approximate the region by a union of narrow
-%vertical rectangles, each of width $\Delta x$. Two of those rectangles are illustrated in
-%the sketch
-%\begin{figure}
-%\centering
-%   \includegraphics{areaYvert}
-%\end{figure}
-%\item In this region, $x$ runs from $a=-3$ to $b=5$. The curve at the top of
-%the region is
-%\begin{align*}
-%y&=T\big(x)=\sqrt{2x+6}
-%\end{align*}
-%The curve at the bottom of the region is more complicated. To the left of $(-1,-2)$ the
-%lower half of the parabola gives the bottom of the region while to the right of $(-1,-2)$
-%the straight line gives the bottom of the region. So
-%\begin{align*}
-%B(x)&=\begin{cases}
-%           -\sqrt{2x+6} & \text{if } -3\leqslant x\leqslant -1 \\
-%           x-1 & \text{if }-1\leqslant x\leqslant 5
-%      \end{cases}
-%\end{align*}
-%\item Just as before, the area is still given by the formula $\int_a^b
-%\big[T(x)-B(x)\big]\text{d}x$, but to accommodate our $B(x)$, we have to split
-%up the domain of integration when we evaluate the integral.
-%\begin{align*}
-%\int_a^b \big[T(x)-B(x)\big]\text{d}x
-%  &=  \int_{-3}^{-1} \big[T(x)-B(x)\big]\text{d}x
-%          +\int_{-1}^5 \big[T(x)-B(x)\big]\text{d}x \\
-%  &= \int_{-3}^{-1} \big[\sqrt{2x+6}-(-\sqrt{2x+6})\big]\text{d}x
-%          +\int_{-1}^5 \big[\sqrt{2x+6}-(x-1)\big]\text{d}x \\
-%  &= 2\int_{-3}^{-1} \sqrt{2x+6}\text{d}x
-%          +\int_{-1}^5 \sqrt{2x+6} - \int_{-1}^5(x-1)\text{d}x
-%\end{align*}
-%\item The third integral is straightforward, while we evaluate the first two via the
-%substitution rule. In particular, set $u=2x+6$ and replace $\text{d}x \rightarrow
-%\frac{1}{2}\text{d}u$. Also $u(-3)=0, u(-1)=4, u(5)=16$. Hence
-%\begin{align*}
-%\text{Area}
-%  &= 2\int_0^4\sqrt{u}\ \frac{\text{d}u}{2}
-%          +\int_4^{16} \sqrt{u}\ \frac{\text{d}u}{2}
-%          -\int_{-1}^5 (x-1)\text{d}x \\
-%  &= 2\bigg[\frac{ u^{\nicefrac{3}{2}} }{ \nicefrac{3}{2} }\frac{1}{2}\bigg]_0^4
-% +\bigg[\frac{ u^{\nicefrac{3}{2}} }{ \nicefrac{3}{2} }\frac{1}{2}\bigg]_4^{16}
-% -\bigg[\frac{x^2}{2}-x\bigg]_{-1}^5 \\[0.1in]
-% & = \frac{2}{3}\big[8-0]
-%     +\frac{1}{3}[64-8]
-%     -\Big[\Big(\frac{25}{2}-5\Big)-\Big(\frac{1}{2}+1\Big)\Big] \\[0.1in]
-% & = \frac{72}{3} -\frac{24}{2}+6 \\
-%&=18
-%\end{align*}
-%Oof!
-%\end{itemize}
-%\medskip\noindent\emph{Easier solution:}\\
-%The easy way to determine the area of our region is to approximate by narrow
-%horizontal rectangles, rather than narrow vertical rectangles. (Really we are just
-%swapping the roles of $x$ and $y$ in this problem)
-%\begin{itemize}
-%\item Look at our sketch of the region again --- each point $(x,y)$ in our
-%region has $-2\leqslant y\leqslant 4$ and $\frac{1}{2}(y^2-6)\leqslant x \leqslant y+1$.
-%\item Let's use
-%\begin{itemize}
-%\item
-%$c$ to denote the smallest allowed value of $y$,
-%\item
-%$d$ to denote the largest allowed value of $y$
-%\item
-%$L(y)$ (``$L$'' stands for ``left'') to denote the smallest allowed
-%value of $x$, when the $y$--coordinate is $y$, and
-%\item
-%$R(y)$ (``$R$'' stands for ``right'') to denote the largest allowed value
-%of $x$, when the $y$--coordinate is $y$.
-%\end{itemize}
-%So, in this example,
-%\begin{align*}
-%c=-2&& d=4 &&  L(y)=\frac{1}{2}(y^2-6) && R(y)=y+1
-%\end{align*}
-%and the shaded region is
-%\begin{align*}
-%\big\{\ (x,y)\ \big|\ c\leqslant y\leqslant d,\ L(y)\leqslant x\leqslant R(y)\ \big\}
-%\end{align*}
-%\item Our strategy is now nearly the same as that used in:
-%\begin{itemize}
-% \item Pick a natural number $n$ (that we will later send to infinity), then
-% \item subdivide the interval $c\leqslant y\leqslant d$ into $n$ narrow subintervals, each of width
-%$\Delta y=\frac{d-c}{n}$. Each subinterval cuts a thin horizontal slice from the region (see
-%the figure below).
-% \item We approximate the area of slice number $i$ by the area of a thin
-%horizontal rectangle (indicated by the dark rectangle in the figure below). On this
-%slice, the $y$--coordinate runs over a very narrow range.
-%We pick a number $y_i^*$, somewhere in that range. We approximate slice
-%$i$ by a rectangle whose left side is at $x=L(y_i^*)$ and whose right side
-%is at $x=R(y_i^*)$.
-%\item Thus the area of slice $i$ is approximately $\big[R(x_i^*)-L(x_i^*)\big]\Delta y$.
-%\end{itemize}
-%\begin{figure}
-%\centering
-%   \includegraphics{areaYhor}
-%\end{figure}
-%\item The desired area is
-%\begin{align*}
-%\lim_{n\rightarrow\infty}\sum_{i=1}^n \big[R(y_i^*)-L(y_i^*)\big]\Delta y
-%&=\int_c^d \big[R(y)-L(y)\big]\text{d}y & \text{Riemann sum $\rightarrow$ integral}\\
-%&=\int_{-2}^4 \big[(y+1)-\tfrac{1}{2}\big(y^2-6\big)\big]\text{d}y \\
-%&=\int_{-2}^4 \big[-\tfrac{1}{2}y^2+y+4\big]\text{d}y \\
-%&=\Big[-\tfrac{1}{6}y^3+\tfrac{1}{2}y^2+4y\Big]_{-2}^4 \\
-%&=-\tfrac{1}{6}\big(64-(-8)\big)+\tfrac{1}{2}(16-4)+4(4+2)\\
-%&=-12+6+24 \\
-%&=18
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%  Find the area between the curves $y=\dfrac{1}{\sqrt{2}}$ and $y=\sin(x)$ with $x$ running from $0$ to $\nicefrac{\pi}{2}$.
-%\end{ex}
-%
-%\begin{sol}
-%  \begin{itemize}
-%    \item Again we start by sketching the region.
-%    \begin{figure}
-%      \centering
-%        \includegraphics{areaCross}
-%    \end{figure}
-%    We want the shaded area.
-%    \item Unlike our previous examples, the bounding curves $y=\nicefrac{1}{\sqrt{2}}$ and
-%      $y=\sin(x)$ cross in the middle of the region of interest. They cross when
-%      $y=\nicefrac{1}{\sqrt{2}}$ and $\sin(x)=y=\nicefrac{1}{\sqrt{2}}$, i.e. when
-%      $x=\nicefrac{\pi}{4}$. So
-%      \begin{itemize}
-%\item to the left of $x=\nicefrac{\pi}{4}$, the top boundary is part of the straight line
-%$y=\nicefrac{1}{\sqrt{2}}$ and  the bottom boundary is part of the curve $y=\sin(x)$
-%\end{itemize}
-%\begin{itemize}
-%\item while to the right of $x=\nicefrac{\pi}{4}$, the top boundary is part of the curve
-%$y=\sin(x)$ and the bottom boundary is part of the straight line
-%$y=\nicefrac{1}{\sqrt{2}}$.
-%\end{itemize}
-%\item Thus the formulae for the top and bottom boundaries are
-%\begin{align*}
-%T(x)=\left.\begin{cases}
-%          \nicefrac{1}{\sqrt{2}} & \text{if $0\leqslant x\leqslant \nicefrac{\pi}{4}$}\\
-%          \sin(x)& \text{if $\nicefrac{\pi}{4}\leqslant x\leqslant \nicefrac{\pi}{2}$}
-%      \end{cases}\right\}\qquad
-%B(x)=\left.\begin{cases}
-%          \sin(x) & \text{if $0\leqslant x\leqslant \nicefrac{\pi}{4}$}\\
-%          \nicefrac{1}{\sqrt{2}}& \text{if $\nicefrac{\pi}{4}\leqslant x\leqslant \nicefrac{\pi}{2}$}
-%      \end{cases}\right\}
-%\end{align*}
-%We may compute the area of interest using our canned formula
-%\begin{align*}
-%\text{Area} = \int_a^b \big[T(x)-B(x)\big]\text{d}x
-%\end{align*}
-%but since the formulas for $T(x)$ and $B(x)$ change at the point $x=\nicefrac{\pi}{4}$,
-%we must split the domain of the integral in two at that point.
-%
-%\item Our integral over the domain $0\leq x \leq \nicefrac{\pi}{2}$ is split into an
-%integral over $0\leqslant x\leqslant \nicefrac{\pi}{4}$ and one over $\nicefrac{\pi}{4}\leqslant x\le
-%\nicefrac{\pi}{2}$:
-%\begin{align*}
-%\text{Area} &= \int_0^{\nicefrac{\pi}{2}} \big[T(x)-B(x)\big]\text{d}x \\
-%   &= \int_0^{\nicefrac{\pi}{4}} \big[T(x)-B(x)\big]\text{d}x
-%      +\int_{\nicefrac{\pi}{4}}^{\nicefrac{\pi}{2}} \big[T(x)-B(x)\big]\text{d}x \\
-%   &= \int_0^{\nicefrac{\pi}{4}} \Big[\frac{1}{\sqrt{2}}-\sin(x)\Big]\text{d}x
-%      +\int_{\nicefrac{\pi}{4}}^{\nicefrac{\pi}{2}}
-%                       \Big[\sin(x)-\frac{1}{\sqrt{2}}\Big]\text{d}x \\[0.1in]
-%   &= \Big[\frac{x}{\sqrt{2}}+\cos(x)\Big]_0^{\nicefrac{\pi}{4}}
-%      +\Big[-\cos(x)-\frac{x}{\sqrt{2}}\Big]
-%                _{\nicefrac{\pi}{4}}^{\nicefrac{\pi}{2}}  \\[0.1in]
-%   &= \Big[\frac{1}{\sqrt{2}}\frac{\pi}{4}+\frac{1}{\sqrt{2}}-1\Big]
-%      +\Big[\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}\frac{\pi}{4}\Big]  \\[0.1in]
-%  &=\frac{2}{\sqrt{2}}-1 \\[0.1in]
-%  &=\sqrt{2}-1
-%\end{align*}
-%
-%\end{itemize}
-%
-%\end{sol}
-%
-%\begin{ex}
-%  Find the volume of the circular cone of height $h$ and radius $r$.
-%\end{ex}
-%
-%\begin{figure}
-%  \centering
-%    \includegraphics{cone}
-%\end{figure}
-%\begin{sol}
-%
-%\begin{itemize}
-% \item In what follows we will slice the cone into thin horizontal ``pancakes''. In order
-%to approximate the volume of those slices, we need to know the radius of the cone at a
-%height $x$ above its point. Consider the cross sections shown in the following figure.
-%\begin{figure}
-%\centering
-%   \includegraphics[width=0.7\textwidth]{cone_adr1}
-%\end{figure}
-%At full height $h$, the cone has radius $r$. If we cut the cone at height $x$, then by
-%similar triangles (see the figure on the right) the radius will be $\frac{x}{h}\cdot r$.
-%
-%
-%\item Now think of cutting the cone into $n$ thin horizontal ``pancakes''. Each such
-%pancake is approximately a squat cylinder of height $\Delta x=\nicefrac{h}{n}$. This
-%is very similar to how we approximated the area under a curve by $n$ tall thin
-%rectangles. Just as we approximated the area under the curve by summing these rectangles,
-%we can approximate the volume of the cone by summing the volumes of these cylinders. Here
-%is a side view of the cone and one of the cylinders.
-%\begin{figure}
-%\centering
-%   \includegraphics[width=0.85\textwidth]{cone_adr2}
-%\end{figure}
-%
-%\item We follow the method we used in, except that
-%our slices are now pancakes instead of rectangles.
-%\begin{itemize}
-% \item Pick a natural number $n$ (that we will later send to infinity), then
-%\item subdivide the cone into $n$ thin pancakes, each of width $\Delta x=\frac{h}{n}$.
-%\item For each $i=1,2,\dots,n$, pancake number $i$ runs from
-%$x=x_{i-1}=(i-1)\cdot\Delta x$ to $x=x_i=i\cdot\Delta x$, and we approximate its
-%volume by the volume of a squat cone. We pick a number $x_i^*$ between $x_{i-1}$ and
-%$x_i$
-%and approximate the pancake by a cylinder of height $\Delta x$ and radius $\frac{x_i^*}{h}r$.
-%  \item Thus the volume of pancake $i$ is
-%approximately $\pi \left( \frac{x_i^*}{h}r\right)^2 \Delta x$ (as shown in the figure above).
-%\end{itemize}
-%
-%\item So the Riemann sum approximation of the volume is
-%\begin{align*}
-%  \text{Volume} &\approx \sum_{i=1}^n  \pi \left( \frac{x_i^*}{h}r\right)^2 \Delta x
-%\end{align*}
-%\item By taking the limit as $n \to \infty$ (i.e. taking the limit as the thickness of
-%the pancakes goes to zero), we convert the Riemann sum into a definite integral and at the same time our approximation of the volume
-%becomes the exact volume:
-%\begin{align*}
-%\int_0^h \pi \Big(\frac{x}{h}r\Big)^2\text{d}x
-%\end{align*}
-%\end{itemize}
-%\begin{itemize}
-% \item Start again from the picture of the cone
-%\begin{figure}
-%  \centering
-%  \includegraphics{cone}
-%\end{figure}
-%and think of slicing it into thin pancakes, each of width $\text{d}x$.
-%\begin{figure}
-%\centering
-%   \includegraphics{coneX}\qquad\includegraphics{coneT}
-%\end{figure}
-%\item The pancake at height $x$ above the point of the cone (which is the fraction
-%$\frac{x}{h}$ of the total height of the cone) has
-%\begin{itemize}
-%\item radius $\frac{x}{h}\cdot r$ (the fraction $\frac{x}{h}$ of the
-%full radius, $r$) and so
-%\item cross--sectional area $\pi \big(\frac{x}{h}r\big)^2$,
-%\item thickness $\text{d}x$ --- we have done something a little sneaky here, see the
-%discussion below.
-%\item volume $\pi \big(\frac{x}{h}r\big)^2\text{d}x$
-%\end{itemize}
-%As $x$ runs from $0$ to $h$, the total volume is
-%\begin{align*}
-%\int_0^h \pi \Big(\frac{x}{h}r\Big)^2\text{d}x
-%&=\frac{\pi r^2}{h^2}\int_0^h x^2\text{d}x\\
-%&=\frac{\pi r^2}{h^2} \bigg[\frac{x^3}{3}\bigg]_0^h\\
-%&=\frac{1}{3}\pi r^2 h
-%\end{align*}
-%\end{itemize}
-%In this second computation we are using a time-saving trick. As we saw in
-%the formal computation above, what we really need to do is pick a natural number $n$,
-%slice the cone into $n$ pancakes each of thickness $\Delta x = \nicefrac{h}{n}$ and then
-%take the limit as $n \to \infty$. This led to the Riemann sum
-%\begin{align*}
-%  \sum_{i=1}^n \pi \left( \frac{x_i^*}{h} r \right)^2 \Delta x && \text{which becomes}
-%  \int_0^h \pi \left( \frac{x}{h} r \right)^2 \text{d}x
-%\end{align*}
-%So knowing that we will replace
-%\begin{align*}
-%  \sum_{i=1}^n &\longrightarrow \int_0^h\\
-%  x_i^* &\longrightarrow x\\
-%  \Delta x &\longrightarrow \text{d}x
-%\end{align*}
-%when we take the limit, we have just skipped the intermediate steps. While this is not
-%entirely rigorous, it can be made so, and does save us a lot of algebra.
-%\end{sol}
-%
-%\begin{ex}
-%  Find the volume of the sphere of radius $r$.
-%\end{ex}
-%
-%\begin{sol}
-%  \begin{itemize}
-%   \item To compute the volume,
-%\begin{figure}
-%\centering
-%   \includegraphics{sphereSlice}
-%\end{figure}
-%we slice it up into thin vertical ``pancakes'' (just as we did in the previous example).
-%
-%\item Each pancake is one quarter of a thin circular disk. The pancake a distance $x$
-%from the $yz$--plane is shown in the sketch above. The radius of that pancake is the
-%distance from the dot shown in the figure to the $x$--axis, i.e. the $y$--coordinate
-%of the dot. To get the coordinates of the dot, observe that
-%\begin{itemize}
-%\item it lies the $xy$--plane, and so has $z$--coordinate zero,
-%and that
-%\item it also lies on the sphere, so that its coordinates obey
-%$x^2+y^2+z^2=r^2$. Since $z=0$ and $y>0$, $y=\sqrt{r^2-x^2}$.
-%\end{itemize}
-%\item So the pancake at distance $x$ from the $yz$--plane has
-%\begin{itemize}
-%\item thickness $\text{d}x$ and
-%\item
-%radius $\sqrt{r^2-x^2}$
-%\item cross--sectional area $\frac{1}{4}\pi \big(\sqrt{r^2-x^2}\,\big)^2$
-%and hence
-%\item
-%volume $\frac{\pi}{4} \big(r^2-x^2\big)\text{d}x$
-%\end{itemize}
-%\item As $x$ runs from $0$ to $r$, the total volume of the part of the sphere
-%in the first octant is
-%\begin{align*}
-%\int_0^r \frac{\pi}{4} \big(r^2-x^2\big)\text{d}x
-%=\frac{\pi}{4}\bigg[r^2x-\frac{x^3}{3}\bigg]_0^r
-%=\frac{1}{6}\pi r^3
-%\end{align*}
-%and the total volume of the whole sphere is eight times that, which is
-%$\frac{4}{3}\pi r^3$, as expected.
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%The region between the lines $y=3$, $y=5$, $x=0$ and $x=4$
-%is rotated around the line $y=2$. Find the volume of the region swept out.
-%\end{ex}
-%
-%
-%\begin{figure}
-%  \centering
-%   \includegraphics{revolveA}
-%\end{figure}
-%\begin{sol}
-%\begin{itemize}
-% \item Consider the region and slice it into thin vertical strips of width
-%$\text{d}x$.
-%\item  Now we are to rotate this region about the line $y=2$. Imagine looking
-%straight down the axis of rotation, $y=2$, end on. The symbol in the figure
-%above just to the right of the end the line $y=2$ is supposed to represent your
-%eye. Here is what you see as the rotation takes place.
-%\begin{figure}
-%\centering
-%   \includegraphics{revolveB}
-%\end{figure}
-%\item Upon rotation about the line $y=2$ our strip sweeps out a ``washer''
-%\begin{itemize}
-%\item
-%whose cross--section is a disk of radius $5-2=3$ from which
-%a disk of radius $3-2=1$ has been removed so that it has a
-%\item
-%cross--sectional area of $\pi 3^2 -\pi 1^2 = 8\pi$ and a
-%\item
-%thickness $\text{d}x$ and hence a
-%\item
-%volume $8\pi\,\text{d}x$.
-%\end{itemize}
-%\item As our leftmost strip is at $x=0$ and our rightmost strip is
-%at $x=4$, the total
-%\begin{align*}
-%\text{Volume}
-%&= \int _0^4 8\pi\,\text{d}x
-%=(8\pi)(4)
-%=32\pi
-%\end{align*}
-%\end{itemize}
-%\begin{itemize}
-% \item The outer cylinder has radius $(5-2)$ and length 4. This has volume
-%\begin{align*}
-%  V_{outer} &= \pi r^2 \ell = \pi \cdot 3^2 \cdot 4 = 36\pi.
-%\end{align*}
-% \item The inner cylinder has radius $(3-2)$ and length 4. This has volume
-%\begin{align*}
-%  V_{inner} &= \pi r^2 \ell = \pi \cdot 1^2 \cdot 4 = 4\pi.
-%\end{align*}
-%\item The volume we want is the difference of these two, namely
-%\begin{align*}
-%  V &= V_{outer} - V_{inner} = 32\pi.
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%The region between the curve $y=\sqrt{x}$, and the lines $y=0$, $x=0$ and $x=4$ is rotated around the line $y=0$. Find the volume of the region swept out.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item Consider the region and cut it into thin vertical strips of width $\text{d}x$.
-%\begin{figure}
-% \centering
-%\includegraphics[height=45mm]{rot_rootx1}
-%\end{figure}
-%
-%\item When we rotate the region about the line $y=0$, each strip sweeps out a thin
-%pancake
-%\begin{itemize}
-%\item
-%whose cross-section is a disk of radius $\sqrt{x}$ with a
-%\item
-%cross-sectional area of $\pi (\sqrt{x})^2 = \pi x$ and a
-%\item
-%thickness $\text{d}x$ and hence a
-%\item
-%volume $\pi x \text{d}x$.
-%\end{itemize}
-%\item As our leftmost strip is at $x=0$ and our rightmost strip is
-%at $x=4$, the total
-%\begin{align*}
-%\text{Volume}
-%&= \int _0^4 \pi x \text{d}x
-%=\left[\frac{\pi}{2}x^2 \right]_0^4
-%=8\pi
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%  The region between the curve $y=\sqrt{x}$, and the lines $y=0$, $x=0$ and $x=4$ is rotated around the line $x=0$. Find the volume of the region swept out.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item We will cut the region into horizontal slices, so we should write $x$ as a
-%function of $y$. That is, the region is bounded by $x=y^2$, $x=4$, $y=0$ and $y=2$.
-% \item Now slice the region into thin horizontal strips of width $\text{d}y$.
-%\begin{figure}
-% \centering
-%\includegraphics[width=0.95\textwidth]{rot_rootx3}
-%\end{figure}
-%
-%\item When we rotate the region about the line $x=0$, each strip sweeps out a thin
-%washer
-%\begin{itemize}
-%\item whose inner radius is $y^2$ and outer radius is $4$, and
-%\item thickness is $\text{d}y$ and hence
-%\item has volume $\pi(r_{out}^2 - r_{in}^2)\text{d}y = \pi(16-y^4)\text{d}y$.
-%\end{itemize}
-%\item As our bottommost strip is at $y=0$ and our topmost
-%strip is at $y=2$, the total
-%\begin{align*}
-%\text{Volume}
-%&= \int _0^2 \pi(16-y^4) \text{d}y
-%=\left[16\pi y - \frac{\pi}{5}y^5 \right]_0^2
-%= 32\pi - \frac{32\pi}{5} = \frac{128\pi}{5}.
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%  Find the volume of the pyramid which has height $h$ and whose base is a square of side $b$.
-%\end{ex}
-%
-%\begin{figure}
-%  \centering
-%    \includegraphics{pyramid}\quad\includegraphics{pyramidYZ}
-%\end{figure}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item To compute its volume, we slice it up into thin horizontal ``square pancakes''. A
-%typical pancake also appears in the sketch above.
-%
-%
-%\begin{itemize}
-%\item The pancake at height $z$ is the fraction $\frac{h-z}{h}$ of the distance from the
-%peak of the pyramid to its base.
-%\item So the \emph{full} pancake at height $z$ is a square of side $\frac{h-z}{h}b$. As a
-%check, note that when $z=h$ the pancake has side  $\frac{h-h}{h}b=0$, and when $z=0$ the
-%pancake has side  $\frac{h-0}{h}b=b$.
-%\item So the pancake has cross-sectional area $\big(\frac{h-z}{h}b\big)^2$ and
-%thickness $\text{d}z$ and hence
-%\item volume $\big(\frac{h-z}{h}b\big)^2\text{d}z$.
-%\end{itemize}
-%\item The volume of the whole pyramid (not just the part of the pyramid in the first
-%octant) is
-%\begin{align*}
-%\int_0^h \Big(\frac{h-z}{h}b\Big)^2\text{d}z
-%&=\frac{b^2}{h^2} \int_0^h (h-z)^2\text{d}z \\
-%&=\frac{b^2}{h^2} \int_h^0 -t^2\text{d}t & \text{substitution rule with
-%$t=(h-z), \text{d}z\to-\text{d}t$} \\
-%&=-\frac{b^2}{h^2}\bigg[\frac{t^3}{3}\bigg]_h^0\\
-%&=-\frac{b^2}{h^2}\bigg[-\frac{h^3}{3}\bigg] \\
-%&=\frac{1}{3} b^2h
-%\end{align*}
-%
-%\end{itemize}
-%\end{sol}
-%
+\section*{4.3 面積與體積}
+\subsection*{面積}
+\begin{fact}
+  \begin{minipage}{\textwidth}
+    $\ds\int_a^b\!f(x)\,\text{d}x$ 為 $y = f(x)$, $x$ 軸, $x = a$, 與 $x = b$ 所圍成之面積. 
+  \end{minipage}
+  \begin{minipage}{\textwidth}
+    \begin{center}
+      \includegraphics[width=.9\textwidth]{area_between2}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{.42\textwidth}
+    \begin{center}
+      \includegraphics[scale=.7]{area_between4}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{.58\textwidth}
+    \begin{align*}
+      &\text{(面積)} \,\approx\,\sum_{i=1}^n\big(T(x_i^*) - B(x_i^*)\big)\,\Delta x,\;\Delta x = \frac{b - a}{n} \\
+      &\lim_{n\to\infty}\sum_{i=1}^n \big(T(x_i^*)- B(x_i^*)\big)\,\Delta x = \int_a^b \big(T(x) - B(x)\big)\,\text{d}x
+    \end{align*}
+  \end{minipage}
+\end{fact}
+
+\begin{ex}           
+  求以 $y = 4 - x^2$, $y = x$, $x = -1$, 與 $x=1$ 圍成之區域面積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.4\textwidth}
+    \hspace{1cm}\includegraphics[scale=.7]{area_between3}
+  \end{minipage}
+  \begin{minipage}{.6\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_{-1}^1\!\big((4 - x^2) - x\big)\,\text{d}x = \frac{22}{3}
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求 $y = x^2$ 與 $y = 6x - 2x^2$ 圍成之區域面積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.3\textwidth}
+    \hspace{5mm}\includegraphics[scale=1]{areaSMPL}
+  \end{minipage}
+  \begin{minipage}{.7\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_0^2\!\big((6x - 2x^2) - x^2\big)\,\text{d}x = 4
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  \begin{minipage}{.5\textwidth}
+    \includegraphics[scale=1]{areaY}
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+    求 $y^2 = 2x + 6$ 與 $y = x - 1$ 圍成之區域面積.
+  \end{minipage}
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.48\textwidth}
+    \includegraphics[scale=.8]{areaYhor}
+  \end{minipage}
+  \begin{minipage}{.52\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_{-2}^4\!\Big((y + 1) - \frac{1}{2}\,\big(y^2 - 6\big)\Big)\,\text{d}y = 18
+    \end{align*}
+  \end{minipage}
+  \qquad
+  \begin{minipage}{.4\textwidth}
+    \hspace{3mm}\includegraphics[scale=1]{areaYvert}
+  \end{minipage}
+  \begin{minipage}{.6\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_{-3}^{-1}\!2\sqrt{2x + 6}\,\text{d}x + \int_{-1}^5\!\big(\sqrt{2x + 6} - x + 1\big)\,\text{d}x = 18
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求 $\ds y = \frac{1}{\sqrt{2}}$ 與 $y = \sin x$ 在 $x$ 從 $0$ 至 $\ds\frac{\pi}{2}$ 範圍內圍成之區域面積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.3\textwidth}
+    \includegraphics[scale=1]{areaCross} 
+  \end{minipage}
+  \begin{minipage}{.7\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_0^{\frac{\pi}{4}}\!\Big(\frac{1}{\sqrt{2}} - \sin x\Big)\,\text{d}x + \int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\Big(\sin x - \frac{1}{\sqrt{2}}\Big)\,\text{d}x = \sqrt{2} - 1
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求高 $h$ 與底半徑 $r$ 之圓錐體體積. 
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.6\textwidth}
+    \includegraphics[scale=1.3]{cone}\;\includegraphics[scale=.9]{coneX}\;\includegraphics[scale=.9]{coneT}
+  \end{minipage}
+  \begin{minipage}{.35\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^h\!\pi\,\Big(\frac{x}{h}\,r\Big)^2\,\text{d}x = \frac{1}{3}\pi r^2 h
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+%\includegraphics[width=0.7\textwidth]{cone_adr1}
+%\includegraphics[width=0.85\textwidth]{cone_adr2}
+
+\begin{ex}
+  求半徑 $r$ 之三維球體體積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.3\textwidth}
+    \includegraphics[scale=.7]{sphereSlice} 
+  \end{minipage}
+  \begin{minipage}{.65\textwidth}
+    \begin{align*}
+      \text{(體積)} = 8\cdot\int_0^r\!\frac{\pi}{4}\,\big(\sqrt{r^2 - x^2}\big)^2\,\text{d}x = \frac{4}{3}\pi r^3
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求以 $y = 3$, $y = 5$, $x = 0$ 與 $x = 4$ 圍成之區域繞 $y = 2$ 旋轉而成之旋轉體體積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.6\textwidth}
+    \includegraphics[scale=1]{revolveA} 
+    \includegraphics[scale=1]{revolveB} 
+  \end{minipage}
+  \begin{minipage}{.35\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^4\!\pi(3^2 - 1^2)\,\text{d}x = 32\pi
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求以 $y = \sqrt{x}$, $y = 0$, $x = 0$ 與 $x = 4$ 圍成之區域繞 (i) $y = 0$ (ii) $x = 0$ 旋轉而成之旋轉體體積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{\textwidth}
+    \hspace{5mm}
+    \includegraphics[scale=.8]{rot_rootx1} 
+    \includegraphics[scale=.8]{rot_rootx2} 
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^4\!\pi\,(\sqrt{x})^2\,\text{d}x = 8\pi
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^4\!2\pi\cdot x\cdot\sqrt{x}\,\text{d}x = \frac{128\pi}{5}
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{.68\textwidth}
+    \includegraphics[scale=.8]{rot_rootx3} 
+  \end{minipage}
+  \begin{minipage}{.28\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^2\!\pi(4^2 - (y^2)^2)\,\text{d}y = \frac{128\pi}{5}
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
+  求高為 $h$, 底面為邊長 $b$ 正方形之錐體體積. 
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{0.5\textwidth}
+    \includegraphics[scale=.8,page=1]{pyramid}
+    \includegraphics[scale=.8,page=1]{pyramidYZ}
+  \end{minipage}
+  \begin{minipage}{0.45\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_0^h\,\Big(b - \frac{z}{h}\,b\Big)^2\,\text{d}z = \frac{1}{3}\,b^2h
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
 %\begin{ex}
 %  Suppose you make two napkin rings by drilling holes with different diameters through two wooden balls. One ball has radius $r$ and the other radius $R$ with $r<R$. You choose the diameter of the holes so that both napkin rings have the same height, $2h$. See the figure below.
 %\begin{figure}
@@ -1861,133 +1333,35 @@
 %&=\frac{4\pi}{3}h^3
 %\end{align*}
 %\end{itemize}
-%This volume is independent of $R$. Hence the napkin ring of radius $r$ contains precisely
-%the same volume of wood as the napkin ring of radius $R$!
+%This volume is independent of $R$. Hence the napkin ring of radius $r$ contains precisely the same volume of wood as the napkin ring of radius $R$!
 %\end{sol}
-%
-%\begin{ex}
-%  A $45^\circ$ notch is cut to the centre of a cylindrical log having radius $20$cm. One plane face of the notch is perpendicular to the axis of the log. See the sketch below. What volume of wood was removed?
-%\begin{figure}
-%  \centering
-%   \includegraphics{notch2}\qquad
-%   \includegraphics{notch4a}\qquad
-%   \includegraphics{notch5a}
-%\end{figure}
-%\end{ex}
-%
-%\begin{sol}
-%\noindent\emph{Solution 1:}
-%\begin{itemize}
-% \item Concentrate on the notch. Rotate it around so that the plane face lies in the
-%$xy$--plane.
-%\item Then slice the notch into vertical rectangles (parallel to the $yz$--plane) as in
-%the figure on the left below.
-%\begin{figure}
-%  \centering
-%    \includegraphics{notch2a}\qquad
-%    \includegraphics[scale=0.9]{notchXZa}
-%\end{figure}
-%\item The cylindrical log had radius $20$cm. So the circular part of the boundary of the
-%base of the notch has equation $x^2+y^2=20^2$. (We're putting the origin of the
-%$xy$--plane at the centre of the circle.) If our coordinate system is such that $x$ is
-%constant on each slice, then
-%\begin{itemize}
-%\item
-%the base of the slice is the line segment from $(x,-y,0)$ to
-%$(x,+y,0)$ where  $y=\sqrt{20^2-x^2}$ so that
-%\item
-%the slice has width $2y=2\sqrt{20^2-x^2}$ and
-%\item
-%height $x$ (since the upper face of the notch is at $45^\circ$ to the base
-%--- see the side view sketched in the figure on the right above).
-%\item
-%So the slice has cross--sectional area $2x\sqrt{20^2-x^2}$.
-%\end{itemize}
-%\item On the base of the notch $x$ runs from $0$ to $20$ so
-%the volume of the notch is
-%\begin{align*}
-%V&=\int_0^{20}2x\sqrt{20^2-x^2}\text{d}x
-%\intertext{Make the change of variables $u=20^2-x^2$ (don't forget to change $\text{d}x
-%\rightarrow -\frac{1}{2x}\text{d}u$):}
-%V&=\int_{20^2}^{0}-\sqrt{u}\,\text{d}u\\
-%&=\left[-\frac{u^{3/2}}{3/2}\right]_{20^2}^0\\
-%&= \frac{2}{3}20^3=\frac{16,000}{3}
-%\end{align*}
-%\end{itemize}
-%
-%\noindent\emph{Solution 2:}\\
-%\begin{itemize}
-% \item  Concentrate of the notch. Rotate it around so that its base
-%lies in the $xy$--plane with the skinny edge along the $y$--axis.
-%\item Slice the notch into triangles parallel to the $xz$--plane as in the figure
-%on the left below. In the figure below, the triangle happens to lie in a plane
-%where $y$ is negative.
-%\begin{figure}
-%  \centering
-%  \includegraphics{notch3a}\qquad
-%  \includegraphics[scale=0.9]{notchXZb}
-%\end{figure}
-%
-%\item The cylindrical log had radius $20$cm. So the circular part of the boundary of the
-%base of the notch has equation $x^2+y^2=20^2$. Our coordinate system is such that $y$ is
-%constant on each slice, so that
-%\begin{itemize}
-%\item
-%the base of the triangle is the line segment from $(0,y,0)$ to $(x,y,0)$ where
-%$x=\sqrt{20^2-y^2}$ so that
-%\item
-%the triangle has base $x=\sqrt{20^2-y^2}$  and
-%\item
-%height $x=\sqrt{20^2-y^2}$ (since the upper face of the notch is at
-%$45^\circ$ to the base --- see the side view sketched in the figure
-%on the right above).
-%\item
-%So the slice has cross--sectional area $\half\big(\sqrt{20^2-y^2}\big)^2$.
-%\end{itemize}
-%\item On the base of the notch $y$ runs from $-20$ to $20$, so the volume of the notch is
-%\begin{align*}
-%V&=\half\int_{-20}^{20}(20^2-y^2)\text{d}y\\
-%&=\int_0^{20} (20^2-y^2)\text{d}y\\
-%&=\Big[20^2y-\frac{y^3}{3}\Big]_0^{20} \\
-%&=\frac{2}{3}20^3=\frac{16,000}{3}
-%\end{align*}
-%\end{itemize}
-%\end{sol}
-%
-%\begin{ex}
-%  The region between the curve $y=\sqrt{x}$, and the lines $y=0$, $x=0$ and $x=4$ is rotated around the line $x=0$. Find the volume of the region swept out.
-%\end{ex}
-%
-%\begin{sol}
-%\begin{itemize}
-% \item Consider the region and cut it into thin vertical strips of width $\text{d}x$.
-%\begin{figure}
-%  \centering
-%  \includegraphics[height=45mm]{rot_rootx2}
-%\end{figure}
-%
-%\item When we rotate the region about the line $y=0$, each strip sweeps out a thin
-%cylindrical shell
-%\begin{itemize}
-%\item whose radius is $x$,
-%\item height is $\sqrt{x}$, and
-%\item thickness is $\text{d}x$ and hence
-%\item has volume $2 \pi \times \text{radius} \times \text{height} \times \text{thickness}
-%= 2 \pi x^{3/2} \text{d}x$.
-%\end{itemize}
-%\item As our leftmost strip is at $x=0$ and our rightmost strip is
-%at $x=4$, the total
-%\begin{align*}
-%\text{Volume}
-%&= \int _0^4 2\pi x^{3/2} \text{d}x
-%=\left[\frac{4\pi}{5} x^{5/2} \right]_0^4
-%= \frac{4\pi}{5}\cdot 32 = \frac{128\pi}{5}
-%\end{align*}
-%which (thankfully) agrees with our previous computation.
-%
-%\end{itemize}
-%\end{sol}
-%
+
+\begin{ex}
+  \begin{minipage}{0.15\textwidth}
+    \includegraphics[scale=1,page=1]{notch2}
+  \end{minipage}
+  \begin{minipage}{0.8\textwidth}
+    將一半徑為 $a$ 之圓柱體水平橫切, 再對其底面圓心 $45^\circ$ 角斜切, 求如圖所示結果體積。
+  \end{minipage}
+\end{ex}
+
+\begin{sol}
+  \vspace{3mm}
+  \begin{minipage}{0.55\textwidth}
+    \begin{center}
+      \includegraphics[scale=0.8,page=1]{notch3a}\quad\includegraphics[scale=0.8,page=1]{notch2a}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{0.4\textwidth}
+    \begin{align*}
+      \text{(體積)} = \int_{-a}^a\,\frac{1}{2}\,\big(\sqrt{a^2 - y^2}\big)^2\,\text{d}y = \frac{2}{3}\,a^3
+    \end{align*}
+    \begin{align*}
+      \text{(體積)} = \int_0^a x\cdot 2\sqrt{a^2-x^2}\,\text{d}x = \frac{2}{3}\,a^3
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
 \section*{4.3 積分技巧}
 \subsection*{部份分式}
 
