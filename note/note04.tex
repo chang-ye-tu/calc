@@ -472,6 +472,14 @@
   \noindent 令 $\ds X = \int\!e^{ax}\cos bx\,\text{d}x$, $\ds Y = \int\!e^{ax}\sin bx\,\text{d}x$, 由 (a)(b) $\ds X = \cos bx\cdot\frac{1}{a}e^{ax} + \frac{b}{a}\,Y$, $\ds Y = \sin bx\cdot\frac{1}{a}e^{ax} - \frac{b}{a}\,X$. 解 $X$, $Y$ 得 $\ds X = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2 + b^2}$, $\ds Y = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$. 
 \end{sol}
 
+\begin{ex}
+  求 $\ds\int\!\sec^3\theta\,\text{d}\theta$. 
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \sec\theta$, 則 $\ds\text{d}u = \sec\theta\tan\theta\,\text{d}\theta$; 令 $\ds\text{d}v = \sec^2\theta\,\text{d}\theta$, 則 $\ds v = \tan\theta$. 故 $\ds\int\!\sec^3\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan\theta\cdot\sec\theta\tan\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan^2\theta\cdot\sec\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!(\sec^2\theta - 1)\cdot\sec\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec^3\theta\,\text{d}\theta + \int\!\sec\theta\,\text{d}\theta \ie \int\!\sec^3\theta\,\text{d}\theta = \frac{1}{2}\,\bigg(\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{1}{2}\,\big(\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|\big)$.
+\end{sol}
+
 \subsubsection*{部份積分法: 列表}
 
 \begin{fact}
@@ -710,10 +718,11 @@
       \item $\ds\int x^3\ln x\,\text{d}x $%{\color{C2}\;= \frac{x^4}{4}\ln x -\frac{x^4}{16} + c}$
       \item $\ds\int x(\ln x)^3\,\text{d}x $%{\color{C2}\;= \frac{x^2}{2}\Big((\ln x)^3 -\frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4} \Big) + c}$
       \item $\ds\int x^2\tan^{-1} x\,\text{d}x $%{\color{C2}\;= \frac{x^3}{3}\tan^{-1} x - \frac{x^2}{6} + \frac{\ln(1 + x^2)}{6} + c}$
+      \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x $%{\color{C2}\;= \frac{e^x}{x + 1} + c}$
       \item $\ds\int x^5 e^{-x^2}\,\text{d}x $%{\color{C2}\;= -\frac{1}{2}e^{-x^2}(x^4 + 2x^2 + 2) + c}$
       \item $\ds\int x e^{\sqrt{x}}\,\text{d}x $%{\color{C2}\;= 2\,e^{\sqrt{x}}\,\big(x\sqrt{x} - 3x + 6\sqrt{x} - 6\big) + c}$
       %\item $\ds\int(\sin^{-1} x)^2\,\text{d}x $%{\color{C2}\;= x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1} x - 2x + c}$
-      \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x $%{\color{C2}\;= \frac{e^x}{x + 1} + c}  $
+      \item $\ds\int(2x^2 + 1)e^{x^2}\,\text{d}x$%{\color{C2}\;= xe^{x^2}$
       \item $\ds\int\!\sin(\ln x)\,\text{d}x $%{\color{C2}\;= \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c}$
       \item $\ds\int\!x^2\ln\frac{1 - x}{1 + x}\,\text{d}x $%{\color{C2}\;= \frac{x^3}{3}\ln\frac{1 - x}{1 + x} - \frac{x^2 + \ln(x^2 - 1)}{3} + c}$
       \item $\ds\int\!\frac{\ln x}{\sqrt{1 + x}}\,\text{d}x $%{\color{C2}\;= \ln x\cdot 2\sqrt{1 + x} - 4\sqrt{1+x} - 2\ln(\sqrt{1 + x}-1) + 2\ln(\sqrt{1+x} + 1) + c}$
@@ -729,6 +738,7 @@
     \item 令 $\ds u = \ln x$, 則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$; $\ds\text{d}v = x^3\,\text{d}x$, 則 $\ds v = \frac{x^4}{4}$.  故 $\ds\int x^3\ln x\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \int\!\frac{x^4}{4}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \int\!\frac{x^3}{4}\,\text{d}x = \ln x\cdot\frac{x^4}{4} - \frac{x^4}{16} + c$.   
     \item 令 $\ds u = (\ln x)^3$, 則 $\ds\text{d}u = 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x$; $\ds\text{d}v = x\,\text{d}x$, 則 $\ds v = \frac{x^2}{2}$.  故 $\ds\int x(\ln x)^3\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot 3(\ln x)^2\cdot\frac{1}{x}\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\int x(\ln x)^2\,\text{d}x$. 令 $\ds u = (\ln x)^2$, 則 $\ds\text{d}u = 2\,\ln x\cdot\frac{1}{x}\,\text{d}x$; $\ds\text{d}v = x\,\text{d}x$, 則 $\ds v = \frac{x^2}{2}$.  故 $\ds\int x(\ln x)^2\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot 2\ln x\cdot\frac{1}{x}\,\text{d}x = (\ln x)^2\cdot\frac{x^2}{2} - \int x\ln x\,\text{d}x$. 令 $\ds u = \ln x$, 則 $\ds\text{d}u = \frac{1}{x}\,\text{d}x$; $\ds\text{d}v = x\,\text{d}x$, 則 $\ds v = \frac{x^2}{2}$. 故 $\ds\int x\ln x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \int\!\frac{x^2}{2}\cdot\frac{1}{x}\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{1}{2}\int x\,\text{d}x = \ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}$. 以上, $\ds\int x(\ln x)^3\,\text{d}x = (\ln x)^3\cdot\frac{x^2}{2} - \frac{3}{2}\Big((\ln x)^2\cdot\frac{x^2}{2} - \big(\ln x\cdot\frac{x^2}{2} - \frac{x^2}{4}\big)\Big) = \frac{x^2}{2}\big((\ln x)^3 - \frac{3(\ln x)^2}{2} + \frac{3\ln x}{2} - \frac{3}{4}\big) + c$
     \item 令 $\ds u = \tan^{-1} x$, 則 $\ds\text{d}u = \frac{1}{1 + x^2}\,\text{d}x$; $\ds\text{d}v = x^2\,\text{d}x$, 則 $\ds v = \frac{x^3}{3}$.  故 $\ds\int x^2\tan^{-1} x\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x$. 又 $\ds\int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\frac{(x^3 + x) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\frac{x(x^2 + 1) - x}{x^2 + 1}\,\text{d}x = \frac{1}{3}\int\!\big(x - \frac{x}{x^2 + 1}\big)\,\text{d}x$. 令 $\ds w = x^2 + 1$, 則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$, 故 $\ds\int\!\frac{x}{x^2 + 1}\,\text{d}x = \int\!\frac{1}{x^2 + 1}\cdot x\,\text{d}x = \int\!\frac{1}{w}\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\ln w + c = \frac{1}{2}\ln(x^2 + 1) + c$. 以上, $\ds\int x^2\tan^{-1} x\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \int\!\frac{x^3}{3}\cdot\frac{1}{x^2 + 1}\,\text{d}x = \tan^{-1}x\cdot\frac{x^3}{3} - \frac{x^2}{6} + \frac{\ln(x^2 + 1)}{6} + c$. 
+    \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x$. 令 $\ds u = e^x$, 則 $\ds\text{d}u = e^x\,\text{d}x$; $\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$, 則 $\ds v = \frac{-1}{x + 1}$. 故 $\ds\int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = e^x\cdot\frac{-1}{x + 1} + \int\!\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x$; 原式 $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$. 
     \item 令 $\ds w = x^2$, 則 $\ds\text{d}w = 2x\,\text{d}x\ie x\,\text{d}x = \frac{1}{2}\,\text{d}w$, 故 $\ds\int x^5 e^{-x^2}\,\text{d}x = \int e^{-x^2}\cdot(x^2)^2\cdot x\,\text{d}x = \int e^{-w}\cdot w^2\cdot\frac{1}{2}\,\text{d}w = \frac{1}{2}\int w^2\,e^{-w}\,\text{d}w = -\frac{1}{2}\,e^{-w}(w^2 + 2w + 2) = -\frac{1}{2}\,e^{-x^2}(x^4 + 2x^2 + 2) + c$. \\
   \begin{minipage}{0.15\textwidth}
     \begin{tikzpicture}[yscale=0.75]
@@ -781,8 +791,7 @@
     \end{align*}
   \end{minipage}
     %\item 令 $\ds u = (\sin^{-1} x)^2$, 則 $\ds\text{d}u = 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x$; $\ds\text{d}v = \text{d}x$, 則 $\ds v = x$.  故 $\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x - \int x\cdot 2\sin^{-1}x\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\int\!\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$. 令 $\ds u = \sin^{-1} x$, 則 $\ds\text{d}u = \frac{1}{\sqrt{1 - x^2}}\,\text{d}x$; $\ds\text{d}v = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$, 則 $\ds v = \sqrt{1 - x^2}$.  故 $\ds\int\!\sin^{-1}x\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int\!\sqrt{1 - x^2}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - \int 1\,\text{d}x = \sin^{-1}x\cdot\sqrt{1 - x^2} - x$. 以上, $\ds\int(\sin^{-1} x)^2\,\text{d}x = (\sin^{-1} x)^2\cdot x + 2\,(\sin^{-1}x\cdot\sqrt{1 - x^2} - x) = x\,(\sin^{-1} x)^2 + 2\sqrt{1 - x^2}\,\sin^{-1}x - 2x + c$
-
-    \item $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{(x + 1 - 1)e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x$. 令 $\ds u = e^x$, 則 $\ds\text{d}u = e^x\,\text{d}x$; $\ds\text{d}v = \frac{1}{(x + 1)^2}\,\text{d}x$, 則 $\ds v = \frac{-1}{x + 1}$. 故 $\ds\int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = e^x\cdot\frac{-1}{x + 1} + \int\!\frac{1}{x + 1}\cdot e^x\,\text{d}x = \frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x$; 原式 $\ds\int\!\frac{x e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \int\!\frac{e^x}{(x + 1)^2}\,\text{d}x = \int\!\frac{e^x}{x + 1}\,\text{d}x - \Big(\frac{-e^x}{x + 1} + \int\!\frac{e^x}{x + 1}\,\text{d}x\Big) = \frac{e^x}{x + 1}$. 
+    \item $\ds\int(2x^2 + 1)\,e^{x^2}\,\text{d}x = \int\!2x^2\,e^{x^2}\,\text{d}x + \int\!e^{x^2}\,\text{d}x$. 令 $\ds u = x$, 則 $\ds\text{d}u = e^x\,\text{d}x$; $\ds\text{d}v = 2x\,e^{x^2}\,\text{d}x$, 則 $\ds v = e^{x^2}$. 故 $\ds\int\!2x^2\,e^{x^2}\,\text{d}x = x\cdot e^{x^2} - \int\!e^{x^2}\text{d}x$; 原式 $\ds\int\!2x^2\,e^{x^2}\,\text{d}x + \int\!e^{x^2}\,\text{d}x = x\cdot e^{x^2} - \int\!e^{x^2}\text{d}x + \int\!e^{x^2}\,\text{d}x = xe^{x^2}$
     \item 令 $\ds w = \ln x$, 則 $\ds e^w = x$, $\ds\text{d}x = e^w\,\text{d}w$, 故 $\ds\int\!\sin(\ln x)\,\text{d}x = \int\!\sin w\cdot e^w\,\text{d}w = \int e^w\,\sin w\,\text{d}w = \frac{e^w(\sin w - \cos w)}{2} = \frac{x\,(\sin(\ln x) - \cos(\ln x))}{2} + c$ \\
       \begin{minipage}{0.15\textwidth}
         \begin{tikzpicture}[yscale=0.75]
@@ -1365,7 +1374,7 @@
   \end{minipage}
 \end{sol}
 
-\section*{4.3 積分技巧}
+\section*{4.4 積分技巧}
 \subsection*{部份分式}
 
 \begin{ex}[動機]
@@ -1458,9 +1467,13 @@
     \begin{enumerate}\setlength{\itemsep}{0pt}
       \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x$
-      \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
       \item $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{\sqrt{x^2 + a^2}}\,\text{d}x$
+      \item $\ds\int\!\sqrt{x^2 - a^2}\,\text{d}x$
       \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
+      %\item $\ds\int\!x^2\sqrt{x^2 + a^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{\tan x + \sin x}\,\text{d}x$
       \item $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x$, $a > 1$
     \end{enumerate}
   \end{multicols}
@@ -1472,15 +1485,16 @@
     \item 令 $\ds x = a\sin\theta$, 則 $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = \int\!\sqrt{a^2 - a^2\sin^2\theta}\,a\cos\theta\,\text{d}\theta = a^2\int\!\cos^2\theta\,\text{d}\theta = a^2\int\!\frac{1 + \cos2\theta}{2}\,\text{d}\theta \\ = \frac{a^2}{2}\theta + \frac{a^2}{4}\sin2\theta = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{a^2}{2}\frac{x}{a}\cdot\frac{\sqrt{a^2 - x^2}}{a} = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{x}{2}\sqrt{a^2 - x^2}$. 
       %另解: 令 $\ds u = \sqrt{a^2- x^2}$, 則 $\ds\text{d}u = -\frac{x}{\sqrt{a^2 - x^2}}\,\text{d}x$; 令 $\ds\text{d}v = \text{d}x$, 則 $v = x$. 故 \\ $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = x\sqrt{a^2 - x^2} + \int x\cdot\frac{x}{\sqrt{a^2 - x^2}}\,\text{d}x = x\sqrt{a^2 - x^2} + \int\!\frac{(x^2 - a^2) + a^2}{\sqrt{a^2 - x^2}}\,\text{d}x \\= x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\text{d}x + \int\!\frac{a^2}{\sqrt{a^2 - x^2}}\,\text{d}x = x\sqrt{a^2 - x^2} - \int\!\sqrt{a^2 - x^2}\,\text{d}x + a^2\sin^{-1}\frac{x}{a}$; 移項得 $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\sin^{-1}\frac{x}{a} + c$. 
     \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\frac{1}{x^2 - a^2}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a^2\tan^2\theta}\,\text{d}\theta = \frac{1}{a}\int\!\frac{1}{\sin\theta}\,\text{d}\theta = \frac{1}{a}\int\!\csc\theta\,\text{d}\theta \\= \frac{1}{a}\int\!\csc\theta\,\frac{\csc\theta + \cot\theta}{\csc\theta + \cot\theta}\,\text{d}\theta = -\frac{1}{a}\int\!\frac{\text{d}(\csc\theta + \cot\theta)}{\csc\theta + \cot\theta} = -\frac{1}{a}\,\ln|\csc\theta + \cot\theta| = -\frac{1}{a}\,\ln\bigg|\frac{x}{\sqrt{x^2 - a^2}} + \frac{a}{\sqrt{x^2 - a^2}}\bigg| = -\frac{1}{a}\ln\bigg|\frac{\sqrt{x + a}}{\sqrt{x - a}}\bigg| = \frac{1}{2a}\ln\bigg|\frac{x - a}{x + a}\bigg|$. 
-
+    \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \int\!a\sec\theta\cdot a\sec^2\theta\,\text{d}\theta = a^2\!\int\!\sec^3\theta\,\text{d}\theta = \frac{a^2}{2}\,\big(\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|\big) = \frac{a^2}{2}\,\bigg(\frac{x}{a}\cdot\frac{\sqrt{x^2 + a^2}}{a} + \ln\Big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\Big|\bigg) = \frac{x\sqrt{x^2 + a^2}}{2} + \frac{a^2}{2}\ln\big|\sqrt{x^2 + a^2} + x\big| - \frac{a^2}{2}\ln|a|$
+    \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\frac{1}{\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{1}{a\sec\theta}\cdot a\sec^2\theta\,\text{d}\theta = \!\int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\= \ln\Big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\Big| = \ln|\sqrt{x^2 + a^2} + x| - \ln|a|$.
+    \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\sqrt{x^2 - a^2}\,\text{d}x = \int\!a\tan\theta\cdot a\sec\theta\tan\theta\,\text{d}\theta = a^2\int\!\sec\theta\tan^2\!\theta\,\text{d}\theta = a^2\int\!\sec\theta\,(\sec^2\!\theta - 1)\,\text{d}\theta = a^2\bigg(\int\!\sec^3\!\theta\,\text{d}\theta - \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\bigg(\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta - 2\int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\bigg(\sec\theta\cdot\tan\theta - \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\big(\sec\theta\cdot\tan\theta - \ln|\sec\theta + \tan\theta|\big) = \frac{a^2}{2}\bigg(\frac{x}{a}\cdot\frac{\sqrt{x^2-a^2}}{a} - \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|\bigg) = \frac{x\sqrt{x^2-a^2}}{2} - \frac{a^2}{2}\ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg| = \frac{x\sqrt{x^2 - a^2}}{2} - \frac{a^2}{2}\ln\big|\sqrt{x^2 - a^2} + x\big| + \frac{a^2}{2}\ln|a|$.
+    \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg| = \ln|\sqrt{x^2 - a^2} + x| - \ln|a|$.
+    %\item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!x^2\sqrt{x^2 + a^2}\,\text{d}x = \int\!a^2\tan^2 x\cdot a\sec\theta\cdot a\sec^2\theta\,\text{d}\theta = a^4\int\!\tan^2\!\theta\sec^3\!\theta\,\text{d}\theta$. 
     \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{a\sec^2\theta}{a^2\tan^2 x\cdot a\sec\theta}\,\text{d}\theta = \int\!\frac{\sec\theta}{a^2\tan^2\theta}\,\text{d}\theta = \int\!\frac{\cos\theta}{a^2\sin^2\theta}\,\text{d}\theta \\= -\frac{1}{a^2\sin\theta} = -\frac{\sqrt{x^2 + a^2}}{a^2 x}$. 
-    \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \int\!a\sec\theta\cdot a\sec^2\theta\,\text{d}\theta = a^2\!\int\!\sec^3\theta\,\text{d}\theta$. 令 $\ds u = \sec\theta$, 則 $\ds\text{d}u = \sec\theta\tan\theta\,\text{d}\theta$; 令 $\ds\text{d}v = \sec^2\theta\,\text{d}\theta$, 則 $\ds v = \tan\theta$. 故 $\ds\int\!\sec^3\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan\theta\cdot\sec\theta\tan\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec\theta\cdot\tan^2\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec\theta\cdot(\sec^2\theta - 1)\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec^3\theta\,\text{d}\theta + \int\!\sec\theta\,\text{d}\theta \ie \int\!\sec^3\theta\,\text{d}\theta = \frac{\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta}{2} = \frac{\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|}{2}$; $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = a^2\!\int\!\sec^3\theta\,\text{d}\theta = a^2\frac{\frac{\sqrt{x^2 + a^2}}{a}\cdot\frac{x}{a} + \ln\big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\big|}{2} = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big| - a^2\ln|a|}{2}$
-    \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|$. 
+    \item 令 $\ds u = \tan\frac{x}{2}$, 則 $\ds\int\!\frac{1}{\tan x + \sin x}\,\text{d}x =\int\!\frac{1}{\frac{2u}{1 - u^2} + \frac{2u}{1 + u^2}}\frac{2}{1 + u^2}\,\text{d}u = \int\!\frac{1 - u^2}{2u}\,\text{d}u = \frac{\ln|u|}{2} - \frac{u^2}{4} = \frac{\ln|\tan\frac{x}{2}|}{2} - \frac{\tan^2\!\frac{x}{2}}{4}$
     \item 令 $\ds u = \tan\frac{x}{2}$, 則 $\ds\int\!\frac{1}{a + \sin x}\,\text{d}x = \int\!\frac{1}{a + \frac{2 u}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = 2\int\!\frac{1}{a u^2 + 2 u + a}\,\text{d}u = \frac{2}{a\sqrt{\frac{a^2 - 1}{a^2}}}\tan^{-1}\frac{{u + \frac{1}{a}}}{\sqrt{\frac{a^2 - 1}{a^2}}} \\ = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a u + 1}{\sqrt{a^2 - 1}} = \frac{2}{\sqrt{a^2 - 1}}\tan^{-1}\frac{a\tan\frac{x}{2} + 1}{\sqrt{a^2 - 1}}$. 
   \end{enumerate}
 \end{sol}
-
-\end{document}
 
 \section*{4.5 瑕積分}
 
@@ -1522,6 +1536,14 @@
   \end{enumerate}
 \end{sol}
 
+\begin{ex}
+  證明 $\forall\,n\in\mathbb{N}$, $\ds\int_0^1(\ln x)^n\,\text{d}x = (-1)^n n!$.
+\end{ex}
+
+\begin{sol}
+  使用數學歸納法: $n = 1$ 時 $\ds\int_0^1\ln x\,\text{d}x = (x\ln x - x)\,\Big|_0^1 = -1 - \lim_{x\to 0+}x\ln x = -1 + \lim_{x\to 0+}\frac{\ln\frac{1}{x}}{\frac{1}{x}} = -1 + \lim_{y\to\infty}\frac{\ln y}{y} = -1 = (-1)^1\,1!$. 令等式在 $n - 1$ 成立: $\ds\int_0^1(\ln x)^{n - 1}\,\text{d}x = (-1)^{n - 1} (n - 1)!$, 則 $\ds\int_0^1(\ln x)^n\,\text{d}x = x\,(\ln x)^n\,\Big|_0^1 - n\int_0^1\!x\cdot(\ln x)^{n - 1}\cdot\frac{1}{x}\,\text{d}x = 0 - \lim_{x\to0+}x\,(\ln x)^n + (-1)\cdot n\cdot(-1)^{n - 1}(n - 1)! = -\lim_{x\to0+}x\,(\ln x)^n + (-1)^n n!$. \\ 反覆使用 L'H\^opital 法則得 $\ds\lim_{x\to0+}x\,(\ln x)^n = (-1)^n\cdot\lim_{x\to0+}\frac{(\ln\frac{1}{x})^n}{\frac{1}{x}} = (-1)^n\lim_{y\to\infty}\frac{(\ln y)^n}{y} = (-1)^n\cdot n\lim_{y\to\infty}\frac{(\ln y)^{n - 1}}{y} = (-1)^n\cdot n(n - 1)\lim_{y\to\infty}\frac{(\ln y)^{n - 2}}{y} = \cdots = (-1)^n\,n!\lim_{y\to\infty}\frac{1}{y} = 0$, 故 $\ds\int_0^1(\ln x)^n\,\text{d}x = (-1)^n n!$ 成立. 
+\end{sol}
+
 \begin{thm} 給定 $\ds 0 < a < \infty$. 
   \begin{itemize}\setlength{\itemsep}{0pt}
     \item $\ds\int_a^\infty\!\frac{1}{x^p}\,\text{d}x$ 當 $p > 1$ 收斂至 $\ds\frac{a^{1-p}}{p - 1}$, 當 $\ds p\leqslant 1$ 發散至 $\infty$. 
@@ -1540,7 +1562,7 @@
 \end{thm}
 
 \begin{thm}
-  令 $f$, $g$ 在 $[a,\,\infty)$, $a\in\mathbb{R}$ 連續, 均為正值, 且 $\ds\lim_{x\to\infty}\frac{f(x)}{g(x)}$ 存在, 則 $\ds\int_a^\infty\!f(x)\,\text{d}x$ 與 $\ds\int_a^\infty\!g(x)\,\text{d}x$ 同為收斂或發散. 
+  令 $f$, $g$ 在 $[a,\,\infty)$, $a\in\mathbb{R}$ 連續, 均為正值, 且 $\ds\lim_{x\to\infty}\frac{f(x)}{g(x)}$ 存在, 則 $\ds\int_a^\infty\!f(x)\,\text{d}x$ 與 $\ds\int_a^\infty\!g(x)\,\text{d}x$ 同斂散. 
 \end{thm}
 
 \begin{ex}
@@ -1589,4 +1611,6 @@
       \end{enumerate}
   \end{enumerate}
 \end{sol}
+
+\end{document}
 

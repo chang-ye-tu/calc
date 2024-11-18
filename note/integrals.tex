@@ -109,7 +109,7 @@
 \thispagestyle{firststyle}
 
 %\begin{problem}
-%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{x^2-0.1}}\,\text{d}x$
+%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{x^2 - 0.1}}\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -117,7 +117,7 @@
 %\end{solution}
 %
 %\begin{problem}
-%  $\ds\int_1^\infty\frac{1+e^{-x}}{x}\,\text{d}x$
+%  $\ds\int_1^\infty\frac{1 + e^{-x}}{x}\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -125,7 +125,7 @@
 %\end{solution}
 %
 %\begin{problem}
-%  $\ds\int_1^\infty\frac{2+\sin x}{\sqrt{x}}\,\text{d}x$
+%  $\ds\int_1^\infty\frac{2 + \sin x}{\sqrt{x}}\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -133,7 +133,7 @@
 %\end{solution}
 %
 %\begin{problem}
-%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{1+x^4}}\,\text{d}x$
+%  $\ds\int_1^\infty\!\!\frac{1}{\sqrt{1 + x^4}}\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -141,7 +141,7 @@
 %\end{solution}
 %
 %\begin{problem}
-%  $\ds\int_0^\infty\!\!\frac{x^a}{1+x^b}\,\text{d}x$
+%  $\ds\int_0^\infty\!\!\frac{x^a}{1 + x^b}\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -149,7 +149,7 @@
 %\end{solution}
 %
 %\begin{problem}
-%  $\ds\int_0^\infty\!\left(\frac{1}{\sqrt{x^2+4}} - \frac{C}{x+2}\right)\,\text{d}x$
+%  $\ds\int_0^\infty\!\left(\frac{1}{\sqrt{x^2 + 4}} - \frac{C}{x + 2}\right)\,\text{d}x$
 %\end{problem}
 %
 %\begin{solution}
@@ -172,29 +172,21 @@
 %
 %\end{solution}
 
+%\begin{problem}
+%  $\ds\int_0^1(1 - x^2)^n\,\text{d}x = \frac{2^{2n}(n!)^2}{(2n + 1)!}$, $\forall\,n\in\mathbb{N}$.
+%\end{problem}
+%
+%\begin{solution}
+%
+%\end{solution}
+
 \begin{problem}
-  $\ds\int_0^1(\ln x)^n\,\text{d}x = (-1)^n n!$, $n\in\mathbb{N}$.
+  $\ds\int_{-2}^2\!|x^2 - 4x|\,\text{d}x$
 \end{problem}
 
 \begin{solution}
-  $\ds\int_0^1\ln x\,\text{d}x = (x\ln x - x)\,\Big|_0^1 = -1 - \lim_{x\to 0+}x\ln x = -1 + \lim_{x\to 0+}\frac{\ln\frac{1}{x}}{\frac{1}{x}} = -1 + \lim_{y\to\infty}\frac{\ln y}{y} = -1 = (-1)^1\,1!$ by LH. Suppose that the identity holds for $n - 1$ $\ie$ $\ds\int_0^1(\ln x)^{n - 1}\,\text{d}x = (-1)^{n - 1} (n - 1)!$; $\ds\int_0^1(\ln x)^n\,\text{d}x = x\,(\ln x)^n\,\Big|_0^1 - n\int_0^1\!x\cdot(\ln x)^{n - 1}\frac{1}{x}\,\text{d}x = 0 - \lim_{x\to0+}x\,(\ln x)^n + (-1)\cdot n\cdot(-1)^{n - 1}(n - 1)! = (-1)^{n + 1}\cdot\lim_{x\to0+}\frac{(\ln\frac{1}{x})^n}{\frac{1}{x}} + (-1)^n n! = (-1)^{n + 1}\cdot\lim_{y\to\infty}\frac{(\ln y)^n}{y} + (-1)^n n! = (-1)^n n!$.  
+  $\ds\int_{-2}^2\!|x^2 - 4x|\,\text{d}x = \int_{-2}^2\!|x(x - 4)|\,\text{d}x = \int_{-2}^0 |x(x - 4)|\,\text{d}x + \int_0^2 |x(x - 4)|\,\text{d}x = \int_{-2}^0 x(x - 4)\,\text{d}x - \int_0^2 x(x - 4)\,\text{d}x = \int_{-2}^0(x^2 - 4x)\,\text{d}x + \int_0^2(4x - x^2)\,\text{d}x = \int_{-2}^0(x^2 - 4x)\,\text{d}x + \int_0^2(4x - x^2)\,\text{d}x = \Big(\frac{x^3}{3} - 2x^2\Big)\,\Big|_{-2}^0 + \Big(2x^2 - \frac{x^3}{3}\Big)\,\Big|_0^2 = 0 - \Big(\frac{(-2)^3}{3} - 2(-2)^2\Big) + \Big(2\cdot2^2 - \frac{2^3}{3}\Big) = 16$
 \end{solution}
-
-%\begin{problem}
-%  $\ds\int_0^1(1-x^2)^n\,\text{d}x = \frac{2^{2n}(n!)^2}{(2n+1)!}$, $n\in\mathbb{N}$.
-%\end{problem}
-%
-%\begin{solution}
-%
-%\end{solution}
-
-%\begin{problem}
-%  $\ds\int_{-2}^2\!|x^2 - 4x|\,\text{d}x$
-%\end{problem}
-%
-%\begin{solution}
-%
-%\end{solution}
 
 \begin{problem}
   $\ds\int_0^5\frac{3 x - 1}{x + 2}\,\text{d}x$
@@ -265,7 +257,7 @@
 \end{problem}
 
 \begin{solution}
-  By $x^4 + 4 = (x^2 + 2)^2 - (2x)^2 = (x^2 - 2x + 2)(x^2 + 2x + 2)$, the partial fraction expansion $\ds\frac{1}{x^4 + 4} = \frac{a x + b}{x^2 - 2x + 2} + \frac{c x + d}{x^2 + 2x + 2}$ and the undetermined $a$, $b$, $c$, $d$ satisfy $(a x + b)(x^2 + 2x + 2) + (cx + d)(x^2 - 2x + 2) = 1$ $\ie$ $(a + c)x^3 + (2a + b - 2c + d)x^2 + (2a + 2b + 2c - 2d)x + (2b + 2d) = 1$ $\ie$ $a + c = 0$, $2a + b - 2c + d = 0$, $2a + 2b + 2c - 2d = 0$, $2b + 2d = 1$ $\ie$ $\ds a = -\frac{1}{8}$, $\ds b = \frac{1}{4}$, $\ds c = \frac{1}{4}$, $\ds d = \frac{1}{8}$. So $\ds\frac{1}{x^4 + 4} = \frac{1}{8}\,\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)$, $\ds\int\!\frac{1}{x^4 + 4}\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{(x + 1) + 1}{(x + 1)^2 + 1} - \frac{(x - 1) - 1}{(x - 1)^2 + 1}\bigg)\,\text{d}x = \frac{1}{16}\ln\frac{x^2 + 2x + 2}{x^2 - 2x + 2} + \frac{1}{8}\big(\tan^{-1}(x + 1) - \tan^{-1}(x - 1)\big)$
+  By $x^4 + 4 = (x^2 + 2)^2 - (2x)^2 = (x^2 - 2x + 2)(x^2 + 2x + 2)$, $\ds\frac{1}{x^4 + 4} = \frac{a x + b}{x^2 - 2x + 2} + \frac{c x + d}{x^2 + 2x + 2}$ $\ie$ $(a x + b)(x^2 + 2x + 2) + (cx + d)(x^2 - 2x + 2) = 1$ $\ie$ $(a + c)x^3 + (2a + b - 2c + d)x^2 + (2a + 2b + 2c - 2d)x + (2b + 2d) = 1$ $\ie$ $a + c = 0$, $2a + b - 2c + d = 0$, $2a + 2b + 2c - 2d = 0$, $2b + 2d = 1$ $\ie$ $\ds a = -\frac{1}{8}$, $\ds b = \frac{1}{4}$, $\ds c = \frac{1}{8}$, $\ds d = \frac{1}{4}$. So $\ds\frac{1}{x^4 + 4} = \frac{1}{8}\,\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)$, $\ds\int\!\frac{1}{x^4 + 4}\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{(x + 1) + 1}{(x + 1)^2 + 1} - \frac{(x - 1) - 1}{(x - 1)^2 + 1}\bigg)\,\text{d}x = \frac{1}{16}\ln\frac{x^2 + 2x + 2}{x^2 - 2x + 2} + \frac{1}{8}\big(\tan^{-1}(x + 1) - \tan^{-1}(x - 1)\big)$
 \end{solution}
 
 \begin{problem}
@@ -764,13 +756,13 @@ $\ds\int\!\frac{1}{x^n - x}\,\text{d}x = \int\!\frac{1}{x(x^{n - 1} - 1)}\,\text
   $\ds\int\!\frac{\sin 2x}{1 + \tan x}\,\text{d}x = \int\!\frac{2\sin x\cos x}{1 + \frac{\sin x}{\cos x}}\,\text{d}x = \int\!\frac{2\sin x\cos^2\!x}{\cos x + \sin x}\,\text{d}x = \int\!\frac{2\sin x\cos^2\!x}{\cos x + \sin x}\cdot\frac{\cos x - \sin x}{\cos x - \sin x}\,\text{d}x \\= \int\!\frac{\cos^2\!x\sin 2x - \frac{1}{2}\sin^2\!2x}{\cos 2x}\,\text{d}x = \int\!\frac{\frac{1 + \cos 2x}{2}\cdot\sin 2x - \frac{1}{2}(1 - \cos^2\!2x)}{\cos 2x}\,\text{d}x = \frac{1}{2}\int\!\frac{(1 + \cos 2x)\cdot\sin 2x - (1 - \cos^2\!2x)}{\cos 2x}\,\text{d}x = \frac{1}{2}\int\!\Big(\frac{\sin 2x}{\cos 2x} + \sin 2x - \sec 2x + \cos 2x\Big)\,\text{d}x = \frac{1}{4}\,\Big(\ln|\sec 2x| - \cos 2x - \ln|\sec 2x + \tan 2x| + \sin 2x\Big)$
 \end{solution}
 
-\begin{problem}
-  $\ds\int\!\frac{\text{d}x}{\tan x + \sin x}$
-\end{problem}
-
-\begin{solution}
-  $\ds\underbrace{\int\!\frac{\text{d}x}{\tan x + \sin x}}_{\text{Let}\;u\,=\,\tan\frac{x}{2}} = \int\!\frac{\frac{2\text{d}u}{1 + u^2}}{\frac{2u}{1 - u^2} + \frac{2u}{1 + u^2}} = \int\!\frac{1 - u^2}{2u}\,\text{d}u = \frac{\ln|u|}{2} - \frac{u^2}{4} = \frac{\ln|\tan\frac{x}{2}|}{2} - \frac{\tan^2\!\frac{x}{2}}{4}$
-\end{solution}
+%\begin{problem}
+%  $\ds\int\!\frac{\text{d}x}{\tan x + \sin x}$
+%\end{problem}
+%
+%\begin{solution}
+%  $\ds\underbrace{\int\!\frac{\text{d}x}{\tan x + \sin x}}_{\text{Let}\;u\,=\,\tan\frac{x}{2}} = \int\!\frac{\frac{2\text{d}u}{1 + u^2}}{\frac{2u}{1 - u^2} + \frac{2u}{1 + u^2}} = \int\!\frac{1 - u^2}{2u}\,\text{d}u = \frac{\ln|u|}{2} - \frac{u^2}{4} = \frac{\ln|\tan\frac{x}{2}|}{2} - \frac{\tan^2\!\frac{x}{2}}{4}$
+%\end{solution}
 
 \begin{problem}
   $\ds\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}\!\sqrt{\frac{\tan x}{\sin 2x}} \,\text{d}x$
@@ -972,13 +964,13 @@ $\ds\int\!\frac{1}{x^n - x}\,\text{d}x = \int\!\frac{1}{x(x^{n - 1} - 1)}\,\text
   $\ds\int\!x^3 e^{-2x}\,\text{d}x = -\Big(\frac{x^3}{2} + \frac{3x^2}{4} + \frac{3x}{4} + \frac{3}{8}\Big)\,e^{-2x}$
 \end{solution}
 
-\begin{problem}
-  $\ds\int(2x^2 + 1)e^{x^2}\,\text{d}x$
-\end{problem}
-
-\begin{solution}
-  $\ds\int(2x^2 + 1)\,e^{x^2}\,\text{d}x = \int\!e^{x^2}\,\text{d}x + \underbrace{\int\!2x^2\,e^{x^2}\,\text{d}x}_{\text{Let}\;u\,=\,x,\,\text{d}v = 2x\,e^{x^2}\,\text{d}x} = \int\!e^{x^2}\,\text{d}x + x\cdot e^{x^2} - \int\!e^{x^2}\text{d}x = xe^{x^2}$
-\end{solution}
+%\begin{problem}
+%  $\ds\int(2x^2 + 1)e^{x^2}\,\text{d}x$
+%\end{problem}
+%
+%\begin{solution}
+%  $\ds\int(2x^2 + 1)\,e^{x^2}\,\text{d}x = \int\!e^{x^2}\,\text{d}x + \underbrace{\int\!2x^2\,e^{x^2}\,\text{d}x}_{\text{Let}\;u\,=\,x,\,\text{d}v = 2x\,e^{x^2}\,\text{d}x} = \int\!e^{x^2}\,\text{d}x + x\cdot e^{x^2} - \int\!e^{x^2}\text{d}x = xe^{x^2}$
+%\end{solution}
 
 \begin{problem}
   $\ds\int{27}^{3x+1}\,\text{d}x$
