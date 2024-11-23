@@ -253,14 +253,6 @@
 \end{solution}
 
 \begin{problem}
-  $\ds\int\!\frac{1}{x^4 + 4}\,\text{d}x$
-\end{problem}
-
-\begin{solution}
-  By $x^4 + 4 = (x^2 + 2)^2 - (2x)^2 = (x^2 - 2x + 2)(x^2 + 2x + 2)$, $\ds\frac{1}{x^4 + 4} = \frac{a x + b}{x^2 - 2x + 2} + \frac{c x + d}{x^2 + 2x + 2}$ $\ie$ $(a x + b)(x^2 + 2x + 2) + (cx + d)(x^2 - 2x + 2) = 1$ $\ie$ $(a + c)x^3 + (2a + b - 2c + d)x^2 + (2a + 2b + 2c - 2d)x + (2b + 2d) = 1$ $\ie$ $a + c = 0$, $2a + b - 2c + d = 0$, $2a + 2b + 2c - 2d = 0$, $2b + 2d = 1$ $\ie$ $\ds a = -\frac{1}{8}$, $\ds b = \frac{1}{4}$, $\ds c = \frac{1}{8}$, $\ds d = \frac{1}{4}$. So $\ds\frac{1}{x^4 + 4} = \frac{1}{8}\,\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)$, $\ds\int\!\frac{1}{x^4 + 4}\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{x + 2}{x^2 + 2x + 2} - \frac{x - 2}{x^2 - 2x + 2}\bigg)\,\text{d}x = \frac{1}{8}\int\!\bigg(\frac{(x + 1) + 1}{(x + 1)^2 + 1} - \frac{(x - 1) - 1}{(x - 1)^2 + 1}\bigg)\,\text{d}x = \frac{1}{16}\ln\frac{x^2 + 2x + 2}{x^2 - 2x + 2} + \frac{1}{8}\big(\tan^{-1}(x + 1) - \tan^{-1}(x - 1)\big)$
-\end{solution}
-
-\begin{problem}
   $\ds\int\!\frac{x}{x^4 - a^4}\,\text{d}x$
 \end{problem}
 
