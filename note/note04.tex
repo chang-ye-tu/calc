@@ -1146,7 +1146,7 @@
 \subsection*{面積}
 \begin{fact}
   \begin{minipage}{\textwidth}
-    $\ds\int_a^b\!f(x)\,\text{d}x$ 為 $y = f(x)$, $x$ 軸, $x = a$, 與 $x = b$ 所圍成之面積. 
+    當 $f(x)\geqslant 0$ $\forall\,x\in [a,\,b]$, $\ds\int_a^b\!f(x)\,\text{d}x$ 為 $y = f(x)$, $x$ 軸, $x = a$, 與 $x = b$ 所圍成之面積. 
   \end{minipage}
   \begin{minipage}{\textwidth}
     \begin{center}
@@ -1197,6 +1197,21 @@
 \end{sol}
 
 \begin{ex}
+  求 $\ds y = \frac{1}{\sqrt{2}}$ 與 $y = \sin x$ 在 $x$ 從 $0$ 至 $\ds\frac{\pi}{2}$ 範圍內圍成之區域面積.
+\end{ex}
+
+\begin{sol}
+  \begin{minipage}{.3\textwidth}
+    \includegraphics[scale=1]{areaCross} 
+  \end{minipage}
+  \begin{minipage}{.7\textwidth}
+    \begin{align*}
+      \text{(面積)} = \int_0^{\frac{\pi}{4}}\!\Big(\frac{1}{\sqrt{2}} - \sin x\Big)\,\text{d}x + \int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\Big(\sin x - \frac{1}{\sqrt{2}}\Big)\,\text{d}x = \sqrt{2} - 1
+    \end{align*}
+  \end{minipage}
+\end{sol}
+
+\begin{ex}
   \begin{minipage}{.5\textwidth}
     \includegraphics[scale=1]{areaY}
   \end{minipage}
@@ -1221,21 +1236,6 @@
   \begin{minipage}{.6\textwidth}
     \begin{align*}
       \text{(面積)} = \int_{-3}^{-1}\!2\sqrt{2x + 6}\,\text{d}x + \int_{-1}^5\!\big(\sqrt{2x + 6} - x + 1\big)\,\text{d}x = 18
-    \end{align*}
-  \end{minipage}
-\end{sol}
-
-\begin{ex}
-  求 $\ds y = \frac{1}{\sqrt{2}}$ 與 $y = \sin x$ 在 $x$ 從 $0$ 至 $\ds\frac{\pi}{2}$ 範圍內圍成之區域面積.
-\end{ex}
-
-\begin{sol}
-  \begin{minipage}{.3\textwidth}
-    \includegraphics[scale=1]{areaCross} 
-  \end{minipage}
-  \begin{minipage}{.7\textwidth}
-    \begin{align*}
-      \text{(面積)} = \int_0^{\frac{\pi}{4}}\!\Big(\frac{1}{\sqrt{2}} - \sin x\Big)\,\text{d}x + \int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\!\Big(\sin x - \frac{1}{\sqrt{2}}\Big)\,\text{d}x = \sqrt{2} - 1
     \end{align*}
   \end{minipage}
 \end{sol}
@@ -1309,10 +1309,10 @@
       \text{(體積)} = \int_0^4\!2\pi\cdot x\cdot\sqrt{x}\,\text{d}x = \frac{128\pi}{5}
     \end{align*}
   \end{minipage}
-  \begin{minipage}{.68\textwidth}
-    \includegraphics[scale=.8]{rot_rootx3} 
+  \begin{minipage}{.65\textwidth}
+    \includegraphics[scale=.75]{rot_rootx3} 
   \end{minipage}
-  \begin{minipage}{.28\textwidth}
+  \begin{minipage}{.35\textwidth}
     \begin{align*}
       \text{(體積)} = \int_0^2\!\pi(4^2 - (y^2)^2)\,\text{d}y = \frac{128\pi}{5}
     \end{align*}
