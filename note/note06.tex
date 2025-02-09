@@ -1,0 +1,1050 @@
+\documentclass[12pt]{extarticle} 
+\usepackage{unicode-math}
+\usepackage{amsthm,graphicx,xcolor,natbib,enumitem,booktabs,tabularx}
+%\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm,footskip=5mm]{geometry}
+\pagenumbering{gobble}
+
+%\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+\newcommand{\vaa}{\symbfup{\alpha}}
+\newcommand{\vbb}{\symbfup{\beta}}
+\newcommand{\vnu}{\symbfup{\nu}}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+%\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from clp3
+
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vR}{\mathbf{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vC}{\mathbf{C}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vu}{\mathbf{u}}
+%\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vH}{\mathbf{H}}
+\newcommand{\vM}{\mathbf{M}}
+\newcommand{\vT}{\mathbf{T}}
+\newcommand{\vN}{\mathbf{N}}
+\newcommand{\vL}{\mathbf{L}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vD}{\mathbf{D}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\vZero}{\mathbf{0}}
+\newcommand{\vPhi}{\mathbf{\Phi}}
+\newcommand{\vOmega}{\mathbf{\Omega}}
+\newcommand{\vTheta}{\mathbf{\Theta}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+
+%\newcommand{\hi}{\hat{\mathbf{i}}}
+%\newcommand{\hj}{\hat{\mathbf{j}}}
+\newcommand{\hi}{\widehat{\pmb{\imath}}}
+\newcommand{\hj}{\widehat{\pmb{\jmath}}}
+\newcommand{\hk}{\widehat{\mathbf{k}}}
+\newcommand{\hn}{\widehat{\mathbf{n}}}
+\newcommand{\hr}{\widehat{\mathbf{r}}}
+\newcommand{\hvt}{\widehat{\mathbf{t}}}
+\newcommand{\hN}{\widehat{\mathbf{N}}}
+\newcommand{\vth}{{\pmb{\theta}}}
+\newcommand{\vTh}{{\pmb{\Theta}}}
+%\newcommand{\vnabla}{\pmb{\nabla}}
+\newcommand{\vnabla}{   { \mathchoice{\pmb{\nabla}}
+                            {\pmb{\nabla}}
+                            {\pmb{\scriptstyle\nabla}}
+                            {\pmb{\scriptscriptstyle\nabla}} }   }
+\newcommand{\ha}[1]{\mathbf{\hat e}^{(#1)}}
+
+\newcommand{\bbbc}{\mathbb{C}}
+
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\vOm}{\pmb{\Omega}}
+\newcommand{\svOm}{\pmb{\scriptsize\Omega}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\de}{\delta}
+\newcommand{\ga}{\gamma}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\bbbone}{\mathbb{1}}
+
+\def\tr{\mathop{\rm tr}}
+\newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+%\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdifft}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dblInt}{\iint}
+\newcommand{\tripInt}{\iiint}
+%\newcommand{\dblInt}{\int\!\!\int}
+%\newcommand{\tripInt}{\int\!\!\!\int\!\!\!\int}
+%\newcommand{\dblInt}{\mathop{\int\!\!\!\int}}
+%\newcommand{\tripInt}{\mathop{\int\!\!\!\int\!\!\!\int}}
+
+\newcommand{\Set}[2]{\big\{ \ #1\ \big|\ #2\ \big\}}
+\newcommand{\rhof}{{\rho_{\!{\scriptscriptstyle f}}}}
+\newcommand{\rhob}{{\rho_{{\scriptscriptstyle b}}}}
+
+\renewcommand{\neg}{ {\sim} }
+\newcommand{\limp}{ {\;\Rightarrow\;} }
+\newcommand{\nimp}{ {\;\not\Rightarrow\;} }
+\newcommand{\liff}{ {\;\Leftrightarrow\;} }
+\newcommand{\niff}{ {\;\not\Leftrightarrow\;} }
+
+\newcommand{\st}{ {\mbox{ s.t. }} }
+\newcommand{\es}{ {\varnothing}}
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+\newcommand{\set}[1]{ \left\{#1\right\} }
+
+\newcommand{\bbbn}{\mathbb{N}}
+\newcommand{\bbbr}{\mathbb{R}}
+\newcommand{\bbbp}{\mathbb{P}}
+\newcommand{\De}{\Delta}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\dee}[1]{\mathrm{d}#1}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\difftwo}[2]{\frac{\mathrm{d^2} #1}{\mathrm{d}{#2}^2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+
+\usepackage{nicefrac}
+\newcommand{\eqover}[1]{}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} 第六章\ \ 無窮數列與級數}{第六章\ \ 無窮數列與級數}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+\section*{6.1 無窮數列}
+
+\begin{dfn}
+  定義域為 $\mathbb{N}$ 的函數 $f$, 給定 $n\in\mathbb{N}$ 之 $f(n)$ 常記作 $a_n$, 而數列 (sequence) 即為 $\ran f$, 記作 $\{a_1,\,a_2,\,a_3,\,\ldots\}$, $\{a_n\}$ 或 $\ds\{a_n\}_{n = 1}^\infty$. 
+\end{dfn}
+
+\begin{rmk} 數列範例: 
+  \begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $a_n = \sqrt{n}$, ${a_n} = \{1,\,\sqrt{2},\,\sqrt{3},\,\ldots\}$
+    \item $\ds b_n = \frac{n - 1}{n}$, $\ds {b_n} = \Big\{0,\,\frac{1}{2},\,\frac{2}{3},\,\frac{3}{4},\,\ldots\Big\}$
+    \item $c_n = (-1)^{n + 1}$, ${c_n} = \{1,\,-1,\,1,\,-1,\,\ldots\}$
+    \item $\ds d_n = (-1)^{n + 1}\frac{1}{n}$, $\ds {d_n} = \Big\{1,\,-\frac{1}{2},\,\frac{1}{3},\,-\frac{1}{4},\,\ldots\Big\}$
+  \end{itemize}
+  \end{multicols}
+  亦無須從 $n = 0$ 開始: 
+  \begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $a_n = \sqrt{n - 3}$, $\ds\{a_n\}_{n = 3}^\infty$
+    \item $\ds b_n = \cos\frac{n\pi}{6}$, $\ds\{b_n\}_{n = 0}^\infty$
+  \end{itemize}
+  \end{multicols}
+\end{rmk}
+
+\begin{dfn}[數列極限] 給定數列 $\{a_n\}$, 
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 若 $\forall\,\varepsilon > 0$, $\exists\,N\in\mathbb{N}$, 使若 $n > N$ 則 $|a_n - L| < \varepsilon$, 稱 $\{a_n\}$ 之極限為 $L$, 可記作 $\ds\lim_{n\to\infty} a_n = L$ 或「當 $n\to\infty$, $a_n\to L$」.  
+    \item 若 $\forall\,M$, $\exists\,N\in\mathbb{N}$, 使若 $n > N$ 則 $a_n > M$, 稱 $\{a_n\}$ 發散至無限大, 可記作 $\ds\lim_{n\to\infty} a_n = \infty$ 或「當 $n\to\infty$, $a_n\to\infty$」.  
+    \item 若 $\forall\,M$, $\exists\,N\in\mathbb{N}$, 使若 $n > N$ 則 $a_n < M$, 稱 $\{a_n\}$ 發散至負無限大, 可記作 $\ds\lim_{n\to\infty} a_n = -\infty$ 或「當 $n\to\infty$, $a_n\to-\infty$」.  
+  \end{itemize}
+\end{dfn}
+
+\begin{thm}[收斂數列四則運算]   
+  若 $\{a_n\}$, $\{b_n\}$ 為收斂數列, $c\in\mathbb{R}$, 則
+  \setlength{\columnsep}{-30mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds\lim_{n\to\infty}c\,a_n= c\,\lim_{n\to\infty}a_n$ 
+      \item $\ds\lim_{n\to\infty}\big(a_n\pm b_n\big) = \lim_{n\to\infty}a_n\pm\lim_{n\to\infty}b_n$ 
+      \item $\ds\lim_{n\to\infty}\big(a_n\cdot b_n\big) = \lim_{n\to\infty}a_n\cdot\lim_{n\to\infty}b_n$ 
+      \item $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \frac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}$, 若 $\ds\lim_{n\to\infty}b_n\not=0$
+      \item $\ds\lim_{n\to\infty}a_n^\alpha = \big(\lim_{n\to\infty}a_n\big)^\alpha$, 若 $\alpha\in\mathbb{R}\,\wedge\,a_n > 0$ \\(若 $\alpha < 0$, 則必須 $\ds\lim_{n\to\infty} a_n\ne 0$)
+    \end{enumerate}
+  \end{multicols}
+\end{thm}
+
+\begin{thm}[夾擠定理]
+  令實數列 $\{a_n\}$, $\{b_n\}$, $\{c_n\}$. 若 $\exists\,N\in\mathbb{N}$ 使 
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item $a_n\leqslant b_n$, $\forall\,n > N$, 則 $\ds\lim_{n\to\infty} a_n \leqslant\lim_{n\to\infty} b_n$. 
+    \item $c_n\leqslant a_n\leqslant b_n$, $\forall\,n > N$, 且 $\ds\lim_{n\to\infty} c_n = \lim_{n\to\infty} b_n = L\in\mathbb{R}$, 則 $\ds\lim_{n\to\infty} a_n = L$. 
+  \end{enumerate}
+\end{thm}
+
+\begin{ex}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds\lim_{n\to\infty} |a_n| = 0 \ifff \lim_{n\to\infty} a_n = 0$. 
+      \item 若 $\ds |b_n|\leqslant c_n$ 且 $\ds\lim_{n\to\infty} c_n = 0$, 則 $\ds\lim_{n\to\infty} b_n = 0$. 
+      \item 若 $\ds\lim_{n\to\infty} a_n = 0$ 且 $\ds\{b_n\}$ 有界, 則 $\ds\lim_{n\to\infty} a_n b_n = 0$. 
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item ($\Longrightarrow$) 由 $\ds -|a_n| \leqslant a_n \leqslant |a_n|\;\forall\,n\in\mathbb{N}$, $\ds\lim_{n\to\infty} |a_n| = 0$ 與夾擠定理, $\ds\lim_{n\to\infty} a_n = 0$. ($\Longleftarrow$) 由 $\ds\lim_{n\to\infty} a_n = 0$, $\forall\,\varepsilon > 0\;\exists\,N\in\mathbb{N}\;\forall\,n > N\;(|a_n| < \varepsilon)$; 又 $\ds||a_n|| < \varepsilon \ifff |a_n| < \varepsilon$, $\ds\lim_{n\to\infty} |a_n| = 0$. 
+    \item 由 $\ds -c_n \leqslant b_n \leqslant c_n\;\forall\,n\in\mathbb{N}$, $\ds\lim_{n\to\infty} c_n = 0$ 與夾擠定理, $\ds\lim_{n\to\infty} b_n = 0$. 
+    \item 由 $\{b_n\}$ 有界, $\exists\,M > 0$ 使 $0\leqslant |b_n|\leqslant M$. 故 $0\leqslant |a_n b_n|\leqslant M |a_n|$; 由 $\ds\lim_{n\to\infty} a_n = 0 \ie \lim_{n\to\infty} |a_n| = 0$ 與夾擠定理, $\ds\lim_{n\to\infty} |a_n b_n| = 0 \ie \lim_{n\to\infty} a_n b_n = 0$. 
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}
+  若函數 $\ds f: [n_0,\,\infty)\to\mathbb{R}$, 且 $\{a_n\}$ 滿足 $a_n = f(n)$, $\forall\,n\geqslant n_0$, 則 $\ds\lim_{x\to\infty}f(x) = L\ie\lim_{n\to\infty} a_n = L$.  
+\end{thm}
+
+\begin{rmk}
+  此定理逆敘述不成立: $\ds\lim_{n\to\infty}\sin n\pi = 0$, 但 $\ds\lim_{x\to\infty}\sin x\pi = \text{DNE}$.   
+\end{rmk}
+
+\begin{ex}
+  求以下數列極限 $\ds\lim_{n\to\infty}a_n$. 
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength\itemsep{0em}
+      \item $\ds a_n = \frac{\ln n}{n}$
+      \item $\ds a_n = \Big(1 + \frac{a}{n}\Big)^n$
+      \item $\ds a_n = \Big(\frac{n - 1}{n + 1}\Big)^n$
+      \item $\ds a_n = a^{\frac{1}{n}},\;a > 0$
+      \item $\ds a_n = n^{\frac{1}{n}}$
+      \item $\ds a_n = n^{\frac{2}{n}}$
+      \item $\ds a_n = \frac{\tan^{-1} n}{n}$
+      \item $\ds a_n = n\sin\frac{1}{n}$
+      \item $\ds a_n = \frac{n!}{n^n}$
+      \item $\ds a_n = \frac{a^n}{n!}$
+      \item $\ds a_n = \frac{\ln n}{\ln 2n}$
+      \item $\ds a_n = \ln(n + 1) - \ln n$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength\itemsep{0em}
+    \item[]
+    \item $\ds \lim_{x\to\infty}\frac{\ln x}{x} = 0$
+    \item $\ds \lim_{x\to\infty}\Big(1 + \frac{a}{x}\Big)^x = \lim_{x\to\infty}\exp\Big\{x\ln\Big(1 + \frac{a}{x}\Big)\Big\} = \exp\Big\{\lim_{x\to\infty}x\ln\Big(1 + \frac{a}{x}\Big)\Big\} = \exp\bigg\{\lim_{x\to\infty}\frac{\ln(1 + \frac{a}{x})}{\frac{1}{x}}\bigg\} = \exp\Bigg\{\lim_{x\to\infty}\frac{\frac{-\frac{a}{x^2}}{1 + \frac{a}{x}}}{-\frac{1}{x^2}}\Bigg\} = e^a$
+    \item $\ds \lim_{x\to\infty}\Big(\frac{x - 1}{x + 1}\Big)^x = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\Big(1 - \frac{2}{x + 1}\Big)^{-1} = \lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{x + 1}\cdot\lim_{x\to\infty}\Big(1 - \frac{2}{x + 1}\Big)^{-1} = e^{-2}\cdot 1 = e^{-2}$
+    \item $\ds\lim_{x\to\infty} a^{\frac{1}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{1}{x}\ln a\Big\} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{1}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{1}{x}\ln x\Big\} = \exp\Big\{\lim_{x\to\infty}\frac{\ln x}{x}\Big\} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty} x^{\frac{2}{x}} = \lim_{x\to\infty}\exp\Big\{\frac{2}{x}\ln x\Big\} = \exp\Big\{2\lim_{x\to\infty}\frac{\ln x}{x}\Big\} = e^0 = 1$
+    \item $\ds \lim_{x\to\infty}\frac{\tan^{-1} x}{x} = 0$
+    \item $\ds \lim_{x\to\infty}x\sin\frac{1}{x} = \lim_{x\to\infty}\frac{\sin\frac{1}{x}}{\frac{1}{x}} = 1$
+    \item $\ds 0 < \frac{n!}{n^n} = \frac{1\cdot 2\cdot\,\cdots\,n}{n\cdot n\cdot\,\cdots\cdot n} < \frac{1}{n}$
+    \item 取 $N = \floor{|a|} + 1$, 則 $\forall\,n > N$, $\ds 0 < \frac{|a|^n}{n!}$ $\ds= \frac{|a|^N}{N!}\frac{|a|^{n - N}}{(N + 1)(N + 2)\cdots n}$ $\ds< \frac{|a|^N}{N!}\cdot\bigg(\frac{|a|}{N}\bigg)^{n - N}$; 由夾擠定理與 $\ds\lim_{n\to\infty}\bigg(\frac{|a|}{N}\bigg)^{n - N} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{|a|^n}{n!} = 0$ $\ie$ $\ds\lim_{n\to\infty}\frac{a^n}{n!} = 0$ 
+    \item $\ds \lim_{x\to\infty}\frac{\ln x}{\ln x + \ln 2} = 0$
+    \item $\ds \lim_{x\to\infty}(\ln(x + 1) - \ln x) = \lim_{x\to\infty}\ln\frac{x + 1}{x} = 0$
+  \end{enumerate}
+\end{sol}
+
+\begin{dfn}[升降性]
+  給定數列 $\{a_n\}$, 若 
+  %\begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $a_n < a_{n + 1}\;\forall\,n$, $\{a_n\}$ 為嚴格上升 (strictly increasing)  
+    \item $a_n\leqslant a_{n + 1}\;\forall\,n$, $\{a_n\}$ 為上升 (increasing) $\nearrow$ 
+    \item $a_n > a_{n + 1}\;\forall\,n$, $\{a_n\}$ 為嚴格下降 (strictly decreasing)   
+    \item $a_n\geqslant a_{n + 1}\;\forall\,n$, $\{a_n\}$ 為下降 (decreasing) $\searrow$
+    %\item $\exists\,N\in\mathbb{N}$, $a_n < a_{n + 1}\;\forall\,n > N$, $\{a_n\}$ 為終極上升 (ultimately increasing) 
+  \end{itemize}
+  %\end{multicols}
+  上升與下降數列通稱為單調 (monotone) 數列. 
+\end{dfn}
+
+\begin{dfn}[有界性]
+  給定數列 $\{a_n\}$, 若 
+  %\begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\exists\,M,\;a_n \leqslant M\;\forall\,n$, $\{a_n\}$ 有上界 (bounded above), $M$ 為上界 (upper bound)  
+    \item $\exists\,M,\;a_n \geqslant M\;\forall\,n$, $\{a_n\}$ 有下界 (bounded below), $M$ 為下界 (lower bound)  
+    \item 若 $M$ 為上界, 且沒有其他比 $M$ 小之數為 $\{a_n\}$ 之上界, 則 $M$ 為最小上界 (least upper bound)  
+    \item 若 $M$ 為下界, 且沒有其他比 $M$ 大之數為 $\{a_n\}$ 之下界, 則 $M$ 為最大下界 (greatest lower bound)  
+  \end{itemize}
+  %\end{multicols}
+  有上界且有下界之數列通稱為有界 (bounded) 數列. 
+\end{dfn}
+
+\begin{prp}[實數完備性公理 (Completeness Axiom)]
+  若 $\varnothing\ne S\subseteq\mathbb{R}$ 有上界, 則 $S$ 有最小上界.  
+\end{prp}
+
+\begin{thm}
+  給定單調數列 $\{a_n\}$; $\{a_n\}$ 收斂 $\ifff$ $\{a_n\}$ 有界.  
+\end{thm}
+
+\begin{prf}
+  若 $\{a_n\}\nearrow$, $\ds\lim_{n\to\infty}a_n = \sup\,\{a_n\,|\,n = 1,\,2,\,\dots\}$; 若 $\{a_n\}\searrow$, $\ds\lim_{n\to\infty}a_n = \inf\,\{a_n\,|\,n = 1,\,2,\,\dots\}$. 
+\end{prf}
+
+\begin{ex}
+  若 $a_1 = 1$, $\ds a_{n + 1} = 3 - \frac{1}{a_n}\;\forall\,n$, 證明 $\{a_n\}$ 收斂並求 $\ds\lim_{n\to\infty}a_n$. 
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由歸納法證明 $\ds\frac{1}{2} < a_n < 3$: $\ds\frac{1}{2} < 1 = a_1 < 3$; 假設 $\ds\frac{1}{2} < a_n < 3$, 則 $\ds\frac{1}{3} < \frac{1}{a_n} < 2$; 由 $\ds a_{n + 1} = 3 - \frac{1}{a_n}$, $\ds 3 - 2 < a_{n + 1} < 3 - \frac{1}{3} \ie \frac{1}{2} < a_{n + 1} < 3$.   
+    \item 由歸納法證明 $a_{n + 1} > a_n$: $\ds a_2 = 2 > 1 = a_1$; 假設 $\ds a_{n + 1} > a_n$, 且由上 $\ds a_n > 0$, 則 $\ds a_{n + 2} = 3 - \frac{1}{a_{n + 1}} > 3 - \frac{1}{a_n} = a_{n + 1}$.   
+  \end{itemize}
+  則 $\{a_n\}\nearrow$ 且有上界, 故 $\{a_n\}$ 收斂. 令 $\ds\lim_{n\to\infty}a_n = L$, 則 $\ds\lim_{n\to\infty} a_{n + 1} = 3 - \frac{1}{\lim_{n\to\infty} a_n} \ie L = 3 - \frac{1}{L} \ie L = \frac{3+\sqrt{5}}{2}$ (負不合). 
+\end{sol}
+
+\begin{ex}
+  若 $\ds a_1 = 2$, $\ds a_{n + 1} = \frac{1}{2}\,(a_n + 6)$, 證明 $\{a_n\}$ 收斂並求 $\ds\lim_{n\to\infty}a_n$. 
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 由歸納法證明 $\ds 0 < a_n < 6$: $\ds 0 < 2 = a_1 < 6$; 假設 $\ds 0 < a_n < 6$, 則 $\ds 0 < \frac{1}{2}(a_n + 6) < 6$, 亦即 $\ds 0 < a_{n + 1} < 6$.  
+    \item 由歸納法證明 $a_{n + 1} > a_n$: $\ds a_2 = \frac{1}{2}\,(2 + 6) = 4 > 2 = a_1$; 假設 $\ds a_{n + 1} > a_n$, 則 $\ds a_{n + 2} =\frac{1}{2}\,(a_{n + 1} + 6) > \frac{1}{2}\,(a_n + 6) = a_{n + 1}$.   
+  \end{itemize}
+  則 $\{a_n\}\nearrow$ 且有上界, 故 $\{a_n\}$ 收斂. 令 $\ds\lim_{n\to\infty}a_n = L$, 則 $\ds\lim_{n\to\infty} a_{n + 1} = \frac{1}{2}\,({\lim_{n\to\infty} a_n} + 6)\ie L = \frac{1}{2}\,(L + 6) \ie L = 6$. 
+\end{sol}
+
+\section*{6.2 無窮級數}
+
+\begin{dfn}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 給定 $\{a_n\}$, 則 $\ds a_1 + a_2 + \cdots + a_n + \cdots$ 稱為 (無窮) 級數 (infinite series), $a_n$ 為此級數之第 $n$ 項. 
+    \item $\ds s_n = \sum_{k = 1}^n a_k$, $\{s_n\}$ 為部份和數列 (sequence of partial sums), $s_n$ 為此級數之第 $n$ 部份和.  
+    \item 若 $\{s_n\}$ 收斂至 $s$, 則稱此級數收斂至 $s$, 記為 $\ds\sum_{k = 1}^\infty a_k = s$. 若 $\{s_n\}$ 發散, 此級數發散. 
+  \end{itemize}
+\end{dfn}
+
+\begin{rmk}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 將一級數加入或除去有限項, 可能改變其收斂值, 但不影響其斂散性. 
+    \item 保持級數項順序下, 級數項足標改變不影響其歛散性. 
+  \end{itemize}
+\end{rmk} 
+
+\begin{ex}[幾何級數 (geometric series)]
+  $\ds\sum_{n = 1}^\infty a\,r^{n - 1}$ 中, 若 $|r| < 1$, 則此級數收斂至 $\ds\frac{a}{1 - r}$; 若 $|r|\geqslant 1$, 則此級數發散.  
+\end{ex}
+
+\begin{ex}
+  解 $\ds\sum_{n = 2}^\infty(1 + x)^{-n} = 2$. 
+\end{ex}
+
+\begin{sol}
+  $\ds\frac{\frac{1}{(1 + x)^2}}{1 - \frac{1}{1 + x}} = 2 \ie x = \frac{-1\pm\sqrt{3}}{2}$. 
+\end{sol}
+
+\begin{prp}[瞭望法 (telescoping)]
+  若 $\{a_n\}$, $\{b_n\}$ 滿足 $a_n = b_{n + 1} - b_n\;\forall\,n$, 則 $\ds\sum a_n$ 收斂 $\ifff$ $\{b_n\}$ 收斂, 且 $\ds\sum_{n = 1}^\infty a_n = \lim_{n\to\infty}b_n - b_1$. 
+\end{prp}
+
+\begin{ex} 求下列各級數之和. 
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{n^2 + n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{3n^2 + 3n + 1}{(n^2 + n)^3}$
+      \item $\ds\sum_{n = 3}^\infty\frac{1}{n^5 - 5n^3 + 4n}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\sum_{n = 1}^\infty\frac{1}{n^2 + n} = \sum_{n = 1}^\infty\frac{1}{n(n + 1)} = \sum_{n = 1}^\infty\Big(\frac{1}{n} - \frac{1}{n + 1}\Big) = 1$
+    \item $\ds\sum_{n = 1}^\infty\frac{3n^2 + 3n + 1}{(n^2 + n)^3} = \sum_{n = 1}^\infty\bigg(\Big(\frac{1}{n}\Big)^3 - \Big(\frac{1}{n + 1}\Big)^3\bigg) = 1$
+    \item $\ds\sum_{n = 3}^\infty\frac{1}{n^5 - 5n^3 + 4n} = \sum_{n = 3}^\infty\frac{1}{n(n^2 - 1)(n^2 - 4)} = \sum_{n = 3}^\infty\frac{1}{n(n - 1)(n + 1)(n - 2)(n + 2)} \\= \frac{1}{4}\,\sum_{n = 3}^\infty\bigg(\frac{1}{(n - 2)(n - 1)n(n + 1)} - \frac{1}{(n - 1)n(n + 1)(n + 2)}\bigg) = \frac{1}{4}\,\frac{1}{1\cdot2\cdot3\cdot4} = \frac{1}{96}$
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  給定 $a_1$, $a_2$ 之值且 $\ds a_n = \frac{1}{2}\,(a_{n - 1} + a_{n - 2})$, 求 $\ds\lim_{n\to\infty}a_n$. 
+\end{ex}
+
+\begin{sol}
+  $\ds a_n = \frac{1}{2}\,(a_{n - 1} + a_{n - 2}) \ie (a_n - a_{n - 1}) = -\frac{1}{2}\,(a_{n - 1} - a_{n - 2})$, 故 $\ds a_n - a_{n - 1} = \Big(\frac{-1}{2}\Big)^{n - 2}\,(a_2 - a_1)$, $\ds a_{n - 1} - a_{n - 2} = \Big(\frac{-1}{2}\Big)^{n - 3}\,(a_2 - a_1)$, $\ldots$, $\ds a_2 - a_1 = \Big(\frac{-1}{2}\Big)^0\,(a_2 - a_1)$; 前述等式相加得 $\ds a_n - a_1 = \sum_{k = 0}^{n - 2}\Big(\frac{-1}{2}\Big)^k\,(a_2 - a_1) = \frac{1\cdot\big(1 - \big(\frac{-1}{2}\big)^{n - 1}\big)}{1 - \big(\frac{-1}{2}\big)}\,(a_2 - a_1)$, 故 $\ds \lim_{n\to\infty} a_n - a_1 = \frac{2}{3}\,(a_2 - a_1) \ie \lim_{n\to\infty} a_n = a_1 + \frac{2}{3}\,(a_2 - a_1) = \frac{a_1 + 2 a_2}{3}$.  
+\end{sol}
+
+\begin{ex}
+  求 $\ds\sum_{n = 1}^\infty\frac{1}{2^n}\tan\frac{x}{2^n}$. 
+\end{ex}
+
+\begin{sol}
+  首先證明 $\ds\tan\frac{x}{2} = \cot\frac{x}{2} - 2\cot x$: $\ds\cot\frac{x}{2} - 2\cot x = \frac{\cos\frac{x}{2}}{\sin\frac{x}{2}} - 2\,\frac{\cos x}{\sin x} = \frac{\cos\frac{x}{2}}{\sin\frac{x}{2}} - \frac{\cos^2\frac{x}{2} - \sin^2\frac{x}{2}}{\sin\frac{x}{2}\cos\frac{x}{2}} = \frac{\cos^2\frac{x}{2} - \cos^2\frac{x}{2} + \sin^2\frac{x}{2}}{\sin\frac{x}{2}\cos\frac{x}{2}} = \frac{\sin\frac{x}{2}}{\cos\frac{x}{2}} = \tan\frac{x}{2}$. 故 $\ds\sum_{n = 1}^\infty\frac{1}{2^n}\tan\frac{x}{2^n} = \sum_{n = 1}^\infty\bigg(\frac{1}{2^n}\cot\frac{x}{2^n} - \frac{1}{2^{n - 1}}\cot\frac{x}{2^{n - 1}}\bigg) \\ = \lim_{n\to\infty}\frac{1}{2^n}\cot\frac{x}{2^n} - \cot x = \frac{1}{x} - \cot x$, 由 $\ds\lim_{n\to\infty}\frac{1}{2^n}\cot\frac{x}{2^n} = \lim_{n\to\infty}\frac{1}{2^n}\frac{\cos\frac{x}{2^n}}{\sin\frac{x}{2^n}} = \lim_{n\to\infty}\frac{\cos\frac{x}{2^n}}{\frac{\sin\frac{x}{2^n}}{\frac{1}{2^n}}} = \lim_{n\to\infty}\frac{\cos\frac{x}{2^n}}{\frac{x\sin\frac{x}{2^n}}{\frac{x}{2^n}}} = \frac{1}{x}$. 
+\end{sol}
+
+\begin{ex}
+  求 $\ds\sum_{n = 0}^\infty\cot^{-1}(n^2 + n + 1)$. 
+\end{ex}
+
+\begin{sol}
+  首先證明 $\ds\cot^{-1}x - \cot^{-1}y = \cot^{-1}\frac{1 + xy}{y - x}$: 令 $\ds\alpha = \cot^{-1}x,\;\beta = \cot^{-1}y \ie x = \cot\alpha,\;y = \cot\beta$, $\ds\cot(\alpha - \beta) = \frac{1}{\tan(\alpha - \beta)} = \frac{1 + \tan\alpha\tan\beta}{\tan\alpha - \tan\beta} = \frac{1 + \cot\alpha\cot\beta}{\cot\beta - \cot\alpha} = \frac{1 + xy}{y - x}$, 等式兩邊同取 $\cot^{-1}$ 得 $\ds\alpha - \beta = \cot^{-1}x - \cot^{-1}y = \cot^{-1}\frac{1 + xy}{y - x}$; $\ds\sum_{n = 0}^\infty\cot^{-1}(n^2 + n + 1) = \sum_{n = 0}^\infty\cot^{-1}(1 + n(n + 1)) = \sum_{n = 0}^\infty\cot^{-1}\frac{1 + n(n + 1)}{(n + 1) - n} = \sum_{n = 0}^\infty\big(\cot^{-1}n - \cot^{-1}(n + 1)\big) = \cot^{-1}0 - \lim_{n\to\infty}\cot^{-1}(n + 1) = \frac{\pi}{2} - 0 = \frac{\pi}{2}$. 
+\end{sol}
+
+\begin{ex}
+  證明調和數列 (harmonic series) $\ds\sum_{n = 1}^\infty\frac{1}{n}$ 發散. 
+\end{ex}
+
+\begin{sol} 由 
+  \begin{align*}
+    &1 + \frac{1}{2} + \bigg(\frac{1}{3} + \frac{1}{4}\bigg) + \bigg(\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}\bigg) + \bigg(\frac{1}{9} + \frac{1}{10} + \frac{1}{11} + \frac{1}{12} + \frac{1}{13} + \frac{1}{14} + \frac{1}{15} + \frac{1}{16}\bigg) + \cdots \\
+    >\;&1 + \frac{1}{2} + \bigg(\frac{1}{4} + \frac{1}{4}\bigg) + \bigg(\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}\bigg) + \bigg(\frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16} + \frac{1}{16}\bigg) + \cdots \\
+    =\;&1 + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \cdots
+  \end{align*}
+  可得 $\ds\sum_{n = 1}^{2^k}\frac{1}{n} > 1 + \frac{k}{2}$, $\forall\,k\in\mathbb{N}$, 故 $\ds\sum_{n = 1}^\infty\frac{1}{n}$ 發散. 
+\end{sol}
+
+\begin{ex}
+  \href{http://math.stackexchange.com/questions/29450/self-contained-proof-that-sum-limits-n-1-infty-frac1np-converges-for/29466\#29466}{$\ds\sum_{n = 1}^\infty\frac{1}{n^p}$ 收斂 $\ifff$ $p > 1$.}
+\end{ex}
+
+\begin{sol}
+  定義 $\ds s_k = \sum_{n = 1}^k\frac{1}{n^p}$, 則 $\ds s_{2k + 1} = \sum_{n = 1}^{2 k + 1}\frac{1}{n^p} = 1 + \sum_{j = 1}^k\bigg(\frac{1}{(2j)^p} + \frac{1}{(2j + 1)^p}\bigg) < 1 + \sum_{j = 1}^k\frac{2}{(2j)^p} = 1 + 2^{1-p}s_k < 1 + 2^{1-p}s_{2k + 1}\ie s_{2k + 1} < \frac{1}{1 - 2^{1 - p}}$; 當 $p > 1$ 時 $\{s_n\}\nearrow$ 且有上界, 故收斂. 若 $p\leqslant 1$, 則 $s_n < 1$, 不合。 
+\end{sol}
+
+
+%\begin{ex}
+%  證明 $\ds s_n = \sum_{k = 1}^n\frac{1}{k}$, $n > 1$ 不為正整數.  
+%\end{ex}
+
+\section*{6.3 審斂法}
+
+\begin{dfn}
+  若 $\ds a_n\geqslant 0,\;n\in\mathbb{N}$, $\ds\sum_{n = 1}^\infty a_n$ 稱為正項級數 (positive series).  
+\end{dfn}
+
+\begin{thm}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 若 $\ds\sum_{n = 1}^\infty a_n$ 收斂, 則 $\ds\lim_{n\to\infty} a_n = 0$. 
+    \item 若 $\ds\lim_{n\to\infty} a_n \ne 0$ 或 $\ds\lim_{n\to\infty} a_n = \text{DNE}$, 則 $\ds\sum_{n = 1}^\infty a_n$ 發散. 
+    \item 給定正項級數 $\ds\sum_{n = 1}^\infty a_n$; $\ds\sum_{n = 1}^\infty a_n$ 收斂 $\ifff$ 部份和數列 $\{s_n\}$ 有上界.  
+  \end{enumerate}
+\end{thm}
+
+\begin{thm}[積分法 (integral test)]
+  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$, 令 $\ds f:[N,\,\infty)\to\mathbb{R}$ 為正值, 連續, 遞減函數, $\ds a_n = f(n),\;\forall\,n \geqslant N$, 則 $\ds\sum_{n = 1}^\infty a_n$ 與 $\ds\int_N^\infty f(x)\,\text{d}x$ 同斂散.  
+\end{thm}
+
+\begin{ex} 判斷以下級數之斂散. 
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{n^2 + 1}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n}{n}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由積分法, 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 定義 $\ds f(x) = \frac{1}{x^2 + 1}$, $\ds f:[1,\,\infty)\to\mathbb{R}^+$ 為正值, 連續, 遞減函數, $\ds\sum_{n = 1}^\infty\frac{1}{n^2 + 1}$ 與 $\ds\int_1^\infty\frac{1}{x^2 + 1}\,\text{d}x = \tan^{-1}x\,\big|_1^\infty = \frac{\pi}{4}$ 同斂散, 故為收斂. 
+    \item 定義 $\ds f(x) = \frac{\ln x}{x}$, $\ds f:[3,\,\infty)\to\mathbb{R}^+$ 為正值, 連續, 遞減函數 $\ds\bigg(f'(x) = \frac{1 - \ln x}{x^2} < 0, \;\forall x \geqslant 3\bigg)$, $\ds\sum_{n = 1}^\infty\frac{\ln n}{n}$ 與 $\ds\int_3^\infty\frac{\ln x}{x}\,\text{d}x = \frac{(\ln x)^2}{2}\,\bigg|_3^\infty = \infty$ 同斂散, 故為發散. 
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  $\ds\sum_{n = 1}^\infty\frac{1}{n^p}$ 收斂 $\ifff$ $p > 1$. 
+\end{ex}
+
+\begin{sol}
+  定義 $\ds f(x) = \frac{1}{x^p}$, $\ds f:[1,\,\infty)\to\mathbb{R}^+$ 為正值, 連續, 遞減函數 $\ds(f'(x) = -p\,x^{-(p + 1)} < 0)$, $\ds\sum_{n = 1}^\infty\frac{1}{n^p}$ 與 $\ds\int_1^\infty\frac{1}{x^p}\,\text{d}x = \frac{x^{1 - p}}{1 - p}\,\bigg|_1^\infty$ 同斂散. 
+\end{sol}
+
+\begin{ex} 求令以下各級數收斂之 $p$ 值. 
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 3}^\infty\frac{1}{n\ln n(\ln\ln n)^p}$
+      \item $\ds\sum_{n = 1}^\infty p^{\ln n}$
+      \item $\ds\sum_{n = 1}^\infty\Big(\frac{p}{n} - \frac{1}{n + 1}\Big)$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\sum_{n = 3}^\infty\frac{1}{n\ln n(\ln\ln n)^p}$ 與 $\ds\int_{3}^\infty\frac{1}{x\ln x(\ln\ln x)^p}\,\text{d}x = \int_{\ln\ln 3}^\infty\frac{1}{w^p}\,\text{d}w$ 同斂散, 若收斂則 $p > 1$. 
+    \item $\ds\sum_{n = 1}^\infty p^{\ln n} = \sum_{n = 1}^\infty (e^{\ln p})^{\ln n} = \sum_{n = 1}^\infty (e^{\ln n})^{\ln p} = \sum_{n = 1}^\infty n^{\ln p}$, 若收斂則 $\ln p < -1 \ie 0 < p < e^{-1}$. 
+    \item $\ds\sum_{n = 1}^\infty\Big(\frac{p}{n} - \frac{1}{n + 1}\Big) = \sum_{n = 1}^\infty\frac{(p - 1) n + p}{n(n + 1)}$, 若收斂則 $p = 1$. 
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  證明 $\ds a_n = \sum_{k = 1}^n\frac{1}{k} - \ln n$ 收斂. 
+\end{ex}
+
+\begin{sol}
+  由 $\ds\ln(n + 1) = \int_1^{n + 1}\frac{1}{x}\,\text{d}x < 1 + \frac{1}{2} + \cdots + \frac{1}{n}$, $\ds a_n = \sum_{k = 1}^n\frac{1}{k} - \ln n > \sum_{k = 1}^n\frac{1}{k} - \ln(n + 1) > 0$, $\{a_n\}$ 有下界 $0$; 由 $\ds\ln(n + 1) - \ln n = \int_n^{n + 1}\frac{1}{x}\,\text{d}x > \frac{1}{n + 1}$, $\ds a_n - a_{n + 1} = \ln(n + 1) - \ln n - \frac{1}{n + 1} > 0 \ie \{a_n\}$ 遞減, 故 $\{a_n\}$ 收斂. 
+\end{sol}
+
+\begin{thm}[比較法 (comparison test)]
+  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$. 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 若存在收斂 $\ds\sum_{n = 1}^\infty b_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\leqslant b_n,\;\forall\,n\geqslant N$, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+    \item 若存在發散 $\ds\sum_{n = 1}^\infty c_n$ 與 $N\in\mathbb{N}$ 使 $\ds a_n\geqslant c_n,\;\forall\,n\geqslant N$, $\ds\sum_{n = 1}^\infty a_n$ 發散. 
+  \end{enumerate}
+\end{thm}
+
+\begin{ex} 判斷以下級數之斂散. 
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{5}{5 n - 1}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n}{n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{2n^2 + 4n + 3}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1}{n!}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  %\setlength{\columnsep}{-5mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item[]
+      \item 發散: $\ds a_n = \frac{5}{5 n - 1} > \frac{1}{n} = c_n$
+      \item 發散: $\ds a_n = \frac{\ln n}{n} > \frac{1}{n} = c_n$
+      \item[]
+      \item 收斂: $\ds a_n = \frac{1}{2n^2 + 4n + 3} < \frac{1}{2n^2} = b_n$
+      \item 收斂: $\ds a_n = \frac{1}{n!} < \frac{1}{n^2} = b_n$, $n\geqslant N = 4$
+    \end{enumerate}
+  \end{multicols}
+\end{sol}
+
+\begin{thm}[極限比較法 (limit comparison test)]
+  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$, $\ds\sum_{n = 1}^\infty b_n$ 且 $\ds a_n > 0$, $\ds b_n > 0$. 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = c > 0$, $\ds\sum_{n = 1}^\infty a_n$ 與 $\ds\sum_{n = 1}^\infty b_n$ 同斂散. 
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = 0$ 且 $\ds\sum_{n = 1}^\infty b_n$ 收斂, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+    \item 若 $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \infty$ 且 $\ds\sum_{n = 1}^\infty b_n$ 發散, $\ds\sum_{n = 1}^\infty a_n$ 發散. 
+  \end{enumerate}
+\end{thm}
+
+\begin{ex} 判斷以下級數之斂散. 
+  \begin{multicols}{4}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{2 n + 1}{n^2 + 2n + 1}$
+      \item $\ds\sum_{n = 1}^\infty\frac{2n^2 + 3n}{\sqrt{5 + n^5}}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n}{n^{\frac{3}{2}}}$
+      \item $\ds\sum_{n = 1}^\infty\frac{1 + n\ln n}{n^2 + 5}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由極限比較法, 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 發散: 取 $\ds b_n = \frac{1}{n}$, $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{2n^2 + n}{n^2 + 2n + 1} = \lim_{n\to\infty}\frac{2 + \frac{1}{n}}{1 + \frac{2}{n} + \frac{1}{n^2}} = 2$
+    \item 發散: 取 $\ds b_n = \frac{1}{\sqrt{n}}$, $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{(2n^2 + 3n)\sqrt{n}}{\sqrt{5 + n^5}} = \lim_{n\to\infty}\frac{2 + \frac{3}{n}}{\sqrt{\frac{5}{n^5} + 1}} = 2$ 
+    \item 收斂: 取 $\ds b_n = \frac{1}{n^{\frac{5}{4}}}$, $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\ln n}{n^\frac{1}{4}} = \lim_{n\to\infty}\frac{\frac{1}{n}}{\frac{1}{4}n^{-\frac{3}{4}}} = \lim_{n\to\infty}\frac{4}{n^{\frac{1}{4}}} = 0$
+    \item 發散: 取 $\ds b_n = \frac{1}{n}$, $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{n + n^2\ln n}{n^2 + 5} = \lim_{n\to\infty}\frac{\frac{1}{n} + \ln n}{1 + \frac{5}{n^2}} = \infty$
+  \end{enumerate}
+\end{sol}
+
+\begin{ex} 若正項級數 $\ds\sum_{n = 1}^\infty a_n$, $\ds\sum_{n = 1}^\infty b_n$ 收斂, 證明以下級數均收斂. 
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\ln(1 + a_n)$
+      \item $\ds\sum_{n = 1}^\infty\sin a_n$
+      \item $\ds\sum_{n = 1}^\infty a_n b_n$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由極限比較法, 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 與 $\ds\sum_{n = 1}^\infty a_n$ 做比較: $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\ln(1 + a_n)}{a_n} = \lim_{x\to 0}\frac{\ln(1 + x)}{x} = 0$, 故收斂. 
+    \item 與 $\ds\sum_{n = 1}^\infty a_n$ 做比較: $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\sin a_n}{a_n} = \lim_{x\to 0}\frac{\sin x}{x} = 1$, 故收斂. 
+    \item $\ds\sum_{n = 1}^\infty b_n$ 收斂, 則 $\ds\exists N\in\mathbb{N}$, $\ds b_n\leqslant 1\;\forall\,n\geqslant N$ $\ie$ $\ds 0 < a_n b_n < a_n\;\forall\,n\geqslant N$, $\ds\sum_{n = 1}^\infty a_n b_n$ 收斂. 
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}[比值法 (ratio test)]
+  給定 $\ds\sum_{n = 1}^\infty a_n$, 令 $\ds\rho = \lim_{n\to\infty}\bigg|\frac{a_{n + 1}}{a_n}\bigg|$. 
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item 若 $\ds\rho < 1$, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+      \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大, $\ds\sum_{n = 1}^\infty a_n$ 發散. 
+      \item 若 $\ds\rho = 1$, $\ds\sum_{n = 1}^\infty a_n$ 斂散性未定. 
+    \end{enumerate}
+  \end{multicols}
+\end{thm}
+
+\begin{ex} 判斷以下級數之斂散. 
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\pi^n + 5}{e^n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{(n!)^2}{(2n)!}$
+      \item $\ds\sum_{n = 1}^\infty\frac{n!}{n^n}$
+    %  \item $\ds\sum_{n = 1}^\infty\frac{4^n(n!)^2}{(2n)!}$
+    %  \item $\ds\sum_{n = 1}^\infty a_n$, $\ds a_n = \begin{cases}\frac{n}{2^n} & \text{$n$ 為奇數} \\ \frac{1}{2^n} & \text{$n$ 為偶數}\end{cases}$
+      \item $\ds\sum_{n = 1}^\infty\frac{n^4 + 3n^3 + 2n^2 + 4n + 5}{3^n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{\ln n\,(n^{52} - 2024 n^{24} + 100 n - 90)}{n^{\frac{3}{2}}}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\sqrt{(n + 1)^3 + 3(n + 1) - 1}}{(n+1)^2 + 5}}{\frac{\sqrt{n^3 + 3n - 1}}{n^2 + 5}} = \lim_{n\to\infty}\frac{n^2 + 5}{(n+1)^2 + 5}\sqrt{\frac{(n + 1)^3 + 3(n + 1) - 1}{n^3 + 3n - 1}} \\= \lim_{n\to\infty}\frac{1 + \frac{5}{n^2}}{\big(1 + \frac{1}{n}\big)^2 + \frac{5}{n^2}}\sqrt{\frac{\big(1 + \frac{1}{n}\big)^3 + 3\big(\frac{1}{n^2} + \frac{1}{n^3}\big) - \frac{1}{n^3}}{1 + 3\frac{1}{n^2} - \frac{1}{n^3}}} = 1$, 但由極限比較法與 $\ds\sum_{n = 1}^\infty\frac{1}{\sqrt{n}}$ 比較, $\ds\lim_{n\to\infty}\frac{a_n}{b_n} = \lim_{n\to\infty}\frac{\sqrt{n}\,\sqrt{n^3 + 3n - 1}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{n^4 + 3n^2 - n}}{n^2 + 5} = \lim_{n\to\infty}\frac{\sqrt{1 + \frac{3}{n^2} - \frac{1}{n^3}}}{1 + \frac{5}{n^2}} = 1$, 故發散. 
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{\pi^{n+1} + 5}{e^{n + 1}}}{\frac{\pi^n + 5}{e^n}} = \lim_{n\to\infty}\frac{e^n}{e^{n+1}}\cdot\frac{\pi^{n + 1} + 5}{\pi^n + 5} = \lim_{n\to\infty}\frac{1}{e}\cdot\frac{\pi + \frac{5}{\pi^n}}{1 + \frac{5}{\pi^n}} = \frac{\pi}{e} > 1$, 發散. 
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{((n + 1)!)^2}{(2(n + 1))!}}{\frac{(n!)^2}{(2n)!}} = \lim_{n\to\infty}\frac{(n + 1)(n + 1)}{(2n + 2)(2n + 1)} = \frac{1}{4}$, 收斂. 
+    \item $\ds\lim_{n\to\infty}\frac{\frac{(n + 1)!}{(n + 1)^{(n + 1)}}}{\frac{n!}{n^n}} = \lim_{n\to\infty}\Big(1 - \frac{1}{n}\Big)^n = e^{-1} < 1$, 收斂. 
+    %\item $\ds\rho = \lim_{n\to\infty}\frac{\frac{4^{n+1}((n + 1)!)^2}{(2(n + 1))!}}{\frac{4^n(n!)^2}{(2n)!}} = \lim_{n\to\infty}\frac{4(n + 1)^2}{(2n + 2)(2 n + 1)} = 1$
+    %\item $\ds\sum_{n = 1}^\infty a_n$, $\ds a_n = \begin{cases}\frac{n}{2^n} & \text{$n$ 為奇數} \\ \frac{1}{2^n} & \text{$n$ 為偶數}\end{cases}$
+    \item $\ds\rho = \lim_{n\to\infty}\frac{\frac{(n + 1)^4 + 3(n + 1)^3 + 2(n + 1)^2 + 4(n + 1) + 5}{3^{n + 1}}}{\frac{n^4 + 3n^3 + 2n^2 + 4n + 5}{3^n}} = \lim_{n\to\infty}\frac{(n + 1)^4}{n^4}\cdot\frac{1 + \frac{3}{n + 1} + \frac{2}{(n + 1)^2} + \frac{4}{(n + 1)^3} + \frac{5}{(n + 1)^4}}{1 + \frac{3}{n} + \frac{2}{n^2} + \frac{4}{n^3} + \frac{5}{n^4}}\cdot\frac{1}{3} = \frac{1}{3}$, 收斂. 
+    \item $\ds\frac{\ln n\,(n^{52} - 2024 n^{24} + 100 n - 90)}{n^{\frac{3}{2}}}\to\infty$, 發散.  
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}[根式法 (root test)]
+  給定 $\ds\sum_{n = 1}^\infty a_n$, 令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n|}$. 
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item 若 $\ds\rho < 1$, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+      \item 若 $\ds\rho > 1$ 或 $\ds\rho$ 為無限大, $\ds\sum_{n = 1}^\infty a_n$ 發散. 
+      \item 若 $\ds\rho = 1$, $\ds\sum_{n = 1}^\infty a_n$ 斂散性未定. 
+    \end{enumerate}
+  \end{multicols}
+\end{thm}
+
+\begin{ex} 判斷以下級數之斂散. 
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\Big(\frac{1}{n + 1}\Big)^n$
+      \item $\ds\sum_{n = 1}^\infty\Big(\frac{2 n + 3}{3n + 2}\Big)^n$
+      \item $\ds\sum_{n = 1}^\infty\frac{n^2}{2^n}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{1}{n} = 0$, 收斂. 
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{2 n + 3}{3 n + 2} = \frac{2}{3}$, 收斂. 
+    \item $\ds\rho = \lim_{n\to\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{n^{\frac{2}{n}}}{2} = \frac{1}{2}$, 收斂. 
+  \end{enumerate}
+\end{sol}
+
+\section*{6.4 條件與絕對收斂}
+
+\begin{dfn}
+  給定 $\ds\sum_{n = 1}^\infty a_n$. 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 若 $\ds\sum_{n = 1}^\infty|a_n|$ 收斂, $\ds\sum_{n = 1}^\infty a_n$ 為絕對收斂 (absolutely convergent). 
+    \item 若 $\ds\sum_{n = 1}^\infty|a_n|$ 發散但 $\ds\sum_{n = 1}^\infty a_n$ 收斂, $\ds\sum_{n = 1}^\infty a_n$ 為條件收斂 (conditionally convergent). 
+  \end{enumerate}
+\end{dfn}
+
+\begin{thm}
+  若 $\ds\sum_{n = 1}^\infty|a_n|$ 收斂, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+\end{thm}
+
+\begin{prf}
+  由 $\ds|s_n - s_m| = |a_n + a_{n - 1} + \cdots + a_{m + 1}|\leqslant|a_n| + |a_{n - 1}| + \cdots + |a_{m + 1}|,\;\forall\,n > m$ 與 Cauchy 準則, $\ds\sum_{n = 1}^\infty a_n$ 收斂. 
+\end{prf}
+
+\begin{prp}[Abel 公式]
+  給定 $\ds\{a_n\}$, $\ds\{b_n\}$, 令 $\ds A_n = \sum_{k = 1}^n a_k$ 且 $A_0 = 0$, 則 $\ds\sum_{k = 1}^n a_k b_k = A_n b_{n + 1} - \sum_{k = 1}^n A_k(b_{k + 1} - b_k)$. 
+\end{prp}
+
+\begin{prf}
+  $\ds\sum_{k = 1}^n a_k b_k = \sum_{k = 1}^n (A_k - A_{k - 1}) b_k = \sum_{k = 1}^n A_k b_k - \sum_{k = 1}^n A_{k - 1} b_k = \sum_{k = 1}^n A_k b_k - \sum_{k = 1}^n A_k b_{k + 1} + A_n b_{n + 1} = A_n b_{n + 1} - \sum_{k = 1}^n A_k (b_{k + 1} - b_k)$. 
+\end{prf}
+
+\begin{thm}[Dirichlet 判定法]
+  若 $\ds\sum_{n = 1}^\infty a_n$ 部份和數列有界, $\ds b_n\searrow$ 且 $\ds\lim_{n\to\infty}b_n = 0$, 則 $\ds\sum_{n = 1}^\infty a_n b_n$ 收斂.  
+\end{thm}
+
+\begin{prf}
+  由 Abel 公式 $\ds\sum_{k = 1}^n a_k b_k = A_n b_{n + 1} - \sum_{k = 1}^n A_k(b_{k + 1} - b_k)$. 因 $\ds\sum_{n = 1}^\infty a_n$ 之部份和數列有界, $\ds\exists\,M\;|A_n|\leqslant M$, 又 $\ds\lim_{n\to\infty}b_n = 0 \ie \lim_{n\to\infty}A_n b_{n + 1} = 0$; 由 $\ds\sum_{k = 1}^n \Big|A_k(b_{k + 1} - b_k)\Big|\leqslant M\sum_{k = 1}^n(b_k - b_{k + 1})$ 與 $\ds b_n\searrow$, $\ds\lim_{n\to\infty}b_n = 0$, $\ds\sum_{k = 1}^n A_k(b_{k + 1} - b_k)$ 絕對收斂 $\ie$ $\ds\sum_{k = 1}^n A_k(b_{k + 1} - b_k)$ 收斂; 故 $\ds\sum_{n = 1}^\infty a_n b_n$ 收斂. 
+\end{prf}
+
+\begin{ex}
+  證明 $\ds\sum_{n = 1}^\infty\frac{\sin nx}{n}$ 收斂, $\forall\,x\in\mathbb{R}$. 
+\end{ex}
+
+\begin{sol}
+  由於 $\sin nx$ 為週期 $2\pi$ 之函數, 且 $\ds x= 0$ 時 $\ds\sin nx = 0$, 只需考慮 $x\in(0,\,2\pi)$. 令 $\ds A_n(x) = \sum_{k = 1}^n\sin k x$, $\ds 2\sin\frac{x}{2}\cdot A_n(x) = \sum_{k = 1}^n 2\sin\frac{x}{2}\cdot\sin k x = \sum_{k = 1}^n\bigg(\cos\Big(k - \frac{1}{2}\Big)x - \cos\Big(k + \frac{1}{2}\Big)x\bigg) = \cos\frac{x}{2} - \cos\Big(n + \frac{1}{2}\Big)x$ $\ie$ $\ds|A_n(x)| = \Bigg|\frac{\cos\frac{x}{2} - \cos\big(n + \frac{1}{2}\big)x}{2\sin\frac{x}{2}}\Bigg|\leqslant\frac{1}{\sin\frac{x}{2}}$, $\ds\lim_{n\to\infty}\frac{1}{n}\searrow 0$, 由 Dirichlet 判定法 $\ds\sum_{n = 1}^\infty\frac{\sin nx}{n}$ 收斂, $\forall\,x\in(0,\,2\pi)$. 
+\end{sol}
+
+\begin{dfn}[交錯級數]
+  給定正項級數 $\ds\sum_{n = 1}^\infty a_n$, $\ds\sum_{n = 1}^\infty(-1)^n a_n$ 稱為交錯級數 (alternating series).  
+\end{dfn}
+
+\begin{thm}
+  若正項級數 $\ds\sum_{n = 1}^\infty a_n$ 中 $\ds a_n\searrow$ 且 $\ds\lim_{n\to\infty}a_n = 0$, 交錯級數 $\ds\sum_{n = 1}^\infty(-1)^n a_n$ 收斂.  
+\end{thm}
+
+\begin{prf}
+  $\{(-1)^n\}$ 部份和數列有界, $\ds a_n\searrow$ 且 $\ds\lim_{n\to\infty}a_n = 0$; 由 Dirichlet 判定法 $\ds\sum_{n = 1}^\infty(-1)^n a_n$ 收斂.  
+\end{prf}
+
+\begin{ex} 若 $\ds\sum_{n = 1}^\infty a_n$ 條件收斂, 
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty n^2 a_n$ 發散. 
+      \item $\ds\sum_{n = 1}^\infty n a_n$ 不為絕對收斂. 
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 若 $\ds\sum_{n = 1}^\infty n^2 a_n$ 收斂, 則 $\ds\lim_{n\to\infty} n^2 a_n = 0 \ie \exists N\in\mathbb{N}, \;n^2 |a_n| < 1\;\forall\,n\geqslant N \ie |a_n| < \frac{1}{n^2}\;\forall\,n\geqslant N \ie$ $\ds\sum_{n = 1}^\infty |a_n|$ 收斂, 矛盾.  
+    \item 令 $\ds a_n = (-1)^n\frac{1}{n}$, 則 $\ds\sum_{n = 1}^\infty n a_n$ 發散; 令 $\ds a_n = (-1)^n\frac{1}{n\ln n}$, 則 $\ds\sum_{n = 1}^\infty n a_n$ 條件收斂. 若 $\ds\sum_{n = 1}^\infty n a_n$ 絕對收斂, 由 $\ds|a_n|\leqslant|n a_n|\;\forall\,n\geqslant 1\ie \sum_{n = 1}^\infty a_n$ 絕對收斂, 矛盾. 
+  \end{enumerate}
+\end{sol}
+
+\section*{6.5 冪級數}
+
+\begin{dfn}
+  $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 之無窮級數稱為 $x - x_0$ 的冪級數 (power series), $\{a_n\}$ 為其係數 (coefficient). 
+\end{dfn}
+
+\begin{thm}
+  令 $\ds\alpha = \lim_{n\to\infty}\sqrt[n]{|a_n|}$, $\ds R = \begin{cases}\frac{1}{\alpha} & 0 < \alpha < \infty \\ \infty & \alpha = 0 \\ 0 & \alpha = \infty\end{cases}$, 則 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 為 $\begin{cases}\text{絕對收斂} & \forall\,|x - x_0| < R \\ \text{發散} & \forall\,|x - x_0| > R\end{cases}$. 
+\end{thm}
+
+\begin{prf}
+  由根式法, 令 $\ds\rho = \lim_{n\to\infty}\sqrt[n]{|a_n(x - x_0)^n|} = \lim_{n\to\infty}\sqrt[n]{|a_n|}\cdot|x - x_0| = \frac{|x - x_0|}{R}$; 若 $\ds\rho < 1 \ie \frac{|x - x_0|}{R} < 1 \ie |x - x_0| < R $ 冪級數絕對收斂, $\ds\rho > 1 \ie \frac{|x - x_0|}{R} > 1 \ie |x - x_0| > R$ 冪級數發散. 
+\end{prf}
+
+\begin{rmk}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $R$ 稱為 $x - x_0$ 的冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 之收斂半徑 (radius of convergence). 若 $0 < R < \infty$, 稱 $|x - x_0| = R$ 為其收斂圓 (circle of convergence). 若 $\forall\,x\in I$ 使 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 收斂, 則 $I$ 稱為其收斂區間 (interval of convergence). 
+    \item $R$ 之計算可不依根式法 --- 使用比值法於冪級數 $\ds\sum_{n = 0}^\infty\frac{n^n}{n!}z^n$, $\ds\lim_{n\to\infty}\frac{\frac{(n + 1)^{n + 1}}{(n + 1)!}|z|^{n + 1}}{\frac{n^n}{n!}|z|^n} = \lim_{n\to\infty}\Big(1 + \frac{1}{n}\Big)^n|z| = e\,|z| < 1$ 為絕對收斂, $\ds e\,|z| > 1$ 發散 $\ie$ $\ds R = \frac{1}{e}$. 
+    \item 不同冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 在其收斂圓上有不同收斂特性:  $\ds\sum_{n = 0}^\infty x^n$ 於 $|x| = 1$ 發散, $\ds\sum_{n = 0}^\infty\frac{x^n}{n(n + 1)}$ 於 $|x| = 1$ 絕對收斂, $\ds\sum_{n = 0}^\infty\frac{x^n}{n}$ 於 $x = 1$ 發散, $x = -1$ 條件收斂. 
+    \item $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n$ 在 $\ds x\in(c - R, c + R)$ (亦即 $|x - x_0| < R$) 定義函數 $f$, 寫作 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$; $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$ 為 $f(x)$ 在 $x = x_0$ 之冪級數表示式.  
+  \end{enumerate}
+\end{rmk}
+
+\begin{ex} 求以下 $x$ 的冪級數之收斂區間. 
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n}$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n^2}$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{n!}$
+      \item $\ds\sum_{n = 1}^\infty n!x^n$
+      \item $\ds\sum_{n = 1}^\infty n x^n$
+      \item $\ds\sum_{n = 1}^\infty\frac{x^n}{\ln(n + 1)}$
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\lim_{n\to\infty}\frac{n}{n + 1} = 1$; $x = 1$ 時發散, $x = -1$ 時條件收斂, 故收斂區間為 $-1\leqslant x < 1$. 
+    \item $\ds\lim_{n\to\infty}\frac{n^2}{(n + 1)^2} = 1$; $x = \pm 1$ 時均收斂, 故收斂區間為 $-1\leqslant x\leqslant 1$. 
+    \item $\ds\lim_{n\to\infty}\frac{n!}{(n + 1)!} = 0$; 故收斂區間為 $x\in\mathbb{R}$. 
+    \item $\ds\lim_{n\to\infty}\frac{(n + 1)!}{n!} = \infty$,  故只在 $x = 0$ 收斂. 
+    \item $\ds\lim_{n\to\infty}\frac{n + 1}{n} = 1$; $x = \pm 1$ 時均發散, 故收斂區間為 $-1 < x < 1$. 
+    \item $\ds\lim_{n\to\infty}\frac{\ln(n + 2)}{\ln(n + 1)} = \lim_{n\to\infty}\frac{\ln(n + 2) - \ln(n + 1) + \ln(n + 1)}{\ln(n + 1)} = \lim_{n\to\infty}\frac{\ln\frac{n + 2}{n + 1}}{\ln(n + 1)} + 1 = 1$; $x = 1$ 時發散, $x = -1$ 時條件收斂, 故收斂區間為 $-1\leqslant x < 1$. 
+  \end{enumerate}
+\end{sol}
+
+\begin{thm}[冪級數運算]
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 兩冪級數 $\ds\sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$, $\ds\sum_{n = 0}^\infty \widetilde{a}_n (x - \widetilde{c})^n,\;|x - \widetilde{c}| < \widetilde{R}$ 之線性組合仍為函數, 其定義域為 $(c - R, c + R)\cap(\widetilde{c} - \widetilde{R}, \widetilde{c} + \widetilde{R})$. 
+    \item 冪級數在收斂半徑內可逐項微分與積分: 若 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$, 則 $\ds f'(x) = \sum_{n = 1}^\infty n a_n (x - x_0)^{n - 1},\;|x - x_0| < R$, $\ds\int f(x)\,\text{d}x = \sum_{n = 0}^\infty a_n \frac{(x - x_0)^{n + 1}}{n + 1},\;|x - x_0| < R$. 
+  \end{itemize}
+\end{thm}
+
+\begin{ex}
+  求 $\ds\frac{1}{(1 - x)^2}$ 在 $x = 0$ 之冪級數表示式. 
+\end{ex}
+
+\begin{sol}
+  逐項微分 $\ds\frac{1}{1 - x} = 1 + x + x^2 + x^3 + x^4 + \cdots$, $|x| < 1$ $\ie$ $\ds\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n = 0}^\infty(n + 1) x^n$, $|x| < 1$. 
+\end{sol}
+
+\begin{ex}
+  求 $\ds\ln(1 + x)$ 在 $x = 0$ 之冪級數表示式. 
+\end{ex}
+
+\begin{sol}
+  逐項積分 $\ds\frac{1}{1 + x} = 1 - x + x^2 - x^3 + x^4 + \cdots$, $|x| < 1$ $\ie$ $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} -+ \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$, $|x| < 1$. 
+\end{sol}
+
+\begin{ex}
+  證明 $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$. 
+\end{ex}
+
+\begin{sol}
+  逐項積分 $\ds\frac{1}{1 + x^2} = 1 - x^2 + x^4 - x^6 +- \cdots$, $|x| < 1$, 又 $\tan^{-1} 0 = 0$, 故 $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$. 
+\end{sol}
+
+\begin{ex}
+  若 $k > 1$, 求 $\ds\sum_{n = 1}^\infty\frac{n}{k^n} = \frac{1}{k} + \frac{2}{k^2} + \frac{3}{k^3} + \frac{4}{k^4} + \cdots$. 
+\end{ex}
+
+\begin{sol}
+  由 $\ds\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n = 0}^\infty(n + 1) x^n$, $|x| < 1$, $\ds\frac{x}{(1 - x)^2} = x + 2x^2 + 3x^3 + 4x^4 + \cdots = \sum_{n = 0}^\infty(n + 1) x^{n + 1} = \sum_{n = 1}^\infty n x^{n}$, $|x| < 1$; 代入 $\ds x = \frac{1}{k}$, $\ds\sum_{n = 1}^\infty\frac{n}{k^n} = \frac{1}{k} + \frac{2}{k^2} + \frac{3}{k^3} + \frac{4}{k^4} + \cdots = \frac{\frac{1}{k}}{\big(1 - \frac{1}{k}\big)^2} = \frac{k}{(k - 1)^2}$. 
+\end{sol}
+
+\section*{6.6 Taylor 級數}
+
+\begin{dfn}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 給定 $f\in C^\infty(a, b)$, $x_0\in(a, b)$, $\ds\sum_{n = 0}^\infty\frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 Tayler 級數 / 展開式; 若 $x_0 = 0$ 稱為 $f(x)$ 之 MacLaurin 級數 / 展開式. 
+    \item 給定 $f\in C^N(a, b)$, $x_0\in(a, b)$, $0\leqslant n\leqslant N$, $\ds\sum_{k = 0}^n\frac{f^{(k)}(x_0)}{k!}(x - x_0)^n$ 稱為 $f(x)$ 在 $x = x_0$ 之 $n$ 階 Tayler 多項式; 若 $x_0 = 0$ 稱為 $f(x)$ 之 $n$ 階 MacLaurin 多項式. 
+  \end{itemize}
+\end{dfn}
+
+\begin{thm}
+  若 $f(x)$ 在 $x = x_0$ 有冪級數表示式 $\ds f(x) = \sum_{n = 0}^\infty a_n (x - x_0)^n,\;|x - x_0| < R$, 則 $\ds a_n = \frac{f^{(n)}(x_0)}{n!}$.  
+\end{thm}
+
+\begin{prf}
+  在 $|x - x_0| < R$ 可逐項微分得 $\ds f'(x) = \sum_{n = 1}^\infty n\,a_n (x - x_0)^{n - 1}$, $\ds f''(x) = \sum_{n = 2}^\infty n(n - 1)\,a_n (x - x_0)^{n - 2}$, $\ds\ldots$, $\ds f^{(k)}(x) = \sum_{n = k}^\infty n(n - 1)\cdots(n - (k - 1))\cdot a_n (x - x_0)^{n - k}$; 代入 $\ds x = x_0 \ie f^{(k)}(x_0) = k(k - 1)\cdots 1\cdot a_k = k!\,a_k \ie a_k = \frac{f^{(k)}(x_0)}{k!}$. 
+\end{prf}
+
+\begin{ex} 常用 Maclaurin 級數. 
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \frac{x^7}{7!} + \cdots = \sum_{n = 0}^\infty\frac{x^n}{n!}$
+    \item $\ds\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{(2n + 1)!}$
+    \item $\ds\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n}}{(2n)!}$
+    \item $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$
+  \end{enumerate}
+\end{ex}
+
+%\begin{dfn}[多重指標 (multi-index)]
+%  $n$ 維多重指標 $\vaa$ 為一非負整數之 $n$ 元組 (tuple): $\ds\vaa = (\alpha_1,\,\alpha_2,\,\ldots,\,\alpha_n)\in\mathbb{N}_0^n$. 給定 $\vaa,\;\vbb\in\mathbb{N}_0^n$, $x = (x_1,\,x_2,\,\ldots,\,x_n)\in\mathbb{R}^n$, 定義運算
+%  \begin{itemize}\setlength{\itemsep}{0pt}
+%    \item 加減 $\ds\vaa\pm\vbb = (\alpha_1\pm\beta_1,\,\alpha_2\pm\beta_2,\,\ldots,\,\alpha_n\pm\beta_n)$
+%    \item 部份序 $\ds\vaa\leqslant\vbb\ifff\alpha_i\leqslant\beta_i,\;\forall\,i\,\in\,\{1,\,2,\,\ldots,\,n\}$
+%    \item 分量和 $\ds|\vaa| = \alpha_1 + \alpha_2 + \cdots + \alpha_n$
+%    \item 階乘 $\ds\vaa! = \alpha_1!\,\alpha_2!\cdots\alpha_n!$
+%    \item 二項式係數 $\ds\binom{\vaa}{\vbb} = \binom{\alpha_1}{\beta_1}\binom{\alpha_2}{\beta_2}\cdots\binom{\alpha_n}{\beta_n} = \frac{\vaa!}{\vbb!\,(\vaa - \vbb)!}$  
+%    \item 多項式係數 $\ds\binom{|\vaa|}{\vaa} = \frac{|\vaa|!}{\alpha_1!\,\alpha_2!\cdots\alpha_n!}$  
+%    \item 冪次 $\ds\vx^{\vaa} = x_1^{\alpha_1}\,x_2^{\alpha_2}\cdots x_n^{\alpha_n}$  
+%    \item 高階偏導數 $\ds\partial^{\vaa} = \partial_{1}^{\alpha_1}\,\partial_{2}^{\alpha_2}\cdots \partial_{n}^{\alpha_n}$, 其中 $\ds\partial_i^{\alpha_i} = \frac{\partial^{\alpha_i}}{\partial x_i^{\alpha_i}}$; $\ds D^{\vaa}\equiv\partial^{\vaa}$.   
+%  \end{itemize}
+%\end{dfn}
+%
+%\begin{prp} 給定 $\ds\vx,\;\vy,\;\vh\in\mathbb{R}^n$, $\vaa,\,\vnu\in\mathbb{N}_0^n$, $f,\;g:\mathbb{R}^n\to\mathbb{R}$.  
+%  \setlength{\columnsep}{-30mm}
+%  \begin{multicols}{2}
+%  \begin{itemize}\setlength{\itemsep}{0pt}
+%    \item 多項式定理 $\ds\bigg(\sum_{j = 1}^n x_j\bigg)^k = \sum_{|\vaa| = k}\binom{k}{\vaa}\vx^{\vaa}$
+%    \item 二項式定理 $\ds(\vx + \vy)^{\vaa} = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\vx^{\vnu}\vy^{\vaa - \vnu}$  
+%    \item Leibnitz 公式 $\ds\partial^{\vaa}(f\,g) = \sum_{\vnu\leqslant\vaa}\binom{\vaa}{\vnu}\partial^{\vnu}\!f\,\partial^{\vaa - \vnu}\!g$ 
+%    \item Taylor 級數 $\ds f(\vx + \vh) = \sum_{\vaa\in\mathbb{N}_0^n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa}$  
+%    \item Taylor 定理 $\ds f(\vx + \vh) = \sum_{|\vaa| < n}\frac{\partial^{\vaa}\!f(\vx)}{\vaa!}\vh^{\vaa} + R_n(\vx,\,\vh)$, $\ds R_n(\vx,\,\vh) = n\sum_{|\vaa| = n}\frac{\vh^{\vaa}}{\vaa!}\int_0^1 (1 - t)^n\,\partial^{\vaa}\!f(\vx + t\vh)\,\text{d}t$
+%  \end{itemize}
+%  \end{multicols}
+%  對定義於有界 $\Omega\subseteq\mathbb{R}^n$ 之平滑緊致支撐函數 $u,\;v$ $\ds\int_{\Omega}u\,\partial^{\vaa}v\,\text{d}x = (-1)^{|\vaa|}\int_{\Omega}v\,\partial^{\vaa}u\,\text{d}x$
+%\end{prp}
+
+\begin{thm}[Taylor]
+  若 $f(x)\in C^k(a, b)$, $f^{(k - 1)}(x)$ 在 $[a, b]$ 連續, $1\leqslant k\leqslant N$, $x_0\in(a, b)$. 則 $\exists\,x_1$ 介於 $x$ 與 $x_0$ 間使 $\ds f(x) = f(x_0) + \sum_{k = 1}^{N - 1}\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(N)}(x_1)}{N!}(x - x_0)^N$.   
+\end{thm}
+
+%\begin{prf}
+%\end{prf}
+
+\begin{ex}
+  估計以 $3$ 階 MacLaurin 多項式作為 $\ds e^{\frac{1}{2}}$ 近似之誤差. 
+\end{ex}
+
+\begin{sol}
+  由 $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$, $\ds e^{\frac{1}{2}} = 1 + \frac{1}{2} + \frac{1}{2!}\Big(\frac{1}{2}\Big)^2 + \frac{1}{3!}\Big(\frac{1}{2}\Big)^3\approx 1.64583$. 代入 Taylor 定理: $\ds x = \frac{1}{2}$, $x_0 = 0$, $f(x) = e^x$, $\ds f^{(k)}(x) = e^x,\;\forall\,k\in\mathbb{N}$, 故 $\ds\exists\,x_1\in\Big(0,\,\frac{1}{2}\Big)$ 使 $\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}\,e^{x_1}$, 則誤差為 $\ds\frac{1}{4!}\Big(\frac{1}{2}\Big)^4\,e^{x_1} \leqslant \frac{1}{4!}\Big(\frac{1}{2}\Big)^4\,2 = \frac{1}{192}\approx 0.0052$. 
+\end{sol}
+
+\begin{ex}
+  應使用幾階 MacLaurin 多項式作為 $\ds e^1$ 之近似使誤差 $ < 0.005$？
+\end{ex}
+
+\begin{sol}
+  由 $f(x) = e^x$, $\ds f^{(k)}(x) = e^x\;\forall\,k\in\mathbb{N}$ 與 Taylor 定理, $\exists\,x_1\in(0, 1)$ 使 $\ds e = 1 + \sum_{k = 1}^{N - 1}\frac{1}{k!} + \frac{e^{x_1}}{N!}$. 又 $e^{x_1} < 3$, 誤差項 $\ds\frac{e^{x_1}}{N!} < \frac{3}{N!} < 0.005\ie N! > \frac{3}{0.005} = 600 \ie N = 6$, 故使用 $N - 1 = 5$ 階 MacLaurin 多項式作為 $\ds e^1$ 之近似: $\ds e^1 \approx 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!} = \frac{326}{120} \approx 2.72$.  
+\end{sol}
+
+\begin{ex}
+  $\ds f(x) = \begin{cases}e^{-\frac{1}{x^2}} & x\ne 0 \\ 0 & x = 0\end{cases}$, 求 $f(x)$ 的 MacLaurin 級數.  
+\end{ex}
+
+\begin{sol}
+  由數學歸納法可得 $\ds f^{(n)}(x) = e^{-\frac{1}{x^2}}\frac{P_{2n - 2}(x)}{x^{3n}},\;n\in\mathbb{N}$, 其中 $P_{2n - 2}(x)$ 為 $x$ 的 $2n - 2$ 次多項式. 令 $\ds g\Big(\frac{1}{x}\Big) = \frac{P_{2n - 2}(x)}{x^{3n}}$, 則 $g(y)$ 為 $y$ 的多項式 (變數變換 $\ds y = \frac{1}{x}$), $\ds f^{(n)}(0) = \lim_{x\to 0}e^{-\frac{1}{x^2}}\frac{P_{2n - 2}(x)}{x^{3n}} = \lim_{y\to\pm\infty}e^{-y^2}g(y) = 0$. 故 $f(x)$ 的 MacLaurin 級數為 $0$. 
+\end{sol}
+
+\begin{thm}[Abel]
+  若 $\ds f(x) = \sum_{n = 0}^\infty a_n x^n,\;|x| < R$, 且 $\ds\sum_{n = 0}^\infty a_n R^n$ 收斂, 則 $\ds\lim_{x\to R-}f(x) = \sum_{n = 0}^\infty a_n R^n$. 
+\end{thm}
+
+\begin{ex}
+  \begin{itemize}\setlength{\itemsep}{-1pt}
+    \item[]
+    \item $\ds\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n x^{n + 1}}{n + 1}$, $|x| < 1$. 因 $\ds\sum_{n = 0}^\infty\frac{(-1)^n}{n + 1}$ 收斂, $\ds 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} +- \cdots = \lim_{x\to 1-}\ln(1 + x) = \ln 2$.
+    \item $\ds\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} +- \cdots = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1}$, $|x| < 1$. 因 $\ds\sum_{n = 0}^\infty\frac{(-1)^n}{2 n + 1}$ 收斂, $\ds1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{x^9}{9} - \frac{x^{11}}{11} +- \cdots = \lim_{x\to 1-}\tan^{-1}x = \tan^{-1}1 = \frac{\pi}{4}$.
+  \end{itemize}
+\end{ex}
+
+\begin{ex}
+  \begin{multicols}{2}
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item 若 $\ds f(x) = \tan^{-1}{x}$, 求 $\ds f^{(99)}(0)$. 
+    \item 若 $\ds f(x) = e^{-x^2}$, 求 $\ds f^{(100)}(0)$. 
+  \end{enumerate}
+\end{multicols}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{-1pt}
+    \item[]
+    \item $\ds\tan^{-1}x = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n + 1}}{2 n + 1} = \sum_{n = 0}^\infty\frac{f^{(n)}(0)\,x^n}{n!}$, $|x| < 1$. 故 $\ds\frac{f^{(99)}(0)}{99!} = \frac{(-1)^{49}}{2\cdot 49 + 1} \ie f^{(99)}(0) = -(98!)$.
+    \item $\ds e^{-x^2} = \sum_{n = 0}^\infty\frac{(-1)^n\,x^{2n}}{n!} = \sum_{n = 0}^\infty\frac{f^{(n)}(0)\,x^n}{n!}$, $\forall\,x\in\mathbb{R}$. 故 $\ds\frac{f^{(100)}(0)}{100!} = \frac{(-1)^{50}}{50!} \ie f^{(100)}(0) = \frac{100!}{50!}$.
+  \end{enumerate}
+\end{sol}
+
+\end{document}
