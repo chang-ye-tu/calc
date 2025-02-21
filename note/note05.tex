@@ -434,6 +434,14 @@
   \end{enumerate}
 \end{thm}
 
+\begin{ex}
+  若 $\ds\vv(t) = \vr(t)\cdot(\vr'(t)\times\vr''(t))$, 證明 $\ds\vv'(t) = \vr(t)\cdot(\vr'(t)\times\vr'''(t))$.
+\end{ex}
+
+\begin{sol}
+  $\ds\vv'(t) = \big(\vr(t)\cdot(\vr'(t)\times\vr''(t))\big)' = \vr'(t)\cdot(\vr'(t)\times\vr''(t)) + \vr(t)\cdot(\vr'(t)\times\vr''(t))' = \vr(t)\cdot(\vr'(t)\times\vr''(t))' = \vr(t)\cdot(\vr''(t)\times\vr''(t) + \vr'(t)\times\vr'''(t)) = \vr(t)\cdot(\vr'(t)\times\vr'''(t))$.
+\end{sol}
+
 \begin{prp} 給定曲線 $\vr(t)$.  
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item 令 $\widehat\vT(t)$ 為曲線在點 $\vr(t)$ 並指向 $t$ 遞增方向之單位切線向量, 則 $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|}$, $\vr'(t)\ne\vZero$. 
@@ -473,13 +481,6 @@
   $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$. 則 $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$, $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$, \\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$. 
 \end{sol}
 
-\begin{ex}[螺旋線弧長]
-  求 $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk$ 介於 $t = 0$ 與 $t = \pi$ 間弧長. 
-\end{ex}
-\begin{sol}
-  $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$. 則 $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$, $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$, \\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$. 
-\end{sol}
-
 \begin{ex}
   求 $\ds\vr(t) = \llt e^{3t},\,e^{-3t},\,3\sqrt{2}\,t\rgt$ 介於 $t = 0$ 與 $\ds t = \frac{1}{3}$ 間弧長. 
 \end{ex}
@@ -491,7 +492,7 @@
   求 $\ds\vr(t) = \llt t,\,2\,t,\,t^2\rgt$ 介於 $t = 1$ 與 $\ds t = 3$ 間弧長. 
 \end{ex}
 \begin{sol}
-  $\ds\vr'(t) = \llt 1,\,2,\,2\,t\rgt$, $\ds s(3) - s(1) = \int_1^3\big|\vr'(t)\big|\,\dee{t} = \int_1^3\sqrt{5 + 4t^2}\,\dee{t} = \frac{6\sqrt{41} - 6 - 5\ln 5 + 5\ln(\sqrt{41} + 6)}{4}$. \\利用 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big|}{2} + c$. 
+  $\ds\vr'(t) = \llt 1,\,2,\,2\,t\rgt$, $\ds s(3) - s(1) = \int_1^3\big|\vr'(t)\big|\,\dee{t} = \int_1^3\sqrt{5 + 4t^2}\,\dee{t} = \frac{6\sqrt{41} - 6 - 5\ln 5 + 5\ln(\sqrt{41} + 6)}{4}$, \\ 由 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big|}{2} + c$. 
 \end{sol}
 
 \section*{5.3 極限與微分}
