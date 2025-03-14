@@ -8,12 +8,10 @@
 
 - [CLP Calculus Textbooks.](https://personal.math.ubc.ca/~CLP/) &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP1/">CLP1</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP2/">CLP2</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP3/">CLP3</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP4/">CLP4</a>
 - [CLP Calculus Problem Books.](https://personal.math.ubc.ca/~CLP/) &nbsp;重排版（題目緊接詳解，方便閱讀）<br>&nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_1_dc_problems.pdf">CLP1</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_2_ic_problems.pdf">CLP2</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_3_mc_problems.pdf">CLP3</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_4_vc_problems.pdf">CLP4</a>
-<!--
 - [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
   - [Calculus Notes.](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,N)
   - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
   - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
--->
 
 ## 其他可合法下載參考文獻
 
@@ -157,7 +155,7 @@
   - 考試範圍： 04/15 ～ 06/05 講義例題、指定習題。
 - 輔導課成績（40%）
   - 包含作業、練習、上台演示、重點整理。
-
+<!--
 | 上課時間            | 習題進度                       |
 |---------------------|--------------------------------|
 | 02/18, 02/20        | CLP3 1.2, 1.4                  |
@@ -176,7 +174,25 @@
 | 05/27, 05/29        | CLP3 3.6                       |
 | 06/03, 06/05        | CLP3 3.7                       |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06/12 學期考 |                                 |
-
+-->
+| 上課時間            | 習題進度                       |
+|---------------------|--------------------------------|
+| 02/18, 02/20        | CLP3 1.2, 1.4                  |
+| 02/25, 02/27        | CLP3 1.5, 1.6, 2.1 - 2.3       |
+| 03/04, 03/06        | CLP3 2.4                       | 
+| 03/11, 03/13        | CLP3 2.4, 2.5                  |
+| 03/18, 03/20        | CLP3 2.5, 2.7                  |
+| 03/25, 03/27        | CLP3 2.9                       |
+| 04/08, 04/10        | CLP3 2.10                      |
+| 04/15, 04/17 期中考 |                                |
+| 04/22, 04/24        | CLP3 3.1                       |
+| 04/29               | CLP3 3.2                       |
+| 05/06, 05/08        | CLP3 3.4                       |
+| 05/13, 05/15        | CLP3 3.5                       |
+| 05/20, 05/22        | CLP3 3.6                       |
+| 05/27, 05/29        | CLP3 3.7                       |
+| 06/03, 06/05        |                                |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;06/12 學期考 |                                 |
 #### 指定習題
 
 #### 期中考範圍
@@ -195,7 +211,7 @@
 - 2.7.1, 2.7.2, 2.7.29
 - 2.9.7, 2.9.10, 2.9.11, 2.9.16, 2.9.17, 2.9.18, 2.9.19, 2.9.29
 - 2.10.8, 2.10.9, 2.10.12, 2.10.17, 2.10.26
-
+<!-- 
 ##### CLP2
 
 - 3.2.18, 3.2.19, 3.2.23, 3.2.24
@@ -203,6 +219,7 @@
 - 3.4.6, 3.4.9
 - 3.5.6, 3.5.8, 3.5.11, 3.5.13, 3.5.14, 3.5.20, 3.5.21, 3.5.22
 - 3.6.10, 3.6.12, 3.6.14, 3.6.17, 3.6.21, 3.6.22, 3.6.25, 3.6.33, 3.6.39, 3.6.47
+-->
 
 #### 期末考範圍
 
