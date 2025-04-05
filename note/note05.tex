@@ -366,7 +366,7 @@
 \end{figure}
 \vspace{-15mm}
 \begin{prf}
-  \begin{itemize}
+  \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item $\ds|\va\times\vb|^2 =\big(\va\times\vb\big)\cdot\big(\va\times\vb\big) = (a_2b_3-a_3b_2)^2 + (a_3b_1-a_1b_3)^2 + (a_1b_2-a_2b_1)^2 = a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2 +a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2 + a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2$, 而 $\ds|\va|^2\,|\vb|^2\sin^2\theta = |\va|^2\,|\vb|^2(1 - \cos^2\theta) = |\va|^2\,|\vb|^2 - (\va\cdot\vb)^2 = \big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)-\big(a_1b_1+a_2b_2+a_3b_3\big)^2 = a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2 - \big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)$, 故 $|\va\times\vb|=|\va|\,|\vb|\sin\theta$ . 
     \item $\ds\va\cdot(\va\times\vb) = a_1(a_2 b_3 - a_3 b_2) + a_2(a_3 b_1 - a_1 b_3) + a_3(a_1 b_2 - a_2 b_1) = 0$, \\$\ds\vb\cdot(\va\times\vb) = b_1(a_2 b_3 - a_3 b_2) + b_2(a_3 b_1 - a_1 b_3) + b_3(a_1 b_2 - a_2 b_1) = 0$
@@ -871,6 +871,25 @@
 \end{sol}
 
 \begin{ex}
+  若函數 $f(x, y)$ 滿足 $\ds f(tx, ty) = t^n f(x, y)$, $t\ne 0$, $n\in\mathbb{N}$, 稱 $f(x, y)$ 為 $n$ 次齊次函數% (homogeneous of degree $n$)
+; 證明
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds x\pdiff{f}{x} + y\pdiff{f}{y} = nf$.
+      \item $\ds x^2\pdifft{f}{x} + 2xy\frac{\partial^2 f}{\partial x\partial y} + y^2\pdifft{f}{y} = n(n - 1)f$.
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  令 $u(x, y, t) = tx$, $v(x, y, t) = ty$, 則 $\ds f(u(x, y, t), v(x, y, t)) = t^n f(x, y)$. 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item 等式 $\ds f(u(x, y, t), v(x, y, t)) = t^n f(x, y)$ 兩邊對 $t$ 微分 $\ie$ $\ds\pdiff{f}{u}(tx, ty)\pdiff{u}{t} + \pdiff{f}{v}(tx, ty)\pdiff{v}{t} = n t^{n - 1}f(x, y)$ $\ie$ $\ds x\pdiff{f}{u}(tx, ty) + y\pdiff{f}{v}(tx, ty) = n t^{n - 1}f(x, y)$. 令 $t = 1$ 則 $\ds x\pdiff{f}{x} + y\pdiff{f}{y} = nf$.
+    \item 等式 $\ds x\pdiff{f}{u}(tx, ty) + y\pdiff{f}{v}(tx, ty) = n t^{n - 1}f(x, y)$ 兩邊對 $t$ 微分 $\ie$ $\ds\pdiff{}{t}\bigg(x\pdiff{f}{u}(tx, ty) + y\pdiff{f}{v}(tx, ty)\bigg) = n(n - 1) t^{n - 2}f(x, y)$ $\ie$ $\ds x\pdiff{}{t}\bigg(\pdiff{f}{u}(tx, ty)\bigg) + y\pdiff{}{t}\bigg(\pdiff{f}{v}(tx, ty)\bigg) = n(n - 1) t^{n - 2}f(x, y)$. 又 $\ds\pdiff{}{t}\bigg(\pdiff{f}{u}(tx, ty)\bigg)$ $=$ $\ds\pdifft{f}{u}(tx, ty)\pdiff{u}{t} + \frac{\partial^2 f}{\partial v\partial u}(tx, ty)\pdiff{v}{t}$ $=$ $\ds x\pdifft{f}{u}(tx, ty) + y\frac{\partial^2 f}{\partial v\partial u}(tx, ty)$, $\ds\pdiff{}{t}\bigg(\pdiff{f}{v}(tx, ty)\bigg)$ $=$ $\ds\frac{\partial^2 f}{\partial u\partial v}(tx, ty)\pdiff{u}{t} + \pdifft{f}{v}(tx, ty)\pdiff{v}{t}$ $=$ $\ds x\frac{\partial^2 f}{\partial u\partial v}(tx, ty) + y\pdifft{f}{v}(tx, ty)$, 故 $\ds x\pdiff{}{t}\bigg(\pdiff{f}{u}(tx, ty)\bigg) + y\pdiff{}{t}\bigg(\pdiff{f}{v}(tx, ty)\bigg) = x^2\pdifft{f}{u}(tx, ty) + xy\frac{\partial^2 f}{\partial v\partial u}(tx, ty) + yx\frac{\partial^2 f}{\partial u\partial v}(tx, ty) + y^2\pdifft{f}{v}(tx, ty) = n(n - 1) t^{n - 2}f(x, y)$; 令 $t = 1$ 則 $\ds x^2\pdifft{f}{x} + 2xy\frac{\partial^2 f}{\partial x\partial y} + y^2\pdifft{f}{y} = n(n - 1)f$.
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
   若 $\ds u = f(x, y)$, $\ds x = e^s\cos t$, $\ds y = e^s\sin t$, 證明 $\ds\bigg(\pdiff{u}{x}\bigg)^2 + \bigg(\pdiff{u}{y}\bigg)^2 = e^{-2s}\bigg(\bigg(\pdiff{u}{s}\bigg)^2 + \bigg(\pdiff{u}{t}\bigg)^2\bigg)$.   
 \end{ex}
 
@@ -1011,7 +1030,7 @@
 \end{ex}
 
 \begin{sol} 
-  \begin{itemize}
+  \begin{itemize}\setlength{\itemsep}{0pt}
     \item[]
     \item 求 $\ds\frac{\partial^2 z}{\partial\theta\partial r}$: 由鏈鎖律
   \begin{align*}
@@ -1495,6 +1514,38 @@
     x &- 2z - 3 = 0 \label{eq:12}
   \end{align}
   由 \eqref{eq:9} $(1 + \lambda_1) y = 0$, 則 $y = 0\orr\lambda_1 = -1$. 若 $y = 0$, 由 \eqref{eq:11} $x^2 = z^2 \ie x = \pm z$. 若 $x = z$, 由 \eqref{eq:12} $x = z = -3$. 若 $x = -z$, 由 \eqref{eq:12} $x = 1$, $z = -1$; 若 $\lambda_1 = -1$, 由 \eqref{eq:8} $\lambda_2 = 0$, 由 \eqref{eq:10} $z = 0$, 代入 \eqref{eq:11} 得 $x = y = 0$, 與 \eqref{eq:12} 不合. 故極值點為 $(x, y, z) = (-3, 0, -3),\,(1, 0, -1)$; 距離平方 $x^2 + y^2 + z^2$ 最小值為 $2$（最短距離為 $\sqrt{2}$）, 當 $(x, y, z) = (1, 0, -1)$. 
+\end{sol}
+
+\begin{ex}
+  求 $\ds\sum_{k = 1}^n x_k\,y_k$ 在 $\ds\sum_{k = 1}^n x_k^2 = 1$ 與 $\ds\sum_{k = 1}^n y_k^2 = 1$ 下之最大值。 
+\end{ex}
+
+\begin{sol}
+  目標函數為 $\ds\sum_{k = 1}^n x_k\,y_k$, 限制式為 $\ds\sum_{k = 1}^n x_k^2 = 1$, $\ds\sum_{k = 1}^n y_k^2 = 1$; 令 $\ds\mathcal{L} = \ds\sum_{k = 1}^n x_k\,y_k + \lambda_1\,\Big(\sum_{k = 1}^n x_k^2 - 1\Big) + \lambda_2\,\Big(\sum_{k = 1}^n y_k^2 - 1\Big)$, 則 $\;\forall\,i = 1,\,2,\,\ldots,\,n$, $\ds\frac{\partial\mathcal{L}}{\partial x_i} = y_i + 2\lambda_1 x_i = 0$, $\ds\frac{\partial\mathcal{L}}{\partial y_i} = x_i + 2\lambda_2 y_i = 0$. 代入限制式得 $\ds 1 = \sum_{k = 1}^n x_k^2 = \sum_{k = 1}^n(-2\lambda_2 y_k)^2 = 4\lambda_2^2\sum_{k = 1}^n y_k^2 = 4\lambda_2^2$ $\ie$ $\ds\lambda_2 = \pm\frac{1}{2}$ 與 $\ds 1 = \sum_{k = 1}^n y_k^2 = \sum_{k = 1}^n(-2\lambda_1 x_k)^2 = 4\lambda_1^2\sum_{k = 1}^n x_k^2 = 4\lambda_1^2$ $\ie$ $\ds\lambda_1 = \pm\frac{1}{2}$. 故 $x_i = y_i$ 或 $x_i = -y_i$, $i = 1,\,2,\,\ldots,\,n$ $\ie$ $\ds\sum_{k = 1}^n x_k\,y_k$ 之最大值為 $1$.  
+\end{sol}
+
+\begin{ex}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 求 $\ds\sum_{k = 1}^n x_k\,y_k$ 在 $\ds\sum_{k = 1}^n x_k^2 = 1$ 與 $\ds\sum_{k = 1}^n y_k^2 = 1$ 下之最大值.
+    \item 證明 Cauchy 不等式: $\ds\sum_{k = 1}^n a_k b_k \leqslant \Big(\sum_{k = 1}^n a_k^2\Big)^{\frac{1}{2}}\Big(\sum_{k = 1}^n b_k^2\Big)^{\frac{1}{2}}$.
+  \end{itemize}
+\end{ex}
+
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 目標函數為 $\ds\sum_{k = 1}^n x_k\,y_k$, 限制式為 $\ds\sum_{k = 1}^n x_k^2 = 1$, $\ds\sum_{k = 1}^n y_k^2 = 1$; 令 $\ds\mathcal{L} = \ds\sum_{k = 1}^n x_k\,y_k + \lambda_1\,\Big(\sum_{k = 1}^n x_k^2 - 1\Big) + \lambda_2\,\Big(\sum_{k = 1}^n y_k^2 - 1\Big)$, 則 $\;\forall\,i = 1,\,2,\,\ldots,\,n$, $\ds\frac{\partial\mathcal{L}}{\partial x_i} = y_i + 2\lambda_1 x_i = 0$, $\ds\frac{\partial\mathcal{L}}{\partial y_i} = x_i + 2\lambda_2 y_i = 0$. 代入限制式得 $\ds 1 = \sum_{k = 1}^n x_k^2 = \sum_{k = 1}^n(-2\lambda_2 y_k)^2 = 4\lambda_2^2\sum_{k = 1}^n y_k^2 = 4\lambda_2^2$ $\ie$ $\ds\lambda_2 = \pm\frac{1}{2}$ 與 $\ds 1 = \sum_{k = 1}^n y_k^2 = \sum_{k = 1}^n(-2\lambda_1 x_k)^2 = 4\lambda_1^2\sum_{k = 1}^n x_k^2 = 4\lambda_1^2$ $\ie$ $\ds\lambda_1 = \pm\frac{1}{2}$. 故 $x_i = y_i$ 或 $x_i = -y_i$, $\forall\,i = 1,\,2,\,\ldots,\,n$ $\ie$ $\ds\sum_{k = 1}^n x_k\,y_k$ 之最大值為 $\ds\sum_{k = 1}^n x_k^2 = 1$.  
+    \item WLOG 令 $\ds x_i = \frac{a_i}{\big(\sum_{k = 1}^n a_k^2\big)^{\frac{1}{2}}}$, $\ds y_i = \frac{b_i}{\big(\sum_{k = 1}^n b_k^2\big)^{\frac{1}{2}}}$, $i = 1,\,2,\,\ldots,\,n$, 則 $\ds\sum_{k = 1}^n x_k^2 = 1$, $\ds\sum_{k = 1}^n y_k^2 = 1$, 故由上結果 $\ds\sum_{k = 1}^n x_k\,y_k$ $=$ $\ds\sum_{i = 1}^n \frac{a_i}{\big(\sum_{k = 1}^n a_k^2\big)^{\frac{1}{2}}}\frac{b_i}{\big(\sum_{k = 1}^n b_k^2\big)^{\frac{1}{2}}}\leqslant 1$ $\ie$ $\ds\sum_{k = 1}^n a_k b_k = \sum_{i = 1}^n a_i b_i \leqslant \Big(\sum_{k = 1}^n a_k^2\Big)^{\frac{1}{2}}\Big(\sum_{k = 1}^n b_k^2\Big)^{\frac{1}{2}}$.   
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  求 $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}}$ 在 $\ds\sum_{k = 1}^n x_k = c$ 且 $c > 0$, $x_i > 0$, $i = 1,\,2,\,\ldots,\,n$ 下之最大值。 
+\end{ex}
+
+\begin{sol}
+  目標函數為 $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}}$, 限制式為 $\ds\sum_{k = 1}^n x_k - c = 0$; 令 $\ds\mathcal{L} = \Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}} + \lambda\,\Big(\sum_{k = 1}^n x_k - c\Big)$, 則 $\;\forall\,i = 1,\,2,\,\ldots,\,n$, $\ds\frac{\partial\mathcal{L}}{\partial x_i} = \frac{1}{n}\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n} - 1}\cdot\frac{\prod_{k = 1}^n x_k}{x_i} + \lambda = 0$ $\ie$ $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}} + n\,\lambda\,x_i = 0$ $\ie$ $x_1 = x_2 = \cdots = x_n$. 代入限制式, 則 $\ds x_1 = x_2 = \cdots = x_n = \frac{c}{n}$, $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}}$ 最大值為 $\ds\frac{c}{n}$. 
 \end{sol}
 
 \end{document}
