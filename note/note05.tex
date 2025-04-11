@@ -1096,10 +1096,12 @@
 
 \section*{5.5 方向導數與梯度}
 
-\begin{dfn}
-  令 $S\subseteq\mathbb{R}^n$, $\vc\in S$, $\vu\in\mathbb{R}^n$, 可微函數 $\ds f:S\to\mathbb{R}$; $\mathbb{R}^n$ 中直角座標系單位向量為 $\ve_1,\,\ve_2,\,\ldots,\,\ve_n$. 
+以下 $\ds S\subseteq\mathbb{R}^n$, 函數 $\ds f:S\to\mathbb{R}$ 可微, $\vc\in S$. $\mathbb{R}^n$ 中直角座標系單位向量記為 $\ve_1,\,\ve_2,\,\ldots,\,\ve_n$.
+
+\begin{dfn}[方向導數, 梯度]
   \begin{itemize}\setlength{\itemsep}{0pt}
-    \item $f$ 在 $\vc$ 之 $\ds\vu$ 方向導數 (directional derivative) 為 $\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h}$. 
+    \item[]
+    \item 給定 $\vu\in\mathbb{R}^n$, $f$ 在 $\vc$ 之 $\ds\vu$ 方向導數 (directional derivative) 為 $\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h}$. 
     \item $f$ 之偏導數 $\ds f_i(\vc) = D_{\ve_i}f(\vc)$, $i = 1,\,2,\,\ldots,\,n$. 
     \item $f$ 在 $\vc$ 之梯度 (gradient) 為 $\ds\nabla f(\vc) = \llt f_1(\vc),\,f_2(\vc),\,\ldots,\,f_n(\vc)\rgt$. 
   \end{itemize}
@@ -1142,8 +1144,7 @@
 
 \section*{5.6 極值問題}
 
-\begin{dfn}
-  給定 $\ds S\subseteq\mathbb{R}^n$, $\ds f:S\to\mathbb{R}$, $\ds B(\vx, h)\equiv\{\vy\in\mathbb{R}^n\;|\;|\vy - \vx| < h\}$. 
+\begin{dfn}[極值定義] 定義 $\ds B(\vx, h)\equiv\{\vy\in\mathbb{R}^n\;|\;|\vy - \vx| < h\}$,
   \begin{itemize}\setlength\itemsep{0em}
     \item $f$ 在 $\ds\vx_\text{M}\in S$ 有最大值 (global maximum) $\ds f(\vx_\text{M})$: $\ds f(\vx_\text{M})\geqslant f(\vx),\;\forall\,\vx\in S$. 
     \item $f$ 在 $\ds \vx_\text{m}\in S$ 有最小值 (global minimum) $\ds f(\vx_\text{m})$: $\ds f(\vx_\text{m})\leqslant f(\vx),\;\forall\,\vx\in S$. 
@@ -1153,7 +1154,7 @@
 \end{dfn}
 
 \begin{thm}[極值必要條件]
-  給定 $\ds S\subseteq\mathbb{R}^n$ 與可微函數 $\ds f:S\to\mathbb{R}$, 若 $f$ 在 $S$ 之內點 $\vc$ 有極值, 則 $\ds\nabla f(\vc) = \vZero$. 
+  若 $f$ 在 $S$ 之內點 $\vc$ 有極值, 則 $\ds\nabla f(\vc) = \vZero$. 
 \end{thm}
 
 \begin{prf}
@@ -1161,18 +1162,16 @@
 \end{prf}
 
 \begin{fact}
-  給定 $\ds S\subseteq\mathbb{R}^n$, 若 $f:S\to\mathbb{R}$ 在 $\vc\in S$ 有極值, 則 $\vc$ 為以下三情形之一: 
-  \begin{multicols}{2}
-    \begin{itemize}\setlength\itemsep{0em}
-      \item 臨界點 (critical point) : $\ds \nabla f(\vc) = \vZero$. 
-      \item 奇異點 (singular point) : $f$ 在 $\vc$ 不可微.  
-      \item $S$ 的邊界點 (boundary). 
-    \end{itemize}
-  \end{multicols}
+  若 $f$ 在 $\vc\in S$ 有極值, 則 $\vc$ 為以下兩情形之一: 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $\vc$ 為 $f$ 之臨界點 (critical point) : $\vc$ 為 $S$ 之內點且 $\nabla f(\vc) = \vZero$. 
+    %\item 奇異點 (singular point) : $f$ 在 $\vc$ 不可微.  
+    \item $\vc$ 為 $S$ 之邊界點 (boundary). 
+  \end{itemize}
 \end{fact}
 
 \begin{dfn}[Hessian 矩陣]
-  給定 $\ds S\subseteq\mathbb{R}^n$, $S$ 之內點 $\vc$, 與可微函數 $\ds f:S\to\mathbb{R}$, 
+  給定 $S$ 之內點 $\vc$, 
   \begin{align*}
     \vH(f, \vc) = \begin{pmatrix}f_{11} & f_{12} & \cdots & f_{1n} \\ f_{21} & f_{22} & \cdots & f_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ f_{n1} & f_{n2} & \cdots & f_{nn}\end{pmatrix}, \qquad f_{ij} = \frac{\partial^2 f}{\partial x_j\partial x_i}(\vc), \qquad i,\,j = 1,\,2,\,\ldots,\,n.
   \end{align*}
@@ -1180,6 +1179,7 @@
 
 \begin{dfn}[矩陣正 / 負定性] 
   給定 $n\times n$ 實對稱矩陣 $\vA$. 對任意 $\ds\vv\in\mathbb{R}^n\ne\vZero$, 若 
+  \setlength{\columnsep}{10mm}
   \begin{multicols}{2}
     \begin{itemize}\setlength\itemsep{0em}
       \item $\ds\vv\vA\vv^\top > 0$: $\vA$ 正定 (positive-definite)
@@ -1215,33 +1215,37 @@
 %\end{ex}
 
 \begin{thm}[二階導數判定法]
-  給定 $\ds S\subseteq\mathbb{R}^n$ 與可微函數 $\ds f:S\to\mathbb{R}$, 且 $f$ 在 $S$ 之內點 $\vc$ 有 $\ds\nabla f(\vc) = 0$. 
-  \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $\vH(f, \vc)$ 為正定, 則 $f$ 在 $\vc$ 有極小值. 
-    \item 若 $\vH(f, \vc)$ 為負定, 則 $f$ 在 $\vc$ 有極大值. 
-  \end{itemize}
+  給定 $f$ 之臨界點 $\vc$, 若
+  \setlength{\columnsep}{10mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\vH(f, \vc)$ 為正定: $f$ 在 $\vc$ 有極小值. 
+      \item $\vH(f, \vc)$ 為負定: $f$ 在 $\vc$ 有極大值. 
+    \end{itemize}
+  \end{multicols}
 \end{thm}
 
 \begin{fact}
-  考慮 $2\times 2$ 對稱矩陣 $\ds\vA = \begin{pmatrix}\alpha & \gamma\\ \gamma & \beta\end{pmatrix}$: 令 $\ds\vv = \llt x,\,y\rgt$, $\ds\vv\vA\vv^\top = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}\alpha & \gamma\\ \gamma & \beta\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = x\,(\alpha x + \gamma y) + y\,(\gamma x + \beta y) = \alpha x^2 + 2\gamma xy + \beta y^2 = \alpha\,\Big(x + \frac{\gamma}{\alpha}\,y\Big)^2 + \frac{\alpha\beta - \gamma^2}{\alpha}\,y^2$.
+  考慮 $2\times 2$ 對稱矩陣 $\ds\vA = \begin{pmatrix}\alpha & \gamma\\ \gamma & \beta\end{pmatrix}$: 令 $\ds\vv = \llt x,\,y\rgt$, $\ds\vv\vA\vv^\top = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}\alpha & \gamma\\ \gamma & \beta\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = x\,(\alpha x + \gamma y) + y\,(\gamma x + \beta y) = \alpha x^2 + 2\gamma xy + \beta y^2 = \alpha\,\Big(x + \frac{\gamma}{\alpha}\,y\Big)^2 + \frac{\alpha\beta - \gamma^2}{\alpha}\,y^2$. 定義 $\ds D = \det{\vA} = \alpha\beta - \gamma^2$, 若
+  \setlength{\columnsep}{10mm}
   \begin{multicols}{2}
     \begin{itemize}\setlength\itemsep{0em}
-      \item 若 $\ds \alpha\beta - \gamma^2 > 0$ 且 $\ds \alpha > 0$, 則 $\vA$ 為正定. 
-      \item 若 $\ds \alpha\beta - \gamma^2 > 0$ 且 $\ds \alpha < 0$, 則 $\vA$ 為負定. 
+      \item $\ds D > 0$ 且 $\ds\alpha > 0$: $\vA$ 為正定. 
+      \item $\ds D > 0$ 且 $\ds\alpha < 0$: $\vA$ 為負定. 
     \end{itemize}
   \end{multicols}
 \end{fact}
 
 \begin{fact}
-  給定 $\ds S\subseteq\mathbb{R}^2$ 與可微函數 $\ds f:S\to\mathbb{R}$, 且 $f$ 在 $S$ 之內點 $(a, b)$ 有 $\ds\nabla f(a, b) = 0$. 令 
-  \begin{align*}
-    D = f_{xx}(a, b)\cdot f_{yy}(a, b) - (f_{xy}(a, b))^2
-  \end{align*}
-  \begin{itemize}\setlength\itemsep{0em}
-    \item 若 $D > 0$ 且 $\ds f_{xx}(a, b) > 0$, 則 $f$ 在 $(a, b)$ 有極小值. 
-    \item 若 $D > 0$ 且 $\ds f_{xx}(a, b) < 0$, 則 $f$ 在 $(a, b)$ 有極大值. 
-    \item 若 $D < 0$, 則 $(a, b)$ 為鞍點 (saddle point). 
-  \end{itemize}
+  令 $\ds S\subseteq\mathbb{R}^2$, $\vc$ 為 $f(x, y)$ 之臨界點, $\ds D = f_{xx}(\vc)\cdot f_{yy}(\vc) - (f_{xy}(\vc))^2$. 若
+  \setlength{\columnsep}{10mm}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $D > 0$ 且 $\ds f_{xx}(\vc) > 0$: $f$ 在 $\vc$ 有極小值. 
+      \item $D > 0$ 且 $\ds f_{xx}(\vc) < 0$: $f$ 在 $\vc$ 有極大值. 
+      \item $D < 0$: $\vc$ 為鞍點 (saddle point). 
+    \end{itemize}
+  \end{multicols}
 \end{fact}
 
 \begin{ex} 
@@ -1546,6 +1550,130 @@
 
 \begin{sol}
   目標函數為 $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}}$, 限制式為 $\ds\sum_{k = 1}^n x_k - c = 0$; 令 $\ds\mathcal{L} = \Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}} + \lambda\,\Big(\sum_{k = 1}^n x_k - c\Big)$, 則 $\;\forall\,i = 1,\,2,\,\ldots,\,n$, $\ds\frac{\partial\mathcal{L}}{\partial x_i} = \frac{1}{n}\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n} - 1}\cdot\frac{\prod_{k = 1}^n x_k}{x_i} + \lambda = 0$ $\ie$ $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}} + n\,\lambda\,x_i = 0$ $\ie$ $x_1 = x_2 = \cdots = x_n$. 代入限制式, 則 $\ds x_1 = x_2 = \cdots = x_n = \frac{c}{n}$, $\ds\Big(\prod_{k = 1}^n x_k\Big)^{\frac{1}{n}}$ 最大值為 $\ds\frac{c}{n}$. 
+\end{sol}
+
+% XXX Hadamard Inequality Writeup
+% https://math.stackexchange.com/questions/4720183/hadamards-inequality-via-lagrange-multiplier
+% XXX Lagrange Multipliers Writeup
+% https://math.stackexchange.com/questions/1760709/how-to-prove-lagrange-multiplier-theorem-in-a-rigorous-but-intuitive-way?rq=1
+
+%XXX Stewart Calculus Chapter 14 Review Exercises Selections
+%\begin{ex}
+%  對下列函數求所有一階偏導數:
+%  \begin{multicols}{3}
+%    \begin{enumerate}\setlength{\itemsep}{0pt}
+%      \item $\ds f(x, y) = (5y^3 + 2x^2y)^8$
+%      \item $\ds F(\alpha,\beta) = \alpha^2\ln(\alpha^2 + \beta^2)$
+%      \item $\ds g(u, v) = \frac{u + 2v}{u^2 + v^2}$
+%      \item $\ds G(x, y, z) = e^{xz}\sin{\frac{y}{z}}$
+%      \item $\ds S(u, v, w) = u\tan^{-1}(v\sqrt{w})$
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{ex}
+%  對下列函數求所有二階偏導數:
+%  \begin{multicols}{4}
+%    \begin{enumerate}\setlength{\itemsep}{0pt}
+%      \item $\ds f(x, y) = 4x^3 - xy^2$
+%      \item $\ds z = xe^{-2y}$
+%      \item $\ds f(x, y, z) = x^k y^l z^m$
+%      \item $\ds v = r\cos(s + 2t)$
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{ex}
+%  若 $\ds z = xy + xe^{\frac{y}{x}}$, 證明 $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = xy + z$.
+%\end{ex}
+%
+%\begin{ex}
+%  若 $\ds z = \sin(x + \sin t)$, 證明 $\ds \pdiff{z}{x}\frac{\partial^2 z}{\partial x\partial t} = \pdiff{z}{t}\pdifft{z}{x}$.
+%\end{ex}
+%
+%\begin{ex}
+%  若 $\ds\cos(x y z) = 1 + x^2 y^2 + z^2$, 求 $\ds\pdiff{z}{x}$ 與 $\ds\pdiff{z}{y}$.
+%\end{ex}
+%
+%\begin{ex}
+%  若 $\ds f(x, y, z) = x^2 e^{yz^2}$, 求 $\ds\nabla f$.
+%\end{ex}
+%
+%\begin{ex}
+%  給定以下曲面及其上一點, 求 (a) 切平面 (b) 法線方程式.
+%  \begin{multicols}{2}
+%    \begin{enumerate}\setlength{\itemsep}{0pt}
+%      \item $\ds z = 3x^2 - y^2 + 2x$, $(1, -2, 1)$
+%      \item $\ds z = e^x\cos y$, $(0, 0, 1)$
+%      \item $\ds x^2 + 2y^2 - 3z^2 = 3$, $(2, -1, 1)$
+%      \item $\ds xy + yz + zx = 3$, $(1, 1, 1)$
+%      \item $\ds \sin(x y z) = x + 2y + 3z$, $(2, -1, 0)$
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{ex}
+%  求下列函數 $f$ 在給定點與方向之方向導數:
+%  \begin{enumerate}
+%    \item $\ds f(x, y) = x^2 e^{-y}$, $(-2, 0)$ 與指向 $(2, -3)$ 之方向
+%    \item $\ds f(x, y, z) = x^2 y + x\sqrt{1 + z}$, $(1, 2, 3)$ 與方向 $\vv = 2\,\hi + \hj - 2\,\hk$.
+%  \end{enumerate}
+%\end{ex}
+%
+%\begin{ex}
+%  求 $\ds f(x, y) = x^2 y + \sqrt{y}$ 在 $(2, 1)$ 的最大變化率及出現之方向.
+%\end{ex}
+%
+%\begin{ex} 求下列函數之局域極值與鞍點.
+%  \begin{multicols}{3}
+%    \begin{enumerate}\setlength{\itemsep}{0pt}
+%      \item $\ds f(x, y) = x^3 - 6 x y + 8 y^3$
+%      \item $\ds f(x, y) = 3 xy - x^2y - xy^2$
+%      \item $\ds f(x, y) = (x^2 + y)e^{\frac{y}{2}}$
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{ex} 以 Lagrange 乘數法求下列極值問題.
+%  \begin{multicols}{2}
+%    \begin{enumerate}\setlength{\itemsep}{0pt}
+%      \item $\ds f(x, y) = x^2 y$, $\ds x^2 + y^2 = 1$.
+%      \item $\ds f(x, y) = \frac{1}{x} + \frac{1}{y}$, $\ds\frac{1}{x^2} + \frac{1}{y^2} = 1$.
+%      \item $\ds f(x, y, z) = x y z$, $\ds x^2 + y^2 + z^2 = 3$.
+%      \item $\ds f(x, y, z) = x^2 + 2y^2 + 3z^2$, $\ds x + 2y + z = 1$, $\ds x - y + 2z = 2$.
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{sol}
+%  令 $\ds\mathcal{L} = x^2 + 2y^2 + 3z^2 + \lambda_1\,(1 - x - 2y - z) + \lambda_2\,(2 - x + y - 2z)$, 則
+%  \begin{align}
+%    \pdiff{\mathcal{L}}{x} &= 2 x - \lambda_1 - \lambda_2 = 0 \ie x = \frac{\lambda_1 + \lambda_2}{2}\label{eq:l1}\\
+%    \pdiff{\mathcal{L}}{y} &= 4 y - 2\lambda_1 + \lambda_2 = 0 \ie y = \frac{2\lambda_1 - \lambda_2}{4}\label{eq:l2}\\
+%    \pdiff{\mathcal{L}}{z} &= 6 z - \lambda_1 - 2\lambda_2 = 0 \ie z = \frac{\lambda_1 + 2\lambda_2}{6}\label{eq:l3}\\
+%    x &+ 2y + z = 1 \label{eq:l4}\\
+%    x &- y + 2z = 2 \label{eq:l5}
+%  \end{align}
+%  表示式 \eqref{eq:l1} \eqref{eq:l2} \eqref{eq:l3} 代入 \eqref{eq:l4} 得 $\frac{\lambda_1+\lambda_2}{2} + 2 \frac{2\lambda_1 - \lambda_2}{4} + \frac{\lambda_1 + 2\lambda_2}{6} = 1$ $\ie$ $5\lambda_1 + \lambda_2 = 3$, 代入 \eqref{eq:l5} 得 $\frac{\lambda_1+\lambda_2}{2} - \frac{2\lambda_1 - \lambda_2}{4} + 2\frac{\lambda_1 + 2\lambda_2}{6} = 2$ $\ie$ $4\lambda_1 + 17\lambda_2 = 24$; 解得 $\lambda_1 = \frac{1}{3}$, $\lambda_2 = \frac{4}{3}$, 故 $(x, y, z) = (\frac{5}{6}, -\frac{1}{6}, \frac{1}{2})$, $x^2 + 2y^2 + 3z^2$ 最小值為 $\frac{3}{2}$. 
+%\end{sol}
+%
+%\begin{ex}
+%  求曲面 $xy^2z^3 = 2$ 上與原點距離最近之點及其最短距離.
+%\end{ex}
+
+\begin{ex}
+  一等腰三角形與長方形合併成之五邊形邊長為 $L$, 求面積最大之各邊長度.
+\end{ex}
+
+\begin{sol}
+  令 $\ds\mathcal{L} = 2xy + y^2\tan\theta + \lambda\,(L - 2x - 2y - 2y\sec\theta)$, 則
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 y - 2\lambda = 0 \ie y = \lambda\label{eq:p1}\\
+    \pdiff{\mathcal{L}}{y} &= 2 x + 2 y\tan\theta - 2\lambda - 2\lambda\sec\theta = 0\label{eq:p2}\\
+    \pdiff{\mathcal{L}}{\theta} &= y^2\sec^2\theta - 2y\lambda\sec\theta\tan\theta = 0\label{eq:p3}\\
+    2x &+ 2y + 2y\sec\theta = L \label{eq:p4}
+  \end{align}
+  \eqref{eq:p1} 代入 \eqref{eq:p3} 得 $\lambda^2\sec\theta(\sec\theta - 2\tan\theta) = 0$; $\lambda\ne 0$ 且 $\sec\theta\ne 0$ $\ie$ $1 - 2\sin\theta = 0$ $\ie$ $\theta = \frac{\pi}{6}$. 代入 \eqref{eq:p2}, \eqref{eq:p4} 分別得 $2x + 2y\frac{1}{\sqrt{3}} - 2y - 2y\frac{2}{\sqrt{3}} = 0$, $2 x + 2y + 2y\frac{2}{\sqrt{3}} = L$, 解得 $x = \frac{3 - \sqrt{3}}{6}L$, $y = \frac{2 - \sqrt{3}}{2}L$. 
 \end{sol}
 
 \end{document}
