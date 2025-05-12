@@ -638,13 +638,13 @@
 \end{ex}
 
 \begin{thm}[重積分變數變換]
-  給定 $\Omega_x,\,\Omega_u\subseteq\mathbb{R}^n$, $\ds\vx = \vx(\vu):\,\Omega_u\to\Omega_x$ 且 
+  給定 $\Omega_{\vx},\,\Omega_{\vu}\subseteq\mathbb{R}^n$, $\ds\vx = \vx(\vu):\,\Omega_{\vu}\to\Omega_{\vx}$ 且 
   \begin{itemize}
-    \item $\vx$ 為嵌射 (亦即 $\ds\vx(\Omega_u) = \Omega_x,\;\vx^{-1}(\Omega_x) = \Omega_u$)
+    \item $\vx$ 為嵌射 (亦即 $\ds\vx(\Omega_{\vu}) = \Omega_{\vx},\;\vx^{-1}(\Omega_{\vx}) = \Omega_{\vu}$)
     \item $\vx$ 之各分量函數 $x_j$, $j = 1,\,2\,\ldots,\,n$ 為連續可偏微分
-    \item $\forall\,\vu\in\Omega_u$, $\vx$ 之 Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial x_1}{\partial u_1} & \frac{\partial x_1}{\partial u_n} & \ldots &\frac{\partial x_1}{\partial u_n} \\ \frac{\partial x_2}{\partial u_1}& \frac{\partial x_2}{\partial u_n} & \ldots &\frac{\partial x_2}{\partial u_n} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial x_n}{\partial u_1} & \frac{\partial x_n}{\partial u_n} & \ldots &\frac{\partial x_n}{\partial u_n} \end{vmatrix}(\vu)\ne 0$
+    \item $\forall\,\vu\in\Omega_{\vu}$, $\vx$ 之 Jacobian $\ds J_{\vx}(\vu) = \frac{\partial\vx}{\partial\vu}(\vu) = \begin{vmatrix}\frac{\partial x_1}{\partial u_1} & \frac{\partial x_1}{\partial u_n} & \ldots &\frac{\partial x_1}{\partial u_n} \\ \frac{\partial x_2}{\partial u_1}& \frac{\partial x_2}{\partial u_n} & \ldots &\frac{\partial x_2}{\partial u_n} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial x_n}{\partial u_1} & \frac{\partial x_n}{\partial u_n} & \ldots &\frac{\partial x_n}{\partial u_n} \end{vmatrix}(\vu)\ne 0$
   \end{itemize}
-  則對於可積函數 $f:\Omega_x\to\mathbb{R}$, $\ds\int_{\Omega_x} f(\vx)\,\text{d}\vx = \int_{\vx^{-1}(\Omega_x)}\!\!\!\!f(\vx(\vu))\,\big|J_{\vx}(\vu)\big|\,\text{d}\vu = \int_{\vx^{-1}(\Omega_x)}\!\!\!\!f(\vx(\vu))\,\bigg|\frac{\partial\vx}{\partial\vu}\bigg|\,\text{d}\vu$.
+  則對於可積函數 $f:\Omega_{\vx}\to\mathbb{R}$, $\ds\int_{\Omega_{\vx}} f(\vx)\,\text{d}\vx = \int_{\vx^{-1}(\Omega_{\vx})}\!\!\!\!f(\vx(\vu))\,\big|J_{\vx}(\vu)\big|\,\text{d}\vu = \int_{\vx^{-1}(\Omega_{\vx})}\!\!\!\!f(\vx(\vu))\,\bigg|\frac{\partial\vx}{\partial\vu}\bigg|\,\text{d}\vu$.
 \end{thm}
 
 %\begin{prf}[Sketch; 以二重積分為例]
