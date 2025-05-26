@@ -1621,12 +1621,12 @@
   由 $\ds e^{-x^2}\leqslant 1\;\forall\,0 \leqslant x < 1$ 及 $\ds e^{-x^2}\leqslant e^{-x}\;\forall\,x\geqslant 1$, $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x = \int_0^1\!e^{-x^2}\,\text{d}x + \int_1^\infty\!e^{-x^2}\,\text{d}x\leqslant\int_0^1\!1\,\text{d}x + \int_1^\infty\!e^{-x}\,\text{d}x = 1 + \frac{1}{e}$, 故 $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x$ 收斂. 
 \end{sol}
 
-\begin{ex}[$\Gamma$ 函數]
-  已知 $\ds\int_0^\infty\!e^{-t^2}\,\text{d}t = \frac{\sqrt{\pi}}{2}$. 
+\begin{ex}%[$\Gamma$ 函數] 
+  定義 $\Gamma$ 函數 $\ds\Gamma(x)\equiv\int_0^\infty\!t^{x - 1}e^{-t}\,\text{d}t$; 已知 $\ds\int_0^\infty\!e^{-t^2}\,\text{d}t = \frac{\sqrt{\pi}}{2}$. 
   \setlength{\columnsep}{-2mm}
   \begin{multicols}{2}
     \begin{enumerate}\setlength{\itemsep}{0pt}
-      \item 證明 $\ds\Gamma(x)\equiv\int_0^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂, $\ds\forall\,x > 0$. 
+      \item 證明 $\ds\Gamma(x)$ 收斂, $\ds\forall\,x > 0$. 
       \item 證明 $\ds\Gamma(x + 1) = x\,\Gamma(x)$, $\ds\forall\,x > 0$. 
       \item 證明 $\ds\Gamma(n + 1) = n!$, $\ds\forall\,n\in\mathbb{N}$. 
       \item 求 $\ds\Gamma\Big(\frac{1}{2}\Big)$ 與 $\ds\Gamma\Big(\frac{3}{2}\Big)$. 
