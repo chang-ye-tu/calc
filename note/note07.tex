@@ -249,6 +249,11 @@
 \usepackage{nicefrac}
 \newcommand{\eqover}[1]{}
 
+\usepackage{etoolbox}
+\newbool{changeorder}
+\newbool{gamma}
+%\booltrue{changeorder}
+
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第七章\ \ 重積分}{第七章\ \ 重積分}} 
 \author{\vspace{-5em}}
@@ -629,6 +634,14 @@
 
 \begin{prf}
   令 $\ds G(x_1, x_2, x_3) = \int_{x_1}^{x_2}f(t, x_3)\,\mathrm{d}t$ $\forall\,x_1,\,x_2\in[a, b]$, $x_3\in[c, d]$, 則 $F(y) = G(p(y), q(y), y)$. 由鏈鎖律 $\ds F'(y) = G_1(p(y), q(y), y)\,p'(y) + G_2(p(y), q(y), y)\,q'(y) + G_3(p(y), q(y), y)$. 微積分基本定理結論 $G_1(x_1, x_2, x_3) = -f(x_1, x_3)$, $G_2(x_1, x_2, x_3) = f(x_2, x_3)$, 由上定理 $\ds G_3(x_1, x_2, x_3) = \int_{x_1}^{x_2}\frac{\partial f}{\partial y}(t, x_3)\,\mathrm{d}t$; 代回得證.
+\end{prf}
+
+\begin{ex}
+  Beta 函數定義為 $\ds B(m, n) = \int_0^1 t^{m - 1}(1 - t)^{n - 1}\,\mathrm{d}t$ $\forall\,m, n > 0$. 證明 $\ds B(m, n) = \frac{\Gamma(m)\,\Gamma(n)}{\Gamma(m + n)}$.
+\end{ex}
+
+\begin{prf}
+  變數變換 $t = u^2$ 使 $\ds\Gamma(x) = \int_0^\infty\!\!e^{-t}t^{x - 1}\,\mathrm{d}t$ 轉為 $\ds\Gamma(x) = 2\int_0^\infty\!\!e^{-u^2}u^{2x - 1}\,\mathrm{d}u$. 則 $\ds\Gamma(m)\,\Gamma(n) = \bigg(2\int_0^\infty\!\!e^{-u^2}u^{2m - 1}\,\mathrm{d}u\bigg)\bigg(2\int_0^\infty\!\!e^{-v^2}v^{2n - 1}\,\mathrm{d}v\bigg)$ $=$ $\ds 4\int_0^\infty\!\!\!\int_0^\infty\!\!e^{-(u^2 + v^2)}u^{2m - 1}v^{2n - 1}\,\mathrm{d}u\,\mathrm{d}v$ $=$ $\ds 4\int_0^{\frac{\pi}{2}}\!\!\!\int_0^\infty\!\!e^{-r^2}(r\cos\theta)^{2m - 1}(r\sin\theta)^{2n - 1}\,r\,\mathrm{d}r\mathrm{d}\theta$ $=$ $\ds\bigg(2\int_0^{\frac{\pi}{2}}\!\!\cos^{2m - 1}\theta\sin^{2n - 1}\theta\,\mathrm{d}\theta\bigg)\bigg(2\int_0^\infty\!\!e^{-r^2}r^{2(m + n) - 1}\,\mathrm{d}r\bigg)$ $=$ $\ds\Gamma(m + n)\cdot 2\int_0^{\frac{\pi}{2}}\!\!\cos^{2m - 1}\theta\sin^{2n - 1}\theta\,\mathrm{d}\theta$. 令 $t = \cos^2\theta$, 則 $\mathrm{d}t = -2\cos\theta\sin\theta\,\mathrm{d}\theta$; 故 $\ds 2\int_0^{\frac{\pi}{2}}\!\!\cos^{2m - 1}\theta\sin^{2n - 1}\theta\,\mathrm{d}\theta$ $=$ $\ds\int_0^{\frac{\pi}{2}}\!\!\cos^{2m - 2}\theta\sin^{2n - 2}\theta\big(-2\cos\theta\sin\theta\,\mathrm{d}\theta\big)$ $=$ $\ds-\int_1^0 t^{m - 1}(1 - t)^{n - 1}\,\mathrm{d}t$ $=$ $\ds\int_0^1 t^{m - 1}(1 - t)^{n - 1}\,\mathrm{d}t = B(m, n)$.
 \end{prf}
 
 \begin{ex}
@@ -1067,6 +1080,8 @@
   $\ds\int_E y\,\text{d}V = \int_0^1\!\!\int_{\frac{x}{2}}^{\frac{2 - x}{2}}\!\!\!\!\int_0^{2 - x - 2y}\!\!y\,\text{d}z\,\text{d}y\,\text{d}x = \int_0^1\!\!\int_{\frac{x}{2}}^{\frac{2 - x}{2}}(2 - x - 2y)\,y\,\text{d}y\,\text{d}x = \int_0^1\bigg(\frac{(2 - x)y^2}{2} - \frac{2y^3}{3}\bigg)\,\bigg|_{\frac{x}{2}}^{\frac{2 - x}{2}}\,\text{d}x  = \int_0^1\bigg(\frac{2 - x}{2}\Big(\Big(\frac{2 - x}{2}\Big)^2 - \Big(\frac{x}{2}\Big)^2\Big) - \frac{2}{3}\Big(\Big(\frac{2 - x}{2}\Big)^3 - \Big(\frac{x}{2}\Big)^3\bigg)\,\text{d}x = \int_0^1\bigg(\frac{2 - x}{2}\,(1 - x) - \frac{2}{3}(1 - x)\Big(\Big(\frac{2 - x}{2}\Big)^2 + \frac{2 - x}{2}\cdot\frac{x}{2} + \Big(\frac{x}{2}\Big)^2\bigg)\,\text{d}x = \frac{1}{6}\int_0^1(x^3 - 3x + 2)\,\text{d}x = \frac{1}{6}\,\Big(\frac{1}{4} - \frac{3}{2} + 2\Big) = \frac{1}{8}$.
 \end{sol}
 
+\ifbool{changeorder}{
+
 \subsection*{積分順序交換}
 
 \begin{ex}
@@ -1329,6 +1344,8 @@
 \begin{sol}
   建立 $(t, z, y)$ 座標系, 其相對位置如 $(x, y, z)$; $\ds\int_0^{x}\!\int_0^{y}\!\int_0^{z}\!f(t)\,\text{d}t\,\text{d}z\,\text{d}y = \int_0^{x}\!\int_t^{x}\!\int_{t}^{y}\!f(t)\,\text{d}z\,\text{d}y\,\text{d}t \\= \int_0^{x}\!\int_t^{x}\!(y - t)\,f(t)\,\text{d}y\,\text{d}t = \int_0^{x}\Big(\frac{x^2 - t^2}{2} f(t) - (x - t)\,t\,f(t)\Big)\,\text{d}t = \frac{1}{2}\int_0^x(x - t)^2 f(t)\,\text{d}t$. 
 \end{sol}
+
+}{}
 
 \subsection*{變數變換}
 
