@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{extarticle} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx,makecell}
+\usepackage[margin=15mm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+\DeclareMathOperator\prob{{\sf P}}
+\DeclareMathOperator\expc{{\sf E}}
+\DeclareMathOperator\var{var}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\theadfont}{\normalsize\bfseries}
+
+\begin{document}
+
+\begingroup  
+  \centering
+  \LARGE\textbf{Table of Common Probability Distributions}
+  \par
+\endgroup
+\vspace{2em}
+
+\section*{Discrete Distributions}
+\begin{table}[!htbp]
+  \centering
+  \scalebox{0.96}{
+  \begin{tabular}{lllcc} \toprule
+    \thead{Distribution} & \thead{Notation} & \thead{PMF} & $\expc\{X\}$ & $\var\{X\}$ \\ 
+    \midrule
+    binomial & $\ds X\sim {\sf bin}(n, p)$ & $\ds {\sf p}(x) = \binom{n}{x}\,p^x(1 - p)^{n - x},\; x = 0,\,\ldots,\,n$ & $\ds np$ & $\ds np(1 - p)$ \\ [30pt]
+    Poisson & $\ds X\sim {\sf poi}(\lambda)$ & $\ds {\sf p}(x) = \frac{e^{-\lambda}\lambda^x}{x!},\; x\geqslant 0$ & $\ds\lambda$ & $\ds\lambda$ \\ [30pt]
+    geometric & $\ds X\sim {\sf geo}(p)$ & $\ds {\sf p}(x) = p(1 - p)^{x - 1},\; x = 1,\,2,\,\ldots$ & $\ds\frac{1}{p}$ & $\ds\frac{1 - p}{p^2}$ \\ [30pt]
+    negative binomial & $\ds X\sim {\sf nbin}(r, p)$ & $\ds {\sf p}(x) = \binom{x - 1}{r - 1}\,p^r(1 - p)^{x - r},\; x\geqslant r$ & $\ds\frac{r}{p}$ & $\ds\frac{r(1 - p)}{p^2}$ \\ [30pt]
+    hypergeometric & \makecell{$\ds X\sim {\sf hgeo}(n, N, m)$ \\ $\ds p = \frac{m}{N}$} & $\ds {\sf p}(x) = \frac{\binom{m}{x}\binom{N - m}{n - x}}{\binom{N}{n}},\; x = 0,\,\ldots,\,m$ & $\ds np$ & $\ds\frac{N - n}{N - 1}\cdot np(1 - p)$ \\ %[30pt]
+    \bottomrule
+  \end{tabular}
+  }
+\end{table}
+
+\section*{Continuous Distributions}
+\begin{table}[!htbp]
+  \centering
+  %\scalebox{0.96}{
+  \begin{tabular}{lllcc} \toprule
+    \thead{Distribution} & \thead{Notation} & \thead{PDF} & $\expc\{X\}$ & $\var\{X\}$ \\ 
+    \midrule
+    uniform & $\ds X\sim {\sf U}(a, b)$ & $\ds f(x) = \begin{cases}\frac{1}{b - a} & a\leqslant x\leqslant b \\ 0 & \text{otherwise}\end{cases}$ & $\ds\frac{a + b}{2}$ & $\ds\frac{(b - a)^2}{12}$ \\ [30pt]
+    normal & $\ds X\sim {\sf N}(\mu, \sigma^2)$ & $\ds f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x - \mu)^2}{2\sigma^2}},\;-\infty < x < \infty$ & $\ds\mu$ & $\ds\sigma^2$ \\ [30pt]
+    exponential & $\ds X\sim {\sf exp}(\lambda)$ & $\ds f(x) = \begin{cases}\lambda e^{-\lambda x} & x \geqslant 0 \\ 0 & \text{otherwise}\end{cases}$ & $\ds\frac{1}{\lambda}$ & $\ds\frac{1}{\lambda^2}$ \\ [30pt]
+    gamma & $\ds X\sim {\sf gamma}(\lambda, \alpha)$ & \makecell{$\ds f(x) = \begin{cases}\lambda e^{-\lambda x}\cdot\frac{(\lambda x)^{\alpha - 1}}{\Gamma(\alpha)} & x \geqslant 0 \\ 0 & \text{otherwise}\end{cases}$ \\$\ds\Gamma(\alpha) = \int_0^\infty\!\!e^{-x}x^{\alpha - 1}\,\text{d}x$ }& $\ds\frac{\alpha}{\lambda}$ & $\ds\frac{\alpha}{\lambda^2}$ \\ [40pt]
+    beta & $\ds X\sim {\sf beta}(a, b)$ & \makecell{$\ds f(x) = \begin{cases}\frac{x^{a - 1}(1 - x)^{b - 1}}{B(a, b)} & 0 \leqslant x \leqslant 1 \\ 0 & \text{otherwise}\end{cases}$ \\ $\ds\quad B(a, b) = \int_0^1\!x^{a - 1}(1 - x)^{b - 1}\,\text{d}x$} & $\ds\frac{a}{a + b}$ & $\ds\frac{ab}{(a + b)^2(a + b + 1)}$ \\ %[30pt]
+    \bottomrule
+  \end{tabular}
+  %}
+\end{table}
+
+\end{document}

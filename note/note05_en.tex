@@ -1,0 +1,1498 @@
+\documentclass[12pt]{extarticle} 
+%\usepackage{unicode-math}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm,footskip=5mm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+% figure --> Figure
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\refname}{References}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{Definition}
+\newtheorem*{prp}{Property}
+\newtheorem*{fact}{Conclusion}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{ex}{Ex}
+\newtheorem*{sol}{Sol}
+\newtheorem*{prf}{Proof}
+\newtheorem*{rmk}{Remark}
+\newtheorem*{exe}{Exercise}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+%\newcommand{\myline}{\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from clp3
+
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vR}{\mathbf{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vC}{\mathbf{C}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vu}{\mathbf{u}}
+%\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vH}{\mathbf{H}}
+\newcommand{\vM}{\mathbf{M}}
+\newcommand{\vT}{\mathbf{T}}
+\newcommand{\vN}{\mathbf{N}}
+\newcommand{\vL}{\mathbf{L}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vD}{\mathbf{D}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\vZero}{\mathbf{0}}
+\newcommand{\vPhi}{\mathbf{\Phi}}
+\newcommand{\vOmega}{\mathbf{\Omega}}
+\newcommand{\vTheta}{\mathbf{\Theta}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+
+%\newcommand{\hi}{\hat{\mathbf{i}}}
+%\newcommand{\hj}{\hat{\mathbf{j}}}
+\newcommand{\hi}{\widehat{\pmb{\imath}}}
+\newcommand{\hj}{\widehat{\pmb{\jmath}}}
+\newcommand{\hk}{\widehat{\mathbf{k}}}
+\newcommand{\hn}{\widehat{\mathbf{n}}}
+\newcommand{\hr}{\widehat{\mathbf{r}}}
+\newcommand{\hvt}{\widehat{\mathbf{t}}}
+\newcommand{\hN}{\widehat{\mathbf{N}}}
+\newcommand{\vth}{{\pmb{\theta}}}
+\newcommand{\vTh}{{\pmb{\Theta}}}
+%\newcommand{\vnabla}{\pmb{\nabla}}
+\newcommand{\vnabla}{   { \mathchoice{\pmb{\nabla}}
+                            {\pmb{\nabla}}
+                            {\pmb{\scriptstyle\nabla}}
+                            {\pmb{\scriptscriptstyle\nabla}} }   }
+\newcommand{\ha}[1]{\mathbf{\hat e}^{(#1)}}
+
+\newcommand{\bbbc}{\mathbb{C}}
+
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\vOm}{\pmb{\Omega}}
+\newcommand{\svOm}{\pmb{\scriptsize\Omega}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\de}{\delta}
+\newcommand{\ga}{\gamma}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\bbbone}{\mathbb{1}}
+
+\def\tr{\mathop{\rm tr}}
+\newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+%\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdifft}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dblInt}{\iint}
+\newcommand{\tripInt}{\iiint}
+%\newcommand{\dblInt}{\int\!\!\int}
+%\newcommand{\tripInt}{\int\!\!\!\int\!\!\!\int}
+%\newcommand{\dblInt}{\mathop{\int\!\!\!\int}}
+%\newcommand{\tripInt}{\mathop{\int\!\!\!\int\!\!\!\int}}
+
+\newcommand{\Set}[2]{\big\{ \ #1\ \big|\ #2\ \big\}}
+\newcommand{\rhof}{{\rho_{\!{\scriptscriptstyle f}}}}
+\newcommand{\rhob}{{\rho_{{\scriptscriptstyle b}}}}
+
+\renewcommand{\neg}{ {\sim} }
+\newcommand{\limp}{ {\;\Rightarrow\;} }
+\newcommand{\nimp}{ {\;\not\Rightarrow\;} }
+\newcommand{\liff}{ {\;\Leftrightarrow\;} }
+\newcommand{\niff}{ {\;\not\Leftrightarrow\;} }
+
+\newcommand{\st}{ {\mbox{ s.t. }} }
+\newcommand{\es}{ {\varnothing}}
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+\newcommand{\set}[1]{ \left\{#1\right\} }
+
+\newcommand{\bbbn}{\mathbb{N}}
+\newcommand{\bbbr}{\mathbb{R}}
+\newcommand{\bbbp}{\mathbb{P}}
+\newcommand{\De}{\Delta}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\dee}[1]{\mathrm{d}#1}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\difftwo}[2]{\frac{\mathrm{d^2} #1}{\mathrm{d}{#2}^2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+
+\usepackage{nicefrac}
+\newcommand{\eqover}[1]{}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} Chapter 5\ \ Partial Differentiation}{Chapter 5\ \ Partial Differentiation}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+\section*{5.0 Classification of Calculus Functions}
+\setlength{\columnsep}{-10mm}
+\begin{multicols}{2}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item Single-variable: $\mathbb{R}\to\mathbb{R}$
+    \item Vector-valued: $\mathbb{R}\to\mathbb{R}^n$, $n > 1$ (5.2)
+    \item Multivariable: $\mathbb{R}^n\to\mathbb{R}$, $n > 1$ (5.3)
+    \item Multivariable vector-valued: $\mathbb{R}^n\to\mathbb{R}^m$, $m$, $n > 1$
+  \end{enumerate}
+\end{multicols}
+
+\section*{5.1 Space Vectors}
+
+\begin{dfn}[Notation]
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item Vector: $\va$, $\vx$
+    \item Component form: $\va = \llt a_1,\,a_2,\,a_3\rgt$, $a_1$, $a_2$, $a_3\in\mathbb{R}$; $\va\in\mathbb{R}^3$. 
+    \item Vector magnitude: $|\va| = |\llt a_1,\,a_2,\,a_3 \rgt| = \sqrt{a_1^2 + a_2^2 + a_3^2}$. 
+    \item Unit vectors in three-dimensional Cartesian coordinates: $\hi = \llt 1,\,0,\,0\rgt$, $\hj = \llt 0,\,1,\,0\rgt$, $\hk = \llt 0,\,0,\,1\rgt$
+    \item $\va = \llt a_1,\,a_2,\,a_3\rgt \equiv a_1\,\hi + a_2\,\hj + a_3\,\hk$
+  \end{itemize}
+\end{dfn}
+
+\begin{dfn}[Inner/Dot Product]
+  Given $n$-dimensional vectors ($n\geqslant 2$) $\va = \llt a_1,\,a_2,\,\ldots,\,a_n\rgt$, $\vb = \llt b_1,\,b_2,\,\ldots,\,b_n\rgt$, the inner/dot product of $\va$ and $\vb$ is defined as $\ds\va\cdot\vb = \sum_{i = 1}^n a_i\,b_i$. 
+\end{dfn}
+
+\begin{prp} Given $\va$, $\vb$, $\vc\in\mathbb{R}^n$, $n\geqslant 2$, $s\in\mathbb{R}$. Then
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\va\cdot\vb = |\va|\,|\vb|\,\cos\theta$, where $0\leqslant\theta\leqslant\pi$ is the angle between $\va$ and $\vb$. 
+  \end{itemize}
+  And
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\cdot\va = |\va|^2$
+      \item $\va\cdot\vb = \vb\cdot\va$
+      \item $(s\va)\cdot\vb = s(\va\cdot\vb)$
+      \item $\vZero\cdot a = 0$
+      \item $\va\cdot\vb = 0\ifff\va=\vZero\;\vee\;\vb = \vZero\;\vee\;\va\,\bot\,\vb$
+      \item $\va\cdot(\vb + \vc) = \va\cdot\vb + \va\cdot\vc$, $(\va + \vb)\cdot\vc = \va\cdot\vc + \vb\cdot\vc$
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+
+\begin{prf}
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=1,page=1]{fig/cosineB.pdf}
+  \end{figure}
+  From the above figure, $\ds|\va-\vb|^2 = \big(|\vb|-|\va|\,\cos\theta\big)^2 + \big(|\va|\sin\theta\big)^2 = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2\cos^2\theta + |\va|^2\sin^2\theta = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2$, and $\ds|\va - \vb|^2 = (\va - \vb)\cdot(\va - \vb) = \va\cdot\va - \va\cdot\vb - \vb\cdot\va - \vb\cdot\vb = |\va|^2 + |\vb|^2 - 2\,\va\cdot\vb = |\vb|^2 - 2\,|\va|\,|\vb|\,\cos\theta + |\va|^2$, therefore $\va\cdot\vb = |\va|\,|\vb|\,\cos\theta$. 
+\end{prf}
+
+\begin{dfn}[Projection] 
+  Given vectors $\va$, $\vb$, the projection of $\va$ onto $\vb$ (denoted as $\ds\proj{\va}{\vb}$) is defined as $\ds\proj{\va}{\vb} = \frac{\va\cdot\vb}{|\vb|^2}\,\vb$. 
+\end{dfn}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/projA.pdf}
+  \qquad\qquad
+  \includegraphics[scale=1,page=1]{fig/projB.pdf}
+\end{figure}
+
+\vspace{-5mm}
+\begin{dfn}[Outer/Cross Product] 
+  Given three-dimensional vectors $\va = \llt a_1,\,a_2,\,a_3\rgt$, $\vb = \llt b_1,\,b_2,\,b_3\rgt$, the outer/cross product of $\va$ and $\vb$ is defined as $\ds\va\times\vb = \begin{vmatrix}\hi & \hj & \hk \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3\end{vmatrix} = \llt a_2b_3 - a_3b_2,\,a_3b_1 - a_1b_3,\,a_1b_2 - a_2b_1\rgt$. 
+\end{dfn}
+
+\begin{prp} For $\va$, $\vb$, $\vc\in\mathbb{R}^3$, $s\in\mathbb{R}$,
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $|\va\times\vb| = |\va|\,|\vb|\,\sin\theta$, where $0\leqslant\theta\leqslant\pi$ is the angle between $\va$ and $\vb$; $|\va\times\vb|$ is the area of the parallelogram formed by $\va$ and $\vb$. 
+    \item $\va\times\vb = |\va|\,|\vb|\,\sin\theta\,\hn$, where $0\leqslant\theta\leqslant\pi$ is the angle between $\va$ and $\vb$, $(\va,\,\vb,\,\hn)$ satisfies the right-hand rule and $|\hn| = 1$, $\hn\,\bot\,\va$, $\hn\,\bot\,\vb$.  
+    \item $|\va\cdot(\vb\times\vc)|$ is the volume of the parallelepiped formed by $\va$, $\vb$, and $\vc$. 
+  \end{itemize}
+  And
+  \setlength{\columnsep}{-20mm}
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\times\vb\;\bot\;\va$, $\va\times\vb\;\bot\;\vb$ 
+      \item $\hi\times\hj = \hk$, $\hj\times\hk = \hi$, $\hk\times\hi = \hj$
+      \item $\va\times\vb = 0\ifff \va=\vZero\;\vee\;\vb = \vZero\;\vee\;\va\,\parallel\,\vb$
+      \item $\va\times\vb = -\vb\times\va$
+      \item $(s\va)\times\vb = \va\times(s\vb) = s(\va\times\vb)$
+      \item $\va\times(\vb + \vc) = \va\times\vb + \va\times\vc$
+      \item $(\va + \vb)\times\vc = \va\times\vc + \vb\times\vc$
+      \item $\va\cdot(\vb\times\vc) = \vb\cdot(\vc\times\va) = \vc\cdot(\va\times\vb)$
+      \item $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$ (baccab rule)  
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+
+\vspace{-3mm}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1,page=1]{fig/areaB.pdf}\qquad\qquad\qquad
+  \raisebox{-0.05\height}{\includegraphics{fig/crossRR.pdf}}\qquad\qquad\qquad
+  \raisebox{0.05\height}{\includegraphics[scale=0.4]{fig/RHR.pdf}}
+\end{figure}
+\vspace{-5mm}
+\begin{figure}[!htbp]
+  \centering
+  \raisebox{0.2\height}{\includegraphics[scale=0.9]{fig/pipedVolumeEg.pdf}}\qquad\qquad
+  \raisebox{0.4\height}{\includegraphics[scale=1.0]{fig/pipedVolume.pdf}}
+\end{figure}
+\vspace{-15mm}
+\begin{prf}
+  \begin{itemize}
+    \item[]
+    \item $\ds|\va\times\vb|^2 =\big(\va\times\vb\big)\cdot\big(\va\times\vb\big) = (a_2b_3-a_3b_2)^2 + (a_3b_1-a_1b_3)^2 + (a_1b_2-a_2b_1)^2 = a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2 +a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2 + a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2$, while $\ds|\va|^2\,|\vb|^2\sin^2\theta = |\va|^2\,|\vb|^2(1 - \cos^2\theta) = |\va|^2\,|\vb|^2 - (\va\cdot\vb)^2 = \big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)-\big(a_1b_1+a_2b_2+a_3b_3\big)^2 = a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2 - \big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)$, therefore $|\va\times\vb|=|\va|\,|\vb|\sin\theta$ . 
+    \item $\ds\va\cdot(\va\times\vb) = a_1(a_2 b_3 - a_3 b_2) + a_2(a_3 b_1 - a_1 b_3) + a_3(a_1 b_2 - a_2 b_1) = 0$, \\$\ds\vb\cdot(\va\times\vb) = b_1(a_2 b_3 - a_3 b_2) + b_2(a_3 b_1 - a_1 b_3) + b_3(a_1 b_2 - a_2 b_1) = 0$
+    \item $\ds\va\cdot(\vb\times\vc) = \llt a_1,a_2,a_3\rgt\cdot\llt b_2c_3-b_3c_2\,,\, b_3c_1-b_1c_3\,,\, b_1c_2-b_2c_1\rgt = \textcolor{blue}{a_1b_2c_3}\textcolor{blue}{-a_1b_3c_2} + \textcolor{orange}{a_2b_3c_1}\textcolor{orange}{-a_2b_1c_3} + a_3b_1c_2 - a_3b_2c_1$, and $\ds(\va\times\vb)\cdot\vc =\llt a_2b_3-a_3b_2\,,\, a_3b_1-a_1b_3\,,\, a_1b_2-a_2b_1\rgt\cdot\llt c_1,c_2,c_3\rgt = \textcolor{orange}{a_2b_3c_1} - a_3b_2c_1 + a_3b_1c_2\textcolor{blue}{-a_1b_3c_2} + \textcolor{blue}{a_1b_2c_3}\textcolor{orange}{-a_2b_1c_3}$. \\Alternative proof: $\ds\va\cdot(\vb\times\vc) = \llt a_1,a_2,a_3\rgt\cdot\det\begin{vmatrix}\hi&\hj&\hk\\ b_1&b_2&b_3\\ c_1&c_2&c_3\end{vmatrix} = a_1\det\begin{vmatrix}b_2&b_3\\c_2&c_3\end{vmatrix} - a_2\det\begin{vmatrix}b_1&b_3\\c_1&c_3\end{vmatrix} + a_3\det\begin{vmatrix} b_1&b_2\\c_1&c_2\end{vmatrix} \\ = \det\begin{vmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{vmatrix}$, while $\ds(\va\times\vb)\cdot\vc = \det\begin{vmatrix}\hi&\hj&\hk\\a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}\cdot\llt c_1,c_2,c_3\rgt = c_1\det\begin{vmatrix}a_2&a_3\\ b_2&b_3\end{vmatrix}-c_2\det\begin{vmatrix}a_1&a_3\\ b_1&b_3\end{vmatrix} + c_3\det\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix} = \det\begin{vmatrix}c_1&c_2&c_3\\a_1&a_2&a_3\\b_1&b_2&b_3\end{vmatrix}$, therefore $\va\cdot(\vb\times\vc) = (\va\times\vb)\cdot\vc$. 
+    \item $\ds\vb\times\vc = (b_2c_3-b_3c_2)\,\hi - (b_1c_3 - b_3c_1)\,\hj + (b_1c_2-b_2c_1)\,\hk$, thus $\ds\va\times(\vb\times\vc) \\= \det\begin{vmatrix}\hi&\hj&\hk\\a_1&a_2&a_3\\b_2c_3 - b_3c_2&-b_1c_3 + b_3c_1&b_1c_2 - b_2c_1\end{vmatrix} = \hi\,\big(a_2(b_1c_2 - b_2c_1) - a_3(-b_1c_3 + b_3c_1)\big) - \hj\,\big(a_1(b_1c_2-b_2c_1)-a_3(b_2c_3-b_3c_2)\big) + \hk\,\big(a_1(-b_1c_3 + b_3c_1) - a_2(b_2c_3 - b_3c_2)\big)$. While $\ds\vb(\va\cdot\vc) - \vc(\va\cdot\vb) = (a_1c_1 + a_2c_2 + a_3c_3)(b_1\,\hi + b_2\,\hj + b_3\,\hk) - (a_1b_1 + a_2b_2 + a_3b_3)(c_1\,\hi + c_2\,\hj + c_3\,\hk) = \hi\,\big(\textcolor{blue}{a_1b_1c_1} + a_2b_1c_2 + a_3b_1c_3\textcolor{blue}{-a_1b_1c_1} - a_2b_2c_1 - a_3b_3c_1\big) +\hj\,\big(a_1b_2c_1 + \textcolor{blue}{a_2b_2c_2} + a_3b_2c_3 - a_1b_1c_2\textcolor{blue}{-a_2b_2c_2} - a_3b_3c_2\big) + \hk\,\big(a_1b_3c_1 + a_2b_3c_2 + \textcolor{blue}{a_3b_3c_3} - a_1b_1c_3 - a_2b_2c_3 \textcolor{blue}{-a_3b_3c_3}\big) = \hi\,(a_2b_1c_2+a_3b_1c_3-a_2b_2c_1-a_3b_3c_1) + \hj\,(a_1b_2c_1+a_3b_2c_3-a_1b_1c_2-a_3b_3c_2) + \hk\,(a_1b_3c_1+a_2b_3c_2-a_1b_1c_3-a_2b_2c_3)$, therefore $\va\times(\vb\times\vc) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb)$. 
+  \end{itemize}
+\end{prf}
+
+\begin{ex} For $\va$, $\vb$, $\vc$, $\vd\in\mathbb{R}^3$,
+  \begin{multicols}{2}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\va\times(\vb\times\vc) + \vb\times(\vc\times\va) + \vc\times(\va\times\vb) = 0$
+      \item $(\va\times\vb)\cdot(\vc\times\vd) = (\va\cdot\vc)\,(\vb\cdot\vd) - (\va\cdot\vd)\,(\vb\cdot\vc)$
+      \item $(\va\times\vb)\cdot\left((\vb\times\vc)\times(\vc\times\va) \right) = \left(\va\cdot(\vb\times\vc)\right)^2$
+    \end{enumerate} 
+  \end{multicols}
+\end{ex}
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\va\times(\vb\times\vc) + \vb\times(\vc\times\va) + \vc\times(\va\times\vb) = \vb\,(\va\cdot\vc) - \vc\,(\va\cdot\vb) + \vc\,(\vb\cdot\va) - \va\,(\vb\cdot\vc) + \va\,(\vc\cdot\vb) - \vb\,(\vc\cdot\va) = 0$
+    \item $(\va\times\vb)\cdot(\vc\times\vd) = \vc\cdot(\vd\times(\va\times\vb)) = \vc\cdot\left(\va\,(\vd\cdot\vb) - \vb\,(\vd\cdot\va)\right) = (\vc\cdot\va)\,(\vd\cdot\vb) - (\vc\cdot\vb)\,(\vd\cdot\va)  = (\va\cdot\vc)\,(\vb\cdot\vd) - (\va\cdot\vd)\,(\vb\cdot\vc)$
+    \item $(\va\times\vb)\cdot\left((\vb\times\vc)\times(\vc\times\va)\right) = (\vb\times\vc)\cdot\left((\vc\times\va)\times(\va\times\vb)\right) = (\vb\times\vc)\cdot\left(\va\,\left((\vc\times\va)\cdot\vb\right) - \vb\,\left((\vc\times\va)\cdot\va\right)\right) = (\vb\times\vc)\cdot(\va\,\left((\vc\times\va)\cdot\vb\right)) = \left(\va\cdot(\vb\times\vc)\right)^2$
+  \end{enumerate} 
+\end{sol}
+
+\begin{prp}[Common Formulas] 
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item The distance between point $p = (p_1,\,p_2,\,p_3)$ and plane $ax + by + cz + d = 0$ is $\ds\frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$. 
+    \item If $\va = \llt a_1,\,a_2,\,a_3\rgt$, $\vb = \llt b_1,\,b_2,\,b_3\rgt$, $\vc = \llt c_1,\,c_2,\,c_3\rgt$, $\vd = \llt d_1,\,d_2,\,d_3\rgt$, the distance between two lines $\ds\llt a_1 + b_1\,s,\,a_2 + b_2\,s,\,a_3 + b_3\,s\rgt$, $\ds\llt c_1 + d_1\,t,\,c_2 + d_2\,t,\,c_3 + d_3\,t \rgt$, $s$, $t\in\mathbb{R}$ in three-dimensional space is $\ds\frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$. 
+  \end{itemize}
+\end{prp}
+
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item The normal vector of plane $S:\,ax + by + cz + d = 0$ is $\vn = \llt a,\,b,\,c\rgt$; the vector formed by point $p = (p_1,\,p_2,\,p_3)$ and its projection onto plane $S$, point $o = (x,\,y,\,z)$, is parallel to $\vn$, so $(x,\,y,\,z) = (p_1 + a\,t,\,p_2 + b\,t,\,p_3 + c\,t)$, where $t\in\mathbb{R}$ is a constant to be determined. Since $o$ is on plane $S$, $\ds a(p_1 + a\,t) + b(p_2 + b\,t) + c(p_3 + c\,t) + d = 0 \ie t = \frac{-(a p_1 + b p_2 + c p_3 + d)}{a^2 + b^2 + c^2}$, the required distance $\ds\overline{op} = |\llt a\,t,\,b\,t,\,c\,t\rgt| = \sqrt{a^2 + b^2 + c^2}\,|t| = \frac{|a p_1 + b p_2 + c p_3 + d|}{\sqrt{a^2 + b^2 + c^2}}$. 
+    \item Points on the two lines are $\va$ and $\vc$ respectively, with direction vectors $\vb$ and $\vd$; $\vb\times\vd$ is perpendicular to both lines, so the required distance is $\ds|\proj{(\va - \vc)}{\vb\times\vd}| = \frac{|(\va - \vc)\cdot(\vb\times\vd)|}{|\vb\times\vd|}$. 
+  \end{itemize}
+\end{sol}
+
+\section*{5.2 Vector-Valued Functions}
+
+\begin{dfn}
+  For a vector-valued function $\vr(t):\mathbb{R}\to\mathbb{R}^n$, $n > 1$, its derivative is
+  \begin{equation*}
+    \vr'(t) =  \diff{\vr}{t}(t)=\lim_{h\to 0}\frac{\vr(t+h)-\vr(t)}{h}\qquad\qquad\qquad
+    \raisebox{-25pt}[25pt][20pt]{\includegraphics{fig/parCurveDerivA.pdf}}
+  \end{equation*}
+  If $\ds\vr(t) = x(t)\,\hi + y(t)\,\hj + z(t)\,\hk$, then $\ds\vr'(t) = x'(t)\,\hi + y'(t)\,\hj + z'(t)\,\hk$. 
+\end{dfn}
+
+\begin{rmk}
+  Vector-valued functions are often used in space curve expressions: (curve) $\equiv$ (position vector). 
+\end{rmk}
+
+\begin{thm}[Differentiation Rules] Let $\va(t)$, $\vb(t)$ be differentiable $\bbbr^n$ vector-valued functions for $t\in\bbbr$, $\alpha$, $\beta\in\mathbb{R}$, $\ga(t)$, $s(t)$ be differentiable real functions for $t\in\bbbr$, then
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item (Linearity) $\ds\diff{}{t}\big(\alpha\,\va(t) + \beta\,\vb(t)\big) = \alpha\,\va'(t) + \beta\,\vb'(t)$
+    \item (Product) $\ds\diff{}{t}\big(\ga(t)\vb(t)\big) = \ga'(t)\vb(t)+\ga(t)\vb'(t)$
+    \item (Inner Product) $\ds\diff{}{t}\big(\va(t)\cdot\vb(t)\big) = \va'(t)\cdot\vb(t) + \va(t)\cdot\vb'(t)$
+    \item (Cross Product) $\ds\diff{}{t}\big(\va(t)\times\vb(t)\big) = \va'(t)\times\vb(t) + \va(t)\times\vb'(t)$
+    \item (Composition) $\ds\diff{}{t}\big(\va\big(s(t)\big)\big) = \va'\big(s(t)\big)\,s'(t)$
+  \end{enumerate}
+\end{thm}
+
+\begin{prp} Given a curve $\vr(t)$.  
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item Let $\widehat\vT(t)$ be the unit tangent vector of the curve at point $\vr(t)$ pointing in the direction of increasing $t$, then $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|}$, $\vr'(t)\ne\vZero$. 
+    \item Let $s(t)$ be the arc length of the curve between points $\vr(0)$ and $\vr(t)$, then
+      \begin{align*}
+        \diff{s}{t}(t)&=\left|\diff{\vr}{t}(t)\right| \\
+        s(T)-s(T_0)&= \int_{T_0}^T \left|\diff{\vr}{t}(t)\right|\,\dee{t}\qquad\qquad\qquad
+        \raisebox{-20pt}{\smash{\includegraphics{fig/parCurveDerivB.pdf}}}
+      \end{align*}
+    \item If arc length is used as the parameter, i.e., $t=s$ such that $\ds\diff{t}{s} = \diff{s}{s} = 1$, then $\ds\left|\diff{\vr}{s}(s)\right| = 1$, $\ds\widehat\vT(s) = \vr'(s)$. 
+  \end{enumerate}
+\end{prp}
+
+\begin{prp} Given a position vector $\ds\vr(t)=\llt x(t)\,,\,y(t)\,,\,z(t)\rgt$, at time $t$:
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item Velocity $\ds\vv(t) = \vr'(t) = x'(t)\,\hi + y'(t)\,\hj + z'(t)\,\hk$
+    \item Speed $\ds\diff{s}{t}(t) = |\vv(t)| = |\vr'(t)| = \sqrt{(x'(t)^2 + y'(t)^2 + z'(t)^2}$
+    \item Acceleration $\ds\va(t) = \vr''(t) = \vv'(t) = x''(t)\,\hi + y''(t)\,\hj + z''(t)\,\hk$
+  \end{itemize}
+  The distance traveled between times $T_0$ and $T$ is $\ds s(T)-s(T_0) = \int_{T_0}^T\Big|\diff{\vr}{t}(t)\Big|\,\dee{t} = \int_{T_0}^T\sqrt{(x'(t)^2+y'(t)^2+z'(t)^2}\,\dee{t}$
+\end{prp}
+
+\begin{ex}
+  The curve expression for the circle $x^2+y^2=a^2$ is $\ds\vr(\theta) = \llt a\cos\theta,\,a\sin\theta\rgt$, $0\leqslant\theta\leqslant 2\pi$. $\ds\vr'(\theta) = \llt-a\sin\theta,\,a\cos\theta\rgt$, $\ds\widehat\vT(\theta) = \frac{\vr'(\theta)}{|\vr'(\theta)|} = \llt-\sin\theta,\,\cos\theta\rgt$, $\ds\diff{s}{\theta}(\theta) = \big|\vr'(\theta)\big| = a$, $\ds s(\Theta) - s(0) = \int_{0}^\Theta\big|\vr'(\theta)\big|\,\dee{\theta} = a\Theta$. 
+\end{ex}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[scale=1]{fig/parCircleT.pdf}\qquad\qquad
+  \raisebox{-20pt}[0pt][10pt]{\includegraphics[scale=1]{fig/helix4.pdf}}
+\end{figure}
+
+\begin{ex}[Helix Arc Length]
+  Find the arc length of $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk$ between $t = 0$ and $t = \pi$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$. Then $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$, $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$, \\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$. 
+  \end{itemize}
+\end{sol}
+
+\begin{ex}[Helix Arc Length]
+  Find the arc length of $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk$ between $t = 0$ and $t = \pi$. 
+\end{ex}
+\begin{sol}
+  $\ds\vr(t) = 6\sin 2t\,\hi + 6\cos 2t\,\hj + 5t\,\hk \ie \vr'(t) = 12\cos 2t\,\hi - 12\sin 2t\,\hj + 5\,\hk$. Then $\ds\diff{s}{t}(t) = \big|\vr'(t)\big| = \sqrt{12^2\cos^2 2t + 12^2\sin^2 2t + 5^2} = \sqrt{12^2 + 5^2} = 13$, $\ds\widehat\vT(t) = \frac{\vr'(t)}{|\vr'(t)|} = \frac{12}{13}\cos 2t\;\hi -\frac{12}{13}\sin 2t\;\hj + \frac{5}{13}\,\hk$, \\$\ds s(\pi) - s(0) = \int_0^\pi\big|\vr'(t)\big|\,\dee{t} = 13\pi$. 
+\end{sol}
+
+\begin{ex}
+  Find the arc length of $\ds\vr(t) = \llt e^{3t},\,e^{-3t},\,3\sqrt{2}\,t\rgt$ between $t = 0$ and $\ds t = \frac{1}{3}$. 
+\end{ex}
+\begin{sol}
+  $\ds\vr'(t) = \llt 3e^{3t},\,-3e^{-3t},\,3\sqrt{2}\rgt$, $\ds s\Big(\frac{1}{3}\Big) - s(0) = \int_0^{\frac{1}{3}}\!\big|\vr'(t)\big|\,\dee{t} = \int_0^{\frac{1}{3}}\!\!\sqrt{9e^{6t} + 9e^{-6t} + 18}\,\dee{t} = 3\int_0^{\frac{1}{3}}\!\!\sqrt{e^{6t} + e^{-6t} + 2}\,\dee{t} \\= 3\int_0^{\frac{1}{3}}\sqrt{(e^{3t} + e^{-3t})^2}\,\dee{t} = 3\int_0^{\frac{1}{3}}(e^{3t} + e^{-3t})\,\dee{t} = e^{3t} - e^{-3t}\,\Big|_0^{\frac{1}{3}} = e - \frac{1}{e}$. 
+\end{sol}
+
+\begin{ex}
+  Find the arc length of $\ds\vr(t) = \llt t,\,2\,t,\,t^2\rgt$ between $t = 1$ and $\ds t = 3$. 
+\end{ex}
+\begin{sol}
+  $\ds\vr'(t) = \llt 1,\,2,\,2\,t\rgt$, $\ds s(3) - s(1) = \int_1^3\big|\vr'(t)\big|\,\dee{t} = \int_1^3\sqrt{5 + 4t^2}\,\dee{t} = \frac{6\sqrt{41} - 6 - 5\ln 5 + 5\ln(\sqrt{41} + 6)}{4}$. \\Use $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \frac{x\sqrt{x^2 + a^2} + a^2\ln\big|\sqrt{x^2 + a^2} + x\big|}{2} + c$. 
+\end{sol}
+
+\section*{5.3 Limits and Differentiation}
+
+\begin{dfn}[Multivariable Function]
+  Let $U\subseteq\mathbb{R}^n$, $n > 1$, a mapping $f(x_1,\,x_2,\,\ldots,\,x_n):U\to\mathbb{R}$ from $U\to\mathbb{R}$ is called an $n$-variable function (real-valued function of $n$ variables) on $U$, where $U$ is the domain and $f(U)$ is the range. 
+\end{dfn}
+
+\begin{rmk} If $f(x_1,\,x_2,\,\ldots,\,x_n)$ is an $n$-variable function, $f$ can be viewed as
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item A function of $n$ real variables $x_1,\,x_2,\,\ldots,\,x_n$
+      \item A function of the point $(x_1,\,x_2,\,\ldots,\,x_n)$ in $\mathbb{R}^n$
+      \item A function of the vector $\vx = \llt x_1,\,x_2,\,\ldots,\,x_n\rgt$
+    \end{itemize}
+  \end{multicols}
+\end{rmk}
+
+\begin{dfn}[Graph, Level Curve]
+  Let $f(x, y)$ be a two-variable function defined on $U$. 
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item The set $\ds\left\{(x, y, z)\in\mathbb{R}^3\,|\,z = f(x, y),\;(x, y)\in U\right\}$ is called the graph of $f$. 
+    \item Given a constant $k\in\mathbb{R}$, the curve $f(x, y) = k$ is called a level curve (or contour curve) of $f$. 
+  \end{itemize}
+  If $w = f(x, y, z)$ is a three-variable function, $f(x, y, z) = k$ is called a level surface of $f$. 
+\end{dfn}
+
+\begin{dfn}[Limit] Let $f$ be an $n$-variable function. If for any $\varepsilon > 0$ there exists a $\delta > 0$ such that for all $\vx\in\dom f$ satisfying 
+  \begin{align*}
+    0 < |\vx - \va| < \delta \ie |f(\vx) - L| < \varepsilon
+  \end{align*}
+  then $L$ is called the limit of $f$ at $\va$, denoted as $\ds\lim_{\vx\to\va}f(\vx) = L$. 
+\end{dfn}
+
+\begin{prp}[Limit Operations]
+  Let $\va\in\bbbr^n$, $c$, $F$, $G\in\bbbr$, $\ds D\subseteq\bbbr^n$, $f,\,g: D\setminus\{\va\}\to\bbbr$, $\ga:\bbbr\to\bbbr$.  
+  %$\ds\vX:\bbbr^m\setminus\{\vb\}\to D\setminus\{\va\}$  $\ds\lim_{\vy\to\vb}\vX(\vy) = \va$
+If $\ds\lim_{\vx\to\va} f(\vx) = F$, $\ds\lim_{\vx\to\va} g(\vx) = G$, $\ds\lim_{t\to F}\ga(t) = \ga(F)$, then
+  \begin{multicols}{3}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\lim\limits_{\vx\to\va}\big[f(\vx)\pm g(\vx)\big] = F \pm G$
+      \item $\ds\lim\limits_{\vx\to\va} f(\vx)\,g(\vx) = FG$
+      \item $\ds\lim\limits_{\vx\to\va} \frac{f(\vx)}{g(\vx)} = \frac{F}{G}$ if $G\ne\vZero$
+      %\item $\ds\lim\limits_{\vy\to \vb} f\big(\vX(\vy)\big) = F$
+      \item $\ds\lim\limits_{\vx\to \va} \ga\big(f(\vx)\big) = \ga(F)$
+    \end{enumerate}
+  \end{multicols}
+\end{prp}
+
+\begin{ex} 
+  Find $\ds\lim_{(x,\,y)\to(2,\,3)}\frac{x + \sin y}{x^2 y^2 + 1}$. 
+\end{ex}
+
+\begin{sol}
+  $\ds\lim_{(x,\,y)\to (2,\,3)}\big(x + \sin y\big) = \lim_{(x,\,y)\to (2,\,3)}x + \lim_{(x,\,y)\to (2,\,3)}\sin y = \lim_{(x,\,y)\to (2,\,3)}x + \sin\left(\lim_{(x,\,y)\to (2,\,3)} y\right) = 2 + \sin 3$, $\ds\lim_{(x,\,y)\to (2,\,3)}\left(x^2 y^2 + 1\right) = \lim_{(x,\,y)\to (2,\,3)}x^2 y^2 + \lim_{(x,\,y)\to (2,\,3)}1 = \Big(\lim_{(x,\,y)\to (2,\,3)}x\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}x\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}y\Big)\Big(\lim_{(x,\,y)\to (2,\,3)}y\Big) + 1 = 2^2 3^2 + 1 = 37$, $\ds\lim_{(x,\,y)\to (2,\,3)}\frac{x + \sin y}{x^2 y^2 + 1} = \frac{\lim\limits_{(x,\,y)\to (2,\,3)}(x + \sin y)}{\lim\limits_{(x,\,y)\to (2,\,3)}(x^2 y^2 + 1)} = \frac{2 + \sin 3}{37}$
+\end{sol}
+
+\begin{rmk}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item The necessary and sufficient condition for the existence of the limit $\ds\lim_{x\to a} f(x)$ of a single-variable function is that $\ds\lim_{x\to a-} f(x)$ and $\ds\lim_{x\to a+} f(x)$ both exist and are equal. 
+    \item The necessary and sufficient condition for the existence of the limit $\ds\lim_{\vx\to\va} f(\vx)$ of a multivariable function is that {\color{M4}the limits along any path approaching $\va$} all exist and are equal. 
+    \item To find $\ds\lim_{(x,\,y)\to(0,\,0)}f(x, y)$, it's often useful to convert $(x,y)$ to polar coordinates $\ds x = r\cos\theta$, $\ds y = r\sin\theta$ and then let $r\to 0$. 
+  \end{itemize}
+
+  %\begin{align*}
+  %\hskip1in x&=r\cos\theta\hskip1in
+  %\smash{\raisebox{-0.6\height}{\includegraphics{fig/polar.pdf}}} \\
+  %y&=r\sin\theta
+  %\end{align*}
+\end{rmk}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y}{x^2+y^2}$. 
+\end{ex}
+\begin{sol}
+  $\ds\frac{x^2y}{x^2+y^2} =\frac{(r\cos\theta)^2(r\sin\theta)}{r^2} = r\cos^2\theta\sin\theta$. Since $\ds\big|r\cos^2\theta\sin\theta\big|\leqslant r\to 0$ as $r\to 0$, $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 y}{x^2 + y^2} = 0$. 
+\end{sol}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 - y^2}{x^2 + y^2}$. 
+\end{ex}
+\begin{sol}
+  From $\ds\frac{x^2 - y^2}{x^2 + y^2} = \frac{(r\cos\theta)^2 - (r\sin\theta)^2}{r^2} = \cos^2\theta - \sin^2\theta = \cos(2\theta)$, $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2 - y^2}{x^2 + y^2} = \text{DNE}$
+\end{sol}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4}$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item Let $y = mx$, $m\ne 0$, then $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4} = \lim_{x\to 0}\frac{2m^2x^3}{x^2 + m^4 x^4} = \lim_{x\to 0}\frac{2m^2x}{1 + m^4 x^2} = 0$. 
+    \item Let $x = y^2$, then $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{2xy^2}{x^2+y^4} = \lim_{y\to 0}\frac{2y^4}{2y^4} = 1$. 
+    \item Conclusion: $\ds\lim\limits_{(x,\,y)\to(0,\,0)}\frac{2xy^2}{x^2+y^4} = \text{DNE}$
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^2 + y^2}$. 
+\end{ex}
+\begin{sol}
+  From $\ds\frac{x^2y^2}{x^2 + y^2} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^2} = r^2\cos^2\theta\sin^2\theta\leqslant\frac{r^2}{4}$, $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^2 + y^2} = 0$. 
+\end{sol}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3}$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item From $\ds\frac{x^2y^2}{x^3 + y^3} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^3(\cos^3\theta + \sin^3\theta)} = r\,\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta}$, but $\ds\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta}$ is not bounded (take $\ds\theta = \frac{3\pi}{4}$ when $\cos^3\theta + \sin^3\theta = 0$), $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{r\to 0}\,r\,\frac{\cos^2\theta\sin^2\theta}{\cos^3\theta + \sin^3\theta} = \text{DNE}$. 
+    \item Alternative solution: 
+      \begin{itemize}\setlength{\itemsep}{0pt}
+        \item Let $y = mx$, $m\ne 0$, then $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{x\to 0}\frac{x^2m^2x^2}{x^3 + m^3 x^3} = \lim_{x\to 0}\frac{m^2x}{1 + m^3} = 0$. 
+        \item Let $\ds y = -xe^x$, then $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \lim_{x\to 0}\frac{x^2x^2e^{2x}}{x^3 - x^3e^{3x}} = \lim_{x\to 0}\frac{xe^{2x}}{1 - e^{3x}} = \lim_{x\to 0}\frac{e^{2x}(1 + 2x)}{3e^{3x}} = \frac{1}{3}$. 
+        \item Conclusion: $\ds\lim\limits_{(x,\,y)\to(0,\,0)}\frac{x^2y^2}{x^3 + y^3} = \text{DNE}$
+      \end{itemize}
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  Find $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4}$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item From $\ds\frac{x^2y^2}{x^4 + y^4} = \frac{(r\cos\theta)^2(r\sin\theta)^2}{r^4(\cos^4\theta + \sin^4\theta)} = \frac{\cos^2\theta\sin^2\theta}{\cos^4\theta + \sin^4\theta}$, $\ds\lim\limits_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4} = \lim_{r\to 0}\frac{\cos^2\theta\sin^2\theta}{\cos^4\theta + \sin^4\theta} = \text{DNE}$. 
+    \item Alternative solution: Let $y = mx$, $m\ne 0$, then $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{x^2y^2}{x^4 + y^4} = \lim_{x\to 0}\frac{x^2m^2x^2}{x^4 + m^4 x^4} = \lim_{x\to 0}\frac{m^2}{1 + m^4} = \text{DNE}$. 
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  If $\ds f(x,y) = \begin{cases}\frac{(2x-y)^2}{x-y}, & x\ne y\\0, & x = y\end{cases}$, find $\ds\lim_{(x,\,y)\to (0,\,0)} f(x,y)$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item Let $y = x - x^3$, $\ds f(x,x - x^3) = \frac{{(2 x - x + x^3)}^2}{x - x + x^3} = \frac{{(x + x^3)}^2}{x^3} = \frac{{(1 + x^2)}^2}{x}\,\longrightarrow\,\begin{cases}+\infty, & x\to 0+\\-\infty, & x\to 0-\end{cases}$
+    \item Let $y = x - ax^2$, $a\ne 0$: $\ds\lim_{x\to 0}f(x,x - a x^2) = \lim_{x\to 0}\frac{{(2x - x + a x^2)}^2}{x - x + a x^2} = \lim_{x\to 0}\frac{{(x + a x^2)}^2}{a x^2} = \lim_{x\to 0}\frac{{(1 + a x)}^2}{a} = \frac{1}{a}$
+    \item Conclusion: $\ds\lim\limits_{(x,\,y)\to(0,\,0)}f(x,y) = \text{DNE}$
+  \end{itemize}
+\end{sol}
+
+\begin{dfn}[Partial Derivative Function, Partial Differentiation, Partial Derivative]
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item The $x$-partial derivative function of $\ds f(x, y)$ is defined as $\ds\pdiff{f}{x}(x, y) = \lim_{h\to 0}\frac{f(x + h, y) - f(x, y)}{h}$; the $y$-partial derivative function of $\ds f(x, y)$ is defined as $\ds\pdiff{f}{y}(x,y) = \lim_{h\to 0}\frac{f(x, y + h) - f(x, y)}{h}$. 
+    \item The process of finding the $x$-partial derivative function of $f(x, y)$ is called "partial differentiation of $\ds f(x, y)$ with respect to $x$". 
+    \item The $y$-partial derivative of $\ds f(x, y)$ at $(a, b)$ is denoted as $\ds\pdiff{f}{y}(a,b)\equiv\pdiff{f}{y}\,\bigg|_{(a,b)}$. 
+  \end{itemize}
+\end{dfn}
+\begin{rmk}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\pdiff{f}{y}(x,y)$ can also be denoted as $\ds\pdiff{f}{y}$, $\ds f_y(x,y)$, $\ds f_y$, $\ds D_yf(x,y)$, $\ds D_yf$, $D_2 f(x,y)$, $D_2 f$. 
+    \item To find $\ds\pdiff{f}{y}(x, y)$: Treat $x$ in $f(x, y)$ as a constant, then differentiate with respect to $y$. 
+    \item To find $\ds\pdiff{f}{y}(a, b)$: Treat $x$ in $f(x, y)$ as a constant, differentiate with respect to $y$, then substitute $x = a$, $y = b$. 
+    \item The above notation / operations can be directly extended to cases where the dimension is $> 2$. 
+  \end{itemize}
+\end{rmk}
+
+\begin{ex}
+  $\ds f(x,y) = x^3 + y^2 + 4xy^2$, then $\ds\pdiff{f}{x} = \pdiff{}{x}(x^3) + \pdiff{}{x}(y^2) + \pdiff{}{x}(4xy^2) = 3x^2 + 0 + 4y^2\pdiff{}{x}(x) = 3x^2 + 4y^2$, $\ds\pdiff{f}{y} = \pdiff{}{y}(x^3) + \pdiff{}{y}(y^2) +\pdiff{}{y}(4xy^2) = 0 + 2y + 4x\pdiff{}{y}(y^2) = 2y + 8xy$, $\ds\pdiff{f}{x}(1,\,0) = 3(1)^2 + 4(0)^2 = 3$, $\ds\pdiff{f}{y}(1,\,0) = 2(0) + 8(1)(0) = 0$. 
+\end{ex}
+
+\begin{ex}
+  $\ds f(x,y) = y\cos x + xe^{xy}$, $\ds\pdiff{}{x} e^{yx}=y e^{yx}$, $\ds\pdiff{f}{x}(x,y) = y\pdiff{}{x}(\cos x) + e^{xy}\pdiff{}{x}(x) + x\pdiff{}{x}\big(e^{xy}\big) = -y\sin x + e^{xy} + x y e^{xy}$, $\ds\pdiff{f}{y}(x,y) = \cos x\pdiff{}{y}(y) + x\pdiff{}{y}\big(e^{xy}\big) = \cos x + x^2e^{xy}$
+\end{ex}
+
+\begin{ex}
+  $\ds f(x, y, z, t) = x\sin(y + 2z) + t^2 e^{3y}\ln z$, then $\ds\pdiff{f}{x}(x,y,z,t) = \sin(y+2z)$, $\ds\pdiff{f}{y}(x,y,z,t) = x\cos(y+2z) +3t^2e^{3y}\ln z$, $\ds\pdiff{f}{z}(x,y,z,t) = 2x \cos(y + 2z) +\frac{t^2e^{3y}}{z}$, $\ds\pdiff{f}{t}(x,y,z,t) = 2t e^{3y}\ln z$. 
+\end{ex}
+
+\begin{ex} If $\ds f(x,y) = \begin{cases}\frac{\cos x - \cos y}{x - y} & x\ne y\\ 0 & x=y\end{cases}$
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\forall\,x\ne y$, $\ds f_x = \frac{-\sin x(x - y) - (\cos x - \cos y)}{(x - y)^2}$; we cannot use this to find $f_x(0, 0)$. 
+    \item Calculate $\ds f_x(0, 0)$ by definition: $\ds f_x(0, 0) = \lim_{h\to 0}\frac{f(0 + h, 0) - f(0, 0)}{h} = \lim_{h\to 0}\frac{\frac{\cos h - 1}{h - 0} - 0}{h} = \lim_{h\to 0}\frac{\cos h-1}{h^2} = \lim_{h\to 0}\frac{-\sin h}{2h} = \lim_{h\to 0}\frac{-\cos h}{2} = -\frac{1}{2}$. 
+    \item Calculate $\ds f_y(0, 0)$ by definition: $\ds f_y(0, 0) = \lim_{h\to 0}\frac{f(0, 0 + h) - f(0, 0)}{h} = \lim_{h\to 0}\frac{\frac{1 - \cos h}{-h} - 0}{h} = \lim_{h\to 0}\frac{\cos h-1}{h^2} = \lim_{h\to 0}\frac{-\sin h}{2h} = \lim_{h\to 0}\frac{-\cos h}{2} = -\frac{1}{2}$. 
+    \item $\ds\lim_{(x,\,y)\to (0,\,0)}\frac{\cos x - \cos y}{x - y} = \lim_{(x,\,y)\to (0,\,0)}\frac{-2\sin\frac{x + y}{2}\sin\frac{x - y}{2}}{x - y} = -\lim_{(x,\,y)\to (0,\,0)}\sin\frac{x + y}{2}\,\lim_{(x,\,y)\to (0,\,0)}\frac{\sin\frac{x - y}{2}}{\frac{x - y}{2}} = 0$, so $f(x, y)$ is continuous at $(0, 0)$. 
+    \item $\ds f(x, y)$ is not continuous at $(a, a)$, $a\ne 0$: By definition $\ds\lim_{(x,\,y)\to(a,\,a)}f(x, y) = \sin a$, but $f(a, a) = 0$. 
+  \end{itemize}
+\end{ex}
+
+\begin{ex} 
+  If $x$, $y$, $z$ satisfy the equation $\ds z^5 + y^2 e^z + e^{2x} = 0$, find $\ds\pdiff{z}{x}(0, 0)$. 
+\end{ex}
+\begin{sol}
+  Locally, $z$ is a function of $x$ and $y$; when $x = y = 0$, the original equation becomes $\ds z(0, 0)^5 = -1\ie z(0, 0) = -1$. Let $z\equiv z(x, y)$ substitute into the original equation and partially differentiate with respect to $x$ to get $\ds 5\,z(x, y)^4\,\pdiff{z}{x}(x, y) + y^2\,e^{z(x, y)}\,\pdiff{z}{x}(x,y) + 2\,e^{2x} = 0$; substitute $(x,\,y) = (0,\,0)$ to get $\ds 5\,z(0, 0)^4\,\pdiff{z}{x}(0, 0) + 2  = 0$, then from $z(0, 0) = -1$, $\ds\pdiff{z}{x}(0, 0) = -\frac{2}{5\,z(0, 0)^4} = -\frac{2}{5}$. 
+\end{sol}
+
+\begin{ex}
+  If $x$, $y$, $z$ satisfy the equation $\ds x^2 + y^2 + z^2 = 1$, prove that $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = z - \frac{1}{z}$. 
+\end{ex}
+
+\begin{sol}
+  Locally, $z$ is a function of $x$ and $y$; $\ds x^2 + y^2 + z^2 = 1$ partially differentiated with respect to $x$ gives $\ds 2x + 2z\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = -\frac{x}{z}$; partially differentiated with respect to $y$ gives $\ds 2y + 2z\,\pdiff{z}{y} = 0 \ie \pdiff{z}{x} = -\frac{y}{z}$. Therefore $\ds x\,\pdiff{z}{x} + y\,\pdiff{z}{y} = -\frac{x^2 + y^2}{z} = \frac{z^2 - 1}{z} = z - \frac{1}{z}$. 
+\end{sol}
+
+\begin{ex}
+  If $x$, $y$, $z$ satisfy the equation $\ds x\sin z - z^2 y = 1$, find $\ds\pdiff{z}{x}$, $\ds\pdiff{z}{y}$. 
+\end{ex}
+
+\begin{sol}
+  Locally, $z$ is a function of $x$ and $y$; $\ds x\sin z - z^2 y = 1$ partially differentiated with respect to $x$ gives $\ds\sin z + x\cos z\,\pdiff{z}{x} - 2yz\,\pdiff{z}{x} = 0 \ie \pdiff{z}{x} = \frac{\sin z}{2yz - x\cos z}$; partially differentiated with respect to $y$ gives $\ds x\cos z\,\pdiff{z}{y} - 2z\,\pdiff{z}{y}\,y - z^2 = 0 \ie \pdiff{z}{y} = \frac{z^2}{x\cos z - 2yz}$. 
+\end{sol}
+
+\begin{dfn}[Higher-Order Partial Derivatives] Given a differentiable two-variable function $f(x, y)$, 
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds\pdiff{}{x}\left(\pdiff{f}{x}\right)(x,y) = \frac{\partial^2 f}{\partial x^2}(x,y) = f_{xx}(x,y)$
+      \item $\ds\pdiff{}{y}\left(\pdiff{f}{x}\right)(x,y) = \frac{\partial^2 f}{\partial y\partial x}(x,y) = f_{xy}(x,y)$
+      \item $\ds\pdiff{}{x}\left(\pdiff{f}{y}\right)(x,y) = \frac{\partial^2 f}{\partial x\partial y}(x,y) = f_{yx}(x,y)$
+      \item $\ds\pdiff{}{y}\left(\pdiff{f}{y}\right)(x,y) = \frac{\partial^2 f}{\partial y^2}(x,y) = f_{yy}(x,y)$
+    \end{itemize}
+  \end{multicols}
+\end{dfn}
+
+\begin{ex}
+  Let $\ds f(x,y) = e^{my}\cos(nx)$, then
+  \begin{multicols}{3}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = -n e^{my}\sin(nx)$
+      \item $\ds f_y = m e^{my}\cos(nx)$
+      \item $\ds f_{xx} = -n^2 e^{my}\cos(nx)$
+      \item $\ds f_{yy} = m^2 e^{my}\cos(nx)$
+      \item $\ds f_{yx} = -m n e^{my}\sin(nx)$
+      \item $\ds f_{xy} = -m n e^{my}\sin(nx)$
+    \end{itemize}
+  \end{multicols}
+\end{ex}
+
+\begin{ex}
+  Let $\ds f(x,y) = e^{\al x+\be y}$, then
+  \begin{multicols}{3}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \al e^{\al x+\be y}$ 
+      \item $\ds f_y = \be e^{\al x+\be y}$
+      \item $\ds f_{xx} = \al^2 e^{\al x+\be y}$
+      \item $\ds f_{yx} = \be\al e^{\al x+\be y}$
+      \item $\ds f_{xy} = \al\be e^{\al x+\be y}$
+      \item $\ds f_{yy} = \be^2 e^{\al x+\be y}$
+    \end{itemize}
+  \end{multicols}
+  For integers $m, n\geqslant 0$, $\ds\frac{\partial^{m+n} f}{\partial x^m\partial y^n} = \al^m\be^n e^{\al x+\be y}$. 
+\end{ex}
+
+\begin{ex}
+  Let $\ds f(x,y) = \ln(x^2 + y^2)$, then
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \frac{2x}{x^2 + y^2}$ 
+      \item $\ds f_y = \frac{2y}{x^2 + y^2}$ 
+      \item $\ds f_{xx} = \frac{(x^2 + y^2)\cdot 2 - 2x\cdot 2x}{(x^2 + y^2)^2} = \frac{2\,(y^2 - x^2)}{(x^2 + y^2)^2}$
+      \item $\ds f_{yy} = \frac{(x^2 + y^2)\cdot 2 - 2y\cdot 2y}{(x^2 + y^2)^2} = \frac{2\,(x^2 - y^2)}{(x^2 + y^2)^2}$
+    \end{itemize}
+  \end{multicols}
+  $\ds f(x, y)$ satisfies the Laplace equation $\ds f_{xx} + f_{yy} = 0$. 
+\end{ex}
+
+\begin{ex}
+  Let $\ds f(x,y) = \tan^{-1}\frac{y}{x}$, then
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds f_x = \frac{1}{1 + \big(\frac{y}{x}\big)^2}\cdot\bigg(\frac{-y}{x^2}\bigg) = -\frac{y}{x^2 + y^2}$ 
+      \item $\ds f_y = \frac{1}{1 + \big(\frac{y}{x}\big)^2}\cdot\bigg(\frac{1}{x}\bigg) = \frac{x}{x^2 + y^2}$ 
+      \item $\ds f_{xx} = \frac{y\cdot 2x}{(x^2 + y^2)^2} = \frac{2 x y}{(x^2 + y^2)^2}$
+      \item $\ds f_{yy} = -\frac{x\cdot 2y}{(x^2 + y^2)^2} = -\frac{2 x y}{(x^2 + y^2)^2}$
+    \end{itemize}
+  \end{multicols}
+  $\ds f(x, y)$ satisfies the Laplace equation $\ds f_{xx} + f_{yy} = 0$. 
+\end{ex}
+
+\begin{ex}
+  If $\ds f(x_1,x_2,x_3,x_4) = x_1^4\, x_2^3\, x_3^2\, x_4$, then
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\ds\frac{\partial^4 f}{\partial x_1\partial x_2\partial x_3\partial x_4} = \frac{\partial^3}{\partial x_1\partial x_2\partial x_3}\left(x_1^4 x_2^3 x_3^2\right) = \frac{\partial^2}{\partial x_1\partial x_2}\left(2 x_1^4 x_2^3 x_3\right) = \pdiff{}{x_1}\left(6 x_1^4 x_2^2 x_3\right) = 24 x_1^3 x_2^2 x_3$ 
+    \item $\ds\frac{\partial^4 f}{\partial x_4\partial x_3\partial x_2\partial x_1} = \frac{\partial^3}{\partial x_4\partial x_3\partial x_2}\left(4 x_1^3 x_2^3 x_3^2 x_4\right) = \frac{\partial^2}{\partial x_4\partial x_3}\left(12 x_1^3 x_2^2 x_3^2 x_4\right) = \pdiff{}{x_4}\left(24 x_1^3 x_2^2 x_3 x_4\right) =  24 x_1^3 x_2^2 x_3$
+  \end{itemize}
+\end{ex}
+
+\begin{thm}[Clairaut's Theorem]
+  If $\ds\frac{\partial^2 f}{\partial x\partial y}$ and $\ds\frac{\partial^2 f}{\partial y\partial x}$ both exist and are continuous at $(x_0,\,y_0)$, then $\ds\frac{\partial^2 f}{\partial x\partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y\partial x}(x_0, y_0)$. 
+\end{thm}
+
+\section*{5.4 Chain Rule} 
+\begin{thm}
+  If $f$ is a differentiable function of $x_1$, $x_2$, $\ldots$, $x_n$, and each $x_j$ is a differentiable function of $t_1$, $t_2$, $\ldots$, $t_m$, $n$, $m\geqslant 1$, then $f$ is a differentiable function of $t_1$, $t_2$, $\ldots$, $t_m$; with auxiliary function $F(t_1,\,t_2,\,\ldots,\,t_m)\equiv f(x_1(t_1,\,t_2,\,\ldots,\,t_m),\,x_2(t_1,\,t_2,\,\ldots,\,t_m),\,\ldots,\,x_n(t_1,\,t_2,\,\ldots,\,t_m))$, we have
+  \begin{align*}
+    \pdiff{F}{t_i} = \pdiff{f}{x_1}\,\pdiff{x_1}{t_i} + \pdiff{f}{x_2}\,\pdiff{x_2}{t_i} + \cdots + \pdiff{f}{x_n}\,\pdiff{x_n}{t_i}
+  \end{align*}
+\end{thm}
+
+\begin{ex}[$n = m = 2$]
+  Auxiliary function $\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$, then
+  \begin{align*}
+    \pdiff{F}{s}(s,t) &= \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{s}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{s}(s,t) \\
+    \pdiff{F}{t}(s,t) &= \pdiff{f}{x}\big(x(s,t),\,y(s,t)\big)\,\pdiff{x}{t}(s,t) + \pdiff{f}{y}\big(x(s,t),\,y(s,t)\big)\,\pdiff{y}{t}(s,t)
+  \end{align*}
+\end{ex}
+
+\begin{ex}
+  If $\ds f(x, y) = e^{xy}$, $\ds x(s, t) = s$, $\ds y(s, t) = \cos t$; $\ds F(s, t)\equiv f\big(x(s,t),\,y(s,t)\big)$, find $\ds\pdiff{F}{s}$. 
+\end{ex}
+\begin{sol}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\pdiff{f}{x} = y\,e^{xy} = y(s,t)\,e^{x(s,t)\,y(s,t)} = \cos t\,e^{s\cos t}$, $\ds\pdiff{f}{y} = x\,e^{xy} = x(s,t)\,e^{x(s,t)\,y(s,t)} = s\,e^{s\cos t}$, $\ds\pdiff{x}{s} = \pdiff{s}{s} = 1$, $\ds\pdiff{y}{s} = \pdiff{\cos t}{s} = 0$, therefore $\ds\pdiff{F}{s} = \pdiff{f}{x}\,\pdiff{x}{s} + \pdiff{f}{y}\,\pdiff{y}{s} = \cos t\,e^{s\cos t}\cdot 1 + s\ e^{s\cos t}\cdot 0 = \cos t\ e^{s\cos t}$. 
+    \item Alternatively, write out $F(s, t)$ directly and partially differentiate with respect to $s$: $\ds F(s, t) = f\big(x(s,t),\,y(s,t)\big) = e^{s\cdot\cos t}$, $\ds\pdiff{F}{s} = e^{s\cdot\cos t}\,\cos t$.   
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  If $\ds f(x,y) = x^2 - y^2$, $x(t) = \cos t$, $y(t) = \sin t$, find $\ds\diff{f}{t}$. 
+\end{ex}
+\begin{sol}
+  Auxiliary function $\ds F(t)\equiv f\big(x(t),\,y(t)\big)$, then
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item $\ds\pdiff{f}{x} = 2x = 2\cos t$, $\ds\pdiff{f}{y} = -2y = -2\sin t$, $\ds\diff{x}{t} = -\sin t$, $\ds\diff{y}{t} = \cos t$, therefore $\ds\diff{F}{t} = \pdiff{f}{x}\,\diff{x}{t} + \pdiff{f}{y}\,\diff{y}{t} = (2\cos t)(-\sin t) + (-2\sin t)(\cos t) = -4\,\sin t\cos t$. 
+    \item Alternatively, write out $F(t)$ directly and differentiate with respect to $t$: $\ds F(t) = f\big(x(t),y(t)\big) = x(t)^2 - y(t)^2 = \cos^2t - \sin^2t$, therefore $\ds F'(t) = 2(\cos t)(-\sin t)-2(\sin t)(\cos t) = -4 \sin t\cos t$
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item Let $\ds w = xy + z$, $\ds x = \cos t$, $\ds y = \sin t$, $\ds z = t$, find $\ds\diff{w}{t}$ and $\ds\diff{w}{t}\Big|_{t = 0}$. 
+    \item Let $\ds w = x + 2y + z^2$, $\ds x = \frac{r}{s}$, $\ds y = r^2 + \ln s$, $\ds z = 2r$, find $\ds\pdiff{w}{r}$ and $\ds\pdiff{w}{s}$. 
+    \item Let $\ds w = x^4y + y^2z^3$, $\ds x = rse^{t}$, $\ds y = rs^2e^{-t}$, $\ds z = r^2s\sin t$, find $\ds\pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)}$. 
+  \end{enumerate}
+\end{ex}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds\pdiff{w}{x} = y = \sin t$, $\ds\pdiff{w}{y} = x = \cos t$, $\ds\pdiff{w}{z} = 1$, $\ds\diff{x}{t} = -\sin t$, $\ds\diff{y}{t} = \cos t$, $\ds\diff{z}{t} = 1$, therefore $\ds\diff{w}{t} = \pdiff{w}{x}\,\diff{x}{t} + \pdiff{w}{y}\,\diff{y}{t} + \pdiff{w}{z}\,\diff{z}{t} = (\sin t)(-\sin t) + (\cos t)(\cos t) + (1)(1) = \cos 2t + 1$, $\ds\diff{w}{t}\Big|_{t = 0} = 1 + 1 = 2$. 
+    \item $\ds\pdiff{w}{x} = 1$, $\ds\pdiff{w}{y} = 2$, $\ds\pdiff{w}{z} = 2 z = 4 r$, $\ds\pdiff{x}{r} = \frac{1}{s}$, $\ds\pdiff{y}{r} = 2r$, $\ds\pdiff{z}{r} = 2$, $\ds\pdiff{x}{s} = -\frac{r}{s^2}$, $\ds\pdiff{y}{s} = \frac{1}{s}$, $\ds\pdiff{z}{s} = 0$, therefore 
+      \begin{align*}
+        \pdiff{w}{r} &= \pdiff{w}{x}\,\pdiff{x}{r} + \pdiff{w}{y}\,\pdiff{y}{r} + \pdiff{w}{z}\,\pdiff{z}{r} = (1)\Big(\frac{1}{s}\Big) + (2)(2r) + (4r)(2) = \frac{1}{s} + 12 r \\
+        \pdiff{w}{s} &= \pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s} = (1)\Big(-\frac{r}{s^2}\Big) + (2)\Big(\frac{1}{s}\Big) + (4r)(0) = -\frac{r}{s^2} + \frac{2}{s}
+      \end{align*}
+    \item $\ds\pdiff{w}{x} = 4x^3y$, $\ds\pdiff{w}{y} = x^4 + 2yz^3$, $\ds\pdiff{w}{z} = 3y^2z^2$, $\ds\pdiff{x}{s} = re^{t}$, $\ds\pdiff{y}{s} = 2rse^{-t}$, $\ds\pdiff{z}{s} = r^2\sin t$. When $(r,\,s,\,t) = (2,\,1,\,0)$, $(x,\,y,\,z) = (2,\,2,\,0)$, therefore
+      \begin{align*}
+        \pdiff{w}{s}\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} &= \Big(\pdiff{w}{x}\,\pdiff{x}{s} + \pdiff{w}{y}\,\pdiff{y}{s} + \pdiff{w}{z}\,\pdiff{z}{s}\Big)\Big|_{(r,\,s,\,t) = (2,\,1,\,0)} \\ &= (4\cdot2^3\cdot2)(2) + (2^4 + 0)(2\cdot2\cdot1) + (0)(0) = 192
+      \end{align*}
+  \end{enumerate}
+\end{sol}
+
+\begin{ex}
+  If $\ds z = f(x - y)$, prove that $\ds\pdiff{z}{x} + \pdiff{z}{y} = 0$. 
+\end{ex}
+
+\begin{sol} Let $\ds u = x - y$, then $\ds\pdiff{z}{x} = \diff{z}{u}\,\pdiff{u}{x} = \diff{z}{u}(1) = \diff{z}{u}$, $\ds\pdiff{z}{y} = \diff{z}{u}\,\pdiff{u}{y} = \diff{z}{u}(-1) = -\diff{z}{u}$, therefore $\ds\pdiff{z}{x} + \pdiff{z}{y} = 0$. 
+\end{sol}
+
+\begin{ex}
+  If $\ds z = f(x, y)$, $\ds x = s + t$, $\ds y = s - t$, prove that $\ds\bigg(\pdiff{z}{x}\bigg)^2 - \bigg(\pdiff{z}{y}\bigg)^2 = \pdiff{z}{s}\pdiff{z}{t}$. 
+\end{ex}
+
+\begin{sol} 
+  $\ds\pdiff{z}{s} = \pdiff{z}{x}\,\pdiff{x}{s} + \pdiff{z}{y}\,\pdiff{y}{s} = \pdiff{z}{x} + \pdiff{z}{y}$, $\ds\pdiff{z}{t} = \pdiff{z}{x}\,\pdiff{x}{t} + \pdiff{z}{y}\,\pdiff{y}{t} = \pdiff{z}{x} - \pdiff{z}{y}$, therefore $\ds\pdiff{z}{s}\,\pdiff{z}{t} = \bigg(\pdiff{z}{x}\bigg)^2 - \bigg(\pdiff{z}{y}\bigg)^2$. 
+\end{sol}
+
+\begin{ex}
+  If $\ds g(s, t) = f(s^2 - t^2, t^2 - s^2)$ and $f$ is differentiable, prove that $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = 0$. 
+\end{ex}
+
+\begin{sol}
+  Let $\ds u(s, t) = s^2 - t^2$, $\ds v(s, t) = t^2 - s^2$, then $\ds g(s, t) = f(u(s, t), v(s, t))$. By the chain rule 
+  \begin{align*}
+    \pdiff{g}{s} &= \pdiff{f}{u}\,\pdiff{u}{s} + \pdiff{f}{v}\,\pdiff{v}{s} = \pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s) \\
+    \pdiff{g}{t} &= \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} = \pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)
+  \end{align*}
+  Therefore $\ds t\,\pdiff{g}{s} + s\,\pdiff{g}{t} = t\,\bigg(\pdiff{f}{u}\cdot(2s) + \pdiff{f}{v}\cdot(-2s)\bigg) + s\,\bigg(\pdiff{f}{u}\cdot(-2t) + \pdiff{f}{v}\cdot(2t)\bigg) = 0$.  
+\end{sol}
+
+\begin{ex}
+  If $\ds u = f(x, y)$, $\ds x = e^s\cos t$, $\ds y = e^s\sin t$, prove that $\ds\bigg(\pdiff{u}{x}\bigg)^2 + \bigg(\pdiff{u}{y}\bigg)^2 = e^{-2s}\bigg(\bigg(\pdiff{u}{s}\bigg)^2 + \bigg(\pdiff{u}{t}\bigg)^2\bigg)$.   
+\end{ex}
+
+\begin{sol} By the chain rule
+  \begin{align*}
+    \pdiff{u}{s} &= \pdiff{u}{x}\,\pdiff{x}{s} + \pdiff{u}{y}\,\pdiff{y}{s} = \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\\
+    \pdiff{u}{t} &= \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t} = \pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \bigg(\pdiff{u}{s}\bigg)^2 + \bigg(\pdiff{u}{t}\bigg)^2 &= \bigg(\pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\bigg)^2 + \bigg(\pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)\bigg)^2 \\
+    &= \bigg(\pdiff{u}{x}\bigg)^2 e^{2s} \cos^2 t + 2\,\pdiff{u}{x}\pdiff{u}{y}e^{2s}\cos t\sin t + \bigg(\pdiff{u}{y}\bigg)^2 e^{2s}\sin^2 t \\ &\; + \bigg(\pdiff{u}{x}\bigg)^2 e^{2s}\sin^2 t - 2\,\pdiff{u}{x}\pdiff{u}{y} e^{2s} \sin t\cos t + \bigg(\pdiff{u}{y}\bigg)^2 e^{2s} cos^2 t = e^{2s}\bigg(\bigg(\pdiff{u}{x}\bigg)^2 + \bigg(\pdiff{u}{y}\bigg)^2\bigg) 
+  \end{align*}
+\end{sol}
+
+\begin{ex}
+  If $\ds z = f(x, y)$, $\ds x = r\cos\theta$, $\ds y = r\sin\theta$, prove that $\ds\bigg(\pdiff{z}{x}\bigg)^2 + \bigg(\pdiff{z}{y}\bigg)^2 = \bigg(\pdiff{z}{r}\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{\theta}\bigg)^2$.   
+\end{ex}
+
+\begin{sol} By the chain rule
+  \begin{align*}
+    \pdiff{z}{r} &= \pdiff{z}{x}\,\pdiff{x}{r} + \pdiff{z}{y}\,\pdiff{y}{r} = \pdiff{z}{x}\cos\theta + \pdiff{z}{y}\sin\theta \\
+    \pdiff{z}{\theta} &= \pdiff{z}{x}\,\pdiff{x}{\theta} + \pdiff{z}{y}\,\pdiff{y}{\theta} = \pdiff{z}{x}\cdot(-r\sin\theta) + \pdiff{z}{y}\cdot(r\cos\theta)
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \bigg(\pdiff{z}{r}\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{\theta}\bigg)^2 &= \bigg(\pdiff{z}{x}\cos\theta + \pdiff{z}{y}\sin\theta\bigg)^2 + \frac{1}{r^2}\,\bigg(\pdiff{z}{x}\cdot(-r\sin\theta) + \pdiff{z}{y}\cdot(r\cos\theta)\bigg)^2 \\
+    &= \bigg(\pdiff{z}{x}\bigg)^2\cos^2\theta + 2\,\pdiff{z}{x}\pdiff{z}{y}\cos\theta\sin\theta + \bigg(\pdiff{z}{y}\bigg)^2\sin^2\theta \\ &\; + \bigg(\pdiff{z}{x}\bigg)^2\sin^2\theta - 2\,\pdiff{z}{x}\pdiff{z}{y}\sin\theta\cos\theta + \bigg(\pdiff{z}{y}\bigg)^2\cos^2\theta = \bigg(\pdiff{z}{x}\bigg)^2 + \bigg(\pdiff{z}{y}\bigg)^2 
+  \end{align*}
+\end{sol}
+\begin{ex}
+  If $\ds z = u(x, y)$, $\ds x = r^2 + s^2$, $\ds y = 2rs$, find $\ds\pdiff{z}{r}$, $\ds\pdifft{z}{r}$, $\ds\frac{\partial^2 z}{\partial s\partial r}$. 
+\end{ex}
+
+\begin{sol} By the chain rule
+  \begin{align*}
+    \pdiff{z}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = 2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y} \\
+    \pdifft{z}{r} &= \pdiff{}{r}\left(2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}\right) = 2\,\pdiff{u}{x} + 2r\,\pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) + 2s\,\pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) \\ 
+    \frac{\partial^2 z}{\partial s\partial r} &= \pdiff{}{s}\left(2r\,\pdiff{u}{x} + 2s\,\pdiff{u}{y}\right) = 2\,\pdiff{u}{y} + 2s\,\pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) + 2r\,\pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) 
+  \end{align*}
+  Also
+  \begin{align*}
+    \pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{r} = \pdifft{u}{x}\cdot(2r) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2s) \\
+    \pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{r} = \frac{\partial^2 u}{\partial x\partial y}\cdot(2r) + \pdifft{u}{y}\cdot(2s) \\
+    \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{s} = \pdifft{u}{x}\cdot(2s) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2r) \\
+    \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{s} = \frac{\partial^2 u}{\partial x\partial y}\cdot(2s) + \pdifft{u}{y}\cdot(2r)
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \pdifft{z}{r} &= 2\,\pdiff{u}{x} + 2r\,\pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) + 2s\,\pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) \\
+    &= 2\,\pdiff{u}{x} + 2r\,\bigg(\pdifft{u}{x}\cdot(2r) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2s)\bigg) + 2s\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(2r) + \pdifft{u}{y}\cdot(2s)\bigg) \\
+    &= 2\,\pdiff{u}{x} + 4r^2\,\pdifft{u}{x} + 8rs\,\frac{\partial^2 u}{\partial x\partial y} + 4s^2\,\pdifft{u}{y} \\
+    \frac{\partial^2 z}{\partial s\partial r} &= 2\,\pdiff{u}{y} + 2s\,\pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) + 2r\,\pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) \\
+    &= 2\,\pdiff{u}{y} + 2s\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(2s) + \pdifft{u}{y}\cdot(2r)\bigg) + 2r\,\bigg(\pdifft{u}{x}\cdot(2s) + \frac{\partial^2 u}{\partial y\partial x}\cdot(2r)\bigg) \\
+    &= 2\,\pdiff{u}{y} + 4rs\,\pdifft{u}{x} + 4(r^2 + s^2)\,\frac{\partial^2 u}{\partial x\partial y} + 4rs\,\pdifft{u}{y}
+  \end{align*}
+\end{sol}
+
+\begin{ex}
+  If $\ds z = u(x, y)$, $\ds x = g(s, t)$, $\ds y = h(s, t)$, prove that 
+  \begin{align*}
+    \pdifft{z}{t} = \pdiff{z}{x}\pdifft{x}{t} + \pdiff{z}{y}\pdifft{y}{t} + \pdifft{z}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 z}{\partial x\partial y}\pdiff{x}{t}\pdiff{y}{t} + \pdifft{z}{y}\bigg(\pdiff{y}{t}\bigg)^2
+  \end{align*}
+\end{ex}
+
+\begin{sol}
+  Let $\ds z = U(s, t) = u(x(s, t),\,y(s, t))$, then by the chain rule 
+  \begin{align*}
+    \pdiff{U}{t} &= \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t} \\
+    \pdifft{U}{t} &= \pdiff{}{t}\bigg(\pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t}\bigg) = \pdiff{u}{x}\pdifft{x}{t} + \pdiff{x}{t}\pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}\pdifft{y}{t} + \pdiff{y}{t}\pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) 
+  \end{align*}
+  Also
+  \begin{align*}
+    \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t} = \pdifft{u}{x}\,\pdiff{x}{t} + \frac{\partial^2 u}{\partial y\partial x}\,\pdiff{y}{t}\\
+    \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t} = \frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t} + \pdifft{u}{y}\,\pdiff{y}{t}
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \pdifft{U}{t} &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{x}{t}\left(\pdifft{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \frac{\partial^2 u}{\partial y\partial x}\,\pdiff{y}{t}\right) + \pdiff{y}{t}\left(\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t} + \pdifft{u}{y}\,\pdiff{y}{t}\right) \\ &= \pdiff{u}{x}\pdifft{x}{t} + \pdiff{u}{y}\pdifft{y}{t} + \pdifft{u}{x}\bigg(\pdiff{x}{t}\bigg)^2 + 2\,\frac{\partial^2 u}{\partial x\partial y}\,\pdiff{x}{t}\pdiff{y}{t} + \pdifft{u}{y}\bigg(\pdiff{y}{t}\bigg)^2
+  \end{align*}
+\end{sol}
+
+\begin{ex} If $\ds f(x, t) = g(x + at) + h(x - at)$, where $g$, $h$ are twice differentiable, prove that $f$ satisfies the wave equation $\ds\pdifft{f}{t} = a^2\pdifft{f}{x}$. 
+\end{ex}
+
+\begin{sol}
+  Let $\ds u(x, t) = x + at$, $\ds v(x, t) = x - at$, $\ds f\big(u(x,t), v(x, t)\big) = g(u(x, t)) + h(v(x, t))$. By the chain rule 
+  \begin{align*}
+    \pdiff{f}{t} &= \pdiff{f}{u}\,\pdiff{u}{t} + \pdiff{f}{v}\,\pdiff{v}{t} \\
+                 &= g'(u(x, t))\cdot a + h'(v(x, t))\cdot(-a) = a\,g'(x + at) - a\,h'(x - at) = a\,g'(u(x, t)) - a\,h'(v(x, t)) \\
+    \pdifft{f}{t} &= \pdiff{}{t}\bigg(\pdiff{f}{t}\bigg) \\ 
+    &= \pdiff{}{u}\big(a\,g'(u) - a\,h'(v)\big)\big(u(x,t), v(x, t)\big)\,\pdiff{u}{t} + \pdiff{}{v}\big(a\,g'(u) - a\,h'(v)\big)\big(u(x,t), v(x, t)\big)\pdiff{v}{t} \\ &= a\,g''(u(x,t))\cdot a - a\,h''(v(x, t))\cdot(-a) \\ &= a^2\,(g''(x + at) + h''(x - at)) \\
+    \pdiff{f}{x} &= \pdiff{f}{u}\,\pdiff{u}{x} + \pdiff{f}{v}\,\pdiff{v}{x} \\
+                 &= g'(u(x, t))\cdot 1 + h'(v(x, t))\cdot(1) = g'(x + at) + h'(x - at) = g'(u(x, t)) + h'(v(x, t)) \\
+    \pdifft{f}{x} &= \pdiff{}{x}\bigg(\pdiff{f}{x}\bigg) \\ 
+    &= \pdiff{}{x}\big(g'(u) + h'(v)\big)\big(u(x,t), v(x, t)\big)\,\pdiff{u}{x} + \pdiff{}{v}\big(g'(u) + h'(v)\big)\big(u(x,t), v(x, t)\big)\pdiff{v}{x} \\ 
+    &= g''(u(x,t))\cdot 1 + h''(v(x, t))\cdot 1\\ 
+    &= g''(x + at) + h''(x - at)
+  \end{align*}
+  Therefore $\ds\pdifft{f}{t} = a^2\pdifft{f}{x}$. 
+\end{sol}
+
+\begin{ex}
+  If $\ds u = f(x, y)$, $\ds x = e^s\cos t$, $\ds y = e^s\sin t$, prove that $\ds\pdifft{u}{x} + \pdifft{u}{y} = e^{-2s}\bigg(\pdifft{u}{s} + \pdifft{u}{t}\bigg)$.   
+\end{ex}
+
+\begin{sol} By the chain rule
+  \begin{align*}
+    \pdiff{u}{s} &= \pdiff{u}{x}\,\pdiff{x}{s} + \pdiff{u}{y}\,\pdiff{y}{s} = \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\\
+    \pdiff{u}{t} &= \pdiff{u}{x}\,\pdiff{x}{t} + \pdiff{u}{y}\,\pdiff{y}{t} = \pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t) 
+  \end{align*}
+
+  \begin{align*}
+    \pdifft{u}{s} = \pdiff{}{s}\bigg(\pdiff{u}{s}\bigg) &= \pdiff{}{s}\bigg(\pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(e^s\sin t)\bigg)\\
+    &= \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg)\cdot(e^s\cos t) + \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\sin t) + \pdiff{u}{y}\cdot(e^s\sin t) \\
+    \pdifft{u}{t} = \pdiff{}{t}\bigg(\pdiff{u}{t}\bigg) &= \pdiff{}{t}\bigg(\pdiff{u}{x}\cdot(-e^s\sin t) + \pdiff{u}{y}\cdot(e^s\cos t)\bigg)\\
+    &= \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)\cdot(-e^s\sin t) + \pdiff{u}{x}\cdot(-e^s\cos t) + \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(-e^s\sin t)
+  \end{align*}
+  Also
+  \begin{align*}
+    \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{s} = \pdifft{u}{x}\cdot(e^s\cos t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\sin t)\\
+  \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{s} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{s} = \frac{\partial^2 u}{\partial x\partial y}\cdot(e^s\cos t) + \pdifft{u}{y}\cdot(e^s\sin t) \\
+    \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{x}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{t} = \pdifft{u}{x}\cdot(-e^s\sin t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\cos t)\\
+  \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\left(\pdiff{u}{y}\right)\,\pdiff{x}{t} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{t} = \frac{\partial^2 u}{\partial x\partial y}\cdot(-e^s\sin t) + \pdifft{u}{y}\cdot(e^s\cos t)
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \pdifft{u}{s} &= \pdiff{}{s}\bigg(\pdiff{u}{x}\bigg)\cdot(e^s\cos t) + \pdiff{u}{x}\cdot(e^s\cos t) + \pdiff{}{s}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\sin t) + \pdiff{u}{y}\cdot(e^s\sin t) \\
+    &= \bigg(\pdifft{u}{x}\cdot(e^s\cos t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\sin t)\bigg)\cdot(e^s\cos t) + \pdiff{u}{x}\cdot(e^s\cos t)\\
+    &\;+ \bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(e^s\cos t) + \pdifft{u}{y}\cdot(e^s\sin t)\bigg)\cdot(e^s\sin t) + \pdiff{u}{y}\cdot(e^s\sin t)\\
+    \pdifft{u}{t} &= \pdiff{}{t}\bigg(\pdiff{u}{x}\bigg)\cdot(-e^s\sin t) + \pdiff{u}{x}\cdot(-e^s\cos t) + \pdiff{}{t}\bigg(\pdiff{u}{y}\bigg)\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(-e^s\sin t) \\ &= \bigg(\pdifft{u}{x}\cdot(-e^s\sin t) + \frac{\partial^2 u}{\partial y\partial x}\cdot(e^s\cos t)\bigg)\cdot(-e^s\sin t) + \pdiff{u}{x}\cdot(-e^s\cos t) \\ &\;+ \bigg(\frac{\partial^2 u}{\partial x\partial y}\cdot(-e^s\sin t) + \pdifft{u}{y}\cdot(e^s\cos t)\bigg)\cdot(e^s\cos t) + \pdiff{u}{y}\cdot(-e^s\sin t) 
+  \end{align*}
+  We can obtain $\ds\pdifft{u}{s} + \pdifft{u}{t} = e^{2s}\bigg(\pdifft{u}{x} + \pdifft{u}{y}\bigg)$. 
+\end{sol}
+
+\begin{ex}
+  If $\ds z = u(x, y)$, $\ds x = r\cos\theta$, $\ds y = r\sin\theta$, find $\ds\frac{\partial^2 z}{\partial\theta\partial r}$, $\ds\frac{\partial^2 z}{\partial r\partial\theta}$. 
+\end{ex}
+
+\begin{sol} 
+  \begin{itemize}
+    \item[]
+    \item To find $\ds\frac{\partial^2 z}{\partial\theta\partial r}$: By the chain rule
+  \begin{align*}
+    \pdiff{z}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = \pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta \\
+    \frac{\partial^2 z}{\partial\theta\partial r} &= \pdiff{}{\theta}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg) \\ &= \pdiff{u}{x}(-\sin\theta) + \pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg)\cos\theta + \pdiff{u}{y}\,\cos\theta + \pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg)\sin\theta
+  \end{align*}
+  Also
+  \begin{align*}
+    \pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{\theta} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{\theta} = \pdifft{u}{x}\,(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}\,(r\cos\theta) \\
+    \pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{\theta} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{\theta} = \frac{\partial^2 u}{\partial x\partial y}\,(-r\sin\theta) + \pdifft{u}{y}\,(r\cos\theta)
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \frac{\partial^2 z}{\partial\theta\partial r} &= \pdiff{u}{x}(-\sin\theta) + \pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg)\cos\theta + \pdiff{u}{y}\,\cos\theta + \pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg)\sin\theta \\
+    &= \pdiff{u}{x}(-\sin\theta) + \bigg(\pdifft{u}{x}\,(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}\,(r\cos\theta)\bigg)\cos\theta \\ &\;+ \pdiff{u}{y}\,\cos\theta + \bigg(\frac{\partial^2 u}{\partial x\partial y}\,(-r\sin\theta) + \pdifft{u}{y}\,(r\cos\theta)\bigg)\sin\theta \\
+    &= \pdiff{u}{y}\,\cos\theta - \pdiff{u}{x}\,\sin\theta + r\sin\theta\cos\theta\bigg(\pdifft{u}{y} - \pdifft{u}{x}\bigg) + r(\cos^2\theta - \sin^2\theta)\frac{\partial^2 u}{\partial x\partial y}
+  \end{align*}
+  
+    \item To find $\ds\frac{\partial^2 z}{\partial r\partial\theta}$: By the chain rule
+  \begin{align*}
+    \pdiff{z}{\theta} &= \pdiff{u}{x}\,\pdiff{x}{\theta} + \pdiff{u}{y}\,\pdiff{y}{\theta} = \pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta) \\
+    \frac{\partial^2 z}{\partial r\partial\theta} &= \pdiff{}{r}\bigg(\pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)\bigg) \\ &= \pdiff{u}{x}(-\sin\theta) + \pdiff{}{r}\bigg(\pdiff{u}{x}\bigg)\,(-r\sin\theta) + \pdiff{u}{y}\,\cos\theta + \pdiff{}{r}\bigg(\pdiff{u}{y}\bigg)\,(r\cos\theta)
+  \end{align*}
+  Also
+  \begin{align*}
+    \pdiff{}{r}\bigg(\pdiff{u}{x}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\bigg)\,\pdiff{y}{r} = \pdifft{u}{x}\,\cos\theta + \frac{\partial^2 u}{\partial y\partial x}\,\sin\theta \\
+    \pdiff{}{r}\bigg(\pdiff{u}{y}\bigg) &= \pdiff{}{x}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{y}\bigg)\,\pdiff{y}{r} = \frac{\partial^2 u}{\partial x\partial y}\,\cos\theta + \pdifft{u}{y}\,\sin\theta
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \frac{\partial^2 z}{\partial r\partial\theta} &= \pdiff{u}{x}(-\sin\theta) + \pdiff{}{r}\bigg(\pdiff{u}{x}\bigg)\,(-r\sin\theta) + \pdiff{u}{y}\,\cos\theta + \pdiff{}{r}\bigg(\pdiff{u}{y}\bigg)\,(r\cos\theta)\\
+    &= \pdiff{u}{x}(-\sin\theta) + \bigg(\pdifft{u}{x}\,\cos\theta + \frac{\partial^2 u}{\partial y\partial x}\,\sin\theta\bigg)\,(-r\sin\theta) \\ &\;+ \pdiff{u}{y}\,\cos\theta + \bigg(\frac{\partial^2 u}{\partial x\partial y}\,\cos\theta + \pdifft{u}{y}\,\sin\theta\bigg)\,(r\cos\theta) \\
+    &= \pdiff{u}{y}\,\cos\theta - \pdiff{u}{x}\,\sin\theta + r\sin\theta\cos\theta\bigg(\pdifft{u}{y} - \pdifft{u}{x}\bigg) + r(\cos^2\theta - \sin^2\theta)\frac{\partial^2 u}{\partial x\partial y}
+  \end{align*}
+  \end{itemize}
+\end{sol}
+
+\begin{ex}
+  If $\ds z = u(x, y)$, $\ds x = r\cos\theta$, $\ds y = r\sin\theta$, prove that $\ds\pdifft{z}{x} + \pdifft{z}{y} = \pdifft{z}{r} + \frac{1}{r}\pdiff{z}{r} + \frac{1}{r^2}\pdifft{z}{\theta}$. 
+\end{ex}
+
+\begin{sol}
+  Let $\ds z = U(r, \theta) = u(x(r, \theta),\,y(r,\theta))$, then by the chain rule 
+  \begin{align*}
+    \pdiff{U}{r} &= \pdiff{u}{x}\,\pdiff{x}{r} + \pdiff{u}{y}\,\pdiff{y}{r} = \pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta \\
+    \pdifft{U}{r} &= \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{x}{r} + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\pdiff{y}{r} \\
+    &= \pdiff{}{x}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\cos\theta + \pdiff{}{y}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg)\sin\theta \\
+    &= \pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta \\
+    \pdiff{U}{\theta} &= \pdiff{u}{x}\,\pdiff{x}{\theta} + \pdiff{u}{y}\,\pdiff{y}{\theta} = \pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta) \\
+    \pdifft{U}{\theta} &= \pdiff{}{\theta}\bigg(\pdiff{u}{x}(-r\sin\theta) + \pdiff{u}{y}(r\cos\theta)\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + \pdiff{u}{y}(-r\sin\theta) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{x}\bigg) + r\cos\theta\,\pdiff{}{\theta}\bigg(\pdiff{u}{y}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}\pdiff{x}{\theta} + \frac{\partial^2 u}{\partial y\partial x}\pdiff{y}{\theta}\bigg) + r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}\pdiff{x}{\theta} + \pdifft{u}{y}\pdiff{y}{\theta}\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) - r\sin\theta\,\bigg(\pdifft{u}{x}(-r\sin\theta) + \frac{\partial^2 u}{\partial y\partial x}(r\cos\theta)\bigg) \\
+    &\qquad\qquad\qquad\;\,\,+ r\cos\theta\,\bigg(\frac{\partial^2 u}{\partial x\partial y}(-r\sin\theta) + \pdifft{u}{y}(r\cos\theta)\bigg) \\
+    &= \pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}
+  \end{align*}
+  From the above,  
+  \begin{align*}
+    \pdifft{U}{r} + \frac{1}{r}\pdiff{U}{r} + \frac{1}{r^2}\pdifft{U}{\theta} &= \bigg(\pdifft{u}{x}\cos^2\theta + 2\frac{\partial^2 u}{\partial x\partial y}\sin\theta\cos\theta + \pdifft{u}{y}\sin^2\theta\bigg) + \frac{1}{r}\bigg(\pdiff{u}{x}\cos\theta + \pdiff{u}{y}\sin\theta\bigg) \\ &\quad+ \frac{1}{r^2}\bigg(\pdiff{u}{x}(-r\cos\theta) + \pdiff{u}{y}(-r\sin\theta) + r^2\sin^2\theta\,\pdifft{u}{x} -2r^2\sin\theta\cos\theta\,\frac{\partial^2 u}{\partial y\partial x} + r^2\cos^2\theta\,\pdifft{u}{y}\bigg) \\ &= \pdifft{u}{x}+ \pdifft{u}{y}
+  \end{align*}
+\end{sol}
+
+\section*{5.5 Directional Derivatives and Gradients}
+
+\begin{dfn}
+  Let $S\subseteq\mathbb{R}^n$, $\vc\in S$, $\vu\in\mathbb{R}^n$, and $\ds f:S\to\mathbb{R}$ be a differentiable function; $\ve_1,\,\ve_2,\,\ldots,\,\ve_n$ are the unit vectors in the $\mathbb{R}^n$ Cartesian coordinate system. 
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item The directional derivative of $f$ at $\vc$ in the direction of $\ds\vu$ is $\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h}$. 
+    \item The partial derivatives of $f$ are $\ds f_i(\vc) = D_{\ve_i}f(\vc)$, $i = 1,\,2,\,\ldots,\,n$. 
+    \item The gradient of $f$ at $\vc$ is $\ds\nabla f(\vc) = \llt f_1(\vc),\,f_2(\vc),\,\ldots,\,f_n(\vc)\rgt$. 
+  \end{itemize}
+\end{dfn}
+
+\begin{prp}
+  $\ds D_{\vu}f(\vc) = \nabla f(\vc)\cdot\vu$.  
+\end{prp}
+
+\begin{prf}
+  Let $\ds g(x) = f(\vc + x\vu) = f(v_1 + x u_1,\,v_2 + x u_2,\,\ldots,\,v_n + x u_n)$, $\ds D_{\vu}f(\vc) = \lim_{h\to 0}\frac{f(\vc + h\vu) - f(\vc)}{h} = \lim_{h\to 0}\frac{g(h) - g(0)}{h} = g'(x)\,\big|_{x = 0}$. By the chain rule, $\ds g'(x)\,\big|_{x = 0} = \sum_{i = 1}^n f_i(\vc + x\vu)\,\diff{(v_i + x u_i)}{x}\,\bigg|_{x = 0} = \sum_{i = 1}^n f_i(\vc + x\vu)\,u_i\,\bigg|_{x = 0} = \nabla f(\vc)\cdot\vu$. 
+\end{prf}
+
+\begin{prp}
+  Given a surface $\ds G(\vx) = 0$ in $\mathbb{R}^n$. Let $\ds\vx_0\in\mathbb{R}^n$ such that $\ds G(\vx_0) = 0$ (i.e., $\ds\vx_0$ is on $\ds G(\vx)$), then $\nabla G(\vx_0)$ is perpendicular to $\ds G(\vx)$ at $\vx_0$.  
+\end{prp}
+
+\begin{prf}
+  Let $\ds\vr(t) = \llt x_1(t),\,x_2(t),\,\ldots,\,x_n(t)\rgt$ be a curve in $\mathbb{R}^n$ on $\ds G(\vx)$ and passing through $\ds\vx_0$, then $\ds G(\vr(t)) = 0$, and there exists $t_0\in\mathbb{R}$ such that $\ds\vr(t_0) = \vx_0$. By the chain rule, differentiating both sides of $\ds G(\vr(t)) = 0$ with respect to $t$ and substituting $t = t_0$ gives 
+  \begin{align*}
+    \diff{G(\vr(t))}{t}\,\bigg|_{t = t_0} = 0 \ie \sum_{i=1}^n G_i(\vr(t))\,x_i'(t)\,\bigg|_{t = t_0} = 0 \ie \nabla G(\vr(t_0))\cdot\vr'(t_0) = 0
+  \end{align*}
+\end{prf}
+
+\begin{ex}
+  Find the equation of the tangent plane to $z = x^2 + 5xy - 2y^2$ at $(1, 2, 3)$. 
+\end{ex}
+
+\begin{sol}
+  $\ds f(x, y, z) = x^2 + 5xy - 2y^2 - z = 0$, so $\nabla f = (2x + 5y)\,\hi + (-4y + 5x)\,\hj - \hk$, $\nabla f(1, 2, 3) = \llt12,\,-3,\,-1\rgt$, the equation of the tangent plane is $12(x - 1) - 3(y - 2) - (z - 3) = 0 \ie 12 x - 3y - z = 3$. 
+\end{sol}
+
+\begin{ex}
+  Find the equation of the tangent plane to $z^3 + xyz - 2 = 0$ at $(1, 1, 1)$. 
+\end{ex}
+
+\begin{sol}
+  $\ds f(x, y, z) = z^3 + xyz - 2 = 0$, so $\nabla f = yz\,\hi + xz\,\hj + (3z^2 + xy)\,\hk$, $\nabla f(1, 1, 1) = \llt 1,\, 1,\, 4\rgt$, the equation of the tangent plane is $(x - 1) + (y - 1) + 4(z - 1) = 0 \ie x + y + 4z = 6$. 
+\end{sol}
+
+\section*{5.6 Extremum Problems}
+
+\begin{dfn}
+  Given $\ds S\subseteq\mathbb{R}^n$, $\ds f:S\to\mathbb{R}$, $\ds B(\vx, h)\equiv\{\vy\in\mathbb{R}^n\;|\;|\vy - \vx| < h\}$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $f$ has a global maximum $\ds f(\vx_\text{M})$ at $\ds\vx_\text{M}\in S$ if: $\ds f(\vx_\text{M})\geqslant f(\vx),\;\forall\,\vx\in S$. 
+    \item $f$ has a global minimum $\ds f(\vx_\text{m})$ at $\ds \vx_\text{m}\in S$ if: $\ds f(\vx_\text{m})\leqslant f(\vx),\;\forall\,\vx\in S$. 
+    \item $f$ has a local maximum $\ds f(\vx_0)$ at $\ds\vx_0\in S$ if: $\ds\exists\,h_0 > 0$ such that $\ds f(\vx_0)\geqslant f(\vx),\;\forall\,\vx\in B(\vx_0, h_0)\,\cap\,S$. 
+    \item $f$ has a local minimum $\ds f(\vx_1)$ at $\ds\vx_1\in S$ if: $\ds\exists\,h_1 > 0$ such that $\ds f(\vx_1)\leqslant f(\vx),\;\forall\,\vx\in B(\vx_1, h_1)\,\cap\,S$. 
+  \end{itemize}
+\end{dfn}
+
+\begin{thm}[Necessary Condition for Extremum]
+  Given $\ds S\subseteq\mathbb{R}^n$ and a differentiable function $\ds f:S\to\mathbb{R}$, if $f$ has an extremum at an interior point $\vc$ of $S$, then $\ds\nabla f(\vc) = \vZero$. 
+\end{thm}
+
+\begin{prf}
+  If $\ds\vc = (c_1,\,c_2,\,\ldots,\,c_n)$, let $\ds g_j(t)\equiv f(c_1,\,c_2,\,\ldots,\,c_{j - 1},\,t,\,c_{j + 1},\,\ldots,\,c_n)$, $j = 1,\,2,\,\ldots,\,n$. Since $f$ has an extremum at $\vc$, $f(\vc) = g_j(c_j)$, $g_j$ has an extremum at $c_j$ $\ie g'(t)\,\big|_{t = c_j} = 0 \ie f_j(\vc) = 0\;\forall\,j$, therefore $\ds\nabla f(\vc) = \vZero$.  
+\end{prf}
+
+\begin{fact}
+  Given $\ds S\subseteq\mathbb{R}^n$, if $f:S\to\mathbb{R}$ has an extremum at $\vc\in S$, then $\vc$ is one of the following three types: 
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item Critical point: $\ds \nabla f(\vc) = \vZero$. 
+      \item Singular point: $f$ is not differentiable at $\vc$.  
+      \item Boundary point of $S$. 
+    \end{itemize}
+  \end{multicols}
+\end{fact}
+
+\begin{dfn}[Hessian Matrix]
+  Given $\ds S\subseteq\mathbb{R}^n$, an interior point $\vc$ of $S$, and a differentiable function $\ds f:S\to\mathbb{R}$, 
+  \begin{align*}
+    \vH(f, \vc) = \begin{pmatrix}f_{11} & f_{12} & \cdots & f_{1n} \\ f_{21} & f_{22} & \cdots & f_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ f_{n1} & f_{n2} & \cdots & f_{nn}\end{pmatrix}, \qquad f_{ij} = \frac{\partial^2 f}{\partial x_j\partial x_i}(\vc), \qquad i,\,j = 1,\,2,\,\ldots,\,n.
+  \end{align*}
+\end{dfn}
+
+\begin{dfn}[Matrix Positive/Negative Definiteness] 
+  Given an $n\times n$ real symmetric matrix $\vA$. For any $\ds\vv\in\mathbb{R}^n\ne\vZero$, if 
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\ds\vv\vA\vv^\top > 0$: $\vA$ is positive-definite
+      \item $\ds\vv\vA\vv^\top < 0$: $\vA$ is negative-definite
+      \item $\ds\vv\vA\vv^\top \geqslant 0$: $\vA$ is positive-semidefinite
+      \item $\ds\vv\vA\vv^\top \leqslant 0$: $\vA$ is negative-semidefinite
+    \end{itemize}
+  \end{multicols}
+\end{dfn}
+
+\begin{dfn}[Minor] 
+  Given an $n\times n$ matrix $\ds\vA = \begin{pmatrix}a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix}$ and minor $\ds\vA\begin{pmatrix}i_1,\,i_2,\,\cdots,\,i_k\\j_1,\,j_2,\,\cdots,\,j_k\end{pmatrix} = \begin{vmatrix}a_{i_1 j_1} & a_{i_1 j_2} & \cdots & a_{i_1 j_k} \\ a_{i_2 j_1} & a_{i_2 j_2} & \cdots & a_{i_2 j_k} \\ \vdots & \vdots & \ddots & \vdots \\ a_{i_k j_1} & a_{i_k j_2} & \cdots & a_{i_k j_k} \end{vmatrix}$, $1\leqslant k\leqslant n$, $1\leqslant i_1 < i_2 < \cdots < i_k \leqslant n$, $1\leqslant j_1 < j_2 < \cdots < j_k \leqslant n$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item $\ds\Delta_k\equiv\vA\begin{pmatrix}i_1,\,i_2,\,\cdots,\,i_k\\i_1,\,i_2,\,\cdots,\,i_k\end{pmatrix}$ is the $k$-th order principal minor of $A$. 
+    \item $\ds M_k\equiv\vA\begin{pmatrix}1,\,2,\,\cdots,\,k\\1,\,2,\,\cdots,\,k\end{pmatrix}$ is the $k$-th order leading principal minor of $A$. 
+  \end{itemize}
+\end{dfn}
+
+\begin{thm}[Criteria for Matrix Positive/Negative Definiteness] 
+  Given an $n\times n$ real symmetric matrix $\vA$, then $\forall\,k\leqslant n$, 
+  \begin{multicols}{2}
+    \begin{itemize}\setlength\itemsep{0em}
+      \item $\vA$ is positive-definite $\ifff M_k > 0$
+      \item $\vA$ is negative-definite $\ifff (-1)^k M_k> 0$
+      \item $\vA$ is positive-semidefinite $\ifff \Delta_k \geqslant 0$
+      \item $\vA$ is negative-semidefinite $\ifff (-1)^k \Delta_k \geqslant 0$
+    \end{itemize}
+  \end{multicols}
+\end{thm}
+
+\begin{ex}
+  Consider the matrix $\ds\vA = \begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}$: Let $\ds\vv = \llt a,\,b,\,c\rgt$, $\ds\vv\vA\vv^\top = \begin{pmatrix}a & b & c\end{pmatrix}\begin{pmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}2a - b&-a + 2b - c&-b + 2c\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix} = (2a - b)a + (-a + 2b - c)b + (-b + 2c)c = 2a^2-2ab+2b^2 - 2bc + 2c^2 = a^2 + (a - b)^2 + (b - c)^2 + c^2 > 0$, except when $a = b = c = 0$, so it is positive-definite. Also, $\vA$'s $M_1$, $M_2$, $M_3$ are $\ds 2,\;\begin{vmatrix}2 & -1 \\ -1 & 2\end{vmatrix} = 3,\;\begin{vmatrix}2 & -1 & 0\\-1 & 2 & -1\\ 0 & -1 & 2\end{vmatrix} = 4$ respectively, by the above criteria $\vA$ is positive-definite. 
+\end{ex}
+
+\begin{thm}[Second Derivative Test]
+  Given $\ds S\subseteq\mathbb{R}^n$ and a differentiable function $\ds f:S\to\mathbb{R}$, and $f$ at an interior point $\vc$ of $S$ has $\ds\nabla f(\vc) = 0$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item If $\vH(f, \vc)$ is positive-definite, then $f$ has a local minimum at $\vc$. 
+    \item If $\vH(f, \vc)$ is negative-definite, then $f$ has a local maximum at $\vc$. 
+  \end{itemize}
+\end{thm}
+
+\begin{fact}
+  Given $\ds S\subseteq\mathbb{R}^2$ and a differentiable function $\ds f:S\to\mathbb{R}$, and $f$ at an interior point $(a, b)$ of $S$ has $\ds\nabla f(a, b) = 0$. Let 
+  \begin{align*}
+    D = f_{xx}(a, b)\cdot f_{yy}(a, b) - (f_{xy}(a, b))^2
+  \end{align*}
+  \begin{itemize}\setlength\itemsep{0em}
+    \item If $D > 0$ and $\ds f_{xx}(a, b) > 0$, then $f$ has a local minimum at $(a, b)$. 
+    \item If $D > 0$ and $\ds f_{xx}(a, b) < 0$, then $f$ has a local maximum at $(a, b)$. 
+    \item If $D < 0$, then $(a, b)$ is a saddle point. 
+  \end{itemize}
+\end{fact}
+
+\begin{ex} 
+  Find the critical points of $\ds f(x, y) = x^3 + xy^2 - 3x^2 - 4y^2 + 4$ and classify them. 
+\end{ex}
+
+\begin{sol} From $\ds f_x(x, y) = 3x^2 + y^2 - 6x$, $\ds f_y(x, y) = 2xy - 8y$, the critical points are $(x, y)$ that simultaneously satisfy these two equations being zero. Therefore 
+  \begin{align*}
+    \big\{3x^2 + y^2 - 6x = 0\big\} \orr \big\{y\,(x - 4) = 0\big\} \ie \big\{y = 0,\;3x^2 - 6x = 0\big\}\orr\big\{x = 4,\;3\cdot 4^2 + y^2 + 6\cdot 4 = 0\big\}
+  \end{align*}
+  So the critical points are $(0, 0)$, $(2, 0)$. Also $\ds f_{xx} = 6x - 6$, $\ds f_{yy} = 2x - 8$, $\ds f_{xy} = f_{yx} = 2y$, classified as follows: 
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{cccc}
+    \toprule
+    Critical Point   & $f_{xx}f_{yy}-f_{xy}^2$ & $f_{xx}$ & Classification \\    
+    \midrule
+    $(0, 0)$ & $(-6)\times(-8) - (0)^2 > 0$ & $-6$ & Local maximum \\ 
+    $(2, 0)$ & $6\times(-4) - 0^2 < 0$      &      & Saddle point \\ \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex} 
+  Find the critical points of $\ds f(x,y) = xy\,(5x + y - 15)$ and classify them. 
+\end{ex}
+
+\begin{sol}
+  \begin{align*}
+    f_x(x, y) &= y\,(5x+y-15)+xy\,(5) = y\,(5x+y-15)+y\,(5x) = y\,(10x+y-15) \\
+    f_y(x, y) &= x\,(5x+y-15) + xy\,(1) = x\,(5x+y-15)+ x\,(y) = x\,(5x+2y-15)
+  \end{align*}
+  The critical points are $(x, y)$ that simultaneously satisfy these two equations being zero. Therefore 
+  \begin{align*}
+    &\big\{y=0 \orr 10x+y=15\big\} \orr \big\{x=0 \orr 5x+2y=15\big\} \\
+    \ie \big\{y=0,\, x=0\big\}\orr\big\{y&=0,\ 5x+2y=15\big\}\orr\big\{10x+y=15,\ x=0\big\}\orr\big\{10x+y=15,\ 5x+2y=15\big\}
+  \end{align*}
+  So the critical points are $(0, 0)$, $(3, 0)$, $(0, 15)$, $(1,5)$. Also $\ds f_{xx} = 10 y$, $\ds f_{yy} = 2x$, $\ds f_{xy} = f_{yx} = 10x + 2y - 15$, classified as follows: 
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{cccc}
+    \toprule
+    Critical Point  & $f_{xx}f_{yy}-f_{xy}^2$ & $f_{xx}$ & Classification \\    
+    \midrule
+    $(0, 0)$  & $0\times0-(-15)^2 < 0$ & & Saddle point \\ 
+    $(3, 0)$  & $0\times 6-15^2 < 0$  & & Saddle point \\ 
+    $(0, 15)$ & $150\times0-15^2 < 0$ & & Saddle point \\ 
+    $(1, 5)$  & $50\times 2-5^2 > 0$ & 50 & Local minimum \\ \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y) = (x + y)\,e^{-x^2 - y^2}$ on $S:\,x^2 + y^2 \leqslant 1$. 
+\end{ex}
+
+\begin{sol}
+  Since $f$ is differentiable, it has no singular points; the extrema of $f$ occur at critical points ($\vc\in S,\,\nabla f(\vc) = 0$) and boundary points of $S$ ($x^2 + y^2 = 1$). 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item From $\ds f_x(x, y) = e^{-x^2 - y^2} + (x + y)\,e^{-x^2 - y^2}\,(-2x) = (-2 x^2 - 2xy + 1)\,e^{-x^2 - y^2}$, $\ds f_y(x, y) = e^{-x^2 - y^2} + (x + y)\,e^{-x^2 - y^2}\,(-2y) = (-2 y^2 - 2xy + 1)\,e^{-x^2 - y^2}$, the critical points $(x, y)$ satisfy $\ds 2x^2 + 2xy = 1$ and $2y^2 + 2xy = 1$, solving gives $(x, y) = \big(\frac{1}{2},\,\frac{1}{2}\big),\;\big(-\frac{1}{2},\,-\frac{1}{2}\big)$. 
+    \item Boundary points $x^2 + y^2 = 1$: Let $x = \cos t$, $y = \sin t$, $0\leqslant t\leqslant 2\pi$, then $f(x, y)$ becomes $\ds g(t)\equiv(\cos t + \sin t)\,e^{-1}$; $g'(t) = (-\sin t + \cos t)\,e^{-1} = 0$ solves to $t = \frac{\pi}{4},\,\frac{5\pi}{4}$; also consider boundary $t = 0,\,2\pi$, i.e., $(x, y) = \big(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\big),\;\big(-\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}\big),\;(1, 0)$.  
+  \end{itemize}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{ccc}
+    \toprule
+    Candidate Point & $f(x, y)$ & Classification \\    
+    \midrule
+    $\big(\frac{1}{2}, \frac{1}{2}\big)$  & $e^{-\frac{1}{2}}$ & Maximum \\ 
+    $\big(-\frac{1}{2}, -\frac{1}{2}\big)$  & $-e^{-\frac{1}{2}}$ & Minimum \\ 
+    $\big(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\big)$ & $\sqrt{2}\,e^{-1}$ &  \\ 
+    $\big(-\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}\big)$ & $-\sqrt{2}\,e^{-1}$ & \\ 
+    $\big(1, 0\big)$ & $e^{-1}$ & \\ \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y) = x^3 + xy^2 - 3x^2 - 4y^2 + 4$ on $S:\,x^2 + y^2 \leqslant 1$. 
+\end{ex}
+
+\begin{sol}
+  Since $f$ is differentiable, it has no singular points; the extrema of $f$ occur at critical points ($\vc\in S,\,\nabla f(\vc) = 0$) and boundary points of $S$ ($x^2 + y^2 = 1$). 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item From $\ds f_x(x, y) = 3x^2 + y^2 - 6x$, $\ds f_y(x, y) = 2xy - 8y$, the critical points $(x, y)$ satisfy $\ds 3x^2 + y^2 - 6x = 0$ and $2xy - 8y = 0$, solving gives $(x, y) = (0, 0),\;(2, 0)$; $(2, 0)$ is outside $S$ and not applicable. 
+    \item Boundary points $x^2 + y^2 = 1$: Substitute $y^2 = 1 - x^2$ then $f(x, y)$ becomes $g(x) = x^3 + x\,(1 - x^2) - 3x^2 - 4\,(1 - x^2) + 4 = x + x^2$, $-1\leqslant x\leqslant 1$; $g'(x) = 1 + 2x = 0$ solves to $x = -\frac{1}{2}$, i.e., the extrema of $g(x)$ occur at $x = \pm 1$ and $-\frac{1}{2}$ $\ie (x, y) = \big(-\frac{1}{2},\,\pm\frac{\sqrt{3}}{2}\big),\;(1, 0),\;(-1, 0)$.  
+  \end{itemize}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{ccc}
+    \toprule
+    Candidate Point & $f(x, y)$ & Classification \\    
+    \midrule
+    $(0, 0)$  & $4$ & Maximum \\ 
+    $\big(-\frac{1}{2}, \pm\frac{\sqrt{3}}{2}\big)$  & $-\frac{1}{4}$ & Minimum \\ 
+    $(1, 0)$  & $2$ &  \\ 
+    $(-1, 0)$ & $0$ &  \\ \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y) = xy - x^3y^2$ on $S:\, 0\leqslant x\leqslant 1,\;0\leqslant y\leqslant 1$. 
+\end{ex}
+
+\begin{sol}
+  Since $f$ is differentiable, it has no singular points; the extrema of $f$ occur at critical points ($\vc\in S,\,\nabla f(\vc) = 0$) and boundary points of $S$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item From $\ds f_x(x, y) = y - 3x^2y^2$, $\ds f_y(x, y) = x - 2x^3y$, the critical points $(x, y)$ satisfy $\ds y - 3x^2y^2 = y\,(1 - 3x^2y) = 0$ and $\ds x - 2x^3y = x\,(1 - 2x^2y)= 0$, so $y = 0\orr 1 - 3x^2y = 0$ and $x = 0\orr 1 - 2x^2y = 0$; solving gives $(x, y) = (0, 0)$. 
+    \item The boundary points consist of $L_1:\;x = 0\andd 0\leqslant y\leqslant 1$, $L_2:\;y = 0\andd 0\leqslant x\leqslant 1$, $L_3:\;x = 1\andd 0\leqslant y\leqslant 1$, $L_4:\;y = 1\andd 0\leqslant x\leqslant 1$. 
+      \begin{itemize}\setlength\itemsep{0em}
+        \item $L_1$: $f(x, y) = 0$. 
+        \item $L_2$: $f(x, y) = 0$. 
+        \item $L_3$: $x = 1$, $0\leqslant y\leqslant1$, $f(x, y)$ becomes $g(y) = y - y^2$, $g'(y) = 1 - 2y = 0$ solves to $y = \frac{1}{2}$, i.e., the extrema of $g(y)$ occur at $y = 0,\,1,\,\frac{1}{2}$ $\ie (x, y) = (1, 0),\,(1, 1),\,\big(1, \frac{1}{2}\big)$ 
+        \item $L_4$: $y = 1$, $0\leqslant x\leqslant1$, $f(x, y)$ becomes $h(x) = x - x^3$, $h'(x) = 1 - 3x^2 = 0$ solves to $x = \pm\frac{1}{\sqrt{3}}$ (negative not applicable), i.e., the extrema of $h(x)$ occur at $x = 0,\,1,\,\frac{1}{\sqrt{3}}$ $\ie (x, y) = (0, 1),\,(1, 1),\,\big(\frac{1}{\sqrt{3}}, 1\big)$. 
+      \end{itemize}
+  \end{itemize}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{ccc}
+    \toprule
+    Candidate Point & $f(x, y)$ & Classification \\    
+    \midrule
+    $(0, 0\leqslant y\leqslant 1)$ & $0$ & Minimum \\
+    $(0\leqslant x\leqslant 1, 0)$ & $0$ & Minimum \\
+    $(0, 0)$  & $0$ &  Minimum \\ 
+    $(1, 0)$  & $0$ &  Minimum \\ 
+    $(1, 1)$  & $0$ &  Minimum \\ 
+    $\big(1, \frac{1}{2}\big)$  & $\frac{1}{4}$ &  \\ 
+    $(0, 1)$  & $0$ &  Minimum \\ 
+    $\big(\frac{1}{\sqrt{3}}, 1\big)$  & $\frac{2}{3\sqrt{3}}$ & Maximum \\ 
+    \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y) = xy + 2x + y$ in the triangular region $S$ formed by $(0, 0)$, $(1, 0)$, $(0, 2)$. 
+\end{ex}
+
+\begin{sol}
+  Since $f$ is differentiable, it has no singular points; the extrema of $f$ occur at critical points ($\vc\in S,\,\nabla f(\vc) = 0$) and boundary points of $S$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item From $\ds f_x(x, y) = y + 2$, $\ds f_y(x, y) = x + 1$, the critical points $(x, y)$ satisfy $\ds y + 2 = 0$ and $\ds x + 1 = 0$, so $(x, y) = (-1, -2)$. 
+    \item The boundary points consist of $L_1:\;x = 0\andd 0\leqslant y\leqslant 2$, $L_2:\;y = 0\andd 0\leqslant x\leqslant 1$, $L_3:\;(1, 0)$ --- $(0, 2)$. 
+      \begin{itemize}\setlength\itemsep{0em}
+        \item $L_1$: $(x, y) = (0, 0),\,(0, 2)$. 
+        \item $L_2$: $(x, y) = (0, 0),\,(1, 0)$. 
+        \item $L_3$: $y = -2 x + 2$, $0\leqslant x\leqslant 1$, $f(x, y)$ becomes $g(x) = x\,(-2x + 2) + 2x + (-2x + 2) = -2x^2 + 2x + 2$, $g'(x) = -4x + 2 = 0$ solves to $x = \frac{1}{2}$, i.e., the extrema of $g(x)$ occur at $x = 0,\,1,\,\frac{1}{2}$ $\ie (x, y) = (0, 2),\,(1, 0),\,\big(\frac{1}{2}, 1\big)$ 
+      \end{itemize}
+  \end{itemize}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{ccc}
+    \toprule
+    Candidate Point & $f(x, y)$ & Classification \\    
+    \midrule
+    $(0, 0)$ & $0$ & Minimum \\
+    $(0, 2)$ & $2$ &  \\
+    $(1, 0)$ & $2$ &  \\
+    $\big(\frac{1}{2}, 1\big)$  & $\frac{5}{2}$ & Maximum \\ 
+    \bottomrule
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y) = xy\,e^{-\frac{x^2 + y^2}{2}}$ on $\ds S:\,\big\{(x, y)\,|\,x^2 + y^2\leqslant 4,\ x\geqslant 0,\ y\geqslant 0\big\}$. 
+\end{ex}
+
+\begin{sol}
+  Since $f$ is differentiable, it has no singular points; the extrema of $f$ occur at critical points ($\vc\in S,\,\nabla f(\vc) = 0$) and boundary points of $S$. 
+  \begin{itemize}\setlength\itemsep{0em}
+    \item From $\ds f_x(x, y) = y\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-x) = y(1 - x^2)\,e^{-\frac{x^2 + y^2}{2}}$, $\ds f_y(x, y) = x\,e^{-\frac{x^2 + y^2}{2}} + xy\,e^{-\frac{x^2 + y^2}{2}}\,(-y) = x(1 - y^2)\,e^{-\frac{x^2 + y^2}{2}}$, the critical points $(x, y)$ satisfy $\ds y\,(1 - x^2) = 0$ and $x\,(1 - y^2) = 0$, solving gives $(x, y) = (0, 0),\,(1, 1),\,(1, -1),\,(-1, 1),\,(-1, -1)$; only $(0, 0),\;(1, 1)$ are inside $S$. 
+    \item The boundary points consist of $L_1:\;x = 0\andd 0\leqslant y\leqslant 2$, $L_2:\;y = 0\andd 0\leqslant x\leqslant 2$, $L_3:\;x^2 + y^2 = 4$ in the first quadrant. 
+      \begin{itemize}\setlength\itemsep{0em}
+        \item $L_1$: $f(x, y) = 0$. 
+        \item $L_2$: $f(x, y) = 0$. 
+        \item $L_3$: Let $x = 2\cos t$, $y = 2\sin t$, $0\leqslant t\leqslant\frac{\pi}{2}$, then $f(x, y)$ becomes $\ds g(t)\equiv4\cos t\sin t\,e^{-2}$; $g'(t) = \cos 2t\,4e^{-2} = 0$ solves to $t = \frac{\pi}{4}$; also consider boundary $t = 0,\,\frac{\pi}{2}$, i.e., $(x, y) = (\sqrt{2}, \sqrt{2}),\;(2, 0),\;(0, 2)$.  
+      \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{ccc}
+      \toprule
+      Candidate Point  & $f(x,y)$ & Classification \\ 
+      \midrule
+      $(0, 0)$ & $0$ & Minimum \\ 
+      $(1, 1)$ & $e^{-1}$ & Maximum \\ 
+      $(0, 0\leqslant y\leqslant 2)$ & $0$ & Minimum \\
+      $(0\leqslant x\leqslant 2, 0)$ & $0$ & Minimum \\
+      $(\sqrt{2}, \sqrt{2})$ & $2e^{-2}$ & \\ 
+      $(2, 0)$ & $0$ & Minimum \\ 
+      $(0, 2)$ & $0$ & Minimum \\ 
+      \bottomrule
+    \end{tabular}
+    \renewcommand{\arraystretch}{1.0}
+  \end{center}
+\end{sol}
+
+\section*{5.7 Lagrange Multiplier Method}
+
+\begin{thm}
+  Given an open set $S\subseteq\mathbb{R}^n$, differentiable functions $f:S\to\mathbb{R}$ and $g_j:S\to\mathbb{R}$, $j=1,\,2,\,\ldots,\,m$, $m < n$, and $\ds X_0 = \big\{\vx\in S\;|\;g_j(\vx) = 0,\,j=1,\,2,\,\ldots,\,m\big\}$. If $f$ has an extremum at $\ds\vx_0\in S\,\cap\,X_0$ and $\det\big(D_i g_j(\vx_0)\big)\ne 0$, then \vspace{-2mm}
+  \begin{align*}
+    \exists\,\lambda_1,\,\lambda_2,\,\ldots,\,\lambda_m\quad\text{such that}\quad D_i f(\vx_0) + \sum_{j = 1}^m\lambda_j D_i g_j(\vx_0) = 0,\quad\ds i = 1,\,2,\,\ldots,\,n
+  \end{align*}
+\end{thm}
+\begin{rmk}
+  Let $\ds\mathcal{L}\equiv f + \sum_{j = 1}^m \lambda_j\,g_j$, the above sufficient condition can be written as
+  \vspace{-2mm}
+  \begin{align*}
+    D_i\,\mathcal{L}(\vx_0) &= 0,\quad i = 1,\,2,\,\ldots,\,n \\
+    g_j(\vx_0) &= 0,\quad j=1,\,2,\,\ldots,\,m
+  \end{align*}
+\end{rmk}
+
+\begin{ex} 
+  Find the maximum and minimum values of $\ds x^2 - 10 x - y^2$ on $\ds x^2 + 4 y^2 = 16$. 
+\end{ex}
+
+\begin{sol}
+  Let $\ds\mathcal{L} = x^2 - 10 x - y^2 + \lambda\,(x^2 + 4 y^2 - 16)$, then 
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x - 10 + 2\lambda x = 0\ie x - 5 + \lambda x = 0 \label{eq:1}\\
+    \pdiff{\mathcal{L}}{y} &= -2y + 8\lambda y = 0\ie -y + 4\lambda y = 0 \label{eq:2} \\
+    x^2 &+ 4 y^2 - 16 = 0 \label{eq:3}
+  \end{align}
+  From \eqref{eq:2} $(1 - 4\lambda) y = 0$, so $y = 0\orr\lambda = \frac{1}{4}$. If $y = 0$, from \eqref{eq:3} $x = \pm 4$; if $\lambda=\frac{1}{4}$, from \eqref{eq:1} $(1 + \lambda)\,x = 5\ie x = 4$, substituting into \eqref{eq:3} gives $y = 0$. Therefore, the extremum points are $(x, y) = (4, 0),\,(-4, 0)$; $x^2 - 10x - y^2$ has a maximum value of $56$ (at $(x, y) = (-4, 0)$), and a minimum value of $-24$ (at $(x, y) = (4, 0)$). 
+\end{sol}
+
+\begin{ex}
+  Find the point on $x^2 = y^2 + z^2$ that is closest to $(0, 1, 3)$. 
+\end{ex}
+
+\begin{sol}
+  The square of the distance function is $x^2 + (y - 1)^2 + (z - 3)^2$, with the constraint $x^2 - y^2 - z^2 = 0$. Let $\ds\mathcal{L} = x^2 + (y - 1)^2 + (z - 3)^2 + \lambda(x^2 - y^2 - z^2)$, then
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x + 2\lambda x = 0\ie (1 + \lambda) x = 0 \label{eq:4}\\
+    \pdiff{\mathcal{L}}{y} &= 2\,(y - 1) - 2\lambda y = 0\ie (1 - \lambda) y = 1 \label{eq:5} \\
+    \pdiff{\mathcal{L}}{z} &= 2\,(z - 3) - 2\lambda z = 0\ie (1 - \lambda) z = 3 \label{eq:6} \\
+    x^2 &- y^2 - z^2 = 0 \label{eq:7}
+  \end{align}
+  From \eqref{eq:4} $(1 + \lambda) x = 0$, so $x = 0\orr\lambda = -1$. If $x = 0$, from \eqref{eq:7} $y = z = 0$; if $\lambda = -1$, from \eqref{eq:5} $y = \frac{1}{2}$, from \eqref{eq:6} $z = \frac{3}{2}$, substituting into \eqref{eq:7} gives $x = \pm\sqrt{\frac{5}{2}}$. Therefore, the extremum points are $(x, y, z) = (0, 0, 0),\,\Big(\pm\sqrt{\frac{5}{2}}, \frac{1}{2}, \frac{3}{2}\Big)$; the minimum value of the square of the distance $x^2 + (y - 1)^2 + (z - 3)^2$ is $5$, occurring at $(x, y, z) = \Big(\pm\sqrt{\frac{5}{2}}, \frac{1}{2}, \frac{3}{2}\Big)$. 
+\end{sol}
+
+\begin{ex}
+  Find the maximum and minimum values of $\ds f(x, y, z) = (x + z)\,e^y$ on $x^2 + y^2 + z^2 = 6$. 
+\end{ex}
+  
+\begin{sol}
+  Let $\ds\mathcal{L} = (x + z)\,e^y + \lambda\,(x^2 + y^2 + z^2 - 6)$, then 
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= e^y + 2\lambda x = 0\label{eq:13}\\
+    \pdiff{\mathcal{L}}{y} &= (x + z)\,e^y + 2\lambda y = 0\label{eq:14} \\
+    \pdiff{\mathcal{L}}{z} &= e^y + 2\lambda z = 0\label{eq:15} \\
+    x^2 &+ y^2 + z^2 - 6 = 0 \label{eq:16}
+  \end{align}
+  From \eqref{eq:13}, \eqref{eq:15} $2\,\lambda(x - z) = 0$, so $\lambda = 0\orr x = z$. If $\lambda = 0$, then from \eqref{eq:13} $\ds e^y = 0$ which is impossible, so $x = z$. From \eqref{eq:13} $e^y = -2\lambda x$, substituting into \eqref{eq:14} $2x\,(-2\lambda x) + 2\lambda y = 0\ie y = 2x^2$, substituting into \eqref{eq:16} gives $x^2 + 4x^4 + x^2 = 6\ie (4x^2 + 6)(x^2 - 1) = 0 \ie x = \pm 1$. Therefore, the extremum points are $(x, y, z) = (1, 2, 1),\;(-1, 2, -1)$; $(x + z)\,e^y$ has a maximum value of $2e^2$ (at $(x, y, z) = (1, 2, 1)$), and a minimum value of $-2e^2$ (at $(x, y, z) = (-1, 2, -1)$). 
+\end{sol}
+
+\begin{ex}
+  If $L$ is the curve of intersection of $z^2 = x^2 + y^2$ and $x - 2z = 3$, find the point on $L$ that is closest to the origin and the shortest distance. 
+\end{ex}
+
+\begin{sol}
+  The square of the distance function is $x^2 + y^2 + z^2$, with constraints $x^2 + y^2 - z^2 = 0$ and $x - 2z - 3 = 0$. Let $\ds\mathcal{L} = x^2 + y^2 + z^2 + \lambda_1\,(x^2 + y^2 - z^2) + \lambda_2\,(x - 2z - 3)$, then
+  \begin{align}
+    \pdiff{\mathcal{L}}{x} &= 2 x + 2\lambda_1 x + \lambda_2 = 0 \ie 2\,(1 + \lambda_1) x + \lambda_2 = 0\label{eq:8}\\
+    \pdiff{\mathcal{L}}{y} &= 2 y + 2\lambda_1 y = 0 \ie (1 + \lambda_1)y = 0\label{eq:9} \\
+    \pdiff{\mathcal{L}}{z} &= 2 z - 2\lambda_1 z - 2\lambda_2 = 0 \ie (1 - \lambda_1)z - \lambda_2 = 0\label{eq:10}\\
+    x^2 &+ y^2 - z^2 = 0 \label{eq:11} \\
+    x &- 2z - 3 = 0 \label{eq:12}
+  \end{align}
+  From \eqref{eq:9} $(1 + \lambda_1) y = 0$, so $y = 0\orr\lambda_1 = -1$. If $y = 0$, from \eqref{eq:11} $x^2 = z^2 \ie x = \pm z$. If $x = z$, from \eqref{eq:12} $x = z = -3$. If $x = -z$, from \eqref{eq:12} $x = 1$, $z = -1$; if $\lambda_1 = -1$, from \eqref{eq:8} $\lambda_2 = 0$, from \eqref{eq:10} $z = 0$, substituting into \eqref{eq:11} gives $x = y = 0$, which contradicts \eqref{eq:12}. Therefore, the extremum points are $(x, y, z) = (-3, 0, -3),\,(1, 0, -1)$; the minimum value of the square of the distance $x^2 + y^2 + z^2$ is $2$ (shortest distance is $\sqrt{2}$), occurring at $(x, y, z) = (1, 0, -1)$. 
+\end{sol}
+
+\end{document}

@@ -1,0 +1,406 @@
+\documentclass[12pt]{extarticle} 
+%\usepackage{unicode-math}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+%\usepackage[paperwidth=126mm, paperheight=96mm, top=5mm, bottom=5mm, right=5mm, left=5mm]{geometry}
+\usepackage[margin=1cm,footskip=5mm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+\DeclareMathOperator\prb{{\sf P}}
+\DeclareMathOperator\expc{{\sf E}}
+\DeclareMathOperator\var{var}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
+
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from clp3
+
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vR}{\mathbf{R}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vC}{\mathbf{C}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vu}{\mathbf{u}}
+%\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vH}{\mathbf{H}}
+\newcommand{\vM}{\mathbf{M}}
+\newcommand{\vT}{\mathbf{T}}
+\newcommand{\vN}{\mathbf{N}}
+\newcommand{\vL}{\mathbf{L}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vD}{\mathbf{D}}
+\newcommand{\vE}{\mathbf{E}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\vZero}{\mathbf{0}}
+\newcommand{\vPhi}{\mathbf{\Phi}}
+\newcommand{\vOmega}{\mathbf{\Omega}}
+\newcommand{\vTheta}{\mathbf{\Theta}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+
+%\newcommand{\hi}{\hat{\mathbf{i}}}
+%\newcommand{\hj}{\hat{\mathbf{j}}}
+\newcommand{\hi}{\widehat{\pmb{\imath}}}
+\newcommand{\hj}{\widehat{\pmb{\jmath}}}
+\newcommand{\hk}{\widehat{\mathbf{k}}}
+\newcommand{\hn}{\widehat{\mathbf{n}}}
+\newcommand{\hr}{\widehat{\mathbf{r}}}
+\newcommand{\hvt}{\widehat{\mathbf{t}}}
+\newcommand{\hN}{\widehat{\mathbf{N}}}
+\newcommand{\vth}{{\pmb{\theta}}}
+\newcommand{\vTh}{{\pmb{\Theta}}}
+%\newcommand{\vnabla}{\pmb{\nabla}}
+\newcommand{\vnabla}{   { \mathchoice{\pmb{\nabla}}
+                            {\pmb{\nabla}}
+                            {\pmb{\scriptstyle\nabla}}
+                            {\pmb{\scriptscriptstyle\nabla}} }   }
+\newcommand{\ha}[1]{\mathbf{\hat e}^{(#1)}}
+
+\newcommand{\bbbc}{\mathbb{C}}
+
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
+\newcommand{\vOm}{\pmb{\Omega}}
+\newcommand{\svOm}{\pmb{\scriptsize\Omega}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\de}{\delta}
+\newcommand{\ga}{\gamma}
+\newcommand{\ka}{\kappa}
+\newcommand{\la}{\lambda}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\bbbone}{\mathbb{1}}
+
+\def\tr{\mathop{\rm tr}}
+\newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+%\newcommand{\pdiff}[2]{ \frac{\partial\hfil#1\hfil}{\partial #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdifft}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dblInt}{\iint}
+\newcommand{\tripInt}{\iiint}
+%\newcommand{\dblInt}{\int\!\!\int}
+%\newcommand{\tripInt}{\int\!\!\!\int\!\!\!\int}
+%\newcommand{\dblInt}{\mathop{\int\!\!\!\int}}
+%\newcommand{\tripInt}{\mathop{\int\!\!\!\int\!\!\!\int}}
+
+\newcommand{\Set}[2]{\big\{ \ #1\ \big|\ #2\ \big\}}
+\newcommand{\rhof}{{\rho_{\!{\scriptscriptstyle f}}}}
+\newcommand{\rhob}{{\rho_{{\scriptscriptstyle b}}}}
+
+\renewcommand{\neg}{ {\sim} }
+\newcommand{\limp}{ {\;\Rightarrow\;} }
+\newcommand{\nimp}{ {\;\not\Rightarrow\;} }
+\newcommand{\liff}{ {\;\Leftrightarrow\;} }
+\newcommand{\niff}{ {\;\not\Leftrightarrow\;} }
+
+\newcommand{\st}{ {\mbox{ s.t. }} }
+\newcommand{\es}{ {\varnothing}}
+\newcommand{\pow}[1]{ \mathcal{P}\left(#1\right) }
+\newcommand{\set}[1]{ \left\{#1\right\} }
+
+\newcommand{\bbbn}{\mathbb{N}}
+\newcommand{\bbbr}{\mathbb{R}}
+\newcommand{\bbbp}{\mathbb{P}}
+\newcommand{\De}{\Delta}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\dee}[1]{\mathrm{d}#1}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\difftwo}[2]{\frac{\mathrm{d^2} #1}{\mathrm{d}{#2}^2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+
+\usepackage{nicefrac}
+\newcommand{\eqover}[1]{}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} Poisson 分配}{Poisson 分配}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+\myline
+
+\noindent 考慮下列現象:
+\begin{multicols}{2}
+  \begin{itemize}\setlength{\itemsep}{0pt}
+    \item 每小時服務台訪客的人數
+    \item 每天手機來電的通數
+    \item 某條道路上每月發生車禍的次數
+    \item 每星期學生到研究室找老師的次數
+  \end{itemize} 
+\end{multicols}
+\noindent 以上現象共同特徵: 在某時間區間內, 平均會發生若干次「事件」, 有時很少, 有時又異常地多. 因此, 在某時間區間內事件發生次數是一個隨機變數 --- 此現象稱之 Poisson 過程, 所對應的機率密度函數稱為 Poisson 分配.
+
+\bigskip
+\noindent Poisson 過程有三個基本特性: 
+\begin{enumerate}[label=(\roman*)]\setlength{\itemsep}{0pt}
+  \item 在短時間區間 $\Delta t$ 內, 發生一次事件的機率與 $\Delta t$ 成正比. 
+  \item 在短時間區間 $\Delta t$ 內, 發生兩次以上事件的機率可忽略. 
+  \item 在不重疊之時間區間內, 事件各自發生的次數為獨立. 
+\end{enumerate}
+令 $\ds P(k,\,T)$ 為在時間區間 $T$ 內發生 $k$ 次事件的機率. 由 (i) $\ds P(1,\,\Delta t) = \lambda\,\Delta t$, $\lambda$ 為一常數. 由 (ii) $\ds P(k,\,\Delta t) = 0$, $k\geqslant 2$. 將 $T$ 分割成 $n$ 個短時間區段, 亦即 $\ds T = n\Delta t$ $\ie$ $\Delta t = \frac{T}{n}$. 由 (iii) 「在不重疊之時間區間內, 事件各自發生的次數為獨立」 
+\begin{align*}
+  P(k,\,T) \approx \binom{n}{k}\,(\lambda\,\Delta t)^k\,(1 - \lambda\,\Delta t)^{n - k} = \frac{n(n - 1)\cdots(n - k + 1)}{k!}\,\frac{(\lambda\,T)^k}{n^k}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k}
+\end{align*}
+固定 $k$, 令 $n\to\infty$ 時上式極限趨近於真實 $\ds P(k,\,T)$，亦即
+\begin{align*}
+  P(k,\,T) &= \lim_{n\to\infty}\frac{n(n - 1)\cdots(n - k + 1)}{k!}\,\frac{(\lambda\,T)^k}{n^k}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} \\
+  &= \lim_{n\to\infty}\underbrace{\frac{n}{n}\,\frac{n - 1}{n}\cdots\frac{n - k + 1}{n}}_{\text{共 $k$ 項}}\,\frac{(\lambda\,T)^k}{k!}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} \\
+  &= \lim_{n\to\infty}1\,\Big(1 - \frac{1}{n}\Big)\cdots\Big(1 - \frac{k - 1}{n}\Big)\,\frac{(\lambda\,T)^k}{k!}\,\frac{\big(1 - \frac{\lambda\,T}{n}\big)^n}{\big(1 - \frac{\lambda\,T}{n}\big)^k} \\ 
+  &= \frac{(\lambda\,T)^k}{k!}\cdot\underbrace{\lim_{n\to\infty}\frac{1\,\big(1 - \frac{1}{n}\big)\cdots\big(1 - \frac{k - 1}{n}\big)}{\big(1 - \frac{\lambda\,T}{n}\big)^k}}_{\text{分子分母各 $k$ 有限項, 故總極限為 $1$}}\cdot\lim_{n\to\infty}\Big(1 - \frac{\lambda\,T}{n}\Big)^n\\ 
+  &=\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T}
+\end{align*}
+其中 $\ds\lim_{n\to\infty}\Big(1 - \frac{\lambda\,T}{n}\Big)^n = \lim_{n\to\infty}\Big(1 + \frac{-\lambda\,T}{n}\Big)^n = e^{-\lambda\,T}$. 由此推導 Poisson 分配是二項分配 ${\sf B}(n,\,p)$ 的極限, 固定 $n\,p = \lambda\,T$ 後再取 $n\to\infty$. 我們常令 $\lambda\,T = \mu$; $\mu$ 表示在時間區間 $T$ 內的平均發生次數. 
+
+\myline
+
+\begin{ex}
+  \setlength{\columnsep}{-5cm}
+  \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
+      \item 證明 $\ds\sum_{k = 0}^{\infty} P(k,T) = 1$.
+      \item 令 $\ds P_X(k) = \frac{\mu^k}{k!}e^{-\mu}$, $k = 1,\,2,\,3,\,\cdots$. 求 $\expc\{X\}$ 與 $\var\{X\}$.
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} 由 $e^x$ 之 MacLaurin 展開式 $\ds e^x = \sum_{k = 0}^{\infty}\frac{x^k}{k!}$, 代入 $x = \lambda\,T$ 得 $\ds e^{\lambda\,T} = \sum_{k = 0}^{\infty}\frac{(\lambda\,T)^k}{k!}$.
+  \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
+    \item $\ds\sum_{k = 0}^{\infty} P(k,T) = \sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\cdot e^{\lambda\,T} = 1$.
+    \item $\ds\expc\{X\} = \sum_{k = 0}^\infty k\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\cdot\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = \lambda\,T\cdot e^{-\lambda\,T}\cdot\sum_{k = 0}^\infty\frac{(\lambda\,T)^k}{k!} = \lambda\,T = \mu$.\\ 
+    $\ds\expc\{X^2\} = \sum_{k = 0}^\infty k^2\frac{(\lambda\,T)^k}{k!}e^{-\lambda\,T} = e^{-\lambda\,T}\sum_{k = 1}^\infty k^2\frac{(\lambda\,T)^k}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty k\frac{(\lambda\,T)^k}{(k - 1)!} = e^{-\lambda\,T}\sum_{k = 0}^\infty (k + 1)\frac{(\lambda\,T)^{k + 1}}{k!} \\= e^{-\lambda\,T}\sum_{k = 0}^\infty k\frac{(\lambda\,T)^{k + 1}}{k!} + e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 1}}{k!} = e^{-\lambda\,T}\sum_{k = 1}^\infty\frac{(\lambda\,T)^{k + 1}}{(k - 1)!} + \lambda = e^{-\lambda\,T}\sum_{k = 0}^\infty\frac{(\lambda\,T)^{k + 2}}{k!} + \lambda = (\lambda\,T)^2 + \lambda\,T = \mu^2 + \mu$. 故 $\ds\var\{X\} = \expc\{X^2\} - (\expc\{X\})^2 = \mu^2 + \mu - \mu^2 = \mu$.
+  \end{enumerate}
+\end{sol}
+
+\begin{ex} 一公司來電數約每小時 20 通, 求在 5 分鐘內
+  \setlength{\columnsep}{-1cm}
+  \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
+      \item 無來電之機率.
+      \item 4 通來電之機率. 
+      \item 在 5 分鐘內超過 3 通來電之機率.
+    \end{enumerate}
+  \end{multicols}
+\end{ex}
+
+\begin{sol}
+  來電數每小時 20 通, 則平均每分鐘來電數 $\lambda = \frac{1}{3}$; 在 5 分鐘時間區間內, 平均來電數 $\mu = \lambda\,T = \frac{1}{3}\times 5 = \frac{5}{3}$. 故 5 分鐘內來電 $k$ 通機率 $\ds P(k)\equiv P(k,\,5) = \frac{(\frac{5}{3})^k}{k!} e^{-\frac{5}{3}},\quad k=0,\,1,\,2,\,\cdots$.  
+  \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
+    \item 無來電之機率 $\ds P(0)= e^{-\frac{5}{3}}\approx 0.19$.
+    \item 4 通來電之機率為 $\ds P(4)=\frac{(\frac{5}{3})^4}{4!}e^{-\frac{5}{3}}\approx 0.06$. 
+    \item 超過 3 通來電之機率為 $\ds\sum_{k=4}^{\infty}\frac{(\frac{5}{3})^k}{k!} e^{-\frac{5}{3}} = 1 - \sum_{k = 0}^3\frac{(\frac{5}{3})^k}{k!}e^{-\frac{5}{3}}\approx 0.09$
+  \end{enumerate}
+\end{sol}
+
+\myline
+
+\begin{exe}[2024.q.29]
+  An actuary has discovered that policyholders are three times as likely as to file two claims as to file four claims. The number of claims filed has a Poisson distribution; calculate the variance of the number of claims filed.
+\end{exe}
+
+\begin{sol}
+  Let $N$ be the number of claims filed; we have $\ds\prb\{N = 2\} = \frac{e^{-\mu}\mu^2}{2!} = 3\,\prb\{N = 4\} = \frac{e^{-\mu}\mu^4}{4!} \ie \frac{1}{2}\mu^2 = \frac{3}{24}\mu^4 \ie \mu^2 = 4 \ie \mu = 2$. 
+\end{sol}
+
+\begin{exe}[2024.q.60]
+  A baseball team has scheduled its opening game for April 1. If it rains on April 1, the game is postponed and will be played on the next day that it does not rain. The team purchases insurance against rain. The policy will pay $1000$ for each day, up to $2$ days, that the opening game is postponed. The insurance company determines that the number of consecutive days of rain beginning on April 1 is a Poisson random variable with mean $0.6$. Calculate the standard deviation of the amount the insurance company will have to pay.
+\end{exe}
+
+\begin{sol}
+  Let $N$ be the number of consecutive days of rain; $\ds\expc\{X\} = 1000\,\prb\{N = 1\} + 2000\,\prb\{N > 1\} = 1000\,\frac{e^{-0.6}\,0.6}{1!} + 2000\,(1 - e^{0.6} - e^{0.6}\,0.6) \approx 573$. $\ds\expc\{X^2\} = 1000^2\,\prb\{N = 1\} + 2000^2\,\prb\{N > 1\} = 1000^2\,\frac{e^{-0.6}\,0.6}{1!} + 2000^2\,(1 - e^{0.6} - e^{0.6}\,0.6) \approx 816893$. So $\var\{X\} = 816893 - 573^2 = 488564$, the standard deviation is $\sqrt{488564}\approx 699$.
+\end{sol}
+
+\begin{exe}[2024.q.200]
+  The number of traffic accidents occurring on any given day in Coralville is Poisson distributed with mean $5$. The probability that any such accident involves an uninsured driver is $0.25$, independent of all other such accidents. Calculate the probability that on a given day in Coralville there are no traffic accidents that involve an uninsured driver.
+\end{exe}
+
+\begin{sol}
+  From the Law of Total Probability, the required probability is 
+  \begin{align*}
+    &\sum_{k = 0}^\infty\prb(\text{$0$ accidents with an uninsured driver}\,|\,\text{$k$ accidents})\,\prb(\text{$k$ accidents}) \\
+    &\quad = \sum_{k = 0}^\infty 0.75^k\,\frac{e^{-5}{5^k}}{k!} = e^{-5}\sum_{k = 0}^\infty \frac{(0.75\cdot 5)^k}{k!} = e^{-5}\,e^{0.75\cdot 5} = e^{-1.25} \approx 0.287
+  \end{align*}
+\end{sol}
+
+\begin{exe}[2024.q.216]
+  A company has purchased a policy that will compensate for the loss of revenue due to severe weather events. The policy pays $1000$ for each severe weather event in a year after the first two such events in that year. The number of severe weather events per year has a Poisson distribution with mean $1$. Calculate the expected amount paid to this company in one year.
+\end{exe}
+
+\begin{sol}
+  Let $X$ be the number of severe weather events per year; the payment random variable is $1000\,(X - 2)$ if $X > 2$, $0$ otherwise. So the expected value is $\ds\sum_{x = 3}^\infty 1000\,(x - 2)\,\frac{e^{-1}}{x!} = 1000\,e^{-1}\,\bigg(\sum_{x = 0}^\infty\frac{x - 2}{x!} - (-2) - (-1)\bigg) = 1000\,e^{-1}\bigg(\sum_{x = 0}^\infty\frac{x}{x!} - \sum_{x = 0}^\infty\frac{2}{x!} + 3\bigg) = 1000\,e^{-1}\bigg(\sum_{x = 1}^\infty\frac{1}{(x - 1)!} - \sum_{x = 0}^\infty\frac{2}{x!} + 3\bigg) = 1000\,e^{-1}\bigg(\sum_{x = 0}^\infty\frac{1}{x!} - 2\sum_{x = 0}^\infty\frac{1}{x!} + 3\bigg) = 1000\,e^{-1}(-e + 3) \approx 103.63$.
+\end{sol}
+
+\begin{exe}[2024.q.228]
+  The number of tornadoes in a given year follows a Poisson distribution with mean $3$. Calculate the variance of the number of tornadoes in a year given that at least one tornado occurs.
+\end{exe}
+
+\begin{sol}
+  Let $X$ be the number of tornadoes and $Y$ be the conditional distribution of $X$ given that $X > 0$. Then $\ds\prb\{Y = y\} = \prb\{X = y\,|\,X > 0\} = \frac{\prb\{X = y\}}{\prb\{X > 0\}} = \frac{1}{1 - e^{-3}}\,\frac{e^{-3}\,3^y}{y!},\;y = 1,\,2,\,\ldots$ \\$\ds\expc\{Y\} = \frac{1}{1 - e^{-3}}\,\sum_{y = 1}^\infty y\,\frac{e^{-3}\,3^y}{y!} = \frac{e^{-3}}{1 - e^{-3}}\,\sum_{y = 1}^\infty y\,\frac{3^y}{y!} = \frac{3\,e^{-3}}{1 - e^{-3}}\,\sum_{y = 1}^\infty \frac{3^{y - 1}}{(y - 1)!} = \frac{3\,e^{-3}}{1 - e^{-3}}\,\sum_{y = 0}^\infty\frac{3^y}{y!} = \frac{3}{1 - e^{-3}}$, \\$\ds\expc\{Y^2\} = \frac{1}{1 - e^{-3}}\,\sum_{y = 1}^\infty y^2\,\frac{e^{-3}\,3^y}{y!} = \frac{e^{-3}}{1 - e^{-3}}\,\sum_{y = 1}^\infty y\,\frac{3^y}{(y - 1)!} = \frac{e^{-3}}{1 - e^{-3}}\,\Bigg(\sum_{y = 1}^\infty (y - 1)\,\frac{3^y}{(y - 1)!} + \sum_{y = 1}^\infty\frac{3^y}{(y - 1)!}\Bigg) \\ = \frac{e^{-3}}{1 - e^{-3}}\,\Bigg(3\sum_{y = 1}^\infty (y - 1)\,\frac{3^{y - 1}}{(y - 1)!} + 3\sum_{y = 1}^\infty\frac{3^{y - 1}}{(y - 1)!}\Bigg) = \frac{e^{-3}}{1 - e^{-3}}\,\Bigg(3\sum_{y = 0}^\infty y\,\frac{3^{y}}{y!} + 3\sum_{y = 0}^\infty\frac{3^y}{y!}\Bigg) = \frac{3^2 + 3}{1 - e^{-3}} = \frac{12}{1 - e^{-3}}$, $\ds\var\{Y\} = \expc\{Y^2\} - (\expc\{Y\})^2 = \frac{12}{1 - e^{-3}} - \frac{3^2}{(1 - e^{-3})^2}\approx 2.6609$.
+\end{sol}
+
+\begin{exe}[2024.q.246]
+  Let $X$ be the annual number of hurricanes hitting Florida, and let $Y$ be the annual number of hurricanes hitting Texas. $X$ and $Y$ are independent Poisson variables with respective means $1.70$ and $2.30$. Calculate $\var\{X - Y\,|\,X + Y = 3\}$.
+\end{exe}
+
+\begin{sol}
+  The 4 possible outcomes of $X + Y = 3$ with corresponding probabilities are listed as
+
+  \begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ccccc}
+      \toprule
+      $X$ & $Y$ & $X - Y$ & probability & conditional probability \\
+      \midrule
+      3 & 0 & $3$ & $\ds\frac{e^{-1.7}\,(1.7)^3}{3!}\,\frac{e^{-2.3}\,(2.3)^0}{0!} = 0.8188\,e^{-4}$ & $\ds\frac{0.8188}{0.8188 + 3.3235 + 4.4965 + 2.0278} = 0.0768$\\
+      \\[-2mm]
+      2 & 1 & $1$ & $\ds\frac{e^{-1.7}\,(1.7)^2}{2!}\,\frac{e^{-2.3}\,(2.3)^1}{1!} = 3.3235\,e^{-4}$ & $\ds\frac{3.3235}{0.8188 + 3.3235 + 4.4965 + 2.0278} = 0.3116$\\
+      \\[-2mm]
+      1 & 2 & $-1$ & $\ds\frac{e^{-1.7}\,(1.7)^1}{1!}\,\frac{e^{-2.3}\,(2.3)^2}{2!} = 4.4965\,e^{-4}$ & $\ds\frac{4.4965}{0.8188 + 3.3235 + 4.4965 + 2.0278} = 0.4215$\\
+      \\[-2mm]
+      0 & 3 & $-3$ & $\ds\frac{e^{-1.7}\,(1.7)^0}{0!}\,\frac{e^{-2.3}\,(2.3)^3}{3!} = 2.0278\,e^{-4}$ & $\ds\frac{2.0278}{0.8188 + 3.3235 + 4.4965 + 2.0278} = 0.1901$\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \noindent So $\ds\expc\{X - Y\,|\,X + Y = 3\} = 3\cdot 0.0768 + 1\cdot 0.3116 + (-1)\cdot 0.4215 + (-3)\cdot 0.1901 = -0.4498$, $\ds\expc\{(X - Y)^2\,|\,X + Y = 3\} = 3^2\cdot 0.0768 + 1^2\cdot 0.3116 + (-1)^2\cdot 0.4215 + (-3)^2\cdot 0.1901 = 3.1352$, $\var\{X - Y\,|\,X + Y = 3\} = 3.1352 - (-0.4498)^2 = 2.9329$.
+\end{sol}
+
+\end{document}
