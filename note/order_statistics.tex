@@ -1,0 +1,118 @@
+\documentclass[addpoints,12pt,a4paper]{exam}
+\usepackage{etoolbox}
+\newbool{ans}
+\booltrue{ans}
+\ifbool{ans}{\printanswers}{}
+
+\setlength\fillinlinelength{2cm}
+\setlength\answerclearance{2ex}
+
+\usepackage[AutoFakeBold,AutoFakeSlant]{xeCJK}
+\usepackage{CJKnumb}
+\setCJKmainfont[AutoFakeSlant=.1,AutoFakeBold=2]{cwTeX Q Kai Medium} 
+\setCJKfamilyfont{kaiv}[Vertical=RotatedGlyphs]{cwTeX Q Medium}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,hyperref,booktabs,tabularx}
+
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\ran{ran}
+\DeclareMathOperator\var{var}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\prb}{\mathsf{P}}
+\newcommand{\expc}{\mathsf{E}}
+
+\usepackage{enumitem}
+\pagestyle{headandfoot}
+\firstpageheadrule
+%\firstpageheader{}{1121\enskip\enskip 數\ \ 學\ \ 一\enskip\enskip BMA10101\enskip\enskip 微\ \ 積\ \ 分\ \ 第\ \ 十\ \ 次\ \ 隨\ \ 堂\ \ 考\ \ 試\ \ 題}{}
+\firstpagefooter{}{第\thepage\ 頁（共\numpages 頁）}{}
+\runningfooter{}{第\thepage\ 頁（共\numpages 頁）}{}
+\footrule
+\extraheadheight{-3mm}
+\extrafootheight{-8mm}
+\extrawidth{3cm}
+
+\setenumerate{label=(\alph*)}%,itemsep=1pt,topsep=3pt}
+
+%\renewcommand{\solutiontitle}{
+%  \noindent\textbf{解：  }
+%}
+
+%% no box for solutions
+%\unframedsolutions
+%\setlength\linefillheight{.5in}
+\newcommand{\ie}{\,\Longrightarrow\,}
+\newcommand{\ifff}{\,\Longleftrightarrow\,}
+
+\usepackage{pgfplots}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+
+\begin{document}
+
+%\begin{center}
+%  學號：\fillin[][5cm] $\qquad$ 姓名：\fillin[][5cm]
+%\end{center}
+
+\begin{questions}
+  \pointname{\%}
+
+  \question Let $X$ be a random variable with probability density function $\ds f(x) = \begin{cases}2x & \text{for } 0 < x < 1 \\ 0 & \text{otherwise} \end{cases}$. \\A sample of size $3$ is randomly selected from this distribution. Let $Y$ be a random variable representing the median value from the sample; calculate the variance of $Y$.
+  \begin{solution} (Ross S. M. ``A First Course in Probability'', Tenth Edition, Pearson. Section 6.6 Order Statistics, c.f. \href{https://www.soa.org/4ae412/globalassets/assets/files/edu/2024/2024-01-exam-p-syllabus.pdf}{Exam P syllabus}) \\
+    Let $X_1$, $X_2$, $\ldots$, $X_n$ be $n$ i.i.d. continuous r.v. having a common density function $f$ and distribution $F$. Define
+  \begin{align*}
+    X_{(1)} &= \text{smallest of }X_1,\,X_2,\,\ldots,\,X_n \\
+    X_{(2)} &= \text{second smallest of }X_1,\,X_2,\,\ldots,\,X_n \\
+    \vdots  & \\
+    X_{(j)} &= j\text{-th smallest of }X_1,\,X_2,\,\ldots,\,X_n \\
+    \vdots  & \\
+    X_{(n)} &= \text{largest of }X_1,\,X_2,\,\ldots,\,X_n \\
+  \end{align*}
+  The ordered values $X_{(1)}\leqslant X_{(2)}\leqslant \cdots\leqslant X_{(n)}$ are known as the \emph{order statistics} corresponding to the r.v.s $X_1,\,X_2,\,\ldots,\,X_n$. The joint pdf of the order statistics is obtained by noting that $X_{(1)},\,X_{(2)},\,X_{(n)}$ will take on the values $x_1\leqslant x_2\leqslant\cdots\leqslant x_n$ iff for some permutation $(i_1,\,i_2,\,\ldots,\,i_n)$ of $(1,\,2,\,\ldots,\,n)$, $X_1 = x_{i_1},\, X_2 = x_{i_2},\,\ldots,\,X_n = x_{i_n}$. Since for any permutation $(i_1,\,i_2,\,\ldots,\,i_n)$ of $(1,\,2,\,\ldots,\,n)$, 
+  \begin{align*}
+    &\prb\Big\{x_{i_1} - \frac{\varepsilon}{2} < X_1 < x_{i_1} + \frac{\varepsilon}{2},\;x_{i_2} - \frac{\varepsilon}{2} < X_2 < x_{i_2} + \frac{\varepsilon}{2},\;\ldots,\;x_{i_n} - \frac{\varepsilon}{2} < X_n < x_{i_n} + \frac{\varepsilon}{2}\Big\} \\
+  \approx\;&\;\varepsilon^n f_{X_1,\,X_2,\,\ldots,\,X_n}(x_{i_1},\,x_{i_2},\,\ldots,\,x_{i_n}) \\
+  =\;&\;\varepsilon^n f(x_{i_1})\cdot f(x_{i_2})\cdots f(x_{i_n}) \\
+  =\;&\;\varepsilon^n f(x_{1})\cdot f(x_{2})\cdots f(x_{n}) 
+  \end{align*}
+  It follows that, for $x_1 < x_2 < \ldots < x_n$, 
+  \begin{align*}
+    &\prb\Big\{x_{1} - \frac{\varepsilon}{2} < X_{(1)} < x_{1} + \frac{\varepsilon}{2},\;x_{2} - \frac{\varepsilon}{2} < X_{(2)} < x_{2} + \frac{\varepsilon}{2},\;\ldots,\;x_{n} - \frac{\varepsilon}{2} < X_{(n)} < x_{n} + \frac{\varepsilon}{2}\Big\} \\
+    \approx\;&\;n!\,\varepsilon^n f(x_{1})\cdot f(x_{2})\cdots f(x_{n}) 
+  \end{align*}
+  Dividing by $\varepsilon^n$ and letting $\varepsilon\to 0$ yields
+  \begin{align*}
+    f_{X_{(1)},\,X_{(2)},\,\ldots,\,X_{(n)}}(x_{1},\,x_{2},\,\ldots,\,x_{n}) = n!\,f(x_1)\cdot f(x_2)\cdots f(x_n),\quad x_1 < x_2 < \ldots < x_n
+  \end{align*}
+  The density function of $X_{(j)}$ can be obtained as follows: in order for $X_{(j)}$ to equal $x$, it is necessary for $j - 1$ of the $n$ values $X_1,\,X_2,\,\ldots,\,X_n$ to be less than $x$, $n - j$ of them to be greater than $x$, and exactly $1$ of them to equal $x$; the probability of this group is $\ds F(x)^{j - 1}(1 - F(x))^{n - j} f(x)$, and there are $\ds\frac{n!}{(j - 1)!(n - j)!}$ such groups, so the probability density function of $X_{(j)}$ is given by
+  \begin{align*}
+    f_{X_{(j)}}(x) = \frac{n!}{(n - j)!\,(j - 1)!}\,F(x)^{j - 1}(1 - F(x))^{n - j}f(x)
+  \end{align*}
+
+  Now $n = 3$, $j = 2$, so $f(y)$, the pdf of $Y$, is simply $\ds\frac{3!}{(3 - 2)!\,(2 - 1)!}\,(y^2)^{2 - 1}(1 - y^2)^{3 - 2}\,2y = 6\,y^2\cdot(1 - y^2)\cdot 2y = 12(y^3 - y^5)$, $\ds\expc\{Y\} = \int_0^1 y\cdot f(y)\,\text{d}y = 12\int_0^1 y^4 - y^6\,\text{d}y = 12\,\Big(\frac{1}{5} - \frac{1}{7}\Big) = \frac{24}{35}$, $\ds\expc\{Y^2\} = \int_0^1 y^2\cdot f(y)\,\text{d}y = 12\int_0^1 y^5 - y^7\,\text{d}y = 12\,\Big(\frac{1}{6} - \frac{1}{8}\Big) = \frac{1}{2}$, so $\ds\var{Y} = \expc\{Y^2\} - (\expc\{Y\})^2 = \frac{1}{2} - \frac{24^2}{35^2} = 0.029795918$.
+  \end{solution}
+
+\end{questions}
+\end{document}
