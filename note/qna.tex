@@ -1,0 +1,340 @@
+\documentclass[12pt]{extarticle} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,graphicx,xcolor,natbib,booktabs,tabularx}
+\usepackage[margin=7mm,footskip=5mm]{geometry}
+\pagenumbering{gobble}
+
+\usepackage[inline]{enumitem}
+\usepackage[BoldFont,SlantFont]{xeCJK}  
+\xeCJKsetemboldenfactor{2}
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\mi}{\mathrm{i}}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+\newcommand{\bdiff}[2]{ \frac{\mathrm{d}}{\mathrm{d}#2} \left( #1 \right)}
+\newcommand{\ddiff}[3]{ \frac{\mathrm{d}^#1#2}{\mathrm{d}{#3}^#1}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\diff}[2]{ \frac{\mathrm{d}\hfil#1\hfil}{\mathrm{d}#2}}
+\newcommand{\difftwo}[2]{ \frac{\mathrm{d^2}\hfil#1\hfil}{\mathrm{d}{#2}^2}}
+
+% figure --> 圖
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{參考文獻}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!60!black},
+    urlcolor={blue!60!black}
+    %urlcolor={blue!80!black}
+}
+
+\theoremstyle{definition}
+\newtheorem*{ex}{問題}
+\newtheorem*{eg}{例題}
+\newtheorem*{sol}{解}
+\newtheorem*{rmk}{註}
+
+%\setenumerate{label=(\roman*),itemsep=1pt,topsep=3pt}
+\newcommand{\myline}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta,angles,quotes,patterns}
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                   label style={font=\fontsize{4}{4}\selectfont},
+                   tick label style={font=\fontsize{4}{4}\selectfont}  
+               },
+            }
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+\usepackage{ifthen}
+\tikzstyle{vertex}=[shape=circle, minimum size=2mm, inner sep=0, fill]
+\tikzstyle{opendot}=[shape=circle, minimum size=2mm, inner sep=0, fill=white, draw]
+\newcommand{\myaxis}[7][help lines]{%[formatting of lines]{xlabel}{xleft}{xright}{ylabel}{yleft}{yright}
+	\ifthenelse{\lengthtest{#3 pt=0 pt}}{}{
+		\draw[ <-,#1] (-#3,0)--(0,0);
+		}
+	\ifthenelse{\lengthtest{#4 pt=0 pt}}{
+		\draw[#1] (0,0)node[right]{$#2$};}{
+		\draw[ ->,#1] (0,0)--(#4,0)node[right]{$#2$};
+		}
+	\ifthenelse{\lengthtest{#6 pt= 0 pt}}{
+		}{
+		\draw[ <-,#1] (0,-#6)--(0,0);}
+	\ifthenelse{\lengthtest{#7 pt= 0 pt}}{
+		\draw[#1] (0,0)node[above]{$#5$};
+		}{
+		\draw[ ->,#1] (0,0)--(0,#7)node[above]{$#5$};}
+}
+
+% colorblind-friendly palette
+% mixed colours: CB sees contrasting grays
+\definecolor{M1}{RGB}{0,0,0}
+\definecolor{M2}{RGB}{0,73,73}
+\definecolor{M3}{RGB}{0,146,146}
+\definecolor{M4}{RGB}{255,109,182}
+\definecolor{M5}{RGB}{255,182,119}
+% cool colours: CB sees contrasting blues
+\definecolor{C1}{RGB}{73,0,146}
+\definecolor{C2}{RGB}{0,109,219}
+\definecolor{C3}{RGB}{182,109,255}
+\definecolor{C4}{RGB}{109,182,255}
+\definecolor{C5}{RGB}{182,219,255}
+% warm colours: CB sees contrasting yellow
+\definecolor{W1}{RGB}{146,0,0}
+\definecolor{W2}{RGB}{146,73,0}
+\definecolor{W3}{RGB}{219,209,0}
+\definecolor{W4}{RGB}{36,255,36}
+\definecolor{W5}{RGB}{255,255,109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\fancypagestyle{firststyle} {
+   \fancyhf{}
+   \fancyfoot[R]{}%\footnotesize \DTMnow}
+   \renewcommand{\headrulewidth}{0pt} 
+}
+\usepackage{datetime2}
+\usepackage{xfrac}
+\usepackage{nicefrac}
+
+\begin{document}
+\title{\texorpdfstring{\vspace{-16mm} 問題解答}{問題解答}} 
+\author{\vspace{-5em}}
+\date{\vspace{-5em}}
+\maketitle
+\thispagestyle{firststyle}
+
+\begin{ex}
+  若 $\ds\lim_{x\to\frac{\pi}{6}}\frac{\sqrt{a + \cos^2 x} + a}{2\sin x - 1} = b$, 求 $a + b = $？
+\end{ex}
+
+\begin{sol}
+  當 $\ds x \to \frac{\pi}{6}$, $2\sin x - 1 = 0$; 若此時 $\ds\sqrt{a + \cos^2 x} + a$ 不為 $0$ 則極限不存在, 故 $\ds\sqrt{a + \frac{3}{4}} + a = 0 \ie a  + \frac{3}{4} = a^2 \ie a = \frac{3}{2}\;\text{ 或 }\;a = -\frac{1}{2} \ie a = -\frac{1}{2}$; $\ds\lim_{x\to\frac{\pi}{6}}\frac{\sqrt{\cos^2 x - \frac{1}{2}} - \frac{1}{2}}{2\sin x - 1} = \lim_{x\to\frac{\pi}{6}}\frac{\frac{-2\cos x\sin x}{2\sqrt{\cos^2 x - \frac{1}{2}}}}{2\cos x} = \lim_{x\to\frac{\pi}{6}}\frac{-\sin x}{2\sqrt{\cos^2 x - \frac{1}{2}}} = -\frac{1}{2} = b$, 故 $a + b = -1$.  
+\end{sol}
+
+\myline
+
+\begin{eg}
+  令 $\ds T_1 = \int\!\frac{\sin x}{a\cos x + b\sin x}\,\text{d}x$, $\ds T_2 = \int\!\frac{\cos x}{a\cos x + b\sin x}\,\text{d}x$, $a$, $b\ne 0$, 求 $T_1$, $T_2$. 
+\end{eg}
+
+\begin{sol}
+  \begin{enumerate}[label=(\alph*)]\setlength{\itemsep}{0pt}
+    \item[]
+    \item $\ds b T_1 + a T_2 = \int\!\frac{b\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\!\frac{a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{b\sin x + a\cos x}{a\cos x + b\sin x}\,\text{d}x = \int 1\,\text{d}x = x$. 
+    \item $\ds -a T_1 + b T_2 = \int\!\frac{-a\sin x}{a\cos x + b\sin x}\,\text{d}x + \int\!\frac{b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{-a\sin x + b\cos x}{a\cos x + b\sin x}\,\text{d}x = \int\!\frac{\text{d}u}{u} = \ln u = \ln|a\cos x + b\sin x|$ (令 $\ds u = a\cos x + b\sin x$, 則 $\ds\text{d}u = (-a\sin x + b\cos x)\,\text{d}x$) . 
+  \end{enumerate}
+  解 $T_1$, $T_2$ 方程式 (a), (b) 得 $\ds T_1 = \frac{bx - a\ln|a\cos x + b\sin x|}{a^2 + b^2}$, $\ds T_2 = \frac{ax + b\ln|a\cos x + b\sin x|}{a^2 + b^2}$. 
+\end{sol}
+
+\myline
+
+\begin{ex}
+  求 $\ds\int\!\frac{1}{1 + \tan\theta}\,\text{d}\theta$.
+\end{ex}
+
+\begin{sol}
+  $\ds\int\!\frac{1}{1 + \tan\theta}\,\text{d}\theta = \int\!\frac{1}{1 + \frac{\sin\theta}{\cos\theta}}\,\text{d}\theta = \int\!\frac{\cos\theta}{\cos\theta + \sin\theta}\,\text{d}\theta$, 為上題當 $a = b = 1$ 之 $T_1$: 答案為 $\ds\frac{x - \ln|\cos x + \sin x|}{2}$. 
+\end{sol}
+
+\myline
+
+\begin{eg}
+  求 $\ds\int\!\sec x\,\text{d}x$. 
+\end{eg}
+
+\begin{sol}
+  $\ds\int\!\sec x\,\text{d}x = \int\!\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\text{d}x$. 令 $u = \sec x + \tan x$, 則 $\ds\text{d}u = (\sec^2 x + \sec x\tan x)\,\text{d}x$; 故 $\ds\int\!\frac{\sec x\cdot(\sec x + \tan x)}{\sec x + \tan x}\,\text{d}x = \int\!\frac{1}{u}\,\text{d}u = \ln|u| + c = \ln|\sec x + \tan x| + c$
+\end{sol}
+
+%\begin{ex}
+%  求 $\ds\int\!\sec^3\theta\,\text{d}\theta$. 
+%\end{ex}
+%
+%\begin{sol}
+%  令 $\ds u = \sec\theta$, 則 $\ds\text{d}u = \sec\theta\tan\theta\,\text{d}\theta$; 令 $\ds\text{d}v = \sec^2\theta\,\text{d}\theta$, 則 $\ds v = \tan\theta$. 故 $\ds\int\!\sec^3\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan\theta\cdot\sec\theta\tan\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\tan^2\theta\cdot\sec\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!(\sec^2\theta - 1)\cdot\sec\theta\,\text{d}\theta = \sec\theta\cdot\tan\theta - \int\!\sec^3\theta\,\text{d}\theta + \int\!\sec\theta\,\text{d}\theta \ie \int\!\sec^3\theta\,\text{d}\theta = \frac{1}{2}\,\bigg(\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{1}{2}\,\big(\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|\big)$.
+%\end{sol}
+
+%\subsubsection*{遞迴式}
+%\begin{eg} 
+%  令 $\ds I_n = \int\!\frac{1}{(x^2 + a^2)^n}\,\text{d}x$, $n\in\mathbb{N}$, 則 $\ds I_{n + 1} = \frac{x}{2na^2(x^2 + a^2)^n} + \frac{2n - 1}{2na^2}I_n$.
+%\end{eg}
+%
+%\begin{sol}
+%  令 $\ds u = \frac{1}{(x^2 + a^2)^n}$, 則 $\ds\text{d}u = -2n\,\frac{x}{(x^2 + a^2)^{n + 1}}\,\text{d}x$; $\ds\text{d}v = \text{d}x$, 則 $\ds v = x$. 故 $\ds I_n = \int\!\frac{1}{(x^2 + a^2)^n}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\!\frac{x^2}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n\int\frac{(x^2 + a^2 - a^2)}{(x^2 + a^2)^{n + 1}}\,\text{d}x = \frac{x}{(x^2 + a^2)^n} + 2n I_n - 2na^2 I_{n + 1}\ie 2na^2 I_{n + 1} = \frac{x}{(x^2 + a^2)^n} + (2n - 1)I_n\ie I_{n + 1} = \frac{x}{2na^2(x^2 + a^2)^n} + \frac{2n - 1}{2na^2}I_n$.  
+%\end{sol}
+%
+%\begin{rmk}[使用例]
+%  $\ds I_1 = \frac{1}{a}\tan^{-1}\frac{x}{a}$, $\ds I_2 = \frac{1}{2a^2}\,I_1 + \frac{x}{2a^2(x^2+a^2)} = \frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}$, $\ds I_3 = \frac{3}{4a^2}\,I_2 + \frac{x}{4a^2(x^2+a^2)^2} = \frac{3}{4a^2}\bigg(\frac{1}{2a^3}\tan^{-1}\frac{x}{a} + \frac{x}{2a^2(x^2+a^2)}\bigg) + \frac{x}{4a^2(x^2+a^2)^2} = \frac{3}{8a^5}\tan^{-1}\frac{x}{a} + \frac{3x}{8a^4(x^2+a^2)} + \frac{x}{4a^2(x^2+a^2)^2}$.
+%\end{rmk}
+%
+%\begin{eg} 
+%  令 $\ds J_n = \int\!\sin^n\!x\,\text{d}x$, $n\in\mathbb{N}$, $n\geqslant 2$, 則 $\ds J_n = \frac{-\sin^{n - 1}\!x\cos x}{n} + \frac{n - 1}{n}\,J_{n - 2}$. 
+%\end{eg}
+%
+%\begin{sol}
+%  令 $\ds u = \sin^{n-1}\!x$, 則 $\ds\text{d}u = (n - 1)\,\sin^{n - 2}\!x\,\cos x\,\text{d}x$; $\ds\text{d}v = \sin x\,\text{d}x$, 則 $\ds v = -\cos x$. 故 $\ds J_n = \int\!\sin^n\!x\,\text{d}x = -\sin^{n - 1}\!x\cdot\cos x + (n - 1)\,\int\!\cos x\cdot\sin^{n - 2}\!x\cos x\,\text{d}x = -\sin^{n - 1}\!x\cos x + (n - 1)\,\int\!\sin^{n - 2}\!x\cos^2\!x\,\text{d}x = -\sin^{n - 1}\!x\cos x + (n - 1)\,\int\!\sin^{n - 2}\!x\cdot(1 - \sin^2\!x)\,\text{d}x = -\sin^{n - 1}\!x\cos x + (n - 1)\,\int\!\sin^{n - 2}\!x\,\text{d}x - (n - 1)\,\int\!\sin^n\!x\,\text{d}x = -\sin^{n - 1}\!x\cos x + (n - 1) J_{n - 2} + (1 - n)J_n\ie n J_n = -\sin^{n - 1}\!x\cos x + (n - 1) J_{n - 2} \ie J_n = \frac{-\sin^{n - 1}\!x\cos x}{n} + \frac{n - 1}{n}\,J_{n - 2}$.  
+%\end{sol}
+%
+%\begin{rmk}[使用例]
+%  $\ds J_2 = \frac{-\sin x\cos x}{2} + \frac{1}{2}\,J_0 = \frac{-\sin x\cos x}{2} + \frac{x}{2}$, $\ds J_3 = \frac{-\sin^2\!x\cos x}{3} + \frac{2}{3}\,J_1 = \frac{-\sin^2\!x\cos x}{3} - \frac{2\cos x}{3}$, $\ds J_4 = \frac{-\sin^3\!x\cos x}{4} + \frac{3}{4}\,J_2 = \frac{-\sin^3\!x\cos x}{4} + \frac{3\sin x\cos x}{8} - \frac{3x}{8}$.
+%\end{rmk}
+
+\begin{eg} 
+  令 $\ds K_n = \int\!\sec^{2n+1}\!\theta\,\text{d}\theta$, $n\in\mathbb{N}$, $n\geqslant 1$, 則 $\ds K_n = \frac{\sec^{2n - 1}\theta\tan\theta}{2n} + \frac{2n - 1}{2n}\,K_{n - 1}$. 
+\end{eg}
+
+\begin{sol}
+  令 $\ds u = \sec^{2n - 1}\!\theta$, 則 $\ds\text{d}u = (2n - 1)\sec^{2n - 2}\theta\cdot\sec\theta\tan\theta\,\text{d}\theta = (2n - 1)\sec^{2n - 1}\theta\tan\theta\,\text{d}\theta$; 令 $\ds\text{d}v = \sec^2\theta\,\text{d}\theta$, 則 $\ds v = \tan\theta$. 故 $\ds K_n = \int\!\sec^{2n + 1}\!\theta\,\text{d}\theta = \sec^{2n - 1}\!\theta\cdot\tan\theta - \int\!\tan\theta\cdot(2n - 1)\sec^{2n - 1}\theta\tan\theta\,\text{d}\theta = \sec^{2n -1}\!\theta\tan\theta - (2n - 1)\int\!\tan^2\theta\cdot\sec^{2n - 1}\theta\,\text{d}\theta = \sec^{2n - 1}\!\theta\tan\theta - (2n - 1)\int\!(\sec^2\theta - 1)\cdot\sec^{2n - 1}\!\theta\,\text{d}\theta = \sec^{2n - 1}\!\theta\tan\theta - (2n - 1)\int\!\sec^{2n + 1}\theta\,\text{d}\theta + (2n - 1)\int\!\sec^{2 n - 1}\!\theta\,\text{d}\theta \ie K_n = \sec^{2n - 1}\!\theta\tan\theta - (2n - 1)K_n + (2n - 1)K_{n - 1} \ie K_n = \frac{\sec^{2n - 1}\!\theta\tan\theta}{2n} + \frac{2n - 1}{2n}K_{n - 1}$.
+\end{sol}
+
+\begin{rmk}[使用例]
+  $\ds K_0 = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta|$, $\ds\int\!\sec^3\!\theta\,\text{d}\theta = K_1 = \frac{\sec\theta\tan\theta}{2} + \frac{1}{2}\,K_0 = \frac{1}{2}\,\big(\sec\theta\tan\theta + \ln|\sec\theta + \tan\theta|\big)$, $\ds \int\!\sec^5\!\theta\,\text{d}\theta = K_2 = \frac{\sec^3\!\theta\tan\theta}{4} + \frac{3}{4}\,K_1 = \frac{\sec^3\!\theta\tan\theta}{4} + \frac{3}{8}\,\big(\sec\theta\tan\theta + \ln|\sec\theta + \tan\theta|\big)$. 
+\end{rmk}
+
+\myline
+
+\begin{rmk}[三角函數代換]
+\begin{itemize}\setlength{\itemsep}{0pt}
+  \item[]
+  \item 遇 $\ds\sqrt{a^2 - x^2}$, 考慮 $\ds x = a\sin\theta \ie \theta = \sin^{-1}\frac{x}{a}$, $\ds\text{d}x = a\cos\theta\,\text{d}\theta$ 
+  \item 遇 $\ds\sqrt{a^2 + x^2}$, 考慮 $\ds x = a\tan\theta \ie \theta = \tan^{-1}\frac{x}{a}$, $\ds\text{d}x = a\sec^2\theta\,\text{d}\theta$
+  \item 遇 $\ds\sqrt{x^2 - a^2}$, 考慮 $\ds x = a\sec\theta \ie \theta = \sec^{-1}\frac{x}{a}$, $\ds\text{d}x = a\sec\theta\,\tan\theta\,\text{d}\theta$
+  \item 遇 $\ds\sin x$, $\ds\cos x$ 之有理式, 考慮 $\ds u = \tan\frac{x}{2}$, 由以下化為 $u$ 之有理式: 
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds\sin x = 2\sin\frac{x}{2}\cos\frac{x}{2} = 2\frac{u}{\sqrt{1 + u^2}}\frac{1}{\sqrt{1 + u^2}} = \frac{2 u}{1 + u^2}$
+      \item $\ds\cos x = 2\cos^2\frac{x}{2} - 1 = 2\cdot\frac{1}{1 + u^2} - 1 = \frac{1 - u^2}{1 + u^2}$
+      \item $\ds\text{d}u = \frac{1}{2}\,\sec^2\frac{x}{2}\,\text{d}x \ie \text{d}x = \frac{2}{1 + u^2}\,\text{d}u$
+    \end{itemize}
+\end{itemize}
+\end{rmk}
+
+\begin{eg} 若 $a\ne 0$, 求下列不定積分 (注意積分常數). 
+  \begin{multicols}{5}
+    \begin{enumerate}\setlength{\itemsep}{0pt}
+      \item $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x$
+      \item $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x$
+      %\item $\ds\int\!x^2\sqrt{x^2 + a^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{\sqrt{x^2 + a^2}}\,\text{d}x$
+      %\item $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x$
+      \item $\ds\int\!\sqrt{x^2 - a^2}\,\text{d}x$
+      \item $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x$
+    \end{enumerate}
+  \end{multicols}
+\end{eg}
+
+\begin{sol}
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[]
+    \item 令 $\ds x = a\sin\theta$, 則 $\ds\int\!\sqrt{a^2 - x^2}\,\text{d}x = \int\!\sqrt{a^2 - a^2\sin^2\theta}\,a\cos\theta\,\text{d}\theta = a^2\int\!\cos^2\theta\,\text{d}\theta = a^2\int\!\frac{1 + \cos2\theta}{2}\,\text{d}\theta \\ = \frac{a^2}{2}\theta + \frac{a^2}{4}\sin2\theta = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{a^2}{2}\frac{x}{a}\cdot\frac{\sqrt{a^2 - x^2}}{a} = \frac{a^2}{2}\sin^{-1}\frac{x}{a} + \frac{x}{2}\sqrt{a^2 - x^2}$. 
+    \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\sqrt{x^2 + a^2}\,\text{d}x = \int\!a\sec\theta\cdot a\sec^2\theta\,\text{d}\theta = a^2\!\int\!\sec^3\theta\,\text{d}\theta = \frac{a^2}{2}\,\big(\sec\theta\cdot\tan\theta + \ln|\sec\theta + \tan\theta|\big) = \frac{a^2}{2}\,\bigg(\frac{x}{a}\cdot\frac{\sqrt{x^2 + a^2}}{a} + \ln\Big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\Big|\bigg) = \frac{x\sqrt{x^2 + a^2}}{2} + \frac{a^2}{2}\ln\big|\sqrt{x^2 + a^2} + x\big| - \frac{a^2}{2}\ln|a|$
+    %\item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!x^2\sqrt{x^2 + a^2}\,\text{d}x = \int\!a\sec^2\theta\cdot a^2\tan^2\!\theta\cdot a\sec\theta\,\text{d}\theta = a^4\!\!\int\!\sec^3\!\theta\tan^2\!\theta\,\text{d}\theta \\= a^4\!\!\int\!\sec^3\!\theta\,(\sec^2\!\theta - 1)\,\text{d}\theta = a^4\!\!\int\!(\sec^5\!\theta - \sec^3\!\theta)\,\text{d}\theta = \frac{a^4}{4}\,\Big(\sec^3\!\theta\tan\theta - \frac{1}{2}\,\big(\sec\theta\tan\theta + \ln|\sec\theta + \tan\theta|\big)\Big) \\= \frac{a^4}{4}\,\Big(\sec^3\!\theta\tan\theta - \frac{1}{2}\,\big(\sec\theta\tan\theta + \ln|\sec\theta + \tan\theta|\big)\Big) = \frac{x(x^2 + a^2)^{\frac{3}{2}}}{4} - \frac{a^2x\sqrt{x^2 + a^2}}{8} - \frac{a^4\ln|\sqrt{x^2 + a^2} + x|}{8} + \frac{a^4\ln|a|}{8}$.
+    \item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\frac{1}{\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{1}{a\sec\theta}\cdot a\sec^2\theta\,\text{d}\theta = \!\int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\= \ln\Big|\frac{\sqrt{x^2 + a^2}}{a} + \frac{x}{a}\Big| = \ln|\sqrt{x^2 + a^2} + x| - \ln|a|$.
+    %\item 令 $\ds x = a\tan\theta$, 則 $\ds\int\!\frac{1}{x^2\sqrt{x^2 + a^2}}\,\text{d}x = \int\!\frac{a\sec^2\!\theta}{a^2\tan^2\!\theta\cdot a\sec\theta}\,\text{d}\theta = \int\!\frac{\sec\theta}{a^2\tan^2\!\theta}\,\text{d}\theta = \int\!\frac{\cos\theta}{a^2\sin^2\!\theta}\,\text{d}\theta \\= -\frac{1}{a^2\sin\theta} = -\frac{\sqrt{x^2 + a^2}}{a^2 x}$. 
+    \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\sqrt{x^2 - a^2}\,\text{d}x = \int\!a\tan\theta\cdot a\sec\theta\tan\theta\,\text{d}\theta = a^2\int\!\sec\theta\tan^2\!\theta\,\text{d}\theta = a^2\int\!\sec\theta\,(\sec^2\!\theta - 1)\,\text{d}\theta = a^2\bigg(\int\!\sec^3\!\theta\,\text{d}\theta - \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\bigg(\sec\theta\cdot\tan\theta + \int\!\sec\theta\,\text{d}\theta - 2\int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\bigg(\sec\theta\cdot\tan\theta - \int\!\sec\theta\,\text{d}\theta\bigg) = \frac{a^2}{2}\big(\sec\theta\cdot\tan\theta - \ln|\sec\theta + \tan\theta|\big) = \frac{a^2}{2}\bigg(\frac{x}{a}\cdot\frac{\sqrt{x^2-a^2}}{a} - \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg|\bigg) = \frac{x\sqrt{x^2-a^2}}{2} - \frac{a^2}{2}\ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg| = \frac{x\sqrt{x^2 - a^2}}{2} - \frac{a^2}{2}\ln\big|\sqrt{x^2 - a^2} + x\big| + \frac{a^2}{2}\ln|a|$.
+    \item 令 $\ds x = a\sec\theta$, 則 $\ds\int\!\frac{1}{\sqrt{x^2 - a^2}}\,\text{d}x = \int\!\frac{a\sec\theta\tan\theta}{a\tan\theta}\,\text{d}\theta = \int\!\sec\theta\,\text{d}\theta = \ln|\sec\theta + \tan\theta| \\ = \ln\bigg|\frac{x}{a} + \frac{\sqrt{x^2 - a^2}}{a}\bigg| = \ln|\sqrt{x^2 - a^2} + x| - \ln|a|$.
+  \end{enumerate}
+\end{sol}
+
+\myline
+
+\begin{ex}
+  求 $\ds\int\!\sqrt{x^2 + x + 1}\,\text{d}x$.
+\end{ex}
+    
+\begin{sol}
+  $\ds\int\!\sqrt{x^2 + x + 1}\,\text{d}x = \int\!\sqrt{\Big(x + \frac{1}{2}\Big)^2 + \frac{3}{4}}\,\text{d}x$, 亦即上例題 2. 將 $x$ 代為 $\ds x + \frac{1}{2}$ 與 $\ds a = \frac{\sqrt{3}}{2}$ 之結果.
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\sqrt{x^2 - 6 x + 5}\,\text{d}x$.
+\end{ex}
+    
+\begin{sol}
+  $\ds\int\!\sqrt{x^2 - 6x + 5}\,\text{d}x = \int\!\sqrt{(x - 3)^2 - 4}\,\text{d}x$, 亦即上例題 4. 將 $x$ 代為 $\ds x - 3$ 與 $\ds a = 2$ 之結果.
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\frac{x}{\sqrt{x^2 + 2x + 5}}\,\text{d}x$
+\end{ex}
+    
+\begin{sol}
+  $\ds\int\!\frac{x}{\sqrt{x^2 + 2x + 5}}\,\text{d}x = \int\!\frac{(x + 1) - 1}{\sqrt{(x + 1)^2 + 4}}\,\text{d}x = \int\!\frac{x + 1}{\sqrt{(x + 1)^2 + 4}}\,\text{d}x - \int\!\frac{1}{\sqrt{(x + 1)^2 + 4}}\,\text{d}x$. 令 $u = x + 1$, 則 $\ds\text{d}u = \text{d}x$; 故 $\ds\int\!\frac{x + 1}{\sqrt{(x + 1)^2 + 4}}\,\text{d}x - \int\!\frac{1}{\sqrt{(x + 1)^2 + 4}}\,\text{d}x = \int\!\frac{u}{\sqrt{u^2 + 4}}\,\text{d}u - \int\!\frac{1}{\sqrt{u^2 + 4}}\,\text{d}u$; 第一項積分做變數變換令 $t = u^2 + 4$, 第二項積分為上例題 3. $a = 2$ 之結果.  
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int\!\frac{x}{\sqrt{1 - 2x - x^2}}\,\text{d}x$
+\end{ex}
+    
+\begin{sol}
+$\ds\int\!\frac{x}{\sqrt{1 - 2x - x^2}}\,\text{d}x = \int\!\frac{(x + 1) - 1}{\sqrt{2 - (x + 1)^2}}\,\text{d}x = \int\!\frac{x + 1}{\sqrt{2 - (x + 1)^2}}\,\text{d}x - \int\!\frac{1}{\sqrt{2 - (x + 1)^2}}\,\text{d}x$. 令 $u = x + 1$, 則 $\ds\text{d}u = \text{d}x$; 故 $\ds\int\!\frac{x + 1}{\sqrt{2 - (x + 1)^2}}\,\text{d}x - \int\!\frac{1}{\sqrt{2 - (x + 1)^2}}\,\text{d}x = \int\!\frac{u}{\sqrt{2 - u^2}}\,\text{d}u - \int\!\frac{1}{\sqrt{2 - u^2}}\,\text{d}u$; 第一項積分做變數變換令 $t = 2 - u^2$, 第二項積分為標準積分 $\ds\int\!\frac{1}{\sqrt{a^2 - x^2}}\,\text{d}x = \sin^{-1}\!\frac{x}{a}$ 當 $a = \sqrt{2}$ 之結果.  
+\end{sol}
+
+\begin{ex}
+  求 $\ds\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\!\sqrt{2 + 2\sin\theta}\,\text{d}\theta$.
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \tan\frac{\theta}{2}$, 則 $\ds\sin\theta = \frac{2 u}{1 + u^2}$; $\ds\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\!\sqrt{2 + 2\sin\theta}\,\text{d}\theta = \int_{-1}^{1}\!\sqrt{2 + 2\,\frac{2u}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u \\= \int_{-1}^{1}\!\sqrt{\frac{2 + 4u + 2u^2}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = \int_{-1}^{1}\!\sqrt{\frac{2\,(1 + u)^2}{1 + u^2}}\,\frac{2}{1 + u^2}\,\text{d}u = 2\sqrt{2}\int_{-1}^{1}\!\frac{1 + u}{(1 + u^2)^{\frac{3}{2}}}\,\text{d}u = 4\sqrt{2}\int_{0}^{1}\!\frac{1}{(1 + u^2)^{\frac{3}{2}}}\,\text{d}u$. 令 $\ds u = \tan\theta$, 則 $\ds\text{d}u = \sec^2\theta\,\text{d}\theta$, $\ds(1 + u^2)^{\frac{3}{2}} = \sec^3\theta$, 故 $\ds 4\sqrt{2}\int_0^{1}\!\frac{1}{(1 + u^2)^{\frac{3}{2}}}\,\text{d}u = 4\sqrt{2}\int_0^{\frac{\pi}{4}}\cos\theta\,\text{d}\theta = 4$. 
+\end{sol}
+
+\begin{ex}
+  $\ds\int_{\sqrt{2}}^{\infty}\Big(\frac{a}{\sqrt{x^2 - 1}} - \frac{x}{x^2 + 1}\Big)\,\text{d}x$ 在 $a$ 為何值收斂？又收斂值為何？
+\end{ex}
+
+\begin{sol}
+  由上例題 5. 知 $\ds\int\!\frac{a}{\sqrt{x^2 - 1}}\,\text{d}x = a \ln|\sqrt{x^2 - 1} + x|$; $\ds\int\!\frac{x}{x^2+1}\,\text{d}x$ 中, 令 $\ds u = x^2 + 1$, 則 $\ds\text{d}u = 2\,x\,\text{d}x$ $\ie$ $\ds x\,\text{d}x=\frac{1}{2}\,\text{d}u$, $\ds\int\!\frac{x}{x^2+1}\,\text{d}x = \int\!\frac{1}{x^2+1}\cdot x\,\text{d}x = \int\!\frac{1}{u}\cdot\frac{1}{2}\,\text{d}u = \frac{1}{2}\ln|u| + c = \frac{1}{2}\ln(x^2 + 1)$. 故 $\ds\int_{\sqrt{2}}^{\infty}\Big(\frac{a}{\sqrt{x^2 - 1}} - \frac{x}{x^2 + 1}\Big)\,\text{d}x = \Big(a \ln(\sqrt{x^2 - 1} + x) - \ln(\sqrt{x^2 + 1})\Big)\,\Big|_{\sqrt{2}}^{\infty} = \ln\frac{(\sqrt{x^2 - 1} + x)^a}{\sqrt{x^2 + 1}}\,\Big|_{\sqrt{2}}^{\infty}$ 收斂, 故 $a = 1$, 收斂值為 $\ln 2 + \ln(\sqrt{6} - \sqrt{3})$.  
+\end{sol}
+
+\myline
+
+\begin{ex}
+  求 $\ds\int\!\frac{\sin\theta\cos\theta}{\sin^4\theta+1}\,\text{d}\theta$. 
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \sin\theta$, 則 $\ds\text{d}u = \cos\theta\,\text{d}\theta$. 故 $\ds\int\!\frac{\sin\theta\cos\theta}{\sin^4\theta+1}\,\text{d}\theta = \int\!\frac{u}{u^4+1}\,\text{d}u$. 令 $\ds u^2 = t$, 則 $\ds u\,\text{d}u = \frac{1}{2}\,\text{d}t$, 原積分 $\ds\,=\,\frac{1}{2}\int\frac{1}{t^2 + 1}\,\text{d}t = \frac{1}{2}\tan^{-1}t = \frac{1}{2}\tan^{-1}(\sin^2\theta) + c$. 
+\end{sol}
+
+\begin{ex} 
+  $\ds\int\frac{\sin^{-1}x}{x^2}\,\text{d}x {\color{C2}\;= - \frac{\sin^{-1}x}{x} - \ln\Big|\frac{1 - \sqrt{1 - x^2}}{x}\Big| + c}$
+\end{ex}
+
+\begin{sol}
+  令 $\ds u = \sin^{-1}x$, 則 $\ds\text{d}u = \frac{1}{\sqrt{1 - x^2}}\,\text{d}x$; $\ds\text{d}v = \frac{1}{x^2}\,\text{d}x$, 則 $\ds v = \frac{-1}{x}$. 故 $\ds\int\frac{\sin^{-1}x}{x^2}\,\text{d}x = \sin^{-1}x\cdot\frac{-1}{x} - \int\!\frac{-1}{x}\cdot\frac{1}{\sqrt{1 - x^2}}\,\text{d}x = -\frac{\sin^{-1}x}{x} + \int\!\frac{1}{x\sqrt{1 - x^2}}\,\text{d}x$. 令 $\ds w = \sqrt{1 - x^2}$, 則 $-x^2 = w^2 - 1$, $\ds\text{d}w = \frac{-x}{\sqrt{1 - x^2}}\,\text{d}x$. 故 $\ds\int\!\frac{1}{x\sqrt{1 - x^2}}\,\text{d}x = \int\!\frac{1}{-x^2}\cdot\frac{-x}{\sqrt{1 - x^2}}\,\text{d}x = \int\frac{1}{w^2 - 1}\,\text{d}w = \frac{1}{2}\int\Big(\frac{1}{w - 1} - \frac{1}{w + 1}\Big)\,\text{d}w = \frac{1}{2}\big(\ln|w - 1| - \ln|w + 1|\big) = \frac{1}{2}\ln\Big|\frac{w - 1}{w + 1}\Big| = \frac{1}{2}\ln\bigg|\frac{\sqrt{1 - x^2} - 1}{\sqrt{1 - x^2} + 1}\bigg| = \frac{1}{2}\ln\bigg|\frac{1 - \sqrt{1 - x^2}}{1 + \sqrt{1 - x^2}}\bigg| = \frac{1}{2}\ln\bigg|\frac{1 - \sqrt{1 - x^2}}{1 + \sqrt{1 - x^2}}\cdot\frac{1 - \sqrt{1 - x^2}}{1 - \sqrt{1 - x^2}}\bigg| = \frac{1}{2}\ln\bigg|\frac{(1 - \sqrt{1 - x^2})^2}{x^2}\bigg| = \ln\bigg|\frac{1 - \sqrt{1 - x^2}}{x}\bigg|$. 以上, $\ds\int\frac{\sin^{-1}x}{x^2}\,\text{d}x = - \frac{\sin^{-1}x}{x} + \int\!\frac{1}{x\sqrt{1 - x^2}}\,\text{d}x = - \frac{\sin^{-1}x}{x} + \ln\bigg|\frac{1 - \sqrt{1 - x^2}}{x}\bigg| + c$.
+\end{sol}
+
+\begin{ex}
+  $\ds\int(x + 1)^2e^{\frac{x^2}{2}}\,\text{d}x{\color{C2}\;= (x + 2)\,e^{\frac{x^2}{2}}}$
+\end{ex}
+
+\begin{sol}
+  $\ds\int(x + 1)^2\,e^{\frac{x^2}{2}}\,\text{d}x = \int\!x^2\,e^{\frac{x^2}{2}}\,\text{d}x + \int\!2x\,e^{\frac{x^2}{2}}\,\text{d}x + \int\!e^{\frac{x^2}{2}}\,\text{d}x$. 在 $\ds\int\!x^2\,e^{\frac{x^2}{2}}\,\text{d}x$ 中, 令 $\ds u = x$, 則 $\ds\text{d}u = \text{d}x$; $\ds\text{d}v = x\,e^{\frac{x^2}{2}}\,\text{d}x$, 則 $\ds v = e^{\frac{x^2}{2}}$. 故 $\ds\int\!x^2\,e^{\frac{x^2}{2}}\,\text{d}x = x\cdot e^{\frac{x^2}{2}} - \int\!e^{\frac{x^2}{2}}\text{d}x$; 原式$\ds\,=\,\int\!x^2\,e^{\frac{x^2}{2}}\,\text{d}x + \int\!2x\,e^{\frac{x^2}{2}}\,\text{d}x + \int\!e^{\frac{x^2}{2}}\,\text{d}x = x\cdot e^{\frac{x^2}{2}} - \int\!e^{\frac{x^2}{2}}\text{d}x + 2e^{\frac{x^2}{2}} + \int\!e^{\frac{x^2}{2}}\,\text{d}x = (x + 2)\,e^{\frac{x^2}{2}}$
+\end{sol}
+
+\begin{ex}
+  $\ds\int e^x\Big(\frac{1}{x} - \frac{1}{x^2}\Big)\,\text{d}x{\color{C2}\;= \frac{e^x}{x}}$
+\end{ex}
+
+\begin{sol}
+  $\ds\int e^x\Big(\frac{1}{x} - \frac{1}{x^2}\Big)\,\text{d}x = \int\!\frac{e^x}{x}\,\text{d}x + \int\!e^x\frac{-1}{x^2}\,\text{d}x$. 在 $\ds\int e^x\frac{-1}{x^2}\,\text{d}x$ 中, 令 $\ds u = e^x$, 則 $\ds\text{d}u = e^x\,\text{d}x$; $\ds\text{d}v = \frac{-1}{x^2}\,\text{d}x$, 則 $\ds v = \frac{1}{x}$. 故 $\ds\int e^x\frac{-1}{x^2}\,\text{d}x = e^x\cdot\frac{1}{x} - \int\!\frac{e^x}{x}\,\text{d}x$; 原式$\ds\,=\,\int\!\frac{e^x}{x}\,\text{d}x + \int\!e^x\frac{-1}{x^2}\,\text{d}x = \int\!\frac{e^x}{x}\,\text{d}x + e^x\cdot\frac{1}{x} - \int\!\frac{e^x}{x}\,\text{d}x = \frac{e^{x}}{x}$
+\end{sol}
+
+\end{document}
