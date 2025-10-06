@@ -319,13 +319,13 @@
   令 $\ds g(x) = f^{-1}(x)$, 則 $\ds g(f(x)) = f^{-1}(f(x)) = x$. 等式兩邊對 $x$ 微分得 $\ds g'(f(x))\cdot f'(x) = 1$ $\ie$ $\ds g'(f(x)) = \frac{1}{f'(x)}$. 由 $f(1) = e + 1$, $\ds g'(e + 1) = g'(f(1)) = \frac{1}{f'(1)} = \frac{1}{e + 1}$. 
 \end{sol}
 
-\begin{ex}
-  若 $F(x) = f(x\cdot f(x\cdot f(x)))$, 且 $f(1) = 2$, $f(2) = 3$, $f'(1) = 4$, $f'(2) = 5$, $f'(3) = 6$, 求 $F'(1)$. 
-\end{ex}
-
-\begin{sol}
-  由鏈鎖律 $\ds\big(f(x\cdot f(x\cdot f(x)))\big)' = f'(x\cdot f(x\cdot f(x)))\cdot(x\cdot f(x\cdot f(x)))'$. 又 $\ds(x\cdot f(x\cdot f(x)))' = f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f(x))' =  f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))$. 故 $\ds F'(1) = \big(f(x\cdot f(x\cdot f(x)))\big)'\,\big|_{x = 1} = f'(x\cdot f(x\cdot f(x)))\cdot\big(f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))\big)\,\big|_{x = 1} = f'(f(f(1)))\cdot\big(f(f(1)) + f'(f(1))\cdot(f'(1) + f(1))\big) = 6\cdot\big(3 + 5\cdot(4 + 2)\big) = 198$. 
-\end{sol}
+%\begin{ex}
+%  若 $F(x) = f(x\cdot f(x\cdot f(x)))$, 且 $f(1) = 2$, $f(2) = 3$, $f'(1) = 4$, $f'(2) = 5$, $f'(3) = 6$, 求 $F'(1)$. 
+%\end{ex}
+%
+%\begin{sol}
+%  由鏈鎖律 $\ds\big(f(x\cdot f(x\cdot f(x)))\big)' = f'(x\cdot f(x\cdot f(x)))\cdot(x\cdot f(x\cdot f(x)))'$. 又 $\ds(x\cdot f(x\cdot f(x)))' = f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f(x))' =  f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))$. 故 $\ds F'(1) = \big(f(x\cdot f(x\cdot f(x)))\big)'\,\big|_{x = 1} = f'(x\cdot f(x\cdot f(x)))\cdot\big(f(x\cdot f(x)) + x\cdot f'(x\cdot f(x))\cdot(x\cdot f'(x) + f(x))\big)\,\big|_{x = 1} = f'(f(f(1)))\cdot\big(f(f(1)) + f'(f(1))\cdot(f'(1) + f(1))\big) = 6\cdot\big(3 + 5\cdot(4 + 2)\big) = 198$. 
+%\end{sol}
 
 \section*{2.3 自然指數, 對數與微分}
 
