@@ -311,14 +311,6 @@
   $\ds f(g(x)) = x$ 等式兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds g'(x) = \frac{1}{f'(g(x))}$ $=$ $\ds\frac{1}{1 + (f(g(x)))^2}$ $=$ $\ds\frac{1}{1 + x^2}$. 
 \end{sol}
 
-\begin{ex}
-  令 $\ds f(x) = e^x + x$, 求 $\ds (f^{-1})'(e + 1)$. 
-\end{ex}
-
-\begin{sol}
-  令 $\ds g(x) = f^{-1}(x)$, 則 $\ds g(f(x)) = f^{-1}(f(x)) = x$. 等式兩邊對 $x$ 微分得 $\ds g'(f(x))\cdot f'(x) = 1$ $\ie$ $\ds g'(f(x)) = \frac{1}{f'(x)}$. 由 $f(1) = e + 1$, $\ds g'(e + 1) = g'(f(1)) = \frac{1}{f'(1)} = \frac{1}{e + 1}$. 
-\end{sol}
-
 %\begin{ex}
 %  若 $F(x) = f(x\cdot f(x\cdot f(x)))$, 且 $f(1) = 2$, $f(2) = 3$, $f'(1) = 4$, $f'(2) = 5$, $f'(3) = 6$, 求 $F'(1)$. 
 %\end{ex}
@@ -405,6 +397,14 @@
 
 \begin{sol}
   令 $f(x) = \ln(1 + x)$, 則 $f(0) = 0$, $\ds f'(x) = \frac{1}{1 + x}$, $f'(0) = 1$. 故 $\ds\lim_{x\to 0}\frac{\ln(1 + x)}{x}$ $=$ $\ds\lim_{x\to 0}\frac{f(x)}{x}$ $=$ $\ds\lim_{x\to 0}\frac{f(x) - f(0)}{x - 0}$ $=$ $f'(0) = 1$.
+\end{sol}
+
+\begin{ex}
+  令 $\ds g(x) = e^x + x$, 求 $\ds (g^{-1})'(e + 1)$. 
+\end{ex}
+
+\begin{sol}
+  令 $\ds f(x) = g^{-1}(x)$, 則 $\ds f(g(x)) = g^{-1}(g(x)) = x$. 等式兩邊對 $x$ 微分得 $\ds f'(g(x))\cdot g'(x) = 1$ $\ie$ $\ds f'(g(x)) = \frac{1}{g'(x)}$. 由 $g(1) = e + 1$, $g'(x) = e^x + 1$, $\ds f'(e + 1) = f'(g(1)) = \frac{1}{g'(1)} = \frac{1}{e + 1}$. 
 \end{sol}
 
 \section*{2.4 三角函數微分}
