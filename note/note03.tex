@@ -210,6 +210,22 @@
   令 $\ds f(x) = x^3 + e^x$, 則 $\ds\forall\,x\;(f'(x) = 3 x^2 + e^x > 0)$, $f(-1) = -1 + e^{-1} < 0$, $f(0) = 1 > 0$, 故由 Bolzano 定理, 存在 $\ds c\in(-1, 0)$ 使 $f(c) = 0$. 若存在另一 $c_0\ne c$ 使 $f(c_0) = 0$, 則由 Rolle 定理, 存在 $c_1$ 介於 $c$, $c_0$ 間使 $f'(c_1) = 0$, 與 $\ds\forall\,x\;(f'(x) = 3 x^2 + e^x > 0)$ 矛盾; 得證. 
 \end{sol}
 
+%\begin{ex}
+%  證明 $\tan^{-1}x + \frac{x}{\sqrt{1 + x^2}} = 1$ 僅有唯一解. 
+%\end{ex}
+%
+%\begin{sol}
+%  令 $f(x) = \tan^{-1}x + \frac{x}{\sqrt{1 + x^2}} - 1$, 則 $\forall\,x\;(f'(x) = \frac{1}{1 + x^2} + \frac{1}{(1 + x^2)^{\frac{3}{2}}} > 0)$, $f(0) = -1 < 0$, $f(1) = \frac{\pi}{4} - \frac{1}{2} > 0$, 故由 Bolzano 定理, 存在 $\ds c\in(0, 1)$ 使 $f(c) = 0$. 若存在另一 $c_0\ne c$ 使 $f(c_0) = 0$, 則由 Rolle 定理, 存在 $c_1$ 介於 $c$, $c_0$ 間使 $f'(c_1) = 0$, 與 $\forall\,x\;(f'(x) = \frac{1}{1 + x^2} + \frac{1}{(1 + x^2)^{\frac{3}{2}}} > 0)$ 矛盾; 得證. 
+%\end{sol}
+%
+%\begin{ex}
+%  證明 $x + \tan^{-1}x + \frac{1}{1 + x^2} = 2$ 僅有唯一解. 
+%\end{ex}
+%
+%\begin{sol}
+%  令 $f(x) = x + \tan^{-1}x + \frac{1}{1 + x^2} - 2$, 則 $\forall\,x\;(f'(x) = 1 + \frac{1}{1 + x^2} - \frac{2x}{(1 + x^2)^2} = 1 + \frac{(x - 1)^2}{(1 + x^2)^2}\geqslant 1 > 0)$, $f(0) = -1 < 0$, $f(1) = \frac{\pi}{4} - \frac{1}{2} > 0$, 故由 Bolzano 定理, 存在 $\ds c\in(0, 1)$ 使 $f(c) = 0$. 若存在另一 $c_0\ne c$ 使 $f(c_0) = 0$, 則由 Rolle 定理, 存在 $c_1$ 介於 $c$, $c_0$ 間使 $f'(c_1) = 0$, 與 $\forall\,x\;(f'(x) = 1 + \frac{(x - 1)^2}{(1 + x^2)^2} > 0)$ 矛盾; 得證.
+%\end{sol}
+
 \begin{ex}
   證明 $\ds\ln\big(1 + \frac{1}{x}\big) > \frac{1}{1 + x}$, $\forall\,x > 0$. 
 \end{ex}
@@ -231,7 +247,7 @@
 \end{ex}
 
 \begin{sol}
-  令 $\ds g(x) = \begin{cases}\frac{\sin x}{x} & \text{若}\;x\ne 0 \\ 1 & \text{若}\;x = 0 \end{cases}$, 則 $g$ 為連續, 且 $\ds\forall\,x\in\Big(0,\frac{\pi}{2}\Big)\quad g'(x) = \frac{x\cos x - \sin x}{x^2} = \frac{\cos x}{x^2}(x - \tan x) < 0$ $\ie$ $g$ 在 $\ds\Big(0,\frac{\pi}{2}\Big)$ 為嚴格遞減函數 $\ie$ $\ds\frac{2}{\pi} = g\,\Big(\frac{\pi}{2}\Big) < g(x) = \frac{\sin x}{x} < g(0) = 1$     
+  令 $\ds f(x) = \begin{cases}\frac{\sin x}{x} & \text{若}\;x\ne 0 \\ 1 & \text{若}\;x = 0 \end{cases}$, 則 $f$ 為連續, 且 $\ds\forall\,x\in\Big(0,\frac{\pi}{2}\Big)\quad f'(x) = \frac{x\cos x - \sin x}{x^2} = \frac{\cos x}{x^2}(x - \tan x) < 0$ $\ie$ $f$ 在 $\ds\Big(0,\frac{\pi}{2}\Big)$ 為嚴格遞減函數 $\ie$ $\ds\frac{2}{\pi} = f\,\Big(\frac{\pi}{2}\Big) < f(x) = \frac{\sin x}{x} < f(0) = 1$     
 \end{sol}
 
 \begin{ex}
@@ -560,15 +576,15 @@
   \begin{itemize}\setlength\itemsep{0em}
     \item[]
     \item 最小化距離平方 $\equiv$ 最小化距離. 
-    \item 令 $\ell$ 為 $(2, 0)$ 至 $y^2 = x^2 + 1$ 之距離: $\ds\ell^2 = (x - 2)^2 + y^2 = (x - 2)^2 + (x^2 + 1)$. 
-    \item 由 $\ds\ell^2(\pm\infty)=\infty$, $\ds\ell^2(0) = 5 < \infty$, $\ell^2$ 在 $(-\infty, \infty)$ 有最小值. 
+    \item 令 $\ell$ 為 $(2, 0)$ 至 $y^2 = x^2 + 1$ 之距離，則距離平方 $\ds\ell^2 = (x - 2)^2 + y^2 = (x - 2)^2 + (x^2 + 1)\equiv f(x)$. 
+    \item 由 $\ds f(\pm\infty) = \infty$, $\ds f(0) = 5 < \infty$, $f(x)$ 在 $(-\infty, \infty)$ 有最小值. 
     \item 
       \begin{itemize}\setlength\itemsep{0em}
-        \item $\ds\diff{}{x} \ell^2(x) = 2(x - 2) + 2x = 4(x - 1)$, 臨界點為 $1$; $\ell^2(1) = (1 - 2)^2 + (1 + 1) = 3\ie \ell(1) = \sqrt{3}$. 
-        \item $\ell^2$ 在 $(-\infty,\,\infty)$ 可微, 無奇異點. 
+        \item $\ds f'(x) = 2(x - 2) + 2x = 4(x - 1)$, 臨界點為 $1$; $f(1) = (1 - 2)^2 + (1 + 1) = 3.$ 
+        \item $f$ 在 $(-\infty,\,\infty)$ 可微, 無奇異點. 
         \item $(-\infty,\,\infty)$ 無邊界點. 
       \end{itemize}
-      故最短距離為 $\ell(1) = \sqrt{3}$. 
+      故最短距離平方為 $3$, 最短距離為 $\sqrt{3}$. 
     \end{itemize}
 \end{sol}
 
