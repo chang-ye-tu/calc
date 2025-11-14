@@ -125,6 +125,9 @@
    \renewcommand{\headrulewidth}{0pt} 
 }
 \usepackage{datetime2}
+\usepackage{calc}
+\def\theyear{\the\year}
+
 \graphicspath{{./integration/}}
 \usepackage{xfrac}
 \usepackage{nicefrac}
@@ -917,7 +920,7 @@
     \item $\ds\int_{-\pi}^{\pi} \sin(x^7-5x^3)\,\text{d}x = 0\quad$($\sin(x^7-5x^3)$ 為奇函數) 
     \item $\ds\int_{-6}^{6} e^{-x^4}\sin(\sin x)\,\text{d}x = 0\quad$($e^{-x^4}\sin(\sin x)$ 為奇函數) 
     \item $\ds\int_{-4}^{4} \big(e^{x} - e^{-x}\big)\,\text{d}x = 0\quad$($e^{x} - e^{-x}$ 為奇函數) 
-    \item $\ds\int_{-2024}^{2024} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\text{d}x = 0\quad$($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數)  
+    \item $\ds\int_{-\theyear}^{\theyear} \big(e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}\big)\,\text{d}x = 0\quad$($e^{9x^5-2x^7} - e^{-9x^5 + 2x^7}$ 為奇函數)  
     \item $\ds\int_{-a}^a |x|\,\text{d}x = 2\int_0^a |x|\,\text{d}x = a^2\quad$($|x|$ 為偶函數; 兩 $a\times a$ 等腰直角三角形面積) 
     \item 定義 $\ds\int_1^x\frac{1}{\tau}\,\text{d}\tau = \ln x$, 則 $\ds\int_{\frac{1}{4}}^3\frac{1}{x}\,\text{d}x = \int_{\frac{1}{4}}^1 \frac{1}{x}\,\text{d}x + \int_1^3 \frac{1}{x}\,\text{d}x = -\int_1^{\frac{1}{4}}\frac{1}{x}\,\text{d}x + \int_1^3\frac{1}{x}\,\text{d}x = \ln 12$
     \item $\ds\int_0^2 \sqrt{4 - x^2}\cdot\sgn(1 - x)\,\text{d}x = \int_0^1\sqrt{4 - x^2}\,\text{d}x - \int_1^2\sqrt{4 - x^2}\,\text{d}x = \Big(\frac{4\pi}{12} + \frac{\sqrt{3}}{2}\Big) - \Big(\frac{4\pi}{6} - \frac{\sqrt{3}}{2}\Big) = \sqrt{3} - \frac{\pi}{3}$ 
