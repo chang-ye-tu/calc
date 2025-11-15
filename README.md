@@ -8,18 +8,14 @@
 
 - [CLP Calculus Textbooks.](https://personal.math.ubc.ca/~CLP/) &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP1/">CLP1</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP2/">CLP2</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP3/">CLP3</a>&nbsp; | &nbsp;<a href="https://personal.math.ubc.ca/~CLP/CLP4/">CLP4</a>
 - [CLP Calculus Problem Books.](https://personal.math.ubc.ca/~CLP/) &nbsp;重排版（題目緊接詳解，方便閱讀）<br>&nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_1_dc_problems.pdf">CLP1</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_2_ic_problems.pdf">CLP2</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_3_mc_problems.pdf">CLP3</a>&nbsp; | &nbsp;<a href="https://github.com/chang-ye-tu/calc/blob/master/clp/clp_4_vc_problems.pdf">CLP4</a>
-- [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
-  - [Calculus Notes.](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,N)
-  - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
-  - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 
 ## 其他可合法下載參考文獻
 
 - [顏國勇，2015，微積分學，電子書 2.2 版。](https://www.math.ncku.edu.tw/~library/e-book/Calculus2015B.pdf)
 - [顏國勇，2014，新微積分演習，電子書 2 版。](https://www.math.ncku.edu.tw/~library/e-book/NewCalEx2.pdf)
 - [黃文璋，2010，微積分講義。](https://www.stat.nuk.edu.tw/huangwj/book/calculus.pdf)
-- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
 - [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
+- [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
 
 <!--
 - [Courant R., John F., 1989. Introduction to Calculus and Analysis I. Springer Verlag, New York.](https://link.springer.com/book/10.1007/978-3-642-58604-0)
@@ -67,6 +63,10 @@
 - [陽交大微積分教學小組](https://calculus.math.nycu.edu.tw/)
   - [微積分甲（一）考古題](https://calculus.math.nycu.edu.tw/exams108-1-all/)
   - [微積分甲（二）考古題](https://calculus.math.nycu.edu.tw/exams108-2-all/)
+- [Paul Dawkins: Calculus.](https://tutorial.math.lamar.edu/)
+  - [Calculus Notes.](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,N)
+  - [Practice Problems (Without Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,P)
+  - [Practice Problems (With Solutions).](https://tutorial.math.lamar.edu/GetFile.aspx?file=B,20,S)
 - [Ximera](https://ximera.osu.edu/) &nbsp; OSU 開放式數學課程。
   - [Calculus 1](https://ximera.osu.edu/mooculus/calculus1)
   - [Calculus 2](https://ximera.osu.edu/mooculus/calculus2)
