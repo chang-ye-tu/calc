@@ -56,7 +56,7 @@
 - [白啟光，2010，微積分（二）。](http://ocw.nctu.edu.tw/course_detail.php?bgid=1&gid=1&nid=240)
   - [播放清單](https://www.youtube.com/playlist?list=PLj6E8qlqmkFsuPk9qCYVBJhk61VNF-IFJ)
 
-## 其他資源：考古題、動畫
+## 其他資源：考古題、線上課程、題庫、動畫
 
 - [台大微積分統一教學網](http://www.math.ntu.edu.tw/~calc/Default.html)
   - [歷屆考古題：微甲及模組班](http://www.math.ntu.edu.tw/~calc/cp_n_34456.html) 
@@ -204,9 +204,11 @@
 - 3.7.8, 3.7.11, 3.7.13, 3.7.22, 3.7.29, 3.7.30
 -->
 
+<!--
 ## 授課教師
 
 杜昌燁 cwtu320313 @ googlemail.com
+-->
 
 <!-- (113)
 ### 第一學期
