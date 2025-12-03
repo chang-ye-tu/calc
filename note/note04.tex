@@ -1645,7 +1645,7 @@
 
       (證二) $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t = \int_0^1\!t^{x - 1}e^{-t}\,\text{d}t + \int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$. $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂, 因為  
       \begin{itemize}\setlength{\itemsep}{0pt}
-        \item $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t\leqslant\int_0^1\!t^{x - 1}\,\text{d}t = \frac{t^x}{x}\,\bigg|_{x = 0}^{x = 1} = \frac{1}{x}$, $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
+        \item $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t\leqslant\int_0^1\!t^{x - 1}\,\text{d}t = \frac{t^x}{x}\,\bigg|_{t = 0}^{t = 1} = \frac{1}{x}$, $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
         \item $\ds\int_1^\infty\!\frac{1}{t^2}\,\text{d}t$ 收斂, $\ds\lim_{t\to\infty}\frac{t^{x - 1}e^{-t}}{\frac{1}{t^2}} = \lim_{t\to\infty}\frac{t^{x + 1}}{e^t} = 0$, $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
       \end{itemize}
     \item $\ds\Gamma(x + 1) = \int_0^\infty\!t^x e^{-t}\,\text{d}t = \lim_{\substack{a\to0+ \\ b\to\infty}}\int_a^b\!t^{x}e^{-t}\,\text{d}t$. 令 $\ds u = t^x$, 則 $\ds\text{d}u = xt^{x-1}\,\text{d}t$. 令 $\ds\text{d}v = e^{-t}\,\text{d}t$, 則 $\ds v = -e^{-t}$. 故 $\ds\lim_{\substack{a\to0+\\b\to\infty}}\int_a^b\!t^{x}e^{-t}\,\text{d}t = \lim_{\substack{a\to0+\\b\to\infty}}\Big(-t^x e^{-t}\,\Big|_a^b + \int_a^b\!e^{-t}\cdot xt^{x-1}\,\text{d}t\Big) = 0 + x\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t =x\,\Gamma(x)$. 
