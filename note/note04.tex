@@ -132,6 +132,8 @@
 \usepackage{xfrac}
 \usepackage{nicefrac}
 
+\usepackage{parskip}
+
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第四章\ \ 積分}{第四章\ \ 積分}} 
 \author{\vspace{-5em}}
@@ -980,24 +982,109 @@
 
 \subsection*{微積分基本定理}
 
-\begin{thm}[微積分基本定理 (Fundamental Theorem of Calculus, FTC) ]
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item[]
-    \item 若 $f$ 在 $[a,\,b]$ 連續, 令 $\ds F(x) = \int_a^x f(\tau)\,\text{d}\tau$ 且 $a\leqslant x\leqslant b$, 則 $\ds F'(x) = f(x)\;\forall\,x\in[a,\,b]$. 
-    \item 若 $\ds G'(x) = f(x)\;\forall\,x\in[a,\,b]$, 則 $\ds\int_a^b f(x)\,\text{d}x = G(b) - G(a) \equiv G(x)\,\Big|_a^b$. 
-  \end{enumerate}
+%\begin{thm}[微積分基本定理 (Fundamental Theorem of Calculus, FTC) ]
+%  \begin{enumerate}\setlength{\itemsep}{0pt}
+%    \item[]
+%    \item 若 $f$ 在 $[a,\,b]$ 連續, 令 $\ds F(x) = \int_a^x f(\tau)\,\text{d}\tau$ 且 $a\leqslant x\leqslant b$, 則 $\ds F'(x) = f(x)\;\forall\,x\in[a,\,b]$. 
+%    \item 若 $\ds G'(x) = f(x)\;\forall\,x\in[a,\,b]$, 則 $\ds\int_a^b f(x)\,\text{d}x = G(b) - G(a) \equiv G(x)\,\Big|_a^b$. 
+%  \end{enumerate}
+%\end{thm}
+%\begin{rmk}
+%  由 FTC, $\ds\int_a^b f(x)\,\text{d}x$ 可由 $f$ 的反導函數 (不定積分) 得出, 不需繁複極限計算！
+%\end{rmk}
+
+%\begin{prf}
+%  \begin{enumerate}\setlength{\itemsep}{0pt}
+%    \item[]
+%    \item WLOG 令 $h > 0$. 則 $\ds\Bigg|\,\frac{F(x + h) - F(x)}{h} - f(x)\,\Bigg| = \Bigg|\,\frac{1}{h}\int_x^{x + h}(f(\tau) - f(x))\,\text{d}\tau\,\Bigg| \leqslant\frac{1}{h}\int_x^{x + h}\big|\,f(\tau) - f(x)\big|\,\text{d}\tau \leqslant\max_{x\leqslant\tau\leqslant x+h}\big|\,f(\tau) - f(x)\big|\to 0$, 當 $h\to 0$ 且 $f$ 為連續. 
+%    \item $\ds(G(x) - F(x))' = f(x) - f(x) = 0\;\forall\,x\in[a, b]$, 故 $\ds G(x) - F(x)$ 在 $[a, b]$ 為常數 $\ds\ie G(a) - F(a) = G(b) - F(b) \ie G(b) - G(a) = F(b) - F(a) = \int_a^b f(x)\,\text{d}x$. 
+%  \end{enumerate}
+%\end{prf}
+
+\subsubsection*{複習: 連續函數性質}
+\begin{thm}[中間值定理]
+  若 $f$ 在 $[a, b]$ 連續, 則對任意介於 $f(a)$ 與 $f(b)$ 之間的數 $d$, 存在 $c\in[a, b]$ 使得 $f(c) = d$.   
 \end{thm}
-\begin{rmk}
-  由 FTC, $\ds\int_a^b f(x)\,\text{d}x$ 可由 $f$ 的反導函數 (不定積分) 得出, 不需繁複極限計算！
-\end{rmk}
+
+%\begin{prf}
+%不失一般性, 設 $f(a) < d < f(b)$（若 $f(a) > f(b)$, 論證類似）. 
+%
+%\textbf{第一步: 構造輔助函數. }
+%定義 $g(x) = f(x) - d$. 則 $g$ 在 $[a,b]$ 上連續, 且
+%\[
+%g(a) = f(a) - d < 0, \quad g(b) = f(b) - d > 0.
+%\]
+%我們要證明存在 $c$ 使得 $g(c) = 0$. 
+%
+%\textbf{第二步: 定義集合並取上確界. }
+%令
+%\[
+%S = \{x \in [a,b] : g(x) < 0\}.
+%\]
+%由於 $g(a) < 0$, 故 $a \in S$, 所以 $S \neq \emptyset$. 又 $S \subseteq [a,b]$, 故 $S$ 有上界. 由實數的完備性（上確界原理）, $S$ 存在上確界. 令
+%\[
+%c = \sup S.
+%\]
+%顯然 $c \in [a,b]$. 
+%
+%\textbf{第三步: 證明 $g(c) = 0$. }
+%我們分別排除 $g(c) < 0$ 和 $g(c) > 0$ 的可能. 
+%
+%\textit{情況一}: 假設 $g(c) < 0$. 由 $g$ 的連續性, 存在 $\delta > 0$ 使得對所有 $x \in (c - \delta, c + \delta) \cap [a,b]$, 都有 $g(x) < 0$. 因為 $g(b) > 0$, 必有 $c < b$. 取 $x_0 = \min(c + \delta/2, b)$, 則 $x_0 > c$ 且 $g(x_0) < 0$, 故 $x_0 \in S$. 但這與 $c = \sup S$ 矛盾. 
+%
+%\textit{情況二}: 假設 $g(c) > 0$. 由 $g$ 的連續性, 存在 $\delta > 0$ 使得對所有 $x \in (c - \delta, c + \delta) \cap [a,b]$, 都有 $g(x) > 0$. 因為 $g(a) < 0$, 必有 $c > a$. 這表示對所有 $x \in (c - \delta, c)$, 都有 $g(x) > 0$, 即 $x \notin S$. 因此 $S$ 的所有元素都 $\leqslant c - \delta$, 這意味著 $\sup S \leqslant c - \delta < c$, 與 $c = \sup S$ 矛盾. 
+%
+%綜上, 必有 $g(c) = 0$, 即 $f(c) = d$. 又因為 $g(a) < 0$ 且 $g(b) > 0$ 而 $g(c) = 0$, 故 $c \neq a$ 且 $c \neq b$, 即 $c \in (a,b)$. 
+%\end{prf}
+%
+%\begin{remark}
+%這個證明的關鍵在於實數完備性——上確界原理保證了 $\sup S$ 的存在. 這正是介值定理在有理數系中不成立的原因: 有理數有「空隙」, 而實數沒有. 
+%\end{remark}
+
+\begin{thm}[最大最小值定理]
+  若函數在定義域為{\color{M4}有限閉區間}, 或{\color{M4}有限閉區間的有限聯集}連續, 則函數在定義域上有最大值及最小值. 
+\end{thm}
+
+\subsubsection*{積分均值定理}
+
+\begin{thm}[積分均值定理]
+  設 $f$ 在 $[a,b]$ 連續, 則存在 $c \in (a,b)$ 使得 $\ds\int_a^b f(x)\,\mathrm{d}x = f(c) \cdot (b-a).$
+\end{thm}
 
 \begin{prf}
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item[]
-    \item WLOG 令 $h > 0$. 則 $\ds\Bigg|\,\frac{F(x + h) - F(x)}{h} - f(x)\,\Bigg| = \Bigg|\,\frac{1}{h}\int_x^{x + h}(f(\tau) - f(x))\,\text{d}\tau\,\Bigg| \leqslant\frac{1}{h}\int_x^{x + h}\big|\,f(\tau) - f(x)\big|\,\text{d}\tau \leqslant\max_{x\leqslant\tau\leqslant x+h}\big|\,f(\tau) - f(x)\big|\to 0$, 當 $h\to 0$ 且 $f$ 為連續. 
-    \item $\ds(G(x) - F(x))' = f(x) - f(x) = 0\;\forall\,x\in[a, b]$, 故 $\ds G(x) - F(x)$ 在 $[a, b]$ 為常數 $\ds\ie G(a) - F(a) = G(b) - F(b) \ie G(b) - G(a) = F(b) - F(a) = \int_a^b f(x)\,\text{d}x$. 
-  \end{enumerate}
+\textbf{第一步: 建立上下界. }
+因 $f$ 在 $[a,b]$ 連續, 根據最大最小值定理, $f$ 在 $[a, b]$ 有最大值 $M$ 及最小值 $m$, 亦即 $\exists\,x_{\text{m}}, x_{\text{M}}$ 使 $\ds m = f(x_{\text{m}}) \leqslant f(x) \leqslant f(x_{\text{M}}) = M, \;\forall x \in [a,b]$.
+
+\textbf{第二步: 積分的夾擠. }
+對不等式 $m \leqslant f(x) \leqslant M$ 在 $[a,b]$ 上積分, 得 $\ds m(b-a) \leqslant \int_a^b f(x)\,\mathrm{d}x \leqslant M(b-a)$; 除以 $(b-a) > 0$ 得 $\ds m \leqslant \frac{1}{b-a}\int_a^b f(x)\,\mathrm{d}x \leqslant M$.
+
+\textbf{第三步: 應用中間值定理. }
+令 $\ds\mu = \frac{1}{b-a}\int_a^b f(x)\,\mathrm{d}x$: 我們已證明 $m \leqslant \mu \leqslant M$. 因為 $f$ 連續且 $f(x_\text{m}) = m$, $f(x_\text{M}) = M$, 由中間值定理, 存在 $c$ 介於 $x_\text{m}$ 與 $x_\text{M}$ 間 (故 $c \in [a,b]$), 使 $\ds f(c) = \mu = \frac{1}{b-a}\int_a^b f(x)\,\mathrm{d}x$ $\ie$ $\ds\int_a^b f(x)\,\mathrm{d}x = f(c) \cdot (b-a)$.
 \end{prf}
+
+%\begin{remark}
+%這個定理的幾何意義是: 曲線 $y = f(x)$ 與 $x$ 軸在 $[a,b]$ 上所圍的面積, 等於某個以 $f(c)$ 為高、$(b-a)$ 為底的矩形面積. 換言之, 一定存在某個「代表高度」$f(c)$ 能精確反映整個積分的平均效果. 
+%\end{remark}
+
+\begin{thm}[微積分基本定理 I (積分的微分)]
+  設 $f$ 在 $[a,b]$ 上連續. 定義 $\ds F(x) = \int_a^x f(t)\,\mathrm{d}t, \; x \in [a,b]$, 則 $F$ 在 $(a,b)$ 可微, 且 $F'(x) = f(x)$. 
+\end{thm}
+
+\begin{prf}
+  對於 $x \in (a,b)$ 及充分小的 $h \neq 0$, 考慮 $\ds\frac{F(x+h) - F(x)}{h} = \frac{1}{h}\int_x^{x+h} f(t)\,\mathrm{d}t.$ 因 $f$ 在 $[a,b]$ 連續, 由積分均值定理, 存在 $c_h$ 介於 $x$ 與 $x+h$ 間, 使 $\ds\int_x^{x+h} f(t)\,\mathrm{d}t = f(c_h) \cdot h$, 故 $\ds\frac{F(x+h) - F(x)}{h} = f(c_h)$. 當 $h \to 0$, $c_h \to x$. 由 $f$ 的連續性, $f(c_h) \to f(x)$. 故 $\ds F'(x) = \lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = f(x)$.
+\end{prf}
+
+\begin{thm}[微積分基本定理 II (牛頓--萊布尼茲公式)]
+  設 $f$ 在 $[a,b]$ 連續, 且 $G$ 是 $f$ 的任一反導函數 (即 $G'(x) = f(x)$), 則 $\ds\int_a^b f(x)\,\mathrm{d}x = G(b) - G(a)$.
+\end{thm}
+
+\begin{prf}
+  由微積分基本定理 I, $\ds F(x) = \int_a^x f(t)\,\mathrm{d}t$ 滿足 $F'(x) = f(x)$. 因為 $G$ 也是 $f$ 的反導函數, $F$ 與 $G$ 相差一個常數: $\ds F(x) = G(x) + C$. 由 $\ds F(a) = \int_a^a f(t)\,\mathrm{d}t = 0$ 得 $0 = G(a) + C \ie C = -G(a)$. 故 $\ds\int_a^b f(x)\,\mathrm{d}x = F(b) = G(b) + C = G(b) - G(a)$.
+\end{prf}
+
+%\begin{remark}
+%微積分基本定理告訴我們: 微分與積分互為逆運算. 第一部分說明對一個連續函數做積分後再微分, 會還原該函數；第二部分則提供了計算定積分的實用方法——只需找到反導數並代入端點值相減即可. 
+%\end{remark}
 
 \begin{ex}[以 FTC 求定積分]
   \begin{enumerate}\setlength{\itemsep}{0pt}
@@ -1394,7 +1481,7 @@
     \includegraphics[scale=1,page=1]{notch2}
   \end{minipage}
   \begin{minipage}{0.8\textwidth}
-    將一半徑為 $a$ 之圓柱體水平橫切, 再對其底面圓心 $45^\circ$ 角斜切, 求如圖所示結果體積。
+    將一半徑為 $a$ 之圓柱體水平橫切, 再對其底面圓心 $45^\circ$ 角斜切, 求如圖所示結果體積. 
   \end{minipage}
 \end{ex}
 
