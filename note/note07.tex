@@ -1447,11 +1447,11 @@
   \end{multicols}
 \end{ex}
 
-\begin{sol} 已知 $\ds F(a) = \int_{-\infty}^\infty e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{\sqrt{a}} = \sqrt{\pi}\,a^{-\frac{1}{2}}$, 則
+\begin{sol} 由 $\ds F(a) = \int_{-\infty}^\infty e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi}\,a^{-\frac{1}{2}}$,
   \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item $\ds F'(a) = \frac{\mathrm{d}}{\mathrm{d}a}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-1}{2}\,a^{-\frac{3}{2}} = -\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x$ $\ie$ $\ds\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x = \frac{\sqrt{\pi}}{2\,a^{\frac{3}{2}}}$.
-    \item $\ds F''(a) = \frac{\mathrm{d}^2}{\mathrm{d}a^2}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{3}{4}\,a^{-\frac{5}{2}} = \int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x$ $\ie$ $\ds\int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x = \frac{3\sqrt{\pi}}{4\,a^{\frac{5}{2}}}$.
-    \item $\ds F'''(a) = \frac{\mathrm{d}^3}{\mathrm{d}a^3}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-15}{8}a^{-\frac{7}{2}} = -\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x$ $\ie$ $\ds\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x = \frac{15\sqrt{\pi}}{8\,a^{\frac{7}{2}}}$.
+    \item $\ds F'(a) = -\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}}{\mathrm{d}a}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-1}{2}\,a^{-\frac{3}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x = \frac{\sqrt{\pi}}{2\,a^{\frac{3}{2}}}$.
+    \item $\ds F''(a) = \int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}^2}{\mathrm{d}a^2}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{3}{4}\,a^{-\frac{5}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x = \frac{3\sqrt{\pi}}{4\,a^{\frac{5}{2}}}$.
+    \item $\ds F'''(a) = -\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}^3}{\mathrm{d}a^3}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-15}{8}a^{-\frac{7}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x = \frac{15\sqrt{\pi}}{8\,a^{\frac{7}{2}}}$.
   \end{enumerate}
 \end{sol}
 

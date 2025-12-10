@@ -1728,9 +1728,9 @@
 \begin{sol}
   \begin{enumerate}\setlength{\itemsep}{0pt}
     \item[]
-    \item (證一)  由 $\ds\lim_{t\to\infty}t^{x-1}e^{-\frac{t}{2}} = 0$, $\ds\exists\,T > 0$ 使 $\ds t^{x-1}e^{-\frac{t}{2}}\leqslant 1\;\forall\,t\geqslant T$. $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t = \int_0^T\!t^{x-1}e^{-t}\,\text{d}t + \int_T^\infty\!t^{x-1}e^{-t}\,\text{d}t\leqslant\int_0^T\!t^{x - 1}\,\text{d}t + \int_T^\infty 1\cdot e^{-\frac{t}{2}}\,\text{d}t = \frac{T^x}{x} + 2\,e^{-\frac{T}{2}}$. 故 $\forall\,x > 0$, $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t$ 收斂. 
-
-      (證二) $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t = \int_0^1\!t^{x - 1}e^{-t}\,\text{d}t + \int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$. $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂, 因為  
+    %\item (證一)  由 $\ds\lim_{t\to\infty}t^{x-1}e^{-\frac{t}{2}} = 0$, $\ds\exists\,T > 0$ 使 $\ds t^{x-1}e^{-\frac{t}{2}}\leqslant 1\;\forall\,t\geqslant T$. $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t = \int_0^T\!t^{x-1}e^{-t}\,\text{d}t + \int_T^\infty\!t^{x-1}e^{-t}\,\text{d}t\leqslant\int_0^T\!t^{x - 1}\,\text{d}t + \int_T^\infty 1\cdot e^{-\frac{t}{2}}\,\text{d}t = \frac{T^x}{x} + 2\,e^{-\frac{T}{2}}$. 故 $\forall\,x > 0$, $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t$ 收斂. 
+    %  (證二) 
+    \item $\ds\int_0^\infty\!t^{x-1}e^{-t}\,\text{d}t = \int_0^1\!t^{x - 1}e^{-t}\,\text{d}t + \int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$. $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂, 因為  
       \begin{itemize}\setlength{\itemsep}{0pt}
         \item $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t\leqslant\int_0^1\!t^{x - 1}\,\text{d}t = \frac{t^x}{x}\,\bigg|_{t = 0}^{t = 1} = \frac{1}{x}$, $\ds\int_0^1\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
         \item $\ds\int_1^\infty\!\frac{1}{t^2}\,\text{d}t$ 收斂, $\ds\lim_{t\to\infty}\frac{t^{x - 1}e^{-t}}{\frac{1}{t^2}} = \lim_{t\to\infty}\frac{t^{x + 1}}{e^t} = 0$, $\ds\int_1^\infty\!t^{x - 1}e^{-t}\,\text{d}t$ 收斂. 
