@@ -790,25 +790,25 @@
   反變數變換: $\ds\int_0^{\frac{\pi}{2}}\!\!\int_0^a\!\frac{r}{\sqrt{a^2 - r^2\cos^2\theta}}\,\text{d}r\,\text{d}\theta = \int_0^a\!\!\int_0^{\sqrt{a^2 - x^2}}\!\!\frac{1}{\sqrt{a^2 - x^2}}\,\text{d}y\,\text{d}x = \int_0^a\frac{\sqrt{a^2 - x^2}}{\sqrt{a^2 - x^2}}\,\text{d}x = a$.  
 \end{ex}
 
-\begin{ex} 若 $a > 0$, 求
-  \begin{multicols}{3}
-    \begin{enumerate}
-      \item $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x$. 
-      \item $\ds\int_0^\infty x\,e^{-ax^2}\,\text{d}x$.
-      \item $\ds\int_0^\infty x^2\,e^{-ax^2}\,\text{d}x$.
-    \end{enumerate}
-  \end{multicols}
-\end{ex}
-
-\begin{sol}
-  \begin{enumerate}\setlength{\itemsep}{0pt}
-    \item[]
-    \item $\ds\bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)^2 = \bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)\bigg(\int_{-\infty}^\infty\!e^{-y^2}\,\text{d}y\bigg) = \int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y$. 變數變換 $(x,\,y)\to(r,\,\theta)$ 後得 $\ds\int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y = \int_0^{2\pi}\!\!\!\int_0^\infty\!\!e^{-r^2}r\,\text{d}r\,\text{d}\theta = 2\pi\,\bigg(\frac{-e^{-r^2}}{2}\,\bigg|_0^\infty\bigg) = \pi$, 故 $\ds\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x = \sqrt{\pi}$; 由 $e^{-x^2}$ 之對稱性, $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x = \frac{\sqrt{\pi}}{2}$. 在 $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x$ 中, 令 $\ds w = \sqrt{a}\,x\ie x = \frac{w}{\sqrt{a}}\ie\mathrm{d}x = \frac{1}{\sqrt{a}}\,\mathrm{d}w$; 積分範圍 $x$ 由 $0$ 至 $\infty$, 變數變換後 $w$ 由 $\ds\sqrt{a}\cdot 0 = 0$ 至 $\ds\sqrt{a}\cdot\infty = \infty$, 則 $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x = \frac{1}{\sqrt{a}}\int_0^\infty\!e^{-w^2}\,\text{d}w = \frac{\sqrt{\pi}}{2\sqrt{a}}$.
-    \item 令 $\ds w = a\,x^2$, 則 $\ds\mathrm{d}w = 2\,a\,x\,\mathrm{d}x \ie x\,\mathrm{d}x = \frac{\mathrm{d}w}{2a}$. 積分範圍 $x$ 由 $0$ 至 $\infty$, 則變數變換後 $w$ 由 $\ds a\cdot 0^2 = 0$ 至 $\ds a\cdot\infty^2 = \infty$, 故 $\ds\int_0^\infty x\,e^{-\alpha\,x^2}\,\mathrm{d}x = \int_0^\infty\!e^{-w}\,\frac{\mathrm{d}w}{2a} = \frac{1}{2a}\int_0^\infty\!e^{-w}\,\mathrm{d}w = \frac{1}{2a}\,\Big(-e^{-w}\,\Big|_0^\infty\Big) = \frac{1}{2a}$. 
-    \item 令 $\ds w = \sqrt{a}\,x\ie x = \frac{w}{\sqrt{a}}\ie\mathrm{d}x = \frac{1}{\sqrt{a}}\,\mathrm{d}w$; 積分範圍 $x$ 由 $0$ 至 $\infty$, 變數變換後 $w$ 由 $\ds\sqrt{a}\cdot 0 = 0$ 至 $\ds\sqrt{a}\cdot\infty = \infty$, 故 $\ds\int_0^\infty x^2\,e^{-a x^2}\,\mathrm{d}x = \int_0^\infty\frac{w^2}{a}\,e^{-w^2}\,\frac{1}{\sqrt{a}}\,\mathrm{d}w = \frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w$. 令 $\ds u = -\frac{1}{2}\,w$, 則 $\ds\mathrm{d}u = -\frac{1}{2}\,\mathrm{d}w$. 令 $\ds\mathrm{d}v = -2\,w\,e^{-w^2}\,\mathrm{d}w$, 則 $\ds v = e^{-w^2}$. 故 $\ds\frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w = \frac{1}{a^\frac{3}{2}}\bigg(-\frac{1}{2}w\cdot e^{-w^2}\Big|_0^\infty + \frac{1}{2}\int_0^\infty e^{-w^2}\,\mathrm{d}w\bigg) = \frac{1}{a^\frac{3}{2}}\cdot\frac{1}{2}\cdot\frac{\sqrt{\pi}}{2} = \frac{\sqrt{\pi}}{4a^\frac{3}{2}}$.
-  \end{enumerate}
-\end{sol}
-
+%\begin{ex} 若 $a > 0$, 求
+%  \begin{multicols}{3}
+%    \begin{enumerate}
+%      \item $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x$. 
+%      \item $\ds\int_0^\infty x\,e^{-ax^2}\,\text{d}x$.
+%      \item $\ds\int_0^\infty x^2\,e^{-ax^2}\,\text{d}x$.
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{sol}
+%  \begin{enumerate}\setlength{\itemsep}{0pt}
+%    \item[]
+%    \item $\ds\bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)^2 = \bigg(\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x\bigg)\bigg(\int_{-\infty}^\infty\!e^{-y^2}\,\text{d}y\bigg) = \int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y$. 變數變換 $(x,\,y)\to(r,\,\theta)$ 後得 $\ds\int_{-\infty}^\infty\int_{-\infty}^\infty\!\!e^{-x^2 - y^2}\,\text{d}x\,\text{d}y = \int_0^{2\pi}\!\!\!\int_0^\infty\!\!e^{-r^2}r\,\text{d}r\,\text{d}\theta = 2\pi\,\bigg(\frac{-e^{-r^2}}{2}\,\bigg|_0^\infty\bigg) = \pi$, 故 $\ds\int_{-\infty}^\infty\!e^{-x^2}\,\text{d}x = \sqrt{\pi}$; 由 $e^{-x^2}$ 之對稱性, $\ds\int_0^\infty\!e^{-x^2}\,\text{d}x = \frac{\sqrt{\pi}}{2}$. 在 $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x$ 中, 令 $\ds w = \sqrt{a}\,x\ie x = \frac{w}{\sqrt{a}}\ie\mathrm{d}x = \frac{1}{\sqrt{a}}\,\mathrm{d}w$; 積分範圍 $x$ 由 $0$ 至 $\infty$, 變數變換後 $w$ 由 $\ds\sqrt{a}\cdot 0 = 0$ 至 $\ds\sqrt{a}\cdot\infty = \infty$, 則 $\ds\int_0^\infty\!e^{-ax^2}\,\text{d}x = \frac{1}{\sqrt{a}}\int_0^\infty\!e^{-w^2}\,\text{d}w = \frac{\sqrt{\pi}}{2\sqrt{a}}$.
+%    \item 令 $\ds w = a\,x^2$, 則 $\ds\mathrm{d}w = 2\,a\,x\,\mathrm{d}x \ie x\,\mathrm{d}x = \frac{\mathrm{d}w}{2a}$. 積分範圍 $x$ 由 $0$ 至 $\infty$, 則變數變換後 $w$ 由 $\ds a\cdot 0^2 = 0$ 至 $\ds a\cdot\infty^2 = \infty$, 故 $\ds\int_0^\infty x\,e^{-\alpha\,x^2}\,\mathrm{d}x = \int_0^\infty\!e^{-w}\,\frac{\mathrm{d}w}{2a} = \frac{1}{2a}\int_0^\infty\!e^{-w}\,\mathrm{d}w = \frac{1}{2a}\,\Big(-e^{-w}\,\Big|_0^\infty\Big) = \frac{1}{2a}$. 
+%    \item 令 $\ds w = \sqrt{a}\,x\ie x = \frac{w}{\sqrt{a}}\ie\mathrm{d}x = \frac{1}{\sqrt{a}}\,\mathrm{d}w$; 積分範圍 $x$ 由 $0$ 至 $\infty$, 變數變換後 $w$ 由 $\ds\sqrt{a}\cdot 0 = 0$ 至 $\ds\sqrt{a}\cdot\infty = \infty$, 故 $\ds\int_0^\infty x^2\,e^{-a x^2}\,\mathrm{d}x = \int_0^\infty\frac{w^2}{a}\,e^{-w^2}\,\frac{1}{\sqrt{a}}\,\mathrm{d}w = \frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w$. 令 $\ds u = -\frac{1}{2}\,w$, 則 $\ds\mathrm{d}u = -\frac{1}{2}\,\mathrm{d}w$. 令 $\ds\mathrm{d}v = -2\,w\,e^{-w^2}\,\mathrm{d}w$, 則 $\ds v = e^{-w^2}$. 故 $\ds\frac{1}{a^\frac{3}{2}}\int_0^\infty w^2\,e^{-w^2}\,\mathrm{d}w = \frac{1}{a^\frac{3}{2}}\bigg(-\frac{1}{2}w\cdot e^{-w^2}\Big|_0^\infty + \frac{1}{2}\int_0^\infty e^{-w^2}\,\mathrm{d}w\bigg) = \frac{1}{a^\frac{3}{2}}\cdot\frac{1}{2}\cdot\frac{\sqrt{\pi}}{2} = \frac{\sqrt{\pi}}{4a^\frac{3}{2}}$.
+%  \end{enumerate}
+%\end{sol}
+%
 \subsection*{曲面表面積}
 
 \begin{fact}
