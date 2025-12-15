@@ -1887,6 +1887,26 @@
 \end{prf}
 
 \begin{ex}
+  $\ds\int_0^\infty\!xe^{-ax^2}\!\sin{bx}\,\mathrm{d}x = \frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$, $\forall\,a > 0$. 
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(b) = \int_0^\infty\!e^{-ax^2}\!\!\cos bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$,  
+  %$\ds\frac{\partial}{\partial b}(e^{-ax^2}\cos bx) = -x e^{-ax^2}\sin bx$. $\forall\,b\in \R$, $\ds|x e^{-ax^2}\sin bx|\leqslant x e^{-ax^2}$, 且 $\ds\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$. 
+  則 $\ds F'(b) = -\int_0^\infty x e^{-ax^2}\!\!\sin bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\cdot e^{-\frac{b^2}{4a}}\cdot\Big(-\frac{b}{2a}\Big) = -\frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$.
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^\infty\!\!e^{-x^2 - \frac{a^2}{x^2}}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}e^{-2a}$, $\;\forall\,a > 0$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(a) = \int_0^\infty\!\!e^{-x^2 - \frac{a^2}{x^2}}\,\mathrm{d}x$, 則 $\ds F(0) = \frac{\sqrt{\pi}}{2}$;
+  %$\ds\frac{\partial F}{\partial a} = -\frac{2a}{x^2} e^{-x^2 - \frac{a^2}{x^2}}$; $\forall\,a \in [0, A]$, $x > 0$, $\ds e^{-x^2 - \frac{a^2}{x^2}}\leqslant e^{-x^2}$ 且 $\ds\frac{2a}{x^2}\leqslant\frac{2A}{x^2}$. $\forall\,x \geqslant 1$, $\ds\left|\frac{\partial f}{\partial a}\right|\leqslant 2A e^{-x^2}$. $\forall\,x \in (0,1)$, $\ds\left|\frac{\partial f}{\partial a}\right| \leqslant \frac{2A}{x^2} e^{-a^2/x^2}$, 積分收斂. 
+  $\ds F'(a) = -2a \int_0^\infty\!\frac{e^{-x^2 - \frac{a^2}{x^2}}}{x^2}\,\mathrm{d}x$. 變數變換 $\ds u = \frac{a}{x}$, 則 $\ds x = \frac{a}{u}$, $\ds-\frac{\mathrm{d}u}{a} = \frac{\mathrm{d}x}{x^2}$, 積分範圍 $x$ 從 $0+$ 到 $\infty$, 則 $\ds u = \frac{a}{x}$ 從 $\infty$ 到 $0$, $\ds\int_0^\infty\!\frac{e^{-x^2 - \frac{a^2}{x^2}}}{x^2}\,\mathrm{d}x = \int_{\infty}^0\!e^{-\frac{a^2}{u^2} - u^2}(-1)\,\frac{\mathrm{d}u}{a} = \frac{1}{a}\int_0^\infty\!\!e^{-\frac{a^2}{u^2} - u^2}\,\mathrm{d}u = \frac{F(a)}{a}$, 故 $\ds F'(a) = -2F(a)$ $\ie$ $\ds F(a) = F(0)\,e^{-2a} = \frac{\sqrt{\pi}}{2}e^{-2a}$. 
+\end{prf}
+
+\begin{ex}
   若 $a > 0$, 求 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^2}$, $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^3}$ 並推導 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^n}$, $n\in\mathbb{N}$.
 \end{ex}
 
@@ -1895,12 +1915,16 @@
 \end{sol}
 
 \begin{ex}
-  $\ds\int_0^\infty\!\!e^{-tx}\,\frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2} - \tan^{-1}t$, $\forall\,t > 0$.
+  $\ds\int_0^\infty\!\!e^{-tx}\,\frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2} - \tan^{-1}t$, $\forall\,t > 0$ 
 \end{ex}
 
 \begin{prf}
   令 $\ds F(t) = \int_0^\infty\!\!e^{-tx}\,\frac{\sin x}{x}\,\mathrm{d}x$, 則 $\ds F'(t) = -\int_0^\infty\!\!e^{-tx}\sin x\,\mathrm{d}x = -\frac{e^{-tx}(-t\sin x - \cos x)}{1 + t^2}\,\Big|_{x = 0}^{x = \infty} = -\frac{1}{1 + t^2}$ $\ie$ $\ds F(t) = -\tan^{-1}t + c$. 令 $t\to\infty$, $\ds F(\infty) = 0 = -\tan^{-1}\infty + c = -\frac{\pi}{2} + c$ $\ie$ $\ds c = \frac{\pi}{2}$.  
 \end{prf}
+
+\begin{rmk}
+  上式令 $t\to 0+$ 得 $\ds\int_0^\infty\frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2}$.
+\end{rmk}
 
 \begin{ex}
   $\ds\int_0^\infty\!\!e^{-ax}\,\frac{\sin bx}{x}\,\mathrm{d}x = \tan^{-1}\frac{b}{a}$, $\;\forall\,a, b > 0$.
@@ -1938,23 +1962,9 @@
   令 $\ds F(a) = \int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$, 則 $F(b) = 0$; 變數變換 $\ds u = ax$, $\ds F'(a) = \int_0^\infty f'(ax)\,\mathrm{d}x = \frac{1}{a}\int_0^\infty f'(u)\,\mathrm{d}u = \frac{1}{a}\big(f(\infty) - f(0^+)\big)$. 則 $\ds\int_b^a F'(t)\,\mathrm{d}t = \frac{1}{a}\big(f(\infty) - f(0^+)\big)\int_b^a\frac{1}{t}\,\mathrm{d}t$ $\ie$ $\ds F(a) = \big(f(\infty) - f(0^+)\big)\ln\frac{a}{b}$.
 \end{prf}
 
-\begin{ex}
-  \begin{multicols}{2}
-    \begin{itemize}\setlength{\itemsep}{0pt}
-      \item $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}$
-      \item $\ds\int_0^\infty\frac{\tan^{-1} ax - \tan^{-1}bx}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}$
-    \end{itemize}
-  \end{multicols}
-\end{ex}
-
-\begin{sol} Frullani 公式中
-  \begin{multicols}{2}
-    \begin{itemize}\setlength{\itemsep}{0pt}
-      \item 取 $\ds f(x) = e^{-x}$; $\ds f(0^+) = 1$, $\ds f(\infty) = 0$. 
-      \item 取 $\ds f(x) = \tan^{-1}(x)$; $\ds f(0^+) = 0$, $\ds f(\infty) = \frac{\pi}{2}$. 
-    \end{itemize}
-  \end{multicols}
-\end{sol}
+\begin{rmk}
+  $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}$, $\ds\int_0^\infty\frac{\tan^{-1} ax - \tan^{-1}bx}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}$ 可分別由 Frullani 公式求得: 分別取 $\ds f(x) = e^{-x}$; $\ds f(0^+) = 1$, $\ds f(\infty) = 0$ 及取 $\ds f(x) = \tan^{-1}(x)$; $\ds f(0^+) = 0$, $\ds f(\infty) = \frac{\pi}{2}$. 
+\end{rmk}
 
 \begin{ex}
   $\ds\int_0^{\frac{\pi}{2}} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta = \pi\ln\frac{a+b}{2}$, $\;\forall\,a, b > 0$. 
@@ -1962,6 +1972,14 @@
 
 \begin{prf}
   令 $\ds F(a, b) = \int_0^{\frac{\pi}{2}} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta$, $\ds\frac{\partial F}{\partial a} = \int_0^{\frac{\pi}{2}}\!\!\frac{2a\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$, $\ds\frac{\partial F}{\partial b} = \int_0^{\frac{\pi}{2}}\!\!\frac{2b\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$. 令 $\ds K = \int_0^{\frac{\pi}{2}}\!\!\frac{\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$, $\ds L = \int_0^{\frac{\pi}{2}}\!\!\frac{\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$. 變數變換 $\ds t = \tan\theta$, 則 $\ds\cos^2\theta = \frac{1}{1+t^2}$, $\ds\sin^2\theta = \frac{t^2}{1+t^2}$, $\ds\mathrm{d}\theta = \frac{\mathrm{d}t}{1+t^2}$, $t$ 範圍從 $0$ 至 $\infty$; $\ds K + L = \int_0^{\frac{\pi}{2}}\!\!\frac{1}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta = \int_0^\infty\!\!\frac{1}{a^2 + b^2 t^2}\,\mathrm{d}t = \frac{\pi}{2ab}$. 又 $\ds a^2 K + b^2 L = \int_0^{\frac{\pi}{2}}\!\frac{a^2\cos^2\theta + b^2\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta = \frac{\pi}{2}$, 解得 $\ds K = \frac{\pi}{2a(a + b)}$, $\ds L = \frac{\pi}{2b(a + b)}$; 代入得 $\ds\frac{\partial F}{\partial a} = \frac{\partial F}{\partial b} = \frac{\pi}{a + b}$, $\ds F(a, b) = \pi\ln(a + b) + C$. 令 $a = b$, $\ds F(a, a) = \pi\ln a = \pi\ln(2a) + C$ $\ie$ $C = -\pi\ln 2$, 故 $\ds F(a,b) = \pi\ln(a+b) - \pi\ln 2 = \pi\ln\frac{a+b}{2}$
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^{\frac{\pi}{2}}\ln(\sin{\theta})\,\mathrm{d}\theta = \int_0^{\frac{\pi}{2}}\ln(\cos{\theta})\,\mathrm{d}\theta = -\frac{\pi}{2}\ln 2$, $\ds\int_0^\pi\ln(2\pm2\cos\theta)\,\mathrm{d}\theta = 0$. 
+\end{ex}
+
+\begin{prf}
+  變數變換 $\ds u = \frac{\pi}{2} - \theta$, $\ds\int_0^{\frac{\pi}{2}}\ln(\sin\theta)\,\mathrm{d}\theta = \int_{\frac{\pi}{2}}^0\ln(\sin\big(\frac{\pi}{2} - u\big))(-1)\,\mathrm{d}u = \int_0^{\frac{\pi}{2}}\ln(\cos u)\,\mathrm{d}u = \int_0^{\frac{\pi}{2}}\ln(\cos\theta)\,\mathrm{d}\theta$; 接連變數變換 $\ds x = 2\theta$, $\ds u = \frac{\pi}{2} - x$, $\ds\int_0^{\frac{\pi}{2}}\ln(\sin 2\theta)\,\mathrm{d}\theta = \frac{1}{2}\int_0^{\pi}\ln(\sin x)\,\mathrm{d}x = \frac{1}{2}\int_{\frac{\pi}{2}}^{-\frac{\pi}{2}}\ln(\cos u)(-1)\,\mathrm{d}u = \int_0^{\frac{\pi}{2}}\ln(\cos u)\,\mathrm{d}u = \int_0^{\frac{\pi}{2}}\ln(\cos\theta)\,\mathrm{d}\theta$; $\ds\int_0^{\frac{\pi}{2}}\ln(\sin 2\theta)\,\mathrm{d}\theta = \int_0^{\frac{\pi}{2}}\ln(\sin\theta)\,\mathrm{d}\theta + \int_0^{\frac{\pi}{2}}\ln(\cos\theta)\,\mathrm{d}\theta + \frac{\pi}{2}\ln 2 = \int_0^{\frac{\pi}{2}}\ln(\cos\theta)\,\mathrm{d}\theta$ \\$\ie$ $\ds\int_0^{\frac{\pi}{2}}\ln(\sin\theta)\,\mathrm{d}\theta = -\frac{\pi}{2}\ln 2$. $\ds\int_0^\pi\ln(2 + 2\cos\theta)\,\mathrm{d}\theta = \int_0^\pi\ln\Big(4\cos^2\frac{\theta}{2}\Big)\,\mathrm{d}\theta = 2\pi\ln 2 + 2\int_0^\pi\ln\Big(\cos\frac{\theta}{2}\Big)\,\mathrm{d}\theta = 2\pi\ln 2 + 4 \int_0^{\frac{\pi}{2}}\ln(\cos{\theta})\,\mathrm{d}\theta = 0$; $\ds\int_0^\pi\ln(2 - 2\cos\theta)\,\mathrm{d}\theta = \int_0^\pi\ln\Big(4\sin^2\frac{\theta}{2}\Big)\,\mathrm{d}\theta = 2\pi\ln 2 + 2\int_0^\pi\ln\Big(\sin\frac{\theta}{2}\Big)\,\mathrm{d}\theta = 2\pi\ln 2 + 4 \int_0^{\frac{\pi}{2}}\ln(\sin{\theta})\,\mathrm{d}\theta = 0$;
 \end{prf}
 
 \begin{ex}[Poisson 積分]
@@ -1981,17 +1999,7 @@
 \begin{prf}
   由 $\ds\sin{ax}\sin{bx} = \frac{\cos{(a-b)x} - \cos{(a+b)x}}{2}$, $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x$. 設 $\ds F(c) = \int_0^\infty\frac{1 - \cos{cx}}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$. 
 %$\ds\frac{\partial}{\partial c}\frac{1 - \cos{cx}}{x^2} = \frac{\sin{cx}}{x}$. 收斂性由 Dirichlet 積分保證: 對於 $c\neq 0$, $\ds\int_0^\infty\frac{\sin{cx}}{x}\,\mathrm{d}x$ 條件收斂到 $\ds\frac{\pi}{2}\,\mathrm{sgn}(c)$. 
-  $\ds F'(c) = \int_0^{\infty} \frac{\sin{cx}}{x}\,\mathrm{d}x = \frac{\pi}{2}$; 由 $\ds \cos{cx} = \cos{(-c)x}$ 得 $\ds F(c) = \frac{\pi|c|}{2}$. $\ds\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x = F(a+b) - F(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2} = \frac{\pi}{2}\cdot 2\min(a,b) = \pi\min(a,b)$, 故 $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\cdot\pi\min(a,b) = \frac{\pi}{2}\min(a,b)$.
-\end{prf}
-
-\begin{ex}
-  $\ds\int_0^\infty\!xe^{-ax^2}\!\sin{bx}\,\mathrm{d}x = \frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$, $\forall\,a > 0$. 
-\end{ex}
-
-\begin{prf}
-  令 $\ds F(b) = \int_0^\infty\!e^{-ax^2}\!\!\cos bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$,  
-  %$\ds\frac{\partial}{\partial b}(e^{-ax^2}\cos bx) = -x e^{-ax^2}\sin bx$. $\forall\,b\in \R$, $\ds|x e^{-ax^2}\sin bx|\leqslant x e^{-ax^2}$, 且 $\ds\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$. 
-  則 $\ds F'(b) = -\int_0^\infty x e^{-ax^2}\!\!\sin bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\cdot e^{-\frac{b^2}{4a}}\cdot\Big(-\frac{b}{2a}\Big) = -\frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$.
+  $\ds F'(c) = \int_0^{\infty} \frac{\sin{cx}}{x}\,\mathrm{d}x = \frac{\pi}{2}\sgn(c)$, $\ds F(c) = \frac{\pi|c|}{2}$. \\$\ds\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x = F(a+b) - F(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2} = \frac{\pi}{2}\cdot 2\min(a,b) = \pi\min(a,b)$, 故 $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\cdot\pi\min(a,b) = \frac{\pi}{2}\min(a,b)$.
 \end{prf}
 
 \end{document}
