@@ -1,0 +1,1290 @@
+\documentclass[12pt]{article}
+\usepackage[margin=15mm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\tcbuselibrary{theorems, skins, breakable}
+
+\newtcolorbox{application}[1][]{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  title={Application: #1},
+  breakable
+}
+
+\newtcolorbox{keyintegral}[1][]{
+  colback=green!5!white,
+  colframe=green!50!black,
+  fonttitle=\bfseries,
+  title={#1},
+  breakable,
+  after skip=1.5em
+}
+
+\newtcolorbox{technique}{
+  colback=orange!5!white,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  title={The Technique},
+  breakable
+}
+
+\newtcolorbox{solution}{
+  colback=gray!5!white,
+  colframe=gray!75!black,
+  fonttitle=\bfseries,
+  title={Solution},
+  breakable
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{motivation}{Physical Motivation}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+
+\title{Differentiation Under the Integral Sign}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+%=============================================================================
+\section{Introduction: The Technique}
+%=============================================================================
+
+\begin{technique}
+If $f(x, \alpha)$ is continuous and has a continuous partial derivative $\frac{\partial f}{\partial \alpha}$, then under suitable conditions:
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^b f(x, \alpha)\, \mathrm{d}x = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\, \mathrm{d}x
+\]
+More generally, if the limits also depend on $\alpha$:
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_{a(\alpha)}^{b(\alpha)} f(x,\alpha)\,\mathrm{d}x = f(b(\alpha),\alpha)\cdot b'(\alpha) - f(a(\alpha),\alpha)\cdot a'(\alpha) + \int_{a(\alpha)}^{b(\alpha)} \frac{\partial f}{\partial \alpha}\,\mathrm{d}x
+\]
+\end{technique}
+
+\textbf{Strategy:} Given a difficult integral $I$, introduce a parameter $\alpha$ to create $I(\alpha)$. If $I'(\alpha)$ is easier to compute, we can recover $I$ by integration with respect to $\alpha$.
+
+%=============================================================================
+\section{Proof of Differentiation Under the Integral Sign}
+%=============================================================================
+
+Before applying the technique throughout this document, we establish the rigorous foundations.
+
+\subsection{The Leibniz Integral Rule for Finite Intervals}
+
+\begin{theorem}[Leibniz Integral Rule]\label{thm:leibniz-finite}
+Let $f(x, \alpha)$ be defined on $[a,b] \times [\alpha_0, \alpha_1]$. If:
+\begin{enumerate}[label=(\roman*)]
+  \item $f(x, \alpha)$ is continuous on $[a,b] \times [\alpha_0, \alpha_1]$,
+\item $\frac{\partial f}{\partial \alpha}(x, \alpha)$ exists and is continuous on $[a,b] \times [\alpha_0, \alpha_1]$,
+\end{enumerate}
+then
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^b f(x, \alpha)\, \mathrm{d}x = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\, \mathrm{d}x.
+\]
+\end{theorem}
+
+\begin{proof}
+Define $F(\alpha) = \int_a^b f(x, \alpha)\,\mathrm{d}x$. We must show:
+\[
+\lim_{h \to 0} \frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+
+\textbf{Step 1: Form the difference quotient.}
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \frac{1}{h}\int_a^b \bigl[f(x, \alpha+h) - f(x,\alpha)\bigr]\,\mathrm{d}x = \int_a^b \frac{f(x, \alpha+h) - f(x,\alpha)}{h}\,\mathrm{d}x
+\]
+
+\textbf{Step 2: Apply the Mean Value Theorem.}
+
+For each fixed $x$, the function $\alpha \mapsto f(x, \alpha)$ is differentiable. By the Mean Value Theorem, there exists $\theta_x \in (0, 1)$ (depending on $x$ and $h$) such that:
+\[
+\frac{f(x, \alpha + h) - f(x, \alpha)}{h} = \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)
+\]
+
+Thus:
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)\,\mathrm{d}x
+\]
+
+\textbf{Step 3: Use uniform continuity.}
+
+Since $\frac{\partial f}{\partial \alpha}$ is continuous on the compact set $[a,b] \times [\alpha_0, \alpha_1]$, it is \emph{uniformly continuous}. That is, for every $\varepsilon > 0$, there exists $\delta > 0$ such that for all $x \in [a,b]$ and all $\alpha', \alpha'' \in [\alpha_0, \alpha_1]$:
+\[
+|\alpha' - \alpha''| < \delta \implies \left|\frac{\partial f}{\partial \alpha}(x, \alpha') - \frac{\partial f}{\partial \alpha}(x, \alpha'')\right| < \varepsilon
+\]
+
+\textbf{Step 4: Estimate the error.}
+
+For $|h| < \delta$, we have $|\theta_x h| \leqslant|h| < \delta$, so:
+\[
+\left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right| < \varepsilon \quad \text{for all } x \in [a,b]
+\]
+
+Therefore:
+\begin{align*}
+\left|\frac{F(\alpha+h) - F(\alpha)}{h} - \int_a^b \frac{\partial f}{\partial \alpha}(x,\alpha)\,\mathrm{d}x\right| &= \left|\int_a^b \left[\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right]\mathrm{d}x\right| \\
+&\leqslant \int_a^b \left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right|\mathrm{d}x \\
+&< \int_a^b \varepsilon\,\mathrm{d}x = \varepsilon(b-a)
+\end{align*}
+
+\textbf{Step 5: Conclude.}
+
+Since $\varepsilon > 0$ was arbitrary, we have:
+\[
+\lim_{h \to 0} \frac{F(\alpha+h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+
+Therefore $F$ is differentiable and $F'(\alpha) = \int_a^b \frac{\partial f}{\partial \alpha}(x,\alpha)\,\mathrm{d}x$.
+\end{proof}
+
+\subsection{The Leibniz Rule for Improper Integrals via Dominated Convergence}
+
+For improper integrals, we need stronger conditions. The cleanest approach uses the Lebesgue Dominated Convergence Theorem.
+
+\begin{theorem}[Dominated Convergence Theorem]\label{thm:DCT}
+Let $(X, \mu)$ be a measure space and let $\{f_n\}$ be a sequence of measurable functions such that:
+\begin{enumerate}[label=(\roman*)]
+\item $f_n(x) \to f(x)$ pointwise as $n \to \infty$
+\item There exists an integrable function $g$ such that $|f_n(x)| \leqslant g(x)$ for all $n$ and almost all $x$
+\end{enumerate}
+Then $f$ is integrable and
+\[
+\lim_{n \to \infty} \int_X f_n\,\mathrm{d}\mu = \int_X f\,\mathrm{d}\mu
+\]
+\end{theorem}
+
+\begin{theorem}[Differentiation Under Improper Integrals]\label{thm:leibniz-improper}
+Let $f(x, \alpha)$ be defined on $[a, \infty) \times (\alpha_0, \alpha_1)$. Suppose:
+\begin{enumerate}[label=(\roman*)]
+\item For each $\alpha \in (\alpha_0, \alpha_1)$, the function $x \mapsto f(x, \alpha)$ is integrable on $[a, \infty)$
+\item For each $x \in [a, \infty)$, the partial derivative $\frac{\partial f}{\partial \alpha}(x, \alpha)$ exists for all $\alpha \in (\alpha_0, \alpha_1)$
+\item There exists an integrable function $g: [a, \infty) \to [0, \infty)$ such that
+\[
+\left|\frac{\partial f}{\partial \alpha}(x, \alpha)\right| \leqslant g(x) \quad \text{for all } x \in [a, \infty) \text{ and } \alpha \in (\alpha_0, \alpha_1)
+\]
+\end{enumerate}
+Then
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^{\infty} f(x, \alpha)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+\end{theorem}
+
+\begin{proof}
+Define $F(\alpha) = \int_a^{\infty} f(x, \alpha)\,\mathrm{d}x$.
+
+\textbf{Step 1: Form the difference quotient.}
+
+For $h \neq 0$ sufficiently small (so that $\alpha + h \in (\alpha_0, \alpha_1)$):
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^{\infty} \frac{f(x, \alpha + h) - f(x, \alpha)}{h}\,\mathrm{d}x
+\]
+
+\textbf{Step 2: Apply the Mean Value Theorem.}
+
+For each fixed $x$, by the Mean Value Theorem applied to $\alpha \mapsto f(x, \alpha)$, there exists $\theta_x \in (0, 1)$ such that:
+\[
+\frac{f(x, \alpha + h) - f(x, \alpha)}{h} = \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)
+\]
+
+Define:
+\[
+\phi_h(x) = \frac{f(x, \alpha + h) - f(x, \alpha)}{h}
+\]
+
+\textbf{Step 3: Establish pointwise convergence.}
+
+As $h \to 0$:
+\[
+\phi_h(x) = \frac{f(x, \alpha + h) - f(x, \alpha)}{h} \to \frac{\partial f}{\partial \alpha}(x, \alpha) \quad \text{for each } x
+\]
+
+by the definition of the partial derivative.
+
+\textbf{Step 4: Find a dominating function.}
+
+By the Mean Value Theorem result and condition (iii):
+\[
+|\phi_h(x)| = \left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)\right| \leqslant g(x)
+\]
+
+for all $x \in [a, \infty)$ and all sufficiently small $h$.
+
+\textbf{Step 5: Apply the Dominated Convergence Theorem.}
+
+We have:
+\begin{itemize}
+\item $\phi_h(x) \to \frac{\partial f}{\partial \alpha}(x, \alpha)$ pointwise as $h \to 0$
+\item $|\phi_h(x)| \leqslant g(x)$ where $\int_a^{\infty} g(x)\,\mathrm{d}x < \infty$
+\end{itemize}
+
+By the Dominated Convergence Theorem:
+\[
+\lim_{h \to 0} \int_a^{\infty} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \lim_{h \to 0} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+
+\textbf{Step 6: Conclude.}
+
+\[
+F'(\alpha) = \lim_{h \to 0} \frac{F(\alpha + h) - F(\alpha)}{h} = \lim_{h \to 0} \int_a^{\infty} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+\end{proof}
+
+\begin{example}
+Consider $I(\alpha) = \int_0^{\infty} e^{-\alpha x} \frac{\sin x}{x}\,\mathrm{d}x$ for $\alpha > 0$.
+
+We verify the conditions for $\alpha \in [\alpha_0, \infty)$ with $\alpha_0 > 0$:
+\begin{enumerate}[label=(\roman*)]
+\item For each $\alpha > 0$, $\int_0^{\infty} e^{-\alpha x} \frac{\sin x}{x}\,\mathrm{d}x$ converges (the integrand is bounded near $0$ and decays exponentially).
+
+\item $\frac{\partial}{\partial \alpha}\left(e^{-\alpha x}\frac{\sin x}{x}\right) = -e^{-\alpha x}\sin x$ exists for all $x > 0$ and $\alpha > 0$.
+
+\item For $\alpha \geq \alpha_0$:
+\[
+\left|-e^{-\alpha x}\sin x\right| \leqslant e^{-\alpha_0 x}
+\]
+and $\int_0^{\infty} e^{-\alpha_0 x}\,\mathrm{d}x = \frac{1}{\alpha_0} < \infty$.
+\end{enumerate}
+
+Therefore, differentiation under the integral sign is justified:
+\[
+I'(\alpha) = -\int_0^{\infty} e^{-\alpha x}\sin x\,\mathrm{d}x = -\frac{1}{1 + \alpha^2}
+\]
+\end{example}
+
+%=============================================================================
+\section{The Gaussian Integral and Its Descendants}
+%=============================================================================
+
+The Gaussian function $e^{-x^2}$ is arguably the most important function in applied mathematics. It appears in probability (normal distribution), physics (quantum mechanics, statistical mechanics), signal processing, and heat conduction.
+
+\subsection{The Fundamental Gaussian Integral}
+
+\begin{keyintegral}[The Euler--Poisson Integral]
+\[
+\int_{-\infty}^{\infty} e^{-x^2}\,\mathrm{d}x = \sqrt{\pi}, \qquad \int_0^{\infty} e^{-x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}
+\]
+\end{keyintegral}
+
+We present a proof using differentiation under the integral sign---fitting the theme of this document and requiring only single-variable calculus.
+
+\begin{proof}[Proof (via Feynman's Trick)]
+Let $I = \int_0^{\infty} e^{-x^2}\,\mathrm{d}x$. We will show $I = \frac{\sqrt{\pi}}{2}$.
+
+\textbf{Step 1: Introduce an auxiliary function.}
+
+Define, for $t \geq 0$:
+\[
+F(t) = \int_0^{\infty} \frac{e^{-t^2(1+x^2)}}{1+x^2}\,\mathrm{d}x
+\]
+
+\textbf{Step 2: Evaluate $F(0)$ and $\lim_{t \to \infty} F(t)$.}
+
+At $t = 0$:
+\[
+F(0) = \int_0^{\infty} \frac{1}{1+x^2}\,\mathrm{d}x = \bigl[\tan^{-1} x\bigr]_0^{\infty} = \frac{\pi}{2}
+\]
+
+As $t \to \infty$: The integrand $\frac{e^{-t^2(1+x^2)}}{1+x^2} \leqslant e^{-t^2} \to 0$ uniformly, so $F(t) \to 0$.
+
+\textbf{Step 3: Differentiate $F(t)$.}
+
+We apply Theorem~\ref{thm:leibniz-improper}. Let $f(x,t) = \frac{e^{-t^2(1+x^2)}}{1+x^2}$. The partial derivative is:
+\[
+\frac{\partial f}{\partial t} = \frac{-2t(1+x^2)e^{-t^2(1+x^2)}}{1+x^2} = -2t\, e^{-t^2(1+x^2)}
+\]
+For $t \in [0, T]$, we have $\left|\frac{\partial f}{\partial t}\right| \leqslant 2T e^{-t^2} \leqslant 2T$, but more usefully, for $t \geq \varepsilon > 0$:
+\[
+\left|\frac{\partial f}{\partial t}\right| = 2t\, e^{-t^2(1+x^2)} \leqslant 2t\, e^{-\varepsilon^2(1+x^2)}
+\]
+which is integrable in $x$. Thus:
+\[
+F'(t) = \int_0^{\infty} \frac{\partial}{\partial t}\left(\frac{e^{-t^2(1+x^2)}}{1+x^2}\right)\mathrm{d}x = -2t \int_0^{\infty} e^{-t^2(1+x^2)}\,\mathrm{d}x
+\]
+
+Factor out $e^{-t^2}$:
+\[
+F'(t) = -2t\, e^{-t^2} \int_0^{\infty} e^{-t^2 x^2}\,\mathrm{d}x
+\]
+
+Substitute $u = tx$ (so $\mathrm{d}x = \mathrm{d}u/t$):
+\[
+F'(t) = -2t\, e^{-t^2} \cdot \frac{1}{t} \int_0^{\infty} e^{-u^2}\,\mathrm{d}u = -2\, e^{-t^2} \cdot I
+\]
+
+\textbf{Step 4: Integrate $F'(t)$ from $0$ to $\infty$.}
+
+\[
+F(\infty) - F(0) = \int_0^{\infty} F'(t)\,\mathrm{d}t = -2I \int_0^{\infty} e^{-t^2}\,\mathrm{d}t = -2I \cdot I = -2I^2
+\]
+
+Thus:
+\[
+0 - \frac{\pi}{2} = -2I^2 \implies I^2 = \frac{\pi}{4} \implies I = \frac{\sqrt{\pi}}{2}
+\]
+
+(We take the positive root since $I > 0$.)
+\end{proof}
+
+\begin{application}[Probability Theory: The Normal Distribution]
+The probability density function of the normal distribution with mean $\mu$ and variance $\sigma^2$ is:
+\[
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]
+The normalization condition $\int_{-\infty}^{\infty} f(x)\,\mathrm{d}x = 1$ follows from:
+\[
+\int_{-\infty}^{\infty} e^{-(x-\mu)^2/(2\sigma^2)}\,\mathrm{d}x = \sigma\sqrt{2\pi}
+\]
+which is obtained from the Gaussian integral via substitution $u = (x-\mu)/(\sigma\sqrt{2})$.
+\end{application}
+
+\subsection{The Scaled Gaussian}
+
+\begin{keyintegral}[Scaled Gaussian]
+For $a > 0$:
+\[
+\int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Substitute $u = \sqrt{a}\,x$, so $\mathrm{d}u = \sqrt{a}\,\mathrm{d}x$:
+\[
+\int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{\sqrt{a}}\int_0^{\infty} e^{-u^2}\,\mathrm{d}u = \frac{1}{\sqrt{a}} \cdot \frac{\sqrt{\pi}}{2}.
+\]
+\end{proof}
+
+\subsection{Moments of the Gaussian: Differentiation Under the Integral Sign}
+
+\begin{keyintegral}[Gaussian Moments]
+For $a > 0$ and $n \in \N$:
+\[
+\int_0^{\infty} x^{2n} e^{-ax^2}\,\mathrm{d}x = \frac{(2n-1)!!}{2^{n+1}} \sqrt{\frac{\pi}{a^{2n+1}}} = \frac{(2n)!}{n! \, 4^n} \sqrt{\frac{\pi}{a^{2n+1}}}
+\]
+where $(2n-1)!! = 1 \cdot 3 \cdot 5 \cdots (2n-1)$ is the double factorial.
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{2}\sqrt{\pi/a}$. 
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper} with $f(x,a) = e^{-ax^2}$. For $a \in [a_0, a_1]$ with $0 < a_0 < a_1$:
+\begin{itemize}
+\item $\frac{\partial f}{\partial a} = -x^2 e^{-ax^2}$ exists for all $x \geq 0$ and $a > 0$.
+\item $\left|\frac{\partial f}{\partial a}\right| = x^2 e^{-ax^2} \leqslant x^2 e^{-a_0 x^2}$, and $\int_0^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$.
+\end{itemize}
+
+Thus differentiation under the integral is justified:
+\[
+I'(a) = -\int_0^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = -\frac{1}{2}\sqrt{\pi} \cdot \left(-\frac{1}{2}\right) a^{-3/2} = \frac{\sqrt{\pi}}{4a^{3/2}}.
+\]
+Hence $\int_0^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{4a^{3/2}}$.
+
+For higher derivatives, the same argument applies with dominating function $x^{2n} e^{-a_0 x^2}$:
+\[
+I''(a) = \int_0^{\infty} x^4 e^{-ax^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{8a^{5/2}}.
+\]
+In general, each differentiation multiplies by $(-1)$ and introduces $x^2$:
+\[
+(-1)^n I^{(n)}(a) = \int_0^{\infty} x^{2n} e^{-ax^2}\,\mathrm{d}x
+\]
+Since $\frac{\mathrm{d}^n}{\mathrm{d}a^n}\left(a^{-1/2}\right) = (-1)^n \frac{(2n-1)!!}{2^n} a^{-(2n+1)/2}$, the formula follows.
+\end{proof}
+
+\begin{application}[Statistical Mechanics: Maxwell--Boltzmann Distribution]
+In a gas at temperature $T$, the probability distribution for molecular speed $v$ is:
+\[
+f(v) = 4\pi n \left(\frac{m}{2\pi k_B T}\right)^{3/2} v^2 \exp\left(-\frac{mv^2}{2k_B T}\right)
+\]
+The mean square speed is:
+\[
+\langle v^2 \rangle = \frac{\int_0^{\infty} v^4 e^{-mv^2/(2k_BT)}\,\mathrm{d}v}{\int_0^{\infty} v^2 e^{-mv^2/(2k_BT)}\,\mathrm{d}v} = \frac{3k_B T}{m}
+\]
+This gives the equipartition theorem: $\langle \frac{1}{2}mv^2 \rangle = \frac{3}{2}k_B T$.
+\end{application}
+
+\begin{application}[Quantum Mechanics: Harmonic Oscillator]
+The ground state wave function of the quantum harmonic oscillator is:
+\[
+\psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \exp\left(-\frac{m\omega x^2}{2\hbar}\right)
+\]
+The position uncertainty is:
+\[
+\langle x^2 \rangle = \int_{-\infty}^{\infty} x^2 |\psi_0(x)|^2\,\mathrm{d}x = \sqrt{\frac{m\omega}{\pi\hbar}} \int_{-\infty}^{\infty} x^2 e^{-m\omega x^2/\hbar}\,\mathrm{d}x = \frac{\hbar}{2m\omega}
+\]
+Combined with $\langle p^2 \rangle = \frac{m\omega\hbar}{2}$, this gives the uncertainty product $\Delta x \cdot \Delta p = \frac{\hbar}{2}$.
+\end{application}
+
+\subsection{The Gaussian Fourier Transform}
+
+\begin{keyintegral}[Gaussian Fourier Transform]
+For $a > 0$:
+\[
+\int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\, e^{-b^2/(4a)}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Define $I(b) = \int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x$ with $I(0) = \frac{1}{2}\sqrt{\pi/a}$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper} with $f(x,b) = e^{-ax^2}\cos(bx)$. The partial derivative is $\frac{\partial f}{\partial b} = -x e^{-ax^2}\sin(bx)$. For all $b \in \R$:
+\[
+\left|\frac{\partial f}{\partial b}\right| = |x| e^{-ax^2} |\sin(bx)| \leqslant x e^{-ax^2}
+\]
+and $\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$. Thus differentiation is justified.
+
+Differentiate:
+\[
+I'(b) = -\int_0^{\infty} x\, e^{-ax^2}\sin(bx)\,\mathrm{d}x.
+\]
+Integrate by parts with $u = \sin(bx)$, $\mathrm{d}v = -xe^{-ax^2}\,\mathrm{d}x$, so $v = \frac{1}{2a}e^{-ax^2}$:
+\[
+I'(b) = \left[\frac{\sin(bx)}{2a}e^{-ax^2}\right]_0^{\infty} - \frac{b}{2a}\int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x = 0 - \frac{b}{2a}I(b).
+\]
+This ODE $I'(b) = -\frac{b}{2a}I(b)$ has solution $I(b) = I(0)e^{-b^2/(4a)}$.
+\end{proof}
+
+\begin{application}[Signal Processing: Gaussian Pulse Propagation]
+A Gaussian pulse in time domain $f(t) = e^{-at^2}$ has Fourier transform:
+\[
+\hat{f}(\omega) = \int_{-\infty}^{\infty} e^{-at^2} e^{-i\omega t}\,\mathrm{d}t = \sqrt{\frac{\pi}{a}} e^{-\omega^2/(4a)}
+\]
+The transform is also Gaussian. The time-bandwidth product satisfies:
+\[
+\Delta t \cdot \Delta \omega = \frac{1}{2\sqrt{a}} \cdot \sqrt{a} = \frac{1}{2}
+\]
+This is the minimum uncertainty, making Gaussian pulses optimal for communication systems.
+\end{application}
+
+\subsection{The Glasser Integral}
+
+\begin{keyintegral}[Glasser's Master Theorem Application]
+For $a > 0$:
+\[
+\int_0^{\infty} e^{-x^2 - a^2/x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}e^{-2a}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} e^{-x^2 - a^2/x^2}\,\mathrm{d}x$. 
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper} with $f(x,a) = e^{-x^2 - a^2/x^2}$. The partial derivative is:
+\[
+\frac{\partial f}{\partial a} = -\frac{2a}{x^2} e^{-x^2 - a^2/x^2}
+\]
+For $a \in [0, A]$ and $x > 0$, we need a dominating function. Note that $e^{-x^2 - a^2/x^2} \leqslant e^{-x^2}$ and $\frac{2a}{x^2} \leqslant \frac{2A}{x^2}$. For $x \geq 1$: $\left|\frac{\partial f}{\partial a}\right| \leqslant 2A e^{-x^2}$. For $x \in (0,1)$: $\left|\frac{\partial f}{\partial a}\right| \leqslant \frac{2A}{x^2} e^{-a^2/x^2}$, and the integral converges. Thus differentiation is justified.
+
+Differentiate:
+\[
+I'(a) = -2a \int_0^{\infty} \frac{e^{-x^2 - a^2/x^2}}{x^2}\,\mathrm{d}x.
+\]
+Substitute $u = a/x$ (so $x = a/u$, $\mathrm{d}x = -a\,\mathrm{d}u/u^2$):
+\[
+\int_0^{\infty} \frac{e^{-x^2 - a^2/x^2}}{x^2}\,\mathrm{d}x = \frac{1}{a}\int_0^{\infty} e^{-a^2/u^2 - u^2}\,\mathrm{d}u = \frac{I(a)}{a}.
+\]
+Thus $I'(a) = -2I(a)$, giving $I(a) = I(0)e^{-2a} = \frac{\sqrt{\pi}}{2}e^{-2a}$.
+\end{proof}
+
+\begin{application}[Quantum Field Theory: Path Integrals]
+In the path integral formulation of quantum mechanics, the propagator for a free particle involves:
+\[
+K(x_f, t_f; x_i, t_i) = \sqrt{\frac{m}{2\pi i\hbar(t_f - t_i)}} \exp\left(\frac{im(x_f - x_i)^2}{2\hbar(t_f - t_i)}\right)
+\]
+Integrals of the Glasser type appear when computing propagators for systems with both kinetic and potential energy contributions that have specific functional forms.
+\end{application}
+
+%=============================================================================
+\section{The Dirichlet Integral and Signal Processing}
+%=============================================================================
+
+\subsection{The Sinc Function}
+
+The function $\mathrm{sinc}(x) = \frac{\sin x}{x}$ (with $\mathrm{sinc}(0) = 1$) is fundamental in signal processing.
+
+\begin{keyintegral}[The Dirichlet Integral]
+\[
+\int_0^{\infty} \frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Introduce the convergence factor $e^{-ax}$:
+\[
+I(a) = \int_0^{\infty} \frac{\sin x}{x} e^{-ax}\,\mathrm{d}x, \quad a > 0.
+\]
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper} with $f(x,a) = \frac{\sin x}{x} e^{-ax}$. The partial derivative is $\frac{\partial f}{\partial a} = -\sin x \cdot e^{-ax}$. For $a \geq a_0 > 0$:
+\[
+\left|\frac{\partial f}{\partial a}\right| = |\sin x| e^{-ax} \leqslant e^{-a_0 x}
+\]
+and $\int_0^{\infty} e^{-a_0 x}\,\mathrm{d}x = \frac{1}{a_0} < \infty$. Thus differentiation is justified.
+
+Differentiate:
+\[
+I'(a) = -\int_0^{\infty} \sin x \cdot e^{-ax}\,\mathrm{d}x.
+\]
+
+\textbf{Evaluating $\int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x$:}
+
+Integrate by parts twice. Let $J = \int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x$.
+
+First: $u = \sin x$, $\mathrm{d}v = e^{-ax}\,\mathrm{d}x$, giving $v = -\frac{1}{a}e^{-ax}$:
+\[
+J = \left[-\frac{\sin x}{a}e^{-ax}\right]_0^{\infty} + \frac{1}{a}\int_0^{\infty} e^{-ax}\cos x\,\mathrm{d}x = \frac{1}{a}\int_0^{\infty} e^{-ax}\cos x\,\mathrm{d}x.
+\]
+
+Second: $u = \cos x$, $\mathrm{d}v = e^{-ax}\,\mathrm{d}x$:
+\[
+J = \frac{1}{a}\left(\left[-\frac{\cos x}{a}e^{-ax}\right]_0^{\infty} - \frac{1}{a}\int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x\right) = \frac{1}{a}\left(\frac{1}{a} - \frac{J}{a}\right).
+\]
+
+Thus $J = \frac{1}{a^2} - \frac{J}{a^2}$, giving $J\left(1 + \frac{1}{a^2}\right) = \frac{1}{a^2}$, so:
+\[
+J = \frac{1}{a^2 + 1}.
+\]
+
+Therefore $I'(a) = -\frac{1}{1+a^2}$.
+
+Integrate: $I(a) = -\tan^{-1} a + C$.
+
+As $a \to \infty$, $I(a) \to 0$ (the integrand is bounded by $e^{-ax}/x$ which vanishes), so $C = \frac{\pi}{2}$. Thus $I(a) = \frac{\pi}{2} - \tan^{-1} a$.
+
+Taking $a \to 0^+$:
+\[
+\int_0^{\infty} \frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2}.
+\]
+\end{proof}
+
+\begin{application}[Signal Processing: Ideal Low-Pass Filter]
+The ideal low-pass filter with cutoff frequency $\omega_c$ has frequency response:
+\[
+H(\omega) = \begin{cases} 1 & |\omega| \leqslant \omega_c \\ 0 & |\omega| > \omega_c \end{cases}
+\]
+Its impulse response (inverse Fourier transform) is:
+\[
+h(t) = \frac{1}{2\pi}\int_{-\omega_c}^{\omega_c} e^{i\omega t}\,\mathrm{d}\omega = \frac{\omega_c}{\pi} \cdot \frac{\sin(\omega_c t)}{\omega_c t} = \frac{\omega_c}{\pi}\mathrm{sinc}(\omega_c t)
+\]
+The total area under $h(t)$ equals $H(0) = 1$:
+\[
+\int_{-\infty}^{\infty} h(t)\,\mathrm{d}t = \frac{2\omega_c}{\pi} \int_0^{\infty} \frac{\sin(\omega_c t)}{\omega_c t}\,\mathrm{d}t = \frac{2}{\pi} \cdot \frac{\pi}{2} = 1
+\]
+\end{application}
+
+\subsection{Generalized Sinc Integrals}
+
+\begin{keyintegral}[Damped Sinc]
+For $a > 0$:
+\[
+\int_0^{\infty} e^{-ax}\frac{\sin(bx)}{x}\,\mathrm{d}x = \tan^{-1}\frac{b}{a}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(b) = \int_0^{\infty} e^{-ax}\frac{\sin(bx)}{x}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper}. The partial derivative is $\frac{\partial}{\partial b}\left(e^{-ax}\frac{\sin(bx)}{x}\right) = e^{-ax}\cos(bx)$. For all $b$:
+\[
+\left|e^{-ax}\cos(bx)\right| \leqslant e^{-ax}
+\]
+and $\int_0^{\infty} e^{-ax}\,\mathrm{d}x = \frac{1}{a} < \infty$. Thus differentiation is justified.
+
+Then $I'(b) = \int_0^{\infty} e^{-ax}\cos(bx)\,\mathrm{d}x$.
+
+Using the same integration-by-parts technique as above (or recognizing this as $\mathrm{Re}\int_0^{\infty} e^{-(a-ib)x}\,\mathrm{d}x$):
+\[
+I'(b) = \frac{a}{a^2+b^2}.
+\]
+
+Integrate: $I(b) = \tan^{-1}(b/a)$.
+\end{proof}
+
+\begin{keyintegral}[Sinc Squared]
+For $a > 0$:
+\[
+\int_0^{\infty} \frac{\sin^2(ax)}{x^2}\,\mathrm{d}x = \frac{\pi a}{2}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} \frac{\sin^2(ax)}{x^2}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-finite} on $[0, R]$ and then take $R \to \infty$. Alternatively, note that $\frac{\partial}{\partial a}\frac{\sin^2(ax)}{x^2} = \frac{2\sin(ax)\cos(ax) \cdot x}{x^2} = \frac{\sin(2ax)}{x}$. For any $a \in [0, A]$, $\left|\frac{\sin(2ax)}{x}\right| \leqslant \frac{1}{x}$ for $x \geq 1$ and is bounded near $0$. The convergence of the integral follows from the Dirichlet integral theory.
+
+Differentiate using $\frac{\partial}{\partial a}\sin^2(ax) = 2\sin(ax)\cos(ax) \cdot x = x\sin(2ax)$:
+\[
+I'(a) = \int_0^{\infty} \frac{\sin(2ax)}{x}\,\mathrm{d}x.
+\]
+
+Substitute $u = 2ax$:
+\[
+I'(a) = \int_0^{\infty} \frac{\sin u}{u}\,\mathrm{d}u = \frac{\pi}{2}.
+\]
+
+Thus $I(a) = \frac{\pi a}{2}$.
+\end{proof}
+
+\begin{application}[Optics: Single-Slit Fraunhofer Diffraction]
+For a slit of width $b$ illuminated by monochromatic light of wavelength $\lambda$, the intensity pattern at angle $\theta$ is:
+\[
+I(\theta) = I_0 \left(\frac{\sin\beta}{\beta}\right)^2, \quad \text{where } \beta = \frac{\pi b \sin\theta}{\lambda}
+\]
+The total power transmitted through the slit is proportional to:
+\[
+\int_{-\pi/2}^{\pi/2} I(\theta)\cos\theta\,\mathrm{d}\theta \approx I_0 \int_{-\infty}^{\infty} \mathrm{sinc}^2\left(\frac{\pi b \theta}{\lambda}\right)\mathrm{d}\theta = I_0 \cdot \frac{\lambda}{b}
+\]
+(using small angle approximation $\sin\theta \approx \theta$).
+\end{application}
+
+\subsection{Cosine Difference Integrals}
+
+\begin{keyintegral}
+For $a, b > 0$:
+\[
+\int_0^{\infty} \frac{\cos(ax) - \cos(bx)}{x^2}\,\mathrm{d}x = \frac{\pi(b-a)}{2}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Define $J(a) = \int_0^{\infty} \frac{1 - \cos(ax)}{x^2}\,\mathrm{d}x$ with $J(0) = 0$.
+
+\textbf{Justification of differentiation:} The integrand $\frac{1-\cos(ax)}{x^2}$ behaves like $\frac{a^2}{2}$ near $x = 0$ and like $\frac{1}{x^2}$ for large $x$. The partial derivative $\frac{\partial}{\partial a}\frac{1-\cos(ax)}{x^2} = \frac{\sin(ax)}{x}$. By the Dirichlet integral convergence, differentiation is justified.
+
+Then $J'(a) = \int_0^{\infty} \frac{\sin(ax)}{x}\,\mathrm{d}x = \frac{\pi}{2}$.
+
+So $J(a) = \frac{\pi a}{2}$, and the result follows from $J(b) - J(a)$.
+\end{proof}
+
+%=============================================================================
+\section{Frullani Integrals}
+%=============================================================================
+
+\begin{keyintegral}[Frullani's Theorem]
+If $f$ is continuous on $(0, \infty)$ with $f(0^+)$ and $f(\infty) = \lim_{x\to\infty} f(x)$ both existing and finite, then for $a, b > 0$:
+\[
+\int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr) \ln\frac{b}{a}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Define $I(a) = \int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$. Note $I(b) = 0$.
+
+\textbf{Justification of differentiation:} We apply a limiting argument. The derivative $\frac{\partial}{\partial a}\frac{f(ax) - f(bx)}{x} = f'(ax)$ when $f$ is differentiable. For sufficiently regular $f$, the dominated convergence theorem applies.
+
+Differentiate:
+\[
+I'(a) = \int_0^{\infty} f'(ax)\,\mathrm{d}x.
+\]
+
+Substitute $u = ax$:
+\[
+I'(a) = \frac{1}{a}\int_0^{\infty} f'(u)\,\mathrm{d}u = \frac{1}{a}\bigl[f(\infty) - f(0^+)\bigr].
+\]
+
+Integrate from $b$ to $a$:
+\[
+I(a) - I(b) = \bigl(f(\infty) - f(0^+)\bigr)\ln\frac{a}{b}.
+\]
+Since $I(b) = 0$:
+\[
+I(a) = \bigl(f(\infty) - f(0^+)\bigr)\ln\frac{a}{b} = \bigl(f(0^+) - f(\infty)\bigr)\ln\frac{b}{a}.
+\]
+\end{proof}
+
+\begin{keyintegral}[Exponential Frullani]
+\[
+\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}
+\]
+\end{keyintegral}
+
+Here $f(x) = e^{-x}$ with $f(0^+) = 1$, $f(\infty) = 0$.
+
+\begin{keyintegral}[Arctangent Frullani]
+\[
+\int_0^{\infty} \frac{\tan^{-1}(ax) - \tan^{-1}(bx)}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}
+\]
+\end{keyintegral}
+
+Here $f(x) = \tan^{-1}(x)$ with $f(0^+) = 0$, $f(\infty) = \pi/2$.
+
+\begin{application}[Quantum Electrodynamics: Regularization]
+In quantum field theory, divergent integrals often appear. The Frullani technique provides a natural regularization: instead of computing $\int_0^{\infty} \frac{f(ax)}{x}\,\mathrm{d}x$ (which may diverge), one computes:
+\[
+\int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr)\ln\frac{b}{a}
+\]
+The parameter $b$ acts as a regulator, and physical results are obtained in the limit $b \to 0$ or $b \to \infty$ after renormalization.
+\end{application}
+
+%=============================================================================
+\section{Logarithmic Integrals}
+%=============================================================================
+
+\subsection{The Fundamental Logarithmic Integral}
+
+\begin{keyintegral}
+For $a > -1$:
+\[
+\int_0^1 \frac{x^a - 1}{\ln x}\,\mathrm{d}x = \ln(a + 1)
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^1 \frac{x^a - 1}{\ln x}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-finite}. The integrand $f(x,a) = \frac{x^a - 1}{\ln x}$ is continuous on $(0,1]$ and has a removable singularity at $x = 1$ (where both numerator and denominator vanish). The partial derivative is $\frac{\partial f}{\partial a} = \frac{x^a \ln x}{\ln x} = x^a$. For $a \in [a_0, a_1]$ with $a_0 > -1$, $|x^a| \leqslant \max(x^{a_0}, x^{a_1})$, which is integrable on $[0,1]$. Thus differentiation is justified.
+
+Differentiate: $I'(a) = \int_0^1 \frac{x^a \ln x}{\ln x}\,\mathrm{d}x = \int_0^1 x^a\,\mathrm{d}x = \frac{1}{a+1}$.
+
+Integrate: $I(a) = \ln(a+1)$.
+\end{proof}
+
+\begin{keyintegral}[Generalized Form]
+For $a, b > -1$:
+\[
+\int_0^1 \frac{x^a - x^b}{\ln x}\,\mathrm{d}x = \ln\frac{a+1}{b+1}
+\]
+\end{keyintegral}
+
+\begin{application}[Information Theory: Entropy Calculations]
+The differential entropy of a continuous random variable $X$ with density $p(x)$ is:
+\[
+H(X) = -\int p(x) \ln p(x)\,\mathrm{d}x
+\]
+For a power-law distribution $p(x) \propto x^a$ on $[0,1]$, the entropy involves:
+\[
+\int_0^1 x^a \ln x\,\mathrm{d}x = -\frac{1}{(a+1)^2}
+\]
+which can be derived by differentiating $\int_0^1 x^a\,\mathrm{d}x = \frac{1}{a+1}$ with respect to $a$.
+\end{application}
+
+\subsection{Logarithm-Rational Integrals}
+
+\begin{keyintegral}
+For $a > 0$:
+\[
+\int_0^{\infty} \frac{\ln x}{x^2 + a^2}\,\mathrm{d}x = \frac{\pi \ln a}{2a}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} \frac{\ln x}{x^2 + a^2}\,\mathrm{d}x$. Substitute $x = au$:
+\[
+I(a) = \int_0^{\infty} \frac{\ln(au)}{a^2 u^2 + a^2}\cdot a\, \mathrm{d}u = \frac{1}{a}\int_0^{\infty} \frac{\ln a + \ln u}{u^2 + 1}\,\mathrm{d}u.
+\]
+
+Now $\int_0^{\infty} \frac{\mathrm{d}u}{u^2+1} = \frac{\pi}{2}$.
+
+For $\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u$, substitute $u = 1/t$:
+\[
+\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u = \int_{\infty}^{0} \frac{-\ln t}{1/t^2+1}\cdot\frac{-\mathrm{d}t}{t^2} = \int_0^{\infty} \frac{-\ln t}{t^2+1}\,\mathrm{d}t.
+\]
+
+Thus $\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u = -\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u$, so this integral equals $0$.
+
+Therefore $I(a) = \frac{\ln a}{a} \cdot \frac{\pi}{2} = \frac{\pi \ln a}{2a}$.
+\end{proof}
+
+\begin{application}[Electrostatics: 2D Green's Function]
+In two dimensions, the electrostatic potential due to a line charge satisfies:
+\[
+\nabla^2 \phi = -\frac{\lambda}{\varepsilon_0}\delta^{(2)}(\mathbf{r})
+\]
+The Green's function is $G(\mathbf{r}, \mathbf{r}') = -\frac{1}{2\pi}\ln|\mathbf{r} - \mathbf{r}'|$. Computing the potential for charge distributions involves integrals like:
+\[
+\phi(\mathbf{r}) = \frac{\lambda}{2\pi\varepsilon_0}\int \ln|\mathbf{r} - \mathbf{r}'|\,\mathrm{d}\ell'
+\]
+The logarithm-rational integral formula helps evaluate such potentials for specific geometries.
+\end{application}
+
+\subsection{Trigonometric-Logarithmic Integrals}
+
+\begin{keyintegral}
+For $a, b > 0$:
+\[
+\int_0^{\pi/2} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta = \pi\ln\frac{a+b}{2}
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a,b) = \int_0^{\pi/2} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta$.
+
+\textbf{Step 1: Compute $\frac{\partial I}{\partial a}$.}
+
+By Theorem~\ref{thm:leibniz-finite}, since the integrand and its partial derivative are continuous on $[0, \pi/2]$ for $a, b > 0$:
+\[
+\frac{\partial I}{\partial a} = \int_0^{\pi/2} \frac{2a\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta
+\]
+
+Substitute $t = \tan\theta$, so $\cos^2\theta = \frac{1}{1+t^2}$, $\sin^2\theta = \frac{t^2}{1+t^2}$, $\mathrm{d}\theta = \frac{\mathrm{d}t}{1+t^2}$:
+\[
+\frac{\partial I}{\partial a} = \int_0^{\infty} \frac{2a/(1+t^2)}{(a^2 + b^2 t^2)/(1+t^2)} \cdot \frac{\mathrm{d}t}{1+t^2} = \int_0^{\infty} \frac{2a}{(a^2 + b^2 t^2)(1+t^2)}\,\mathrm{d}t
+\]
+
+\textbf{Step 2: Partial fractions.}
+
+For $a \neq b$:
+\[
+\frac{1}{(a^2 + b^2 t^2)(1+t^2)} = \frac{1}{a^2-b^2}\left(\frac{1}{1+t^2} - \frac{b^2}{a^2+b^2t^2}\right)
+\]
+
+Thus:
+\[
+\frac{\partial I}{\partial a} = \frac{2a}{a^2-b^2}\left(\int_0^{\infty}\frac{\mathrm{d}t}{1+t^2} - b^2\int_0^{\infty}\frac{\mathrm{d}t}{a^2+b^2t^2}\right)
+\]
+\[
+= \frac{2a}{a^2-b^2}\left(\frac{\pi}{2} - b^2 \cdot \frac{1}{ab} \cdot \frac{\pi}{2}\right) = \frac{2a}{a^2-b^2} \cdot \frac{\pi}{2} \cdot \frac{a-b}{a} = \frac{\pi}{a+b}
+\]
+
+By symmetry, $\frac{\partial I}{\partial b} = \frac{\pi}{a+b}$.
+
+\textbf{Step 3: Integrate the partial derivatives.}
+
+Both partial derivatives equal $\frac{\pi}{a+b}$, which is consistent with:
+\[
+I(a,b) = \pi\ln(a+b) + C
+\]
+
+\textbf{Step 4: Determine $C$.}
+
+Set $a = b$:
+\[
+I(a,a) = \int_0^{\pi/2} \ln(a^2)\,\mathrm{d}\theta = \pi\ln a
+\]
+
+But from our formula: $\pi\ln(2a) + C = \pi\ln a$, so $C = -\pi\ln 2$.
+
+Therefore:
+\[
+I(a,b) = \pi\ln(a+b) - \pi\ln 2 = \pi\ln\frac{a+b}{2}
+\]
+\end{proof}
+
+\begin{keyintegral}[Log-Sine and Log-Cosine]
+\[
+\int_0^{\pi/2} \ln(\sin\theta)\,\mathrm{d}\theta = \int_0^{\pi/2} \ln(\cos\theta)\,\mathrm{d}\theta = -\frac{\pi}{2}\ln 2
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I = \int_0^{\pi/2} \ln(\sin\theta)\,\mathrm{d}\theta$. Substitute $\phi = \frac{\pi}{2} - \theta$:
+\[
+I = \int_0^{\pi/2} \ln(\cos\phi)\,\mathrm{d}\phi.
+\]
+So the two integrals are equal.
+
+Now compute $2I = \int_0^{\pi/2} \ln(\sin\theta\cos\theta)\,\mathrm{d}\theta = \int_0^{\pi/2} \ln\frac{\sin 2\theta}{2}\,\mathrm{d}\theta$.
+
+\[
+2I = \int_0^{\pi/2} \ln(\sin 2\theta)\,\mathrm{d}\theta - \frac{\pi}{2}\ln 2.
+\]
+
+Substitute $u = 2\theta$:
+\[
+\int_0^{\pi/2} \ln(\sin 2\theta)\,\mathrm{d}\theta = \frac{1}{2}\int_0^{\pi} \ln(\sin u)\,\mathrm{d}u = \frac{1}{2} \cdot 2\int_0^{\pi/2}\ln(\sin u)\,\mathrm{d}u = I.
+\]
+
+(We used $\int_0^{\pi}\ln\sin u\,\mathrm{d}u = 2\int_0^{\pi/2}\ln\sin u\,\mathrm{d}u$ by symmetry about $\pi/2$.)
+
+Thus $2I = I - \frac{\pi}{2}\ln 2$, giving $I = -\frac{\pi}{2}\ln 2$.
+\end{proof}
+
+\begin{application}[Statistical Mechanics: Density of States]
+In the 2D Ising model, the partition function involves integrals of the form:
+\[
+\ln Z = \frac{1}{2}\ln 2 + \frac{1}{2\pi^2}\int_0^{\pi}\int_0^{\pi} \ln\bigl[\cosh^2(2K) - \sinh(2K)(\cos\phi_1 + \cos\phi_2)\bigr]\,\mathrm{d}\phi_1\,\mathrm{d}\phi_2
+\]
+The log-sine integral appears in the evaluation of such expressions, particularly in Onsager's exact solution.
+\end{application}
+
+%=============================================================================
+\section{The Poisson Integral}
+%=============================================================================
+
+\begin{keyintegral}[Poisson Integral]
+For $|r| < 1$:
+\[
+\int_0^\pi \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta = 0
+\]
+For $|r| > 1$:
+\[
+\int_0^\pi \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta = 2\pi\ln|r|
+\]
+\end{keyintegral}
+
+\begin{proof}
+Define $I(r) = \int_0^{\pi} \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta$ for $|r| < 1$.
+
+Note that $I(0) = \int_0^{\pi} \ln(1)\,\mathrm{d}\theta = 0$.
+
+\textbf{Step 1: Differentiate with respect to $r$.}
+
+By Theorem~\ref{thm:leibniz-finite}, since the integrand and its partial derivative are continuous on $[0,\pi]$ for $|r| < 1$:
+\[
+I'(r) = \int_0^\pi \frac{-2\cos\theta + 2r}{1 - 2r\cos\theta + r^2}\,\mathrm{d}\theta = 2r\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} - 2\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}
+\]
+
+\textbf{Step 2: Evaluate $\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}$.}
+
+Use the Weierstrass substitution $t = \tan(\theta/2)$, so:
+\begin{align*}
+\cos\theta &= \frac{1-t^2}{1+t^2}, \quad \mathrm{d}\theta = \frac{2\,\mathrm{d}t}{1+t^2}
+\end{align*}
+
+The denominator transforms as:
+\[
+1 - 2r\cos\theta + r^2 = 1 - 2r\frac{1-t^2}{1+t^2} + r^2 = \frac{(1-r)^2 + (1+r)^2 t^2}{1+t^2}
+\]
+
+Thus:
+\[
+\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = \int_0^\infty \frac{1+t^2}{(1-r)^2 + (1+r)^2 t^2} \cdot \frac{2\,\mathrm{d}t}{1+t^2} = 2\int_0^\infty \frac{\mathrm{d}t}{(1-r)^2 + (1+r)^2 t^2}
+\]
+
+Substituting $u = (1+r)t$:
+\[
+= \frac{2}{1+r}\int_0^\infty \frac{\mathrm{d}u}{(1-r)^2 + u^2} = \frac{2}{1+r} \cdot \frac{1}{1-r} \cdot \frac{\pi}{2} = \frac{\pi}{1-r^2}
+\]
+
+\textbf{Step 3: Evaluate $\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}$.}
+
+With the same substitution:
+\[
+\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = 2\int_0^\infty \frac{1-t^2}{[(1-r)^2 + (1+r)^2 t^2](1+t^2)}\,\mathrm{d}t
+\]
+
+Let $\alpha = (1-r)^2$ and $\beta = (1+r)^2$. Using partial fractions:
+\[
+\frac{1-t^2}{(\alpha+\beta t^2)(1+t^2)} = \frac{\alpha+\beta}{(\beta-\alpha)(\alpha+\beta t^2)} - \frac{2}{(\beta-\alpha)(1+t^2)}
+\]
+
+Now $\beta - \alpha = (1+r)^2 - (1-r)^2 = 4r$ and $\alpha + \beta = 2(1+r^2)$.
+
+Therefore:
+\[
+\int_0^\infty \frac{1-t^2}{(\alpha+\beta t^2)(1+t^2)}\,\mathrm{d}t = \frac{1+r^2}{2r}\cdot\frac{\pi}{2(1-r^2)} - \frac{1}{2r}\cdot\frac{\pi}{2} = \frac{\pi(1+r^2)}{4r(1-r^2)} - \frac{\pi}{4r}
+\]
+\[
+= \frac{\pi}{4r}\left(\frac{1+r^2}{1-r^2} - 1\right) = \frac{\pi}{4r}\cdot\frac{2r^2}{1-r^2} = \frac{\pi r}{2(1-r^2)}
+\]
+
+So:
+\[
+\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = 2 \cdot \frac{\pi r}{2(1-r^2)} = \frac{\pi r}{1-r^2}
+\]
+
+\textbf{Step 4: Combine.}
+\[
+I'(r) = 2r \cdot \frac{\pi}{1-r^2} - 2 \cdot \frac{\pi r}{1-r^2} = \frac{2\pi r - 2\pi r}{1-r^2} = 0
+\]
+
+\textbf{Step 5: Conclude.}
+
+Since $I'(r) = 0$ for all $|r| < 1$ and $I(0) = 0$, we have $I(r) = 0$ for $|r| < 1$.
+
+\textbf{Case $|r| > 1$:}
+
+Let $r = 1/s$ where $|s| < 1$. Then:
+\[
+1 - 2r\cos\theta + r^2 = r^2\left(s^2 - 2s\cos\theta + 1\right) = r^2(1 - 2s\cos\theta + s^2)
+\]
+
+So:
+\[
+I(r) = \int_0^{\pi} \ln\bigl[r^2(1 - 2s\cos\theta + s^2)\bigr]\,\mathrm{d}\theta = 2\pi\ln|r| + \underbrace{\int_0^{\pi}\ln(1-2s\cos\theta+s^2)\,\mathrm{d}\theta}_{=0} = 2\pi\ln|r|
+\]
+\end{proof}
+
+\begin{application}[Potential Theory: Harmonic Functions]
+The Poisson integral formula for a harmonic function $u(r, \theta)$ inside the unit disk, given boundary values $f(\phi)$ on the circle, is:
+\[
+u(r, \theta) = \frac{1}{2\pi}\int_0^{2\pi} \frac{1 - r^2}{1 - 2r\cos(\theta - \phi) + r^2} f(\phi)\,\mathrm{d}\phi
+\]
+The kernel $P_r(\theta) = \frac{1-r^2}{1-2r\cos\theta+r^2}$ is called the Poisson kernel. The logarithmic integral we proved shows that:
+\[
+\int_0^{2\pi} \ln|1 - re^{i\theta}|^2\,\mathrm{d}\theta = 0 \quad \text{for } |r| < 1
+\]
+which is related to Jensen's formula in complex analysis.
+\end{application}
+
+%=============================================================================
+\section{Integrals with Arctangent}
+%=============================================================================
+
+\begin{keyintegral}
+For $a > 0$:
+\[
+\int_0^{\infty} \frac{\tan^{-1}(ax)}{x(1 + x^2)}\,\mathrm{d}x = \frac{\pi}{2}\ln(1 + a)
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} \frac{\tan^{-1}(ax)}{x(1+x^2)}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper}. The partial derivative is:
+\[
+\frac{\partial}{\partial a}\frac{\tan^{-1}(ax)}{x(1+x^2)} = \frac{1}{(1+a^2x^2)(1+x^2)}
+\]
+For $a \in [0, A]$, we have $\frac{1}{(1+a^2x^2)(1+x^2)} \leqslant \frac{1}{1+x^2}$, and $\int_0^{\infty} \frac{\mathrm{d}x}{1+x^2} = \frac{\pi}{2} < \infty$. Thus differentiation is justified.
+
+Differentiate:
+\[
+I'(a) = \int_0^{\infty} \frac{1}{(1 + a^2 x^2)(1 + x^2)}\,\mathrm{d}x.
+\]
+Partial fractions (for $a \neq 1$):
+\[
+\frac{1}{(1+a^2x^2)(1+x^2)} = \frac{1}{1-a^2}\left(\frac{1}{1+x^2} - \frac{a^2}{1+a^2x^2}\right).
+\]
+So
+\[
+I'(a) = \frac{1}{1-a^2}\left(\int_0^{\infty}\frac{\mathrm{d}x}{1+x^2} - a^2\int_0^{\infty}\frac{\mathrm{d}x}{1+a^2x^2}\right) = \frac{1}{1-a^2}\left(\frac{\pi}{2} - a^2 \cdot \frac{1}{a} \cdot \frac{\pi}{2}\right)
+\]
+\[
+= \frac{1}{1-a^2} \cdot \frac{\pi}{2}(1-a) = \frac{\pi}{2(1+a)}.
+\]
+Integrate: $I(a) = \frac{\pi}{2}\ln(1+a)$.
+\end{proof}
+
+%=============================================================================
+\section{Integrals Involving $\ln(1 + a^2x^2)$}
+%=============================================================================
+
+\begin{keyintegral}
+For $a > 0$:
+\[
+\int_0^{\infty} \frac{\ln(1 + a^2 x^2)}{1 + x^2}\,\mathrm{d}x = \pi\ln(1 + a)
+\]
+\end{keyintegral}
+
+\begin{proof}
+Let $I(a) = \int_0^{\infty} \frac{\ln(1 + a^2x^2)}{1 + x^2}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} We apply Theorem~\ref{thm:leibniz-improper}. The partial derivative is:
+\[
+\frac{\partial}{\partial a}\frac{\ln(1+a^2x^2)}{1+x^2} = \frac{2ax^2}{(1+a^2x^2)(1+x^2)}
+\]
+For $a \in [0, A]$, we have $\frac{2ax^2}{(1+a^2x^2)(1+x^2)} \leqslant \frac{2Ax^2}{(1+x^2)^2}$, and $\int_0^{\infty} \frac{x^2}{(1+x^2)^2}\,\mathrm{d}x < \infty$. Thus differentiation is justified.
+
+Differentiate:
+\[
+I'(a) = \int_0^{\infty} \frac{2ax^2}{(1 + a^2x^2)(1 + x^2)}\,\mathrm{d}x.
+\]
+Using partial fractions:
+\[
+\frac{x^2}{(1+a^2x^2)(1+x^2)} = \frac{1}{1-a^2}\left(\frac{1}{1+a^2x^2} - \frac{1}{1+x^2}\right).
+\]
+So:
+\[
+I'(a) = \frac{2a}{1-a^2}\left(\frac{\pi}{2a} - \frac{\pi}{2}\right) = \frac{2a}{1-a^2} \cdot \frac{\pi(1-a)}{2a} = \frac{\pi}{1+a}.
+\]
+Thus $I(a) = \pi\ln(1+a)$.
+\end{proof}
+
+%=============================================================================
+\section{Exercises with Solutions}
+%=============================================================================
+
+\textbf{Exercise 1.} (Quantum Mechanics) The expectation value $\langle x^4 \rangle$ for a quantum harmonic oscillator ground state requires $\int_{-\infty}^{\infty} x^4 e^{-\alpha x^2}\,\mathrm{d}x$. Evaluate this by differentiating $\int_{-\infty}^{\infty} e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi/a}$ twice.
+
+\begin{solution}
+Let $I(a) = \int_{-\infty}^{\infty} e^{-ax^2}\,\mathrm{d}x = \sqrt{\frac{\pi}{a}} = \sqrt{\pi}\, a^{-1/2}$.
+
+\textbf{Justification of differentiation:} By Theorem~\ref{thm:leibniz-improper}, we need a dominating function for $\frac{\partial}{\partial a}(e^{-ax^2}) = -x^2 e^{-ax^2}$. For $a \in [a_0, a_1]$ with $a_0 > 0$, we have $|x^2 e^{-ax^2}| \leqslant x^2 e^{-a_0 x^2}$, and $\int_{-\infty}^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$. Thus differentiation is justified.
+
+Differentiate with respect to $a$:
+\[
+I'(a) = -\int_{-\infty}^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi} \cdot \left(-\frac{1}{2}\right) a^{-3/2} = -\frac{\sqrt{\pi}}{2a^{3/2}}.
+\]
+
+Therefore:
+\[
+\int_{-\infty}^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2a^{3/2}}.
+\]
+
+For the second differentiation, we again verify: $\frac{\partial}{\partial a}(x^2 e^{-ax^2}) = -x^4 e^{-ax^2}$, dominated by $x^4 e^{-a_0 x^2}$ which is integrable. Thus:
+\[
+I''(a) = \int_{-\infty}^{\infty} x^4 e^{-ax^2}\,\mathrm{d}x = -\frac{\mathrm{d}}{\mathrm{d}a}\left(-\frac{\sqrt{\pi}}{2a^{3/2}}\right) = -\frac{\sqrt{\pi}}{2} \cdot \left(-\frac{3}{2}\right) a^{-5/2} = \frac{3\sqrt{\pi}}{4a^{5/2}}.
+\]
+
+\[
+\boxed{\int_{-\infty}^{\infty} x^4 e^{-\alpha x^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{4\alpha^{5/2}}}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{Exercise 2.} (Probability) Prove that the characteristic function of the standard normal distribution is $\varphi(t) = e^{-t^2/2}$ by evaluating $\int_{-\infty}^{\infty} e^{itx} \cdot \frac{1}{\sqrt{2\pi}}e^{-x^2/2}\,\mathrm{d}x$.
+
+\begin{solution}
+We need to compute:
+\[
+\varphi(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{itx} e^{-x^2/2}\,\mathrm{d}x = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-x^2/2 + itx}\,\mathrm{d}x.
+\]
+
+Complete the square in the exponent:
+\[
+-\frac{x^2}{2} + itx = -\frac{1}{2}(x^2 - 2itx) = -\frac{1}{2}(x - it)^2 - \frac{t^2}{2}.
+\]
+
+Thus:
+\[
+\varphi(t) = \frac{e^{-t^2/2}}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x.
+\]
+
+The integral $\int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x$ can be evaluated by shifting the contour (justified since the integrand is entire and decays rapidly):
+\[
+\int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x = \int_{-\infty}^{\infty} e^{-u^2/2}\,\mathrm{d}u = \sqrt{2\pi}.
+\]
+
+Therefore:
+\[
+\boxed{\varphi(t) = e^{-t^2/2}}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{Exercise 3.} Prove that $\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)$ for $a, b > 0$.
+
+\begin{solution}
+Use the product-to-sum formula:
+\[
+\sin(ax)\sin(bx) = \frac{1}{2}\bigl[\cos((a-b)x) - \cos((a+b)x)\bigr].
+\]
+
+Thus:
+\[
+\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^{\infty} \frac{\cos((a-b)x) - \cos((a+b)x)}{x^2}\,\mathrm{d}x.
+\]
+
+Define $J(c) = \int_0^{\infty} \frac{1-\cos(cx)}{x^2}\,\mathrm{d}x$ with $J(0) = 0$.
+
+\textbf{Justification of differentiation:} By Theorem~\ref{thm:leibniz-improper}, $\frac{\partial}{\partial c}\frac{1-\cos(cx)}{x^2} = \frac{\sin(cx)}{x}$. The convergence follows from the Dirichlet integral theory: the integral $\int_0^{\infty} \frac{\sin(cx)}{x}\,\mathrm{d}x$ converges (conditionally) to $\frac{\pi}{2}\,\mathrm{sgn}(c)$ for $c \neq 0$.
+
+Differentiate: $J'(c) = \int_0^{\infty} \frac{\sin(cx)}{x}\,\mathrm{d}x = \frac{\pi}{2}$ (by the Dirichlet integral with substitution).
+
+Integrate: $J(c) = \frac{\pi c}{2}$ for $c \geq 0$.
+
+For $c < 0$: Since $\cos(cx) = \cos(|c|x)$, we have $J(c) = J(|c|) = \frac{\pi|c|}{2}$.
+
+Thus $J(c) = \frac{\pi|c|}{2}$ for all $c$.
+
+Now:
+\[
+\int_0^{\infty} \frac{\cos((a-b)x) - \cos((a+b)x)}{x^2}\,\mathrm{d}x = J(a+b) - J(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2}
+\]
+\[
+= \frac{\pi}{2}\bigl((a+b) - |a-b|\bigr) = \frac{\pi}{2} \cdot 2\min(a,b) = \pi\min(a,b)
+\]
+
+using the identity $(a+b) - |a-b| = 2\min(a,b)$.
+
+Therefore:
+\[
+\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{1}{2} \cdot \pi\min(a,b) = \frac{\pi}{2}\min(a,b)
+\]
+
+\[
+\boxed{\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{Exercise 4.} Evaluate $\int_0^{\infty} xe^{-ax^2}\sin(bx)\,\mathrm{d}x$ for $a > 0$.
+
+\begin{solution}
+Let $I(b) = \int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}e^{-b^2/(4a)}$ (from the Gaussian Fourier transform).
+
+\textbf{Justification of differentiation:} By Theorem~\ref{thm:leibniz-improper}, $\frac{\partial}{\partial b}(e^{-ax^2}\cos(bx)) = -x e^{-ax^2}\sin(bx)$. For all $b \in \R$, $|x e^{-ax^2}\sin(bx)| \leqslant x e^{-ax^2}$, and $\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$. Thus differentiation is justified.
+
+Differentiate with respect to $b$:
+\[
+I'(b) = -\int_0^{\infty} x e^{-ax^2}\sin(bx)\,\mathrm{d}x.
+\]
+
+Also:
+\[
+I'(b) = \frac{1}{2}\sqrt{\frac{\pi}{a}} \cdot e^{-b^2/(4a)} \cdot \left(-\frac{b}{2a}\right) = -\frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-b^2/(4a)}.
+\]
+
+Therefore:
+\[
+\boxed{\int_0^{\infty} xe^{-ax^2}\sin(bx)\,\mathrm{d}x = \frac{b\sqrt{\pi}}{4a^{3/2}}e^{-b^2/(4a)}}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{Exercise 5.} Use differentiation under the integral sign to show that
+\[
+\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}
+\]
+for $a, b, c > 0$.
+
+\begin{solution}
+From the main text, for $\alpha > 0$:
+\[
+J(\alpha) = \int_0^{\infty} e^{-\alpha x}\frac{\sin(cx)}{x}\,\mathrm{d}x = \tan^{-1}\frac{c}{\alpha}.
+\]
+
+\textbf{Justification:} The derivation of $J(\alpha) = \tan^{-1}(c/\alpha)$ uses Theorem~\ref{thm:leibniz-improper}. Setting $f(x, \alpha) = e^{-\alpha x}\frac{\sin(cx)}{x}$, the partial derivative $\frac{\partial f}{\partial \alpha} = -e^{-\alpha x}\sin(cx)$ satisfies $|\frac{\partial f}{\partial \alpha}| \leqslant e^{-\alpha_0 x}$ for $\alpha \geq \alpha_0 > 0$, which is integrable.
+
+The integral we want is:
+\[
+\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \int_0^{\infty} \frac{e^{-ax}\sin(cx)}{x}\,\mathrm{d}x - \int_0^{\infty} \frac{e^{-bx}\sin(cx)}{x}\,\mathrm{d}x
+\]
+\[
+= J(a) - J(b) = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}.
+\]
+
+\[
+\boxed{\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{Exercise 6.} Evaluate $\int_0^1 \frac{x^a - x^b}{\ln x}\,\mathrm{d}x$ for $a, b > -1$ using differentiation under the integral sign.
+
+\begin{solution}
+Let $I(a) = \int_0^1 \frac{x^a - 1}{\ln x}\,\mathrm{d}x$ with $I(0) = 0$.
+
+\textbf{Justification of differentiation:} By Theorem~\ref{thm:leibniz-finite}, we examine $f(x,a) = \frac{x^a - 1}{\ln x}$ on $[0,1] \times [a_0, a_1]$ with $a_0 > -1$. The partial derivative is $\frac{\partial f}{\partial a} = \frac{x^a \ln x}{\ln x} = x^a$. For $a \in [a_0, a_1]$, we have $|x^a| \leqslant \max(x^{a_0}, x^{a_1})$, which is continuous and integrable on $[0,1]$. Thus differentiation is justified.
+
+Differentiate with respect to $a$:
+\[
+I'(a) = \int_0^1 \frac{\partial}{\partial a}\left(\frac{x^a - 1}{\ln x}\right)\,\mathrm{d}x = \int_0^1 \frac{x^a \ln x}{\ln x}\,\mathrm{d}x = \int_0^1 x^a\,\mathrm{d}x = \frac{1}{a+1}.
+\]
+
+Integrate from $0$ to $a$:
+\[
+I(a) = \int_0^a \frac{\mathrm{d}t}{t+1} = \ln(a+1).
+\]
+
+Therefore:
+\[
+\int_0^1 \frac{x^a - x^b}{\ln x}\,\mathrm{d}x = I(a) - I(b) = \ln(a+1) - \ln(b+1).
+\]
+
+\[
+\boxed{\int_0^1 \frac{x^a - x^b}{\ln x}\,\mathrm{d}x = \ln\frac{a+1}{b+1}}
+\]
+\end{solution}
+
+\end{document}

@@ -53,6 +53,7 @@
 \newtheorem*{prp}{性質}
 \newtheorem*{fact}{結論}
 \newtheorem*{thm}{定理}
+\newtheorem*{cor}{系理}
 \newtheorem*{ex}{例}
 \newtheorem*{sol}{解}
 \newtheorem*{prf}{證}
@@ -132,7 +133,16 @@
 \usepackage{xfrac}
 \usepackage{nicefrac}
 
-\usepackage{parskip}
+\usepackage{mathtools}
+
+% for Leibniz rule
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\dmu}{\,\mathrm{d}\mu}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
 
 \begin{document}
 \title{\texorpdfstring{\vspace{-16mm} 第四章\ \ 積分}{第四章\ \ 積分}} 
@@ -1007,24 +1017,24 @@
 \end{thm}
 
 %\begin{prf}
-%不失一般性, 設 $f(a) < d < f(b)$（若 $f(a) > f(b)$, 論證類似）. 
+%不失一般性, 設 $f(a) < d < f(b)$ (若 $f(a) > f(b)$, 論證類似) . 
 %
 %\textbf{第一步: 構造輔助函數. }
 %定義 $g(x) = f(x) - d$. 則 $g$ 在 $[a,b]$ 上連續, 且
-%\[
+%$\ds
 %g(a) = f(a) - d < 0, \quad g(b) = f(b) - d > 0.
-%\]
+%$
 %我們要證明存在 $c$ 使得 $g(c) = 0$. 
 %
 %\textbf{第二步: 定義集合並取上確界. }
 %令
-%\[
+%$\ds
 %S = \{x \in [a,b] : g(x) < 0\}.
-%\]
-%由於 $g(a) < 0$, 故 $a \in S$, 所以 $S \neq \emptyset$. 又 $S \subseteq [a,b]$, 故 $S$ 有上界. 由實數的完備性（上確界原理）, $S$ 存在上確界. 令
-%\[
+%$
+%由於 $g(a) < 0$, 故 $a \in S$, 所以 $S \neq \emptyset$. 又 $S \subseteq [a,b]$, 故 $S$ 有上界. 由實數的完備性 (上確界原理) , $S$ 存在上確界. 令
+%$\ds
 %c = \sup S.
-%\]
+%$
 %顯然 $c \in [a,b]$. 
 %
 %\textbf{第三步: 證明 $g(c) = 0$. }
@@ -1083,7 +1093,7 @@
 \end{prf}
 
 %\begin{remark}
-%微積分基本定理告訴我們: 微分與積分互為逆運算. 第一部分說明對一個連續函數做積分後再微分, 會還原該函數；第二部分則提供了計算定積分的實用方法——只需找到反導數並代入端點值相減即可. 
+%微積分基本定理告訴我們: 微分與積分互為逆運算. 第一部分說明對一個連續函數做積分後再微分, 會還原該函數; 第二部分則提供了計算定積分的實用方法——只需找到反導數並代入端點值相減即可. 
 %\end{remark}
 
 \begin{ex}[以 FTC 求定積分]
@@ -1749,6 +1759,240 @@
       %\end{enumerate}
   \end{enumerate}
 \end{sol}
+
+\section*{4.6 Leibniz 積分法則: 積分號下取微分}
+
+\begin{thm}[Leibniz 積分法則]\label{thm:main}
+  設 $(X, \mathcal{A}, \mu)$ 為測度空間, $U \subseteq \R$ 為開區間, 函數 $f: X \times U \to \R$ (或 $\C$) 滿足 
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[(i)] \textbf{可測性}: 對每個 $t \in U$, 函數 $x \mapsto f(x, t)$ 是 $\mathcal{A}$-可測的.      
+    \item[(ii)] \textbf{可微性}: 對 $\mu$-幾乎所有 $x \in X$, 函數 $t \mapsto f(x, t)$ 在 $U$ 上可微.    
+    \item[(iii)] \textbf{控制條件}: 存在函數 $g \in L^1(\mu)$ 使得對所有 $t \in U$ 及 $\mu$-幾乎所有 $x \in X$, $\ds\Big|\pderiv{f}{t}(x, t)\Big|\leqslant g(x)$.
+  \end{enumerate}
+  則
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[(a)] 對每個 $t \in U$, 函數 $x \mapsto f(x, t)$ 屬於 $L^1(\mu)$. 
+    \item[(b)] 函數 $\ds F(t) \coloneqq \int_X f(x, t) \dmu(x)$ 在 $U$ 上可微. 
+    \item[(c)] 微分與積分可交換次序: $\ds\frac{\mathrm{d}F}{\mathrm{d}t}(t) = \int_X \pderiv{f}{t}(x, t) \dmu(x)$.
+  \end{enumerate}
+\end{thm}
+
+%\begin{rmk}
+%  條件 (iii) 稱為\textbf{一致可積控制條件}(uniform integrability domination condition). 關鍵在於控制函數 $g$ 不依賴於參數 $t$. 
+%\end{rmk}
+%
+%\begin{prf}
+%  固定 $t_0 \in U$. 我們要證明 $\ds\lim_{h \to 0} \frac{F(t_0 + h) - F(t_0)}{h} = \int_X \pderiv{f}{t}(x, t_0) \dmu(x)$.
+%  \begin{enumerate}\setlength{\itemsep}{0pt}
+%    \item \textbf{構造差商函數 } 對於 $h \neq 0$ 且 $t_0 + h \in U$, 定義 $\ds\phi_h(x) \coloneqq \frac{f(x, t_0 + h) - f(x, t_0)}{h}$. 則 $\ds\frac{F(t_0 + h) - F(t_0)}{h} = \int_X \phi_h(x) \dmu(x)$.
+%    \item \textbf{逐點收斂 } 由條件 (ii), 對 $\mu$-幾乎所有 $x \in X$, $\ds\lim_{h \to 0} \phi_h(x) = \pderiv{f}{t}(x, t_0)$.
+%    \item \textbf{建立一致控制 } 由均值定理(Mean Value Theorem), 對於 $\mu$-幾乎所有 $x$ 及 $h \neq 0$, 存在 $\xi = \xi(x, h)$ 介於 $t_0$ 與 $t_0 + h$ 之間, 使得 $\ds\phi_h(x) = \frac{f(x, t_0 + h) - f(x, t_0)}{h} = \pderiv{f}{t}(x, \xi)$. 由條件 (iii), $\ds |\phi_h(x)| = \left| \pderiv{f}{t}(x, \xi) \right| \leqslant g(x)$. 因此, 對所有足夠小的 $h$, 差商函數 $\phi_h$ 被 $L^1$ 函數 $g$ 所控制. 
+%    \item \textbf{應用控制收斂定理 } 我們已驗證
+%      \begin{multicols}{2}
+%        \begin{itemize}
+%          \item $\ds\phi_h(x) \to \pderiv{f}{t}(x, t_0)$, $\mu$-幾乎處處;
+%          \item $\ds|\phi_h(x)| \leqslant g(x)$, 其中 $g \in L^1(\mu)$.
+%        \end{itemize}
+%      \end{multicols}
+%      由 Lebesgue 控制收斂定理(Dominated Convergence Theorem), $\ds\lim_{h \to 0} \int_X \phi_h(x) \dmu(x) = \int_X \lim_{h \to 0} \phi_h(x) \dmu(x) = \int_X \pderiv{f}{t}(x, t_0) \dmu(x)$. 即 $\ds\frac{\mathrm{d}F}{\mathrm{d}t}(t_0) = \int_X \pderiv{f}{t}(x, t_0) \dmu(x)$. 由於 $t_0 \in U$ 是任意的, 定理得證.
+%  \end{enumerate}
+%\end{prf}
+%
+%\begin{rmk}
+%  當 $f: X \times U \to \C$ 時, 將 $f = f_1 + \mathrm{i}f_2$ 分解為實部與虛部, 對 $f_1, f_2$ 分別應用上述定理即可. 控制條件變為 $\ds\left| \pderiv{f}{t}(x, t) \right| \leqslant g(x)$, 其中絕對值取複數模. 
+%\end{rmk}
+
+\subsection*{重要特例}
+
+\begin{cor}[Lebesgue 測度下的經典形式]
+  設 $U, V \subseteq \R$ 為開區間, $f: U \times V \to \R$ 滿足
+  \begin{enumerate}\setlength{\itemsep}{0pt}
+    \item[(i)] $f$ 與 $\ds\pderiv{f}{t}$ 在 $U \times V$ 上連續; 
+    \item[(ii)] 存在可積函數 $g: U \to [0, \infty)$ 使得 $\ds\left|\pderiv{f}{t}(x, t)\right| \leqslant g(x)$ 對所有 $(x, t) \in U \times V$ 成立. 
+  \end{enumerate}
+  則 $\ds F(t) = \int_U f(x, t) \dx$ 在 $V$ 上可微, 且 $\ds F'(t) = \int_U \pderiv{f}{t}(x, t) \dx$.
+\end{cor}
+
+\begin{cor}[緊支撐或有界區間情形]
+  設 $[a, b] \subset \R$ 為有界閉區間, $V \subseteq \R$ 為開區間, $f: [a,b] \times V \to \R$ 滿足
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item[(i)] $f$ 對 $x$ 可積, 對 $t$ 可微;
+      \item[(ii)] $\ds\pderiv{f}{t}$ 在 $[a,b] \times V$ 上連續. 
+    \end{enumerate}
+  \end{multicols}
+  則 $\ds\frac{\mathrm{d}}{\mathrm{d}t} \int_a^b f(x, t) \dx = \int_a^b \pderiv{f}{t}(x, t) \dx$.
+\end{cor}
+
+\begin{prf}
+  連續函數在緊集 $[a,b] \times K$ ($K \subset V$ 為任意緊子區間) 上有界, 故控制條件自動滿足.
+\end{prf}
+
+%\begin{thm}[Leibniz 積分法則, 含變動邊界]
+%  設 $f$, $\ds\pderiv{f}{t}$ 在適當區域上連續, $a(t)$, $b(t)$ 為可微函數. 則 \\$\ds\frac{\mathrm{d}}{\mathrm{d}t} \int_{a(t)}^{b(t)} f(x, t) \dx = f\bigl(b(t), t\bigr) b'(t) - f\bigl(a(t), t\bigr) a'(t) + \int_{a(t)}^{b(t)} \pderiv{f}{t}(x, t) \dx$.
+%\end{thm}
+%
+%\begin{prf}
+%  定義 $\ds G(a, b, t) = \int_a^b f(x, t) \dx$, 應用多變數連鎖律 $\ds\frac{\mathrm{d}}{\mathrm{d}t} G\bigl(a(t), b(t), t\bigr) = \pderiv{G}{a} \cdot a'(t) + \pderiv{G}{b} \cdot b'(t) + \pderiv{G}{t}$. 由微積分基本定理 $\ds\pderiv{G}{b} = f(b, t)$, $\ds\pderiv{G}{a} = -f(a, t)$, 結合以上定理可得證. 
+%\end{prf}
+
+\subsection*{應用範例}
+
+\begin{ex}
+  $\ds\int_0^\infty\!\!e^{-x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(t) = \int_0^\infty\!\frac{e^{-t^2(1 + x^2)}}{1 + x^2}\,\mathrm{d}x$, $t\geqslant 0$; $F(\infty) = 0$, $\ds F(0) = \int_0^\infty\!\!\frac{\mathrm{d}x}{1 + x^2} = \tan^{-1}x\,\Big|_0^\infty = \tan^{-1}\infty - \tan^{-1}0 = \frac{\pi}{2}$. 則 $\ds F'(t) = \int_0^\infty\!\frac{-2\,t\,(1 + x^2)\,e^{-t^2(1 + x^2)}}{1 + x^2}\,\mathrm{d}x = \underbrace{-2\,t\,e^{-t^2}\!\!\int_0^\infty\!e^{-t^2x^2}\,\mathrm{d}x}_{\text{令}\;u\,=\,t\,x,\;\text{則}\;\mathrm{d}u\,=\,t\,\mathrm{d}x} = -2\,e^{-t^2}\!\!\underbrace{\int_0^\infty\!e^{-u^2}\,\mathrm{d}u}_{=\,I} = -2\,e^{-t^2} I$ $\ie$ $\ds\int_0^b F'(t)\,\mathrm{d}t = -2 I\int_0^b\!e^{-t^2}\,\mathrm{d}t$ $\ie$ $\ds F(b) - F(0) = -2 I\int_0^b\!e^{-t^2}\,\mathrm{d}t$. 令 $b\to\infty$, 則 $\ds F(\infty) - F(0) = -2 I^2$ $\ie$ $\ds 0 - \frac{\pi}{2} = -2 I^2$ $\ie$ $\ds I = \frac{\sqrt{\pi}}{2}$.
+\end{prf}
+
+%\begin{ex} 若 $a > 0$, 求
+%  \begin{multicols}{3}
+%    \begin{enumerate}
+%      \item $\ds\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x$. 
+%      \item $\ds\int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x$.
+%      \item $\ds\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x$.
+%    \end{enumerate}
+%  \end{multicols}
+%\end{ex}
+%
+%\begin{sol} 由 $\ds F(a) = \int_{-\infty}^\infty e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi}\,a^{-\frac{1}{2}}$,
+%  \begin{enumerate}\setlength{\itemsep}{0pt}
+%    \item $\ds F'(a) = -\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}}{\mathrm{d}a}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-1}{2}\,a^{-\frac{3}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^2 e^{-ax^2}\,\text{d}x = \frac{\sqrt{\pi}}{2\,a^{\frac{3}{2}}}$.
+%    \item $\ds F''(a) = \int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}^2}{\mathrm{d}a^2}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{3}{4}\,a^{-\frac{5}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^4 e^{-ax^2}\,\text{d}x = \frac{3\sqrt{\pi}}{4\,a^{\frac{5}{2}}}$.
+%    \item $\ds F'''(a) = -\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x = \frac{\mathrm{d}^3}{\mathrm{d}a^3}(\sqrt{\pi}\,a^{-\frac{1}{2}}) = \sqrt{\pi}\cdot\frac{-15}{8}a^{-\frac{7}{2}}$ $\ie$ $\ds\int_{-\infty}^\infty x^6 e^{-ax^2}\,\text{d}x = \frac{15\sqrt{\pi}}{8\,a^{\frac{7}{2}}}$.
+%  \end{enumerate}
+%\end{sol}
+
+\begin{ex}
+  $\ds\int_0^{\infty}\!x^{2n} e^{-ax^2}\,\mathrm{d}x = \frac{(2n-1)!!}{2^{n+1}} \sqrt{\frac{\pi}{a^{2n+1}}} = \frac{(2n)!}{n! \, 4^n} \sqrt{\frac{\pi}{a^{2n+1}}}$, $\forall\,a > 0$, $n\in \N$, 其中 $(2n-1)!! = 1 \cdot 3 \cdot 5 \cdots (2n-1)$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(a) = \int_0^{\infty}\!\!e^{-ax^2}\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}$,
+  %$f(x,a) = e^{-ax^2}$. $\forall\,a\in [a_0, a_1]$ ($0 < a_0 < a_1$): 
+  %\begin{itemize}
+  %  \item $\ds\frac{\partial f}{\partial a} = -x^2 e^{-ax^2}$ 對所有 $x \geqslant 0$ 及 $a > 0$ 存在. 
+  %  \item $\ds \left|\frac{\partial f}{\partial a}\right| = x^2 e^{-ax^2} \leqslant x^2 e^{-a_0 x^2}$, 且 $\ds\int_0^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$. 
+  %\end{itemize}
+  則 $\ds F'(a) = -\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = -\frac{1}{2}\sqrt{\pi} \cdot \big(-\frac{1}{2}\big) a^{-\frac{3}{2}} = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$ $\ie$ $\ds\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$, $\ds F''(a) = \int_0^{\infty}\!x^4 e^{-ax^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{8a^{\frac{5}{2}}}$; 可歸納出通式為 $\ds (-1)^n F^{(n)}(a) = \int_0^{\infty}\!x^{2n} e^{-ax^2}\,\mathrm{d}x$. 由 $\ds\frac{\mathrm{d}^n}{\mathrm{d}a^n}\left(a^{-1/2}\right) = (-1)^n \frac{(2n-1)!!}{2^n} a^{-\frac{2n+1}{2}}$, 得證. 
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^{\infty}\!\!e^{-ax^2}\!\cos bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\,e^{-\frac{b^2}{4a}}$, $\;\forall\,a > 0$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(b) = \int_0^{\infty}\!\!e^{-ax^2}\!\cos bx\,\mathrm{d}x$, 則 $\ds F(0) = \frac{1}{2}\sqrt{\frac{\pi}{a}}$; $\ds F'(b) = -\int_0^{\infty}\!\!x\,e^{-ax^2}\!\sin bx\,\mathrm{d}x$. 令 $\ds u = \sin bx$, 則 $\ds \mathrm{d}u = b\cos bx$; $\ds \mathrm{d}v = -xe^{-ax^2}\,\mathrm{d}x$, 則 $\ds v = \frac{1}{2a}e^{-ax^2}$; 故 $\ds F'(b) = \sin bx\cdot\frac{1}{2a}e^{-ax^2}\,\Big|_{x =0}^{x = \infty} - \frac{b}{2a}\int_0^{\infty}\!\!e^{-ax^2}\!\cos bx\,\mathrm{d}x = - \frac{b}{2a}F(b)$ $\ie$ $\ds F(b) = F(0)\,e^{-\frac{b^2}{4a}}$. 
+\end{prf}
+
+\begin{ex}
+  若 $a > 0$, 求 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^2}$, $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^3}$ 並推導 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^n}$, $n\in\mathbb{N}$.
+\end{ex}
+
+\begin{sol}
+  由 $\ds F(a) = \int_0^\infty\!\!\frac{\mathrm{d}x}{x^2 + a^2} = \frac{\pi}{2a} = \frac{\pi}{2}\,a^{-1}$, $\ds F'(a) = \frac{\mathrm{d}}{\mathrm{d}a}\Big(\frac{\pi}{2}\,a^{-1}\Big) = \frac{\pi}{2}(-1)\,a^{-2} = (-1)2a\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^2}$ $\ie$ $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^2} = \frac{\pi}{4\,a^3}$; 等式兩邊再對 $a$ 微分 $\ie$ $\ds(-2)(2a)\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^3} = (-3)\frac{\pi}{4\,a^4}$ $\ie$ $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^3} = \frac{3\,\pi}{16\,a^5}$. 由數學歸納法可得 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^n} = \frac{\pi}{(2a)^{2n - 1}}\binom{2(n - 1)}{n - 1}$, $n\in\mathbb{N}$.
+\end{sol}
+
+\begin{ex}
+  $\ds\int_0^\infty\!\!e^{-tx}\,\frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2} - \tan^{-1}t$, $\forall\,t > 0$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(t) = \int_0^\infty\!\!e^{-tx}\,\frac{\sin x}{x}\,\mathrm{d}x$, 則 $\ds F'(t) = -\int_0^\infty\!\!e^{-tx}\sin x\,\mathrm{d}x = -\frac{e^{-tx}(-t\sin x - \cos x)}{1 + t^2}\,\Big|_{x = 0}^{x = \infty} = -\frac{1}{1 + t^2}$ $\ie$ $\ds F(t) = -\tan^{-1}t + c$. 令 $t\to\infty$, $\ds F(\infty) = 0 = -\tan^{-1}\infty + c = -\frac{\pi}{2} + c$ $\ie$ $\ds c = \frac{\pi}{2}$.  
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^\infty\!\!e^{-ax}\,\frac{\sin bx}{x}\,\mathrm{d}x = \tan^{-1}\frac{b}{a}$, $\;\forall\,a, b > 0$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(b) = \int_0^\infty\!\!e^{-ax}\,\frac{\sin bx}{x}\,\mathrm{d}x$, 則 $F(0) = 0$; 
+  %$\ds\frac{\partial}{\partial b}\left(e^{-ax}\frac{\sin bx}{x}\right) = e^{-ax}\cos bx$; $\ds\left|e^{-ax}\cos bx\right|\leqslant e^{-ax}$ $\forall\,b$ 且 $\ds\int_0^\infty e^{-ax}\,\mathrm{d}x = \frac{1}{a} < \infty$ 
+  $\ds F'(b) = \int_0^{\infty}\!\!e^{-ax}\cos bx\,\mathrm{d}x = \frac{a}{a^2+b^2}$ $\ie$ $\ds F(b) = \tan^{-1}\frac{b}{a}$. 
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^{\infty}\frac{\sin^2 ax}{x^2}\,\mathrm{d}x = \frac{\pi a}{2}$, $\forall\,a > 0$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(a) = \int_0^{\infty}\frac{\sin^2 ax}{x^2}\,\mathrm{d}x$, 則 $F(0) = 0$;
+  %$\frac{\partial}{\partial a}\frac{\sin^2 ax}{x^2} = \frac{2\sin ax\cos ax\cdot x}{x^2} = \frac{\sin 2ax}{x}$. $\forall\,a \in [0, A]$, 當 $x \geqslant 1$ 時 $\left|\frac{\sin(2ax)}{x}\right|\leqslant\frac{1}{x}$ 在 $0$ 附近有界, 由 Dirichlet 理論保證積分收斂. 
+  $\ds F'(a) = \int_0^{\infty}\frac{\partial}{\partial a}\Big(\frac{\sin^2 ax}{x^2}\Big)\,\mathrm{d}x = \int_0^{\infty}\frac{2\sin ax\cos ax\cdot x}{x^2}\,\mathrm{d}x = \int_0^{\infty}\frac{\sin 2ax}{x}\,\mathrm{d}x = \frac{\pi}{2}$, 故 $\ds F(a) = \frac{\pi a}{2}$. 
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^{\infty}\frac{\cos ax - \cos bx}{x^2}\,\mathrm{d}x = \frac{\pi(b-a)}{2}$ $\;\forall\,a, b > 0$. 
+\end{ex}
+
+\begin{prf}
+  設 $\ds F(a) = \int_0^{\infty}\frac{1 - \cos ax}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$; $\ds F'(a) = \int_0^{\infty}\frac{\sin ax}{x}\,\mathrm{d}x = \frac{\pi}{2}$, 故 $\ds F(a) = \frac{\pi a}{2}$, $\ds\int_0^{\infty}\frac{\cos ax - \cos bx}{x^2}\,\mathrm{d}x = F(b) - F(a) = \frac{\pi(b-a)}{2}$. 
+\end{prf}
+
+\begin{ex}[Frullani 公式]
+  若 $f$ 在 $(0, \infty)$ 連續, 且 $f(0^+)$ 和 $f(\infty) = \lim_{x\to\infty} f(x)$ 都存在且有限, 則 $\forall\,a, b > 0$ $\ds\int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr) \ln\frac{b}{a}$.
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(a) = \int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$, 則 $F(b) = 0$; 變數變換 $\ds u = ax$, $\ds F'(a) = \int_0^\infty f'(ax)\,\mathrm{d}x = \frac{1}{a}\int_0^\infty f'(u)\,\mathrm{d}u = \frac{1}{a}\big(f(\infty) - f(0^+)\big)$. 則 $\ds\int_b^a F'(t)\,\mathrm{d}t = \frac{1}{a}\big(f(\infty) - f(0^+)\big)\int_b^a\frac{1}{t}\,\mathrm{d}t$ $\ie$ $\ds F(a) = \big(f(\infty) - f(0^+)\big)\ln\frac{a}{b}$.
+\end{prf}
+
+\begin{ex}
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}$
+      \item $\ds\int_0^\infty\frac{\tan^{-1} ax - \tan^{-1}bx}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}$
+    \end{itemize}
+  \end{multicols}
+\end{ex}
+
+\begin{sol} Frullani 公式中
+  \begin{multicols}{2}
+    \begin{itemize}\setlength{\itemsep}{0pt}
+      \item 取 $\ds f(x) = e^{-x}$; $\ds f(0^+) = 1$, $\ds f(\infty) = 0$. 
+      \item 取 $\ds f(x) = \tan^{-1}(x)$; $\ds f(0^+) = 0$, $\ds f(\infty) = \frac{\pi}{2}$. 
+    \end{itemize}
+  \end{multicols}
+\end{sol}
+
+\begin{ex}
+  $\ds\int_0^{\frac{\pi}{2}} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta = \pi\ln\frac{a+b}{2}$, $\;\forall\,a, b > 0$. 
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(a, b) = \int_0^{\frac{\pi}{2}} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta$, $\ds\frac{\partial F}{\partial a} = \int_0^{\frac{\pi}{2}}\!\!\frac{2a\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$, $\ds\frac{\partial F}{\partial b} = \int_0^{\frac{\pi}{2}}\!\!\frac{2b\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$. 令 $\ds K = \int_0^{\frac{\pi}{2}}\!\!\frac{\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$, $\ds L = \int_0^{\frac{\pi}{2}}\!\!\frac{\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta$. 變數變換 $\ds t = \tan\theta$, 則 $\ds\cos^2\theta = \frac{1}{1+t^2}$, $\ds\sin^2\theta = \frac{t^2}{1+t^2}$, $\ds\mathrm{d}\theta = \frac{\mathrm{d}t}{1+t^2}$, $t$ 範圍從 $0$ 至 $\infty$; $\ds K + L = \int_0^{\frac{\pi}{2}}\!\!\frac{1}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta = \int_0^\infty\!\!\frac{1}{a^2 + b^2 t^2}\,\mathrm{d}t = \frac{\pi}{2ab}$. 又 $\ds a^2 K + b^2 L = \int_0^{\frac{\pi}{2}}\!\frac{a^2\cos^2\theta + b^2\sin^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta = \frac{\pi}{2}$, 解得 $\ds K = \frac{\pi}{2a(a + b)}$, $\ds L = \frac{\pi}{2b(a + b)}$; 代入得 $\ds\frac{\partial F}{\partial a} = \frac{\partial F}{\partial b} = \frac{\pi}{a + b}$, $\ds F(a, b) = \pi\ln(a + b) + C$. 令 $a = b$, $\ds F(a, a) = \pi\ln a = \pi\ln(2a) + C$ $\ie$ $C = -\pi\ln 2$, 故 $\ds F(a,b) = \pi\ln(a+b) - \pi\ln 2 = \pi\ln\frac{a+b}{2}$
+\end{prf}
+
+\begin{ex}[Poisson 積分]
+  $\ds\int_0^\pi \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta = \begin{cases}0 & |r| \leqslant 1 \\ 2\pi\ln|r| & |r| > 1\end{cases}$ 
+\end{ex}
+
+\begin{prf}
+  設 $\ds F(r) = \int_0^\pi\ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta$, $\forall\,|r| \ne 1$, $\ds F(0) = \int_0^{\pi}\ln 1\,\mathrm{d}\theta = 0$. 
+  %因為被積函數及其偏導數在 $[0,\pi]$ 上對於 $|r| < 1$ 連續 
+  令 $\ds u = \tan\dfrac{\theta}{2}$, 則 $\ds\cos\theta = \frac{1-u^2}{1+u^2}$, $\ds\mathrm{d}\theta = \frac{2}{1+u^2}\,\mathrm{d}u$, $\ds u: 0 \to \infty$. 由 $\ds 1 - 2r\cos\theta + r^2 = 1 - 2r\cdot\frac{1-u^2}{1+u^2} + r^2 = \frac{(1+u^2) - 2r(1-u^2) + r^2(1+u^2)}{1+u^2} = \frac{(1-r)^2 + (1+r)^2 u^2}{1+u^2}$, $\ds -2\cos\theta + 2r = -2\cdot\frac{1-u^2}{1+u^2} + 2r = \frac{2(r-1) + 2(1+r)u^2}{1+u^2}$, $\ds F'(r) = \int_0^\pi\frac{-2\cos\theta + 2r}{1 - 2r\cos\theta + r^2}\,\mathrm{d}\theta = \int_0^\infty\frac{2(r-1) + 2(1+r)u^2}{(1-r)^2 + (1+r)^2 u^2}\cdot\frac{2}{1+u^2}\,\mathrm{d}u = 4\int_0^\infty \frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)}\,\mathrm{d}u$. 求部份分式: \\$\ds\frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)} = \frac{A}{(1-r)^2 + (1+r)^2 u^2} + \frac{B}{1+u^2}$, 則 $\ds A = \frac{r^2 - 1}{2r}$, $\ds B = \frac{1}{2r}$. \\$\ds\int_0^\infty \frac{\mathrm{d}u}{(1-r)^2 + (1+r)^2 u^2} = \frac{1}{(1 + r)^2}\int_0^\infty \frac{\mathrm{d}u}{\frac{(1-r)^2}{(1+r)^2} + u^2} = \frac{1}{(1 + r)^2}\frac{|1 + r|}{|1 - r|}\cdot\frac{\pi}{2} = \frac{1}{|1 + r|\cdot|1 - r|}\cdot\frac{\pi}{2} = \frac{\pi}{2}\cdot\frac{1}{|1-r^2|}$, 故 $\ds F'(r) = 4\int_0^\infty \frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)}\,\mathrm{d}u = 4\cdot\frac{\pi}{2}\Big(\frac{A}{|1-r^2|} + B\Big) = \frac{\pi}{r}\Big(\frac{r^2 - 1}{|r^2 - 1|} + 1\Big)$. 故 $\ds F'(r) = \begin{cases}0 & |r| < 1 \\ \frac{2\pi}{r} & |r| > 1\end{cases}$, $\ds F(r) = \begin{cases}0 & |r| < 1 \\ 2\pi\ln|r| & |r| > 1\end{cases}$; $|r| = 1$ 情形由 $\ds\int_0^\pi\ln(2\pm2\cos\theta)\,\mathrm{d}\theta = 0$ 含括.
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^\infty\frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)$, $\;\forall\,a, b > 0$.
+\end{ex}
+
+\begin{prf}
+  由 $\ds\sin{ax}\sin{bx} = \frac{\cos{(a-b)x} - \cos{(a+b)x}}{2}$, $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x$. 設 $\ds F(c) = \int_0^\infty\frac{1 - \cos{cx}}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$. 
+%$\ds\frac{\partial}{\partial c}\frac{1 - \cos{cx}}{x^2} = \frac{\sin{cx}}{x}$. 收斂性由 Dirichlet 積分保證: 對於 $c\neq 0$, $\ds\int_0^\infty\frac{\sin{cx}}{x}\,\mathrm{d}x$ 條件收斂到 $\ds\frac{\pi}{2}\,\mathrm{sgn}(c)$. 
+  $\ds F'(c) = \int_0^{\infty} \frac{\sin{cx}}{x}\,\mathrm{d}x = \frac{\pi}{2}$; 由 $\ds \cos{cx} = \cos{(-c)x}$ 得 $\ds F(c) = \frac{\pi|c|}{2}$. $\ds\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x = F(a+b) - F(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2} = \frac{\pi}{2}\cdot 2\min(a,b) = \pi\min(a,b)$, 故 $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\cdot\pi\min(a,b) = \frac{\pi}{2}\min(a,b)$.
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^\infty\!xe^{-ax^2}\!\sin{bx}\,\mathrm{d}x = \frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$, $\forall\,a > 0$. 
+\end{ex}
+
+\begin{prf}
+  令 $\ds F(b) = \int_0^\infty\!e^{-ax^2}\!\!\cos bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$,  
+  %$\ds\frac{\partial}{\partial b}(e^{-ax^2}\cos bx) = -x e^{-ax^2}\sin bx$. $\forall\,b\in \R$, $\ds|x e^{-ax^2}\sin bx|\leqslant x e^{-ax^2}$, 且 $\ds\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$. 
+  則 $\ds F'(b) = -\int_0^\infty x e^{-ax^2}\!\!\sin bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\cdot e^{-\frac{b^2}{4a}}\cdot\Big(-\frac{b}{2a}\Big) = -\frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-\frac{b^2}{4a}}$.
+\end{prf}
 
 \end{document}
 

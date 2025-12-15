@@ -1,0 +1,1257 @@
+\documentclass[12pt]{article}
+\usepackage[margin=15mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+% 中文支援
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\setCJKsansfont{Noto Sans CJK TC}
+\setCJKmonofont{Noto Sans Mono CJK TC}
+
+\tcbuselibrary{theorems, skins, breakable}
+
+\newtcolorbox{application}[1][]{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  title={應用 --- #1},
+  breakable
+}
+
+\newtcolorbox{keyintegral}[1][]{
+  colback=green!5!white,
+  colframe=green!50!black,
+  fonttitle=\bfseries,
+  title={#1},
+  breakable,
+  after skip=1.5em
+}
+
+\newtcolorbox{duis}{
+  colback=orange!5!white,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  title={Leibniz 積分法則 --- 積分號下取微分},
+  breakable
+}
+
+\newtcolorbox{solution}{
+  colback=gray!5!white,
+  colframe=gray!75!black,
+  fonttitle=\bfseries,
+  title={解答},
+  breakable
+}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命題}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例題}
+\theoremstyle{remark}
+\newtheorem*{remark}{註}
+\newtheorem*{motivation}{物理動機}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+
+\setCJKmainfont{cwTeX Q Yuan Medium}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ie}{\;\Longrightarrow\;}
+\newcommand{\ifff}{\;\Longleftrightarrow\;}
+\newcommand{\orr}{\;\vee\;}
+\newcommand{\andd}{\;\wedge\;}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\llt}{\left\langle}
+\newcommand{\rgt}{\right\rangle}
+\DeclareMathOperator*{\dom}{dom}
+\DeclareMathOperator*{\codom}{codom}
+\DeclareMathOperator*{\ran}{ran}
+\DeclareMathOperator*{\sgn}{sgn}
+\DeclareMathOperator*{\degr}{deg}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\proj}[2]{\mathrm{proj}_{\,#2}\,#1}
+
+\theoremstyle{definition}
+\newtheorem*{dfn}{定義}
+\newtheorem*{prp}{性質}
+\newtheorem*{fact}{結論}
+\newtheorem*{thm}{定理}
+\newtheorem*{ex}{例}
+\newtheorem*{sol}{解}
+\newtheorem*{prf}{證}
+\newtheorem*{rmk}{註}
+\newtheorem*{exe}{習題}
+
+\title{\texorpdfstring{\vspace{-16mm} 積分技巧：積分號下取微分法}{積分技巧：積分號下取微分法}} 
+\author{\vspace{-5em}}
+\date{\vspace{-4em}}
+
+\begin{document}
+\maketitle
+
+\begin{duis}
+若 $f(x, \alpha)$ 連續且偏導數 $\frac{\partial f}{\partial \alpha}$ 連續，則在適當條件下：
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^b f(x, \alpha)\, \mathrm{d}x = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\, \mathrm{d}x
+\]
+更一般地，若積分上下限也依賴於 $\alpha$：
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_{a(\alpha)}^{b(\alpha)} f(x,\alpha)\,\mathrm{d}x = f(b(\alpha),\alpha)\cdot b'(\alpha) - f(a(\alpha),\alpha)\cdot a'(\alpha) + \int_{a(\alpha)}^{b(\alpha)} \frac{\partial f}{\partial \alpha}\,\mathrm{d}x
+\]
+\end{duis}
+
+%\textbf{策略：}給定困難積分 $I$，引入參數 $\alpha$ 建立 $I(\alpha)$。若 $I'(\alpha)$ 較容易計算，我們可以透過對 $\alpha$ 積分來還原 $I$。
+
+%=============================================================================
+\section{敘述與證明}
+%=============================================================================
+\subsection{有限區間的 Leibniz 積分法則}
+
+\begin{theorem}[Leibniz 積分法則]\label{thm:leibniz-finite}
+設 $f(x, \alpha)$ 定義於 $[a,b] \times [\alpha_0, \alpha_1]$。若
+\begin{enumerate}[label=(\roman*)]
+  \item $f(x, \alpha)$ 在 $[a,b] \times [\alpha_0, \alpha_1]$ 連續，
+  \item $\frac{\partial f}{\partial \alpha}(x, \alpha)$ 存在且在 $[a,b] \times [\alpha_0, \alpha_1]$ 連續，
+\end{enumerate}
+則
+\[
+\frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^b f(x, \alpha)\, \mathrm{d}x = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\, \mathrm{d}x.
+\]
+\end{theorem}
+
+\begin{prf}
+定義 $F(\alpha) = \int_a^b f(x, \alpha)\,\mathrm{d}x$。我們需證明
+\[
+\lim_{h \to 0} \frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+
+\textbf{步驟 1：建立差商。}
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \frac{1}{h}\int_a^b \bigl[f(x, \alpha+h) - f(x,\alpha)\bigr]\,\mathrm{d}x = \int_a^b \frac{f(x, \alpha+h) - f(x,\alpha)}{h}\,\mathrm{d}x
+\]
+
+\textbf{步驟 2：應用均值定理。}
+
+對於每個固定的 $x$，函數 $\alpha \mapsto f(x, \alpha)$ 可微。由均值定理，存在 $\theta_x \in (0, 1)$（依賴於 $x$ 和 $h$）使得
+\[
+\frac{f(x, \alpha + h) - f(x, \alpha)}{h} = \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)
+\]
+因此
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)\,\mathrm{d}x
+\]
+
+\textbf{步驟 3：利用均勻連續性。}
+
+由於 $\frac{\partial f}{\partial \alpha}$ 在緊集 $[a,b] \times [\alpha_0, \alpha_1]$ 上連續，它是\emph{均勻連續}的。即對於任意 $\varepsilon > 0$，存在 $\delta > 0$ 使得對所有 $x \in [a,b]$ 及所有 $\alpha', \alpha'' \in [\alpha_0, \alpha_1]$，
+\[
+|\alpha' - \alpha''| < \delta \implies \left|\frac{\partial f}{\partial \alpha}(x, \alpha') - \frac{\partial f}{\partial \alpha}(x, \alpha'')\right| < \varepsilon
+\]
+
+\textbf{步驟 4：估計誤差。}
+
+對於 $|h| < \delta$，我們有 $|\theta_x h| \leqslant|h| < \delta$，故
+\[
+\left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right| < \varepsilon \quad \text{對所有 } x \in [a,b]
+\]
+因此
+\begin{align*}
+\left|\frac{F(\alpha+h) - F(\alpha)}{h} - \int_a^b \frac{\partial f}{\partial \alpha}(x,\alpha)\,\mathrm{d}x\right| &= \left|\int_a^b \left[\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right]\mathrm{d}x\right| \\
+&\leqslant \int_a^b \left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h) - \frac{\partial f}{\partial \alpha}(x, \alpha)\right|\mathrm{d}x \\
+&< \int_a^b \varepsilon\,\mathrm{d}x = \varepsilon(b-a)
+\end{align*}
+
+\textbf{步驟 5：結論。}
+
+由於 $\varepsilon > 0$ 是任意的，我們有
+\[
+\lim_{h \to 0} \frac{F(\alpha+h) - F(\alpha)}{h} = \int_a^b \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+因此 $F$ 可微且 $F'(\alpha) = \int_a^b \frac{\partial f}{\partial \alpha}(x,\alpha)\,\mathrm{d}x$。
+\end{prf}
+
+\subsection{透過控制收斂定理處理瑕積分的 Leibniz 法則}
+
+對於瑕積分，我們需要更強的條件。最簡潔的方法是使用 Lebesgue 控制收斂定理。
+
+\begin{theorem}[控制收斂定理]\label{thm:DCT}
+設 $(X, \mu)$ 為測度空間，$\{f_n\}$ 為可測函數序列，滿足
+\begin{enumerate}[label=(\roman*)]
+  \item 當 $n \to \infty$ 時，$f_n(x) \to f(x)$ 逐點收斂
+  \item 存在可積函數 $g$ 使得對所有 $n$ 及幾乎所有 $x$，$|f_n(x)| \leqslant g(x)$
+\end{enumerate}
+則 $f$ 可積且
+\[
+\lim_{n \to \infty} \int_X f_n\,\mathrm{d}\mu = \int_X f\,\mathrm{d}\mu
+\]
+\end{theorem}
+
+\begin{theorem}[瑕積分下的微分]\label{thm:leibniz-improper}
+  設 $f(x, \alpha)$ 定義於 $[a, \infty) \times (\alpha_0, \alpha_1)$。假設
+  \begin{enumerate}[label=(\roman*)]
+    \item 對每個 $\alpha \in (\alpha_0, \alpha_1)$，函數 $x \mapsto f(x, \alpha)$ 在 $[a, \infty)$ 上可積
+    \item 對每個 $x \in [a, \infty)$，偏導數 $\frac{\partial f}{\partial \alpha}(x, \alpha)$ 對所有 $\alpha \in (\alpha_0, \alpha_1)$ 存在
+    \item 存在可積函數 $g: [a, \infty) \to [0, \infty)$ 使得
+      \[
+        \left|\frac{\partial f}{\partial \alpha}(x, \alpha)\right| \leqslant g(x) \quad \text{對所有 } x \in [a, \infty) \text{ 及 } \alpha \in (\alpha_0, \alpha_1)
+      \]
+  \end{enumerate}
+  則
+  \[
+    \frac{\mathrm{d}}{\mathrm{d}\alpha} \int_a^{\infty} f(x, \alpha)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x\]
+\end{theorem}
+
+\begin{prf}
+  定義 $F(\alpha) = \int_a^{\infty} f(x, \alpha)\,\mathrm{d}x$。
+
+\textbf{步驟 1：建立差商。}
+
+對於充分小的 $h \neq 0$（使得 $\alpha + h \in (\alpha_0, \alpha_1)$）
+\[
+\frac{F(\alpha + h) - F(\alpha)}{h} = \int_a^{\infty} \frac{f(x, \alpha + h) - f(x, \alpha)}{h}\,\mathrm{d}x
+\]
+
+\textbf{步驟 2：應用均值定理。}
+
+對於每個固定的 $x$ 對 $\alpha \mapsto f(x, \alpha)$ 應用均值定理，存在 $\theta_x \in (0, 1)$ 使得
+\[
+\frac{f(x, \alpha + h) - f(x, \alpha)}{h} = \frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)
+\]
+定義
+\[
+\phi_h(x) = \frac{f(x, \alpha + h) - f(x, \alpha)}{h}
+\]
+
+\textbf{步驟 3：建立逐點收斂。}
+
+當 $h \to 0$ 時
+\[
+\phi_h(x) = \frac{f(x, \alpha + h) - f(x, \alpha)}{h} \to \frac{\partial f}{\partial \alpha}(x, \alpha) \quad \text{對每個 } x
+\]
+這由偏導數的定義而得。
+
+\textbf{步驟 4：找出控制函數。}
+
+由均值定理的結果及條件 (iii)
+\[
+|\phi_h(x)| = \left|\frac{\partial f}{\partial \alpha}(x, \alpha + \theta_x h)\right| \leqslant g(x)
+\]
+對所有 $x \in [a, \infty)$ 及所有充分小的 $h$ 成立。
+
+\textbf{步驟 5：應用控制收斂定理。}
+
+我們有
+\begin{itemize}
+  \item 當 $h \to 0$ 時，$\phi_h(x) \to \frac{\partial f}{\partial \alpha}(x, \alpha)$ 逐點收斂
+  \item $|\phi_h(x)| \leqslant g(x)$ 其中 $\int_a^{\infty} g(x)\,\mathrm{d}x < \infty$
+\end{itemize}
+由控制收斂定理
+\[
+\lim_{h \to 0} \int_a^{\infty} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \lim_{h \to 0} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+
+\textbf{步驟 6：結論。}
+
+\[
+F'(\alpha) = \lim_{h \to 0} \frac{F(\alpha + h) - F(\alpha)}{h} = \lim_{h \to 0} \int_a^{\infty} \phi_h(x)\,\mathrm{d}x = \int_a^{\infty} \frac{\partial f}{\partial \alpha}(x, \alpha)\,\mathrm{d}x
+\]
+\end{prf}
+
+%\begin{example}
+%考慮 $I(\alpha) = \int_0^{\infty} e^{-\alpha x} \frac{\sin x}{x}\,\mathrm{d}x$，其中 $\alpha > 0$。
+%
+%我們對 $\alpha \in [\alpha_0, \infty)$（$\alpha_0 > 0$）驗證條件：
+%\begin{enumerate}[label=(\roman*)]
+%  \item 對每個 $\alpha > 0$，$\int_0^{\infty} e^{-\alpha x} \frac{\sin x}{x}\,\mathrm{d}x$ 收斂（被積函數在 $0$ 附近有界且指數衰減）。
+%  \item $\frac{\partial}{\partial \alpha}\left(e^{-\alpha x}\frac{\sin x}{x}\right) = -e^{-\alpha x}\sin x$ 對所有 $x > 0$ 及 $\alpha > 0$ 存在。
+%  \item 對於 $\alpha \geqslant \alpha_0$
+%    \[\left|-e^{-\alpha x}\sin x\right| \leqslant e^{-\alpha_0 x}\] 
+%    且 $\int_0^{\infty} e^{-\alpha_0 x}\,\mathrm{d}x = \frac{1}{\alpha_0} < \infty$。
+%\end{enumerate}
+%
+%因此，積分號下微分是合理的：
+%\[
+%I'(\alpha) = -\int_0^{\infty} e^{-\alpha x}\sin x\,\mathrm{d}x = -\frac{1}{1 + \alpha^2}
+%\]
+%\end{example}
+
+%=============================================================================
+\section{Gauss 積分及其衍生}
+%=============================================================================
+
+Gauss 函數 $e^{-x^2}$ 是數學中最重要的函數之一。它出現在機率論、量子力學、統計力學、熱傳導與信號處理中。
+
+\subsection{基本 Gauss 積分}
+
+\begin{keyintegral}[Euler--Poisson 積分]
+\[
+\int_{-\infty}^{\infty} e^{-x^2}\,\mathrm{d}x = \sqrt{\pi}, \qquad \int_0^{\infty} e^{-x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I = \int_0^{\infty} e^{-x^2}\,\mathrm{d}x$。我們將證明 $I = \frac{\sqrt{\pi}}{2}$。
+
+\textbf{步驟 1：引入輔助函數。}
+
+對於 $t \geqslant 0$，定義
+\[
+F(t) = \int_0^{\infty} \frac{e^{-t^2(1+x^2)}}{1+x^2}\,\mathrm{d}x
+\]
+
+\textbf{步驟 2：計算 $F(0)$ 和 $\lim_{t \to \infty} F(t)$。}
+
+當 $t = 0$ 時，
+\[
+F(0) = \int_0^{\infty} \frac{1}{1+x^2}\,\mathrm{d}x = \bigl[\tan^{-1} x\bigr]_0^{\infty} = \frac{\pi}{2}
+\]
+當 $t \to \infty$ 時，被積函數 $\frac{e^{-t^2(1+x^2)}}{1+x^2} \leqslant e^{-t^2} \to 0$ 均勻收斂，故 $F(t) \to 0$。
+
+\textbf{步驟 3：對 $F(t)$ 微分。}
+
+我們應用定理~\ref{thm:leibniz-improper}。令 $f(x,t) = \frac{e^{-t^2(1+x^2)}}{1+x^2}$，其偏導數為
+\[
+\frac{\partial f}{\partial t} = \frac{-2t(1+x^2)e^{-t^2(1+x^2)}}{1+x^2} = -2t\, e^{-t^2(1+x^2)}
+\]
+對於 $t \in [0, T]$，我們有 $\left|\frac{\partial f}{\partial t}\right| \leqslant 2T e^{-t^2} \leqslant 2T$，但更有用的是，對於 $t \geqslant \varepsilon > 0$，
+\[
+\left|\frac{\partial f}{\partial t}\right| = 2t\, e^{-t^2(1+x^2)} \leqslant 2t\, e^{-\varepsilon^2(1+x^2)}
+\]
+在 $x$ 上可積。因此
+\[
+F'(t) = \int_0^{\infty} \frac{\partial}{\partial t}\left(\frac{e^{-t^2(1+x^2)}}{1+x^2}\right)\mathrm{d}x = -2t \int_0^{\infty} e^{-t^2(1+x^2)}\,\mathrm{d}x = -2t\, e^{-t^2} \int_0^{\infty} e^{-t^2 x^2}\,\mathrm{d}x
+\]
+代入 $u = tx$（故 $\mathrm{d}x = \mathrm{d}u/t$）：
+\[
+F'(t) = -2t\, e^{-t^2} \cdot \frac{1}{t} \int_0^{\infty} e^{-u^2}\,\mathrm{d}u = -2\, e^{-t^2} \cdot I
+\]
+
+\textbf{步驟 4：將 $F'(t)$ 從 $0$ 積分到 $\infty$。}
+
+\[
+F(\infty) - F(0) = \int_0^{\infty} F'(t)\,\mathrm{d}t = -2I \int_0^{\infty} e^{-t^2}\,\mathrm{d}t = -2I \cdot I = -2I^2
+\]
+因此
+\[
+0 - \frac{\pi}{2} = -2I^2 \implies I^2 = \frac{\pi}{4} \implies I = \frac{\sqrt{\pi}}{2}
+\]
+（我們取正根，因為 $I > 0$。）
+\end{prf}
+
+\begin{application}[機率論：常態分佈]
+均值為 $\mu$、變異數為 $\sigma^2$ 的常態分佈之機率密度函數為：
+\[
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]
+正規化條件 $\int_{-\infty}^{\infty} f(x)\,\mathrm{d}x = 1$ 來自：
+\[
+\int_{-\infty}^{\infty} e^{-(x-\mu)^2/(2\sigma^2)}\,\mathrm{d}x = \sigma\sqrt{2\pi}
+\]
+這可由 Gauss 積分透過代換 $u = (x-\mu)/(\sigma\sqrt{2})$ 得到。
+\end{application}
+
+\subsection{縮放的 Gauss 積分}
+
+\begin{keyintegral}[縮放的 Gauss 積分]
+對於 $a > 0$：
+\[
+\int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}
+\]
+\end{keyintegral}
+
+\begin{prf}
+代入 $u = \sqrt{a}\,x$，故 $\mathrm{d}u = \sqrt{a}\,\mathrm{d}x$：
+\[
+\int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{\sqrt{a}}\int_0^{\infty} e^{-u^2}\,\mathrm{d}u = \frac{1}{\sqrt{a}} \cdot \frac{\sqrt{\pi}}{2}.
+\]
+\end{prf}
+
+\subsection{Gauss 分佈的動差：積分號下微分法}
+
+\begin{keyintegral}[Gauss 動差]
+對於 $a > 0$ 及 $n \in \N$：
+\[
+\int_0^{\infty} x^{2n} e^{-ax^2}\,\mathrm{d}x = \frac{(2n-1)!!}{2^{n+1}} \sqrt{\frac{\pi}{a^{2n+1}}} = \frac{(2n)!}{n! \, 4^n} \sqrt{\frac{\pi}{a^{2n+1}}}
+\]
+其中 $(2n-1)!! = 1 \cdot 3 \cdot 5 \cdots (2n-1)$ 是雙階乘。
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} e^{-ax^2}\,\mathrm{d}x = \frac{1}{2}\sqrt{\pi/a}$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}，其中 $f(x,a) = e^{-ax^2}$。對於 $a \in [a_0, a_1]$（$0 < a_0 < a_1$）：
+\begin{itemize}
+\item $\frac{\partial f}{\partial a} = -x^2 e^{-ax^2}$ 對所有 $x \geqslant 0$ 及 $a > 0$ 存在。
+\item $\left|\frac{\partial f}{\partial a}\right| = x^2 e^{-ax^2} \leqslant x^2 e^{-a_0 x^2}$，且 $\int_0^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$。
+\end{itemize}
+
+因此積分號下微分是合理的：
+\[
+I'(a) = -\int_0^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = -\frac{1}{2}\sqrt{\pi} \cdot \left(-\frac{1}{2}\right) a^{-3/2} = \frac{\sqrt{\pi}}{4a^{3/2}}.
+\]
+故 $\int_0^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{4a^{3/2}}$。
+
+對於更高階導數，同樣的論證適用，控制函數為 $x^{2n} e^{-a_0 x^2}$：
+\[
+I''(a) = \int_0^{\infty} x^4 e^{-ax^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{8a^{5/2}}.
+\]
+一般而言，每次微分乘以 $(-1)$ 並引入 $x^2$：
+\[
+(-1)^n I^{(n)}(a) = \int_0^{\infty} x^{2n} e^{-ax^2}\,\mathrm{d}x
+\]
+由於 $\frac{\mathrm{d}^n}{\mathrm{d}a^n}\left(a^{-1/2}\right) = (-1)^n \frac{(2n-1)!!}{2^n} a^{-(2n+1)/2}$，公式得證。
+\end{prf}
+
+\begin{application}[統計力學：Maxwell--Boltzmann 分佈]
+在溫度為 $T$ 的氣體中，分子速率 $v$ 的機率分佈為：
+\[
+f(v) = 4\pi n \left(\frac{m}{2\pi k_B T}\right)^{3/2} v^2 \exp\left(-\frac{mv^2}{2k_B T}\right)
+\]
+均方速率為：
+\[
+\langle v^2 \rangle = \frac{\int_0^{\infty} v^4 e^{-mv^2/(2k_BT)}\,\mathrm{d}v}{\int_0^{\infty} v^2 e^{-mv^2/(2k_BT)}\,\mathrm{d}v} = \frac{3k_B T}{m}
+\]
+這給出能量均分定理：$\langle \frac{1}{2}mv^2 \rangle = \frac{3}{2}k_B T$。
+\end{application}
+
+\begin{application}[量子力學：諧振子]
+量子諧振子的基態波函數為：
+\[
+\psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \exp\left(-\frac{m\omega x^2}{2\hbar}\right)
+\]
+位置不確定性為：
+\[
+\langle x^2 \rangle = \int_{-\infty}^{\infty} x^2 |\psi_0(x)|^2\,\mathrm{d}x = \sqrt{\frac{m\omega}{\pi\hbar}} \int_{-\infty}^{\infty} x^2 e^{-m\omega x^2/\hbar}\,\mathrm{d}x = \frac{\hbar}{2m\omega}
+\]
+結合 $\langle p^2 \rangle = \frac{m\omega\hbar}{2}$，這給出不確定性乘積 $\Delta x \cdot \Delta p = \frac{\hbar}{2}$。
+\end{application}
+
+\subsection{Gauss Fourier 變換}
+
+\begin{keyintegral}[Gauss Fourier 變換]
+對於 $a > 0$：
+\[
+\int_0^{\infty} e^{-ax^2}\cos bx\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\, e^{-b^2/(4a)}
+\]
+\end{keyintegral}
+
+\begin{prf}
+定義 $I(b) = \int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x$，其中 $\ds I(0) = \frac{1}{2}\sqrt{\pi/a}$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}，其中 $f(x,b) = e^{-ax^2}\cos(bx)$。偏導數為 $\frac{\partial f}{\partial b} = -x e^{-ax^2}\sin(bx)$。對所有 $b \in \R$：
+\[
+\left|\frac{\partial f}{\partial b}\right| = |x| e^{-ax^2} |\sin(bx)| \leqslant x e^{-ax^2}
+\]
+且 $\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$。因此微分是合理的。
+
+微分：
+\[
+I'(b) = -\int_0^{\infty} x\, e^{-ax^2}\sin(bx)\,\mathrm{d}x.
+\]
+使用分部積分，令 $u = \sin(bx)$，$\mathrm{d}v = -xe^{-ax^2}\,\mathrm{d}x$，故 $v = \frac{1}{2a}e^{-ax^2}$：
+\[
+I'(b) = \left[\frac{\sin(bx)}{2a}e^{-ax^2}\right]_0^{\infty} - \frac{b}{2a}\int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x = 0 - \frac{b}{2a}I(b).
+\]
+此常微分方程 $I'(b) = -\frac{b}{2a}I(b)$ 的解為 $I(b) = I(0)e^{-b^2/(4a)}$。
+\end{prf}
+
+\begin{application}[信號處理：Gauss 脈衝傳播]
+時域中的 Gauss 脈衝 $f(t) = e^{-at^2}$ 的 Fourier 變換為：
+\[
+\hat{f}(\omega) = \int_{-\infty}^{\infty} e^{-at^2} e^{-i\omega t}\,\mathrm{d}t = \sqrt{\frac{\pi}{a}} e^{-\omega^2/(4a)}
+\]
+變換也是 Gauss 函數。時間-頻寬乘積滿足：
+\[
+\Delta t \cdot \Delta \omega = \frac{1}{2\sqrt{a}} \cdot \sqrt{a} = \frac{1}{2}
+\]
+這是最小不確定性，使 Gauss 脈衝成為通訊系統的最佳選擇。
+\end{application}
+
+\subsection{Glasser 積分}
+
+\begin{keyintegral}[Glasser 主定理的應用]
+對於 $a > 0$：
+\[
+\int_0^{\infty} e^{-x^2 - a^2/x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}e^{-2a}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} e^{-x^2 - a^2/x^2}\,\mathrm{d}x$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}，其中 $f(x,a) = e^{-x^2 - a^2/x^2}$。偏導數為：
+\[
+\frac{\partial f}{\partial a} = -\frac{2a}{x^2} e^{-x^2 - a^2/x^2}
+\]
+對於 $a \in [0, A]$ 及 $x > 0$，我們需要控制函數。注意 $e^{-x^2 - a^2/x^2} \leqslant e^{-x^2}$ 且 $\frac{2a}{x^2} \leqslant \frac{2A}{x^2}$。對於 $x \geqslant 1$：$\left|\frac{\partial f}{\partial a}\right| \leqslant 2A e^{-x^2}$。對於 $x \in (0,1)$：$\left|\frac{\partial f}{\partial a}\right| \leqslant \frac{2A}{x^2} e^{-a^2/x^2}$，積分收斂。因此微分是合理的。
+
+微分：
+\[
+I'(a) = -2a \int_0^{\infty} \frac{e^{-x^2 - a^2/x^2}}{x^2}\,\mathrm{d}x.
+\]
+代入 $u = a/x$（故 $x = a/u$，$\mathrm{d}x = -a\,\mathrm{d}u/u^2$）：
+\[
+\int_0^{\infty} \frac{e^{-x^2 - a^2/x^2}}{x^2}\,\mathrm{d}x = \frac{1}{a}\int_0^{\infty} e^{-a^2/u^2 - u^2}\,\mathrm{d}u = \frac{I(a)}{a}.
+\]
+因此 $I'(a) = -2I(a)$，得 $I(a) = I(0)e^{-2a} = \frac{\sqrt{\pi}}{2}e^{-2a}$。
+\end{prf}
+
+\begin{application}[量子場論：路徑積分]
+在量子力學的路徑積分表述中，自由粒子的傳播子涉及：
+\[
+K(x_f, t_f; x_i, t_i) = \sqrt{\frac{m}{2\pi i\hbar(t_f - t_i)}} \exp\left(\frac{im(x_f - x_i)^2}{2\hbar(t_f - t_i)}\right)
+\]
+當計算具有特定函數形式的動能和位能貢獻的系統傳播子時，會出現 Glasser 型積分。
+\end{application}
+
+%=============================================================================
+\section{Dirichlet 積分與信號處理}
+%=============================================================================
+
+\subsection{Sinc 函數}
+
+函數 $\mathrm{sinc}(x) = \frac{\sin x}{x}$（其中 $\mathrm{sinc}(0) = 1$）在信號處理中是基本的。
+
+\begin{keyintegral}[Dirichlet 積分]
+\[
+\int_0^{\infty} \frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2}
+\]
+\end{keyintegral}
+
+\begin{prf}
+引入收斂因子 $e^{-ax}$：
+\[
+I(a) = \int_0^{\infty} \frac{\sin x}{x} e^{-ax}\,\mathrm{d}x, \quad a > 0.
+\]
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}，其中 $f(x,a) = \frac{\sin x}{x} e^{-ax}$。偏導數為 $\frac{\partial f}{\partial a} = -\sin x \cdot e^{-ax}$。對於 $a \geqslant a_0 > 0$：
+\[
+\left|\frac{\partial f}{\partial a}\right| = |\sin x| e^{-ax} \leqslant e^{-a_0 x}
+\]
+且 $\int_0^{\infty} e^{-a_0 x}\,\mathrm{d}x = \frac{1}{a_0} < \infty$。因此微分是合理的。
+
+微分：
+\[
+I'(a) = -\int_0^{\infty} \sin x \cdot e^{-ax}\,\mathrm{d}x.
+\]
+
+\textbf{計算 $\int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x$：}
+
+分部積分兩次。令 $J = \int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x$。
+
+第一次：$u = \sin x$，$\mathrm{d}v = e^{-ax}\,\mathrm{d}x$，得 $v = -\frac{1}{a}e^{-ax}$：
+\[
+J = \left[-\frac{\sin x}{a}e^{-ax}\right]_0^{\infty} + \frac{1}{a}\int_0^{\infty} e^{-ax}\cos x\,\mathrm{d}x = \frac{1}{a}\int_0^{\infty} e^{-ax}\cos x\,\mathrm{d}x.
+\]
+
+第二次：$u = \cos x$，$\mathrm{d}v = e^{-ax}\,\mathrm{d}x$：
+\[
+J = \frac{1}{a}\left(\left[-\frac{\cos x}{a}e^{-ax}\right]_0^{\infty} - \frac{1}{a}\int_0^{\infty} e^{-ax}\sin x\,\mathrm{d}x\right) = \frac{1}{a}\left(\frac{1}{a} - \frac{J}{a}\right).
+\]
+
+因此 $J = \frac{1}{a^2} - \frac{J}{a^2}$，得 $J\left(1 + \frac{1}{a^2}\right) = \frac{1}{a^2}$，故：
+\[
+J = \frac{1}{a^2 + 1}.
+\]
+
+因此 $I'(a) = -\frac{1}{1+a^2}$。
+
+積分：$I(a) = -\tan^{-1} a + C$。
+
+當 $a \to \infty$ 時，$I(a) \to 0$（被積函數被 $e^{-ax}/x$ 控制而趨於零），故 $C = \frac{\pi}{2}$。因此 $I(a) = \frac{\pi}{2} - \tan^{-1} a$。
+
+取 $a \to 0^+$：
+\[
+\int_0^{\infty} \frac{\sin x}{x}\,\mathrm{d}x = \frac{\pi}{2}.
+\]
+\end{prf}
+
+\begin{application}[信號處理：理想低通濾波器]
+截止頻率為 $\omega_c$ 的理想低通濾波器具有頻率響應：
+\[
+H(\omega) = \begin{cases} 1 & |\omega| \leqslant \omega_c \\ 0 & |\omega| > \omega_c \end{cases}
+\]
+其脈衝響應（逆 Fourier 變換）為：
+\[
+h(t) = \frac{1}{2\pi}\int_{-\omega_c}^{\omega_c} e^{i\omega t}\,\mathrm{d}\omega = \frac{\omega_c}{\pi} \cdot \frac{\sin(\omega_c t)}{\omega_c t} = \frac{\omega_c}{\pi}\mathrm{sinc}(\omega_c t)
+\]
+$h(t)$ 下的總面積等於 $H(0) = 1$：
+\[
+\int_{-\infty}^{\infty} h(t)\,\mathrm{d}t = \frac{2\omega_c}{\pi} \int_0^{\infty} \frac{\sin(\omega_c t)}{\omega_c t}\,\mathrm{d}t = \frac{2}{\pi} \cdot \frac{\pi}{2} = 1
+\]
+\end{application}
+
+\subsection{廣義 Sinc 積分}
+
+\begin{keyintegral}[衰減的 Sinc]
+對於 $a > 0$：
+\[
+\int_0^{\infty} e^{-ax}\frac{\sin(bx)}{x}\,\mathrm{d}x = \tan^{-1}\frac{b}{a}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(b) = \int_0^{\infty} e^{-ax}\frac{\sin(bx)}{x}\,\mathrm{d}x$，其中 $I(0) = 0$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}。偏導數為 $\frac{\partial}{\partial b}\left(e^{-ax}\frac{\sin(bx)}{x}\right) = e^{-ax}\cos(bx)$。對所有 $b$：
+\[
+\left|e^{-ax}\cos(bx)\right| \leqslant e^{-ax}
+\]
+且 $\int_0^{\infty} e^{-ax}\,\mathrm{d}x = \frac{1}{a} < \infty$。因此微分是合理的。
+
+則 $I'(b) = \int_0^{\infty} e^{-ax}\cos(bx)\,\mathrm{d}x$。
+
+使用與上面相同的分部積分技巧（或認出這是 $\mathrm{Re}\int_0^{\infty} e^{-(a-ib)x}\,\mathrm{d}x$）：
+\[
+I'(b) = \frac{a}{a^2+b^2}.
+\]
+
+積分：$I(b) = \tan^{-1}(b/a)$。
+\end{prf}
+
+\begin{keyintegral}[Sinc 平方]
+對於 $a > 0$：
+\[
+\int_0^{\infty} \frac{\sin^2(ax)}{x^2}\,\mathrm{d}x = \frac{\pi a}{2}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} \frac{\sin^2(ax)}{x^2}\,\mathrm{d}x$，其中 $I(0) = 0$。
+
+\textbf{微分合理性：}我們在 $[0, R]$ 上應用定理~\ref{thm:leibniz-finite}，然後取 $R \to \infty$。或者，注意 $\frac{\partial}{\partial a}\frac{\sin^2(ax)}{x^2} = \frac{2\sin(ax)\cos(ax) \cdot x}{x^2} = \frac{\sin(2ax)}{x}$。對於任意 $a \in [0, A]$，當 $x \geqslant 1$ 時 $\left|\frac{\sin(2ax)}{x}\right| \leqslant \frac{1}{x}$，在 $0$ 附近有界。積分的收斂由 Dirichlet 積分理論保證。
+
+使用 $\frac{\partial}{\partial a}\sin^2(ax) = 2\sin(ax)\cos(ax) \cdot x = x\sin(2ax)$ 微分：
+\[
+I'(a) = \int_0^{\infty} \frac{\sin(2ax)}{x}\,\mathrm{d}x.
+\]
+
+代入 $u = 2ax$：
+\[
+I'(a) = \int_0^{\infty} \frac{\sin u}{u}\,\mathrm{d}u = \frac{\pi}{2}.
+\]
+
+因此 $I(a) = \frac{\pi a}{2}$。
+\end{prf}
+
+\begin{application}[光學：單狹縫 Fraunhofer 繞射]
+對於寬度為 $b$ 的狹縫，被波長為 $\lambda$ 的單色光照射，在角度 $\theta$ 處的強度圖案為：
+\[
+I(\theta) = I_0 \left(\frac{\sin\beta}{\beta}\right)^2, \quad \text{其中 } \beta = \frac{\pi b \sin\theta}{\lambda}
+\]
+通過狹縫傳輸的總功率正比於：
+\[
+\int_{-\pi/2}^{\pi/2} I(\theta)\cos\theta\,\mathrm{d}\theta \approx I_0 \int_{-\infty}^{\infty} \mathrm{sinc}^2\left(\frac{\pi b \theta}{\lambda}\right)\mathrm{d}\theta = I_0 \cdot \frac{\lambda}{b}
+\]
+（使用小角度近似 $\sin\theta \approx \theta$）。
+\end{application}
+
+\subsection{餘弦差積分}
+
+\begin{keyintegral}
+對於 $a, b > 0$：
+\[
+\int_0^{\infty} \frac{\cos(ax) - \cos(bx)}{x^2}\,\mathrm{d}x = \frac{\pi(b-a)}{2}
+\]
+\end{keyintegral}
+
+\begin{prf}
+定義 $J(a) = \int_0^{\infty} \frac{1 - \cos(ax)}{x^2}\,\mathrm{d}x$，其中 $J(0) = 0$。
+
+\textbf{微分合理性：}被積函數 $\frac{1-\cos(ax)}{x^2}$ 在 $x = 0$ 附近表現為 $\frac{a^2}{2}$，對於大 $x$ 表現為 $\frac{1}{x^2}$。偏導數 $\frac{\partial}{\partial a}\frac{1-\cos(ax)}{x^2} = \frac{\sin(ax)}{x}$。由 Dirichlet 積分收斂性，微分是合理的。
+
+則 $J'(a) = \int_0^{\infty} \frac{\sin(ax)}{x}\,\mathrm{d}x = \frac{\pi}{2}$。
+
+故 $J(a) = \frac{\pi a}{2}$，結果由 $J(b) - J(a)$ 得到。
+\end{prf}
+
+%=============================================================================
+\section{Frullani 積分}
+%=============================================================================
+
+\begin{keyintegral}[Frullani 定理]
+若 $f$ 在 $(0, \infty)$ 上連續，且 $f(0^+)$ 和 $f(\infty) = \lim_{x\to\infty} f(x)$ 都存在且有限，則對於 $a, b > 0$：
+\[
+\int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr) \ln\frac{b}{a}
+\]
+\end{keyintegral}
+
+\begin{prf}
+定義 $I(a) = \int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$。注意 $I(b) = 0$。
+
+\textbf{微分合理性：}我們使用極限論證。當 $f$ 可微時，導數 $\frac{\partial}{\partial a}\frac{f(ax) - f(bx)}{x} = f'(ax)$。對於足夠正則的 $f$，控制收斂定理適用。
+
+微分：
+\[
+I'(a) = \int_0^{\infty} f'(ax)\,\mathrm{d}x.
+\]
+
+代入 $u = ax$：
+\[
+I'(a) = \frac{1}{a}\int_0^{\infty} f'(u)\,\mathrm{d}u = \frac{1}{a}\bigl[f(\infty) - f(0^+)\bigr].
+\]
+
+從 $b$ 積分到 $a$：
+\[
+I(a) - I(b) = \bigl(f(\infty) - f(0^+)\bigr)\ln\frac{a}{b}.
+\]
+由於 $I(b) = 0$：
+\[
+I(a) = \bigl(f(\infty) - f(0^+)\bigr)\ln\frac{a}{b} = \bigl(f(0^+) - f(\infty)\bigr)\ln\frac{b}{a}.
+\]
+\end{prf}
+
+\begin{keyintegral}[指數 Frullani]
+\[
+\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}
+\]
+\end{keyintegral}
+
+這裡 $f(x) = e^{-x}$，其中 $f(0^+) = 1$，$f(\infty) = 0$。
+
+\begin{keyintegral}[反正切 Frullani]
+\[
+\int_0^{\infty} \frac{\tan^{-1}(ax) - \tan^{-1}(bx)}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}
+\]
+\end{keyintegral}
+
+這裡 $f(x) = \tan^{-1}(x)$，其中 $f(0^+) = 0$，$f(\infty) = \pi/2$。
+
+\begin{application}[量子電動力學：正則化]
+在量子場論中，經常出現發散積分。Frullani 技巧提供了一種自然的正則化方法：不是計算 $\int_0^{\infty} \frac{f(ax)}{x}\,\mathrm{d}x$（可能發散），而是計算：
+\[
+\int_0^{\infty} \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr)\ln\frac{b}{a}
+\]
+參數 $b$ 充當調節器，在重整化後取 $b \to 0$ 或 $b \to \infty$ 的極限得到物理結果。
+\end{application}
+
+%=============================================================================
+\section{對數積分}
+%=============================================================================
+
+\subsection{基本對數積分}
+
+\begin{keyintegral}
+對於 $a > -1$：
+\[
+\int_0^1 \frac{x^a - 1}{\ln x}\,\mathrm{d}x = \ln(a + 1)
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^1 \frac{x^a - 1}{\ln x}\,\mathrm{d}x$，其中 $I(0) = 0$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-finite}。被積函數 $f(x,a) = \frac{x^a - 1}{\ln x}$ 在 $(0,1]$ 上連續，在 $x = 1$ 有可去奇點（分子和分母都為零）。偏導數為 $\frac{\partial f}{\partial a} = \frac{x^a \ln x}{\ln x} = x^a$。對於 $a \in [a_0, a_1]$（$a_0 > -1$），$|x^a| \leqslant \max(x^{a_0}, x^{a_1})$，在 $[0,1]$ 上可積。因此微分是合理的。
+
+微分：$I'(a) = \int_0^1 \frac{x^a \ln x}{\ln x}\,\mathrm{d}x = \int_0^1 x^a\,\mathrm{d}x = \frac{1}{a+1}$。
+
+積分：$I(a) = \ln(a+1)$。
+\end{prf}
+
+\begin{keyintegral}[廣義形式]
+對於 $a, b > -1$：
+\[
+\int_0^1 \frac{x^a - x^b}{\ln x}\,\mathrm{d}x = \ln\frac{a+1}{b+1}
+\]
+\end{keyintegral}
+
+\begin{application}[資訊理論：熵計算]
+連續隨機變數 $X$ 具有密度 $p(x)$ 的微分熵為：
+\[
+H(X) = -\int p(x) \ln p(x)\,\mathrm{d}x
+\]
+對於 $[0,1]$ 上的冪律分佈 $p(x) \propto x^a$，熵涉及：
+\[
+\int_0^1 x^a \ln x\,\mathrm{d}x = -\frac{1}{(a+1)^2}
+\]
+這可以透過對 $\int_0^1 x^a\,\mathrm{d}x = \frac{1}{a+1}$ 關於 $a$ 微分得到。
+\end{application}
+
+\subsection{對數-有理積分}
+
+\begin{keyintegral}
+對於 $a > 0$：
+\[
+\int_0^{\infty} \frac{\ln x}{x^2 + a^2}\,\mathrm{d}x = \frac{\pi \ln a}{2a}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} \frac{\ln x}{x^2 + a^2}\,\mathrm{d}x$。代入 $x = au$：
+\[
+I(a) = \int_0^{\infty} \frac{\ln(au)}{a^2 u^2 + a^2}\cdot a\, \mathrm{d}u = \frac{1}{a}\int_0^{\infty} \frac{\ln a + \ln u}{u^2 + 1}\,\mathrm{d}u.
+\]
+
+現在 $\int_0^{\infty} \frac{\mathrm{d}u}{u^2+1} = \frac{\pi}{2}$。
+
+對於 $\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u$，代入 $u = 1/t$：
+\[
+\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u = \int_{\infty}^{0} \frac{-\ln t}{1/t^2+1}\cdot\frac{-\mathrm{d}t}{t^2} = \int_0^{\infty} \frac{-\ln t}{t^2+1}\,\mathrm{d}t.
+\]
+
+因此 $\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u = -\int_0^{\infty} \frac{\ln u}{u^2+1}\,\mathrm{d}u$，故此積分等於 $0$。
+
+因此 $I(a) = \frac{\ln a}{a} \cdot \frac{\pi}{2} = \frac{\pi \ln a}{2a}$。
+\end{prf}
+
+\begin{application}[靜電學：二維 Green 函數]
+在二維中，線電荷產生的靜電位滿足：
+\[
+\nabla^2 \phi = -\frac{\lambda}{\varepsilon_0}\delta^{(2)}(\mathbf{r})
+\]
+Green 函數為 $G(\mathbf{r}, \mathbf{r}') = -\frac{1}{2\pi}\ln|\mathbf{r} - \mathbf{r}'|$。計算電荷分佈的電位涉及如下積分：
+\[
+\phi(\mathbf{r}) = \frac{\lambda}{2\pi\varepsilon_0}\int \ln|\mathbf{r} - \mathbf{r}'|\,\mathrm{d}\ell'
+\]
+對數-有理積分公式有助於計算特定幾何的電位。
+\end{application}
+
+\subsection{三角-對數積分}
+
+\begin{keyintegral}
+對於 $a, b > 0$：
+\[
+\int_0^{\pi/2} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta = \pi\ln\frac{a+b}{2}
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a,b) = \int_0^{\pi/2} \ln(a^2\cos^2\theta + b^2\sin^2\theta)\,\mathrm{d}\theta$。
+
+\textbf{步驟 1：計算 $\frac{\partial I}{\partial a}$。}
+
+由定理~\ref{thm:leibniz-finite}，因為被積函數及其偏導數在 $[0, \pi/2]$ 上對於 $a, b > 0$ 連續：
+\[
+\frac{\partial I}{\partial a} = \int_0^{\pi/2} \frac{2a\cos^2\theta}{a^2\cos^2\theta + b^2\sin^2\theta}\,\mathrm{d}\theta
+\]
+
+代入 $t = \tan\theta$，故 $\cos^2\theta = \frac{1}{1+t^2}$，$\sin^2\theta = \frac{t^2}{1+t^2}$，$\mathrm{d}\theta = \frac{\mathrm{d}t}{1+t^2}$：
+\[
+\frac{\partial I}{\partial a} = \int_0^{\infty} \frac{2a/(1+t^2)}{(a^2 + b^2 t^2)/(1+t^2)} \cdot \frac{\mathrm{d}t}{1+t^2} = \int_0^{\infty} \frac{2a}{(a^2 + b^2 t^2)(1+t^2)}\,\mathrm{d}t
+\]
+
+\textbf{步驟 2：部分分式。}
+
+對於 $a \neq b$：
+\[
+\frac{1}{(a^2 + b^2 t^2)(1+t^2)} = \frac{1}{a^2-b^2}\left(\frac{1}{1+t^2} - \frac{b^2}{a^2+b^2t^2}\right)
+\]
+
+因此：
+\[
+\frac{\partial I}{\partial a} = \frac{2a}{a^2-b^2}\left(\int_0^{\infty}\frac{\mathrm{d}t}{1+t^2} - b^2\int_0^{\infty}\frac{\mathrm{d}t}{a^2+b^2t^2}\right)
+\]
+\[
+= \frac{2a}{a^2-b^2}\left(\frac{\pi}{2} - b^2 \cdot \frac{1}{ab} \cdot \frac{\pi}{2}\right) = \frac{2a}{a^2-b^2} \cdot \frac{\pi}{2} \cdot \frac{a-b}{a} = \frac{\pi}{a+b}
+\]
+
+由對稱性，$\frac{\partial I}{\partial b} = \frac{\pi}{a+b}$。
+
+\textbf{步驟 3：積分偏導數。}
+
+兩個偏導數都等於 $\frac{\pi}{a+b}$，這與以下一致：
+\[
+I(a,b) = \pi\ln(a+b) + C
+\]
+
+\textbf{步驟 4：確定 $C$。}
+
+令 $a = b$：
+\[
+I(a,a) = \int_0^{\pi/2} \ln(a^2)\,\mathrm{d}\theta = \pi\ln a
+\]
+
+但從我們的公式：$\pi\ln(2a) + C = \pi\ln a$，故 $C = -\pi\ln 2$。
+
+因此：
+\[
+I(a,b) = \pi\ln(a+b) - \pi\ln 2 = \pi\ln\frac{a+b}{2}
+\]
+\end{prf}
+
+\begin{keyintegral}[對數-正弦和對數-餘弦]
+\[
+\int_0^{\pi/2} \ln(\sin\theta)\,\mathrm{d}\theta = \int_0^{\pi/2} \ln(\cos\theta)\,\mathrm{d}\theta = -\frac{\pi}{2}\ln 2
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I = \int_0^{\pi/2} \ln(\sin\theta)\,\mathrm{d}\theta$。代入 $\phi = \frac{\pi}{2} - \theta$：
+\[
+I = \int_0^{\pi/2} \ln(\cos\phi)\,\mathrm{d}\phi.
+\]
+故兩個積分相等。
+
+現在計算 $2I = \int_0^{\pi/2} \ln(\sin\theta\cos\theta)\,\mathrm{d}\theta = \int_0^{\pi/2} \ln\frac{\sin 2\theta}{2}\,\mathrm{d}\theta$。
+
+\[
+2I = \int_0^{\pi/2} \ln(\sin 2\theta)\,\mathrm{d}\theta - \frac{\pi}{2}\ln 2.
+\]
+
+代入 $u = 2\theta$：
+\[
+\int_0^{\pi/2} \ln(\sin 2\theta)\,\mathrm{d}\theta = \frac{1}{2}\int_0^{\pi} \ln(\sin u)\,\mathrm{d}u = \frac{1}{2} \cdot 2\int_0^{\pi/2}\ln(\sin u)\,\mathrm{d}u = I.
+\]
+
+（我們使用了 $\int_0^{\pi}\ln\sin u\,\mathrm{d}u = 2\int_0^{\pi/2}\ln\sin u\,\mathrm{d}u$，因為對 $\pi/2$ 對稱。）
+
+因此 $2I = I - \frac{\pi}{2}\ln 2$，得 $I = -\frac{\pi}{2}\ln 2$。
+\end{prf}
+
+\begin{application}[統計力學：態密度]
+在二維 Ising 模型中，配分函數涉及如下形式的積分：
+\[
+\ln Z = \frac{1}{2}\ln 2 + \frac{1}{2\pi^2}\int_0^{\pi}\int_0^{\pi} \ln\bigl[\cosh^2(2K) - \sinh(2K)(\cos\phi_1 + \cos\phi_2)\bigr]\,\mathrm{d}\phi_1\,\mathrm{d}\phi_2
+\]
+對數-正弦積分出現在這類表達式的計算中，特別是在 Onsager 的精確解中。
+\end{application}
+
+%=============================================================================
+\section{Poisson 積分}
+%=============================================================================
+
+\begin{keyintegral}[Poisson 積分]
+對於 $|r| < 1$：
+\[
+\int_0^\pi \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta = 0
+\]
+對於 $|r| > 1$：
+\[
+\int_0^\pi \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta = 2\pi\ln|r|
+\]
+\end{keyintegral}
+
+\begin{prf}
+定義 $I(r) = \int_0^{\pi} \ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta$，對於 $|r| < 1$。
+
+注意 $I(0) = \int_0^{\pi} \ln(1)\,\mathrm{d}\theta = 0$。
+
+\textbf{步驟 1：對 $r$ 微分。}
+
+由定理~\ref{thm:leibniz-finite}，因為被積函數及其偏導數在 $[0,\pi]$ 上對於 $|r| < 1$ 連續：
+\[
+I'(r) = \int_0^\pi \frac{-2\cos\theta + 2r}{1 - 2r\cos\theta + r^2}\,\mathrm{d}\theta = 2r\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} - 2\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}
+\]
+
+\textbf{步驟 2：計算 $\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}$。}
+
+使用 Weierstrass 代換 $t = \tan(\theta/2)$，故：
+\begin{align*}
+\cos\theta &= \frac{1-t^2}{1+t^2}, \quad \mathrm{d}\theta = \frac{2\,\mathrm{d}t}{1+t^2}
+\end{align*}
+
+分母變換為：
+\[
+1 - 2r\cos\theta + r^2 = 1 - 2r\frac{1-t^2}{1+t^2} + r^2 = \frac{(1-r)^2 + (1+r)^2 t^2}{1+t^2}
+\]
+
+因此：
+\[
+\int_0^\pi \frac{\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = \int_0^\infty \frac{1+t^2}{(1-r)^2 + (1+r)^2 t^2} \cdot \frac{2\,\mathrm{d}t}{1+t^2} = 2\int_0^\infty \frac{\mathrm{d}t}{(1-r)^2 + (1+r)^2 t^2}
+\]
+
+代入 $u = (1+r)t$：
+\[
+= \frac{2}{1+r}\int_0^\infty \frac{\mathrm{d}u}{(1-r)^2 + u^2} = \frac{2}{1+r} \cdot \frac{1}{1-r} \cdot \frac{\pi}{2} = \frac{\pi}{1-r^2}
+\]
+
+\textbf{步驟 3：計算 $\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2}$。}
+
+使用相同的代換：
+\[
+\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = 2\int_0^\infty \frac{1-t^2}{[(1-r)^2 + (1+r)^2 t^2](1+t^2)}\,\mathrm{d}t
+\]
+
+令 $\alpha = (1-r)^2$ 和 $\beta = (1+r)^2$。使用部分分式：
+\[
+\frac{1-t^2}{(\alpha+\beta t^2)(1+t^2)} = \frac{\alpha+\beta}{(\beta-\alpha)(\alpha+\beta t^2)} - \frac{2}{(\beta-\alpha)(1+t^2)}
+\]
+
+現在 $\beta - \alpha = (1+r)^2 - (1-r)^2 = 4r$ 且 $\alpha + \beta = 2(1+r^2)$。
+
+因此：
+\[
+\int_0^\infty \frac{1-t^2}{(\alpha+\beta t^2)(1+t^2)}\,\mathrm{d}t = \frac{1+r^2}{2r}\cdot\frac{\pi}{2(1-r^2)} - \frac{1}{2r}\cdot\frac{\pi}{2} = \frac{\pi(1+r^2)}{4r(1-r^2)} - \frac{\pi}{4r}
+\]
+\[
+= \frac{\pi}{4r}\left(\frac{1+r^2}{1-r^2} - 1\right) = \frac{\pi}{4r}\cdot\frac{2r^2}{1-r^2} = \frac{\pi r}{2(1-r^2)}
+\]
+
+故：
+\[
+\int_0^\pi \frac{\cos\theta\,\mathrm{d}\theta}{1 - 2r\cos\theta + r^2} = 2 \cdot \frac{\pi r}{2(1-r^2)} = \frac{\pi r}{1-r^2}
+\]
+
+\textbf{步驟 4：合併。}
+\[
+I'(r) = 2r \cdot \frac{\pi}{1-r^2} - 2 \cdot \frac{\pi r}{1-r^2} = \frac{2\pi r - 2\pi r}{1-r^2} = 0
+\]
+
+\textbf{步驟 5：結論。}
+
+由於對所有 $|r| < 1$ 有 $I'(r) = 0$ 且 $I(0) = 0$，我們有對於 $|r| < 1$，$I(r) = 0$。
+
+\textbf{情況 $|r| > 1$：}
+
+令 $r = 1/s$，其中 $|s| < 1$。則：
+\[
+1 - 2r\cos\theta + r^2 = r^2\left(s^2 - 2s\cos\theta + 1\right) = r^2(1 - 2s\cos\theta + s^2)
+\]
+
+故：
+\[
+I(r) = \int_0^{\pi} \ln\bigl[r^2(1 - 2s\cos\theta + s^2)\bigr]\,\mathrm{d}\theta = 2\pi\ln|r| + \underbrace{\int_0^{\pi}\ln(1-2s\cos\theta+s^2)\,\mathrm{d}\theta}_{=0} = 2\pi\ln|r|
+\]
+\end{prf}
+
+\begin{application}[位勢理論：調和函數]
+對於單位圓盤內的調和函數 $u(r, \theta)$，給定圓上的邊界值 $f(\phi)$，Poisson 積分公式為：
+\[
+u(r, \theta) = \frac{1}{2\pi}\int_0^{2\pi} \frac{1 - r^2}{1 - 2r\cos(\theta - \phi) + r^2} f(\phi)\,\mathrm{d}\phi
+\]
+核 $P_r(\theta) = \frac{1-r^2}{1-2r\cos\theta+r^2}$ 稱為 Poisson 核。我們證明的對數積分表明：
+\[
+\int_0^{2\pi} \ln|1 - re^{i\theta}|^2\,\mathrm{d}\theta = 0 \quad \text{對於 } |r| < 1
+\]
+這與複分析中的 Jensen 公式有關。
+\end{application}
+
+%=============================================================================
+\section{反正切積分}
+%=============================================================================
+
+\begin{keyintegral}
+對於 $a > 0$：
+\[
+\int_0^{\infty} \frac{\tan^{-1}(ax)}{x(1 + x^2)}\,\mathrm{d}x = \frac{\pi}{2}\ln(1 + a)
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} \frac{\tan^{-1}(ax)}{x(1+x^2)}\,\mathrm{d}x$，其中 $I(0) = 0$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}。偏導數為：
+\[
+\frac{\partial}{\partial a}\frac{\tan^{-1}(ax)}{x(1+x^2)} = \frac{1}{(1+a^2x^2)(1+x^2)}
+\]
+對於 $a \in [0, A]$，我們有 $\frac{1}{(1+a^2x^2)(1+x^2)} \leqslant \frac{1}{1+x^2}$，且 $\int_0^{\infty} \frac{\mathrm{d}x}{1+x^2} = \frac{\pi}{2} < \infty$。因此微分是合理的。
+
+微分：
+\[
+I'(a) = \int_0^{\infty} \frac{1}{(1 + a^2 x^2)(1 + x^2)}\,\mathrm{d}x.
+\]
+部分分式（對於 $a \neq 1$）：
+\[
+\frac{1}{(1+a^2x^2)(1+x^2)} = \frac{1}{1-a^2}\left(\frac{1}{1+x^2} - \frac{a^2}{1+a^2x^2}\right).
+\]
+故
+\[
+I'(a) = \frac{1}{1-a^2}\left(\int_0^{\infty}\frac{\mathrm{d}x}{1+x^2} - a^2\int_0^{\infty}\frac{\mathrm{d}x}{1+a^2x^2}\right) = \frac{1}{1-a^2}\left(\frac{\pi}{2} - a^2 \cdot \frac{1}{a} \cdot \frac{\pi}{2}\right)
+\]
+\[
+= \frac{1}{1-a^2} \cdot \frac{\pi}{2}(1-a) = \frac{\pi}{2(1+a)}.
+\]
+積分：$I(a) = \frac{\pi}{2}\ln(1+a)$。
+\end{prf}
+
+%=============================================================================
+\section{涉及 $\ln(1 + a^2x^2)$ 的積分}
+%=============================================================================
+
+\begin{keyintegral}
+對於 $a > 0$：
+\[
+\int_0^{\infty} \frac{\ln(1 + a^2 x^2)}{1 + x^2}\,\mathrm{d}x = \pi\ln(1 + a)
+\]
+\end{keyintegral}
+
+\begin{prf}
+令 $I(a) = \int_0^{\infty} \frac{\ln(1 + a^2x^2)}{1 + x^2}\,\mathrm{d}x$，其中 $I(0) = 0$。
+
+\textbf{微分合理性：}我們應用定理~\ref{thm:leibniz-improper}。偏導數為：
+\[
+\frac{\partial}{\partial a}\frac{\ln(1+a^2x^2)}{1+x^2} = \frac{2ax^2}{(1+a^2x^2)(1+x^2)}
+\]
+對於 $a \in [0, A]$，我們有 $\frac{2ax^2}{(1+a^2x^2)(1+x^2)} \leqslant \frac{2Ax^2}{(1+x^2)^2}$，且 $\int_0^{\infty} \frac{x^2}{(1+x^2)^2}\,\mathrm{d}x < \infty$。因此微分是合理的。
+
+微分：
+\[
+I'(a) = \int_0^{\infty} \frac{2ax^2}{(1 + a^2x^2)(1 + x^2)}\,\mathrm{d}x.
+\]
+使用部分分式：
+\[
+\frac{x^2}{(1+a^2x^2)(1+x^2)} = \frac{1}{1-a^2}\left(\frac{1}{1+a^2x^2} - \frac{1}{1+x^2}\right).
+\]
+故：
+\[
+I'(a) = \frac{2a}{1-a^2}\left(\frac{\pi}{2a} - \frac{\pi}{2}\right) = \frac{2a}{1-a^2} \cdot \frac{\pi(1-a)}{2a} = \frac{\pi}{1+a}.
+\]
+因此 $I(a) = \pi\ln(1+a)$。
+\end{prf}
+
+%=============================================================================
+\section{習題}
+%=============================================================================
+
+%\textbf{習題 1.}（量子力學）量子諧振子基態的期望值 $\langle x^4 \rangle$ 需要 $\int_{-\infty}^{\infty} x^4 e^{-\alpha x^2}\,\mathrm{d}x$。透過對 $\int_{-\infty}^{\infty} e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi/a}$ 微分兩次來計算此積分。
+%
+%\begin{solution}
+%令 $I(a) = \int_{-\infty}^{\infty} e^{-ax^2}\,\mathrm{d}x = \sqrt{\frac{\pi}{a}} = \sqrt{\pi}\, a^{-1/2}$。
+%
+%\textbf{微分合理性：}由定理~\ref{thm:leibniz-improper}，我們需要 $\frac{\partial}{\partial a}(e^{-ax^2}) = -x^2 e^{-ax^2}$ 的控制函數。對於 $a \in [a_0, a_1]$（$a_0 > 0$），我們有 $|x^2 e^{-ax^2}| \leqslant x^2 e^{-a_0 x^2}$，且 $\int_{-\infty}^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$。因此微分是合理的。
+%
+%對 $a$ 微分：
+%\[
+%I'(a) = -\int_{-\infty}^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \sqrt{\pi} \cdot \left(-\frac{1}{2}\right) a^{-3/2} = -\frac{\sqrt{\pi}}{2a^{3/2}}.
+%\]
+%
+%因此：
+%\[
+%\int_{-\infty}^{\infty} x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2a^{3/2}}.
+%\]
+%對於第二次微分，我們再次驗證：$\frac{\partial}{\partial a}(x^2 e^{-ax^2}) = -x^4 e^{-ax^2}$，被 $x^4 e^{-a_0 x^2}$ 控制，後者可積。因此：
+%\[
+%I''(a) = \int_{-\infty}^{\infty} x^4 e^{-ax^2}\,\mathrm{d}x = -\frac{\mathrm{d}}{\mathrm{d}a}\left(-\frac{\sqrt{\pi}}{2a^{3/2}}\right) = -\frac{\sqrt{\pi}}{2} \cdot \left(-\frac{3}{2}\right) a^{-5/2} = \frac{3\sqrt{\pi}}{4a^{5/2}}.
+%\]
+%\[
+%\boxed{\int_{-\infty}^{\infty} x^4 e^{-\alpha x^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{4\alpha^{5/2}}}
+%\]
+%\end{solution}
+%
+%\bigskip
+
+%\textbf{習題 2.}（機率論）透過計算 $\int_{-\infty}^{\infty} e^{itx} \cdot \frac{1}{\sqrt{2\pi}}e^{-x^2/2}\,\mathrm{d}x$ 證明標準常態分佈的特徵函數為 $\varphi(t) = e^{-t^2/2}$。
+%
+%\begin{solution}
+%我們需要計算：
+%\[
+%\varphi(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{itx} e^{-x^2/2}\,\mathrm{d}x = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-x^2/2 + itx}\,\mathrm{d}x.
+%\]
+%
+%在指數中配方：
+%\[
+%-\frac{x^2}{2} + itx = -\frac{1}{2}(x^2 - 2itx) = -\frac{1}{2}(x - it)^2 - \frac{t^2}{2}.
+%\]
+%
+%因此：
+%\[
+%\varphi(t) = \frac{e^{-t^2/2}}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x.
+%\]
+%
+%積分 $\int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x$ 可以透過移動積分路徑計算（因為被積函數是整函數且快速衰減，這是合理的）：
+%\[
+%\int_{-\infty}^{\infty} e^{-(x-it)^2/2}\,\mathrm{d}x = \int_{-\infty}^{\infty} e^{-u^2/2}\,\mathrm{d}u = \sqrt{2\pi}.
+%\]
+%
+%因此：
+%\[
+%\boxed{\varphi(t) = e^{-t^2/2}}
+%\]
+%\end{solution}
+%
+%\bigskip
+
+\textbf{習題 1.} 證明 $\forall\,a, b > 0$，$\ds \int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)$。
+
+\begin{solution}
+使用積化和差公式：
+\[
+\sin(ax)\sin(bx) = \frac{1}{2}\bigl[\cos((a-b)x) - \cos((a+b)x)\bigr].
+\]
+
+因此：
+\[
+\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^{\infty} \frac{\cos((a-b)x) - \cos((a+b)x)}{x^2}\,\mathrm{d}x.
+\]
+
+定義 $J(c) = \int_0^{\infty} \frac{1-\cos(cx)}{x^2}\,\mathrm{d}x$，其中 $J(0) = 0$。
+
+\textbf{微分合理性：}由定理~\ref{thm:leibniz-improper}，$\frac{\partial}{\partial c}\frac{1-\cos(cx)}{x^2} = \frac{\sin(cx)}{x}$。收斂性由 Dirichlet 積分理論保證：對於 $c \neq 0$，積分 $\int_0^{\infty} \frac{\sin(cx)}{x}\,\mathrm{d}x$ 條件收斂到 $\frac{\pi}{2}\,\mathrm{sgn}(c)$。
+
+微分：$J'(c) = \int_0^{\infty} \frac{\sin(cx)}{x}\,\mathrm{d}x = \frac{\pi}{2}$（透過代換由 Dirichlet 積分得到）。
+
+積分：對於 $c \geqslant 0$，$J(c) = \frac{\pi c}{2}$。
+
+對於 $c < 0$：由於 $\cos(cx) = \cos(|c|x)$，我們有 $J(c) = J(|c|) = \frac{\pi|c|}{2}$。
+
+因此對所有 $c$，$J(c) = \frac{\pi|c|}{2}$。
+
+現在：
+\[
+\int_0^{\infty} \frac{\cos((a-b)x) - \cos((a+b)x)}{x^2}\,\mathrm{d}x = J(a+b) - J(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2}
+\]
+\[
+= \frac{\pi}{2}\bigl((a+b) - |a-b|\bigr) = \frac{\pi}{2} \cdot 2\min(a,b) = \pi\min(a,b)
+\]
+
+使用恆等式 $(a+b) - |a-b| = 2\min(a,b)$。
+
+因此：
+\[
+\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{1}{2} \cdot \pi\min(a,b) = \frac{\pi}{2}\min(a,b)
+\]
+
+\[
+\boxed{\int_0^{\infty} \frac{\sin(ax)\sin(bx)}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{習題 2.} $\forall\,a > 0$，求 $\ds\int_0^{\infty} xe^{-ax^2}\sin(bx)\,\mathrm{d}x$。
+
+\begin{solution}
+令 $I(b) = \int_0^{\infty} e^{-ax^2}\cos(bx)\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}e^{-b^2/(4a)}$（來自 Gauss Fourier 變換）。
+
+\textbf{微分合理性：}由定理~\ref{thm:leibniz-improper}，$\frac{\partial}{\partial b}(e^{-ax^2}\cos(bx)) = -x e^{-ax^2}\sin(bx)$。對所有 $b \in \R$，$|x e^{-ax^2}\sin(bx)| \leqslant x e^{-ax^2}$，且 $\int_0^{\infty} x e^{-ax^2}\,\mathrm{d}x = \frac{1}{2a} < \infty$。因此微分是合理的。
+
+對 $b$ 微分：
+\[
+I'(b) = -\int_0^{\infty} x e^{-ax^2}\sin(bx)\,\mathrm{d}x.
+\]
+另外
+\[
+I'(b) = \frac{1}{2}\sqrt{\frac{\pi}{a}} \cdot e^{-b^2/(4a)} \cdot \left(-\frac{b}{2a}\right) = -\frac{b}{4a}\sqrt{\frac{\pi}{a}}e^{-b^2/(4a)}.
+\]
+因此
+\[
+\boxed{\int_0^{\infty} xe^{-ax^2}\sin(bx)\,\mathrm{d}x = \frac{b\sqrt{\pi}}{4a^{3/2}}e^{-b^2/(4a)}}
+\]
+\end{solution}
+
+\bigskip
+
+\textbf{習題 3.} 證明 $\forall\,a, b, c > 0$，$\ds\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}$
+
+\begin{solution}
+由正文，$\forall\alpha > 0$：
+\[
+J(\alpha) = \int_0^{\infty} e^{-\alpha x}\frac{\sin(cx)}{x}\,\mathrm{d}x = \tan^{-1}\frac{c}{\alpha}.
+\]
+
+\textbf{微分合理性：}$J(\alpha) = \tan^{-1}(c/\alpha)$ 的推導使用定理~\ref{thm:leibniz-improper}。設 $f(x, \alpha) = e^{-\alpha x}\frac{\sin(cx)}{x}$，偏導數 $\frac{\partial f}{\partial \alpha} = -e^{-\alpha x}\sin(cx)$ 對於 $\alpha \geqslant \alpha_0 > 0$ 滿足 $|\frac{\partial f}{\partial \alpha}| \leqslant e^{-\alpha_0 x}$，後者可積。
+
+我們要求的積分為：
+\[
+\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \int_0^{\infty} \frac{e^{-ax}\sin(cx)}{x}\,\mathrm{d}x - \int_0^{\infty} \frac{e^{-bx}\sin(cx)}{x}\,\mathrm{d}x
+\]
+\[
+= J(a) - J(b) = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}.
+\]
+
+\[
+\boxed{\int_0^{\infty} \frac{e^{-ax} - e^{-bx}}{x}\sin(cx)\,\mathrm{d}x = \tan^{-1}\frac{c}{a} - \tan^{-1}\frac{c}{b}}
+\]
+\end{solution}
+\end{document}
