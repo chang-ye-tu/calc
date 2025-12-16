@@ -1875,7 +1875,7 @@
   %  \item $\ds\frac{\partial f}{\partial a} = -x^2 e^{-ax^2}$ 對所有 $x \geqslant 0$ 及 $a > 0$ 存在. 
   %  \item $\ds \left|\frac{\partial f}{\partial a}\right| = x^2 e^{-ax^2} \leqslant x^2 e^{-a_0 x^2}$, 且 $\ds\int_0^{\infty} x^2 e^{-a_0 x^2}\,\mathrm{d}x < \infty$. 
   %\end{itemize}
-  則 $\ds F'(a) = -\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = -\frac{1}{2}\sqrt{\pi} \cdot \big(-\frac{1}{2}\big) a^{-\frac{3}{2}} = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$ $\ie$ $\ds\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$, $\ds F''(a) = \int_0^{\infty}\!x^4 e^{-ax^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{8a^{\frac{5}{2}}}$; 可歸納出通式為 $\ds (-1)^n F^{(n)}(a) = \int_0^{\infty}\!x^{2n} e^{-ax^2}\,\mathrm{d}x$. 由 $\ds\frac{\mathrm{d}^n}{\mathrm{d}a^n}\left(a^{-1/2}\right) = (-1)^n \frac{(2n-1)!!}{2^n} a^{-\frac{2n+1}{2}}$, 得證. 
+  則 $\ds F'(a) = -\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = -\frac{1}{2}\sqrt{\pi} \cdot \big(-\frac{1}{2}\big) a^{-\frac{3}{2}} = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$ $\ie$ $\ds\int_0^{\infty}\!x^2 e^{-ax^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{4a^{\frac{3}{2}}}$, $\ds F''(a) = \int_0^{\infty}\!x^4 e^{-ax^2}\,\mathrm{d}x = \frac{3\sqrt{\pi}}{8a^{\frac{5}{2}}}$; 可歸納出通式為 $\ds (-1)^n F^{(n)}(a) = \int_0^{\infty}\!x^{2n} e^{-ax^2}\,\mathrm{d}x$. 由 $\ds\frac{\mathrm{d}^n}{\mathrm{d}a^n}(a^{-\frac{1}{2}}) = (-1)^n \frac{(2n-1)!!}{2^n} a^{-\frac{2n+1}{2}}$, 得證. 
 \end{prf}
 
 \begin{ex}
@@ -1951,19 +1951,19 @@
 \end{ex}
 
 \begin{prf}
-  設 $\ds F(a) = \int_0^{\infty}\frac{1 - \cos ax}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$; $\ds F'(a) = \int_0^{\infty}\frac{\sin ax}{x}\,\mathrm{d}x = \frac{\pi}{2}$, 故 $\ds F(a) = \frac{\pi a}{2}$, $\ds\int_0^{\infty}\frac{\cos ax - \cos bx}{x^2}\,\mathrm{d}x = F(b) - F(a) = \frac{\pi(b-a)}{2}$. 
+  設 $\ds F(a) = \int_0^{\infty}\frac{1 - \cos ax}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$; $\ds F'(a) = \int_0^{\infty}\frac{\sin ax}{x}\,\mathrm{d}x = \frac{\pi}{2}$, 故 $\ds F(a) = \frac{\pi a}{2}$, $\ds\int_0^{\infty}\frac{\cos ax - \cos bx}{x^2}\,\mathrm{d}x \\= F(b) - F(a) = \frac{\pi(b-a)}{2}$. 
 \end{prf}
 
 \begin{ex}[Frullani 公式]
-  若 $f$ 在 $(0, \infty)$ 連續, 且 $f(0^+)$ 和 $f(\infty) = \lim_{x\to\infty} f(x)$ 都存在且有限, 則 $\forall\,a, b > 0$ $\ds\int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0^+) - f(\infty)\bigr) \ln\frac{b}{a}$.
+  若 $f$ 在 $(0, \infty)$ 連續, 且 $f(0+)$ 和 $\ds f(\infty) = \lim_{x\to\infty} f(x)$ 都存在且有限, 則 $\forall\,a, b > 0$ $\ds\int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x = \bigl(f(0+) - f(\infty)\bigr) \ln\frac{b}{a}$.
 \end{ex}
 
 \begin{prf}
-  令 $\ds F(a) = \int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$, 則 $F(b) = 0$; 變數變換 $\ds u = ax$, $\ds F'(a) = \int_0^\infty f'(ax)\,\mathrm{d}x = \frac{1}{a}\int_0^\infty f'(u)\,\mathrm{d}u = \frac{1}{a}\big(f(\infty) - f(0^+)\big)$. 則 $\ds\int_b^a F'(t)\,\mathrm{d}t = \frac{1}{a}\big(f(\infty) - f(0^+)\big)\int_b^a\frac{1}{t}\,\mathrm{d}t$ $\ie$ $\ds F(a) = \big(f(\infty) - f(0^+)\big)\ln\frac{a}{b}$.
+  令 $\ds F(a) = \int_0^\infty \frac{f(ax) - f(bx)}{x}\,\mathrm{d}x$, 則 $F(b) = 0$; 變數變換 $\ds u = ax$, $\ds F'(a) = \int_0^\infty f'(ax)\,\mathrm{d}x = \frac{1}{a}\int_0^\infty f'(u)\,\mathrm{d}u = \frac{1}{a}\big(f(\infty) - f(0+)\big)$. 則 $\ds\int_b^a F'(t)\,\mathrm{d}t = \big(f(\infty) - f(0+)\big)\int_b^a\frac{1}{t}\,\mathrm{d}t$ $\ie$ $\ds F(a) = \big(f(\infty) - f(0+)\big)\ln\frac{a}{b}$.
 \end{prf}
 
 \begin{rmk}
-  $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}$, $\ds\int_0^\infty\frac{\tan^{-1} ax - \tan^{-1}bx}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}$ 可分別由 Frullani 公式求得: 分別取 $\ds f(x) = e^{-x}$; $\ds f(0^+) = 1$, $\ds f(\infty) = 0$ 及取 $\ds f(x) = \tan^{-1}(x)$; $\ds f(0^+) = 0$, $\ds f(\infty) = \frac{\pi}{2}$. 
+  $\ds\int_0^\infty\frac{e^{-ax} - e^{-bx}}{x}\,\mathrm{d}x = \ln\frac{b}{a}$, $\ds\int_0^\infty\frac{\tan^{-1} ax - \tan^{-1}bx}{x}\,\mathrm{d}x = \frac{\pi}{2}\ln\frac{a}{b}$ 可分別由 Frullani 公式求得: 分別取 $\ds f(x) = e^{-x}$; $\ds f(0+) = 1$, $\ds f(\infty) = 0$ 及取 $\ds f(x) = \tan^{-1}(x)$; $\ds f(0+) = 0$, $\ds f(\infty) = \frac{\pi}{2}$. 
 \end{rmk}
 
 \begin{ex}
