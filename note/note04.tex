@@ -1897,14 +1897,26 @@
 \end{prf}
 
 \begin{ex}
-  $\ds\int_0^\infty\!\!e^{-x^2 - \frac{a^2}{x^2}}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}e^{-2a}$, $\;\forall\,a > 0$.
+  $\ds\int_0^\infty\!\!e^{-ax^2 - \frac{b}{x^2}}\,\mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}}\,e^{-2\sqrt{ab}}$, $\;\forall\,a, b > 0$.
 \end{ex}
 
 \begin{prf}
-  令 $\ds F(a) = \int_0^\infty\!\!e^{-x^2 - \frac{a^2}{x^2}}\,\mathrm{d}x$, 則 $\ds F(0) = \frac{\sqrt{\pi}}{2}$;
-  %$\ds\frac{\partial F}{\partial a} = -\frac{2a}{x^2} e^{-x^2 - \frac{a^2}{x^2}}$; $\forall\,a \in [0, A]$, $x > 0$, $\ds e^{-x^2 - \frac{a^2}{x^2}}\leqslant e^{-x^2}$ 且 $\ds\frac{2a}{x^2}\leqslant\frac{2A}{x^2}$. $\forall\,x \geqslant 1$, $\ds\left|\frac{\partial f}{\partial a}\right|\leqslant 2A e^{-x^2}$. $\forall\,x \in (0,1)$, $\ds\left|\frac{\partial f}{\partial a}\right| \leqslant \frac{2A}{x^2} e^{-a^2/x^2}$, 積分收斂. 
-  $\ds F'(a) = -2a \int_0^\infty\!\frac{e^{-x^2 - \frac{a^2}{x^2}}}{x^2}\,\mathrm{d}x$. 變數變換 $\ds u = \frac{a}{x}$, 則 $\ds x = \frac{a}{u}$, $\ds-\frac{\mathrm{d}u}{a} = \frac{\mathrm{d}x}{x^2}$, 積分範圍 $x$ 從 $0+$ 到 $\infty$, 則 $\ds u = \frac{a}{x}$ 從 $\infty$ 到 $0$, $\ds\int_0^\infty\!\frac{e^{-x^2 - \frac{a^2}{x^2}}}{x^2}\,\mathrm{d}x = \int_{\infty}^0\!e^{-\frac{a^2}{u^2} - u^2}(-1)\,\frac{\mathrm{d}u}{a} = \frac{1}{a}\int_0^\infty\!\!e^{-\frac{a^2}{u^2} - u^2}\,\mathrm{d}u = \frac{F(a)}{a}$, 故 $\ds F'(a) = -2F(a)$ $\ie$ $\ds F(a) = F(0)\,e^{-2a} = \frac{\sqrt{\pi}}{2}e^{-2a}$. 
+  令 $\ds F(t) = \int_0^\infty\!\!e^{-ax^2 - \frac{t}{x^2}}\,\mathrm{d}x$, $t > 0$, 則 $\ds F(0) = \frac{1}{2}\sqrt{\frac{\pi}{a}}$;
+  %$\ds\frac{\partial F}{\partial a} = -\frac{2a}{x^2} e^{-x^2 - \frac{a^2}{x^2}}$; $\forall\,a \in [0, A]$, $x > 0$, $\ds e^{-x^2 - \frac{a^2}{x^2}}\leqslant e^{-x^2}$ 且 $\ds\frac{2a}{x^2}\leqslant\frac{2A}{x^2}$. $\forall\,x \geqslant 1$, $\ds\left|\frac{\partial f}{\partial a}\right|\leqslant 2A e^{-x^2}$. $\forall\,x \in (0,1)$, $\ds\left|\frac{\partial f}{\partial a}\right| \leqslant \frac{2A}{x^2} e^{-a^2/x^2}$, 積分收斂.
+  $\ds F'(t) = - \int_0^\infty\!\frac{e^{-ax^2 - \frac{t}{x^2}}}{x^2}\,\mathrm{d}x$. 變數變換 $\ds u = \sqrt{\frac{t}{a}}\,\frac{1}{x}$, 則 $\ds x = \sqrt{\frac{t}{a}}\,\frac{1}{u}$, $\ds-\sqrt{\frac{a}{t}}\,\mathrm{d}u = \frac{\mathrm{d}x}{x^2}$, 積分範圍 $x$ 從 $0+$ 到 $\infty$, 則 $\ds u = \sqrt{\frac{t}{a}}\,\frac{1}{x}$ 從 $\infty$ 到 $0$, $\ds F'(t) = \int_0^\infty\!\frac{e^{-ax^2 - \frac{t}{x^2}}}{x^2}\,\mathrm{d}x = \int_\infty^0\!e^{-a\cdot\frac{t}{a}\cdot\frac{1}{u^2} - t\cdot\frac{a}{t}\cdot u^2}(-)\sqrt{\frac{a}{t}}\,\mathrm{d}u = \sqrt{\frac{a}{t}}\int_0^\infty\!\!e^{-\frac{t}{u^2} - au^2}\,\mathrm{d}u = \sqrt{\frac{a}{t}}\,F(t)$ $\ie$ $\ds\int_0^b\!\frac{F'(t)}{F(t)}\,\mathrm{d}t = \sqrt{a}\int_0^b\!\frac{1}{\sqrt{t}}\,\mathrm{d}t$ $\ie$ $\ds\ln F(t)\,\Big|_0^b = -2\sqrt{ab}$ $\ie$ $\ds F(b) = F(0)\,e^{-2\sqrt{ab}} = \frac{1}{2}\sqrt{\frac{\pi}{a}}\,e^{-2\sqrt{ab}}$. 
 \end{prf}
+
+\begin{ex}[Glasser's Master Theorem (GMT)]
+  若 $f$ 在 $(-\infty, \infty)$ 可積, $\forall\,c > 0$, $\ds\int_{-\infty}^\infty f\big(x - \frac{c}{x}\big)\,\mathrm{d}x = \int_{-\infty}^\infty f(x)\,\mathrm{d}x$.
+\end{ex}
+
+\begin{prf}
+  變數變換 $\ds u = x - \frac{c}{x}$, 則 $\ds x^2 - ux - c = 0$ $\ie$ $\ds x = \frac{u + \sqrt{u^2 + 4c}}{2} > 0$ 或 $\ds x = \frac{u - \sqrt{u^2 + 4c}}{2} < 0$, 分別對應 $\ds\mathrm{d}x = \Big(\frac{1}{2} + \frac{u}{\sqrt{u^2 + 4c}}\Big)\mathrm{d}u$ 或 $\ds\mathrm{d}x = \Big(\frac{1}{2} - \frac{u}{\sqrt{u^2 + 4c}}\Big)\,\mathrm{d}u$; 積分範圍 $x$ 分別由 $-\infty$ 至 $0-$, $0+$ 至 $\infty$, $u$ 則分別由 $-\infty$ 至 $\infty$, $-\infty$ 至 $\infty$. 故 $\ds\int_{-\infty}^\infty f\big(x - \frac{c}{x}\big)\,\mathrm{d}x = \int_{-\infty}^{0-} f\big(x - \frac{c}{x}\big)\,\mathrm{d}x + \int_{0+}^\infty f\big(x - \frac{c}{x}\big)\,\mathrm{d}x = \int_{-\infty}^\infty f(u)\Big(\frac{1}{2} + \frac{u}{\sqrt{u^2 + 4c}}\Big)\mathrm{d}u + \int_{-\infty}^\infty f(u)\Big(\frac{1}{2} + \frac{u}{\sqrt{u^2 + 4c}}\Big)\mathrm{d}u = \int_{-\infty}^\infty f(u)\,\mathrm{d}u = \int_{-\infty}^\infty f(x)\,\mathrm{d}x$.
+\end{prf}
+
+\begin{rmk}[使用 GMT]
+  $\ds\int_0^\infty\!\!e^{-ax^2 - \frac{b}{x^2}}\,\mathrm{d}x = \underbrace{\int_0^\infty\!\!e^{-(\sqrt{a}x - \frac{\sqrt{b}}{x})^2 - 2\sqrt{ab}}\,\mathrm{d}x}_{\text{令}\;u = \sqrt{a}x,\; ;\;\frac{\mathrm{d}u}{\sqrt{a}} = \mathrm{d}x} = \frac{e^{-2\sqrt{ab}}}{\sqrt{a}}\!\int_0^\infty\!\!e^{-(u - \frac{\sqrt{ab}}{u})^2}\,\mathrm{d}u = \underbrace{\frac{e^{-2\sqrt{ab}}}{2\sqrt{a}}\!\int_{-\infty}^\infty\!\!e^{-(u - \frac{\sqrt{ab}}{u})^2}\,\mathrm{d}u}_{\text{偶函數},\;\sqrt{ab} > 0;\;\text{符合 GMT}} \\= \frac{e^{-2\sqrt{ab}}}{2\sqrt{a}}\!\int_{-\infty}^\infty\!e^{-u^2}\,\mathrm{d}u = \frac{e^{-2\sqrt{ab}}}{2\sqrt{a}}\cdot\sqrt{\pi} = \frac{1}{2}\sqrt{\frac{\pi}{a}}\,e^{-2\sqrt{ab}}$.
+\end{rmk}
 
 \begin{ex}
   若 $a > 0$, 求 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^2}$, $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^3}$ 並推導 $\ds\int_0^\infty\!\!\frac{\mathrm{d}x}{(x^2 + a^2)^n}$, $n\in\mathbb{N}$.
@@ -1934,6 +1946,16 @@
   令 $\ds F(b) = \int_0^\infty\!\!e^{-ax}\,\frac{\sin bx}{x}\,\mathrm{d}x$, 則 $F(0) = 0$; 
   %$\ds\frac{\partial}{\partial b}\left(e^{-ax}\frac{\sin bx}{x}\right) = e^{-ax}\cos bx$; $\ds\left|e^{-ax}\cos bx\right|\leqslant e^{-ax}$ $\forall\,b$ 且 $\ds\int_0^\infty e^{-ax}\,\mathrm{d}x = \frac{1}{a} < \infty$ 
   $\ds F'(b) = \int_0^{\infty}\!\!e^{-ax}\cos bx\,\mathrm{d}x = \frac{a}{a^2+b^2}$ $\ie$ $\ds F(b) = \tan^{-1}\frac{b}{a}$. 
+\end{prf}
+
+\begin{ex}
+  $\ds\int_0^\infty\frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)$, $\;\forall\,a, b > 0$.
+\end{ex}
+
+\begin{prf}
+  由 $\ds\sin{ax}\sin{bx} = \frac{\cos{(a-b)x} - \cos{(a+b)x}}{2}$, $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x$. 設 $\ds F(c) = \int_0^\infty\frac{1 - \cos{cx}}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$. 
+%$\ds\frac{\partial}{\partial c}\frac{1 - \cos{cx}}{x^2} = \frac{\sin{cx}}{x}$. 收斂性由 Dirichlet 積分保證: 對於 $c\neq 0$, $\ds\int_0^\infty\frac{\sin{cx}}{x}\,\mathrm{d}x$ 條件收斂到 $\ds\frac{\pi}{2}\,\mathrm{sgn}(c)$. 
+  $\ds F'(c) = \int_0^{\infty} \frac{\sin{cx}}{x}\,\mathrm{d}x = \frac{\pi}{2}\sgn(c)$, $\ds F(c) = \frac{\pi|c|}{2}$. \\$\ds\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x = F(a+b) - F(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2} = \frac{\pi}{2}\cdot 2\min(a,b) = \pi\min(a,b)$, 故 $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\cdot\pi\min(a,b) = \frac{\pi}{2}\min(a,b)$.
 \end{prf}
 
 \begin{ex}
@@ -1990,16 +2012,6 @@
   設 $\ds F(r) = \int_0^\pi\ln(1 - 2r\cos\theta + r^2)\,\mathrm{d}\theta$, $\forall\,|r| \ne 1$, $\ds F(0) = \int_0^{\pi}\ln 1\,\mathrm{d}\theta = 0$. 
   %因為被積函數及其偏導數在 $[0,\pi]$ 上對於 $|r| < 1$ 連續 
   令 $\ds u = \tan\dfrac{\theta}{2}$, 則 $\ds\cos\theta = \frac{1-u^2}{1+u^2}$, $\ds\mathrm{d}\theta = \frac{2}{1+u^2}\,\mathrm{d}u$, $\ds u: 0 \to \infty$. 由 $\ds 1 - 2r\cos\theta + r^2 = 1 - 2r\cdot\frac{1-u^2}{1+u^2} + r^2 = \frac{(1+u^2) - 2r(1-u^2) + r^2(1+u^2)}{1+u^2} = \frac{(1-r)^2 + (1+r)^2 u^2}{1+u^2}$, $\ds -2\cos\theta + 2r = -2\cdot\frac{1-u^2}{1+u^2} + 2r = \frac{2(r-1) + 2(1+r)u^2}{1+u^2}$, $\ds F'(r) = \int_0^\pi\frac{-2\cos\theta + 2r}{1 - 2r\cos\theta + r^2}\,\mathrm{d}\theta = \int_0^\infty\frac{2(r-1) + 2(1+r)u^2}{(1-r)^2 + (1+r)^2 u^2}\cdot\frac{2}{1+u^2}\,\mathrm{d}u = 4\int_0^\infty \frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)}\,\mathrm{d}u$. 求部份分式: \\$\ds\frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)} = \frac{A}{(1-r)^2 + (1+r)^2 u^2} + \frac{B}{1+u^2}$, 則 $\ds A = \frac{r^2 - 1}{2r}$, $\ds B = \frac{1}{2r}$. \\$\ds\int_0^\infty \frac{\mathrm{d}u}{(1-r)^2 + (1+r)^2 u^2} = \frac{1}{(1 + r)^2}\int_0^\infty \frac{\mathrm{d}u}{\frac{(1-r)^2}{(1+r)^2} + u^2} = \frac{1}{(1 + r)^2}\frac{|1 + r|}{|1 - r|}\cdot\frac{\pi}{2} = \frac{1}{|1 + r|\cdot|1 - r|}\cdot\frac{\pi}{2} = \frac{\pi}{2}\cdot\frac{1}{|1-r^2|}$, 故 $\ds F'(r) = 4\int_0^\infty \frac{(r-1) + (1+r)u^2}{((1-r)^2 + (1+r)^2 u^2)(1+u^2)}\,\mathrm{d}u = 4\cdot\frac{\pi}{2}\Big(\frac{A}{|1-r^2|} + B\Big) = \frac{\pi}{r}\Big(\frac{r^2 - 1}{|r^2 - 1|} + 1\Big)$. 故 $\ds F'(r) = \begin{cases}0 & |r| < 1 \\ \frac{2\pi}{r} & |r| > 1\end{cases}$, $\ds F(r) = \begin{cases}0 & |r| < 1 \\ 2\pi\ln|r| & |r| > 1\end{cases}$; $|r| = 1$ 情形由 $\ds\int_0^\pi\ln(2\pm2\cos\theta)\,\mathrm{d}\theta = 0$ 含括.
-\end{prf}
-
-\begin{ex}
-  $\ds\int_0^\infty\frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{\pi}{2}\min(a,b)$, $\;\forall\,a, b > 0$.
-\end{ex}
-
-\begin{prf}
-  由 $\ds\sin{ax}\sin{bx} = \frac{\cos{(a-b)x} - \cos{(a+b)x}}{2}$, $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x$. 設 $\ds F(c) = \int_0^\infty\frac{1 - \cos{cx}}{x^2}\,\mathrm{d}x$, 則 $\ds F(0) = 0$. 
-%$\ds\frac{\partial}{\partial c}\frac{1 - \cos{cx}}{x^2} = \frac{\sin{cx}}{x}$. 收斂性由 Dirichlet 積分保證: 對於 $c\neq 0$, $\ds\int_0^\infty\frac{\sin{cx}}{x}\,\mathrm{d}x$ 條件收斂到 $\ds\frac{\pi}{2}\,\mathrm{sgn}(c)$. 
-  $\ds F'(c) = \int_0^{\infty} \frac{\sin{cx}}{x}\,\mathrm{d}x = \frac{\pi}{2}\sgn(c)$, $\ds F(c) = \frac{\pi|c|}{2}$. \\$\ds\int_0^\infty\frac{\cos{(a-b)x} - \cos{(a+b)x}}{x^2}\,\mathrm{d}x = F(a+b) - F(|a-b|) = \frac{\pi(a+b)}{2} - \frac{\pi|a-b|}{2} = \frac{\pi}{2}\cdot 2\min(a,b) = \pi\min(a,b)$, 故 $\ds\int_0^{\infty} \frac{\sin{ax}\sin{bx}}{x^2}\,\mathrm{d}x = \frac{1}{2}\cdot\pi\min(a,b) = \frac{\pi}{2}\min(a,b)$.
 \end{prf}
 
 \end{document}
