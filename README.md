@@ -11,8 +11,10 @@
 
 ## 其他可合法下載參考文獻
 
+<!--
 - [顏國勇，2015，微積分學，電子書 2.2 版。](https://www.math.ncku.edu.tw/~library/e-book/Calculus2015B.pdf)
 - [顏國勇，2014，新微積分演習，電子書 2 版。](https://www.math.ncku.edu.tw/~library/e-book/NewCalEx2.pdf)
+-->
 - [黃文璋，2010，微積分講義。](https://www.stat.nuk.edu.tw/huangwj/book/calculus.pdf)
 - [Marsden, J. E., Weinstein, A., 1985. Calculus I, II, III. 2nd ed, Springer-Verlag, NY.](https://www.cds.caltech.edu/~marsden/volume/Calculus/)
 - [Lang, S., 2002. Short Calculus: The Original Edition of "A First Course in Calculus". Springer-Verlag, NY.](https://link.springer.com/book/10.1007/978-1-4613-0077-9)
@@ -71,10 +73,12 @@
   - [Calculus 1](https://ximera.osu.edu/mooculus/calculus1)
   - [Calculus 2](https://ximera.osu.edu/mooculus/calculus2)
   - [Calculus 3](https://ximera.osu.edu/mooculus/calculus3)
+- [3Blue1Brown: Calculus](https://www.3blue1brown.com/topics/calculus) &nbsp; 微積分動畫。
+<!--
 - [MATH24](https://math24.net) &nbsp; 2500+ 微積分詳解題。
   - [Precalculus](https://math24.net/topics-precalculus.html)
   - [Calculus](https://math24.net/topics-calculus.html)
-- [3Blue1Brown: Calculus](https://www.3blue1brown.com/topics/calculus) &nbsp; 微積分動畫。
+-->
 
 <!-- (114, Final)
 ## 評分標準
